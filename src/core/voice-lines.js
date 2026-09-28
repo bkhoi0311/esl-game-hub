@@ -21,9 +21,11 @@ export const GAME_VOICE = {
   'word-ninja': 'v04',
   'gold-heist': 'v02',
   impostor: 'v05',
-  wordle: 'v01',
   'tug-of-war': 'v06',
-  'draw-guess': 'v09',
+  'whack-word': 'v01',
+  'balloon-pop': 'v09',
+  'memory-match': 'v12',
+  'tic-tac-toe': 'v06',
 };
 export const DEFAULT_VOICE = 'v05';
 
@@ -44,16 +46,18 @@ export const LINES = {
   pickChest: 'Pick a treasure chest!',
   // Impostor Word
   findImpostor: 'Find the impostor!',
-  // Spell Grid
-  guessWord: 'Guess the secret word!',
   // Tug of War
   readyPull: 'Ready, set, pull!',
   // Statue Freeze
   standStill: 'Everybody, stand still.',
   freeze: 'Freeze!',
-  // Draw & Guess
-  timeToDraw: 'Time to draw!',
-  wordWas: 'The word was',
+  // Whack-a-Word
+  whackStart: 'Whack the right word!',
+  // Memory Match
+  findPairs: 'Find the pairs!',
+  match: "It's a match!",
+  // Tic-Tac-Toe Quiz
+  threeInRow: 'Three in a row!',
 };
 
 export function line(key, vars = {}) {
@@ -86,6 +90,9 @@ function plural(noun) {
   if (/[^aeiou]y$/i.test(noun)) return noun.slice(0, -1) + 'ies';
   if (/(s|x|z|ch|sh)$/i.test(noun)) return noun + 'es';
   return noun + 's';
+}
+export function balloonTarget(category) {
+  return `Pop only ${plural(category)}!`;
 }
 export function ninjaTarget(category) {
   return `Slice only ${plural(category)}!`;
@@ -124,12 +131,16 @@ export function textsForGame(gameId, pack) {
     case 'impostor':
       return [...common, ...words, line('findImpostor'), line('correct'), line('tryAgain'),
         ...cats.flatMap((a) => cats.filter((b) => b !== a).map((b) => impostorExplain(a, b)))];
-    case 'wordle':
-      return [...common, ...words.filter((w) => /^[a-z]{4,6}$/i.test(w.trim())), line('guessWord'), line('wordWas')];
     case 'tug-of-war':
       return [...common, line('readyPull'), ...teams.map((t) => `${t} wins!`)];
-    case 'draw-guess':
-      return [...common, ...words, line('timeToDraw'), line('timesUp'), line('wordWas'), line('correct'), ...perTeam('teamWins')];
+    case 'whack-word':
+      return [...common, ...words, line('whackStart'), line('timesUp'), ...teams.map((t) => `${t} wins!`)];
+    case 'balloon-pop':
+      return [...common, ...cats.map(balloonTarget), line('timesUp'), ...teams.map((t) => `${t} wins!`)];
+    case 'memory-match':
+      return [...common, ...words, line('findPairs'), line('match'), ...perTeam('teamTurn'), ...perTeam('teamWins')];
+    case 'tic-tac-toe':
+      return [...common, ...prompts, line('correct'), line('tryAgain'), line('threeInRow'), ...perTeam('teamTurn'), ...perTeam('teamWins')];
     case 'head-tilt':
       return [...common, ...prompts, line('correct'), line('tryAgain')];
     case 'word-ninja':

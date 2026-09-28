@@ -12,3 +12,20 @@ for (const [voice, texts] of Object.entries(byVoice)) texts.forEach((text) => jo
 writeFileSync(resolve('tools/voices/texts.json'), JSON.stringify({ pack: packPath, voices: VOICES, jobs }, null, 1));
 const summary = Object.entries(byVoice).map(([v, t]) => `${v}:${t.length}`).join(' ');
 console.log(`${jobs.length} file (${summary}) -> tools/voices/texts.json`);
+
+// Xoá file thu âm không còn dùng (game đã bỏ, câu đã sửa).
+import { existsSync, readdirSync, unlinkSync } from 'node:fs';
+const dest = resolve('src/assets/voices');
+const keep = new Set(jobs.map((j) => `${j.voice}/${j.key}.mp3`));
+let removed = 0;
+if (existsSync(dest)) {
+  for (const v of readdirSync(dest)) {
+    for (const f of readdirSync(`${dest}/${v}`)) {
+      if (!keep.has(`${v}/${f}`)) {
+        unlinkSync(`${dest}/${v}/${f}`);
+        removed++;
+      }
+    }
+  }
+}
+if (removed) console.log(`Đã xoá ${removed} file không còn dùng.`);
