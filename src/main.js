@@ -6,7 +6,8 @@ import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, missingForGame, onPackChange } from './core/content.js';
 import { mountEditor } from './core/editor.js';
 import { getSettings, updateSettings } from './core/settings.js';
-import { getEnglishVoices, speak, ttsSupported } from './core/audio.js';
+import { clipCount, getEnglishVoices, setVoiceGame, stopSpeaking, speak, ttsSupported, voiceFor, voiceLabel } from './core/audio.js';
+import { line } from './core/voice-lines.js';
 import { button, h, openModal } from './core/ui.js';
 import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
@@ -175,7 +176,19 @@ async function openSettings() {
         type: 'range', min: 0.5, max: 1.5, step: 0.1, value: s.ttsRate,
         onInput: (e) => { rateValue.textContent = Number(e.target.value).toFixed(1); updateSettings({ ttsRate: Number(e.target.value) }); },
       })),
-    button({ label: 'Nghe thử', iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?') }),
+    h('label', { class: 'field' },
+      h('span', {}, 'Giọng đọc'),
+      h('select', { 'data-testid': 'voice-mode', onChange: (e) => updateSettings({ voiceMode: e.target.value }) },
+        h('option', { value: 'omni', selected: s.voiceMode !== 'web' }, `Giọng OmniVoice thu sẵn, mỗi game 1 giọng dẫn (${clipCount()} câu)`),
+        h('option', { value: 'web', selected: s.voiceMode === 'web' }, 'Chỉ dùng giọng máy (Web Speech)'))),
+    h('div', { class: 'voice-list' },
+      GAMES.filter((g) => g.ready).map((g) =>
+        h('div', { class: 'voice-row' },
+          h('span', { class: 'en' }, g.title),
+          h('span', { class: 'muted' }, voiceLabel(voiceFor(g.id))),
+          button({ iconName: 'volume', title: `Nghe giọng ${g.title}`, variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id) }) })))),
+    h('p', { class: 'muted' }, 'Câu chưa thu sẵn (nội dung mới thêm) sẽ đọc bằng giọng máy. Anh-Mỹ/Anh-Anh và tốc độ bên dưới chỉ áp dụng cho giọng máy.'),
+    button({ label: 'Nghe thử giọng máy', iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true }) }),
     voiceInfo,
     h('p', { class: 'muted' }, 'Chọn camera sẽ có khi làm các game dùng camera.'),
   );
@@ -212,6 +225,8 @@ function route() {
   main.scrollTop = 0;
   window.scrollTo(0, 0);
 
+  stopSpeaking();
+  setVoiceGame(view === 'game' ? parts[1] : null);
   if (view === 'editor') cleanup = mountEditor(main);
   else if (view === 'game') cleanup = renderGame(main, parts[1]);
   else cleanup = renderMenu(main);

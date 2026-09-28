@@ -5,6 +5,7 @@ import { shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import { TEAM_COLORS, button, createGameFrame, createScoreboard, h, segmented, setupScreen } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
+import { line } from '../../core/voice-lines.js';
 import { MAX_LEN, MAX_TRIES, MIN_LEN, eligibleWords, mergeKeyStates, scoreGuess, wordScore } from './logic.js';
 
 const HOW_TO = {
@@ -78,6 +79,7 @@ function createGame(root, pack) {
     game = { target, word: target.word, row: 0, current: '', rows: [], keys: {}, done: false, hint: false };
     if (scoreboard) scoreboard.highlight(turn);
     render();
+    speak(line('guessWord'));
   }
 
   // ---------- Vẽ ----------
@@ -228,7 +230,8 @@ function createGame(root, pack) {
       setTimeout(() => {
         playSound(solved ? 'win' : 'wrong');
         if (solved) confetti({ particleCount: 110, spread: 80, origin: { y: 0.55 }, disableForReducedMotion: true });
-        speak(game.word);
+        const word = game.word;
+        speak(line(solved ? 'greatJob' : 'wordWas')).then(() => game && game.word === word && speak(word));
         renderSide();
       }, len * 120 + 350);
     } else {

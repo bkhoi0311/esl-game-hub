@@ -485,3 +485,21 @@ body.fluid .setup-card { padding: 1.2rem; }
 body.fluid .results h2 { font-size: 2.2rem; }
 body.fluid .rank-list li { font-size: 1.4rem; }
 body.fluid .rank-list li:first-child { font-size: 1.6rem; }
+
+/* Danh sách giọng dẫn trong Cài đặt */
+.voice-list { display: grid; gap: 0.2rem; border: 2px solid var(--rule); border-radius: var(--radius-tile); padding: 0.4rem 0.8rem; }
+.voice-row { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 0.5rem; font-weight: 700; }
+.voice-row .muted { margin: 0; }
+.voice-row .btn { min-height: 2.8rem; min-width: 2.8rem; border-bottom-width: 2px; }
+
+/* ---------- Camera ---------- */
+.cam-video { display: block; width: 100%; height: 100%; object-fit: contain; transform: scaleX(-1); background: #111; }
+.cam-card { width: min(78rem, 100%); }
+.cam-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.cam-preview { aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; background: #111; border: 4px solid var(--brand-ink); }
+.cam-side { display: grid; gap: 0.8rem; }
+.cam-hint { margin: 0; padding: 0.8rem 1rem; border-radius: var(--radius-tile); background: var(--tile); font-size: 1rem; font-weight: 600; }
+.cam-error { padding: 1rem 1.4rem; border-radius: var(--radius-tile); background: #fff1ec; border: 3px solid var(--red); }
+.cam-error h3 { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.4rem; font-size: 1.3rem; color: #a82a0b; }
+.cam-error ol { margin: 0 0 0.8rem; padding-left: 1.5rem; font-size: 1.05rem; line-height: 1.5; }
+body.fluid .cam-grid { grid-template-columns: 1fr; }

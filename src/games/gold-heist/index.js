@@ -9,6 +9,7 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { line } from '../../core/voice-lines.js';
 import { CHESTS, applyChest, dealChests, defaultWeights, needsTarget, validTargets } from './logic.js';
 
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
@@ -111,7 +112,7 @@ function createGame(root, pack) {
     scoreboard.el.classList.add('gh-scores');
     frame.extra.textContent = '';
     frame.extra.append(scoreboard.el);
-    showQuestion();
+    showQuestion(true);
   }
 
   function syncScores() {
@@ -126,8 +127,11 @@ function createGame(root, pack) {
       h('span', { class: 'gh-turn-q' }, extra || `Question ${state.index + 1} / ${state.questions.length}`));
   }
 
-  function showQuestion() {
+  function showQuestion(first = false) {
     syncScores();
+    const turnLine = line('teamTurn', { team: state.teamNames[state.turn] });
+    if (first) speak(line('goldWelcome')).then(() => state && speak(turnLine));
+    else speak(turnLine);
     const q = state.questions[state.index];
     // Trộn thứ tự đáp án mỗi lần hỏi.
     const order = shuffle([0, 1, 2]);
@@ -142,11 +146,13 @@ function createGame(root, pack) {
         btn.classList.add('correct');
         buttons.forEach((b) => b !== btn && b.classList.add('dim'));
         playSound('correct');
+        speak(line('correct'));
         later(showChests, 900);
       } else {
         btn.classList.add('wrong');
         buttons[correctPos].classList.add('correct');
         playSound('wrong');
+        speak(line('tryAgain'));
         later(() => showOutcome('Wrong answer. Turn lost.', false), 1300);
       }
     });
@@ -175,6 +181,7 @@ function createGame(root, pack) {
     setStage(h('div', { class: 'gh-play' },
       turnBanner('Pick a chest'),
       h('div', { class: 'gh-chests', 'data-testid': 'gh-chests' }, chests)));
+    speak(line('pickChest'));
     gsap.from(chests, { y: 60, opacity: 0, duration: 0.45, stagger: 0.1, ease: 'back.out(1.6)', clearProps: 'opacity,transform' });
   }
 
@@ -248,6 +255,7 @@ function createGame(root, pack) {
     const tie = ranking.length > 1 && ranking[0].score === ranking[1].score;
     setStage(resultsScreen({ title: tie ? "It's a tie" : `${ranking[0].name} team wins`, ranking, unit: ' gold', onReplay: showSetup }));
     playSound('win');
+    speak(tie ? line('tie') : line('teamWins', { team: ranking[0].name }));
     confetti({ particleCount: 160, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
   }
 

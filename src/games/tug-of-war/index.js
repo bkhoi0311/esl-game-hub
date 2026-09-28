@@ -3,7 +3,8 @@
 import './style.css';
 import confetti from 'canvas-confetti';
 import { getQuestions, shuffle } from '../../core/content.js';
-import { playSound } from '../../core/audio.js';
+import { playSound, speak } from '../../core/audio.js';
+import { line } from '../../core/voice-lines.js';
 import {
   TEAM_COLORS, answerButtons, button, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
 } from '../../core/ui.js';
@@ -80,6 +81,7 @@ function createGame(root, pack) {
     setStage(h('div', { class: 'tw-play' }, rope, h('div', { class: 'tw-halves' }, halves)));
     state.sides.forEach(nextQuestion);
     renderRope();
+    speak(line('readyPull'));
   }
 
   function buildRope() {
@@ -198,6 +200,7 @@ function createGame(root, pack) {
     state.over = true;
     clearTimers();
     playSound('win');
+    speak(`${pack.teams[i]} wins!`);
     const loser = 1 - i;
     later(() => {
       const ranking = [

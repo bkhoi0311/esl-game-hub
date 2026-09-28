@@ -6,6 +6,7 @@ const DEFAULTS = {
   ttsRate: 0.9, // 0.5 - 1.5
   accent: 'en-US', // 'en-US' | 'en-GB'
   cameraId: '',
+  voiceMode: 'omni', // 'omni' = giọng OmniVoice thu sẵn (thiếu thì giọng máy) | 'web' = chỉ giọng máy
 };
 
 let settings = load();

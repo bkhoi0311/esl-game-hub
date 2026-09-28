@@ -10,6 +10,7 @@ import {
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
 import { qrSvg } from '../../core/qr.js';
+import { line } from '../../core/voice-lines.js';
 import { createBoard } from './board.js';
 
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
@@ -203,6 +204,7 @@ function createGame(root, pack) {
     board.setEnabled(true);
     actionBtns.forEach((b) => (b.disabled = false));
     timer.start();
+    speak(line('timeToDraw'));
   }
 
   function markCorrect() {
@@ -252,7 +254,10 @@ function createGame(root, pack) {
           button({ label: 'Listen', iconName: 'volume', size: 'lg', onClick: () => speak(word) }),
           button({ label: 'Next round', iconName: 'play', variant: 'primary', size: 'lg', onClick: nextRound, attrs: { 'data-testid': 'dg-next' } }))),
     );
-    speak(word);
+    const lead = team != null ? line('correct') : title === "Time's up" ? line('timesUp') : null;
+    (lead ? speak(lead) : Promise.resolve(true))
+      .then(() => !playing && secret && secret.word === word && speak(line('wordWas')))
+      .then(() => !playing && secret && secret.word === word && speak(word));
   }
 
   function finishGame() {

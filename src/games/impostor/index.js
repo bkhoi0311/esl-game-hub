@@ -5,6 +5,7 @@ import { playSound, speak } from '../../core/audio.js';
 import { button, createCountdown, createGameFrame, h, segmented, setupScreen } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { line } from '../../core/voice-lines.js';
 import { checkContent, explain, makeRound } from './logic.js';
 
 const HOW_TO = {
@@ -78,6 +79,7 @@ function createGame(root, pack) {
     timer.reset(opts.seconds);
     renderStatus();
     renderRound();
+    speak(line('findImpostor'));
   }
 
   function renderRound() {
@@ -150,7 +152,8 @@ function createGame(root, pack) {
     );
     playSound(correct ? 'correct' : 'wrong');
     if (correct) confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 }, disableForReducedMotion: true });
-    speak(explain(round.major, round.odd));
+    const why = explain(round.major, round.odd);
+    speak(line(correct ? 'correct' : 'tryAgain')).then(() => round && round.done && speak(why));
   }
 
   const missing = checkContent(pack.vocab);

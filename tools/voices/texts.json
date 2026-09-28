@@ -1,0 +1,1497 @@
+{
+ "pack": "/Users/haku/Documents/esl-game-hub/src/data/sample-food-a2.json",
+ "voices": [
+  {
+   "id": "v01",
+   "label": "Bé gái (Mỹ)",
+   "sample": "01_girl_child_us"
+  },
+  {
+   "id": "v02",
+   "label": "Bé trai (Mỹ)",
+   "sample": "02_boy_child_us"
+  },
+  {
+   "id": "v03",
+   "label": "Nữ thiếu niên (Mỹ)",
+   "sample": "03_girl_teen_us"
+  },
+  {
+   "id": "v04",
+   "label": "Nam thiếu niên (Anh)",
+   "sample": "04_boy_teen_uk"
+  },
+  {
+   "id": "v05",
+   "label": "Nữ trẻ (Mỹ)",
+   "sample": "05_woman_young_us"
+  },
+  {
+   "id": "v06",
+   "label": "Nam trẻ (Mỹ)",
+   "sample": "06_man_young_us"
+  },
+  {
+   "id": "v09",
+   "label": "Nữ trung niên (Mỹ)",
+   "sample": "09_woman_middle_us"
+  },
+  {
+   "id": "v12",
+   "label": "Ông lớn tuổi (Mỹ)",
+   "sample": "12_man_elder_us"
+  }
+ ],
+ "jobs": [
+  {
+   "voice": "v06",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v06",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v06",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v06",
+   "key": "56dadabb",
+   "text": "Hop on one foot"
+  },
+  {
+   "voice": "v06",
+   "key": "5561d04c",
+   "text": "Touch your toes"
+  },
+  {
+   "voice": "v06",
+   "key": "63cc69b6",
+   "text": "Spin around"
+  },
+  {
+   "voice": "v06",
+   "key": "600a6b79",
+   "text": "Wave your hands"
+  },
+  {
+   "voice": "v06",
+   "key": "c040f6ed",
+   "text": "Jump up and down"
+  },
+  {
+   "voice": "v06",
+   "key": "8d179ac4",
+   "text": "Clap your hands"
+  },
+  {
+   "voice": "v06",
+   "key": "b1dab516",
+   "text": "Pretend to eat a banana"
+  },
+  {
+   "voice": "v06",
+   "key": "cdde17dd",
+   "text": "Pretend to drink some water"
+  },
+  {
+   "voice": "v06",
+   "key": "e16cccf1",
+   "text": "Stir the soup"
+  },
+  {
+   "voice": "v06",
+   "key": "8aaeb25e",
+   "text": "Pretend to cut a carrot"
+  },
+  {
+   "voice": "v06",
+   "key": "83a98af0",
+   "text": "Everybody, stand still."
+  },
+  {
+   "voice": "v06",
+   "key": "4c50d339",
+   "text": "Freeze!"
+  },
+  {
+   "voice": "v06",
+   "key": "f1529eae",
+   "text": "Ready, set, pull!"
+  },
+  {
+   "voice": "v06",
+   "key": "a0f3eabe",
+   "text": "Red wins!"
+  },
+  {
+   "voice": "v06",
+   "key": "f06acfff",
+   "text": "Blue wins!"
+  },
+  {
+   "voice": "v06",
+   "key": "eb62801e",
+   "text": "Green wins!"
+  },
+  {
+   "voice": "v06",
+   "key": "3a17369f",
+   "text": "Pink wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v05",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v05",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v05",
+   "key": "56dadabb",
+   "text": "Hop on one foot"
+  },
+  {
+   "voice": "v05",
+   "key": "5561d04c",
+   "text": "Touch your toes"
+  },
+  {
+   "voice": "v05",
+   "key": "63cc69b6",
+   "text": "Spin around"
+  },
+  {
+   "voice": "v05",
+   "key": "600a6b79",
+   "text": "Wave your hands"
+  },
+  {
+   "voice": "v05",
+   "key": "c040f6ed",
+   "text": "Jump up and down"
+  },
+  {
+   "voice": "v05",
+   "key": "8d179ac4",
+   "text": "Clap your hands"
+  },
+  {
+   "voice": "v05",
+   "key": "b1dab516",
+   "text": "Pretend to eat a banana"
+  },
+  {
+   "voice": "v05",
+   "key": "cdde17dd",
+   "text": "Pretend to drink some water"
+  },
+  {
+   "voice": "v05",
+   "key": "e16cccf1",
+   "text": "Stir the soup"
+  },
+  {
+   "voice": "v05",
+   "key": "8aaeb25e",
+   "text": "Pretend to cut a carrot"
+  },
+  {
+   "voice": "v05",
+   "key": "83a98af0",
+   "text": "Everybody, stand still."
+  },
+  {
+   "voice": "v05",
+   "key": "4c50d339",
+   "text": "Freeze!"
+  },
+  {
+   "voice": "v05",
+   "key": "25129e14",
+   "text": "Simon says, raise your left hand."
+  },
+  {
+   "voice": "v05",
+   "key": "63d2671a",
+   "text": "Raise your left hand."
+  },
+  {
+   "voice": "v05",
+   "key": "7e63b187",
+   "text": "Simon says, raise your right hand."
+  },
+  {
+   "voice": "v05",
+   "key": "a65f07c5",
+   "text": "Raise your right hand."
+  },
+  {
+   "voice": "v05",
+   "key": "435df492",
+   "text": "Simon says, hands up."
+  },
+  {
+   "voice": "v05",
+   "key": "c16f10b0",
+   "text": "Hands up."
+  },
+  {
+   "voice": "v05",
+   "key": "30b501a9",
+   "text": "Simon says, put your hands on your head."
+  },
+  {
+   "voice": "v05",
+   "key": "addce4cb",
+   "text": "Put your hands on your head."
+  },
+  {
+   "voice": "v05",
+   "key": "c85fab7c",
+   "text": "Simon says, put your arms out."
+  },
+  {
+   "voice": "v05",
+   "key": "4683bd9a",
+   "text": "Put your arms out."
+  },
+  {
+   "voice": "v05",
+   "key": "43172252",
+   "text": "Simon says, touch your nose."
+  },
+  {
+   "voice": "v05",
+   "key": "88c3b2b8",
+   "text": "Touch your nose."
+  },
+  {
+   "voice": "v05",
+   "key": "2120c0cc",
+   "text": "Simon says, stand on one leg."
+  },
+  {
+   "voice": "v05",
+   "key": "08911426",
+   "text": "Stand on one leg."
+  },
+  {
+   "voice": "v05",
+   "key": "ffc50cbd",
+   "text": "Simon says, squat down."
+  },
+  {
+   "voice": "v05",
+   "key": "ae0bc5f3",
+   "text": "Squat down."
+  },
+  {
+   "voice": "v05",
+   "key": "40404b95",
+   "text": "She ... rice every day."
+  },
+  {
+   "voice": "v05",
+   "key": "a55c7caa",
+   "text": "My parents ... coffee in the morning."
+  },
+  {
+   "voice": "v05",
+   "key": "15d448c2",
+   "text": "... your brother like fish?"
+  },
+  {
+   "voice": "v05",
+   "key": "088b9c67",
+   "text": "I ... eat meat. I am a vegetarian."
+  },
+  {
+   "voice": "v05",
+   "key": "ba1e55c0",
+   "text": "Tom ... breakfast at 7 a.m."
+  },
+  {
+   "voice": "v05",
+   "key": "75f80197",
+   "text": "There are ... apples in the fridge."
+  },
+  {
+   "voice": "v05",
+   "key": "c34f5d15",
+   "text": "Is there ... milk in the bottle?"
+  },
+  {
+   "voice": "v05",
+   "key": "40e4ff88",
+   "text": "We don't have ... bread today."
+  },
+  {
+   "voice": "v05",
+   "key": "ac40ab51",
+   "text": "Would you like ... tea?"
+  },
+  {
+   "voice": "v05",
+   "key": "e0691f7d",
+   "text": "I would like ... banana, please."
+  },
+  {
+   "voice": "v05",
+   "key": "bdc52241",
+   "text": "Which word is uncountable?"
+  },
+  {
+   "voice": "v05",
+   "key": "eae89e36",
+   "text": "How ... water do you drink every day?"
+  },
+  {
+   "voice": "v05",
+   "key": "b272f5f1",
+   "text": "How ... eggs do we need?"
+  },
+  {
+   "voice": "v05",
+   "key": "744d0d34",
+   "text": "My sister likes ... cakes."
+  },
+  {
+   "voice": "v05",
+   "key": "ba78e033",
+   "text": "Do you enjoy ... vegetables?"
+  },
+  {
+   "voice": "v05",
+   "key": "454cb570",
+   "text": "Correct!"
+  },
+  {
+   "voice": "v05",
+   "key": "42ec0d01",
+   "text": "Oh no! Try again."
+  },
+  {
+   "voice": "v05",
+   "key": "7e3e652f",
+   "text": "Slice only fruits!"
+  },
+  {
+   "voice": "v05",
+   "key": "432e96d6",
+   "text": "Slice only vegetables!"
+  },
+  {
+   "voice": "v05",
+   "key": "2aca5a5b",
+   "text": "Slice only drinks!"
+  },
+  {
+   "voice": "v05",
+   "key": "ddfb2c3c",
+   "text": "Slice only meals!"
+  },
+  {
+   "voice": "v05",
+   "key": "55619842",
+   "text": "Time's up!"
+  },
+  {
+   "voice": "v05",
+   "key": "0b795b72",
+   "text": "Welcome to Gold Heist!"
+  },
+  {
+   "voice": "v05",
+   "key": "230b9c5c",
+   "text": "Pick a treasure chest!"
+  },
+  {
+   "voice": "v05",
+   "key": "0814ec40",
+   "text": "Red team, your turn!"
+  },
+  {
+   "voice": "v05",
+   "key": "9da29547",
+   "text": "Blue team, your turn!"
+  },
+  {
+   "voice": "v05",
+   "key": "175bd5a0",
+   "text": "Green team, your turn!"
+  },
+  {
+   "voice": "v05",
+   "key": "c6ace8e7",
+   "text": "Pink team, your turn!"
+  },
+  {
+   "voice": "v05",
+   "key": "e3def447",
+   "text": "Red team wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "d987ee3c",
+   "text": "Blue team wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "145a0ba7",
+   "text": "Green team wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "f7c2cddc",
+   "text": "Pink team wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "d9889f50",
+   "text": "banana"
+  },
+  {
+   "voice": "v05",
+   "key": "10bc2abf",
+   "text": "apple"
+  },
+  {
+   "voice": "v05",
+   "key": "45b473eb",
+   "text": "orange"
+  },
+  {
+   "voice": "v05",
+   "key": "0e74ffd5",
+   "text": "mango"
+  },
+  {
+   "voice": "v05",
+   "key": "23d16399",
+   "text": "grapes"
+  },
+  {
+   "voice": "v05",
+   "key": "c8c141d0",
+   "text": "lemon"
+  },
+  {
+   "voice": "v05",
+   "key": "b720bb72",
+   "text": "carrot"
+  },
+  {
+   "voice": "v05",
+   "key": "25d4a652",
+   "text": "potato"
+  },
+  {
+   "voice": "v05",
+   "key": "721c6d16",
+   "text": "onion"
+  },
+  {
+   "voice": "v05",
+   "key": "35a2e5c3",
+   "text": "tomato"
+  },
+  {
+   "voice": "v05",
+   "key": "c2631658",
+   "text": "cabbage"
+  },
+  {
+   "voice": "v05",
+   "key": "d45e5253",
+   "text": "corn"
+  },
+  {
+   "voice": "v05",
+   "key": "49c69a10",
+   "text": "water"
+  },
+  {
+   "voice": "v05",
+   "key": "888e7aa2",
+   "text": "milk"
+  },
+  {
+   "voice": "v05",
+   "key": "ebb76fff",
+   "text": "juice"
+  },
+  {
+   "voice": "v05",
+   "key": "b401e629",
+   "text": "tea"
+  },
+  {
+   "voice": "v05",
+   "key": "8e2c7aa1",
+   "text": "coffee"
+  },
+  {
+   "voice": "v05",
+   "key": "07ebfe60",
+   "text": "lemonade"
+  },
+  {
+   "voice": "v05",
+   "key": "9a32f866",
+   "text": "breakfast"
+  },
+  {
+   "voice": "v05",
+   "key": "cf1ef61f",
+   "text": "lunch"
+  },
+  {
+   "voice": "v05",
+   "key": "57b20f7d",
+   "text": "dinner"
+  },
+  {
+   "voice": "v05",
+   "key": "ae0af9ed",
+   "text": "snack"
+  },
+  {
+   "voice": "v05",
+   "key": "9fa6ec7b",
+   "text": "picnic"
+  },
+  {
+   "voice": "v05",
+   "key": "1d2a7979",
+   "text": "brunch"
+  },
+  {
+   "voice": "v05",
+   "key": "68114885",
+   "text": "Find the impostor!"
+  },
+  {
+   "voice": "v05",
+   "key": "b510dd05",
+   "text": "4 are fruits, 1 is a vegetable."
+  },
+  {
+   "voice": "v05",
+   "key": "dd6ca722",
+   "text": "4 are fruits, 1 is a drink."
+  },
+  {
+   "voice": "v05",
+   "key": "15e22e9d",
+   "text": "4 are fruits, 1 is a meal."
+  },
+  {
+   "voice": "v05",
+   "key": "7c679227",
+   "text": "4 are vegetables, 1 is a fruit."
+  },
+  {
+   "voice": "v05",
+   "key": "4967788b",
+   "text": "4 are vegetables, 1 is a drink."
+  },
+  {
+   "voice": "v05",
+   "key": "5e06853a",
+   "text": "4 are vegetables, 1 is a meal."
+  },
+  {
+   "voice": "v05",
+   "key": "72511952",
+   "text": "4 are drinks, 1 is a fruit."
+  },
+  {
+   "voice": "v05",
+   "key": "42354b41",
+   "text": "4 are drinks, 1 is a vegetable."
+  },
+  {
+   "voice": "v05",
+   "key": "d7eb8ec1",
+   "text": "4 are drinks, 1 is a meal."
+  },
+  {
+   "voice": "v05",
+   "key": "c33b0455",
+   "text": "4 are meals, 1 is a fruit."
+  },
+  {
+   "voice": "v05",
+   "key": "a0daa5ba",
+   "text": "4 are meals, 1 is a vegetable."
+  },
+  {
+   "voice": "v05",
+   "key": "c2f07315",
+   "text": "4 are meals, 1 is a drink."
+  },
+  {
+   "voice": "v05",
+   "key": "144792dc",
+   "text": "Guess the secret word!"
+  },
+  {
+   "voice": "v05",
+   "key": "4e855e41",
+   "text": "The word was"
+  },
+  {
+   "voice": "v05",
+   "key": "f1529eae",
+   "text": "Ready, set, pull!"
+  },
+  {
+   "voice": "v05",
+   "key": "a0f3eabe",
+   "text": "Red wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "f06acfff",
+   "text": "Blue wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "eb62801e",
+   "text": "Green wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "3a17369f",
+   "text": "Pink wins!"
+  },
+  {
+   "voice": "v05",
+   "key": "e8150674",
+   "text": "Time to draw!"
+  },
+  {
+   "voice": "v05",
+   "key": "3452360d",
+   "text": "I eat a banana every morning."
+  },
+  {
+   "voice": "v05",
+   "key": "3b9c9ea4",
+   "text": "She has an apple in her bag."
+  },
+  {
+   "voice": "v05",
+   "key": "eee8b535",
+   "text": "This orange is very sweet."
+  },
+  {
+   "voice": "v05",
+   "key": "a3997fcc",
+   "text": "My sister loves mango."
+  },
+  {
+   "voice": "v05",
+   "key": "5563cda3",
+   "text": "There are some grapes on the table."
+  },
+  {
+   "voice": "v05",
+   "key": "76116f1c",
+   "text": "A lemon is sour."
+  },
+  {
+   "voice": "v05",
+   "key": "a20bfc61",
+   "text": "Rabbits like carrots."
+  },
+  {
+   "voice": "v05",
+   "key": "e6e0eff3",
+   "text": "We need two potatoes for the soup."
+  },
+  {
+   "voice": "v05",
+   "key": "85a7b150",
+   "text": "Cutting an onion makes me cry."
+  },
+  {
+   "voice": "v05",
+   "key": "e7fd4150",
+   "text": "Put a tomato in the salad."
+  },
+  {
+   "voice": "v05",
+   "key": "d8dccbe5",
+   "text": "My grandma grows cabbage in her garden."
+  },
+  {
+   "voice": "v05",
+   "key": "5b86cdff",
+   "text": "We eat corn in summer."
+  },
+  {
+   "voice": "v05",
+   "key": "13dd0798",
+   "text": "Drink some water after class."
+  },
+  {
+   "voice": "v05",
+   "key": "ee14d74a",
+   "text": "He drinks milk before bed."
+  },
+  {
+   "voice": "v05",
+   "key": "927f7473",
+   "text": "Would you like some orange juice?"
+  },
+  {
+   "voice": "v05",
+   "key": "bb32ba65",
+   "text": "My dad drinks green tea every day."
+  },
+  {
+   "voice": "v05",
+   "key": "320f1d15",
+   "text": "My mum doesn't like coffee."
+  },
+  {
+   "voice": "v05",
+   "key": "1255792e",
+   "text": "Lemonade is nice on a hot day."
+  },
+  {
+   "voice": "v05",
+   "key": "d204b6f1",
+   "text": "I have breakfast at seven o'clock."
+  },
+  {
+   "voice": "v05",
+   "key": "f04d42fc",
+   "text": "We have lunch at school."
+  },
+  {
+   "voice": "v05",
+   "key": "7e3438ff",
+   "text": "My family has dinner together."
+  },
+  {
+   "voice": "v05",
+   "key": "232c650c",
+   "text": "I have a small snack after school."
+  },
+  {
+   "voice": "v05",
+   "key": "74e22ce1",
+   "text": "Let's have a picnic in the park."
+  },
+  {
+   "voice": "v05",
+   "key": "ff6396ef",
+   "text": "On Sundays we have brunch at eleven."
+  },
+  {
+   "voice": "v12",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v12",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v12",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v12",
+   "key": "25129e14",
+   "text": "Simon says, raise your left hand."
+  },
+  {
+   "voice": "v12",
+   "key": "63d2671a",
+   "text": "Raise your left hand."
+  },
+  {
+   "voice": "v12",
+   "key": "7e63b187",
+   "text": "Simon says, raise your right hand."
+  },
+  {
+   "voice": "v12",
+   "key": "a65f07c5",
+   "text": "Raise your right hand."
+  },
+  {
+   "voice": "v12",
+   "key": "435df492",
+   "text": "Simon says, hands up."
+  },
+  {
+   "voice": "v12",
+   "key": "c16f10b0",
+   "text": "Hands up."
+  },
+  {
+   "voice": "v12",
+   "key": "30b501a9",
+   "text": "Simon says, put your hands on your head."
+  },
+  {
+   "voice": "v12",
+   "key": "addce4cb",
+   "text": "Put your hands on your head."
+  },
+  {
+   "voice": "v12",
+   "key": "c85fab7c",
+   "text": "Simon says, put your arms out."
+  },
+  {
+   "voice": "v12",
+   "key": "4683bd9a",
+   "text": "Put your arms out."
+  },
+  {
+   "voice": "v12",
+   "key": "43172252",
+   "text": "Simon says, touch your nose."
+  },
+  {
+   "voice": "v12",
+   "key": "88c3b2b8",
+   "text": "Touch your nose."
+  },
+  {
+   "voice": "v12",
+   "key": "2120c0cc",
+   "text": "Simon says, stand on one leg."
+  },
+  {
+   "voice": "v12",
+   "key": "08911426",
+   "text": "Stand on one leg."
+  },
+  {
+   "voice": "v12",
+   "key": "ffc50cbd",
+   "text": "Simon says, squat down."
+  },
+  {
+   "voice": "v12",
+   "key": "ae0bc5f3",
+   "text": "Squat down."
+  },
+  {
+   "voice": "v03",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v03",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v03",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v03",
+   "key": "40404b95",
+   "text": "She ... rice every day."
+  },
+  {
+   "voice": "v03",
+   "key": "a55c7caa",
+   "text": "My parents ... coffee in the morning."
+  },
+  {
+   "voice": "v03",
+   "key": "15d448c2",
+   "text": "... your brother like fish?"
+  },
+  {
+   "voice": "v03",
+   "key": "088b9c67",
+   "text": "I ... eat meat. I am a vegetarian."
+  },
+  {
+   "voice": "v03",
+   "key": "ba1e55c0",
+   "text": "Tom ... breakfast at 7 a.m."
+  },
+  {
+   "voice": "v03",
+   "key": "75f80197",
+   "text": "There are ... apples in the fridge."
+  },
+  {
+   "voice": "v03",
+   "key": "c34f5d15",
+   "text": "Is there ... milk in the bottle?"
+  },
+  {
+   "voice": "v03",
+   "key": "40e4ff88",
+   "text": "We don't have ... bread today."
+  },
+  {
+   "voice": "v03",
+   "key": "ac40ab51",
+   "text": "Would you like ... tea?"
+  },
+  {
+   "voice": "v03",
+   "key": "e0691f7d",
+   "text": "I would like ... banana, please."
+  },
+  {
+   "voice": "v03",
+   "key": "bdc52241",
+   "text": "Which word is uncountable?"
+  },
+  {
+   "voice": "v03",
+   "key": "eae89e36",
+   "text": "How ... water do you drink every day?"
+  },
+  {
+   "voice": "v03",
+   "key": "b272f5f1",
+   "text": "How ... eggs do we need?"
+  },
+  {
+   "voice": "v03",
+   "key": "744d0d34",
+   "text": "My sister likes ... cakes."
+  },
+  {
+   "voice": "v03",
+   "key": "ba78e033",
+   "text": "Do you enjoy ... vegetables?"
+  },
+  {
+   "voice": "v03",
+   "key": "454cb570",
+   "text": "Correct!"
+  },
+  {
+   "voice": "v03",
+   "key": "42ec0d01",
+   "text": "Oh no! Try again."
+  },
+  {
+   "voice": "v04",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v04",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v04",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v04",
+   "key": "7e3e652f",
+   "text": "Slice only fruits!"
+  },
+  {
+   "voice": "v04",
+   "key": "432e96d6",
+   "text": "Slice only vegetables!"
+  },
+  {
+   "voice": "v04",
+   "key": "2aca5a5b",
+   "text": "Slice only drinks!"
+  },
+  {
+   "voice": "v04",
+   "key": "ddfb2c3c",
+   "text": "Slice only meals!"
+  },
+  {
+   "voice": "v04",
+   "key": "55619842",
+   "text": "Time's up!"
+  },
+  {
+   "voice": "v04",
+   "key": "42ec0d01",
+   "text": "Oh no! Try again."
+  },
+  {
+   "voice": "v02",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v02",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v02",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v02",
+   "key": "40404b95",
+   "text": "She ... rice every day."
+  },
+  {
+   "voice": "v02",
+   "key": "a55c7caa",
+   "text": "My parents ... coffee in the morning."
+  },
+  {
+   "voice": "v02",
+   "key": "15d448c2",
+   "text": "... your brother like fish?"
+  },
+  {
+   "voice": "v02",
+   "key": "088b9c67",
+   "text": "I ... eat meat. I am a vegetarian."
+  },
+  {
+   "voice": "v02",
+   "key": "ba1e55c0",
+   "text": "Tom ... breakfast at 7 a.m."
+  },
+  {
+   "voice": "v02",
+   "key": "75f80197",
+   "text": "There are ... apples in the fridge."
+  },
+  {
+   "voice": "v02",
+   "key": "c34f5d15",
+   "text": "Is there ... milk in the bottle?"
+  },
+  {
+   "voice": "v02",
+   "key": "40e4ff88",
+   "text": "We don't have ... bread today."
+  },
+  {
+   "voice": "v02",
+   "key": "ac40ab51",
+   "text": "Would you like ... tea?"
+  },
+  {
+   "voice": "v02",
+   "key": "e0691f7d",
+   "text": "I would like ... banana, please."
+  },
+  {
+   "voice": "v02",
+   "key": "bdc52241",
+   "text": "Which word is uncountable?"
+  },
+  {
+   "voice": "v02",
+   "key": "eae89e36",
+   "text": "How ... water do you drink every day?"
+  },
+  {
+   "voice": "v02",
+   "key": "b272f5f1",
+   "text": "How ... eggs do we need?"
+  },
+  {
+   "voice": "v02",
+   "key": "744d0d34",
+   "text": "My sister likes ... cakes."
+  },
+  {
+   "voice": "v02",
+   "key": "ba78e033",
+   "text": "Do you enjoy ... vegetables?"
+  },
+  {
+   "voice": "v02",
+   "key": "0b795b72",
+   "text": "Welcome to Gold Heist!"
+  },
+  {
+   "voice": "v02",
+   "key": "230b9c5c",
+   "text": "Pick a treasure chest!"
+  },
+  {
+   "voice": "v02",
+   "key": "454cb570",
+   "text": "Correct!"
+  },
+  {
+   "voice": "v02",
+   "key": "42ec0d01",
+   "text": "Oh no! Try again."
+  },
+  {
+   "voice": "v02",
+   "key": "0814ec40",
+   "text": "Red team, your turn!"
+  },
+  {
+   "voice": "v02",
+   "key": "9da29547",
+   "text": "Blue team, your turn!"
+  },
+  {
+   "voice": "v02",
+   "key": "175bd5a0",
+   "text": "Green team, your turn!"
+  },
+  {
+   "voice": "v02",
+   "key": "c6ace8e7",
+   "text": "Pink team, your turn!"
+  },
+  {
+   "voice": "v02",
+   "key": "e3def447",
+   "text": "Red team wins!"
+  },
+  {
+   "voice": "v02",
+   "key": "d987ee3c",
+   "text": "Blue team wins!"
+  },
+  {
+   "voice": "v02",
+   "key": "145a0ba7",
+   "text": "Green team wins!"
+  },
+  {
+   "voice": "v02",
+   "key": "f7c2cddc",
+   "text": "Pink team wins!"
+  },
+  {
+   "voice": "v01",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v01",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v01",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v01",
+   "key": "d9889f50",
+   "text": "banana"
+  },
+  {
+   "voice": "v01",
+   "key": "10bc2abf",
+   "text": "apple"
+  },
+  {
+   "voice": "v01",
+   "key": "45b473eb",
+   "text": "orange"
+  },
+  {
+   "voice": "v01",
+   "key": "0e74ffd5",
+   "text": "mango"
+  },
+  {
+   "voice": "v01",
+   "key": "23d16399",
+   "text": "grapes"
+  },
+  {
+   "voice": "v01",
+   "key": "c8c141d0",
+   "text": "lemon"
+  },
+  {
+   "voice": "v01",
+   "key": "b720bb72",
+   "text": "carrot"
+  },
+  {
+   "voice": "v01",
+   "key": "25d4a652",
+   "text": "potato"
+  },
+  {
+   "voice": "v01",
+   "key": "721c6d16",
+   "text": "onion"
+  },
+  {
+   "voice": "v01",
+   "key": "35a2e5c3",
+   "text": "tomato"
+  },
+  {
+   "voice": "v01",
+   "key": "d45e5253",
+   "text": "corn"
+  },
+  {
+   "voice": "v01",
+   "key": "49c69a10",
+   "text": "water"
+  },
+  {
+   "voice": "v01",
+   "key": "888e7aa2",
+   "text": "milk"
+  },
+  {
+   "voice": "v01",
+   "key": "ebb76fff",
+   "text": "juice"
+  },
+  {
+   "voice": "v01",
+   "key": "8e2c7aa1",
+   "text": "coffee"
+  },
+  {
+   "voice": "v01",
+   "key": "cf1ef61f",
+   "text": "lunch"
+  },
+  {
+   "voice": "v01",
+   "key": "57b20f7d",
+   "text": "dinner"
+  },
+  {
+   "voice": "v01",
+   "key": "ae0af9ed",
+   "text": "snack"
+  },
+  {
+   "voice": "v01",
+   "key": "9fa6ec7b",
+   "text": "picnic"
+  },
+  {
+   "voice": "v01",
+   "key": "1d2a7979",
+   "text": "brunch"
+  },
+  {
+   "voice": "v01",
+   "key": "144792dc",
+   "text": "Guess the secret word!"
+  },
+  {
+   "voice": "v01",
+   "key": "4e855e41",
+   "text": "The word was"
+  },
+  {
+   "voice": "v09",
+   "key": "01aebacd",
+   "text": "Let's play!"
+  },
+  {
+   "voice": "v09",
+   "key": "479a12a4",
+   "text": "Great job!"
+  },
+  {
+   "voice": "v09",
+   "key": "093eb192",
+   "text": "It's a tie!"
+  },
+  {
+   "voice": "v09",
+   "key": "d9889f50",
+   "text": "banana"
+  },
+  {
+   "voice": "v09",
+   "key": "10bc2abf",
+   "text": "apple"
+  },
+  {
+   "voice": "v09",
+   "key": "45b473eb",
+   "text": "orange"
+  },
+  {
+   "voice": "v09",
+   "key": "0e74ffd5",
+   "text": "mango"
+  },
+  {
+   "voice": "v09",
+   "key": "23d16399",
+   "text": "grapes"
+  },
+  {
+   "voice": "v09",
+   "key": "c8c141d0",
+   "text": "lemon"
+  },
+  {
+   "voice": "v09",
+   "key": "b720bb72",
+   "text": "carrot"
+  },
+  {
+   "voice": "v09",
+   "key": "25d4a652",
+   "text": "potato"
+  },
+  {
+   "voice": "v09",
+   "key": "721c6d16",
+   "text": "onion"
+  },
+  {
+   "voice": "v09",
+   "key": "35a2e5c3",
+   "text": "tomato"
+  },
+  {
+   "voice": "v09",
+   "key": "c2631658",
+   "text": "cabbage"
+  },
+  {
+   "voice": "v09",
+   "key": "d45e5253",
+   "text": "corn"
+  },
+  {
+   "voice": "v09",
+   "key": "49c69a10",
+   "text": "water"
+  },
+  {
+   "voice": "v09",
+   "key": "888e7aa2",
+   "text": "milk"
+  },
+  {
+   "voice": "v09",
+   "key": "ebb76fff",
+   "text": "juice"
+  },
+  {
+   "voice": "v09",
+   "key": "b401e629",
+   "text": "tea"
+  },
+  {
+   "voice": "v09",
+   "key": "8e2c7aa1",
+   "text": "coffee"
+  },
+  {
+   "voice": "v09",
+   "key": "07ebfe60",
+   "text": "lemonade"
+  },
+  {
+   "voice": "v09",
+   "key": "9a32f866",
+   "text": "breakfast"
+  },
+  {
+   "voice": "v09",
+   "key": "cf1ef61f",
+   "text": "lunch"
+  },
+  {
+   "voice": "v09",
+   "key": "57b20f7d",
+   "text": "dinner"
+  },
+  {
+   "voice": "v09",
+   "key": "ae0af9ed",
+   "text": "snack"
+  },
+  {
+   "voice": "v09",
+   "key": "9fa6ec7b",
+   "text": "picnic"
+  },
+  {
+   "voice": "v09",
+   "key": "1d2a7979",
+   "text": "brunch"
+  },
+  {
+   "voice": "v09",
+   "key": "e8150674",
+   "text": "Time to draw!"
+  },
+  {
+   "voice": "v09",
+   "key": "55619842",
+   "text": "Time's up!"
+  },
+  {
+   "voice": "v09",
+   "key": "4e855e41",
+   "text": "The word was"
+  },
+  {
+   "voice": "v09",
+   "key": "454cb570",
+   "text": "Correct!"
+  },
+  {
+   "voice": "v09",
+   "key": "e3def447",
+   "text": "Red team wins!"
+  },
+  {
+   "voice": "v09",
+   "key": "d987ee3c",
+   "text": "Blue team wins!"
+  },
+  {
+   "voice": "v09",
+   "key": "145a0ba7",
+   "text": "Green team wins!"
+  },
+  {
+   "voice": "v09",
+   "key": "f7c2cddc",
+   "text": "Pink team wins!"
+  }
+ ]
+}

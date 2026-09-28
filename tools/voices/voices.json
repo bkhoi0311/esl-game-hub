@@ -1,0 +1,86 @@
+[
+  {
+    "id": "01_girl_child_us",
+    "label": "Bé gái (trẻ em), giọng Mỹ",
+    "instruct": "female, child, high pitch, american accent",
+    "seed": 1000,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "02_boy_child_us",
+    "label": "Bé trai (trẻ em), giọng Mỹ",
+    "instruct": "male, child, american accent",
+    "seed": 4001,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "03_girl_teen_us",
+    "label": "Nữ thiếu niên, giọng Mỹ",
+    "instruct": "female, teenager, american accent",
+    "seed": 1002,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "04_boy_teen_uk",
+    "label": "Nam thiếu niên, giọng Anh",
+    "instruct": "male, teenager, british accent",
+    "seed": 1003,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "05_woman_young_us",
+    "label": "Nữ trẻ, giọng Mỹ",
+    "instruct": "female, young adult, american accent",
+    "seed": 4004,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "06_man_young_us",
+    "label": "Nam trẻ, giọng Mỹ",
+    "instruct": "male, young adult, moderate pitch, american accent",
+    "seed": 1005,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "07_woman_young_uk",
+    "label": "Nữ trẻ, giọng Anh",
+    "instruct": "female, young adult, british accent",
+    "seed": 1006,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "08_man_young_uk",
+    "label": "Nam trẻ, giọng Anh",
+    "instruct": "male, young adult, british accent",
+    "seed": 1007,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "09_woman_middle_us",
+    "label": "Nữ trung niên, giọng Mỹ",
+    "instruct": "female, middle-aged, american accent",
+    "seed": 1008,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "10_man_middle_uk",
+    "label": "Nam trung niên trầm, giọng Anh",
+    "instruct": "male, middle-aged, low pitch, british accent",
+    "seed": 1009,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "11_woman_elder_uk",
+    "label": "Bà (lớn tuổi), giọng Anh",
+    "instruct": "female, elderly, british accent",
+    "seed": 1010,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  },
+  {
+    "id": "12_man_elder_us",
+    "label": "Ông (lớn tuổi) trầm, giọng Mỹ",
+    "instruct": "male, elderly, low pitch, american accent",
+    "seed": 1011,
+    "text": "Hello, class! Are you ready to play? Listen and repeat: banana. She eats rice every day. Great job!"
+  }
+]

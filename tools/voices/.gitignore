@@ -1,0 +1,3 @@
+samples/*.wav
+!samples/*.ref.wav
+samples/run.log

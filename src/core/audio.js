@@ -1,6 +1,60 @@
-// Âm thanh dùng chung: đọc tiếng Anh (Web Speech API) và âm hiệu đúng/sai/thắng.
-// Âm hiệu tổng hợp bằng Web Audio nên không cần file âm thanh, chạy được offline.
+// Âm thanh dùng chung: đọc tiếng Anh và âm hiệu đúng/sai/thắng.
+// Giọng đọc: ưu tiên file OmniVoice thu sẵn (src/assets/voices/<giọng>/<khoá>.mp3, nhúng cả vào bản offline);
+// câu chưa thu sẵn (giáo viên mới thêm) thì đọc bằng Web Speech API của trình duyệt.
+// Âm hiệu tổng hợp bằng Web Audio nên không cần file âm thanh.
 import { getSettings } from './settings.js';
+import { DEFAULT_VOICE, GAME_VOICE, VOICES, clipKey, speakable } from './voice-lines.js';
+
+// ---------- Giọng OmniVoice thu sẵn ----------
+
+const CLIP_URLS = import.meta.glob('../assets/voices/*/*.mp3', { query: '?url', import: 'default', eager: true });
+const clips = {}; // giọng -> khoá -> url
+for (const [path, url] of Object.entries(CLIP_URLS)) {
+  const m = path.match(/voices\/([^/]+)\/([0-9a-f]+)\.mp3$/);
+  if (m) (clips[m[1]] ||= {})[m[2]] = url;
+}
+
+let currentGame = null;
+export function setVoiceGame(gameId) {
+  currentGame = gameId || null;
+}
+
+export function voiceFor(gameId = currentGame) {
+  return GAME_VOICE[gameId] || DEFAULT_VOICE;
+}
+
+export function voiceLabel(id) {
+  const v = VOICES.find((x) => x.id === id);
+  return v ? v.label : id;
+}
+
+// url file thu sẵn cho câu này (giọng của game, nếu thiếu thì giọng mặc định), hoặc null.
+export function clipUrl(text, voice = voiceFor()) {
+  const key = clipKey(text);
+  return (clips[voice] && clips[voice][key]) || (clips[DEFAULT_VOICE] && clips[DEFAULT_VOICE][key]) || null;
+}
+
+export function clipCount() {
+  return Object.values(clips).reduce((n, v) => n + Object.keys(v).length, 0);
+}
+
+let player = null;
+let playToken = 0;
+
+function playClip(url) {
+  const token = ++playToken;
+  if (player) player.pause();
+  player = new Audio(url);
+  return new Promise((resolve) => {
+    const done = (ok) => {
+      if (token === playToken) player = null;
+      resolve(ok);
+    };
+    player.onended = () => done(true);
+    player.onerror = () => done(false);
+    player.play().catch(() => done(false));
+  });
+}
 
 // ---------- TTS ----------
 
@@ -45,11 +99,28 @@ async function pickVoice(accent) {
 }
 
 export function stopSpeaking() {
+  playToken++;
+  if (player) player.pause();
+  player = null;
   if (ttsSupported()) synth.cancel();
 }
 
 // Đọc 1 câu tiếng Anh. Luôn resolve (kể cả khi máy không có giọng), trả về true nếu đã đọc.
+// options.voice: ép dùng 1 giọng OmniVoice; options.web: ép dùng giọng máy.
 export async function speak(text, options = {}) {
+  if (!text) return false;
+  const settings = getSettings();
+  if (settings.voiceMode !== 'web' && !options.web) {
+    const url = clipUrl(text, options.voice || voiceFor());
+    if (url) {
+      if (ttsSupported()) synth.cancel();
+      if (await playClip(url)) return true;
+    }
+  }
+  return speakWeb(speakable(text).replace(/\.\.\./g, ','), options);
+}
+
+async function speakWeb(text, options = {}) {
   if (!ttsSupported() || !text) return false;
   const { ttsRate, accent } = getSettings();
   const voice = await pickVoice(options.accent || accent);
