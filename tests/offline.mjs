@@ -75,10 +75,44 @@ try {
     }
     await context.close();
   }
-} finally {
-  await browser.close();
+} catch (err) {
+  results.push(`FAIL: ${err.message.split('\n')[0]}`);
+  process.exitCode = 1;
 }
 
+// Statue Freeze (không dùng AI) phải chạy ở bản 1-file: dùng camera giả.
+try {
+  const context = await browser.newContext({ viewport: SIZES[0], offline: true });
+  await context.addInitScript(() => {
+    navigator.mediaDevices.getUserMedia = async () => {
+      const c = document.createElement('canvas');
+      c.width = 640;
+      c.height = 360;
+      const ctx = c.getContext('2d');
+      setInterval(() => {
+        ctx.fillStyle = '#8fa3b8';
+        ctx.fillRect(0, 0, 640, 360);
+        ctx.fillStyle = '#e0664f';
+        ctx.fillRect(200, 100, 80, 200);
+      }, 33);
+      return c.captureStream(30);
+    };
+    navigator.mediaDevices.enumerateDevices = async () => [{ kind: 'videoinput', deviceId: 'fake', label: 'Fake cam', groupId: 'g' }];
+  });
+  const page = await context.newPage();
+  page.on('pageerror', (e) => errors.push(`statue offline: ${e.message}`));
+  await page.goto('file://' + FILE + '#/game/statue-freeze');
+  await page.click('[data-testid=cam-start]:not([disabled])');
+  await page.waitForFunction(() => window.__statueFreeze && window.__statueFreeze.debug().phase === 'green', null, { timeout: 15000 });
+  await page.screenshot({ path: `${OUT}/statue-freeze-offline.png` });
+  results.push('PASS statue-freeze @ bản offline (camera giả)');
+  await context.close();
+} catch (err) {
+  results.push(`FAIL statue-freeze @ bản offline: ${err.message.split('\n')[0]}`);
+  process.exitCode = 1;
+}
+
+await browser.close();
 if (errors.length) {
   results.push('LỖI:\n  ' + [...new Set(errors)].join('\n  '));
   process.exitCode = 1;
