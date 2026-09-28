@@ -14,10 +14,13 @@ export function h(tag, attrs = {}, ...children) {
     } else if (key === 'class') {
       el.className = value;
     } else if (key === 'style' && typeof value === 'object') {
-      Object.assign(el.style, value);
+      for (const [prop, v] of Object.entries(value)) {
+        if (prop.startsWith('--')) el.style.setProperty(prop, v);
+        else el.style[prop] = v;
+      }
     } else if (key === 'dataset') {
       Object.assign(el.dataset, value);
-    } else if (key === 'value' || (key in el && typeof value !== 'string')) {
+    } else if (key === 'value' || key === 'innerHTML' || (key in el && typeof value !== 'string')) {
       el[key] = value;
     } else {
       el.setAttribute(key, value === true ? '' : value);
@@ -171,7 +174,7 @@ export function toast(message, type = 'info', ms = 2600) {
 
 // ---------- Bảng điểm đội ----------
 
-export const TEAM_COLORS = ['#e4513a', '#2a6fdb', '#1f9a6d', '#e0a526'];
+export const TEAM_COLORS = ['#ff5a00', '#0c6bed', '#04bc09', '#fd3cc6'];
 
 // teams: ['Red', 'Blue', ...] (2-4 đội).
 // Trả về { el, add(i, n), set(i, n), scores, highlight(i), reset(), onChange }.
@@ -374,4 +377,87 @@ export function createGameFrame(root, { title, howTo, onPause, onResume, onResta
   };
   pauseLayer.addEventListener('pointerdown', () => api.setPaused(false));
   return api;
+}
+
+// ---------- Dùng chung cho các game ----------
+
+// Nút chọn 1 trong nhiều giá trị. options: [{ value, label }].
+export function segmented(options, value, onChange, testId) {
+  const el = h('div', { class: 'segmented', role: 'group', 'data-testid': testId });
+  const render = () => {
+    el.textContent = '';
+    options.forEach((o) =>
+      el.append(
+        button({
+          label: o.label,
+          attrs: { 'aria-pressed': String(o.value === value), disabled: o.disabled || null, 'data-value': o.value },
+          onClick: () => {
+            value = o.value;
+            render();
+            onChange(value);
+          },
+        }),
+      ),
+    );
+  };
+  render();
+  return el;
+}
+
+// Màn hình cài đặt trước khi chơi. rows: [{ label, hint, control }].
+export function setupScreen({ gameId, title, rows, startLabel = 'Bắt đầu chơi', onStart, art }) {
+  return h(
+    'div', { class: 'setup' },
+    h('div', { class: 'setup-card' },
+      h('h2', {}, art || null, h('span', {}, title)),
+      rows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null)),
+      h('div', { class: 'setup-actions' },
+        button({ label: startLabel, iconName: 'play', variant: 'primary', size: 'lg', onClick: onStart, attrs: { 'data-testid': `${gameId}-start` } }))),
+  );
+}
+
+// 3 nút đáp án A/B/C. Trả về { el, buttons }. Dùng pointerdown để 2 người chạm cùng lúc không chặn nhau.
+export function answerButtons(options, onPick, { usePointer = false } = {}) {
+  const el = h('div', { class: 'answers' });
+  const buttons = options.map((text, i) => {
+    const b = h('button', { type: 'button', class: 'answer-btn', 'data-index': i },
+      h('span', { class: 'answer-key' }, 'ABC'[i]), h('span', { class: 'answer-text' }, text));
+    if (usePointer) {
+      b.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        if (!b.disabled) onPick(i, b);
+      });
+      b.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && !b.disabled) onPick(i, b);
+      });
+    } else {
+      b.addEventListener('click', () => !b.disabled && onPick(i, b));
+    }
+    el.append(b);
+    return b;
+  });
+  return { el, buttons };
+}
+
+// Màn kết thúc: bảng xếp hạng + pháo giấy.
+export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_COLORS, unit = '', onReplay, onMenu }) {
+  const el = h(
+    'div', { class: 'results', 'data-testid': 'results' },
+    icon('trophy', 80),
+    h('h2', {}, title),
+    h('ol', { class: 'rank-list' },
+      ranking.map((r, k) =>
+        h('li', { style: { '--team': colors[r.index] } },
+          h('span', { class: 'rank-pos' }, `#${k + 1}`), h('span', {}, r.name), h('span', {}, `${r.score}${unit}`)))),
+    h('div', { class: 'results-actions' },
+      button({ label: 'Play again', iconName: 'restart', variant: 'primary', size: 'lg', onClick: onReplay }),
+      button({ label: 'Menu', iconName: 'home', size: 'lg', onClick: onMenu || (() => (location.hash = '#/')) })),
+  );
+  el.querySelector('.icon').classList.add('trophy');
+  return el;
+}
+
+// Game cần màn hình lớn (bảng tương tác).
+export function isSmallScreen() {
+  return document.body.classList.contains('fluid') || window.innerWidth < 700;
 }

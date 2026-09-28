@@ -8,7 +8,9 @@
     "build": "vite build --mode offline --outDir .offline-tmp --emptyOutDir && vite build && node scripts/copy-offline.js",
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
-    "shots": "node tests/screenshots.mjs"
+    "shots": "node tests/screenshots.mjs",
+    "test": "node --test tests/logic.test.mjs",
+    "test:games": "node tests/games.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.0.1",

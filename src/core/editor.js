@@ -6,7 +6,7 @@ import {
   setPack, validatePack,
 } from './content.js';
 import { speak } from './audio.js';
-import { button, confirmModal, h, openModal, toast } from './ui.js';
+import { TEAM_COLORS, button, confirmModal, h, openModal, toast } from './ui.js';
 import { icon } from './icons.js';
 
 const VOCAB_COLS = ['word', 'meaning', 'category', 'example'];
@@ -168,7 +168,7 @@ export function mountEditor(root) {
       teamsBox.append(
         h(
           'div',
-          { class: 'team-edit', style: { '--team': ['#e4513a', '#2a6fdb', '#1f9a6d', '#e0a526'][i] } },
+          { class: 'team-edit', style: { '--team': TEAM_COLORS[i] } },
           h('input', {
             type: 'text', value: name, 'aria-label': `Tên đội ${i + 1}`,
             onInput: (e) => { draft.teams[i] = e.target.value; commit(); },

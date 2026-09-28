@@ -1,5 +1,7 @@
 // Router: menu chính (#/) -> tab Soạn bài (#/editor) -> từng game (#/game/<id>).
+import './styles/fonts.css';
 import './styles/main.css';
+import logoUrl from './assets/classin-logo-green.png';
 import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, missingForGame, onPackChange } from './core/content.js';
 import { mountEditor } from './core/editor.js';
@@ -7,6 +9,7 @@ import { getSettings, updateSettings } from './core/settings.js';
 import { getEnglishVoices, speak, ttsSupported } from './core/audio.js';
 import { button, h, openModal } from './core/ui.js';
 import { icon } from './core/icons.js';
+import { gameArt } from './core/art.js';
 
 const app = document.getElementById('app');
 let cleanup = null; // hàm dọn dẹp của màn hình đang mở
@@ -20,13 +23,35 @@ const navLinks = {
 };
 const header = h(
   'header', { class: 'app-header' },
-  h('a', { href: '#/', class: 'brand' }, h('span', { class: 'brand-mark' }, 'ESL'), h('span', { class: 'brand-name' }, 'Game Hub')),
+  h('a', { href: '#/', class: 'brand', 'aria-label': 'ESL Game Hub' },
+    h('img', { src: logoUrl, alt: 'ClassIn', class: 'brand-logo' }),
+    h('span', { class: 'brand-sep' }),
+    h('span', { class: 'brand-name' }, 'ESL Game Hub')),
   h('nav', { class: 'app-nav' }, navLinks.menu, navLinks.editor),
   packChip,
   button({ iconName: 'settings', title: 'Cài đặt', variant: 'ghost', onClick: openSettings, attrs: { 'data-testid': 'open-settings' } }),
 );
 const main = h('main', { class: 'app-main' });
-app.append(header, main);
+const stage = h('div', { class: 'stage' }, header, main);
+app.append(stage);
+
+// ---------- Khung A4 ngang ----------
+// Màn hình ngang (bảng tương tác 65/75/86 inch, laptop): cả app nằm gọn trong 1 khung tỉ lệ A4 ngang
+// (1485 x 1050 đơn vị), tự phóng to/thu nhỏ theo màn hình, không cuộn trang.
+// Màn hình dọc/hẹp (điện thoại): bỏ khung, trang cuộn bình thường.
+const CANVAS = { width: 1485, height: 1050 };
+
+function fitStage() {
+  const w = window.innerWidth;
+  const hgt = window.innerHeight;
+  const framed = w >= 700 && w / hgt >= 1.15;
+  const unit = framed ? Math.min(w / CANVAS.width, hgt / CANVAS.height) : Math.min(w / 430, 1.4);
+  document.documentElement.style.fontSize = `${(16 * unit).toFixed(3)}px`;
+  document.body.classList.toggle('framed', framed);
+  document.body.classList.toggle('fluid', !framed);
+}
+fitStage();
+window.addEventListener('resize', fitStage);
 
 function renderPackChip(pack) {
   packChip.textContent = '';
@@ -75,7 +100,7 @@ function gameCard(game, pack) {
         if (!game.ready) e.preventDefault();
       },
     },
-    h('span', { class: 'card-icon' }, icon(game.icon, 40)),
+    gameArt(game.id),
     h('span', { class: 'card-title' }, game.title),
     h('span', { class: 'card-desc' }, game.description),
     badges,
