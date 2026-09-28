@@ -128,6 +128,62 @@ TESTS.impostor = async () => {
   await c2.close();
 };
 
+// ---------- Spell Grid ----------
+async function typeWord(page, word, how) {
+  for (const ch of word) {
+    if (how === 'keyboard') await page.keyboard.press(ch);
+    else await page.dispatchEvent(`.wd-key[data-key="${ch}"]`, 'pointerdown');
+  }
+  if (how === 'keyboard') await page.keyboard.press('Enter');
+  else await page.dispatchEvent('.wd-key[data-key="enter"]', 'pointerdown');
+  await page.waitForTimeout(900);
+}
+
+TESTS.wordle = async () => {
+  // Gõ thiếu chữ rồi Enter: báo "Not enough letters", không tính lượt.
+  const { context, page } = await open('#/game/wordle');
+  await page.click('[data-testid=wordle-start]');
+  await page.waitForSelector('[data-testid=wd-grid]');
+  await page.keyboard.press('a');
+  await page.keyboard.press('Enter');
+  await page.waitForSelector('.wd-toast:not([hidden])');
+  assert.equal(await page.$$eval('.wd-tile[data-state]', (els) => els.length), 0);
+  await context.close();
+
+  // Chơi với bộ nội dung chỉ có "apple" để biết trước đáp án.
+  const c2 = await browser.newContext({ viewport: BIG });
+  const p2 = await c2.newPage();
+  p2.on('pageerror', (e) => pageErrors.push(`wordle: ${e.message}`));
+  await p2.goto(BASE);
+  await p2.evaluate(() => localStorage.setItem('eslhub.pack.default', JSON.stringify({ title: 'Test', vocab: [
+    { word: 'apple', meaning: 'quả táo', category: 'fruit' }, { word: 'ice cream', meaning: 'kem', category: 'meal' } ], questions: [], teams: ['Red', 'Blue'] })));
+  await p2.goto(BASE + '#/game/wordle');
+  await p2.reload();
+  await p2.click('[data-testid=wd-mode] [data-value="solo"]');
+  await p2.click('[data-testid=wordle-start]');
+  await p2.waitForSelector('[data-testid=wd-grid]');
+  assert.equal(await p2.$$eval('.wd-row:first-child .wd-tile', (els) => els.length), 5, 'chỉ dùng từ 4-6 chữ (apple)');
+
+  await typeWord(p2, 'puppy', 'keyboard');       // bàn phím thật
+  await typeWord(p2, 'paper', 'virtual');        // bàn phím ảo
+  const rows = await p2.$$eval('.wd-row', (rs) => rs.slice(0, 2).map((r) => [...r.children].map((t) => ({ correct: 'G', present: 'Y', absent: '-' })[t.dataset.state]).join('')));
+  assert.deepEqual(rows, ['Y-G--', 'YYGY-'], 'tô màu chữ lặp sai');
+  const keyP = await p2.getAttribute('.wd-key[data-key="p"]', 'data-state');
+  const keyU = await p2.getAttribute('.wd-key[data-key="u"]', 'data-state');
+  assert.equal(keyP, 'correct');
+  assert.equal(keyU, 'absent');
+  await p2.click('[data-testid=wd-hint]');
+  assert.match(await p2.textContent('[data-testid=wd-hint-text]'), /quả táo/);
+  await shot(p2, 'wordle-1-playing');
+  await typeWord(p2, 'apple', 'virtual');
+  await p2.waitForSelector('[data-testid=wd-result]');
+  assert.match(await p2.textContent('[data-testid=wd-result]'), /Solved! \+20/); // lượt 3: 40 - 20 gợi ý
+  assert.equal(await p2.textContent('[data-testid=wd-total]'), 'Score 20');
+  await p2.waitForTimeout(400);
+  await shot(p2, 'wordle-2-solved');
+  await c2.close();
+};
+
 // ---------- Vào/ra game 5 lần (kiểm tra dọn dẹp) ----------
 async function enterExit(id) {
   const { context, page } = await open('#/');

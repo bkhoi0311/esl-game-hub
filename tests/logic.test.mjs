@@ -84,3 +84,43 @@ test('Impostor: câu giải thích', () => {
   assert.equal(explain('vegetable', 'meal'), '4 are vegetables, 1 is a meal.');
   assert.equal(explain('dish', 'apple'), '4 are dishes, 1 is an apple.');
 });
+
+// ---------- Spell Grid ----------
+import { eligibleWords, mergeKeyStates, scoreGuess, wordScore } from '../src/games/wordle/logic.js';
+
+const cells = (g, a) => scoreGuess(g, a).map((r) => ({ correct: 'G', present: 'Y', absent: '-' })[r]).join('');
+
+test('Spell Grid: tô màu cơ bản', () => {
+  assert.equal(cells('bread', 'bread'), 'GGGGG');
+  assert.equal(cells('drake', 'bread'), 'YGY-Y');
+  assert.equal(cells('xxxxx', 'bread'), '-----');
+});
+
+test('Spell Grid: xử lý đúng chữ lặp', () => {
+  // Từ bí mật "apple" có 2 chữ p.
+  assert.equal(cells('puppy', 'apple'), 'Y-G--'); // 3 chữ p đoán, chỉ 2 được tô
+  assert.equal(cells('paper', 'apple'), 'YYGY-');
+  assert.equal(cells('llama', 'apple'), 'Y-Y--'); // apple chỉ có 1 l, 1 a
+  assert.equal(cells('eerie', 'apple'), '----G'); // e cuối đúng chỗ, e đầu không được vàng thêm
+  assert.equal(cells('apple', 'paper'), 'YYG-Y');
+  assert.equal(cells('ppppp', 'apple'), '-GG--');
+});
+
+test('Spell Grid: bàn phím giữ màu tốt nhất', () => {
+  let k = mergeKeyStates({}, 'puppy', scoreGuess('puppy', 'apple'));
+  assert.equal(k.p, 'correct');
+  assert.equal(k.u, 'absent');
+  k = mergeKeyStates(k, 'plate', scoreGuess('plate', 'apple'));
+  assert.equal(k.p, 'correct', 'không được hạ từ xanh xuống vàng');
+});
+
+test('Spell Grid: chỉ lấy từ 4-6 chữ, không dấu cách', () => {
+  const words = eligibleWords([{ word: 'Bread' }, { word: 'ice cream' }, { word: 'tea' }, { word: 'banana' }, { word: 'lemonade' }, { word: 'bread' }, { word: 'phở' }]);
+  assert.deepEqual(words.map((w) => w.word), ['bread', 'banana']);
+});
+
+test('Spell Grid: điểm', () => {
+  assert.equal(wordScore(1, true, false), 60);
+  assert.equal(wordScore(6, true, true), 0);
+  assert.equal(wordScore(3, false, false), 0);
+});
