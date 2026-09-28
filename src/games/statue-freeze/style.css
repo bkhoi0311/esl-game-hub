@@ -1,0 +1,27 @@
+/* Statue Freeze */
+.sf-sens { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.05rem; }
+.sf-sens input { width: 11rem; accent-color: var(--green); }
+.sf-play { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 22rem; gap: 1.4rem; padding: 1.2rem 2rem 1.4rem; }
+.sf-video { position: relative; min-height: 0; border-radius: var(--radius-card); background: #111; overflow: hidden; border: 8px solid #333; transition: border-color 0.2s ease; }
+.sf-video[data-color='green'] { border-color: var(--green); }
+.sf-video[data-color='red'] { border-color: #ff2d10; }
+.sf-video .cam-video, .sf-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sf-overlay { pointer-events: none; }
+.sf-count { position: absolute; left: 50%; bottom: 1rem; translate: -50% 0; padding: 0.4rem 1.4rem; border-radius: 999px; background: rgba(28, 31, 37, 0.85); color: #fff; font-family: var(--font-en); font-size: 1.8rem; font-weight: 800; }
+.sf-count[data-good='true'] { background: var(--green); }
+
+.sf-side { display: flex; flex-direction: column; align-items: stretch; gap: 1rem; min-height: 0; }
+.sf-light { display: flex; justify-content: center; gap: 1.2rem; padding: 1.2rem; border-radius: 2rem; background: var(--brand-ink); }
+.sf-bulb { width: 6.5rem; height: 6.5rem; border-radius: 50%; background: #3b4150; transition: background 0.2s ease, box-shadow 0.2s ease; }
+.sf-light[data-color='red'] .sf-bulb.red { background: #ff2d10; box-shadow: 0 0 2.5rem #ff2d10; }
+.sf-light[data-color='green'] .sf-bulb.green { background: #1fe024; box-shadow: 0 0 2.5rem #1fe024; }
+.sf-banner { font-size: 3rem; font-weight: 800; line-height: 1.1; color: var(--brand-ink); text-align: center; overflow-wrap: anywhere; }
+.sf-sub { font-size: 1.6rem; font-weight: 700; color: var(--ink-muted); text-align: center; }
+.sf-controls { margin-top: auto; display: grid; gap: 0.8rem; }
+.sf-controls .btn { width: 100%; white-space: normal; }
+
+body.fluid .sf-play { grid-template-columns: 1fr; grid-template-rows: minmax(16rem, 50vh) auto; padding: 0.6rem; }
+body.fluid .sf-bulb { width: 3.5rem; height: 3.5rem; }
+body.fluid .sf-banner { font-size: 1.8rem; }
+body.fluid .sf-sub { font-size: 1.1rem; }
+body.fluid .sf-sens input { width: 7rem; }
