@@ -1,5 +1,5 @@
 // Simon Says Pose — 1-3 học sinh đứng cách camera 2-3 mét. "Simon says" + làm đúng tư thế trong 4 giây: +1.
-// Không có "Simon says" mà vẫn làm: -1. MediaPipe Pose (numPoses 3), giữ đúng 0.5 giây mới tính. Đặc tả: docs/GAMES_SPEC.md
+// Không có "Simon says" mà vẫn làm: -1. MediaPipe Pose (tối đa 5 người, bộ theo dõi chọn người chơi trong vùng chơi), giữ đúng 0.5 giây mới tính. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import confetti from 'canvas-confetti';
 import { playSound, speak } from '../../core/audio.js';
@@ -10,6 +10,13 @@ import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
 import { line } from '../../core/voice-lines.js';
 import { POSES, commandText } from './poses.js';
+import { createPoseTracker } from '../../core/pose-tracker.js';
+
+// Vùng chơi theo màn hình gương: chỉ người đứng trong vùng mới được tính.
+const ZONES = { full: [0, 1], middle: [0.15, 0.85], narrow: [0.25, 0.75] };
+// Tư thế cần thấy chân: tự bỏ khi camera chỉ thấy nửa người.
+const LEG_POSES = new Set(['one-leg', 'squat']);
+const GRACE_MS = 220; // mất nhận diện chớp nhoáng không huỷ lượt giữ tư thế
 
 const WINDOW_MS = 4000;
 const HOLD_MS = 500;
@@ -23,7 +30,7 @@ const HOW_TO = {
 
 function createGame(root) {
   const session = createCameraSession();
-  const opts = { rounds: 10, poses: new Set(POSES.map((p) => p.id)), simonRate: 0.7 };
+  const opts = { rounds: 10, poses: new Set(POSES.map((p) => p.id)), simonRate: 0.7, zone: 'middle', count: 3, model: 'full' };
   let detector = null;
   let raf = 0;
   let timers = [];
@@ -31,7 +38,11 @@ function createGame(root) {
   let round = null;
   let roundNo = 0;
   let scores = [0, 0, 0];
-  let players = []; // landmarks theo thứ tự trái -> phải trên màn hình
+  let players = [null, null, null]; // chỗ Player 1..3 (bộ theo dõi giữ đúng người)
+  let others = []; // người không được tính (đứng xa / ngoài vùng chơi)
+  let seen = new Set(); // chỗ đã từng có người chơi trong ván
+  let detectorModel = null;
+  let tracker = null;
   let lastVideoTime = -1;
 
   const frame = createGameFrame(root, {
@@ -77,6 +88,10 @@ function createGame(root) {
       extraRows: [
         { label: 'Tư thế dùng trong bài', control: poseBoxes },
         { label: 'Số lượt', control: segmented([6, 10, 15].map((n) => ({ value: n, label: String(n) })), opts.rounds, (v) => (opts.rounds = v), 'sp-rounds') },
+        { label: 'Số học sinh chơi cùng lúc', control: segmented([1, 2, 3].map((n) => ({ value: n, label: String(n) })), opts.count, (v) => (opts.count = v), 'sp-count') },
+        { label: 'Vùng chơi (lớp đông nên chọn Giữa hoặc Hẹp)', control: segmented([{ value: 'full', label: 'Cả khung' }, { value: 'middle', label: 'Giữa' }, { value: 'narrow', label: 'Hẹp' }], opts.zone, (v) => (opts.zone = v), 'sp-zone'),
+          hint: 'Chỉ tính các bạn đứng trong vùng chơi và gần camera nhất. Các bạn phía sau hiện khung xương mờ, không bị tính điểm.' },
+        { label: 'Độ chính xác nhận diện', control: segmented([{ value: 'full', label: 'Chính xác (khuyên dùng)' }, { value: 'lite', label: 'Nhanh (máy yếu)' }], opts.model, (v) => (opts.model = v), 'sp-model') },
       ],
       onReady: () => {
         if (opts.poses.size < 2) {
@@ -91,15 +106,20 @@ function createGame(root) {
   async function startGame() {
     roundNo = 0;
     scores = [0, 0, 0];
+    players = [null, null, null];
+    others = [];
+    seen = new Set();
+    tracker = createPoseTracker({ maxPlayers: opts.count, zone: ZONES[opts.zone] });
     const overlay = h('canvas', { class: 'sp-overlay' });
     const videoBox = h('div', { class: 'sp-video' }, session.video, overlay);
     const command = h('div', { class: 'sp-command en', 'data-testid': 'sp-command' });
+    const tip = h('div', { class: 'sp-tip en', 'data-testid': 'sp-tip', hidden: true });
     const bar = h('div', { class: 'sp-bar' }, h('span'));
     const board = h('div', { class: 'sp-board' });
     const controls = h('div', { class: 'sp-controls' });
     const loading = h('div', { class: 'sp-loading', 'data-testid': 'sp-loading' }, 'Loading AI model…');
     videoBox.append(loading);
-    view = { overlay, videoBox, command, bar, board, controls, loading };
+    view = { overlay, videoBox, command, bar, board, controls, loading, tip };
     const camBtn = button({ label: 'Tắt camera', iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
     camBtn.addEventListener('click', async () => {
       if (session.active) {
@@ -118,10 +138,16 @@ function createGame(root) {
     });
     frame.extra.textContent = '';
     frame.extra.append(camBtn);
-    setStage(h('div', { class: 'sp-play' }, h('div', { class: 'sp-top' }, command, bar), videoBox, h('div', { class: 'sp-bottom' }, board, controls)));
+    setStage(h('div', { class: 'sp-play' }, h('div', { class: 'sp-top' }, command, tip, bar), videoBox, h('div', { class: 'sp-bottom' }, board, controls)));
     renderBoard();
     try {
-      detector ||= await createPoseDetector({ numPoses: 3 });
+      if (detector && detectorModel !== opts.model) {
+        detector.close();
+        detector = null;
+      }
+      // Nhận diện tối đa 5 người rồi chọn người chơi; người thừa hiện mờ.
+      detector ||= await createPoseDetector({ numPoses: 5, model: opts.model });
+      detectorModel = opts.model;
     } catch (err) {
       loading.textContent = '';
       loading.append(icon('alert', 40), h('strong', {}, 'Không nạp được model AI'),
@@ -136,10 +162,16 @@ function createGame(root) {
     later(nextRound, 1500);
   }
 
+  // Chỗ đang hiện trên bảng điểm: có người, hoặc đã từng chơi trong ván.
+  function slotsShown() {
+    const list = [];
+    for (let i = 0; i < opts.count; i++) if (players[i] || seen.has(i)) list.push(i);
+    return list.length ? list : [0];
+  }
+
   function renderBoard() {
-    const n = Math.max(1, players.length);
     view.board.textContent = '';
-    for (let i = 0; i < n; i++) {
+    for (const i of slotsShown()) {
       const res = round && round.result ? round.result[i] : null;
       view.board.append(h('div', { class: `sp-player${res ? ' ' + res : ''}`, style: { '--team': TEAM_COLORS[i] } },
         h('span', { class: 'en' }, PLAYER_NAMES[i]), h('strong', { class: 'en' }, String(scores[i]))));
@@ -153,10 +185,18 @@ function createGame(root) {
       return;
     }
     roundNo += 1;
-    const pool = POSES.filter((p) => opts.poses.has(p.id));
+    let pool = POSES.filter((p) => opts.poses.has(p.id));
+    // Camera không thấy chân của ai đó (đứng nửa người / quá gần): bỏ lệnh cần chân ở lượt này.
+    const active = players.filter(Boolean);
+    const legsOk = !active.length || active.every((p) => p.legs);
+    const noLegs = pool.filter((p) => !LEG_POSES.has(p.id));
+    const skippedLegs = !legsOk && noLegs.length < pool.length && noLegs.length > 0;
+    if (skippedLegs) pool = noLegs;
+    view.tip.hidden = !skippedLegs;
+    view.tip.textContent = skippedLegs ? 'Step back so the camera can see your feet!' : '';
     const pose = pool[Math.floor(Math.random() * pool.length)];
     const simon = Math.random() < opts.simonRate;
-    round = { pose, simon, start: 0, end: 0, hold: [0, 0, 0], matched: [false, false, false], result: null };
+    round = { pose, simon, start: 0, end: 0, hold: [0, 0, 0], lastOk: [0, 0, 0], matched: [false, false, false], result: null };
     const text = commandText(pose, simon);
     view.command.textContent = text;
     view.command.dataset.simon = String(simon);
@@ -171,9 +211,8 @@ function createGame(root) {
 
   function endRound() {
     const r = round;
-    const n = Math.max(1, players.length);
     r.result = [];
-    for (let i = 0; i < n; i++) {
+    for (const i of slotsShown()) {
       if (r.simon) {
         if (r.matched[i]) scores[i] += 1;
         r.result[i] = r.matched[i] ? 'good' : 'miss';
@@ -191,8 +230,7 @@ function createGame(root) {
 
   function finish() {
     stopLoop();
-    const n = Math.max(1, players.length);
-    const ranking = PLAYER_NAMES.slice(0, n).map((name, index) => ({ name, index, score: scores[index] })).sort((a, b) => b.score - a.score);
+    const ranking = slotsShown().map((index) => ({ name: PLAYER_NAMES[index], index, score: scores[index] })).sort((a, b) => b.score - a.score);
     setStage(resultsScreen({ title: 'Simon Says: results', ranking, unit: ' pts', onReplay: () => startGame() }));
     playSound('win');
     speak(line('greatJob'));
@@ -211,8 +249,11 @@ function createGame(root) {
         fps.tick(now);
         const res = detector.detect(v, now);
         if (!res) return;
-        // Sắp xếp người theo vị trí trên màn hình gương (trái -> phải) = Player 1, 2, 3.
-        players = (res.landmarks || []).slice().sort((a, b) => (1 - a[0].x) - (1 - b[0].x));
+        // Bộ theo dõi: chọn người chơi trong vùng, giữ đúng số Player, làm mịn toạ độ.
+        const t = tracker.update(res.landmarks || [], now);
+        players = t.players;
+        others = t.others;
+        players.forEach((p, i) => p && seen.add(i));
         update(now);
       }
       draw();
@@ -229,16 +270,17 @@ function createGame(root) {
     const r = round;
     if (!r || r.result || !r.start) return;
     view.bar.firstChild.style.width = `${Math.max(0, (r.end - now) / WINDOW_MS) * 100}%`;
-    players.forEach((lm, i) => {
-      if (i > 2 || r.matched[i]) return;
-      if (r.pose.check(lm)) {
+    players.forEach((p, i) => {
+      if (!p || r.matched[i]) return;
+      if (p.fresh && r.pose.check(p.lm)) {
         if (!r.hold[i]) r.hold[i] = now;
+        r.lastOk[i] = now;
         if (now - r.hold[i] >= HOLD_MS) {
           r.matched[i] = true;
           if (r.simon) playSound('pop');
         }
-      } else {
-        r.hold[i] = 0;
+      } else if (now - r.lastOk[i] > GRACE_MS) {
+        r.hold[i] = 0; // chỉ huỷ khi sai tư thế lâu hơn một chớp mắt
       }
     });
     if (now >= r.end) endRound();
@@ -261,8 +303,23 @@ function createGame(root) {
     const dh = vh * scale;
     ctx.save();
     ctx.translate((w - dw) / 2, (hgt - dh) / 2);
-    players.forEach((lm, i) => {
-      if (i > 2) return;
+    // Vùng chơi: làm tối phần ngoài vùng.
+    const [z0, z1] = ZONES[opts.zone];
+    if (z0 > 0 || z1 < 1) {
+      ctx.fillStyle = 'rgba(20, 22, 40, 0.45)';
+      ctx.fillRect(0, 0, z0 * dw, dh);
+      ctx.fillRect(z1 * dw, 0, (1 - z1) * dw, dh);
+      ctx.setLineDash([14, 10]);
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+      ctx.strokeRect(z0 * dw, 2, (z1 - z0) * dw, dh - 4);
+      ctx.setLineDash([]);
+    }
+    // Người không được tính: khung xương mờ.
+    others.forEach((lm) => drawSkeleton(ctx, lm, { width: dw, height: dh, color: 'rgba(255, 255, 255, 0.35)', lineWidth: Math.max(3, dw / 300) }));
+    players.forEach((p, i) => {
+      if (!p) return;
+      const lm = p.lm;
       const ok = round && round.matched[i];
       drawSkeleton(ctx, lm, { width: dw, height: dh, color: ok ? '#04bc09' : TEAM_COLORS[i], lineWidth: Math.max(4, dw / 180) });
       const nose = lm[0];
@@ -277,7 +334,7 @@ function createGame(root) {
       ctx.fillText(PLAYER_NAMES[i], x, y);
     });
     ctx.restore();
-    if (players.length !== view.board.children.length && !(round && round.result)) renderBoard();
+    if (slotsShown().length !== view.board.children.length && !(round && round.result)) renderBoard();
   }
 
   showSetup();

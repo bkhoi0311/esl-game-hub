@@ -209,3 +209,64 @@ test('Whack-a-Word: từ mục tiêu xuất hiện ít nhất mỗi 3 con, khôn
     onBoard = w === target ? [] : [...onBoard, w].slice(-2);
   }
 });
+
+// ---------- Bộ theo dõi người chơi (lớp đông) ----------
+import { bodyInfo, createPoseTracker } from '../src/core/pose-tracker.js';
+
+// Người đứng ở vị trí cx (ảnh gốc), cỡ s (1 = cỡ chuẩn; nhỏ = đứng xa).
+const person = (cx, s = 1, changes = {}) => body(changes).map((p) => ({ x: cx + (p.x - 0.5) * s, y: 0.5 + (p.y - 0.5) * s, visibility: p.visibility }));
+
+test('Tracker: giữ đúng số Player khi các bạn di chuyển nhẹ', () => {
+  const t = createPoseTracker({ maxPlayers: 3 });
+  let r = t.update([person(0.2), person(0.5), person(0.8)], 0);
+  const ids = r.players.map((p) => p.id);
+  // Màn hình gương: ảnh gốc x=0.8 nằm bên TRÁI màn hình -> Player 1.
+  assert.ok(r.players[0].sx < r.players[1].sx && r.players[1].sx < r.players[2].sx, 'Player 1 phải ở bên trái màn hình');
+  for (let f = 1; f <= 20; f++) {
+    // Thứ tự trong danh sách của MediaPipe thay đổi mỗi khung + người nhúc nhích.
+    const list = [person(0.5 + f * 0.002), person(0.8 - f * 0.002), person(0.2 + Math.sin(f) * 0.01)];
+    r = t.update(f % 2 ? list : list.reverse(), f * 33);
+  }
+  assert.deepEqual(r.players.map((p) => p.id), ids, 'số Player bị đổi');
+});
+
+test('Tracker: người đứng xa phía sau / ngoài vùng chơi không được tính', () => {
+  const t = createPoseTracker({ maxPlayers: 2, zone: [0.2, 0.8] });
+  const r = t.update([person(0.5, 0.25), person(0.35), person(0.62), person(0.05)], 0);
+  assert.equal(r.players.filter(Boolean).length, 2);
+  assert.ok(r.players.every((p) => p.size > 0.1), 'người nhỏ (đứng xa) bị chọn');
+  assert.equal(r.others.length, 2, 'người xa + người ngoài vùng phải nằm ở nhóm "others"');
+});
+
+test('Tracker: ưu tiên người gần camera khi đông hơn số chỗ', () => {
+  const t = createPoseTracker({ maxPlayers: 1 });
+  const r = t.update([person(0.3, 0.7), person(0.6, 1.2), person(0.5, 0.9)], 0);
+  assert.ok(Math.abs(r.players[0].cx - 0.6) < 0.01);
+});
+
+test('Tracker: mất nhận diện chớp nhoáng vẫn giữ chỗ, quá lâu thì nhường', () => {
+  const t = createPoseTracker({ maxPlayers: 1, lostMs: 900 });
+  const id = t.update([person(0.5)], 0).players[0].id;
+  assert.equal(t.update([], 300).players[0].id, id, 'mất 300ms không được mất chỗ');
+  assert.equal(t.update([], 1300).players[0], null);
+  assert.notEqual(t.update([person(0.4)], 1400).players[0].id, id);
+});
+
+test('Tracker: làm mịn giảm rung khi đứng yên', () => {
+  const t = createPoseTracker({ maxPlayers: 1 });
+  let maxJump = 0;
+  let prev = null;
+  for (let f = 0; f < 60; f++) {
+    const jitter = f % 2 ? 0.012 : -0.012;
+    const x = t.update([person(0.5 + jitter)], f * 33).players[0].lm[0].x;
+    if (prev != null && f > 5) maxJump = Math.max(maxJump, Math.abs(x - prev));
+    prev = x;
+  }
+  assert.ok(maxJump < 0.012, `rung sau làm mịn ${maxJump.toFixed(4)} phải nhỏ hơn rung gốc 0.024`);
+});
+
+test('Tracker: nhận biết camera không thấy chân (đứng nửa người)', () => {
+  assert.equal(bodyInfo(person(0.5)).legs, true);
+  const half = person(0.5).map((p, i) => (i >= 25 ? { ...p, visibility: 0.1 } : p));
+  assert.equal(bodyInfo(half).legs, false);
+});

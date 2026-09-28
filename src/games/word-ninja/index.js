@@ -5,6 +5,7 @@ import './style.css';
 import { playSound, speak } from '../../core/audio.js';
 import { cameraSetupScreen, createCameraSession, createFpsMonitor } from '../../core/camera.js';
 import { POSE, createPoseDetector } from '../../core/vision.js';
+import { createPoseTracker } from '../../core/pose-tracker.js';
 import { shuffle } from '../../core/content.js';
 import { button, createCountdown, createGameFrame, h, resultsScreen, segmented, setupScreen, toast } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
@@ -30,6 +31,7 @@ function createGame(root, pack) {
   const opts = { mode: 'camera' };
   const session = createCameraSession();
   let detector = null;
+  let tracker = null;
   let raf = 0;
   let view = null;
   let state = null;
@@ -166,7 +168,8 @@ function createGame(root, pack) {
     if (opts.mode === 'camera') {
       loading.textContent = 'Loading AI model…';
       try {
-        detector ||= await createPoseDetector({ numPoses: 2 });
+        // Nhận tối đa 4 người, bộ theo dõi chọn 2 bạn gần camera nhất (lớp đông phía sau không chém nhầm).
+        detector ||= await createPoseDetector({ numPoses: 4 });
       } catch (err) {
         console.error(err);
         loading.textContent = '';
@@ -187,7 +190,10 @@ function createGame(root, pack) {
       else if (phaser) setTimeout(wait, 50);
     };
     wait();
-    if (detector && opts.mode === 'camera') trackLoop();
+    if (detector && opts.mode === 'camera') {
+      tracker = createPoseTracker({ maxPlayers: 2, smooth: 0.7, lostMs: 600 });
+      trackLoop();
+    }
   }
 
   function renderHud() {
@@ -217,7 +223,9 @@ function createGame(root, pack) {
       const scale = Math.max(box.width / vw, box.height / vh); // video hiển thị kiểu cover
       const ox = box.left + (box.width - vw * scale) / 2;
       const oy = box.top + (box.height - vh * scale) / 2;
-      (res.landmarks || []).slice(0, 2).forEach((lm, i) => {
+      tracker.update(res.landmarks || [], now).players.forEach((pl, i) => {
+        if (!pl || !pl.fresh) return;
+        const lm = pl.lm;
         [POSE.leftWrist, POSE.rightWrist].forEach((k) => {
           const p = lm[k];
           if (!p || (p.visibility ?? 1) < 0.5) return;

@@ -26,3 +26,4 @@ body.fluid .sp-play { grid-template-rows: auto minmax(16rem, 55vh) auto; padding
 body.fluid .sp-command { font-size: 1.6rem; min-height: 0; }
 body.fluid .sp-player { font-size: 1rem; padding: 0.3rem 0.8rem; }
 body.fluid .sp-poses { grid-template-columns: 1fr; }
+.sp-tip { justify-self: center; padding: 0.3rem 1.2rem; border-radius: 999px; background: #fff3cc; border: 3px solid #f0c24a; font-size: 1.5rem; font-weight: 800; color: #8a5a00; }

@@ -8,6 +8,11 @@ const MODELS = {
     cdn: 'https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task',
     local: './models/pose_landmarker_lite.task',
   },
+  // Bản "full": chính xác hơn khi lớp đông / học sinh đứng xa, nặng hơn bản lite.
+  poseFull: {
+    cdn: 'https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task',
+    local: './models/pose_landmarker_full.task',
+  },
   face: {
     cdn: 'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task',
     local: './models/face_landmarker.task',
@@ -20,25 +25,27 @@ function loadLib() {
   return libPromise;
 }
 
-async function resolveFileset(lib) {
-  try {
-    return { fileset: await lib.FilesetResolver.forVisionTasks(CDN_WASM), source: 'cdn' };
-  } catch {
-    return { fileset: await lib.FilesetResolver.forVisionTasks(LOCAL_WASM), source: 'local' };
-  }
-}
-
 async function createTask(kind, factory) {
   const lib = await loadLib();
-  const { fileset } = await resolveFileset(lib);
-  const Task = kind === 'pose' ? lib.PoseLandmarker : lib.FaceLandmarker;
+  const Task = kind === 'face' ? lib.FaceLandmarker : lib.PoseLandmarker;
   const attempts = [];
-  for (const modelAssetPath of [MODELS[kind].cdn, MODELS[kind].local]) {
+  // Ưu tiên WASM + model lưu sẵn cùng trang (nhanh, không phụ thuộc mạng ngoài); mở file trực tiếp thì dùng CDN.
+  const local = { wasm: LOCAL_WASM, model: MODELS[kind].local };
+  const cdn = { wasm: CDN_WASM, model: MODELS[kind].cdn };
+  const order = location.protocol === 'file:' ? [cdn, local] : [local, cdn];
+  for (const src of order) {
+    let fileset;
+    try {
+      fileset = await lib.FilesetResolver.forVisionTasks(src.wasm);
+    } catch (err) {
+      attempts.push(`${src.wasm}: ${err && err.message}`);
+      continue;
+    }
     for (const delegate of ['GPU', 'CPU']) {
       try {
-        return await Task.createFromOptions(fileset, factory({ modelAssetPath, delegate }));
+        return await Task.createFromOptions(fileset, factory({ modelAssetPath: src.model, delegate }));
       } catch (err) {
-        attempts.push(`${modelAssetPath} ${delegate}: ${err && err.message}`);
+        attempts.push(`${src.model} ${delegate}: ${err && err.message}`);
       }
     }
   }
@@ -89,12 +96,13 @@ async function resilient(create) {
 }
 
 // Pose Landmarker: tối đa numPoses người.
-export function createPoseDetector({ numPoses = 1 } = {}) {
-  return resilient(() => createTask('pose', (baseOptions) => ({
+// model: 'lite' (nhanh) | 'full' (chính xác hơn khi lớp đông).
+export function createPoseDetector({ numPoses = 1, model = 'lite' } = {}) {
+  return resilient(() => createTask(model === 'full' ? 'poseFull' : 'pose', (baseOptions) => ({
     baseOptions,
     runningMode: 'VIDEO',
     numPoses,
-    minPoseDetectionConfidence: 0.5,
+    minPoseDetectionConfidence: 0.55,
     minPosePresenceConfidence: 0.5,
     minTrackingConfidence: 0.5,
   })));
