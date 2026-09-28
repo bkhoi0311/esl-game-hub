@@ -1,0 +1,59 @@
+/* Gold Heist */
+.gh-scores { width: 100%; max-width: 52rem; }
+.gh-scores .score-team { padding: 0.15rem 0.8rem; }
+.gh-scores .score-value::before { content: ''; display: inline-block; width: 0.55em; height: 0.55em; margin-right: 0.2em; border-radius: 50%; background: var(--yellow); border: 3px solid var(--brand-ink); vertical-align: 0.05em; }
+
+.gh-play { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) minmax(0, 1fr); gap: 1.6rem; padding: 1.6rem 5rem 2.4rem; }
+
+.gh-turn { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6rem 1.6rem; border-radius: 999px; background: var(--team); color: #fff; font-family: var(--font-en); font-weight: 800; }
+.gh-turn-team { font-size: 2.2rem; }
+.gh-turn-q { font-size: 1.6rem; opacity: 0.95; }
+
+.gh-prompt-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--panel); border: 2px solid var(--rule); border-radius: var(--radius-card); }
+.gh-prompt-row .prompt { font-size: 3.8rem; }
+.gh-answers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gh-answers .answer-btn { height: 100%; flex-direction: column; justify-content: center; gap: 1.2rem; padding: 1rem; text-align: center; font-size: 3rem; }
+.gh-answers .answer-key { width: 4.2rem; height: 4.2rem; font-size: 2.2rem; }
+
+.gh-chests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; align-items: center; padding: 0 3rem; grid-row: span 2; }
+.gh-chest { position: relative; display: grid; place-items: center; padding: 1.5rem 1rem 1rem; border: 3px solid var(--rule); border-bottom-width: 9px; border-radius: 2rem; background: #fff8e0; cursor: pointer; touch-action: manipulation; transition: opacity 0.3s ease; }
+.gh-chest:hover { border-color: var(--orange); }
+.gh-chest-art svg { width: 100%; max-width: 17rem; height: auto; overflow: visible; display: block; }
+.gh-chest.dim { filter: grayscale(1) opacity(0.35); }
+.gh-reveal { position: absolute; left: 50%; top: 18%; translate: -50% 0; opacity: 0; pointer-events: none; padding: 0.3rem 1.2rem; border-radius: 999px; font-family: var(--font-en); font-weight: 800; font-size: 3rem; white-space: nowrap; color: #fff; background: var(--green); border: 4px solid var(--brand-ink); }
+.gh-chest.open .gh-reveal { opacity: 1; }
+.gh-lose10 { background: var(--danger); }
+.gh-double { background: var(--cobalt); }
+.gh-steal20 { background: var(--pink); }
+.gh-swap { background: var(--orange); }
+
+.gh-targets { display: flex; justify-content: center; gap: 2rem; grid-row: span 2; align-items: center; }
+.gh-target { display: grid; gap: 0.6rem; justify-items: center; min-width: 16rem; padding: 2rem 2.5rem; border: 4px solid var(--team); border-bottom-width: 10px; border-radius: 2rem; background: color-mix(in srgb, var(--team) 12%, white); font-family: var(--font-en); font-size: 2.6rem; font-weight: 800; color: var(--brand-ink); cursor: pointer; touch-action: manipulation; }
+.gh-target-gold { display: flex; align-items: center; gap: 0.5rem; font-size: 2.2rem; }
+.gh-target-gold .icon { color: #c98a00; }
+
+.gh-outcome { justify-self: center; align-self: center; padding: 2rem 3.5rem; border-radius: 2rem; font-family: var(--font-en); font-size: 3.4rem; font-weight: 800; text-align: center; animation: pop-in 0.3s ease; }
+.gh-outcome.good { background: var(--green-deep); color: #0a5c3f; border: 3px solid var(--green); }
+.gh-outcome.bad { background: #ffe4dc; color: #a82a0b; border: 3px solid var(--red); }
+.gh-next { display: flex; justify-content: center; align-items: start; }
+
+.gh-weights { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.5rem; }
+.gh-weight { display: grid; gap: 0.25rem; justify-items: center; font-weight: 800; font-size: 1rem; }
+.gh-weight input { width: 100%; min-height: 3rem; text-align: center; border: 2px solid var(--rule); border-radius: 0.75rem; font-size: 1.15rem; }
+
+body.fluid .gh-play { padding: 1rem; gap: 1rem; grid-template-rows: auto auto auto; }
+body.fluid .gh-turn-team { font-size: 1.3rem; }
+body.fluid .gh-turn-q { font-size: 1rem; }
+body.fluid .gh-prompt-row { min-height: 0; }
+body.fluid .gh-prompt-row .prompt { font-size: 1.8rem; }
+body.fluid .gh-answers { grid-template-columns: 1fr; }
+body.fluid .gh-answers .answer-btn { min-height: 4rem; font-size: 1.4rem; flex-direction: row; justify-content: flex-start; }
+body.fluid .gh-answers .answer-key { width: 2.6rem; height: 2.6rem; font-size: 1.3rem; }
+body.fluid .gh-chests { gap: 0.6rem; padding: 0; }
+body.fluid .gh-reveal { font-size: 1.4rem; }
+body.fluid .gh-targets { flex-wrap: wrap; }
+body.fluid .gh-target { min-width: 0; font-size: 1.5rem; padding: 1rem; }
+body.fluid .gh-outcome { font-size: 1.8rem; padding: 1rem 1.5rem; }
+body.fluid .gh-weights { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.fluid .gh-scores .score-name { font-size: 1rem; }
+body.fluid .gh-scores .score-value { font-size: 1.5rem; }
