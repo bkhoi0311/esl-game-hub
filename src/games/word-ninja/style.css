@@ -1,0 +1,17 @@
+/* Word Ninja */
+.wn-play { height: 100%; padding: 1rem 2rem 1.2rem; }
+.wn-box { position: relative; height: 100%; border-radius: var(--radius-card); overflow: hidden; border: 6px solid var(--brand-ink); background: #111; touch-action: none; }
+.wn-box.touch { background: radial-gradient(circle at 30% 20%, #3a2a7a, #1c1f25 70%); }
+.wn-box .cam-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+.wn-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.wn-target { position: absolute; top: 1rem; left: 50%; translate: -50% 0; padding: 0.5rem 1.8rem; border-radius: 999px; background: var(--yellow); border: 4px solid var(--brand-ink); font-size: 2.4rem; font-weight: 800; color: var(--brand-ink); white-space: nowrap; pointer-events: none; }
+.wn-hud { position: absolute; top: 1rem; left: 1.2rem; right: 1.2rem; display: flex; justify-content: space-between; pointer-events: none; }
+.wn-score { padding: 0.3rem 1.2rem; border-radius: 999px; background: rgba(255, 255, 255, 0.92); font-size: 2rem; font-weight: 800; color: var(--brand-ink); }
+.wn-lives { display: flex; gap: 0.3rem; padding: 0.2rem 0.9rem; border-radius: 999px; background: rgba(255, 255, 255, 0.92); font-size: 2.2rem; }
+.wn-heart { color: #ff2d55; }
+.wn-heart.lost { color: #c9c9c9; }
+.wn-box.hurt { animation: shake 0.4s ease; border-color: #ff3d10; }
+
+body.fluid .wn-play { padding: 0.5rem; height: 70vh; }
+body.fluid .wn-target { font-size: 1.2rem; top: 3.4rem; }
+body.fluid .wn-score, body.fluid .wn-lives { font-size: 1.1rem; }
