@@ -10,3 +10,10 @@
 .duel-score { min-width: 4.5rem; padding: 0.1rem 1rem; border-radius: 999px; background: var(--team); color: #fff; font-size: 2.4rem; font-weight: 800; text-align: center; }
 .duel-score.bump { animation: bump 0.35s ease; }
 .duel-area { position: relative; min-height: 0; touch-action: none; }
+
+/* Game 2 người chạy trên Phaser */
+.pd-scores { width: 100%; max-width: 34rem; }
+.pd-play { position: relative; height: 100%; }
+.pd-host { position: absolute; inset: 0; touch-action: none; }
+.pd-host canvas { display: block; touch-action: none; }
+.pd-banner { position: absolute; top: 0.4rem; left: 50%; translate: -50% 0; margin: 0; }

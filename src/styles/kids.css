@@ -66,7 +66,7 @@ body { background: #dff5e6 radial-gradient(circle at 1px 1px, rgba(4, 188, 9, 0.
 .answer-btn { font-family: var(--font-en); border: 3px solid var(--brand-ink); border-bottom-width: 8px; border-radius: 1.5rem; }
 .answer-btn:hover:not(:disabled) { transform: translateY(-3px); }
 .prompt { font-family: var(--font-en); }
-.score-team { border-color: var(--brand-ink); border-width: 3px 3px 5px; }
+.score-team { border-color: var(--brand-ink); border-width: 3px 3px 5px 1rem; border-left-color: var(--team); }
 .score-value, .score-name { font-family: var(--font-en); }
 
 body.fluid .header-mascot { display: none; }

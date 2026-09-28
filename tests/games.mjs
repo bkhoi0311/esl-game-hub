@@ -191,42 +191,41 @@ TESTS['tug-of-war'] = async () => {
 TESTS['whack-word'] = async () => {
   const { context, page } = await open('#/game/whack-word', BIG, { hasTouch: true });
   await page.click('[data-testid=whack-word-start]');
-  await page.waitForSelector('[data-testid=wk-prompt-1]');
+  await page.waitForFunction(() => window.__duelScene, null, { timeout: 15000 });
   const cdp = await context.newCDPSession(page);
-  const hits = [0, 0];
+  const scores = () => page.$$eval('.pd-scores .score-value', (els) => els.map((e) => Number(e.textContent)));
   const end = Date.now() + 25000;
-  // Chờ tới khi CẢ 2 bên cùng có chuột mục tiêu đang ngoi, rồi 2 ngón chạm cùng lúc.
   let sc = [0, 0];
+  let shotDone = false;
+  // Chờ tới khi CẢ 2 bên cùng có chuột mục tiêu đang ngoi, rồi 2 ngón chạm cùng lúc.
   while (Date.now() < end && (sc[0] < 2 || sc[1] < 2)) {
-    sc = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
-    const pts = await page.evaluate(() => [0, 1].map((i) => {
-      const target = document.querySelector(`[data-testid=wk-prompt-${i}]`).dataset.word;
-      const mole = [...document.querySelectorAll(`[data-testid=duel-half-${i}] .wk-mole.up`)].find((m) => m.dataset.word === target && !m.classList.contains('hit'));
-      if (!mole) return null;
-      const r = mole.querySelector('.wk-face').getBoundingClientRect();
-      return { x: r.x + r.width / 2, y: r.y + r.height / 3 };
-    }));
+    const pts = await page.evaluate(() => [0, 1].map((i) => window.__duelScene.targets(i).find((t) => t.target) || null));
     if (pts[0] && pts[1]) {
+      if (!shotDone) {
+        await shot(page, 'whack-word-1-play');
+        shotDone = true;
+      }
       await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: pts[0].x, y: pts[0].y, id: 1 }, { x: pts[1].x, y: pts[1].y, id: 2 }] });
       await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-      hits[0]++; hits[1]++;
-      if (hits[0] === 1) await shot(page, 'whack-word-1-play');
+      await page.waitForTimeout(150);
     }
-    await page.waitForTimeout(120);
+    sc = await scores();
+    await page.waitForTimeout(100);
   }
-  const scores = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
-  assert.ok(scores[0] >= 2 && scores[1] >= 2, `chạm đồng thời 2 bên phải cùng được điểm: ${scores}`);
-  // Bấm sai: trừ điểm.
-  const wrong = await page.evaluate(() => {
-    const target = document.querySelector('[data-testid=wk-prompt-0]').dataset.word;
-    const m = [...document.querySelectorAll('[data-testid=duel-half-0] .wk-mole.up:not(.hit)')].find((x) => x.dataset.word !== target);
-    if (!m) return false;
-    m.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
-    return true;
-  });
+  assert.ok(sc[0] >= 2 && sc[1] >= 2, `chạm đồng thời 2 bên phải cùng được điểm: ${sc}`);
+  await shot(page, 'whack-word-2-hit');
+  // Đập sai: trừ 1 điểm.
+  let wrong = null;
+  for (let k = 0; k < 40 && !wrong; k++) {
+    wrong = await page.evaluate(() => window.__duelScene.targets(0).find((t) => !t.target) || null);
+    if (!wrong) await page.waitForTimeout(100);
+  }
   if (wrong) {
-    const after = Number(await page.textContent('[data-testid=duel-score-0]'));
-    assert.equal(after, scores[0] - 1, 'bấm sai phải bị trừ 1 điểm');
+    const before = (await scores())[0];
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: wrong.x, y: wrong.y, id: 9 }] });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await page.waitForTimeout(200);
+    assert.equal((await scores())[0], before - 1, 'đập sai phải bị trừ 1 điểm');
   }
   await context.close();
   const ph = await open('#/game/whack-word', PHONE);
@@ -239,34 +238,32 @@ TESTS['balloon-pop'] = async () => {
   await page.click('[data-testid=balloon-pop-seconds] [data-value="45"]');
   await page.click('[data-testid=balloon-pop-start]');
   await page.waitForSelector('[data-testid=duel-banner]:not([hidden])');
-  const banner = await page.textContent('[data-testid=duel-banner]');
-  assert.match(banner, /Pop only [A-Z]+/);
+  await page.waitForFunction(() => window.__duelScene, null, { timeout: 15000 });
+  assert.match(await page.textContent('[data-testid=duel-banner]'), /Pop only [A-Z]+/);
   const cdp = await context.newCDPSession(page);
-  const end = Date.now() + 20000;
-  let both = 0;
-  while (Date.now() < end && both < 2) {
+  const scores = () => page.$$eval('.pd-scores .score-value', (els) => els.map((e) => Number(e.textContent)));
+  const end = Date.now() + 25000;
+  let sc = [0, 0];
+  let shotDone = false;
+  while (Date.now() < end && (sc[0] < 2 || sc[1] < 2)) {
     const pts = await page.evaluate(() => {
       const cat = document.querySelector('[data-testid=duel-banner]').textContent.split(' ').pop().toLowerCase();
-      return [0, 1].map((i) => {
-        const b = [...document.querySelectorAll(`[data-testid=duel-half-${i}] .bp-balloon:not(.popped):not(.wrong)`)].find((x) => {
-          const r = x.getBoundingClientRect();
-          return cat.startsWith(x.dataset.cat) && r.y > 200 && r.y < innerHeight - 150;
-        });
-        if (!b) return null;
-        const r = b.querySelector('.bp-shape').getBoundingClientRect();
-        return { x: r.x + r.width / 2, y: r.y + r.height / 3 };
-      });
+      return [0, 1].map((i) => window.__duelScene.targets(i).find((t) => cat.startsWith(t.cat)) || null);
     });
     if (pts[0] && pts[1]) {
+      if (!shotDone) {
+        await shot(page, 'balloon-pop-1-play');
+        shotDone = true;
+      }
       await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: pts[0].x, y: pts[0].y, id: 1 }, { x: pts[1].x, y: pts[1].y, id: 2 }] });
       await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-      both++;
-      if (both === 1) await shot(page, 'balloon-pop-1-play');
+      await page.waitForTimeout(200);
+      if (sc[0] === 0 && sc[1] === 0) await shot(page, 'balloon-pop-2-pop');
     }
-    await page.waitForTimeout(150);
+    sc = await scores();
+    await page.waitForTimeout(120);
   }
-  const scores = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
-  assert.ok(scores[0] >= 1 && scores[1] >= 1, `nổ bóng đúng nhóm 2 bên cùng lúc phải được điểm: ${scores}`);
+  assert.ok(sc[0] >= 2 && sc[1] >= 2, `2 bên chạm cùng lúc phải cùng được điểm: ${sc}`);
   await context.close();
 };
 

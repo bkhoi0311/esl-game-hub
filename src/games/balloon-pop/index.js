@@ -1,14 +1,15 @@
-// Balloon Pop — bóng bay chữ bay lên ở 2 nửa bảng; bấm nổ bóng thuộc nhóm yêu cầu (vd "Pop only DRINKS").
-// Nhóm mục tiêu đổi mỗi 20 giây. Đúng +1, sai -1.
-import './style.css';
+// Balloon Pop (Phaser 4) — bóng bay chữ bay lên ở 2 nửa bảng; bấm nổ bóng thuộc nhóm yêu cầu (vd "Pop only DRINKS").
+// Nhóm mục tiêu đổi mỗi 20 giây. Đúng +1, sai -1. 2 học sinh chạm cùng lúc không chặn nhau.
 import { playSound, speak } from '../../core/audio.js';
-import { h } from '../../core/ui.js';
+import { bus } from '../../core/events.js';
 import { balloonTarget } from '../../core/voice-lines.js';
-import { createDuelGame } from '../shared/duel.js';
+import { createPhaserDuel } from '../shared/duel-phaser.js';
+import { DESIGN, FONT_EN, INK, makeFxTextures, toScreen } from '../shared/phaser-host.js';
 import { playableCategories } from '../word-ninja/logic.js';
 
 const TARGET_MS = 20000;
-const COLORS = ['#fd3cc6', '#04bc09', '#ffea00', '#00a2fd', '#ff9800', '#bbee23', '#00e1f3'];
+const COLORS = [0xfd3cc6, 0x04bc09, 0xffd23f, 0x00a2fd, 0xff9800, 0xa26bff, 0x00d9e8];
+const MAX_PER_SIDE = 7;
 
 const HOW_TO = {
   title: 'How to play',
@@ -16,100 +17,146 @@ const HOW_TO = {
   steps: ['Tap a balloon to pop it.', 'Right group: +1 point.', 'Wrong group: -1 point.'],
 };
 
-function balloonSvg(color) {
-  return `<svg viewBox="0 0 100 150" aria-hidden="true">
-    <path d="M50 118q4 14-4 30" fill="none" stroke="#1c1f25" stroke-width="3"/>
-    <ellipse cx="50" cy="56" rx="44" ry="52" fill="${color}" stroke="#1c1f25" stroke-width="5"/>
-    <path d="M44 116l6-9 6 9z" fill="${color}" stroke="#1c1f25" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M22 36q6-16 22-20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".8"/>
-  </svg>`;
-}
+function makeBalloonScene(Phaser, shared) {
+  const W = DESIGN.width;
+  const H = DESIGN.height;
+  const LANE = W / 2;
 
-function createSideFactory(shared) {
-  return function createSide(side, api) {
-    const vocab = api.pack.vocab.filter((v) => v.word && v.category);
-    let balloons = [];
-    let raf = 0;
-    let spawnTimer = 0;
-    let last = 0;
-    const startedAt = performance.now();
-    const area = side.el;
-    area.classList.add('bp-sky');
-
-    function spawn() {
-      if (!api.running || api.paused || !shared.cat) return;
-      const wantTarget = Math.random() < 0.45;
-      const pool = vocab.filter((v) => (v.category.toLowerCase() === shared.cat) === wantTarget);
-      const item = pool[Math.floor(Math.random() * pool.length)];
-      if (item && balloons.length < 7) {
-        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-        const el = h('div', { class: 'bp-balloon', 'data-word': item.word, 'data-cat': item.category.toLowerCase() },
-          h('span', { class: 'bp-shape', innerHTML: balloonSvg(color) }), h('span', { class: 'bp-word en' }, item.word));
-        const b = { el, item, x: 4 + Math.random() * 64, y: 0, speed: 0, phase: Math.random() * 6, done: false };
-        // Bay hết chiều cao trong 7.5 giây lúc đầu, nhanh dần tới 5 giây.
-        const t = (performance.now() - startedAt) / 1000;
-        b.speed = 1 / Math.max(5, 7.5 - t * 0.05);
-        el.addEventListener('pointerdown', (e) => {
-          e.preventDefault();
-          pop(b);
-        });
-        area.append(el);
-        balloons.push(b);
-      }
-      spawnTimer = setTimeout(spawn, 650 + Math.random() * 450);
+  return class BalloonScene extends Phaser.Scene {
+    init(data) {
+      this.api = data.api;
+      this.calm = data.calm;
+      this.balloons = [];
+      this.nextSpawn = [0, 350];
+      this.started = 0;
     }
 
-    function pop(b) {
-      if (b.done || !api.running || api.paused) return;
+    create() {
+      makeFxTextures(this);
+      COLORS.forEach((c, i) => {
+        if (this.textures.exists(`balloon-${i}`)) return;
+        const g = this.make.graphics({}, false);
+        g.fillStyle(c).fillEllipse(70, 70, 120, 136);
+        g.lineStyle(6, INK).strokeEllipse(70, 70, 120, 136);
+        g.fillStyle(0xffffff, 0.55).fillEllipse(44, 38, 24, 40);
+        g.fillStyle(c).fillTriangle(58, 146, 82, 146, 70, 134);
+        g.lineStyle(5, INK).strokeTriangle(58, 146, 82, 146, 70, 134);
+        g.generateTexture(`balloon-${i}`, 140, 152).destroy();
+      });
+
+      // Vạch chia 2 bên + tên đội ở đáy mỗi bên
+      const d = this.add.graphics();
+      d.lineStyle(6, 0xffffff, 0.8);
+      for (let y = 10; y < H; y += 40) d.lineBetween(LANE, y, LANE, y + 22);
+      this.api.teams.forEach((name, i) => {
+        this.add.text(LANE * i + LANE / 2, H - 36, name, { fontFamily: FONT_EN, fontSize: '44px', fontStyle: '800', color: '#ffffff' })
+          .setOrigin(0.5).setAlpha(0.9).setStroke(this.api.colors[i], 10);
+      });
+
+      this.stars = this.add.particles(0, 0, 'fx-star', {
+        speed: { min: 200, max: 480 }, scale: { start: 1.1, end: 0 }, rotate: { min: 0, max: 360 },
+        lifespan: 750, gravityY: 400, emitting: false,
+      }).setDepth(50);
+      this.dots = this.add.particles(0, 0, 'fx-dot', {
+        speed: { min: 120, max: 360 }, scale: { start: 0.8, end: 0 }, lifespan: 600, emitting: false,
+        tint: [0xffffff, 0xffd23f],
+      }).setDepth(49);
+      this.input.addPointer(4);
+      this.started = this.time.now;
+    }
+
+    spawn(side) {
+      const cat = shared.cat;
+      if (!cat) return;
+      const vocab = this.api.pack.vocab.filter((v) => v.word && v.category);
+      const wantTarget = Math.random() < 0.45;
+      const pool = vocab.filter((v) => (v.category.toLowerCase() === cat) === wantTarget);
+      const item = pool[Math.floor(Math.random() * pool.length)];
+      if (!item || this.balloons.filter((b) => b.side === side && !b.done).length >= MAX_PER_SIDE) return;
+
+      const ci = Math.floor(Math.random() * COLORS.length);
+      const x = LANE * side + 90 + Math.random() * (LANE - 180);
+      const c = this.add.container(x, H + 110).setDepth(10);
+      const string = this.add.graphics();
+      string.lineStyle(3, INK, 0.9);
+      string.beginPath();
+      string.moveTo(0, 76);
+      string.lineTo(-6, 110);
+      string.lineTo(4, 140);
+      string.lineTo(-2, 170);
+      string.strokePath();
+      const img = this.add.image(0, 0, `balloon-${ci}`).setInteractive({ useHandCursor: true });
+      const label = this.add.text(0, -2, item.word, { fontFamily: FONT_EN, fontSize: '34px', fontStyle: '800', color: '#1c1f25' }).setOrigin(0.5);
+      const bg = this.add.graphics();
+      const bw = Math.max(label.width + 26, 70);
+      bg.fillStyle(0xffffff, 0.95).fillRoundedRect(-bw / 2, -26, bw, 50, 16);
+      bg.lineStyle(4, INK).strokeRoundedRect(-bw / 2, -26, bw, 50, 16);
+      c.add([string, img, bg, label]);
+      const t = (this.time.now - this.started) / 1000;
+      const b = { c, img, item, side, color: COLORS[ci], speed: (H + 300) / Math.max(5, 7.5 - t * 0.05), phase: Math.random() * 6, baseX: x, done: false };
+      img.on('pointerdown', () => this.pop(b));
+      this.balloons.push(b);
+      if (!this.calm) this.tweens.add({ targets: c, scale: { from: 0.6, to: 1 }, duration: 350, ease: 'Back.easeOut' });
+    }
+
+    pop(b) {
+      if (b.done || !this.api.running || this.api.paused) return;
       b.done = true;
       const good = b.item.category.toLowerCase() === shared.cat;
-      side.addScore(good ? 1 : -1);
-      playSound(good ? 'pop' : 'wrong');
-      if (good) speak(b.item.word);
-      b.el.classList.add(good ? 'popped' : 'wrong');
-      setTimeout(() => b.el.remove(), good ? 350 : 700);
-      balloons = balloons.filter((x) => x !== b);
+      this.api.addScore(b.side, good ? 1 : -1);
+      const { x, y } = b.c;
+      this.floatText(x, y - 40, good ? '+1' : '-1', good ? '#04bc09' : '#ff5a00');
+      if (good) {
+        playSound('pop');
+        bus.emit('correct');
+        speak(b.item.word);
+        this.stars.setParticleTint(b.color);
+        this.stars.explode(this.calm ? 8 : 26, x, y);
+        this.dots.explode(this.calm ? 4 : 14, x, y);
+        this.tweens.add({ targets: b.c, scale: 1.4, alpha: 0, duration: 170, ease: 'Quad.easeOut', onComplete: () => b.c.destroy() });
+      } else {
+        playSound('wrong');
+        b.img.setTint(0x9aa3ad);
+        this.tweens.add({
+          targets: b.c, x: x + 14, duration: 60, yoyo: true, repeat: 3,
+          onComplete: () => this.tweens.add({ targets: b.c, y: H + 220, angle: 40, alpha: 0.4, duration: 900, ease: 'Quad.easeIn', onComplete: () => b.c.destroy() }),
+        });
+      }
     }
 
-    function tick(now) {
-      raf = requestAnimationFrame(tick);
-      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
-      last = now;
-      if (api.paused) return;
-      const H = area.clientHeight;
-      balloons.forEach((b) => {
-        b.y += b.speed * dt;
-        const px = H + 40 - b.y * (H + 260);
-        const sway = Math.sin(now / 600 + b.phase) * 10;
-        b.el.style.transform = `translate(${sway}px, ${px}px)`;
-        b.el.style.left = `${b.x}%`;
-        if (b.y > 1) {
-          b.done = true;
-          b.el.remove();
+    floatText(x, y, text, color) {
+      const t = this.add.text(x, y, text, { fontFamily: FONT_EN, fontSize: '64px', fontStyle: '800', color }).setOrigin(0.5).setStroke('#ffffff', 10).setDepth(60);
+      this.tweens.add({ targets: t, y: y - 90, alpha: { from: 1, to: 0 }, scale: { from: 0.6, to: 1.2 }, duration: 800, ease: 'Back.easeOut', onComplete: () => t.destroy() });
+    }
+
+    update(time, delta) {
+      if (!this.api.running || this.api.paused) return;
+      const dt = Math.min(delta, 50) / 1000;
+      [0, 1].forEach((side) => {
+        if (time >= this.nextSpawn[side]) {
+          this.spawn(side);
+          this.nextSpawn[side] = time + 650 + Math.random() * 450;
         }
       });
-      balloons = balloons.filter((b) => !b.done);
+      this.balloons.forEach((b) => {
+        if (b.done) return;
+        b.c.y -= b.speed * dt;
+        b.c.x = b.baseX + Math.sin(time / 600 + b.phase) * 14;
+        b.c.angle = Math.sin(time / 500 + b.phase) * 4;
+        if (b.c.y < -200) {
+          b.done = true;
+          b.c.destroy();
+        }
+      });
+      this.balloons = this.balloons.filter((b) => !b.done || b.c.active);
     }
 
-    return {
-      start() {
-        cancelAnimationFrame(raf);
-        clearTimeout(spawnTimer);
-        last = 0;
-        raf = requestAnimationFrame(tick);
-        spawnTimer = setTimeout(spawn, 200 + side.index * 250);
-      },
-      stop() {
-        cancelAnimationFrame(raf);
-        clearTimeout(spawnTimer);
-      },
-      destroy() {
-        cancelAnimationFrame(raf);
-        clearTimeout(spawnTimer);
-        balloons.forEach((b) => b.el.remove());
-        balloons = [];
-      },
-    };
+    // Cho test tự động: toạ độ màn hình của các bóng còn bay ở 1 bên.
+    targets(side) {
+      return this.balloons
+        .filter((b) => !b.done && b.side === side && b.c.y > 60 && b.c.y < H - 60)
+        .map((b) => ({ ...toScreen(this.game, b.c.x, b.c.y - 30), word: b.item.word, cat: b.item.category.toLowerCase() }));
+    }
   };
 }
 
@@ -140,13 +187,13 @@ export default {
       api.setBanner(text.replace(/!$/, '').replace(/(\w+)$/, (m) => m.toUpperCase()));
       speak(text);
     };
-    instance = createDuelGame(rootEl, content, {
+    instance = createPhaserDuel(rootEl, content, {
       id: 'balloon-pop',
       title: 'Balloon Pop',
       howTo: HOW_TO,
       banner: true,
       setupHint: `Nhóm mục tiêu đổi mỗi 20 giây. Nhóm dùng trong game: ${cats.join(', ')}.`,
-      createSide: createSideFactory(shared),
+      makeScene: (Phaser) => makeBalloonScene(Phaser, shared),
       onRoundStart(api) {
         shared.cat = null;
         setTarget(api);
