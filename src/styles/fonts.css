@@ -1,18 +1,5 @@
-/* Font nhúng sẵn (chạy offline).
-   Gilroy (Design-ClassIn-2026): chỉ cho chữ số và chữ tiếng Anh — Gilroy KHÔNG có dấu tiếng Việt.
-   Plus Jakarta Sans (SIL OFL, Google Fonts): mọi chữ tiếng Việt hoặc chữ trộn. */
-@font-face {
-  font-family: 'Gilroy';
-  src: url('../assets/fonts/Gilroy-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Gilroy';
-  src: url('../assets/fonts/Gilroy-Extrabold.woff2') format('woff2');
-  font-weight: 800;
-  font-display: swap;
-}
+/* Font nhúng sẵn (chạy offline): Plus Jakarta Sans (SIL Open Font License, Google Fonts),
+   có đủ dấu tiếng Việt. Dùng cho mọi chữ, kể cả chữ tiếng Anh cho học sinh. */
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('../assets/fonts/PlusJakartaSans-vietnamese.woff2') format('woff2');

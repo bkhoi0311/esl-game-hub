@@ -268,7 +268,7 @@ function createGame(root) {
       const nose = lm[0];
       const x = (1 - nose.x) * dw;
       const y = Math.max(30, nose.y * dh - dh * 0.12);
-      ctx.font = `800 ${Math.round(dw / 40)}px Gilroy, sans-serif`;
+      ctx.font = `800 ${Math.round(dw / 40)}px 'Plus Jakarta Sans', sans-serif`;
       ctx.textAlign = 'center';
       ctx.lineWidth = 6;
       ctx.strokeStyle = '#fff';

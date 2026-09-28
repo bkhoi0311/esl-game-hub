@@ -248,7 +248,7 @@ function createGame(root, pack) {
     const H = view.canvas.height;
     const fontPx = Math.round(H / 16);
     const ctx = view.canvas.getContext('2d');
-    ctx.font = `800 ${fontPx}px Gilroy, sans-serif`;
+    ctx.font = `800 ${fontPx}px 'Plus Jakarta Sans', sans-serif`;
     const w = ctx.measureText(item.word).width + fontPx * 1.4;
     const card = launchCard({ word: item.word, target: isTarget, w, h: fontPx * 2, fontPx, color: CARD_COLORS[Math.floor(Math.random() * CARD_COLORS.length)] }, W, H);
     state.cards.push(card);
@@ -307,7 +307,7 @@ function createGame(root, pack) {
         ctx.strokeStyle = '#1c1f25';
         ctx.stroke();
         ctx.fillStyle = c.sliced ? '#fff' : '#1c1f25';
-        ctx.font = `800 ${c.fontPx}px Gilroy, sans-serif`;
+        ctx.font = `800 ${c.fontPx}px 'Plus Jakarta Sans', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(c.word, 0, 2);
@@ -320,7 +320,7 @@ function createGame(root, pack) {
     state.bursts.forEach((b) => {
       const k = (now - b.t) / 800;
       ctx.globalAlpha = 1 - k;
-      ctx.font = `800 ${Math.round(canvas.height / 12)}px Gilroy, sans-serif`;
+      ctx.font = `800 ${Math.round(canvas.height / 12)}px 'Plus Jakarta Sans', sans-serif`;
       ctx.textAlign = 'center';
       ctx.fillStyle = b.good ? '#04bc09' : '#ff3d10';
       ctx.fillText(b.good ? '+1' : '-1', b.x, b.y - k * 80);
