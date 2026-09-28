@@ -2,7 +2,7 @@
 // Sửa trực tiếp trong bảng, dán bảng từ Excel/Google Sheet, xuất/nhập JSON,
 // lưu thành file HTML mới đã chứa sẵn nội dung, khôi phục nội dung mẫu.
 import {
-  LIMITS, exportJson, getPack, normalizePack, parseJsonFile, resetToSample, saveAsNewFile,
+  LIMITS, exportJson, getPack, lessonLink, normalizePack, parseJsonFile, resetToSample, saveAsNewFile,
   setPack, validatePack,
 } from './content.js';
 import { speak } from './audio.js';
@@ -98,6 +98,52 @@ export function rowsToQuestions(rows) {
       else if (key) answer = Math.max(0, options.findIndex((o) => o.toLowerCase() === key.toLowerCase()));
       return { prompt: r[0], options, answer, type: (r[5] || 'grammar').toLowerCase() };
     });
+}
+
+// ---------- Link bài học ----------
+
+async function openLinkModal(pack) {
+  const { errors } = validatePack(pack);
+  if (errors.length) {
+    toast(`Bài còn ${errors.length} lỗi, sửa xong mới tạo link được. Ví dụ: ${errors[0]}`, 'error', 7000);
+    return;
+  }
+  let url;
+  try {
+    url = await lessonLink(pack);
+  } catch (err) {
+    console.error(err);
+    toast('Không tạo được link trên trình duyệt này. Hãy dùng Chrome hoặc Edge bản mới.', 'error', 6000);
+    return;
+  }
+  const field = h('textarea', { class: 'link-field', readonly: true, rows: 4, value: url, 'data-testid': 'lesson-link', onFocus: (e) => e.target.select() });
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      field.select();
+      document.execCommand('copy');
+    }
+    toast('Đã sao chép link bài học.', 'success');
+  };
+  const long = url.length > 2000;
+  openModal({
+    title: 'Link bài học',
+    wide: true,
+    body: h('div', { class: 'link-modal' },
+      h('p', {}, h('strong', {}, pack.title || 'Bài chưa đặt tên'), ` · ${pack.vocab.length} từ, ${pack.questions.length} câu hỏi · link dài ${url.length} ký tự`),
+      field,
+      h('ol', { class: 'link-steps' },
+        h('li', {}, 'Bấm "Sao chép link".'),
+        h('li', {}, 'Dán link vào ClassIn như một link web, gộp thành file .edu và lưu vào Cloud Drive.'),
+        h('li', {}, 'Trên màn tương tác, mở file .edu: vào thẳng bài này, không cần đăng nhập.')),
+      h('p', { class: 'muted' }, 'Link chứa toàn bộ bài nên ai có link cũng xem được nội dung. Không ghi tên hay thông tin học sinh vào bài. Muốn sửa bài: mở link, vào Cài đặt, chọn "Sửa bài này".'),
+      long ? h('p', { class: 'warn-text' }, 'Link khá dài. Nếu ClassIn báo lỗi khi dán, hãy bớt câu hỏi hoặc tách thành 2 bài.') : null),
+    actions: [
+      { label: 'Mở thử', iconName: 'external', onClick: () => { window.open(url, '_blank', 'noopener'); return false; } },
+      { label: 'Sao chép link', iconName: 'copy', variant: 'primary', onClick: () => { copy(); return false; } },
+    ],
+  });
 }
 
 // ---------- Tab Soạn bài ----------
@@ -365,10 +411,11 @@ export function mountEditor(root) {
 
   const actions = h(
     'div', { class: 'editor-actions' },
+    button({ label: 'Tạo link bài học', iconName: 'link', variant: 'primary', onClick: () => openLinkModal(cleaned()), attrs: { 'data-testid': 'make-link' } }),
     button({ label: 'Xuất JSON', iconName: 'download', onClick: () => exportJson(cleaned()), attrs: { 'data-testid': 'export-json' } }),
     button({ label: 'Nhập JSON', iconName: 'upload', onClick: () => fileInput.click(), attrs: { 'data-testid': 'import-json' } }),
     button({
-      label: 'Lưu thành file mới', iconName: 'file-code', variant: 'primary', attrs: { 'data-testid': 'save-html' },
+      label: 'Lưu thành file mới', iconName: 'file-code', attrs: { 'data-testid': 'save-html' },
       onClick: async () => {
         try {
           await saveAsNewFile(cleaned());

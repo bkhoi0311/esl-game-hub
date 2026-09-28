@@ -18,6 +18,10 @@ body { background: #dff5e6 radial-gradient(circle at 1px 1px, rgba(4, 188, 9, 0.
 @keyframes w-spin { to { transform: rotate(360deg); } }
 @keyframes w-twinkle { 50% { opacity: 0.25; transform: scale(0.6); } }
 @keyframes w-wave { to { transform: translateX(120px); } }
+.w-sway { animation: w-sway 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.w-blink { animation: w-blink 5s infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes w-sway { 50% { transform: rotate(6deg); } }
+@keyframes w-blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(0.1); } }
 
 /* ---------- Thanh trên ---------- */
 .app-header { background: rgba(255, 255, 255, 0.9); border-bottom: 3px solid rgba(4, 188, 9, 0.25); }
@@ -40,22 +44,6 @@ body { background: #dff5e6 radial-gradient(circle at 1px 1px, rgba(4, 188, 9, 0.
 .fx-p svg { width: 100%; height: 100%; display: block; }
 .fx-text { position: absolute; translate: -50% -50%; font-size: 2.6rem; font-weight: 800; -webkit-text-stroke: 0.14rem #fff; paint-order: stroke fill; white-space: nowrap; }
 
-/* ---------- Menu ---------- */
-.menu-group-head h2 { padding: 0.2rem 1.2rem 0.2rem 0.3rem; border-radius: 999px; background: rgba(255, 255, 255, 0.92); font-family: var(--font-en); font-size: 1.7rem; }
-.menu-group-head p { padding: 0.15rem 0.8rem; border-radius: 999px; background: rgba(255, 255, 255, 0.75); color: var(--ink); }
-.game-card { --card-bg: #fff; background: linear-gradient(180deg, var(--card-bg) 0 58%, #fff 58%); border: 3px solid var(--brand-ink); border-bottom-width: 8px; border-radius: 1.6rem; }
-.game-card:not(.disabled):hover { transform: translateY(-6px) rotate(-1deg); border-color: var(--brand-ink); }
-.game-card:not(.disabled):hover .game-art svg { animation: bounce-art 0.6s ease; }
-.card-title { font-size: 1.75rem; line-height: 1.05; }
-.theme-meadow { --card-bg: #e2f7d5; }
-.theme-night { --card-bg: #e3e0ff; }
-.theme-garden { --card-bg: #fff1c9; }
-.theme-island { --card-bg: #d6f3ff; }
-.theme-candy { --card-bg: #ffe0f1; }
-.theme-field { --card-bg: #dcf6d2; }
-.theme-sky { --card-bg: #dcefff; }
-@keyframes bounce-art { 30% { transform: translateY(-10px) scale(1.05); } 60% { transform: translateY(0) scale(0.97); } }
-
 /* ---------- Panel trong game nổi trên nền ---------- */
 .setup-card, .notice, .editor-card, .results .rank-list li { border: 3px solid var(--brand-ink); border-bottom-width: 7px; }
 .setup-card { background: rgba(255, 255, 255, 0.96); border-radius: 1.8rem; }
@@ -70,18 +58,10 @@ body { background: #dff5e6 radial-gradient(circle at 1px 1px, rgba(4, 188, 9, 0.
 .score-value, .score-name { font-family: var(--font-en); }
 
 body.fluid .header-mascot { display: none; }
-body.fluid .game-card { background: linear-gradient(90deg, var(--card-bg) 0 38%, #fff 38%); }
 
 @media (prefers-reduced-motion: reduce) {
-  .w-cloud, .w-sun, .w-twinkle, .w-wave { animation: none; }
+  .w-cloud, .w-sun, .w-twinkle, .w-wave, .w-sway, .w-blink { animation: none; }
 }
-
-/* Mascot lớn ở menu */
-.menu-mascot { display: grid; place-items: end center; padding-bottom: 1rem; }
-.menu-mascot .mascot-say { left: 50%; top: -3.2rem; translate: -50% 0; font-size: 1.5rem; }
-.menu-mascot .mascot-say::before { left: 50%; top: 100%; translate: -50% 0; border-color: transparent; border-top-color: var(--brand-ink); }
-body[data-view='menu'] .header-mascot { visibility: hidden; }
-body.fluid .menu-mascot { display: none; }
 
 /* Chọn camera */
 .cam-select-row { display: flex; gap: 0.5rem; }
@@ -95,3 +75,116 @@ body.fluid .menu-mascot { display: none; }
 .cam-left .setup-actions .btn { width: 100%; }
 .cam-card { padding: 1.4rem 2rem; gap: 1rem; }
 .cam-side { max-height: 44rem; overflow-y: auto; padding-right: 0.3rem; }
+
+/* =====================================================================
+   Menu 2026: thanh trên nổi bo tròn, thẻ tranh minh hoạ, Lumi + biển gỗ.
+   ===================================================================== */
+.app-header { margin: 0.9rem 1.4rem 0; height: 5.4rem; padding: 0 1.6rem 0 2.2rem; border: 0; border-radius: 2.7rem; background: rgba(255, 255, 255, 0.94); box-shadow: 0 0.5rem 1.6rem rgba(20, 90, 60, 0.16), inset 0 -0.25rem 0 rgba(4, 188, 9, 0.12); }
+.nav-link { min-height: 3.6rem; padding: 0 1.6rem; font-size: 1.45rem; color: #3d4452; transition: transform 0.15s ease, background 0.15s ease; }
+.nav-link.active { background: linear-gradient(#35d655, #04bc09); color: #fff; box-shadow: 0 0.35rem 0 #028a06, 0 0.6rem 1.2rem rgba(4, 188, 9, 0.35); }
+.nav-link:not(.active):hover { transform: translateY(-2px); }
+.pack-chip { gap: 0.6rem; padding: 0.7rem 1.1rem 0.7rem 1.2rem; background: #e5f8e4; border: 2px solid #c9efc6; font-size: 1.05rem; text-decoration: none; transition: transform 0.15s ease; }
+.pack-chip:hover { transform: translateY(-2px); }
+.pack-chip .icon:last-child { color: #4b5563; }
+.app-header > .btn { border-radius: 999px; }
+body.present .nav-link[href='#/editor'] { display: none; }
+body.framed .stage { border: 0; }
+.app-main { padding: 1rem 1.4rem 1.2rem; }
+
+.menu { display: grid; grid-template-rows: auto minmax(0, 1fr); grid-template-columns: none; gap: 0.9rem; height: 100%; }
+.menu-heads { position: relative; display: flex; align-items: center; gap: 1.2rem; min-height: 6.2rem; padding-left: 7.4rem; }
+.menu-peek { position: absolute; left: -0.4rem; bottom: -1.4rem; z-index: 3; }
+.group-tab { --accent: #1d7bf2; display: flex; align-items: center; gap: 1rem; min-height: 5.6rem; padding: 0.6rem 1.1rem 0.6rem 0.7rem; border: 0; border-radius: 3rem; background: rgba(255, 255, 255, 0.93); box-shadow: 0 0.45rem 1.3rem rgba(20, 90, 60, 0.14); text-align: left; cursor: pointer; transition: transform 0.15s ease; }
+.group-tab.group-class { --accent: #04bc09; }
+.group-tab:hover { transform: translateY(-3px) scale(1.01); }
+.group-tab:active { transform: scale(0.97); }
+.group-icon { display: grid; place-items: center; width: 4rem; height: 4rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent) 60%, #fff), var(--accent)); box-shadow: 0 0.3rem 0 color-mix(in srgb, var(--accent) 70%, #000); }
+.group-text { display: grid; gap: 0.1rem; }
+.group-text strong { font-family: var(--font-en); font-size: 1.85rem; line-height: 1.05; color: var(--brand-ink); }
+.group-text small { font-size: 1.02rem; color: #4b5563; }
+.group-go { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; margin-left: 0.6rem; border-radius: 999px; color: #fff; background: var(--accent); }
+.menu-sign { width: 13rem; margin: -1.6rem 0 -2.2rem auto; transform-origin: 50% 100%; animation: sign-sway 3.2s ease-in-out infinite; }
+.menu-sign svg { display: block; width: 100%; height: auto; }
+
+.card-grid { position: relative; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+.game-card {
+  --lift: 0px;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: stretch;
+  gap: 0;
+  padding: 0;
+  border: 0.32rem solid #fff;
+  border-radius: 1.9rem;
+  background: linear-gradient(180deg, var(--c1), var(--c2));
+  box-shadow: 0 0.6rem 1.4rem rgba(30, 60, 90, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  text-align: left;
+  overflow: visible;
+  animation: card-float 4.2s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * -0.7s);
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+}
+.game-card:not(.disabled):hover { transform: none; filter: brightness(1.04); box-shadow: 0 1.1rem 2rem rgba(30, 60, 90, 0.25); animation-play-state: paused; }
+.game-card:not(.disabled):hover .card-pic img { transform: scale(1.07) rotate(-1.5deg); }
+.game-card:not(.disabled):active { filter: brightness(0.97); }
+.card-pic { position: relative; display: block; min-height: 0; overflow: hidden; border-radius: 1.55rem 1.55rem 0 0; margin-bottom: -1.6rem; }
+.card-pic .game-art { width: 100%; height: 100%; display: block; }
+.card-pic .game-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1); animation: art-breathe 3.6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -0.9s);
+  -webkit-mask-image: linear-gradient(#000 72%, transparent 98%); mask-image: linear-gradient(#000 72%, transparent 98%); }
+.card-pic .game-art svg { max-height: 100%; }
+.card-panel { position: relative; z-index: 1; display: grid; align-content: start; gap: 0.3rem; margin: 0 0.5rem 0.5rem; padding: 0.7rem 0.9rem 0.8rem; border-radius: 1.3rem; background: rgba(255, 255, 255, 0.72); box-shadow: inset 0 1px 0 #fff; backdrop-filter: blur(4px); }
+.card-title { font-family: var(--font-en); font-size: 1.85rem; line-height: 1.02; color: var(--ink-card); padding-right: 0.2rem; }
+.card-desc { max-width: none; padding-right: 2.6rem; font-size: 1.02rem; line-height: 1.3; min-height: 3.9em; color: #414a5c; }
+.card-go { position: absolute; right: 0.6rem; bottom: 0.6rem; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent-card) 55%, #fff), var(--accent-card)); box-shadow: 0 0.25rem 0 color-mix(in srgb, var(--accent-card) 65%, #000); animation: go-pulse 2.4s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -0.4s); }
+.card-badges { top: 0.9rem; left: 0.9rem; z-index: 2; }
+.badge-camera { background: linear-gradient(#3b8cff, #1d6ff2); color: #fff; box-shadow: 0 0.2rem 0.5rem rgba(29, 111, 242, 0.35); font-size: 0.9rem; }
+.game-card.disabled .card-pic { filter: saturate(0.3); opacity: 0.6; }
+
+.menu-mascot { position: relative; grid-row: 2; grid-column: 6; display: grid; place-items: end center; padding: 0; }
+.menu-mascot .mascot { z-index: 2; margin-bottom: 2.6rem; }
+.pick-bubble { position: absolute; top: 0.8rem; left: 0.2rem; z-index: 3; padding: 0.55rem 1.3rem; border-radius: 1.6rem; background: linear-gradient(#1fcf4a, #04a809); color: #fff; font-size: 1.7rem; font-weight: 800; white-space: nowrap; box-shadow: 0 0.35rem 0 #027c05; transform: rotate(-6deg); }
+.pick-bubble::after { content: ''; position: absolute; right: 2.2rem; bottom: -0.9rem; border: 0.6rem solid transparent; border-top-color: #04a809; border-left-width: 0.2rem; }
+.menu-books { position: absolute; right: -0.8rem; bottom: -0.4rem; width: 11rem; z-index: 1; }
+.menu-books svg { display: block; width: 100%; height: auto; }
+
+@keyframes card-float { 50% { translate: 0 -6px; } }
+@keyframes art-breathe { 50% { scale: 1.035; translate: 0 -2px; } }
+@keyframes go-pulse { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.18); } 90% { transform: scale(0.95); } }
+@keyframes sign-sway { 50% { transform: rotate(3deg); } }
+
+/* Hình minh hoạ ở màn cài đặt từng game */
+.setup-card h2 .game-art.has-pic { width: 7.5rem; height: 6rem; border-radius: 1.2rem; overflow: hidden; background: #eef7ff; box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.12); }
+.setup-card h2 .game-art.has-pic img { position: relative; width: 100%; height: 100%; object-fit: cover; animation: art-breathe 3.6s ease-in-out infinite; }
+
+/* Link bài học */
+.link-modal { display: grid; gap: 0.8rem; }
+.link-modal p { margin: 0; }
+.link-field { width: 100%; box-sizing: border-box; padding: 0.7rem 0.9rem; border: 2px solid var(--rule); border-radius: var(--radius-tile); font-family: ui-monospace, monospace; font-size: 0.85rem; word-break: break-all; resize: none; background: #f7faf7; }
+.link-steps { margin: 0; padding-left: 1.4rem; line-height: 1.6; font-weight: 600; }
+.link-box { display: grid; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: var(--radius-tile); background: #e9f9e8; border: 2px solid #bfe9bc; }
+.link-box p { margin: 0; }
+.link-box-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+/* Điện thoại */
+body.fluid .app-header { margin: 0.5rem; border-radius: 1.6rem; height: auto; }
+body.fluid .menu-heads { flex-wrap: wrap; padding-left: 0; gap: 0.6rem; min-height: 0; }
+body.fluid .menu-peek, body.fluid .menu-sign, body.fluid .menu-mascot { display: none; }
+body.fluid .group-tab { width: 100%; min-height: 4.4rem; }
+body.fluid .group-text strong { font-size: 1.3rem; }
+body.fluid .group-text small { font-size: 0.85rem; }
+body.fluid .group-icon { width: 3rem; height: 3rem; }
+body.fluid .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
+body.fluid .game-card { grid-row: auto !important; grid-column: auto !important; grid-template-rows: auto auto; }
+body.fluid .card-pic { aspect-ratio: 1.15; }
+body.fluid .card-desc { min-height: 0; }
+body.fluid .card-title { font-size: 1.25rem; }
+body.fluid .card-desc { font-size: 0.8rem; padding-right: 2rem; }
+body.fluid .card-go { width: 2.2rem; height: 2.2rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card, .card-pic img, .card-go, .menu-sign { animation: none !important; }
+}
+body[data-view='menu'] .header-mascot { visibility: hidden; }
+.setup-card h2 .game-art.has-pic { position: relative; }
+/* Thanh công cụ game nổi bo tròn giống thanh trên */
+body.framed .game-bar { margin: 0.7rem 1.4rem 0; border: 0; border-radius: 2rem; background: rgba(255, 255, 255, 0.92); box-shadow: 0 0.4rem 1.2rem rgba(20, 90, 60, 0.12); }

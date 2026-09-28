@@ -1,0 +1,71 @@
+/* Chuyển động "luôn sống" cho các game: mọi thứ nhún nhẹ, lắc lư, lấp lánh để các bé thích nhìn.
+   Dùng translate / scale / rotate riêng (không dùng transform) để không đè hiệu ứng GSAP và lật thẻ.
+   Tắt hết khi máy bật "giảm chuyển động". */
+
+/* Độ trễ so le cho các phần tử cùng hàng */
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(2) { --d: -0.6s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(3) { --d: -1.2s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(4) { --d: -1.8s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(5) { --d: -2.4s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(6) { --d: -0.3s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(7) { --d: -0.9s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(8) { --d: -1.5s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(9) { --d: -2.1s; }
+:is(.answers, .gh-chests, .imp-cards, .mm-grid, .ttt-board, .sp-board, .scoreboard, .ht-middle, .tw-answers) > :nth-child(n + 10) { --d: -2.7s; }
+
+/* Câu hỏi / lệnh: "thở" nhẹ để mắt các bé luôn nhìn vào */
+.prompt, .gh-prompt-row, .ttt-prompt, .tw-prompt, .ht-prompt, .sp-command, .imp-hint, .mm-q, .wn-target, .sf-banner {
+  animation: mo-breathe 2.8s ease-in-out infinite;
+}
+
+/* Nút đáp án, rương vàng, thẻ bài: bồng bềnh so le */
+.answer-btn:not(:disabled), .gh-chest, .imp-card, .mm-card, .ht-answer, .sp-player, .score-team {
+  animation: mo-float 3.2s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.gh-chest-art { animation: mo-wobble 2.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.imp-card { animation-name: mo-float-tilt; }
+
+/* Ô cờ ca-rô còn trống: lấp lánh mời bấm */
+.ttt-cell:not(:disabled):empty, .ttt-cell:not(:disabled) .ttt-num { animation: mo-glow 2.4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+
+/* Mũi tên nghiêng đầu: chỉ về hướng cần nghiêng */
+.ht-answer:not(.right) .ht-arrow { animation: mo-nudge-l 1.2s ease-in-out infinite; }
+.ht-answer.right .ht-arrow { animation: mo-nudge-r 1.2s ease-in-out infinite; }
+
+/* Lượt chơi / đội đang tới lượt: nhịp đập */
+.gh-turn, .mm-turn, .ttt-turn, .duel-banner, .pd-banner { animation: mo-pulse 1.6s ease-in-out infinite; }
+.sf-light { animation: mo-breathe 2s ease-in-out infinite; }
+.wn-heart:not(.lost) { display: inline-block; animation: mo-heart 1.1s ease-in-out infinite; }
+.game-title { animation: mo-title 6s ease-in-out infinite; transform-origin: 0 60%; }
+.btn-primary:not(:disabled) { animation: mo-breathe 2.4s ease-in-out infinite; }
+.setup-card { animation: mo-pop-in 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+
+/* Mascot và nền: hạt lấp lánh trôi lên (vẽ trong world.js) */
+.w-float { animation: mo-rise linear infinite; }
+
+@keyframes mo-breathe { 50% { scale: 1.025; } }
+@keyframes mo-float { 50% { translate: 0 -5px; } }
+@keyframes mo-float-tilt { 0%, 100% { translate: 0 0; rotate: -0.8deg; } 50% { translate: 0 -6px; rotate: 0.8deg; } }
+@keyframes mo-wobble { 0%, 100% { rotate: -3deg; } 50% { rotate: 3deg; scale: 1.04; } }
+@keyframes mo-glow { 50% { box-shadow: 0 0 0 0.35rem rgba(255, 210, 63, 0.55); scale: 1.03; } }
+@keyframes mo-nudge-l { 50% { translate: -8px 0; } }
+@keyframes mo-nudge-r { 50% { translate: 8px 0; } }
+@keyframes mo-pulse { 50% { scale: 1.06; } }
+@keyframes mo-heart { 0%, 60%, 100% { scale: 1; } 30% { scale: 1.25; } }
+@keyframes mo-title { 0%, 88%, 100% { rotate: 0deg; } 91% { rotate: -2deg; } 94% { rotate: 2deg; } 97% { rotate: -1deg; } }
+@keyframes mo-pop-in { from { scale: 0.85; opacity: 0; } }
+@keyframes mo-rise { from { translate: 0 0; opacity: 0; } 15% { opacity: 0.9; } 85% { opacity: 0.9; } to { translate: 0 -700px; opacity: 0; } }
+
+html.no-idle :is(.prompt, .gh-prompt-row, .ttt-prompt, .tw-prompt, .ht-prompt, .sp-command, .imp-hint, .mm-q, .wn-target, .sf-banner,
+  .answer-btn, .gh-chest, .gh-chest-art, .imp-card, .mm-card, .ht-answer, .sp-player, .score-team, .ttt-cell, .ttt-num,
+  .ht-arrow, .gh-turn, .mm-turn, .ttt-turn, .duel-banner, .pd-banner, .sf-light, .wn-heart, .game-title, .btn-primary, .setup-card,
+  .game-card, .card-go, .card-pic img, .menu-sign) { animation: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt, .gh-prompt-row, .ttt-prompt, .tw-prompt, .ht-prompt, .sp-command, .imp-hint, .mm-q, .wn-target, .sf-banner,
+  .answer-btn, .gh-chest, .gh-chest-art, .imp-card, .mm-card, .ht-answer, .sp-player, .score-team, .ttt-cell, .ttt-num,
+  .ht-arrow, .gh-turn, .mm-turn, .ttt-turn, .duel-banner, .pd-banner, .sf-light, .wn-heart, .game-title, .btn-primary, .setup-card, .w-float {
+    animation: none !important;
+  }
+}

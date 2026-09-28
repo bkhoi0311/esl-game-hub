@@ -14,7 +14,8 @@
     "test:offline": "node tests/offline.mjs",
     "predev": "node scripts/copy-wasm.js",
     "prebuild": "node scripts/copy-wasm.js",
-    "test:camera": "node tests/camera.mjs"
+    "test:camera": "node tests/camera.mjs",
+    "test:link": "node tests/link.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.0.1",

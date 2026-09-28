@@ -17,14 +17,33 @@ function hills(c1, c2, c3) {
 
 const clouds = () => cloud(80, 110, 1.3, 'c1') + cloud(620, 60, 0.9, 'c2') + cloud(1080, 150, 1.1, 'c3') + cloud(1300, 40, 0.7, 'c1');
 const sun = (x, y) => `<g transform="translate(${x} ${y})"><circle class="w-sun" r="70" fill="#ffd23f" stroke="#ffb400" stroke-width="10" stroke-dasharray="14 18"/></g>`;
-const flowers = (list) => list.map(([x, y, c]) => flower(x, y, c)).join('');
+const flowers = (list) => list.map(([x, y, c]) => `<g class="w-sway" style="animation-delay:${(-(x % 7) * 0.4).toFixed(1)}s">${flower(x, y, c)}</g>`).join('');
+
+// Mặt trời có khuôn mặt: tia nắng xoay chậm, mặt cười chớp mắt.
+const happySun = (x, y) => `<g transform="translate(${x} ${y})">
+  <g class="w-sun">${Array.from({ length: 12 }, (_, i) => `<path d="M0-96l12 22h-24z" fill="#ffc21a" transform="rotate(${i * 30})"/>`).join('')}</g>
+  <circle r="70" fill="url(#w-sunfill)"/>
+  <g class="w-blink"><ellipse cx="-24" cy="-6" rx="7" ry="10" fill="#5a3a12"/><ellipse cx="24" cy="-6" rx="7" ry="10" fill="#5a3a12"/>
+  <circle cx="-21" cy="-10" r="2.6" fill="#fff"/><circle cx="27" cy="-10" r="2.6" fill="#fff"/></g>
+  <path d="M-22 18q22 22 44 0" fill="none" stroke="#5a3a12" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="-44" cy="14" rx="11" ry="7" fill="#ff8a5c" opacity=".55"/><ellipse cx="44" cy="14" rx="11" ry="7" fill="#ff8a5c" opacity=".55"/></g>`;
+
+// Hàng cây và bụi cỏ tròn phía xa.
+const tree = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-8" y="0" width="16" height="60" rx="6" fill="#9b6a3c"/>
+  <circle cx="0" cy="-10" r="44" fill="#3fae4a"/><circle cx="-30" cy="10" r="30" fill="#48bb52"/><circle cx="30" cy="8" r="32" fill="#48bb52"/><circle cx="-10" cy="-30" r="20" fill="#6fd06f" opacity=".7"/></g>`;
+const bush = (x, y, s, c = '#3fb34c') => `<g transform="translate(${x} ${y}) scale(${s})"><circle cx="-34" cy="0" r="30" fill="${c}"/><circle cx="0" cy="-14" r="38" fill="${c}"/><circle cx="36" cy="0" r="30" fill="${c}"/><circle cx="-8" cy="-26" r="14" fill="#fff" opacity=".18"/></g>`;
+const fence = (x, y, n) => `<g transform="translate(${x} ${y})" fill="#e0a86a" stroke="#a8703a" stroke-width="5">${Array.from({ length: n }, (_, i) => `<path d="M${i * 46} 0l14-16 14 16v84h-28z"/>`).join('')}<rect x="-8" y="22" width="${n * 46 + 4}" height="14" rx="6"/><rect x="-8" y="56" width="${n * 46 + 4}" height="14" rx="6"/></g>`;
 
 const THEMES = {
   // Menu: đồng cỏ nắng
   meadow: {
-    sky: ['#9fe0ff', '#dff5ff'],
-    body: () => `${sun(1330, 130)}${clouds()}${hills('#9be37a', '#72d25b', '#4fbf46')}
-      ${flowers([[120, 930, '#fd3cc6'], [300, 975, '#ffffff'], [520, 940, '#ff9800'], [900, 985, '#fd3cc6'], [1120, 945, '#ffffff'], [1380, 975, '#00a2fd']])}`,
+    sky: ['#8fd8ff', '#e6f8ff'],
+    body: () => `${happySun(1400, 110)}${clouds()}
+      ${tree(60, 560, 1.1)}${tree(170, 600, 0.8)}${tree(1300, 590, 1)}${tree(1420, 560, 1.2)}
+      ${hills('#a6e67f', '#7fd862', '#5cc84e')}
+      ${bush(40, 820, 1.2)}${bush(1450, 830, 1.3, '#36a843')}${bush(720, 880, 0.9, '#4cbf55')}
+      ${fence(-10, 900, 5)}
+      ${flowers([[120, 950, '#fd3cc6'], [240, 990, '#ffffff'], [420, 960, '#ff9800'], [610, 1000, '#ffd23f'], [900, 985, '#fd3cc6'], [1060, 950, '#ffffff'], [1220, 995, '#00a2fd'], [1380, 975, '#ff5a7a']])}`,
   },
   // Bóng bay: bầu trời cầu vồng
   sky: {
@@ -74,6 +93,22 @@ const THEMES = {
   },
 };
 
+// Hạt lấp lánh / bong bóng nhỏ trôi từ dưới lên, lặp mãi (CSS .w-float trong motion.css).
+function floaters(key) {
+  const night = key === 'night';
+  return Array.from({ length: 16 }, (_, i) => {
+    const x = ((i * 397) % (W - 60)) + 30;
+    const y = H - 40 - ((i * 53) % 160);
+    const r = 5 + ((i * 7) % 9);
+    const dur = 9 + ((i * 13) % 9);
+    const delay = -((i * 1.7) % dur).toFixed(1);
+    const shape = night || i % 3 === 0
+      ? `<path d="M0-${r * 1.4}L${r * 0.4}-${r * 0.4} ${r * 1.4} 0 ${r * 0.4} ${r * 0.4} 0 ${r * 1.4}-${r * 0.4} ${r * 0.4}-${r * 1.4} 0-${r * 0.4}-${r * 0.4}z" fill="${night ? '#fff6b0' : '#fffbe0'}"/>`
+      : `<circle r="${r}" fill="#fff" fill-opacity=".35" stroke="#fff" stroke-opacity=".8" stroke-width="2"/><circle cx="${-r * 0.35}" cy="${-r * 0.35}" r="${r * 0.25}" fill="#fff"/>`;
+    return `<g transform="translate(${x} ${y})"><g class="w-float" style="animation-duration:${dur}s;animation-delay:${delay}s">${shape}</g></g>`;
+  }).join('');
+}
+
 let host = null;
 
 export function mountWorld(parent) {
@@ -92,6 +127,7 @@ export function setWorld(name = 'meadow') {
   const t = THEMES[key];
   host.dataset.theme = key;
   host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="w-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.sky[0]}"/><stop offset="1" stop-color="${t.sky[1]}"/></linearGradient></defs>
-    <rect width="${W}" height="${H}" fill="url(#w-sky)"/>${t.body()}</svg>`;
+    <defs><linearGradient id="w-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.sky[0]}"/><stop offset="1" stop-color="${t.sky[1]}"/></linearGradient>
+    <radialGradient id="w-sunfill" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff3a0"/><stop offset=".6" stop-color="#ffd23f"/><stop offset="1" stop-color="#ffb400"/></radialGradient></defs>
+    <rect width="${W}" height="${H}" fill="url(#w-sky)"/>${t.body()}${key === 'plain' ? '' : floaters(key)}</svg>`;
 }

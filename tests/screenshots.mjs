@@ -53,8 +53,9 @@ try {
       const { context, page } = await newPage(size);
       await page.goto(BASE);
       await page.waitForSelector('.game-card');
+      await page.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 10000 });
       assert.equal(await page.locator('.game-card').count(), 11, 'menu phải có 11 thẻ');
-      assert.equal(await page.locator('.menu-group').count(), 2, 'menu phải có 2 nhóm');
+      assert.equal(await page.locator('.group-tab').count(), 2, 'menu phải có 2 nhóm');
       await page.waitForTimeout(1400); // chờ hiệu ứng thẻ bay vào
       await page.screenshot({ path: `${OUT}/menu-${size.name}.png`, fullPage: true });
 

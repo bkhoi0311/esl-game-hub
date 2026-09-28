@@ -10,3 +10,7 @@
 | Âm hiệu đúng/sai/thắng | Tổng hợp bằng Web Audio trong `src/core/audio.js` | Của dự án |
 | Model MediaPipe (`public/models/*.task`) | Google MediaPipe | Apache-2.0 |
 | Icon giao diện | Lucide | ISC |
+
+## Tranh minh hoạ thẻ game (src/assets/cards/*.webp)
+- Nguồn: ảnh mẫu giao diện do chủ dự án cung cấp (28/09/2026). Cắt phần tranh của từng thẻ, xoá huy hiệu "Cần camera" cũ, làm nét x4 bằng Real-ESRGAN (model realesrgan-x4plus-anime), xuất WebP 640px.
+- Dùng cho thẻ menu và màn cài đặt từng game. SVG vẽ tay trong src/core/art.js giữ làm dự phòng.

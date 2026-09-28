@@ -189,9 +189,10 @@ function readEmbedded() {
   }
 }
 
-const embedded = readEmbedded();
+let embedded = readEmbedded();
 // File đã lưu kèm nội dung riêng thì dùng khóa lưu riêng, để các file không đè lên nhau.
-const storageKey = STORAGE_PREFIX + (embedded ? 'file-' + hash(embedded.text) : 'default');
+let storageKey = STORAGE_PREFIX + (embedded ? 'file-' + hash(embedded.text) : 'default');
+let fromLink = false;
 
 function defaultPack() {
   return embedded ? clone(embedded.pack) : normalizePack(samplePack);
@@ -238,6 +239,111 @@ export function resetToSample() {
 
 export function hasEmbeddedPack() {
   return Boolean(embedded);
+}
+
+// ---------- Link bài học ----------
+// Bài được nén (deflate-raw) rồi mã hoá base64url, gắn sau dấu # của link: .../#L=1xxxx
+// Phần sau # không gửi lên máy chủ. "1" = đã nén, "0" = không nén (trình duyệt cũ).
+const LINK_KEY = 'eslhub.link';
+
+function toB64url(bytes) {
+  let bin = '';
+  bytes.forEach((b) => (bin += String.fromCharCode(b)));
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function fromB64url(text) {
+  const bin = atob(text.replace(/-/g, '+').replace(/_/g, '/'));
+  return Uint8Array.from(bin, (c) => c.charCodeAt(0));
+}
+
+async function pipe(bytes, stream) {
+  const out = new Blob([bytes]).stream().pipeThrough(stream);
+  return new Uint8Array(await new Response(out).arrayBuffer());
+}
+
+// Chỉ giữ ảnh là đường link (http/https); ảnh nhúng dạng data: làm link quá dài.
+function packForLink(pack) {
+  const p = normalizePack(pack);
+  p.vocab.forEach((v) => {
+    if (!/^https?:\/\//i.test(v.image)) v.image = '';
+  });
+  // Bỏ trường trống / mặc định cho link ngắn hơn (normalizePack điền lại khi mở).
+  const slim = (o) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== ''));
+  return {
+    ...slim({ title: p.title, level: p.level }),
+    vocab: p.vocab.map(slim),
+    questions: p.questions.map(({ type, ...q }) => (type === 'grammar' ? q : { ...q, type })),
+    actionCommands: p.actionCommands,
+    teams: p.teams,
+  };
+}
+
+export async function encodeLesson(pack) {
+  const bytes = new TextEncoder().encode(JSON.stringify(packForLink(pack)));
+  if (typeof CompressionStream === 'function') return '1' + toB64url(await pipe(bytes, new CompressionStream('deflate-raw')));
+  return '0' + toB64url(bytes);
+}
+
+export async function decodeLesson(code) {
+  const kind = code[0];
+  let bytes = fromB64url(code.slice(1));
+  if (kind === '1') bytes = await pipe(bytes, new DecompressionStream('deflate-raw'));
+  else if (kind !== '0') throw new Error('bad lesson code');
+  return normalizePack(JSON.parse(new TextDecoder().decode(bytes)));
+}
+
+export async function lessonLink(pack) {
+  const base = location.href.split('#')[0].replace(/[?&]L=[^&]*/, '');
+  return `${base}#L=${await encodeLesson(pack)}`;
+}
+
+function linkCodeFromUrl() {
+  const m = location.hash.match(/^#L=([A-Za-z0-9_-]+)/) || location.search.match(/[?&]L=([A-Za-z0-9_-]+)/);
+  return m ? m[1] : '';
+}
+
+// Gọi 1 lần lúc mở app. Mở từ link bài học: dùng bài trong link (chế độ trình chiếu).
+// Nhớ mã trong phiên của tab, để chuyển qua lại giữa các game (#/game/...) không mất bài.
+export async function initLinkedPack() {
+  let code = linkCodeFromUrl();
+  try {
+    if (code) sessionStorage.setItem(LINK_KEY, code);
+    else code = sessionStorage.getItem(LINK_KEY) || '';
+  } catch {
+    // sessionStorage bị chặn: vẫn chạy với mã trong link.
+  }
+  if (!code) return false;
+  try {
+    const pack = await decodeLesson(code);
+    embedded = { text: code, pack };
+    storageKey = STORAGE_PREFIX + 'link-' + hash(code);
+    fromLink = true;
+    current = clone(pack); // luôn bắt đầu đúng bài trong link
+  } catch (err) {
+    console.error('Link bài học hỏng', err);
+    return false;
+  }
+  if (location.hash.startsWith('#L=')) history.replaceState(null, '', location.href.split('#')[0] + '#/');
+  return true;
+}
+
+export function isLinkedPack() {
+  return fromLink;
+}
+
+// Thoát chế độ trình chiếu. edit = true: chép bài trong link vào Soạn bài của máy này để sửa tiếp.
+export function leaveLinkedPack({ edit = false } = {}) {
+  try {
+    sessionStorage.removeItem(LINK_KEY);
+    if (edit && embedded) localStorage.setItem(STORAGE_PREFIX + 'default', JSON.stringify(embedded.pack));
+  } catch {
+    // bỏ qua
+  }
+  const base = location.href.split('#')[0].replace(/[?&]L=[^&]*/, '');
+  const sameDoc = base === location.href.split('#')[0];
+  location.replace(`${base}#/${edit ? 'editor' : ''}`);
+  if (sameDoc) location.reload(); // chỉ đổi phần # thì trình duyệt không tự nạp lại
 }
 
 // ---------- Xuất / nhập ----------

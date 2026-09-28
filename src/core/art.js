@@ -180,10 +180,26 @@ const ART = {
     <path d="M26 26l108 108" stroke="${C.yellow}" stroke-width="6" stroke-linecap="round" opacity=".7"/>`,
 };
 
+// Tranh minh hoạ thẻ game (vẽ kiểu hoạt hình 3D, làm nét x4). Nhúng thẳng vào bản build nên chạy offline.
+const PICS = Object.fromEntries(
+  Object.entries(import.meta.glob('../assets/cards/*.webp', { eager: true, import: 'default' }))
+    .map(([path, url]) => [path.split('/').pop().replace('.webp', ''), url]),
+);
+
 export function gameArt(id) {
-  const body = ART[id] || '';
   const wrap = document.createElement('span');
   wrap.className = 'game-art';
-  wrap.innerHTML = `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${body}</svg>`;
+  if (PICS[id]) {
+    wrap.classList.add('has-pic');
+    wrap.style.setProperty('--pic', `url("${PICS[id]}")`);
+    const img = document.createElement('img');
+    img.src = PICS[id];
+    img.alt = '';
+    img.draggable = false;
+    img.decoding = 'async';
+    wrap.append(img);
+    return wrap;
+  }
+  wrap.innerHTML = `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${ART[id] || ''}</svg>`;
   return wrap;
 }

@@ -4,6 +4,7 @@ import {
   Coins, Download, FileCode, Gamepad2, Grid3x3, Hand, House, Info, Lock, Minus, Pause,
   PersonStanding, Play, Plus, RefreshCcw, RotateCcw, ScanFace, Search, Settings, Swords, Timer,
   Trash2, TriangleAlert, Trophy, Upload, Users, Volume2, X,
+  Link, Copy, PencilLine, ChevronRight, ExternalLink, LogOut, Sparkles,
 } from 'lucide';
 
 const ICONS = {
@@ -15,6 +16,7 @@ const ICONS = {
   restart: RotateCcw, 'scan-face': ScanFace, search: Search, settings: Settings, swords: Swords,
   timer: Timer, trash: Trash2, alert: TriangleAlert, trophy: Trophy, upload: Upload,
   users: Users, volume: Volume2, x: X,
+  link: Link, copy: Copy, pencil: PencilLine, 'chevron-right': ChevronRight, external: ExternalLink, 'log-out': LogOut, sparkles: Sparkles,
 };
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
