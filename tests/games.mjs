@@ -79,6 +79,55 @@ TESTS['gold-heist'] = async () => {
   await context.close();
 };
 
+// ---------- Impostor Word ----------
+TESTS.impostor = async () => {
+  const { context, page } = await open('#/game/impostor');
+  await page.click('[data-testid=impostor-start]');
+  const seen = new Set();
+  for (let r = 0; r < 4; r++) {
+    await page.waitForSelector('[data-testid=imp-card]');
+    const cards = await page.$$eval('[data-testid=imp-card]', (els) => els.map((e) => ({ word: e.querySelector('.imp-word').textContent, imp: e.dataset.impostor === 'true', cat: e.querySelector('.imp-tag').textContent })));
+    assert.equal(cards.length, 5);
+    assert.equal(cards.filter((c) => c.imp).length, 1, 'phải có đúng 1 impostor');
+    const major = cards.find((c) => !c.imp).cat;
+    assert.equal(cards.filter((c) => c.cat !== major).length, 1, 'có 2 từ khác nhóm');
+    const key = cards.map((c) => c.word).sort().join('|');
+    assert.ok(!seen.has(key), 'lặp tổ hợp trong phiên');
+    seen.add(key);
+    if (r === 0) {
+      await page.click('[data-testid=imp-start]');
+      await page.waitForTimeout(1200);
+      await shot(page, 'impostor-1-round');
+    }
+    const pick = r % 2 === 0 ? cards.findIndex((c) => c.imp) : cards.findIndex((c) => !c.imp);
+    await page.click(`[data-testid=imp-card] >> nth=${pick}`);
+    await page.waitForSelector('[data-testid=imp-answer]');
+    const text = await page.textContent('[data-testid=imp-answer]');
+    assert.match(text, /4 are \w+, 1 is an? \w+\./);
+    if (r === 0) await shot(page, 'impostor-2-reveal');
+    await page.click('[data-testid=imp-next]');
+  }
+  const status = await page.textContent('.imp-status');
+  assert.match(status, /Class score 2/);
+  await context.close();
+
+  // Thiếu nhóm: báo rõ, không crash.
+  const c2 = await browser.newContext({ viewport: BIG });
+  const p2 = await c2.newPage();
+  p2.on('pageerror', (e) => pageErrors.push(`impostor-missing: ${e.message}`));
+  await p2.goto(BASE);
+  await p2.evaluate(() => localStorage.setItem('eslhub.pack.default', JSON.stringify({ title: 'T', vocab: [
+    { word: 'apple', category: 'fruit' }, { word: 'pear', category: 'fruit' }, { word: 'kiwi', category: 'fruit' }, { word: 'lime', category: 'fruit' },
+    { word: 'tea', category: 'drink' }, { word: 'milk', category: 'drink' }, { word: 'soda', category: 'drink' }, { word: 'rice', category: 'meal' } ], questions: [], teams: ['A', 'B'] })));
+  await p2.goto(BASE + '#/game/impostor');
+  await p2.reload();
+  await p2.waitForSelector('.notice');
+  const msg = await p2.textContent('.notice');
+  assert.match(msg, /"drink" cần thêm 1 từ/);
+  await shot(p2, 'impostor-3-missing');
+  await c2.close();
+};
+
 // ---------- Vào/ra game 5 lần (kiểm tra dọn dẹp) ----------
 async function enterExit(id) {
   const { context, page } = await open('#/');

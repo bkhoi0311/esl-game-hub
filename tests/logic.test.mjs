@@ -44,3 +44,43 @@ test('Gold Heist: "cướp"/"đổi" chỉ khả dụng khi có đội khác ph�
 test('Gold Heist: đổi vàng', () => {
   assert.deepEqual(applyChest([5, 40, 7], 0, 'swap', 1).gold, [40, 5, 7]);
 });
+
+// ---------- Impostor Word ----------
+import { checkContent as impostorCheck, explain, makeRound } from '../src/games/impostor/logic.js';
+import { readFileSync } from 'node:fs';
+
+const sample = JSON.parse(readFileSync(new URL('../src/data/sample-food-a2.json', import.meta.url)));
+
+test('Impostor: không bao giờ có 2 từ khác nhóm, không lặp tổ hợp', () => {
+  const used = new Set();
+  let rounds = 0;
+  for (;;) {
+    const r = makeRound(sample.vocab, used);
+    if (!r) break;
+    rounds++;
+    assert.equal(r.cards.length, 5);
+    const odd = r.cards.filter((c) => c.category !== r.major);
+    assert.equal(odd.length, 1, 'phải có đúng 1 từ khác nhóm');
+    assert.equal(r.cards.filter((c) => c.impostor).length, 1);
+    assert.ok(odd[0].impostor);
+    if (rounds > 3000) break;
+  }
+  assert.equal(used.size, rounds, 'tổ hợp bị lặp');
+  assert.ok(rounds > 50);
+});
+
+test('Impostor: báo thiếu nhóm rõ ràng', () => {
+  const v = (word, category) => ({ word, category });
+  assert.equal(impostorCheck(sample.vocab).length, 0);
+  const one = impostorCheck([v('a', 'fruit'), v('b', 'fruit'), v('c', 'fruit'), v('d', 'fruit')]);
+  assert.ok(one.length && /2 nhóm/.test(one[0]));
+  const short = impostorCheck([v('a', 'fruit'), v('b', 'fruit'), v('c', 'fruit'), v('d', 'fruit'), v('e', 'drink'), v('f', 'drink')]);
+  assert.ok(short.some((m) => /"drink" cần thêm 2 từ/.test(m)), short.join(' | '));
+  assert.equal(makeRound([v('a', 'fruit'), v('b', 'fruit'), v('c', 'fruit'), v('d', 'fruit'), v('e', 'drink')]), null);
+});
+
+test('Impostor: câu giải thích', () => {
+  assert.equal(explain('drink', 'fruit'), '4 are drinks, 1 is a fruit.');
+  assert.equal(explain('vegetable', 'meal'), '4 are vegetables, 1 is a meal.');
+  assert.equal(explain('dish', 'apple'), '4 are dishes, 1 is an apple.');
+});

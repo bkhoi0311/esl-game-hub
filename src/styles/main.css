@@ -103,6 +103,8 @@ select:focus-visible, textarea:focus-visible, .answer-btn:focus-visible {
   outline-offset: 2px;
 }
 .btn-icon { padding: 0; }
+a.btn { color: var(--ink); }
+a.btn-primary { color: var(--on-green); }
 .btn-primary { background: var(--green); border-color: var(--green-dark); color: var(--on-green); }
 .btn-primary:hover { background: var(--green-dark); border-color: #027c05; }
 .btn-danger { background: var(--danger); border-color: #a82a0b; color: #fff; }

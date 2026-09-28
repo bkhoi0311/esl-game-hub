@@ -1,0 +1,59 @@
+/* Impostor Word */
+.imp-status { font-size: 1.6rem; font-weight: 800; color: var(--brand-ink); white-space: nowrap; }
+.imp-play { height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 2rem; padding: 2.5rem 3.5rem 2.5rem; }
+.imp-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.4rem; min-height: 0; }
+
+.imp-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  justify-items: center;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.5rem 0.8rem 1rem;
+  border: 4px solid var(--brand-ink);
+  border-bottom-width: 12px;
+  border-radius: 1.75rem;
+  background: var(--card);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.15s ease, background 0.3s ease, opacity 0.3s ease;
+  min-height: 0;
+}
+.imp-card:hover { transform: translateY(-6px) rotate(-1deg); }
+.imp-card:active { transform: translateY(2px); }
+.imp-word { font-size: 3.6rem; font-weight: 800; color: var(--brand-ink); text-align: center; line-height: 1.05; overflow-wrap: anywhere; }
+.imp-tag { visibility: hidden; font-size: 1.4rem; font-weight: 800; padding: 0.2rem 0.9rem; border-radius: 999px; background: #fff; border: 3px solid var(--brand-ink); text-transform: lowercase; }
+.imp-speak { background: #fff; border: 3px solid var(--brand-ink) !important; border-radius: 999px; min-width: 4.4rem; min-height: 4.4rem; }
+.imp-speak .icon { width: 1.9rem; height: 1.9rem; }
+
+.imp-card.revealed { cursor: default; transform: none; }
+.imp-card.revealed .imp-tag { visibility: visible; }
+.imp-card.revealed:not(.is-impostor) { opacity: 0.55; }
+.imp-card.picked { outline: 7px solid var(--cobalt); outline-offset: 3px; }
+.imp-card.is-impostor { background: var(--pink); opacity: 1; transition: none; }
+.imp-card.is-impostor .imp-word { color: #fff; }
+.imp-badge { position: absolute; top: -1.6rem; left: 50%; translate: -50% 0; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 1rem; border-radius: 999px; background: var(--brand-ink); color: #fff; font-size: 1.3rem; font-weight: 800; white-space: nowrap; }
+
+.imp-bottom { display: flex; align-items: center; justify-content: center; gap: 2rem; min-height: 7rem; }
+.imp-hint { margin: 0; font-size: 2.4rem; font-weight: 800; color: var(--brand-ink); text-align: center; }
+.imp-hint.warn { color: var(--danger); }
+.imp-answer { display: grid; gap: 0.2rem; padding: 0.9rem 2.2rem; border-radius: var(--radius-card); border: 3px solid; }
+.imp-answer.good { background: var(--green-deep); border-color: var(--green); }
+.imp-answer.bad { background: #ffe4dc; border-color: var(--red); }
+.imp-verdict { font-size: 1.5rem; font-weight: 800; color: var(--ink-muted); }
+.imp-explain { font-size: 2.6rem; font-weight: 800; color: var(--brand-ink); }
+
+body.fluid .imp-status { font-size: 1rem; }
+body.fluid .imp-play { padding: 1rem; gap: 1rem; grid-template-rows: auto auto; }
+body.fluid .imp-cards { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+body.fluid .imp-card { padding: 1rem 0.5rem 0.6rem; min-height: 9rem; border-bottom-width: 7px; }
+body.fluid .imp-word { font-size: 1.7rem; }
+body.fluid .imp-tag { font-size: 0.95rem; }
+body.fluid .imp-speak { min-width: 3rem; min-height: 3rem; }
+body.fluid .imp-bottom { flex-direction: column; gap: 0.8rem; }
+body.fluid .imp-hint { font-size: 1.3rem; }
+body.fluid .imp-explain { font-size: 1.4rem; }
+body.fluid .imp-badge { font-size: 0.9rem; top: -1.1rem; }
