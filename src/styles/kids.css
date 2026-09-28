@@ -188,3 +188,6 @@ body[data-view='menu'] .header-mascot { visibility: hidden; }
 .setup-card h2 .game-art.has-pic { position: relative; }
 /* Thanh công cụ game nổi bo tròn giống thanh trên */
 body.framed .game-bar { margin: 0.7rem 1.4rem 0; border: 0; border-radius: 2rem; background: rgba(255, 255, 255, 0.92); box-shadow: 0 0.4rem 1.2rem rgba(20, 90, 60, 0.12); }
+.link-more summary { cursor: pointer; font-weight: 700; min-height: 2.4rem; display: flex; align-items: center; }
+.link-modal .field { display: grid; gap: 0.3rem; font-weight: 700; }
+.link-modal .field input, .link-modal .field select { min-height: 2.8rem; padding: 0 0.8rem; border: 2px solid var(--rule); border-radius: var(--radius-tile); font-weight: 600; }

@@ -82,6 +82,7 @@ export function openModal({ title, body, actions = [], onClose, wide = false, di
             label: a.label,
             iconName: a.iconName,
             variant: a.variant || 'default',
+            attrs: a.attrs || {},
             onClick: () => {
               if (a.onClick && a.onClick(close) === false) return;
               close();

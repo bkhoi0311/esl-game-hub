@@ -298,6 +298,21 @@ export async function lessonLink(pack) {
   return `${base}#L=${await encodeLesson(pack)}`;
 }
 
+// File .edu của ClassIn: JSON nhỏ trỏ tới 1 trang web; mở trong lớp ClassIn như học liệu.
+// Cùng khuôn với công cụ tạo .edu của classin.vn. classin_authority: false = mọi học sinh tương tác được,
+// true = chỉ học sinh được giáo viên cấp quyền. size: cỡ cửa sổ mặc định, cỡ nhỏ nhất.
+export function eduFileText({ url, title, authorizedOnly = false }) {
+  const data = { url, uid: true, identity: true, title: title || 'ESL Game Hub', size: '800x600,400x300', classin_authority: Boolean(authorizedOnly) };
+  return JSON.stringify(data, null, 1).replace(/\n/g, '\r\n');
+}
+
+export async function saveEduFile(pack, { title, authorizedOnly = false } = {}) {
+  const url = await lessonLink(pack);
+  const name = `${fileSlug({ title: title || pack.title })}.edu`;
+  downloadFile(name, eduFileText({ url, title: title || pack.title, authorizedOnly }), 'application/octet-stream');
+  return name;
+}
+
 function linkCodeFromUrl() {
   const m = location.hash.match(/^#L=([A-Za-z0-9_-]+)/) || location.search.match(/[?&]L=([A-Za-z0-9_-]+)/);
   return m ? m[1] : '';

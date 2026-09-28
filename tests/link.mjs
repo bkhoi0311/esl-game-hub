@@ -3,7 +3,7 @@
 // Chạy: npm run test:link
 import { chromium } from 'playwright';
 import { createServer } from 'vite';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 
@@ -27,15 +27,28 @@ try {
   await title.blur();
   await t.click('[data-testid=make-link]');
   const link = await t.locator('[data-testid=lesson-link]').inputValue();
+  // Lưu file .edu (cùng khuôn công cụ classin.vn): tải về 1 file JSON trỏ tới link bài học
+  await t.selectOption('[data-testid=edu-who]', 'true');
+  const [dl] = await Promise.all([t.waitForEvent('download'), t.click('[data-testid=save-edu]')]);
+  assert.equal(dl.suggestedFilename(), 'unit-9-animals.edu', 'tên file .edu');
+  const edu = JSON.parse(readFileSync(await dl.path(), 'utf8'));
+  assert.equal(edu.url, link, 'file .edu trỏ đúng link bài học');
+  assert.equal(edu.title, 'Unit 9 - Animals');
+  assert.equal(edu.classin_authority, true);
+  assert.equal(edu.size, '800x600,400x300');
+  assert.ok(edu.uid === true && edu.identity === true);
+  console.log('file .edu:', JSON.stringify(edu).length, 'byte JSON');
   assert.match(link, /#L=1[A-Za-z0-9_-]+$/, 'link phải có dạng #L=1...');
   console.log(`link dài ${link.length} ký tự`);
+  await t.waitForTimeout(500);
   await t.screenshot({ path: `${OUT}/link-modal.png` });
 
   // 2. Màn tương tác: trình duyệt mới, chưa từng soạn bài
   const board = await browser.newContext({ viewport: { width: 1920, height: 1080 } });
   const b = await board.newPage();
   b.on('pageerror', (e) => errors.push(e.message));
-  await b.goto(link);
+  // ClassIn có thể gắn thêm ?uid=..&identity=.. vào link khi mở .edu: vẫn phải đọc được bài
+  await b.goto(link.replace('#', '?uid=123&identity=student#') + '&uid=123');
   await b.waitForSelector('.game-card');
   assert.match(await b.textContent('[data-testid=pack-chip]'), /Unit 9 - Animals/, 'phải dùng bài trong link');
   assert.ok(await b.evaluate(() => document.body.classList.contains('present')), 'phải ở chế độ trình chiếu');
