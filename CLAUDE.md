@@ -1,7 +1,7 @@
 # ESL Game Hub — hướng dẫn cho Claude Code
 
 ## Dự án là gì
-Một web app chứa 9 game tương tác cho lớp ESL (tiếng Anh). Dùng trên:
+Một web app chứa 11 game tương tác cho lớp ESL (tiếng Anh). Dùng trên:
 - Màn hình tương tác lớp học (cảm ứng đa điểm) + camera góc rộng ClassIn S1 (USB webcam, Windows).
 - Laptop/điện thoại của học sinh.
 
@@ -34,7 +34,8 @@ src/
     vision.js          # nạp MediaPipe (pose, face, frame diff), dùng chung cho 4 game camera
   games/
     statue-freeze/  simon-pose/  head-tilt/  word-ninja/
-    gold-heist/  impostor/  wordle/  tug-of-war/  draw-guess/
+    gold-heist/  impostor/  tug-of-war/  whack-word/  balloon-pop/  memory-match/  tic-tac-toe/
+    shared/              # khung chung game 2 người chia đôi màn hình
   data/sample-food-a2.json
 docs/GAMES_SPEC.md
 ```
@@ -47,7 +48,7 @@ export default {
 }
 ```
 
-## Bộ nội dung (lesson pack) — schema chung cho cả 9 game
+## Bộ nội dung (lesson pack) — schema chung cho cả 11 game
 ```json
 {
   "title": "Unit 5 - Food",
@@ -84,7 +85,8 @@ export default {
 ## Build và deploy
 - `npm run dev` — phát triển.
 - `npm run build` — bản online, deploy GitHub Pages bằng GitHub Actions.
-- `npm run build:offline` — 1 file HTML duy nhất, mở bằng bấm đúp. 5 game không cần camera và Statue Freeze phải chạy được ở bản này.
+- `npm run build:offline` — 1 file HTML duy nhất, mở bằng bấm đúp. 7 game không cần camera và Statue Freeze phải chạy được ở bản này.
+- Giọng đọc OmniVoice thu sẵn: `tools/voices/` (xem README).
 
 ## Cách làm việc
 - Làm theo giai đoạn trong `KICKOFF_PROMPT.md`. Hết mỗi giai đoạn: chạy Playwright, chụp màn hình, dừng lại báo cáo và chờ duyệt.

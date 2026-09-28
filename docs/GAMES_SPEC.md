@@ -1,4 +1,6 @@
-# Đặc tả 9 game — ESL Game Hub
+# Đặc tả 11 game — ESL Game Hub
+
+> Cập nhật 28/09/2026: giáo viên bỏ ESL Wordle và Draw & Guess (không đủ hấp dẫn), thay bằng 4 game "bấm bấm" cho 2 học sinh lên bảng: Whack-a-Word, Balloon Pop, Memory Match, Tic-Tac-Toe Quiz (mục 7, 9, 10, 11).
 
 Nội dung mẫu: chủ đề **Food, trình độ A2**. Tạo `src/data/sample-food-a2.json` với:
 - 24 từ vựng, chia đều 4 nhóm: `fruit`, `vegetable`, `drink`, `meal`. Mỗi từ có nghĩa tiếng Việt và 1 câu ví dụ A2.
@@ -25,12 +27,12 @@ Mỗi game ghi: **Luyện gì**, **Chế độ**, **Cách chơi**, **Kỹ thuậ
 - **Kỹ thuật:** cần ít nhất 2 nhóm, mỗi nhóm ít nhất 4 từ; không lặp tổ hợp trong 1 phiên.
 - **Nghiệm thu:** thiếu nhóm thì báo rõ cần thêm gì; không bao giờ sinh vòng có 2 từ khác nhóm.
 
-### 7. ESL Wordle
-- **Luyện:** chính tả.
-- **Chế độ:** Cá nhân hoặc Lớp.
-- **Cách chơi:** Đoán từ bí mật trong 6 lượt. Ô xanh: đúng chữ đúng chỗ; vàng: có chữ nhưng sai chỗ; xám: không có. Bàn phím ảo đổi màu theo. Nút "Gợi ý" hiện nghĩa tiếng Việt (bị trừ điểm).
-- **Kỹ thuật:** chỉ lấy từ 4-6 chữ cái, không dấu cách. Không có từ điển offline nên chấp nhận mọi chuỗi đủ độ dài. Xử lý đúng chữ lặp (ví dụ "apple").
-- **Nghiệm thu:** logic tô màu đúng với chữ lặp; gõ được bằng cả bàn phím thật và bàn phím ảo.
+### 7. Whack-a-Word (lối chơi đập chuột chũi)
+- **Luyện:** đọc hiểu từ vựng (nghĩa tiếng Việt -> từ tiếng Anh).
+- **Chế độ:** 2 học sinh đứng 2 nửa bảng tương tác, chơi cùng lúc.
+- **Cách chơi:** Mỗi bên có 6 hang, chuột chũi ngoi lên cầm 1 từ tiếng Anh. Phía trên hiện nghĩa tiếng Việt của từ mục tiêu. Bấm đúng con cầm từ mục tiêu +1 (máy đọc từ), bấm sai -1. Mỗi bên có mục tiêu riêng. 45/60/90 giây.
+- **Kỹ thuật:** Pointer Events độc lập 2 nửa; từ mục tiêu ngoi lên ít nhất mỗi 3 con; chuột nhanh dần.
+- **Nghiệm thu:** 2 chạm đồng thời đều được tính; điểm không âm; điện thoại hiện "Dùng trên màn hình lớn".
 
 ### 8. Tug of War (kéo co trên bảng tương tác)
 - **Luyện:** phản xạ từ vựng/ngữ pháp.
@@ -39,15 +41,24 @@ Mỗi game ghi: **Luyện gì**, **Chế độ**, **Cách chơi**, **Kỹ thuậ
 - **Kỹ thuật:** Pointer Events độc lập 2 nửa màn hình, 2 người chạm cùng lúc không được chặn nhau.
 - **Nghiệm thu:** test Playwright mô phỏng 2 chạm đồng thời; trên điện thoại hiện thông báo "Dùng trên màn hình lớn".
 
-### 9. Draw & Guess (lối chơi kiểu Skribbl)
-- **Luyện:** từ vựng + nói.
-- **Chế độ:** Lớp.
-- **Cách chơi:** Học sinh vẽ lên bảng, cả lớp đoán bằng tiếng Anh, giáo viên bấm "Đúng" và chọn đội được điểm. Đồng hồ 60/90 giây.
-- **Vấn đề 1 màn hình chung:** từ bí mật phải ẩn với cả lớp. Dùng nút **"Giữ để xem từ"** (chỉ hiện khi đang nhấn giữ, chữ nhỏ ở góc) và tùy chọn hiện mã QR để học sinh vẽ xem từ trên điện thoại giáo viên.
-- **Kỹ thuật:** canvas vẽ bằng Pointer Events, 4 màu, 2 cỡ bút, tẩy, xóa hết.
-- **Nghiệm thu:** vẽ mượt trên cảm ứng; từ không bao giờ hiện khi không nhấn giữ.
+### 9. Balloon Pop (bóng bay chữ)
+- **Luyện:** phân loại từ vựng theo nhóm.
+- **Chế độ:** 2 học sinh 2 nửa bảng, chơi cùng lúc.
+- **Cách chơi:** Bóng bay có chữ bay lên. Banner chung "Pop only DRINKS" (nhóm mục tiêu đổi mỗi 20 giây, máy đọc to). Bấm nổ bóng đúng nhóm +1, sai nhóm -1.
+- **Kỹ thuật:** cần ít nhất 2 nhóm, mỗi nhóm ít nhất 3 từ; bóng bay nhanh dần.
+- **Nghiệm thu:** 2 chạm đồng thời đều được tính; thiếu nhóm thì báo rõ.
 
----
+### 10. Memory Match (lật thẻ tìm cặp)
+- **Luyện:** ghi nhớ từ vựng (từ tiếng Anh <-> nghĩa tiếng Việt).
+- **Chế độ:** 2-4 đội thay phiên trên cùng bảng.
+- **Cách chơi:** 6/8/10 cặp thẻ úp. Lật 2 thẻ: đúng cặp thì +1, máy đọc từ, được lật tiếp; sai thì úp lại, đổi lượt.
+- **Nghiệm thu:** mỗi cặp gồm đúng 1 thẻ từ + 1 thẻ nghĩa, không trùng chữ; hết cặp thì hiện xếp hạng.
+
+### 11. Tic-Tac-Toe Quiz (cờ ca-rô 3x3)
+- **Luyện:** trắc nghiệm từ vựng/ngữ pháp.
+- **Chế độ:** 2 đội (X và O) thay phiên.
+- **Cách chơi:** Đội chọn 1 ô trống, trả lời câu hỏi 3 đáp án. Đúng thì chiếm ô, sai thì ô vẫn trống và mất lượt. 3 ô thẳng hàng thắng ván; đội thua đi trước ván sau; bảng điểm cộng dồn các ván.
+- **Nghiệm thu:** nhận đúng 8 đường thắng và hòa; ô đã chiếm không chọn lại được.
 
 ## NHÓM A — Dùng camera (làm sau)
 
@@ -86,6 +97,6 @@ Chung cho nhóm A: màn hình chọn camera trước khi vào game; hình gươn
 ---
 
 ## Màn hình chung
-- **Menu chính:** 9 thẻ game chia 2 nhóm ("Vận động với camera", "Thi đấu cả lớp"), thẻ game camera có nhãn "Cần camera".
+- **Menu chính:** 11 thẻ game chia 2 nhóm ("Vận động với camera", "Thi đấu cả lớp"), thẻ game camera có nhãn "Cần camera".
 - **Tab Soạn bài:** bảng nhập từ vựng (dán trực tiếp từ Excel/Google Sheet, các cột: word, meaning, category, example), bảng câu hỏi, danh sách lệnh, tên đội. Nút: Xuất JSON, Nhập JSON, **Lưu thành file mới** (tải về 1 file HTML đã chứa nội dung), Khôi phục nội dung mẫu.
-- **Cài đặt:** chọn camera, bật/tắt âm thanh, tốc độ đọc TTS, giọng Anh-Mỹ/Anh-Anh.
+- **Cài đặt:** chọn camera, bật/tắt âm thanh, giọng đọc OmniVoice thu sẵn (mỗi game 1 giọng dẫn) hoặc giọng máy, tốc độ đọc TTS, giọng Anh-Mỹ/Anh-Anh.
