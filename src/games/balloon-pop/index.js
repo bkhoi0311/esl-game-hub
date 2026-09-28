@@ -121,6 +121,7 @@ export default {
   needsCamera: false,
   minItems: { vocab: 8 },
   group: 'class',
+  theme: 'sky',
   icon: 'search',
   description: '2 học sinh thi bấm nổ bóng bay có từ đúng nhóm.',
   ready: true,

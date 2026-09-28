@@ -393,6 +393,7 @@ export default {
   needsCamera: true,
   minItems: { vocab: 8 },
   group: 'camera',
+  theme: 'night',
   icon: 'swords',
   description: 'Vung tay chém thẻ từ đúng nhóm. Có chế độ chuột / cảm ứng.',
   ready: true,

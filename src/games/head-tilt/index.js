@@ -283,6 +283,7 @@ export default {
   needsCamera: true,
   minItems: { questions: 10 },
   group: 'camera',
+  theme: 'garden',
   icon: 'scan-face',
   description: 'Nghiêng đầu chọn 1 trong 2 đáp án.',
   ready: true,

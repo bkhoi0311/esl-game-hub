@@ -330,6 +330,7 @@ export default {
   needsCamera: true,
   minItems: { actionCommands: 3 },
   group: 'camera',
+  theme: 'night',
   icon: 'person-standing',
   description: 'Nghe lệnh hành động, đèn đỏ thì đứng im như tượng.',
   ready: true,

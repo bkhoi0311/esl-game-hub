@@ -303,6 +303,7 @@ export default {
   needsCamera: true,
   minItems: 0,
   group: 'camera',
+  theme: 'meadow',
   icon: 'hand',
   description: 'Nghe lệnh, làm đúng tư thế: bộ phận cơ thể, trái/phải.',
   ready: true,

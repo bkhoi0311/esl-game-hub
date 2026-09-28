@@ -5,6 +5,7 @@ import { playSound, speak } from '../../core/audio.js';
 import { button, createCountdown, createGameFrame, h, segmented, setupScreen } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { burst } from '../../core/fx.js';
 import { line } from '../../core/voice-lines.js';
 import { checkContent, explain, makeRound } from './logic.js';
 
@@ -151,6 +152,8 @@ function createGame(root, pack) {
       button({ label: 'Next round', iconName: 'play', variant: 'primary', size: 'lg', onClick: nextRound, attrs: { 'data-testid': 'imp-next' } }),
     );
     playSound(correct ? 'correct' : 'wrong');
+    const odd = round.cardEls.find((el, k) => round.cards[k].impostor);
+    if (correct && odd) burst(odd, { count: 22 });
     if (correct) confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 }, disableForReducedMotion: true });
     const why = explain(round.major, round.odd);
     speak(line(correct ? 'correct' : 'tryAgain')).then(() => round && round.done && speak(why));
@@ -182,6 +185,7 @@ export default {
   needsCamera: false,
   minItems: { vocab: 8 },
   group: 'class',
+  theme: 'candy',
   icon: 'search',
   description: 'Tìm từ khác nhóm trong 5 thẻ và giải thích vì sao.',
   ready: true,

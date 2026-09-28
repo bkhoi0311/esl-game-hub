@@ -140,6 +140,7 @@ export default {
   needsCamera: false,
   minItems: { vocab: 6 },
   group: 'class',
+  theme: 'garden',
   icon: 'hand',
   description: '2 học sinh thi đập chuột cầm từ tiếng Anh đúng nghĩa.',
   ready: true,

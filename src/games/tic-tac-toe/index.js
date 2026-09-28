@@ -6,6 +6,7 @@ import { getQuestions, shuffle } from '../../core/content.js';
 import { TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h } from '../../core/ui.js';
 import { line } from '../../core/voice-lines.js';
 import { outcome } from './logic.js';
+import { burst } from '../../core/fx.js';
 
 const MARKS = ['X', 'O'];
 const HOW_TO = {
@@ -114,6 +115,7 @@ function createGame(root, pack) {
       board[i] = turn;
       cells[i].classList.add('taken', `m${turn}`);
       cells[i].innerHTML = markSvg(turn);
+      burst(cells[i], { count: 14 });
     }
     const res = outcome(board);
     if (res) {
@@ -164,6 +166,7 @@ export default {
   needsCamera: false,
   minItems: { questions: 9 },
   group: 'class',
+  theme: 'field',
   icon: 'grid',
   description: 'Cờ ca-rô 3x3: trả lời đúng mới được chiếm ô.',
   ready: true,

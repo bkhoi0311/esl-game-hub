@@ -232,6 +232,7 @@ export default {
   needsCamera: false,
   minItems: { questions: 6 },
   group: 'class',
+  theme: 'field',
   icon: 'arrow-left-right',
   description: '2 học sinh thi trả lời nhanh, kéo dây về phía mình.',
   ready: true,

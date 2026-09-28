@@ -9,6 +9,7 @@ import {
 import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
 import { buildDeck, isMatch, maxPairs } from './logic.js';
+import { burst } from '../../core/fx.js';
 
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
 const HOW_TO = {
@@ -106,6 +107,8 @@ function createGame(root, pack) {
         b.el.style.setProperty('--team', TEAM_COLORS[state.turn]);
         scoreboard.add(state.turn, 1);
         playSound('correct');
+        burst(a.el, { count: 12 });
+        burst(b.el, { count: 12 });
         speak(line('match')).then(() => speak(a.word));
         state.found += 1;
         state.open = [];
@@ -152,6 +155,7 @@ export default {
   needsCamera: false,
   minItems: { vocab: 6 },
   group: 'class',
+  theme: 'candy',
   icon: 'grid',
   description: 'Lật thẻ tìm cặp từ tiếng Anh và nghĩa tiếng Việt.',
   ready: true,

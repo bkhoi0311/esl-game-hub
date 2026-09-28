@@ -52,7 +52,7 @@ TESTS['gold-heist'] = async () => {
     await page.click(`.gh-answers .answer-btn[data-index="${pick}"]`);
     if (q % 2 === 0) {
       await page.waitForSelector('[data-testid=gh-chests]');
-      await page.waitForTimeout(600);
+      await page.waitForTimeout(1000); // chờ rương bay vào xong
       if (!chestShot) await shot(page, 'gold-heist-3-chests');
       await page.click('.gh-chest >> nth=1');
       if (!chestShot) {

@@ -1,6 +1,7 @@
 // Router: menu chính (#/) -> tab Soạn bài (#/editor) -> từng game (#/game/<id>).
 import './styles/fonts.css';
 import './styles/main.css';
+import './styles/kids.css';
 import logoUrl from './assets/classin-logo-green.png';
 import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, missingForGame, onPackChange } from './core/content.js';
@@ -11,6 +12,11 @@ import { line } from './core/voice-lines.js';
 import { button, h, openModal } from './core/ui.js';
 import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
+import { gsap } from 'gsap';
+import { mountWorld, setWorld } from './core/world.js';
+import { createMascot } from './core/mascot.js';
+import { reducedMotion } from './core/events.js';
+import './core/fx.js';
 
 const app = document.getElementById('app');
 let cleanup = null; // hàm dọn dẹp của màn hình đang mở
@@ -29,12 +35,19 @@ const header = h(
     h('span', { class: 'brand-sep' }),
     h('span', { class: 'brand-name' }, 'ESL Game Hub')),
   h('nav', { class: 'app-nav' }, navLinks.menu, navLinks.editor),
+  h('div', { class: 'header-mascot' }),
   packChip,
   button({ iconName: 'settings', title: 'Cài đặt', variant: 'ghost', onClick: openSettings, attrs: { 'data-testid': 'open-settings' } }),
 );
 const main = h('main', { class: 'app-main' });
 const stage = h('div', { class: 'stage' }, header, main);
 app.append(stage);
+mountWorld(stage);
+
+// Mascot Lumi ở thanh trên: luôn hiện, reo khi đúng, buồn khi sai (nghe kênh sự kiện).
+const mascot = createMascot({ size: '4.8rem' });
+header.querySelector('.header-mascot').append(mascot.el);
+window.__mascot = mascot;
 
 // ---------- Khung A4 ngang ----------
 // Màn hình ngang (bảng tương tác 65/75/86 inch, laptop): cả app nằm gọn trong 1 khung tỉ lệ A4 ngang
@@ -79,8 +92,21 @@ function renderMenu(root) {
       ),
     );
   }
+  // Ô trống cuối lưới: bé Lumi cỡ lớn chào các bé.
+  const big = createMascot({ size: '11rem', react: false });
+  const classGrid = view.querySelector('.group-class .card-grid');
+  const menuMascot = h('div', { class: 'menu-mascot' }, big.el);
+  if (classGrid && classGrid.children.length % 4) classGrid.append(menuMascot);
   root.append(view);
-  return () => view.remove();
+  big.wave();
+  big.say('Pick a game!', 0);
+  if (!reducedMotion()) {
+    gsap.from(view.querySelectorAll('.game-card'), { y: 40, opacity: 0, scale: 0.9, duration: 0.5, stagger: 0.05, ease: 'back.out(1.8)', clearProps: 'all' });
+  }
+  return () => {
+    big.destroy();
+    view.remove();
+  };
 }
 
 function gameCard(game, pack) {
@@ -94,7 +120,7 @@ function gameCard(game, pack) {
     'a',
     {
       href: game.ready ? `#/game/${game.id}` : null,
-      class: `game-card${game.ready ? '' : ' disabled'}`,
+      class: `game-card theme-${game.theme || 'meadow'}${game.ready ? '' : ' disabled'}`,
       'aria-disabled': game.ready ? null : 'true',
       'data-game': game.id,
       onClick: (e) => {
@@ -227,6 +253,8 @@ function route() {
 
   stopSpeaking();
   setVoiceGame(view === 'game' ? parts[1] : null);
+  const game = view === 'game' ? findGame(parts[1]) : null;
+  setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');
   if (view === 'editor') cleanup = mountEditor(main);
   else if (view === 'game') cleanup = renderGame(main, parts[1]);
   else cleanup = renderMenu(main);

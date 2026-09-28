@@ -9,6 +9,7 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { burst, floatText } from '../../core/fx.js';
 import { line } from '../../core/voice-lines.js';
 import { CHESTS, applyChest, dealChests, defaultWeights, needsTarget, validTargets } from './logic.js';
 
@@ -146,6 +147,7 @@ function createGame(root, pack) {
         btn.classList.add('correct');
         buttons.forEach((b) => b !== btn && b.classList.add('dim'));
         playSound('correct');
+        burst(btn);
         speak(line('correct'));
         later(showChests, 900);
       } else {
@@ -198,6 +200,12 @@ function createGame(root, pack) {
       .to(btn, { rotation: 0, duration: 0.05 })
       .to(lid, { rotation: -35, y: -24, svgOrigin: '20 62', duration: 0.35, ease: 'back.out(2)' })
       .fromTo(reveal, { scale: 0.2, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(2)' }, '-=0.15');
+    setTimeout(() => {
+      if (btn.isConnected) {
+        burst(btn, { shapes: ['dot', 'star'], colors: ['#ffd23f', '#ffb400', '#fff176'], count: 22, spread: 1.4 });
+        floatText(btn, CHESTS[kind].label, { color: kind === 'lose10' ? '#ff5a00' : '#e39b00' });
+      }
+    }, 700);
     // Hẹn giờ riêng (không phụ thuộc hoạt ảnh) để game luôn chạy tiếp.
     later(() => resolveChest(kind), 1600);
   }
@@ -278,6 +286,7 @@ export default {
   needsCamera: false,
   minItems: { questions: 10 },
   group: 'class',
+  theme: 'island',
   icon: 'coins',
   description: 'Trắc nghiệm theo đội, trả lời đúng được mở rương vàng.',
   ready: true,

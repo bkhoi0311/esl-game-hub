@@ -3,6 +3,7 @@
 // câu chưa thu sẵn (giáo viên mới thêm) thì đọc bằng Web Speech API của trình duyệt.
 // Âm hiệu tổng hợp bằng Web Audio nên không cần file âm thanh.
 import { getSettings } from './settings.js';
+import { bus } from './events.js';
 import { DEFAULT_VOICE, GAME_VOICE, VOICES, clipKey, speakable } from './voice-lines.js';
 
 // ---------- Giọng OmniVoice thu sẵn ----------
@@ -174,24 +175,36 @@ function tone(ac, { freq, start, dur, type = 'sine', gain = 0.2, slideTo }) {
   osc.stop(start + dur + 0.02);
 }
 
+// Âm hiệu vui tai cho trẻ (tổng hợp bằng Web Audio, không cần file). Âm sai nhẹ nhàng, không gắt.
 const SOUNDS = {
   correct: (ac, t) => {
-    tone(ac, { freq: 660, start: t, dur: 0.12, type: 'triangle' });
-    tone(ac, { freq: 990, start: t + 0.1, dur: 0.2, type: 'triangle' });
+    [784, 988, 1319].forEach((f, i) => tone(ac, { freq: f, start: t + i * 0.07, dur: 0.16, type: 'triangle', gain: 0.18 }));
+    tone(ac, { freq: 2637, start: t + 0.2, dur: 0.12, type: 'sine', gain: 0.06 });
   },
   wrong: (ac, t) => {
-    tone(ac, { freq: 220, start: t, dur: 0.35, type: 'sawtooth', gain: 0.12, slideTo: 140 });
+    tone(ac, { freq: 330, start: t, dur: 0.16, type: 'sine', gain: 0.16, slideTo: 262 });
+    tone(ac, { freq: 262, start: t + 0.15, dur: 0.26, type: 'sine', gain: 0.14, slideTo: 196 });
   },
   win: (ac, t) => {
-    [523, 659, 784, 1047].forEach((f, i) =>
-      tone(ac, { freq: f, start: t + i * 0.12, dur: i === 3 ? 0.45 : 0.14, type: 'triangle' }),
+    [523, 659, 784, 1047, 784, 1047].forEach((f, i) =>
+      tone(ac, { freq: f, start: t + i * 0.11, dur: i === 5 ? 0.5 : 0.13, type: 'triangle', gain: 0.18 }),
     );
+    [1568, 2093].forEach((f, i) => tone(ac, { freq: f, start: t + 0.7 + i * 0.08, dur: 0.2, type: 'sine', gain: 0.05 }));
   },
-  tick: (ac, t) => tone(ac, { freq: 1200, start: t, dur: 0.05, type: 'square', gain: 0.06 }),
-  pop: (ac, t) => tone(ac, { freq: 400, start: t, dur: 0.12, type: 'sine', slideTo: 900 }),
+  tick: (ac, t) => tone(ac, { freq: 1400, start: t, dur: 0.04, type: 'sine', gain: 0.08 }),
+  pop: (ac, t) => {
+    tone(ac, { freq: 300, start: t, dur: 0.09, type: 'sine', gain: 0.22, slideTo: 1100 });
+    tone(ac, { freq: 1800, start: t + 0.05, dur: 0.05, type: 'triangle', gain: 0.05 });
+  },
+  boing: (ac, t) => tone(ac, { freq: 180, start: t, dur: 0.3, type: 'sine', gain: 0.2, slideTo: 520 }),
+  whoosh: (ac, t) => tone(ac, { freq: 900, start: t, dur: 0.18, type: 'sawtooth', gain: 0.03, slideTo: 200 }),
 };
 
+// Âm đúng / sai / thắng cũng là tín hiệu cho mascot và hiệu ứng.
+const BUS_EVENTS = { correct: 'correct', wrong: 'wrong', win: 'win' };
+
 export function playSound(name) {
+  if (BUS_EVENTS[name]) bus.emit(BUS_EVENTS[name]);
   if (!getSettings().sound || !SOUNDS[name]) return;
   const ac = audioCtx();
   if (!ac) return;

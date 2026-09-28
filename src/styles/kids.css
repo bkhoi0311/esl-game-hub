@@ -1,0 +1,97 @@
+/* Lớp giao diện "thế giới hoạt hình" cho trẻ: nền động, mascot Lumi, hiệu ứng, thẻ pastel.
+   Nạp sau main.css để ghi đè. */
+
+body { background: #dff5e6 radial-gradient(circle at 1px 1px, rgba(4, 188, 9, 0.12) 2px, transparent 0) 0 0 / 28px 28px; }
+.stage { background: transparent; isolation: isolate; }
+.stage > .app-header, .stage > .app-main { position: relative; z-index: 1; }
+
+/* ---------- Nền thế giới ---------- */
+.world { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.world svg { width: 100%; height: 100%; display: block; }
+.w-cloud { animation: w-drift 18s ease-in-out infinite alternate; }
+.w-cloud.c2 { animation-duration: 24s; animation-delay: -6s; }
+.w-cloud.c3 { animation-duration: 30s; animation-delay: -12s; }
+.w-sun { animation: w-spin 40s linear infinite; transform-box: fill-box; transform-origin: center; }
+.w-twinkle { animation: w-twinkle 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.w-wave { animation: w-wave 6s ease-in-out infinite alternate; }
+@keyframes w-drift { to { transform: translateX(90px); } }
+@keyframes w-spin { to { transform: rotate(360deg); } }
+@keyframes w-twinkle { 50% { opacity: 0.25; transform: scale(0.6); } }
+@keyframes w-wave { to { transform: translateX(120px); } }
+
+/* ---------- Thanh trên ---------- */
+.app-header { background: rgba(255, 255, 255, 0.9); border-bottom: 3px solid rgba(4, 188, 9, 0.25); }
+.header-mascot { position: relative; align-self: center; margin-left: 0.5rem; z-index: 5; }
+.brand-name { font-family: var(--font-en); font-size: 1.7rem; color: var(--brand-ink); }
+.nav-link { font-family: var(--font-en); font-size: 1.3rem; }
+.game-bar { background: rgba(255, 255, 255, 0.88); border-bottom: 3px solid rgba(4, 188, 9, 0.2); }
+.game-title { font-size: 2.1rem; }
+
+/* ---------- Mascot ---------- */
+.mascot { position: relative; width: var(--size); height: var(--size); pointer-events: none; }
+.mascot-body { width: 100%; height: 100%; transform-origin: 50% 100%; }
+.mascot-body svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.mascot-say { position: absolute; left: 92%; top: 6%; white-space: nowrap; padding: 0.3rem 1rem; border-radius: 1.2rem; background: #fff; border: 3px solid var(--brand-ink); font-size: 1.25rem; font-weight: 800; color: var(--brand-ink); transform-origin: 0 50%; }
+.mascot-say::before { content: ''; position: absolute; left: -0.75rem; top: 50%; translate: 0 -50%; border: 0.45rem solid transparent; border-right-color: var(--brand-ink); }
+
+/* ---------- Hiệu ứng ---------- */
+.fx-layer { position: fixed; inset: 0; z-index: 300; pointer-events: none; overflow: hidden; }
+.fx-p { position: absolute; display: block; }
+.fx-p svg { width: 100%; height: 100%; display: block; }
+.fx-text { position: absolute; translate: -50% -50%; font-size: 2.6rem; font-weight: 800; -webkit-text-stroke: 0.14rem #fff; paint-order: stroke fill; white-space: nowrap; }
+
+/* ---------- Menu ---------- */
+.menu-group-head h2 { padding: 0.2rem 1.2rem 0.2rem 0.3rem; border-radius: 999px; background: rgba(255, 255, 255, 0.92); font-family: var(--font-en); font-size: 1.7rem; }
+.menu-group-head p { padding: 0.15rem 0.8rem; border-radius: 999px; background: rgba(255, 255, 255, 0.75); color: var(--ink); }
+.game-card { --card-bg: #fff; background: linear-gradient(180deg, var(--card-bg) 0 58%, #fff 58%); border: 3px solid var(--brand-ink); border-bottom-width: 8px; border-radius: 1.6rem; }
+.game-card:not(.disabled):hover { transform: translateY(-6px) rotate(-1deg); border-color: var(--brand-ink); }
+.game-card:not(.disabled):hover .game-art svg { animation: bounce-art 0.6s ease; }
+.card-title { font-size: 1.75rem; line-height: 1.05; }
+.theme-meadow { --card-bg: #e2f7d5; }
+.theme-night { --card-bg: #e3e0ff; }
+.theme-garden { --card-bg: #fff1c9; }
+.theme-island { --card-bg: #d6f3ff; }
+.theme-candy { --card-bg: #ffe0f1; }
+.theme-field { --card-bg: #dcf6d2; }
+.theme-sky { --card-bg: #dcefff; }
+@keyframes bounce-art { 30% { transform: translateY(-10px) scale(1.05); } 60% { transform: translateY(0) scale(0.97); } }
+
+/* ---------- Panel trong game nổi trên nền ---------- */
+.setup-card, .notice, .editor-card, .results .rank-list li { border: 3px solid var(--brand-ink); border-bottom-width: 7px; }
+.setup-card { background: rgba(255, 255, 255, 0.96); border-radius: 1.8rem; }
+.results h2 { font-family: var(--font-en); -webkit-text-stroke: 0.2rem #fff; paint-order: stroke fill; }
+.btn { font-family: var(--font-en); font-size: 1.2rem; border-radius: 1.1rem; }
+.btn-primary { background: linear-gradient(#2fd24a, #04bc09); border-color: #027c05; }
+.btn-lg { font-size: 1.8rem; border-radius: 1.4rem; }
+.answer-btn { font-family: var(--font-en); border: 3px solid var(--brand-ink); border-bottom-width: 8px; border-radius: 1.5rem; }
+.answer-btn:hover:not(:disabled) { transform: translateY(-3px); }
+.prompt { font-family: var(--font-en); }
+.score-team { border-color: var(--brand-ink); border-width: 3px 3px 5px; }
+.score-value, .score-name { font-family: var(--font-en); }
+
+body.fluid .header-mascot { display: none; }
+body.fluid .game-card { background: linear-gradient(90deg, var(--card-bg) 0 38%, #fff 38%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .w-cloud, .w-sun, .w-twinkle, .w-wave { animation: none; }
+}
+
+/* Mascot lớn ở menu */
+.menu-mascot { display: grid; place-items: end center; padding-bottom: 1rem; }
+.menu-mascot .mascot-say { left: 50%; top: -3.2rem; translate: -50% 0; font-size: 1.5rem; }
+.menu-mascot .mascot-say::before { left: 50%; top: 100%; translate: -50% 0; border-color: transparent; border-top-color: var(--brand-ink); }
+body[data-view='menu'] .header-mascot { visibility: hidden; }
+body.fluid .menu-mascot { display: none; }
+
+/* Chọn camera */
+.cam-select-row { display: flex; gap: 0.5rem; }
+.cam-select-row select { flex: 1; min-width: 0; }
+.cam-count { margin: 0; font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.cam-help { padding: 0.5rem 0.9rem; border-radius: var(--radius-tile); background: #fff7d6; border: 2px solid #f0dc8a; font-size: 0.95rem; }
+.cam-help summary { font-weight: 800; cursor: pointer; min-height: 2.4rem; display: flex; align-items: center; }
+.cam-help ol { margin: 0.3rem 0 0.2rem; padding-left: 1.3rem; line-height: 1.45; }
+.cam-left { display: grid; gap: 1rem; align-content: start; }
+.cam-left .setup-actions { justify-content: stretch; }
+.cam-left .setup-actions .btn { width: 100%; }
+.cam-card { padding: 1.4rem 2rem; gap: 1rem; }
+.cam-side { max-height: 44rem; overflow-y: auto; padding-right: 0.3rem; }
