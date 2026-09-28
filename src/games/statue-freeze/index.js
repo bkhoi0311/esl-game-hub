@@ -8,6 +8,8 @@ import { button, createGameFrame, h, segmented, toast } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
 import { shuffle } from '../../core/content.js';
+import { mountPhaser } from '../shared/phaser-host.js';
+import { makeStatueScene } from './statue-scene.js';
 
 const CALIBRATE_MS = 3000;
 const RED_MS = 3000;
@@ -90,6 +92,7 @@ function createGame(root, pack) {
   function showSetup() {
     stopLoop();
     clearTimers();
+    if (view && view.phaser) view.phaser.game.destroy(true);
     view = null;
     phase = 'idle';
     frame.extra.textContent = '';
@@ -110,8 +113,10 @@ function createGame(root, pack) {
   function startGame() {
     commands = shuffle(pack.actionCommands);
     roundNo = 0;
-    const overlay = h('canvas', { class: 'sf-overlay', 'data-testid': 'sf-overlay' });
-    const light = h('div', { class: 'sf-light', 'data-testid': 'sf-light' }, h('span', { class: 'sf-bulb red' }), h('span', { class: 'sf-bulb green' }));
+    const overlay = h('div', { class: 'sf-overlay', 'data-testid': 'sf-overlay' });
+    const face = (mood) => `<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="34" cy="44" r="7" fill="#1c1f25"/><circle cx="66" cy="44" r="7" fill="#1c1f25"/><circle cx="36" cy="42" r="2.4" fill="#fff"/><circle cx="68" cy="42" r="2.4" fill="#fff"/>${mood === 'stop' ? '<ellipse cx="50" cy="68" rx="9" ry="10" fill="#1c1f25"/>' : '<path d="M34 64q16 16 32 0" fill="none" stroke="#1c1f25" stroke-width="6" stroke-linecap="round"/>'}<circle cx="22" cy="60" r="6" fill="#ff7aa8" opacity=".6"/><circle cx="78" cy="60" r="6" fill="#ff7aa8" opacity=".6"/></svg>`;
+    const light = h('div', { class: 'sf-light', 'data-testid': 'sf-light' },
+      h('span', { class: 'sf-bulb red', innerHTML: face('stop') }), h('span', { class: 'sf-bulb green', innerHTML: face('go') }));
     const banner = h('div', { class: 'sf-banner en', 'data-testid': 'sf-banner' });
     const sub = h('div', { class: 'sf-sub en' });
     const count = h('div', { class: 'sf-count', 'data-testid': 'sf-count', hidden: true });
@@ -150,6 +155,14 @@ function createGame(root, pack) {
     grid.reset();
     startLoop();
     calibrate();
+    // Lớp phủ Phaser: đọc trạng thái mỗi khung hình để vẽ.
+    const my = view;
+    mountPhaser(overlay, makeStatueScene, {
+      getState: () => ({ phase, flagged, cols: grid.cols, rows: grid.rows, vw: session.video.videoWidth || 16, vh: session.video.videoHeight || 9 }),
+    }, 'resize').then((p) => {
+      if (view !== my) p.game.destroy(true);
+      else view.phaser = p;
+    });
   }
 
   function setBanner(text, subText = '') {
@@ -273,39 +286,9 @@ function createGame(root, pack) {
     }
   }
 
+  // Vẽ do lớp phủ Phaser đảm nhận; ở đây chỉ ghi số ô đỏ cho test tự động.
   function draw() {
-    const { overlay, videoBox } = view;
-    const w = videoBox.clientWidth;
-    const hgt = videoBox.clientHeight;
-    if (overlay.width !== w || overlay.height !== hgt) {
-      overlay.width = w;
-      overlay.height = hgt;
-    }
-    const ctx = overlay.getContext('2d');
-    ctx.clearRect(0, 0, w, hgt);
-    const n = flagged.reduce((a, b) => a + b, 0);
-    overlay.dataset.flagged = String(n);
-    if (phase !== 'red' && phase !== 'review') return;
-    // Vùng hình thật của video (object-fit: contain) trong khung.
-    const vw = session.video.videoWidth || 16;
-    const vh = session.video.videoHeight || 9;
-    const scale = Math.min(w / vw, hgt / vh);
-    const dw = vw * scale;
-    const dh = vh * scale;
-    const ox = (w - dw) / 2;
-    const oy = (hgt - dh) / 2;
-    const cw = dw / grid.cols;
-    const ch = dh / grid.rows;
-    ctx.lineWidth = 3;
-    for (let r = 0; r < grid.rows; r++) {
-      for (let c = 0; c < grid.cols; c++) {
-        if (!flagged[r * grid.cols + c]) continue;
-        ctx.fillStyle = 'rgba(255, 60, 20, 0.42)';
-        ctx.strokeStyle = 'rgba(255, 60, 20, 0.95)';
-        ctx.fillRect(ox + c * cw, oy + r * ch, cw, ch);
-        ctx.strokeRect(ox + c * cw + 1.5, oy + r * ch + 1.5, cw - 3, ch - 3);
-      }
-    }
+    view.overlay.dataset.flagged = String(flagged.reduce((a, b) => a + b, 0));
   }
 
   showSetup();
@@ -314,6 +297,7 @@ function createGame(root, pack) {
     destroy() {
       stopLoop();
       clearTimers();
+      if (view && view.phaser) view.phaser.game.destroy(true);
       session.stop();
       frame.destroy();
     },

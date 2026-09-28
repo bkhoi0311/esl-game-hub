@@ -18,8 +18,8 @@ const GAMES = [
   { id: 'gold-heist', ready: '[data-testid=gh-question]' },
   { id: 'impostor', ready: '[data-testid=imp-card]' },
   { id: 'tug-of-war', ready: '[data-testid=tw-half-1] .answer-btn' },
-  { id: 'whack-word', ready: '[data-testid=wk-prompt-1]' },
-  { id: 'balloon-pop', ready: '[data-testid=duel-banner]' },
+  { id: 'whack-word', ready: '[data-testid=pd-host] canvas' },
+  { id: 'balloon-pop', ready: '[data-testid=pd-host] canvas' },
   { id: 'memory-match', ready: '[data-testid=mm-grid]' },
   { id: 'tic-tac-toe', ready: '[data-testid=ttt-board]', noStart: true },
 ];

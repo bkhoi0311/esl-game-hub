@@ -14,6 +14,8 @@ export default defineConfig(({ mode }) => {
     plugins: offline ? [viteSingleFile()] : [],
     // File giọng đọc được tạo hàng loạt bằng script: không tải lại trang mỗi khi có file mới.
     server: { watch: { ignored: ['**/src/assets/voices/**', '**/tools/**'] } },
+    // Gói sẵn thư viện ngay khi khởi động dev server: tránh tự tải lại trang khi game nạp Phaser lần đầu.
+    optimizeDeps: { include: ['phaser', 'gsap', 'canvas-confetti', '@mediapipe/tasks-vision'] },
     build: {
       outDir: 'dist',
       emptyOutDir: true,

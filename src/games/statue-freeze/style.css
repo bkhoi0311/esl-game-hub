@@ -25,3 +25,9 @@ body.fluid .sf-bulb { width: 3.5rem; height: 3.5rem; }
 body.fluid .sf-banner { font-size: 1.8rem; }
 body.fluid .sf-sub { font-size: 1.1rem; }
 body.fluid .sf-sens input { width: 7rem; }
+.sf-bulb { display: grid; place-items: center; }
+.sf-bulb svg { width: 78%; height: 78%; opacity: 0.25; transition: opacity 0.2s ease; }
+.sf-light[data-color='red'] .sf-bulb.red svg, .sf-light[data-color='green'] .sf-bulb.green svg { opacity: 1; }
+.sf-light[data-color='red'] .sf-bulb.red, .sf-light[data-color='green'] .sf-bulb.green { animation: bump 0.5s ease; }
+.sf-overlay canvas { display: block; }
+.sf-side { padding: 1rem; border-radius: 1.6rem; background: rgba(255, 255, 255, 0.95); border: 3px solid var(--brand-ink); border-bottom-width: 7px; }

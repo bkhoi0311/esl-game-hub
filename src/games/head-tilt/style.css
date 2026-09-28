@@ -34,3 +34,6 @@ body.fluid .ht-video { grid-column: 1 / -1; grid-row: 1; }
 body.fluid .ht-text { font-size: 1.4rem; }
 body.fluid .ht-track { width: 10rem; }
 body.fluid .ht-meters { flex-wrap: wrap; gap: 0.6rem; }
+.ht-meter { padding: 0.3rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.95); border: 3px solid var(--brand-ink); }
+.sp-bottom .sp-player, .sp-command { text-shadow: none; }
+.sp-top, .ht-top { padding: 0.4rem 1rem; border-radius: 1.4rem; background: rgba(255, 255, 255, 0.9); }

@@ -17,7 +17,8 @@ Một web app chứa 11 game tương tác cho lớp ESL (tiếng Anh). Dùng tr�
 ## Stack
 - **Vite + JavaScript thuần (ES modules)**, không dùng React/Vue. Mục tiêu: dễ đọc, dễ sửa.
 - **vite-plugin-singlefile**: bản build offline ra 1 file `dist/index.html`.
-- Thư viện được phép: `@mediapipe/tasks-vision` (camera), `gsap` (hiệu ứng), `canvas-confetti`, `howler` (âm thanh), `sortablejs`, `lucide`. Muốn thêm thư viện khác: hỏi trước.
+- Thư viện được phép: `@mediapipe/tasks-vision` (camera), `gsap` (hiệu ứng), `canvas-confetti`, `howler` (âm thanh), `sortablejs`, `lucide`, `phaser` 4 (game hành động: Balloon Pop, Whack-a-Word, Word Ninja, dải kéo co Tug of War, lớp phủ Statue Freeze — người dùng duyệt 28/09/2026). Muốn thêm thư viện khác: hỏi trước.
+- Giao diện trẻ em: mascot Lumi (`src/core/mascot.js`), nền thế giới (`src/core/world.js`), hiệu ứng (`src/core/fx.js`), kênh sự kiện `correct`/`wrong`/`win` (`src/core/events.js`). Phaser 4: đọc `node_modules/phaser/types/phaser.d.ts`, không dùng API Phaser 3.
 - Phát âm: Web Speech API (`speechSynthesis`, giọng `en-US` hoặc `en-GB`), có kiểm tra khi máy không có giọng tiếng Anh.
 - Kiểm tra giao diện: Playwright, ở 3 kích thước: 1920x1080 (màn hình lớp), 1366x768 (laptop), 390x844 (điện thoại).
 

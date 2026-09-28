@@ -12,6 +12,7 @@ export async function loadPhaser() {
 export const DESIGN = { width: 1440, height: 800 };
 
 // makeScene(Phaser) trả về class Scene. data được truyền vào init(data).
+// size = 'resize': canvas phủ kín khung, toạ độ = điểm ảnh CSS của khung.
 export async function mountPhaser(parent, makeScene, data = {}, size = DESIGN) {
   const Phaser = await loadPhaser();
   if (document.fonts && document.fonts.load) {
@@ -22,10 +23,10 @@ export async function mountPhaser(parent, makeScene, data = {}, size = DESIGN) {
     type: Phaser.AUTO,
     parent,
     transparent: true,
-    width: size.width,
-    height: size.height,
+    width: size === 'resize' ? parent.clientWidth || 800 : size.width,
+    height: size === 'resize' ? parent.clientHeight || 450 : size.height,
     banner: false,
-    scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+    scale: size === 'resize' ? { mode: Phaser.Scale.RESIZE } : { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
     input: { activePointers: 6 },
     render: { antialias: true },
   });
