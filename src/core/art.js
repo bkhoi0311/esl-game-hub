@@ -107,25 +107,6 @@ const ART = {
     <circle cx="112" cy="116" r="17" fill="${C.white}" fill-opacity=".6" ${S} stroke-width="5"/>
     <path d="M124 128l18 18" ${S} stroke-width="9"/>`,
 
-  // Ô chữ xanh / vàng / xám
-  wordle: `
-    <circle cx="80" cy="80" r="72" fill="#eafbe9"/>
-    <g font-family="Gilroy, 'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="26" text-anchor="middle">
-      <rect x="10" y="26" width="42" height="42" rx="9" fill="${C.green}" ${S}/>
-      <text x="31" y="57" fill="${C.white}">F</text>
-      <rect x="59" y="26" width="42" height="42" rx="9" fill="${C.yellow}" ${S}/>
-      <text x="80" y="57" fill="${C.ink}">O</text>
-      <rect x="108" y="26" width="42" height="42" rx="9" fill="#b8bec7" ${S}/>
-      <text x="129" y="57" fill="${C.white}">O</text>
-      <rect x="10" y="80" width="42" height="42" rx="9" fill="${C.green}" ${S}/>
-      <text x="31" y="111" fill="${C.white}">F</text>
-      <rect x="59" y="80" width="42" height="42" rx="9" fill="${C.green}" ${S}/>
-      <text x="80" y="111" fill="${C.white}">O</text>
-      <rect x="108" y="80" width="42" height="42" rx="9" fill="${C.white}" ${S}/>
-      <text x="129" y="111" fill="${C.ink}">?</text>
-    </g>
-    <path d="M24 138h112" stroke="${C.lime}" stroke-width="7" stroke-linecap="round"/>`,
-
   // Sợi dây kéo co + 2 tay
   'tug-of-war': `
     <circle cx="80" cy="80" r="72" fill="#fff0e6"/>
@@ -140,20 +121,63 @@ const ART = {
     <path d="M22 40l-12 10 12 10M138 40l12 10-12 10" stroke="${C.cobalt}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M52 124h56" stroke="${C.green}" stroke-width="7" stroke-linecap="round"/>`,
 
-  // Bút chì vẽ + dấu hỏi
-  'draw-guess': `
-    <circle cx="80" cy="80" r="72" fill="#f1ecff"/>
-    <rect x="14" y="36" width="96" height="84" rx="12" fill="${C.white}" ${S}/>
-    <path d="M30 96q10-34 24-12t26-16" stroke="${C.blue}" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <circle cx="44" cy="62" r="8" fill="${C.orange}"/>
-    <g transform="rotate(40 118 88)">
-      <rect x="108" y="44" width="22" height="64" rx="4" fill="${C.yellow}" ${S}/>
-      <path d="M108 108l11 20 11-20z" fill="${C.skin}" ${S}/>
-      <path d="M116 122l3 6 3-6z" fill="${C.ink}"/>
-      <rect x="108" y="36" width="22" height="12" rx="4" fill="${C.pink}" ${S}/>
+  // Chuột chũi ngoi lên cầm biển chữ + búa
+  'whack-word': `
+    <circle cx="80" cy="80" r="72" fill="#fff0e6"/>
+    <ellipse cx="80" cy="128" rx="54" ry="14" fill="#6b4226" ${S}/>
+    <path d="M50 128V92a30 30 0 0 1 60 0v36" fill="#b07a4f" ${S}/>
+    <ellipse cx="80" cy="104" rx="14" ry="10" fill="#e8c4a0"/>
+    <circle cx="69" cy="88" r="4" fill="${C.ink}"/><circle cx="91" cy="88" r="4" fill="${C.ink}"/>
+    <ellipse cx="80" cy="97" rx="6" ry="4.5" fill="${C.pink}" ${S} stroke-width="2.5"/>
+    <path d="M74 106h12" ${S} stroke-width="3"/>
+    <rect x="40" y="40" width="80" height="26" rx="8" fill="${C.yellow}" ${S}/>
+    <path d="M54 53h52" ${S} stroke-width="5"/>
+    <path d="M80 66v8" ${S}/>
+    <g transform="rotate(-35 128 40)">
+      <rect x="120" y="20" width="16" height="64" rx="5" fill="${C.orange}" ${S}/>
+      <rect x="104" y="6" width="48" height="26" rx="8" fill="${C.cobalt}" ${S}/>
     </g>
-    <circle cx="130" cy="30" r="18" fill="${C.green}" ${S}/>
-    <path d="M124 25q0-7 6-7t6 7q0 5-6 6v3M130 40v.1" stroke="${C.white}" stroke-width="4" stroke-linecap="round" fill="none"/>`,
+    <path d="M20 40l5 5M16 56h8M26 28l2 7" ${S} stroke-width="3"/>`,
+
+  // Chùm bóng bay có chữ
+  'balloon-pop': `
+    <circle cx="80" cy="80" r="72" fill="#e3f4ff"/>
+    <path d="M52 94q6 24-4 50M110 88q-4 26 6 56M80 74q2 30-2 70" stroke="${C.ink}" stroke-width="3" fill="none"/>
+    <ellipse cx="52" cy="66" rx="26" ry="30" fill="${C.pink}" ${S}/>
+    <path d="M48 96l4-6 4 6z" fill="${C.pink}" ${S} stroke-width="3"/>
+    <ellipse cx="110" cy="60" rx="26" ry="30" fill="${C.green}" ${S}/>
+    <path d="M106 90l4-6 4 6z" fill="${C.green}" ${S} stroke-width="3"/>
+    <ellipse cx="80" cy="42" rx="24" ry="28" fill="${C.yellow}" ${S}/>
+    <path d="M76 70l4-6 4 6z" fill="${C.yellow}" ${S} stroke-width="3"/>
+    <path d="M42 50q4-8 12-10M100 44q4-8 12-10M72 26q4-7 10-8" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M140 20l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="${C.orange}" ${S} stroke-width="2.5"/>
+    <path d="M16 110l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="${C.cyan}" ${S} stroke-width="2.5"/>`,
+
+  // Thẻ lật tìm cặp
+  'memory-match': `
+    <circle cx="80" cy="80" r="72" fill="#f1ecff"/>
+    <rect x="16" y="30" width="40" height="52" rx="9" fill="${C.cobalt}" ${S}/>
+    <path d="M30 50q0-8 6-8t6 8q0 5-6 7v4M36 68v.1" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <rect x="62" y="30" width="40" height="52" rx="9" fill="${C.white}" ${S}/>
+    <path d="M72 50h20M72 60h14" ${S} stroke-width="5"/>
+    <rect x="108" y="30" width="40" height="52" rx="9" fill="${C.cobalt}" ${S}/>
+    <path d="M122 50q0-8 6-8t6 8q0 5-6 7v4M128 68v.1" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <rect x="40" y="90" width="40" height="52" rx="9" fill="${C.white}" ${S}/>
+    <path d="M50 110h20M50 120h14" ${S} stroke-width="5"/>
+    <g transform="rotate(8 104 116)"><rect x="84" y="90" width="40" height="52" rx="9" fill="${C.lime}" ${S}/>
+    <path d="M94 116l6 6 12-14" ${S} stroke-width="5"/></g>`,
+
+  // Bàn cờ ca-rô X O
+  'tic-tac-toe': `
+    <circle cx="80" cy="80" r="72" fill="#eafbe9"/>
+    <rect x="22" y="22" width="116" height="116" rx="14" fill="${C.white}" ${S}/>
+    <path d="M61 30v100M99 30v100M30 61h100M30 99h100" ${S} stroke-width="5"/>
+    <path d="M32 32l20 20M52 32l-20 20" stroke="${C.red}" stroke-width="8" stroke-linecap="round"/>
+    <path d="M70 70l20 20M90 70l-20 20" stroke="${C.red}" stroke-width="8" stroke-linecap="round"/>
+    <path d="M108 108l20 20M128 108l-20 20" stroke="${C.red}" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="118" cy="42" r="11" fill="none" stroke="${C.cobalt}" stroke-width="7"/>
+    <circle cx="42" cy="118" r="11" fill="none" stroke="${C.cobalt}" stroke-width="7"/>
+    <path d="M26 26l108 108" stroke="${C.yellow}" stroke-width="6" stroke-linecap="round" opacity=".7"/>`,
 };
 
 export function gameArt(id) {

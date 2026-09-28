@@ -168,17 +168,17 @@ body[data-view='game'] .app-main { padding: 0; }
 
 /* ---------- Menu chính ---------- */
 
-.menu { display: grid; gap: 1.5rem; height: 100%; grid-template-rows: 1fr 1fr; }
-.menu-group { display: grid; grid-template-rows: auto 1fr; gap: 0.8rem; min-height: 0; }
-.menu-group-head { display: flex; align-items: center; gap: 1rem; }
+.menu { display: grid; gap: 2rem; height: 100%; grid-template-columns: 2fr 4fr; }
+.menu-group { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 0.8rem; min-height: 0; }
+.menu-group-head { display: flex; align-items: center; gap: 0.3rem 1rem; flex-wrap: wrap; min-height: 3.2rem; }
 .menu-group-head h2 { display: flex; align-items: center; gap: 0.7rem; margin: 0; font-size: 1.6rem; font-weight: 800; color: var(--ink); }
 .menu-group-head h2 .icon { width: 2.4rem; height: 2.4rem; padding: 0.45rem; border-radius: 999px; color: #fff; background: var(--accent); }
-.menu-group-head p { margin: 0; color: var(--ink-muted); font-size: 1.05rem; }
+.menu-group-head p { margin: 0; color: var(--ink-muted); font-size: 1rem; }
 .group-camera { --accent: var(--cobalt); }
 .group-class { --accent: var(--green); }
 
-.card-grid { display: grid; gap: 1.25rem; min-height: 0; grid-template-columns: repeat(var(--cols, 5), minmax(0, 1fr)); }
-.group-camera .card-grid { --cols: 4; }
+.card-grid { display: grid; gap: 1.1rem; min-height: 0; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.group-camera .card-grid { --cols: 2; }
 
 .game-card {
   position: relative;
@@ -204,7 +204,7 @@ body[data-view='game'] .app-main { padding: 0; }
 .game-art { display: grid; place-items: center; width: 100%; min-height: 0; height: 100%; }
 .game-art svg { height: 100%; max-height: 10.5rem; width: auto; aspect-ratio: 1; }
 .game-card:not(.disabled):hover .game-art svg { animation: wiggle 0.5s ease; }
-.card-title { font-family: var(--font-en); font-size: 1.7rem; font-weight: 800; line-height: 1.1; color: var(--brand-ink); }
+.card-title { font-family: var(--font-en); font-size: 1.55rem; font-weight: 800; line-height: 1.1; color: var(--brand-ink); }
 .card-desc { color: var(--ink-muted); font-size: 0.98rem; line-height: 1.3; max-width: 20em; }
 .card-badges { position: absolute; top: 0.7rem; left: 0.7rem; right: 0.7rem; display: flex; gap: 0.4rem; pointer-events: none; }
 .game-card.disabled { cursor: default; }
@@ -435,6 +435,7 @@ body.fluid .game-frame { min-height: calc(100vh - 8rem); }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes pop-in { from { opacity: 0; transform: scale(0.96) translateY(6px); } }
 @keyframes bump { 40% { transform: scale(1.35); } }
+@keyframes nudge { 40% { transform: scale(1.06); } }
 @keyframes pulse { 50% { transform: scale(1.06); } }
 @keyframes wiggle { 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
 @keyframes shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
@@ -457,7 +458,8 @@ body.fluid .pack-chip { max-width: 8rem; font-size: 0.8rem; padding: 0.35rem 0.7
 body.fluid .app-header > .btn { min-height: 2.8rem; min-width: 2.8rem; border-bottom-width: 2px; }
 body.fluid .app-main { padding: 1rem; }
 body.fluid[data-view='game'] .app-main { padding: 0; }
-body.fluid .menu { grid-template-rows: none; height: auto; }
+body.fluid .menu { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
+body.fluid .card-grid { grid-template-rows: none; }
 body.fluid .card-grid, body.fluid .group-camera .card-grid { --cols: 2; gap: 0.75rem; }
 body.fluid .game-card { padding: 2.2rem 0.6rem 0.9rem; }
 body.fluid .game-art svg { max-height: 6rem; }
