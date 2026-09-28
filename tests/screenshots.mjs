@@ -53,7 +53,7 @@ try {
       const { context, page } = await newPage(size);
       await page.goto(BASE);
       await page.waitForSelector('.game-card');
-      assert.equal(await page.locator('.game-card').count(), 9, 'menu phải có 9 thẻ');
+      assert.equal(await page.locator('.game-card').count(), 11, 'menu phải có 11 thẻ');
       assert.equal(await page.locator('.menu-group').count(), 2, 'menu phải có 2 nhóm');
       await page.screenshot({ path: `${OUT}/menu-${size.name}.png`, fullPage: true });
 

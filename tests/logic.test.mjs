@@ -85,46 +85,6 @@ test('Impostor: câu giải thích', () => {
   assert.equal(explain('dish', 'apple'), '4 are dishes, 1 is an apple.');
 });
 
-// ---------- Spell Grid ----------
-import { eligibleWords, mergeKeyStates, scoreGuess, wordScore } from '../src/games/wordle/logic.js';
-
-const cells = (g, a) => scoreGuess(g, a).map((r) => ({ correct: 'G', present: 'Y', absent: '-' })[r]).join('');
-
-test('Spell Grid: tô màu cơ bản', () => {
-  assert.equal(cells('bread', 'bread'), 'GGGGG');
-  assert.equal(cells('drake', 'bread'), 'YGY-Y');
-  assert.equal(cells('xxxxx', 'bread'), '-----');
-});
-
-test('Spell Grid: xử lý đúng chữ lặp', () => {
-  // Từ bí mật "apple" có 2 chữ p.
-  assert.equal(cells('puppy', 'apple'), 'Y-G--'); // 3 chữ p đoán, chỉ 2 được tô
-  assert.equal(cells('paper', 'apple'), 'YYGY-');
-  assert.equal(cells('llama', 'apple'), 'Y-Y--'); // apple chỉ có 1 l, 1 a
-  assert.equal(cells('eerie', 'apple'), '----G'); // e cuối đúng chỗ, e đầu không được vàng thêm
-  assert.equal(cells('apple', 'paper'), 'YYG-Y');
-  assert.equal(cells('ppppp', 'apple'), '-GG--');
-});
-
-test('Spell Grid: bàn phím giữ màu tốt nhất', () => {
-  let k = mergeKeyStates({}, 'puppy', scoreGuess('puppy', 'apple'));
-  assert.equal(k.p, 'correct');
-  assert.equal(k.u, 'absent');
-  k = mergeKeyStates(k, 'plate', scoreGuess('plate', 'apple'));
-  assert.equal(k.p, 'correct', 'không được hạ từ xanh xuống vàng');
-});
-
-test('Spell Grid: chỉ lấy từ 4-6 chữ, không dấu cách', () => {
-  const words = eligibleWords([{ word: 'Bread' }, { word: 'ice cream' }, { word: 'tea' }, { word: 'banana' }, { word: 'lemonade' }, { word: 'bread' }, { word: 'phở' }]);
-  assert.deepEqual(words.map((w) => w.word), ['bread', 'banana']);
-});
-
-test('Spell Grid: điểm', () => {
-  assert.equal(wordScore(1, true, false), 60);
-  assert.equal(wordScore(6, true, true), 0);
-  assert.equal(wordScore(3, false, false), 0);
-});
-
 // ---------- Simon Says Pose (khung xương giả) ----------
 import { POSES } from '../src/games/simon-pose/poses.js';
 
@@ -202,4 +162,50 @@ test('Word Ninja: thẻ bay lên rồi rơi xuống trong khung', () => {
   for (let i = 0; i < 300; i++) { stepCard(c, 1 / 60); minY = Math.min(minY, c.y); }
   assert.ok(minY > 0 && minY < 600 * 0.5, `đỉnh ${minY}`);
   assert.ok(c.y > 600, 'thẻ phải rơi ra khỏi màn hình');
+});
+
+// ---------- Tic-Tac-Toe ----------
+import { outcome } from '../src/games/tic-tac-toe/logic.js';
+
+test('Tic-Tac-Toe: thắng hàng/cột/chéo, hoà, chưa xong', () => {
+  const n = null;
+  assert.deepEqual(outcome([0, 0, 0, n, 1, 1, n, n, n]), { winner: 0, line: [0, 1, 2] });
+  assert.deepEqual(outcome([1, 0, n, 1, 0, n, 1, n, n]), { winner: 1, line: [0, 3, 6] });
+  assert.deepEqual(outcome([0, 1, 1, n, 0, n, n, n, 0]).line, [0, 4, 8]);
+  assert.deepEqual(outcome([0, 1, 0, 0, 1, 1, 1, 0, 0]), { draw: true });
+  assert.equal(outcome([0, n, n, n, 1, n, n, n, n]), null);
+});
+
+// ---------- Memory Match ----------
+import { buildDeck, isMatch, maxPairs } from '../src/games/memory-match/logic.js';
+
+test('Memory Match: mỗi cặp gồm 1 thẻ từ + 1 thẻ nghĩa, không trùng', () => {
+  const deck = buildDeck(sample.vocab, 8);
+  assert.equal(deck.length, 16);
+  for (let p = 0; p < 8; p++) {
+    const cards = deck.filter((c) => c.pair === p);
+    assert.deepEqual(cards.map((c) => c.kind).sort(), ['meaning', 'word']);
+    assert.ok(isMatch(cards[0], cards[1]));
+  }
+  assert.equal(new Set(deck.map((c) => c.text.toLowerCase())).size, 16);
+  assert.ok(!isMatch(deck[0], deck[0]));
+  assert.equal(maxPairs(sample.vocab), 24);
+});
+
+// ---------- Whack-a-Word ----------
+import { pickMoleWord, usableWords } from '../src/games/whack-word/logic.js';
+
+test('Whack-a-Word: từ mục tiêu xuất hiện ít nhất mỗi 3 con, không trùng trên bảng', () => {
+  const words = usableWords(sample.vocab);
+  const target = words[0];
+  let since = 0;
+  let onBoard = [];
+  for (let i = 0; i < 300; i++) {
+    const w = pickMoleWord(words, target, onBoard, since);
+    assert.ok(w, 'phải chọn được từ');
+    assert.ok(!onBoard.includes(w), 'trùng từ đang trên bảng');
+    since = w === target ? 0 : since + 1;
+    assert.ok(since <= 2, 'mục tiêu vắng quá lâu');
+    onBoard = w === target ? [] : [...onBoard, w].slice(-2);
+  }
 });

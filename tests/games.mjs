@@ -128,62 +128,6 @@ TESTS.impostor = async () => {
   await c2.close();
 };
 
-// ---------- Spell Grid ----------
-async function typeWord(page, word, how) {
-  for (const ch of word) {
-    if (how === 'keyboard') await page.keyboard.press(ch);
-    else await page.dispatchEvent(`.wd-key[data-key="${ch}"]`, 'pointerdown');
-  }
-  if (how === 'keyboard') await page.keyboard.press('Enter');
-  else await page.dispatchEvent('.wd-key[data-key="enter"]', 'pointerdown');
-  await page.waitForTimeout(900);
-}
-
-TESTS.wordle = async () => {
-  // Gõ thiếu chữ rồi Enter: báo "Not enough letters", không tính lượt.
-  const { context, page } = await open('#/game/wordle');
-  await page.click('[data-testid=wordle-start]');
-  await page.waitForSelector('[data-testid=wd-grid]');
-  await page.keyboard.press('a');
-  await page.keyboard.press('Enter');
-  await page.waitForSelector('.wd-toast:not([hidden])');
-  assert.equal(await page.$$eval('.wd-tile[data-state]', (els) => els.length), 0);
-  await context.close();
-
-  // Chơi với bộ nội dung chỉ có "apple" để biết trước đáp án.
-  const c2 = await browser.newContext({ viewport: BIG });
-  const p2 = await c2.newPage();
-  p2.on('pageerror', (e) => pageErrors.push(`wordle: ${e.message}`));
-  await p2.goto(BASE);
-  await p2.evaluate(() => localStorage.setItem('eslhub.pack.default', JSON.stringify({ title: 'Test', vocab: [
-    { word: 'apple', meaning: 'quả táo', category: 'fruit' }, { word: 'ice cream', meaning: 'kem', category: 'meal' } ], questions: [], teams: ['Red', 'Blue'] })));
-  await p2.goto(BASE + '#/game/wordle');
-  await p2.reload();
-  await p2.click('[data-testid=wd-mode] [data-value="solo"]');
-  await p2.click('[data-testid=wordle-start]');
-  await p2.waitForSelector('[data-testid=wd-grid]');
-  assert.equal(await p2.$$eval('.wd-row:first-child .wd-tile', (els) => els.length), 5, 'chỉ dùng từ 4-6 chữ (apple)');
-
-  await typeWord(p2, 'puppy', 'keyboard');       // bàn phím thật
-  await typeWord(p2, 'paper', 'virtual');        // bàn phím ảo
-  const rows = await p2.$$eval('.wd-row', (rs) => rs.slice(0, 2).map((r) => [...r.children].map((t) => ({ correct: 'G', present: 'Y', absent: '-' })[t.dataset.state]).join('')));
-  assert.deepEqual(rows, ['Y-G--', 'YYGY-'], 'tô màu chữ lặp sai');
-  const keyP = await p2.getAttribute('.wd-key[data-key="p"]', 'data-state');
-  const keyU = await p2.getAttribute('.wd-key[data-key="u"]', 'data-state');
-  assert.equal(keyP, 'correct');
-  assert.equal(keyU, 'absent');
-  await p2.click('[data-testid=wd-hint]');
-  assert.match(await p2.textContent('[data-testid=wd-hint-text]'), /quả táo/);
-  await shot(p2, 'wordle-1-playing');
-  await typeWord(p2, 'apple', 'virtual');
-  await p2.waitForSelector('[data-testid=wd-result]');
-  assert.match(await p2.textContent('[data-testid=wd-result]'), /Solved! \+20/); // lượt 3: 40 - 20 gợi ý
-  assert.equal(await p2.textContent('[data-testid=wd-total]'), 'Score 20');
-  await p2.waitForTimeout(400);
-  await shot(p2, 'wordle-2-solved');
-  await c2.close();
-};
-
 // ---------- Tug of War ----------
 TESTS['tug-of-war'] = async () => {
   const { context, page } = await open('#/game/tug-of-war', BIG, { hasTouch: true });
@@ -243,76 +187,143 @@ TESTS['tug-of-war'] = async () => {
   await ph.context.close();
 };
 
-// ---------- Draw & Guess ----------
-TESTS['draw-guess'] = async () => {
-  const { context, page } = await open('#/game/draw-guess', BIG, { hasTouch: true });
-  await page.click('[data-testid=draw-guess-start]');
-  await page.click('[data-testid=dg-begin]');
-  const stageText = () => page.evaluate(() => document.querySelector('.stage').innerText.toLowerCase());
-
-  // Nhấn giữ: từ hiện; thả ra: từ biến mất khỏi trang.
-  const hold = page.locator('[data-testid=dg-hold]');
-  const hb = await hold.boundingBox();
-  await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2);
-  await page.mouse.down();
-  const word = (await page.textContent('[data-testid=dg-secret]')).trim();
-  assert.ok(word.length > 0);
-  await shot(page, 'draw-guess-2-holding');
-  await page.mouse.up();
-  assert.equal(await page.$('[data-testid=dg-secret]'), null, 'từ vẫn còn sau khi thả');
-  const re = new RegExp(`\\b${word.toLowerCase()}\\b`);
-  assert.ok(!re.test(await stageText()), `từ "${word}" hiện trên màn hình khi không nhấn giữ`);
-  const html = await page.content();
-  assert.ok(!html.toLowerCase().includes(`>${word.toLowerCase()}<`), 'từ nằm trong HTML khi không nhấn giữ');
-
-  // Vẽ bằng chuột.
-  const cv = await page.locator('.dg-canvas').boundingBox();
-  await page.mouse.move(cv.x + 100, cv.y + 100);
-  await page.mouse.down();
-  for (let k = 1; k <= 20; k++) await page.mouse.move(cv.x + 100 + k * 15, cv.y + 100 + Math.sin(k / 3) * 60);
-  await page.mouse.up();
-  // Vẽ bằng 2 ngón cùng lúc (cảm ứng).
+// ---------- Whack-a-Word + Balloon Pop: 2 học sinh chạm cùng lúc ----------
+TESTS['whack-word'] = async () => {
+  const { context, page } = await open('#/game/whack-word', BIG, { hasTouch: true });
+  await page.click('[data-testid=whack-word-start]');
+  await page.waitForSelector('[data-testid=wk-prompt-1]');
   const cdp = await context.newCDPSession(page);
-  const tp = (k) => [{ x: cv.x + 200 + k * 10, y: cv.y + 400, id: 1 }, { x: cv.x + 700 + k * 10, y: cv.y + 420 + k * 5, id: 2 }];
-  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: tp(0) });
-  for (let k = 1; k <= 15; k++) await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: tp(k) });
-  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  const inked = (x, y) => page.evaluate(([px, py]) => {
-    const c = document.querySelector('.dg-canvas');
-    const r = c.getBoundingClientRect();
-    const sx = c.width / r.width;
-    const d = c.getContext('2d').getImageData(Math.round(px * sx) - 6, Math.round(py * sx) - 6, 12, 12).data;
-    for (let i = 3; i < d.length; i += 4) if (d[i] > 0) return true;
-    return false;
-  }, [x, y]);
-  assert.ok(await inked(100 + 10 * 15, 100 + Math.sin(10 / 3) * 60), 'nét chuột không được vẽ');
-  assert.ok(await inked(200 + 80, 400), 'ngón 1 không vẽ được');
-  assert.ok(await inked(700 + 80, 420 + 40), 'ngón 2 không vẽ được');
-  await shot(page, 'draw-guess-1-drawing');
+  const hits = [0, 0];
+  const end = Date.now() + 25000;
+  // Chờ tới khi CẢ 2 bên cùng có chuột mục tiêu đang ngoi, rồi 2 ngón chạm cùng lúc.
+  let sc = [0, 0];
+  while (Date.now() < end && (sc[0] < 2 || sc[1] < 2)) {
+    sc = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
+    const pts = await page.evaluate(() => [0, 1].map((i) => {
+      const target = document.querySelector(`[data-testid=wk-prompt-${i}]`).dataset.word;
+      const mole = [...document.querySelectorAll(`[data-testid=duel-half-${i}] .wk-mole.up`)].find((m) => m.dataset.word === target && !m.classList.contains('hit'));
+      if (!mole) return null;
+      const r = mole.querySelector('.wk-face').getBoundingClientRect();
+      return { x: r.x + r.width / 2, y: r.y + r.height / 3 };
+    }));
+    if (pts[0] && pts[1]) {
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: pts[0].x, y: pts[0].y, id: 1 }, { x: pts[1].x, y: pts[1].y, id: 2 }] });
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      hits[0]++; hits[1]++;
+      if (hits[0] === 1) await shot(page, 'whack-word-1-play');
+    }
+    await page.waitForTimeout(120);
+  }
+  const scores = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
+  assert.ok(scores[0] >= 2 && scores[1] >= 2, `chạm đồng thời 2 bên phải cùng được điểm: ${scores}`);
+  // Bấm sai: trừ điểm.
+  const wrong = await page.evaluate(() => {
+    const target = document.querySelector('[data-testid=wk-prompt-0]').dataset.word;
+    const m = [...document.querySelectorAll('[data-testid=duel-half-0] .wk-mole.up:not(.hit)')].find((x) => x.dataset.word !== target);
+    if (!m) return false;
+    m.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    return true;
+  });
+  if (wrong) {
+    const after = Number(await page.textContent('[data-testid=duel-score-0]'));
+    assert.equal(after, scores[0] - 1, 'bấm sai phải bị trừ 1 điểm');
+  }
+  await context.close();
+  const ph = await open('#/game/whack-word', PHONE);
+  await ph.page.waitForSelector('[data-testid=duel-big-screen]');
+  await ph.context.close();
+};
 
-  // QR.
-  await page.click('[data-testid=dg-qr]');
-  await page.waitForSelector('[data-testid=dg-qr-code] svg');
-  await page.waitForTimeout(400);
-  await shot(page, 'draw-guess-3-qr');
-  await page.click('.modal .btn-primary');
+TESTS['balloon-pop'] = async () => {
+  const { context, page } = await open('#/game/balloon-pop', BIG, { hasTouch: true });
+  await page.click('[data-testid=balloon-pop-seconds] [data-value="45"]');
+  await page.click('[data-testid=balloon-pop-start]');
+  await page.waitForSelector('[data-testid=duel-banner]:not([hidden])');
+  const banner = await page.textContent('[data-testid=duel-banner]');
+  assert.match(banner, /Pop only [A-Z]+/);
+  const cdp = await context.newCDPSession(page);
+  const end = Date.now() + 20000;
+  let both = 0;
+  while (Date.now() < end && both < 2) {
+    const pts = await page.evaluate(() => {
+      const cat = document.querySelector('[data-testid=duel-banner]').textContent.split(' ').pop().toLowerCase();
+      return [0, 1].map((i) => {
+        const b = [...document.querySelectorAll(`[data-testid=duel-half-${i}] .bp-balloon:not(.popped):not(.wrong)`)].find((x) => {
+          const r = x.getBoundingClientRect();
+          return cat.startsWith(x.dataset.cat) && r.y > 200 && r.y < innerHeight - 150;
+        });
+        if (!b) return null;
+        const r = b.querySelector('.bp-shape').getBoundingClientRect();
+        return { x: r.x + r.width / 2, y: r.y + r.height / 3 };
+      });
+    });
+    if (pts[0] && pts[1]) {
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: pts[0].x, y: pts[0].y, id: 1 }, { x: pts[1].x, y: pts[1].y, id: 2 }] });
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      both++;
+      if (both === 1) await shot(page, 'balloon-pop-1-play');
+    }
+    await page.waitForTimeout(150);
+  }
+  const scores = await page.$$eval('.duel-score', (els) => els.map((e) => Number(e.textContent)));
+  assert.ok(scores[0] >= 1 && scores[1] >= 1, `nổ bóng đúng nhóm 2 bên cùng lúc phải được điểm: ${scores}`);
+  await context.close();
+};
 
-  // Xóa hết.
-  await page.click('[data-testid=dg-clear]');
-  assert.ok(!(await inked(280, 400)), 'xóa hết chưa sạch');
+// ---------- Memory Match ----------
+TESTS['memory-match'] = async () => {
+  const { context, page } = await open('#/game/memory-match');
+  await page.click('[data-testid=mm-pairs] [data-value="6"]');
+  await page.click('[data-testid=memory-match-start]');
+  await page.waitForSelector('[data-testid=mm-grid]');
+  const pairs = await page.$$eval('.mm-card', (els) => els.map((e) => Number(e.dataset.pair)));
+  assert.equal(pairs.length, 12);
+  // Lật sai 1 lần: đổi lượt.
+  const first = pairs[0];
+  const wrongIdx = pairs.findIndex((p, i) => i > 0 && p !== first);
+  await page.click('.mm-card[data-index="0"]');
+  await page.click(`.mm-card[data-index="${wrongIdx}"]`);
+  await page.waitForTimeout(1600);
+  assert.match(await page.textContent('[data-testid=mm-turn]'), /Blue team/);
+  await shot(page, 'memory-match-1-play');
+  // Lật đúng hết các cặp.
+  for (let p = 0; p < 6; p++) {
+    const idx = pairs.map((x, i) => (x === p ? i : -1)).filter((i) => i >= 0);
+    await page.click(`.mm-card[data-index="${idx[0]}"]`);
+    await page.click(`.mm-card[data-index="${idx[1]}"]`);
+    await page.waitForTimeout(700);
+    if (p === 2) await shot(page, 'memory-match-2-matched');
+  }
+  await page.waitForSelector('[data-testid=results]', { timeout: 5000 });
+  const scores = await page.$$eval('.rank-list li span:last-child', (els) => els.map((e) => parseInt(e.textContent, 10)));
+  assert.deepEqual(scores.sort(), [0, 6]);
+  await context.close();
+};
 
-  // Đúng -> chọn đội Blue -> Blue +1, hiện đáp án.
-  await page.click('[data-testid=dg-correct]');
-  await page.click('.dg-team-btn[data-team="1"]');
-  await page.waitForSelector('[data-testid=dg-round-end]');
-  const scores = await page.$$eval('.dg-scores .score-value', (els) => els.map((e) => Number(e.textContent)));
-  assert.deepEqual(scores, [0, 1]);
-  assert.match(await page.textContent('[data-testid=dg-round-end]'), new RegExp(word));
-  await shot(page, 'draw-guess-4-correct');
-  await page.click('[data-testid=dg-next]');
-  await page.click('[data-testid=dg-begin]');
-  await page.click('[data-testid=dg-finish]');
-  await page.waitForSelector('[data-testid=results]');
+// ---------- Tic-Tac-Toe Quiz ----------
+TESTS['tic-tac-toe'] = async () => {
+  const { context, page } = await open('#/game/tic-tac-toe');
+  await page.waitForSelector('[data-testid=ttt-board]');
+  const play = async (cell, correct) => {
+    await page.click(`.ttt-cell[data-index="${cell}"]`);
+    await page.waitForSelector('.ttt-answers');
+    const c = Number(await page.getAttribute('.ttt-answers', 'data-correct'));
+    await page.click(`.ttt-answers .answer-btn[data-index="${correct ? c : (c + 1) % 3}"]`);
+    await page.waitForTimeout(1400);
+  };
+  await play(0, true); // Red X ô 0
+  await play(4, false); // Blue sai -> ô 4 vẫn trống
+  assert.equal(await page.$eval('.ttt-cell[data-index="4"]', (e) => e.classList.contains('taken')), false);
+  await shot(page, 'tic-tac-toe-1-question');
+  await play(1, true); // Red ô 1
+  await play(3, true); // Blue ô 3
+  await play(2, true); // Red ô 2 -> thắng
+  await page.waitForSelector('[data-testid=ttt-result]');
+  assert.match(await page.textContent('[data-testid=ttt-result]'), /Red team wins/);
+  assert.equal(await page.$$eval('.ttt-cell.win', (els) => els.length), 3);
+  await shot(page, 'tic-tac-toe-2-win');
+  await page.click('[data-testid=ttt-next]');
+  assert.match(await page.textContent('[data-testid=ttt-turn]'), /Blue team/);
   await context.close();
 };
 

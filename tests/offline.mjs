@@ -17,9 +17,11 @@ mkdirSync(OUT, { recursive: true });
 const GAMES = [
   { id: 'gold-heist', ready: '[data-testid=gh-question]' },
   { id: 'impostor', ready: '[data-testid=imp-card]' },
-  { id: 'wordle', ready: '[data-testid=wd-keyboard]' },
   { id: 'tug-of-war', ready: '[data-testid=tw-half-1] .answer-btn' },
-  { id: 'draw-guess', ready: '.dg-canvas' },
+  { id: 'whack-word', ready: '[data-testid=wk-prompt-1]' },
+  { id: 'balloon-pop', ready: '[data-testid=duel-banner]' },
+  { id: 'memory-match', ready: '[data-testid=mm-grid]' },
+  { id: 'tic-tac-toe', ready: '[data-testid=ttt-board]', noStart: true },
 ];
 const SIZES = [
   { name: '1920x1080', width: 1920, height: 1080 },
@@ -49,11 +51,12 @@ try {
       const label = `${g.id} @ ${size.name}`;
       try {
         await page.evaluate((id) => (location.hash = `#/game/${id}`), g.id);
-        if (g.id === 'tug-of-war' && size.width < 700) {
-          await page.waitForSelector('[data-testid=tw-big-screen]');
+        if (['tug-of-war', 'whack-word', 'balloon-pop'].includes(g.id) && size.width < 700) {
+          await page.waitForSelector('[data-testid=tw-big-screen], [data-testid=duel-big-screen]');
+        } else if (g.noStart) {
+          await page.waitForSelector(g.ready, { timeout: 5000 });
         } else {
           await page.click(`[data-testid=${g.id}-start]`);
-          if (g.id === 'draw-guess') await page.click('[data-testid=dg-begin]');
           await page.waitForSelector(g.ready, { timeout: 5000 });
         }
         await page.waitForTimeout(700);
