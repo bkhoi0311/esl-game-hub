@@ -1,0 +1,28 @@
+/* Simon Says Pose (và dùng chung cho các game camera AI) */
+.sp-play { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 0.8rem; padding: 1rem 2rem 1.2rem; }
+.sp-top { display: grid; gap: 0.5rem; }
+.sp-command { font-size: 3.2rem; font-weight: 800; color: var(--brand-ink); text-align: center; line-height: 1.1; min-height: 3.6rem; }
+.sp-command[data-simon='true'] { color: #0a7a0d; }
+.sp-bar { height: 0.8rem; border-radius: 999px; background: #e3e3e3; overflow: hidden; }
+.sp-bar span { display: block; height: 100%; width: 0; background: var(--green); transition: width 0.1s linear; }
+.sp-video { position: relative; min-height: 0; border-radius: var(--radius-card); background: #111; overflow: hidden; border: 6px solid var(--brand-ink); }
+.sp-video .cam-video, .sp-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sp-overlay { pointer-events: none; }
+.sp-loading { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 0.6rem; padding: 2rem; text-align: center; color: #fff; font-size: 1.8rem; font-weight: 800; background: rgba(28, 31, 37, 0.7); }
+.sp-loading.error { font-size: 1.2rem; font-weight: 600; background: rgba(120, 20, 10, 0.85); }
+.sp-loading.error strong { font-size: 1.6rem; }
+.sp-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.sp-board { display: flex; gap: 0.8rem; }
+.sp-player { display: flex; align-items: center; gap: 0.8rem; padding: 0.4rem 1.2rem; border-radius: 999px; border: 3px solid var(--team); background: #fff; font-size: 1.5rem; font-weight: 800; color: var(--brand-ink); }
+.sp-player strong { font-size: 2rem; }
+.sp-player.good { background: var(--green-deep); border-color: var(--green); }
+.sp-player.bad { background: #ffe4dc; border-color: var(--red); }
+.sp-player.miss { opacity: 0.6; }
+.sp-poses { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1rem; }
+.sp-pose { display: flex; align-items: center; gap: 0.5rem; min-height: 2.6rem; font-weight: 700; font-size: 1.05rem; }
+.sp-pose input { width: 1.4rem; height: 1.4rem; accent-color: var(--green); }
+
+body.fluid .sp-play { grid-template-rows: auto minmax(16rem, 55vh) auto; padding: 0.6rem; }
+body.fluid .sp-command { font-size: 1.6rem; min-height: 0; }
+body.fluid .sp-player { font-size: 1rem; padding: 0.3rem 0.8rem; }
+body.fluid .sp-poses { grid-template-columns: 1fr; }
