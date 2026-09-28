@@ -67,7 +67,8 @@ const FAKE_CAMERA = () => {
     }
     return make();
   };
-  navigator.mediaDevices.enumerateDevices = async () => [{ kind: 'videoinput', deviceId: 'fake-s1', label: 'ClassIn Cam S1 (fake)', groupId: 'g' }];
+  window.__cams = window.__cams || [{ kind: 'videoinput', deviceId: 'fake-s1', label: 'ClassIn Cam S1 (fake)', groupId: 'g' }];
+  navigator.mediaDevices.enumerateDevices = async () => window.__cams;
 };
 
 async function open(hash, viewport = { width: 1920, height: 1080 }, init) {
@@ -142,6 +143,25 @@ TESTS['camera-errors'] = async () => {
   }
 };
 
+// ---------- Cắm camera S1 sau khi mở trang: tự tìm thấy và tự chuyển sang S1 ----------
+TESTS['camera-hotplug'] = async () => {
+  const { context, page } = await open('#/game/statue-freeze', undefined,
+    "window.__cams = [{ kind: 'videoinput', deviceId: 'laptop', label: 'Integrated Webcam', groupId: 'a' }]");
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  assert.match(await page.textContent('[data-testid=cam-count]'), /Tìm thấy 1 camera/);
+  assert.equal(await page.isVisible('[data-testid=cam-help]'), true, 'chỉ 1 camera thì phải hiện hướng dẫn');
+  await shot(page, 'camera-only-laptop');
+  await page.evaluate(() => {
+    window.__cams.push({ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'b' });
+    navigator.mediaDevices.dispatchEvent(new Event('devicechange'));
+  });
+  await page.waitForFunction(() => document.querySelector('[data-testid=cam-select]').value === 'classin-s1', null, { timeout: 5000 });
+  assert.match(await page.textContent('[data-testid=cam-count]'), /Tìm thấy 2 camera/);
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await shot(page, 'camera-s1-found');
+  await context.close();
+};
+
 // ---------- 3 game AI: nạp model, chạy vòng lặp không lỗi ----------
 for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]'], ['head-tilt', '[data-testid=ht-prompt]']]) {
   TESTS[id] = async () => {
@@ -212,7 +232,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (name !== 'camera-errors') runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

@@ -182,6 +182,17 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
   const startBtn = button({ label: 'Bắt đầu', iconName: 'play', variant: 'primary', size: 'lg', attrs: { disabled: true, 'data-testid': 'cam-start' } });
   const retryBtn = button({ label: 'Thử lại', iconName: 'refresh', onClick: () => connect(select.value) });
 
+  const countEl = h('p', { class: 'cam-count', 'data-testid': 'cam-count' });
+  const helpBox = h('details', { class: 'cam-help', 'data-testid': 'cam-help', hidden: true },
+    h('summary', {}, 'Không thấy camera ClassIn S1 trong danh sách?'),
+    h('ol', {},
+      h('li', {}, 'Cắm cáp USB của S1 vào cổng USB của MÁY TÍNH đang chạy trình duyệt (khe OPS/PC của màn tương tác), không cắm vào cổng USB phía Android của màn hình.'),
+      h('li', {}, 'Cắm xong đợi 5 giây rồi bấm "Tìm lại camera" (không cần tải lại trang).'),
+      h('li', {}, 'Windows: Settings > Bluetooth & devices > Cameras. Nếu S1 không có ở đây thì Windows chưa nhận camera: thử cổng USB khác, cắm thẳng không qua hub.'),
+      h('li', {}, 'Tắt app ClassIn hoặc tắt camera trong lớp ClassIn nếu đang mở.'),
+      h('li', {}, 'Trình duyệt: bấm biểu tượng ổ khoá cạnh địa chỉ trang > Camera > Cho phép.')));
+  let userChose = false;
+
   const fill = async () => {
     const cams = await listCameras();
     select.textContent = '';
@@ -191,6 +202,22 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       select.append(h('option', { value: c.deviceId, selected: c.deviceId === session.deviceId }, label + hintS1));
     });
     if (!cams.length) select.append(h('option', { value: '' }, 'Chưa thấy camera'));
+    countEl.textContent = `Tìm thấy ${cams.length} camera${cams.length ? ': ' + cams.map((c, i) => c.label || `Camera ${i + 1}`).join(', ') : ''}.`;
+    const hasClassIn = cams.some((c) => /s1|classin|eeo/i.test(c.label));
+    helpBox.hidden = hasClassIn && cams.length > 1;
+    if (cams.length <= 1) helpBox.open = true;
+    return cams;
+  };
+
+  // Chưa chọn tay mà có camera ClassIn: tự chuyển sang camera ClassIn.
+  const preferClassIn = (cams) => {
+    if (userChose) return false;
+    const cls = cams.find((c) => /s1|classin|eeo/i.test(c.label));
+    if (cls && cls.deviceId && cls.deviceId !== session.deviceId) {
+      connect(cls.deviceId);
+      return true;
+    }
+    return false;
   };
 
   const connect = async (id) => {
@@ -198,7 +225,8 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
     startBtn.disabled = true;
     try {
       await session.start(id);
-      await fill(); // sau khi cấp quyền mới đọc được tên camera
+      const cams = await fill(); // sau khi cấp quyền mới đọc được tên camera
+      if (preferClassIn(cams)) return;
       startBtn.disabled = false;
     } catch (err) {
       const info = describeCameraError(err);
@@ -213,7 +241,27 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       await fill().catch(() => {});
     }
   };
-  select.addEventListener('change', () => connect(select.value));
+
+  const rescan = async () => {
+    const cams = await fill().catch(() => []);
+    if (!preferClassIn(cams) && !session.active) connect(select.value);
+  };
+  const rescanBtn = button({ label: 'Tìm lại camera', iconName: 'refresh', attrs: { 'data-testid': 'cam-rescan' }, onClick: rescan });
+
+  // Cắm / rút camera khi đang mở trang: tự làm mới danh sách.
+  const onDeviceChange = () => {
+    if (!el.isConnected) {
+      navigator.mediaDevices.removeEventListener('devicechange', onDeviceChange);
+      return;
+    }
+    rescan();
+  };
+  if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) navigator.mediaDevices.addEventListener('devicechange', onDeviceChange);
+
+  select.addEventListener('change', () => {
+    userChose = true;
+    connect(select.value);
+  });
   startBtn.addEventListener('click', () => onReady(session));
 
   const el = h(
@@ -221,14 +269,15 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
     h('div', { class: 'setup-card cam-card' },
       h('h2', {}, art || null, h('span', {}, title)),
       h('div', { class: 'cam-grid' },
-        preview,
+        h('div', { class: 'cam-left' }, preview, h('div', { class: 'setup-actions' }, startBtn)),
         h('div', { class: 'cam-side' },
-          h('label', { class: 'setup-row' }, h('span', {}, 'Camera'), select),
+          h('label', { class: 'setup-row' }, h('span', {}, 'Camera'), h('div', { class: 'cam-select-row' }, select, rescanBtn)),
+          countEl,
+          helpBox,
           h('p', { class: 'muted' }, 'Camera góc rộng ClassIn S1 thường có tên chứa "S1" hoặc "ClassIn". Hình hiển thị dạng gương. Không ghi hình, không lưu ảnh.'),
           hint ? h('p', { class: 'cam-hint' }, hint) : null,
           extraRows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null)))),
-      errorBox,
-      h('div', { class: 'setup-actions' }, startBtn)),
+      errorBox),
   );
   connect(session.deviceId);
   return el;
