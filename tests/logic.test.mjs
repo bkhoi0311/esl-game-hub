@@ -124,3 +124,82 @@ test('Spell Grid: điểm', () => {
   assert.equal(wordScore(6, true, true), 0);
   assert.equal(wordScore(3, false, false), 0);
 });
+
+// ---------- Simon Says Pose (khung xương giả) ----------
+import { POSES } from '../src/games/simon-pose/poses.js';
+
+// Người đứng thẳng quay mặt vào camera. Ảnh GỐC (chưa lật gương): tay trái học sinh nằm bên PHẢI ảnh (x lớn).
+function body(changes = {}) {
+  const p = (x, y) => ({ x, y, visibility: 0.99 });
+  const lm = Array.from({ length: 33 }, () => p(0.5, 0.5));
+  Object.assign(lm, {
+    0: p(0.5, 0.2), 11: p(0.58, 0.32), 12: p(0.42, 0.32), 13: p(0.6, 0.45), 14: p(0.4, 0.45),
+    15: p(0.6, 0.56), 16: p(0.4, 0.56), 23: p(0.55, 0.6), 24: p(0.45, 0.6), 25: p(0.55, 0.75),
+    26: p(0.45, 0.75), 27: p(0.55, 0.9), 28: p(0.45, 0.9),
+  });
+  for (const [k, v] of Object.entries(changes)) lm[k] = p(v[0], v[1]);
+  return lm;
+}
+const matches = (lm) => POSES.filter((ps) => ps.check(lm)).map((ps) => ps.id);
+
+test('Simon: đứng thẳng không khớp tư thế nào', () => {
+  assert.deepEqual(matches(body()), []);
+});
+test('Simon: trái/phải theo học sinh (tay trái = điểm 15)', () => {
+  assert.deepEqual(matches(body({ 15: [0.62, 0.1], 13: [0.62, 0.22] })), ['left-hand']);
+  assert.deepEqual(matches(body({ 16: [0.38, 0.1], 14: [0.38, 0.22] })), ['right-hand']);
+});
+test('Simon: các tư thế khác', () => {
+  assert.ok(matches(body({ 15: [0.62, 0.1], 16: [0.38, 0.1] })).includes('hands-up'));
+  assert.deepEqual(matches(body({ 15: [0.8, 0.33], 16: [0.2, 0.33], 13: [0.69, 0.32], 14: [0.31, 0.32] })), ['t-pose']);
+  assert.ok(matches(body({ 15: [0.53, 0.21] })).includes('touch-nose'));
+  assert.ok(matches(body({ 15: [0.55, 0.15], 16: [0.45, 0.15], 13: [0.66, 0.25], 14: [0.34, 0.25] })).includes('hands-on-head'));
+  assert.ok(matches(body({ 27: [0.55, 0.72], 25: [0.57, 0.66] })).includes('one-leg'));
+  assert.ok(matches(body({ 23: [0.55, 0.72], 24: [0.45, 0.72], 25: [0.6, 0.76], 26: [0.4, 0.76] })).includes('squat'));
+});
+
+// ---------- Head Tilt ----------
+import { createTiltTracker, rollDegrees, twoChoice } from '../src/games/head-tilt/logic.js';
+
+const face = (lx, ly, rx, ry) => { const f = []; f[33] = { x: rx, y: ry }; f[263] = { x: lx, y: ly }; return f; };
+test('Head Tilt: đầu thẳng = 0 độ, nghiêng theo hình gương', () => {
+  // Ảnh gốc: mắt phải học sinh (33) ở x nhỏ. Lật gương: 33 sang bên phải màn hình.
+  assert.ok(Math.abs(rollDegrees(face(0.6, 0.4, 0.4, 0.4))) < 1);
+  // Mắt bên phải màn hình (33) thấp hơn => nghiêng về phải màn hình => dương.
+  assert.ok(rollDegrees(face(0.6, 0.35, 0.4, 0.45)) > 15);
+  assert.ok(rollDegrees(face(0.6, 0.45, 0.4, 0.35)) < -15);
+});
+test('Head Tilt: phải giữ 0.4 giây mới chọn, đầu thẳng không chọn', () => {
+  const t = createTiltTracker();
+  assert.equal(t.update(5, 0), null);
+  assert.equal(t.update(3, 1000), null);
+  assert.equal(t.update(20, 1100), null);
+  assert.equal(t.update(20, 1300), null);
+  assert.equal(t.update(20, 1550), 'right');
+  assert.equal(t.update(-20, 1600), null);
+});
+test('Head Tilt: câu 3 đáp án -> đúng + 1 sai', () => {
+  const q = { prompt: 'x', options: ['eats', 'eat', 'eating'], answer: 0 };
+  for (let i = 0; i < 20; i++) {
+    const c = twoChoice(q);
+    assert.equal(c[c.correct], 'eats');
+    assert.notEqual(c.left, c.right);
+  }
+});
+
+// ---------- Word Ninja ----------
+import { launchCard, segmentHitsRect, speedOf, stepCard } from '../src/games/word-ninja/logic.js';
+
+test('Word Ninja: nhát chém cắt qua thẻ', () => {
+  assert.ok(segmentHitsRect(0, 50, 200, 50, 100, 50, 40, 20));
+  assert.ok(!segmentHitsRect(0, 0, 200, 0, 100, 50, 40, 20));
+  assert.ok(segmentHitsRect(90, 0, 110, 100, 100, 50, 40, 20));
+  assert.equal(speedOf({ x: 0, y: 0, t: 0 }, { x: 100, y: 0, t: 100 }), 1000);
+});
+test('Word Ninja: thẻ bay lên rồi rơi xuống trong khung', () => {
+  const c = launchCard({ word: 'tea' }, 1000, 600, () => 0.5);
+  let minY = c.y;
+  for (let i = 0; i < 300; i++) { stepCard(c, 1 / 60); minY = Math.min(minY, c.y); }
+  assert.ok(minY > 0 && minY < 600 * 0.5, `đỉnh ${minY}`);
+  assert.ok(c.y > 600, 'thẻ phải rơi ra khỏi màn hình');
+});
