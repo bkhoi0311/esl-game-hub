@@ -10,6 +10,9 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { burst } from '../../core/fx.js';
+import { mountPhaser } from '../shared/phaser-host.js';
+import { ROPE_SIZE, makeRopeScene } from './rope-scene.js';
 
 const LOCK_MS = 2000;
 
@@ -46,6 +49,7 @@ function createGame(root, pack) {
 
   function showSetup() {
     clearTimers();
+    dropPhaser();
     state = null;
     frame.extra.textContent = '';
     frame.setPaused(false);
@@ -84,27 +88,32 @@ function createGame(root, pack) {
     speak(line('readyPull'));
   }
 
+  // Dải kéo co vẽ bằng Phaser. data-pos trên khung dùng cho test tự động.
   function buildRope() {
-    const n = opts.steps;
-    const marks = [];
-    for (let k = -n; k <= n; k++) {
-      marks.push(h('span', { class: `tw-mark${k === 0 ? ' center' : ''}${Math.abs(k) === n ? ' goal' : ''}`, style: { left: `${stepPct(k)}%` } }));
-    }
-    state.flag = h('div', { class: 'tw-flag', 'data-testid': 'tw-flag' },
-      h('span', { class: 'tw-flag-knot' }), h('span', { class: 'tw-flag-cloth' }));
-    return h('div', { class: 'tw-rope-area' },
-      h('div', { class: 'tw-end left', style: { '--team': TEAM_COLORS[0] } }, pack.teams[0]),
-      h('div', { class: 'tw-track' }, marks, h('div', { class: 'tw-rope' }), state.flag),
-      h('div', { class: 'tw-end right', style: { '--team': TEAM_COLORS[1] } }, pack.teams[1]));
+    const host = h('div', { class: 'tw-rope-host', 'data-testid': 'tw-flag', 'data-pos': '0' });
+    const my = state;
+    mountPhaser(host, makeRopeScene, { teams: pack.teams.slice(0, 2), colors: TEAM_COLORS.slice(0, 2), steps: opts.steps }, ROPE_SIZE).then((p) => {
+      if (state !== my) {
+        p.game.destroy(true);
+        return;
+      }
+      state.phaser = p;
+      p.game.events.once('ready', () => {});
+    });
+    state.ropeHost = host;
+    return host;
   }
 
-  function stepPct(k) {
-    return 50 + (k * 44) / opts.steps;
+  function ropeScene() {
+    const p = state && state.phaser;
+    const sc = p && p.game.scene.getScene('main');
+    return sc && sc.sys.isActive() ? sc : null;
   }
 
-  function renderRope() {
-    state.flag.style.left = `${stepPct(state.pos)}%`;
-    state.flag.dataset.pos = String(state.pos);
+  function renderRope(who) {
+    state.ropeHost.dataset.pos = String(state.pos);
+    const sc = ropeScene();
+    if (sc) sc.setPos(state.pos, who);
   }
 
   function buildHalf(side) {
@@ -155,8 +164,9 @@ function createGame(root, pack) {
       side.correct += 1;
       btn.classList.add('correct');
       playSound('correct');
+      burst(btn, { count: 12 });
       state.pos += side.i === 0 ? -1 : 1;
-      renderRope();
+      renderRope(side.i);
       side.el.half.classList.remove('pulled');
       void side.el.half.offsetWidth;
       side.el.half.classList.add('pulled');
@@ -201,15 +211,23 @@ function createGame(root, pack) {
     clearTimers();
     playSound('win');
     speak(`${pack.teams[i]} wins!`);
+    const sc = ropeScene();
+    if (sc) sc.win(i);
     const loser = 1 - i;
     later(() => {
+      dropPhaser();
       const ranking = [
         { name: pack.teams[i], index: i, score: state.sides[i].correct },
         { name: pack.teams[loser], index: loser, score: state.sides[loser].correct },
       ];
       setStage(resultsScreen({ title: `${pack.teams[i]} wins`, ranking, unit: ' correct', onReplay: showSetup }));
       confetti({ particleCount: 180, spread: 100, origin: { x: i === 0 ? 0.25 : 0.75, y: 0.6 }, disableForReducedMotion: true });
-    }, 900);
+    }, 2200);
+  }
+
+  function dropPhaser() {
+    if (state && state.phaser) state.phaser.game.destroy(true);
+    if (state) state.phaser = null;
   }
 
   showSetup();
@@ -218,6 +236,7 @@ function createGame(root, pack) {
     destroy() {
       clearTimers();
       if (state) state.over = true;
+      dropPhaser();
       confetti.reset();
       frame.destroy();
     },
