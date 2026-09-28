@@ -1,0 +1,26 @@
+/* Tic-Tac-Toe Quiz */
+.ttt-scores { width: 100%; max-width: 40rem; }
+.ttt-play { height: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2.5rem; padding: 1.4rem 3rem 1.6rem; align-items: center; }
+.ttt-board { height: min(100%, 50rem); aspect-ratio: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 0.9rem; padding: 0.9rem; border-radius: 2rem; background: var(--brand-ink); }
+.ttt-cell { position: relative; display: grid; place-items: center; border: none; border-radius: 1.2rem; background: #fff; cursor: pointer; touch-action: manipulation; padding: 0; }
+.ttt-cell:not(.taken):hover { background: color-mix(in srgb, var(--team) 14%, white); }
+.ttt-cell.picked { background: color-mix(in srgb, var(--team) 25%, white); outline: 6px solid var(--team); outline-offset: -6px; }
+.ttt-num { font-size: 2rem; font-weight: 800; color: #d0d0d0; }
+.ttt-cell svg { width: 78%; height: 78%; }
+.ttt-cell svg path, .ttt-cell svg circle { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ttt-draw 0.45s ease forwards; }
+@keyframes ttt-draw { to { stroke-dashoffset: 0; } }
+.ttt-cell.taken { cursor: default; }
+.ttt-cell.win { background: var(--yellow); animation: nudge 0.5s ease; }
+.ttt-side { display: grid; gap: 1.2rem; align-content: center; min-width: 0; }
+.ttt-turn { justify-self: start; padding: 0.5rem 1.8rem; border-radius: 999px; background: var(--team); color: #fff; font-size: 2rem; font-weight: 800; }
+.ttt-panel { display: grid; gap: 1.2rem; }
+.ttt-hint { margin: 0; font-size: 2.4rem; font-weight: 800; color: var(--ink-muted); }
+.ttt-prompt { text-align: left; font-size: 2.8rem; }
+.ttt-answers { grid-template-columns: 1fr; }
+.ttt-answers .answer-btn { min-height: 5.5rem; font-size: 2.3rem; }
+.ttt-result { margin: 0; font-size: 3.4rem; font-weight: 800; color: var(--team, var(--brand-ink)); }
+body.fluid .ttt-play { grid-template-columns: 1fr; padding: 0.8rem; gap: 1rem; }
+body.fluid .ttt-board { width: 100%; height: auto; }
+body.fluid .ttt-turn { font-size: 1.2rem; }
+body.fluid .ttt-prompt { font-size: 1.6rem; }
+body.fluid .ttt-answers .answer-btn { min-height: 3.8rem; font-size: 1.4rem; }
