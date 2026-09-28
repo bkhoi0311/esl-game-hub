@@ -1,0 +1,377 @@
+// Thành phần giao diện dùng chung: tạo phần tử, nút, modal, hướng dẫn,
+// bảng điểm đội (2-4 đội), đồng hồ đếm ngược, khung game (Hướng dẫn / Tạm dừng / Chơi lại / Về menu).
+import { icon } from './icons.js';
+
+// ---------- Tạo phần tử ----------
+
+// h('button', { class: 'btn', onClick: fn }, 'Text', childNode)
+export function h(tag, attrs = {}, ...children) {
+  const el = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) {
+    if (value == null || value === false) continue;
+    if (key.startsWith('on') && typeof value === 'function') {
+      el.addEventListener(key.slice(2).toLowerCase(), value);
+    } else if (key === 'class') {
+      el.className = value;
+    } else if (key === 'style' && typeof value === 'object') {
+      Object.assign(el.style, value);
+    } else if (key === 'dataset') {
+      Object.assign(el.dataset, value);
+    } else if (key === 'value' || (key in el && typeof value !== 'string')) {
+      el[key] = value;
+    } else {
+      el.setAttribute(key, value === true ? '' : value);
+    }
+  }
+  appendChildren(el, children);
+  return el;
+}
+
+function appendChildren(el, children) {
+  for (const child of children.flat(Infinity)) {
+    if (child == null || child === false) continue;
+    el.appendChild(child instanceof Node ? child : document.createTextNode(String(child)));
+  }
+}
+
+export function button({ label, iconName, variant = 'default', onClick, title, size, attrs = {} }) {
+  return h(
+    'button',
+    {
+      type: 'button',
+      class: `btn btn-${variant}${size ? ' btn-' + size : ''}${label ? '' : ' btn-icon'}`,
+      title: title || label,
+      'aria-label': title || label,
+      onClick,
+      ...attrs,
+    },
+    iconName ? icon(iconName, size === 'lg' ? 28 : 22) : null,
+    label ? h('span', {}, label) : null,
+  );
+}
+
+// ---------- Modal ----------
+
+let openCount = 0;
+
+// actions: [{ label, variant, iconName, onClick(close) }]. onClick trả false để giữ modal mở.
+export function openModal({ title, body, actions = [], onClose, wide = false, dismissible = true }) {
+  const previous = document.activeElement;
+  const close = () => {
+    if (!overlay.isConnected) return;
+    overlay.remove();
+    document.removeEventListener('keydown', onKey);
+    openCount = Math.max(0, openCount - 1);
+    if (!openCount) document.body.classList.remove('modal-open');
+    if (previous && previous.focus) previous.focus();
+    if (onClose) onClose();
+  };
+  const onKey = (e) => {
+    if (e.key === 'Escape' && dismissible) close();
+  };
+
+  const footer = actions.length
+    ? h(
+        'div',
+        { class: 'modal-actions' },
+        actions.map((a) =>
+          button({
+            label: a.label,
+            iconName: a.iconName,
+            variant: a.variant || 'default',
+            onClick: () => {
+              if (a.onClick && a.onClick(close) === false) return;
+              close();
+            },
+          }),
+        ),
+      )
+    : null;
+
+  const dialog = h(
+    'div',
+    { class: `modal${wide ? ' modal-wide' : ''}`, role: 'dialog', 'aria-modal': 'true', 'aria-label': title },
+    h(
+      'div',
+      { class: 'modal-head' },
+      h('h2', {}, title),
+      dismissible ? button({ iconName: 'x', title: 'Đóng', variant: 'ghost', onClick: close }) : null,
+    ),
+    h('div', { class: 'modal-body' }, body),
+    footer,
+  );
+  const overlay = h(
+    'div',
+    {
+      class: 'modal-overlay',
+      onPointerdown: (e) => {
+        if (e.target === overlay && dismissible) close();
+      },
+    },
+    dialog,
+  );
+
+  document.body.appendChild(overlay);
+  document.body.classList.add('modal-open');
+  document.addEventListener('keydown', onKey);
+  openCount++;
+  const focusTarget = dialog.querySelector('.modal-actions .btn') || dialog.querySelector('.btn');
+  if (focusTarget) focusTarget.focus();
+  return { close, el: dialog };
+}
+
+export function confirmModal({ title, message, okLabel = 'Đồng ý', cancelLabel = 'Hủy', danger = false }) {
+  return new Promise((resolve) => {
+    let result = false;
+    openModal({
+      title,
+      body: h('p', {}, message),
+      actions: [
+        { label: cancelLabel, variant: 'ghost' },
+        { label: okLabel, variant: danger ? 'danger' : 'primary', onClick: () => (result = true) },
+      ],
+      onClose: () => resolve(result),
+    });
+  });
+}
+
+// Modal hướng dẫn chơi: 1 màn hình, dưới 40 chữ (hiển thị cho học sinh nên dùng tiếng Anh).
+export function showHowTo({ title, text, steps = [] }) {
+  const words = [text, ...steps].join(' ').split(/\s+/).filter(Boolean).length;
+  if (words >= 40) console.warn(`[howTo] "${title}" có ${words} chữ, nên dưới 40.`);
+  return openModal({
+    title: title || 'How to play',
+    body: h(
+      'div',
+      { class: 'howto' },
+      text ? h('p', { class: 'howto-lead' }, text) : null,
+      steps.length ? h('ol', { class: 'howto-steps' }, steps.map((s) => h('li', {}, s))) : null,
+    ),
+    actions: [{ label: 'Got it!', variant: 'primary', iconName: 'check' }],
+  });
+}
+
+// ---------- Thông báo nhanh ----------
+
+let toastHost = null;
+
+export function toast(message, type = 'info', ms = 2600) {
+  if (!toastHost || !toastHost.isConnected) {
+    toastHost = h('div', { class: 'toast-host', 'aria-live': 'polite' });
+    document.body.appendChild(toastHost);
+  }
+  const iconName = type === 'error' ? 'alert' : type === 'success' ? 'circle-check' : 'info';
+  const el = h('div', { class: `toast toast-${type}` }, icon(iconName, 20), h('span', {}, message));
+  toastHost.appendChild(el);
+  setTimeout(() => {
+    el.classList.add('toast-out');
+    setTimeout(() => el.remove(), 300);
+  }, ms);
+}
+
+// ---------- Bảng điểm đội ----------
+
+export const TEAM_COLORS = ['#e4513a', '#2a6fdb', '#1f9a6d', '#e0a526'];
+
+// teams: ['Red', 'Blue', ...] (2-4 đội).
+// Trả về { el, add(i, n), set(i, n), scores, highlight(i), reset(), onChange }.
+export function createScoreboard(teams, { min = 0, controls = true, onChange, unit = '' } = {}) {
+  const names = teams.slice(0, 4);
+  while (names.length < 2) names.push(`Team ${names.length + 1}`);
+  const scores = names.map(() => 0);
+  const valueEls = [];
+  const cards = [];
+
+  const el = h('div', { class: 'scoreboard', style: { '--teams': names.length } });
+  names.forEach((name, i) => {
+    const value = h('div', { class: 'score-value' }, '0');
+    valueEls.push(value);
+    const card = h(
+      'div',
+      { class: 'score-team', style: { '--team': TEAM_COLORS[i] } },
+      h('div', { class: 'score-name' }, name),
+      h(
+        'div',
+        { class: 'score-row' },
+        controls ? button({ iconName: 'minus', title: `${name} −1`, variant: 'ghost', onClick: () => api.add(i, -1) }) : null,
+        value,
+        controls ? button({ iconName: 'plus', title: `${name} +1`, variant: 'ghost', onClick: () => api.add(i, 1) }) : null,
+      ),
+    );
+    cards.push(card);
+    el.appendChild(card);
+  });
+
+  const render = (i, bump) => {
+    valueEls[i].textContent = scores[i] + unit;
+    if (bump) {
+      valueEls[i].classList.remove('bump');
+      void valueEls[i].offsetWidth; // chạy lại hiệu ứng
+      valueEls[i].classList.add('bump');
+    }
+  };
+
+  const api = {
+    el,
+    names,
+    scores,
+    add(i, n) {
+      return api.set(i, scores[i] + n);
+    },
+    set(i, n) {
+      const next = min == null ? n : Math.max(min, n);
+      if (next === scores[i]) return scores[i];
+      scores[i] = next;
+      render(i, true);
+      if (onChange) onChange([...scores], i);
+      return next;
+    },
+    highlight(i) {
+      cards.forEach((c, k) => c.classList.toggle('active', k === i));
+    },
+    reset() {
+      scores.fill(0);
+      scores.forEach((_, i) => render(i, false));
+      api.highlight(-1);
+    },
+    ranking() {
+      return names.map((name, i) => ({ name, score: scores[i], index: i })).sort((a, b) => b.score - a.score);
+    },
+  };
+  return api;
+}
+
+// ---------- Đồng hồ đếm ngược ----------
+
+// Trả về { el, start(), pause(), resume(), reset(sec), stop(), remaining, running }.
+export function createCountdown({ seconds = 60, warnAt = 10, onTick, onEnd } = {}) {
+  let total = seconds;
+  let remaining = seconds;
+  let running = false;
+  let endAt = 0;
+  let timer = null;
+
+  const label = h('span', { class: 'countdown-label' });
+  const ring = h('span', { class: 'countdown-ring' });
+  const el = h('div', { class: 'countdown', role: 'timer', 'aria-live': 'off' }, ring, label);
+
+  const fmt = (s) => {
+    const sec = Math.ceil(s);
+    return sec >= 60 ? `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}` : String(sec);
+  };
+
+  const render = () => {
+    label.textContent = fmt(remaining);
+    el.style.setProperty('--progress', total ? remaining / total : 0);
+    el.classList.toggle('warn', remaining <= warnAt && remaining > 0);
+    el.classList.toggle('done', remaining <= 0);
+    el.classList.toggle('paused', !running && remaining > 0 && remaining < total);
+  };
+
+  const loop = () => {
+    const prev = Math.ceil(remaining);
+    remaining = Math.max(0, (endAt - performance.now()) / 1000);
+    if (Math.ceil(remaining) !== prev && onTick) onTick(Math.ceil(remaining));
+    render();
+    if (remaining <= 0) {
+      api.stop();
+      if (onEnd) onEnd();
+    }
+  };
+
+  const api = {
+    el,
+    get remaining() {
+      return remaining;
+    },
+    get running() {
+      return running;
+    },
+    start() {
+      remaining = total;
+      api.resume();
+    },
+    resume() {
+      if (running || remaining <= 0) return;
+      running = true;
+      endAt = performance.now() + remaining * 1000;
+      timer = setInterval(loop, 100);
+      render();
+    },
+    pause() {
+      if (!running) return;
+      loop();
+      running = false;
+      clearInterval(timer);
+      render();
+    },
+    stop() {
+      running = false;
+      clearInterval(timer);
+      render();
+    },
+    reset(sec = total) {
+      api.stop();
+      total = sec;
+      remaining = sec;
+      render();
+    },
+  };
+  render();
+  return api;
+}
+
+// ---------- Khung game ----------
+
+// Dựng thanh công cụ chuẩn cho mọi game. Trả về { el, stage, bar, setPaused(bool), destroy() }.
+export function createGameFrame(root, { title, howTo, onPause, onResume, onRestart, onExit }) {
+  let paused = false;
+  const pauseBtn = button({
+    label: 'Pause',
+    iconName: 'pause',
+    variant: 'ghost',
+    onClick: () => api.setPaused(!paused),
+  });
+  const bar = h(
+    'div',
+    { class: 'game-bar' },
+    h('h1', { class: 'game-title' }, title),
+    h('div', { class: 'game-bar-extra' }),
+    h(
+      'div',
+      { class: 'game-bar-actions' },
+      howTo ? button({ label: 'How to play', iconName: 'help', variant: 'ghost', onClick: () => showHowTo(howTo) }) : null,
+      pauseBtn,
+      button({ label: 'Restart', iconName: 'restart', variant: 'ghost', onClick: () => onRestart && onRestart() }),
+      button({ label: 'Menu', iconName: 'home', variant: 'ghost', onClick: () => (onExit ? onExit() : (location.hash = '#/')) }),
+    ),
+  );
+  const stage = h('div', { class: 'game-stage' });
+  const pauseLayer = h('div', { class: 'pause-layer', hidden: true }, h('div', { class: 'pause-text' }, 'Paused'));
+  const el = h('div', { class: 'game-frame' }, bar, stage, pauseLayer);
+  root.appendChild(el);
+
+  const api = {
+    el,
+    bar,
+    stage,
+    extra: bar.querySelector('.game-bar-extra'),
+    get paused() {
+      return paused;
+    },
+    setPaused(value) {
+      if (value === paused) return;
+      paused = value;
+      pauseLayer.hidden = !paused;
+      pauseBtn.querySelector('span').textContent = paused ? 'Resume' : 'Pause';
+      pauseBtn.replaceChild(icon(paused ? 'play' : 'pause', 22), pauseBtn.querySelector('svg'));
+      if (paused && onPause) onPause();
+      if (!paused && onResume) onResume();
+    },
+    destroy() {
+      el.remove();
+    },
+  };
+  pauseLayer.addEventListener('pointerdown', () => api.setPaused(false));
+  return api;
+}

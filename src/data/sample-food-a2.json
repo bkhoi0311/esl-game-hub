@@ -1,0 +1,63 @@
+{
+  "title": "Unit 5 - Food",
+  "level": "A2",
+  "vocab": [
+    { "word": "banana", "meaning": "quả chuối", "category": "fruit", "example": "I eat a banana every morning.", "image": "" },
+    { "word": "apple", "meaning": "quả táo", "category": "fruit", "example": "She has an apple in her bag.", "image": "" },
+    { "word": "orange", "meaning": "quả cam", "category": "fruit", "example": "This orange is very sweet.", "image": "" },
+    { "word": "mango", "meaning": "quả xoài", "category": "fruit", "example": "My sister loves mango.", "image": "" },
+    { "word": "grapes", "meaning": "quả nho", "category": "fruit", "example": "There are some grapes on the table.", "image": "" },
+    { "word": "lemon", "meaning": "quả chanh vàng", "category": "fruit", "example": "A lemon is sour.", "image": "" },
+
+    { "word": "carrot", "meaning": "cà rốt", "category": "vegetable", "example": "Rabbits like carrots.", "image": "" },
+    { "word": "potato", "meaning": "khoai tây", "category": "vegetable", "example": "We need two potatoes for the soup.", "image": "" },
+    { "word": "onion", "meaning": "hành tây", "category": "vegetable", "example": "Cutting an onion makes me cry.", "image": "" },
+    { "word": "tomato", "meaning": "cà chua", "category": "vegetable", "example": "Put a tomato in the salad.", "image": "" },
+    { "word": "cabbage", "meaning": "bắp cải", "category": "vegetable", "example": "My grandma grows cabbage in her garden.", "image": "" },
+    { "word": "corn", "meaning": "ngô", "category": "vegetable", "example": "We eat corn in summer.", "image": "" },
+
+    { "word": "water", "meaning": "nước", "category": "drink", "example": "Drink some water after class.", "image": "" },
+    { "word": "milk", "meaning": "sữa", "category": "drink", "example": "He drinks milk before bed.", "image": "" },
+    { "word": "juice", "meaning": "nước ép", "category": "drink", "example": "Would you like some orange juice?", "image": "" },
+    { "word": "tea", "meaning": "trà", "category": "drink", "example": "My dad drinks green tea every day.", "image": "" },
+    { "word": "coffee", "meaning": "cà phê", "category": "drink", "example": "My mum doesn't like coffee.", "image": "" },
+    { "word": "lemonade", "meaning": "nước chanh", "category": "drink", "example": "Lemonade is nice on a hot day.", "image": "" },
+
+    { "word": "breakfast", "meaning": "bữa sáng", "category": "meal", "example": "I have breakfast at seven o'clock.", "image": "" },
+    { "word": "lunch", "meaning": "bữa trưa", "category": "meal", "example": "We have lunch at school.", "image": "" },
+    { "word": "dinner", "meaning": "bữa tối", "category": "meal", "example": "My family has dinner together.", "image": "" },
+    { "word": "snack", "meaning": "bữa ăn nhẹ", "category": "meal", "example": "I have a small snack after school.", "image": "" },
+    { "word": "picnic", "meaning": "bữa ăn ngoài trời", "category": "meal", "example": "Let's have a picnic in the park.", "image": "" },
+    { "word": "brunch", "meaning": "bữa sáng muộn", "category": "meal", "example": "On Sundays we have brunch at eleven.", "image": "" }
+  ],
+  "questions": [
+    { "prompt": "She ___ rice every day.", "options": ["eats", "eat", "eating"], "answer": 0, "type": "grammar" },
+    { "prompt": "My parents ___ coffee in the morning.", "options": ["drinks", "drink", "drinking"], "answer": 1, "type": "grammar" },
+    { "prompt": "___ your brother like fish?", "options": ["Do", "Is", "Does"], "answer": 2, "type": "grammar" },
+    { "prompt": "I ___ eat meat. I am a vegetarian.", "options": ["doesn't", "don't", "am not"], "answer": 1, "type": "grammar" },
+    { "prompt": "Tom ___ breakfast at 7 a.m.", "options": ["has", "have", "having"], "answer": 0, "type": "grammar" },
+    { "prompt": "There are ___ apples in the fridge.", "options": ["any", "some", "a"], "answer": 1, "type": "grammar" },
+    { "prompt": "Is there ___ milk in the bottle?", "options": ["any", "some", "a"], "answer": 0, "type": "grammar" },
+    { "prompt": "We don't have ___ bread today.", "options": ["some", "a", "any"], "answer": 2, "type": "grammar" },
+    { "prompt": "Would you like ___ tea?", "options": ["any", "some", "an"], "answer": 1, "type": "grammar" },
+    { "prompt": "I would like ___ banana, please.", "options": ["a", "an", "some"], "answer": 0, "type": "grammar" },
+    { "prompt": "Which word is uncountable?", "options": ["egg", "rice", "carrot"], "answer": 1, "type": "grammar" },
+    { "prompt": "How ___ water do you drink every day?", "options": ["many", "much", "any"], "answer": 1, "type": "grammar" },
+    { "prompt": "How ___ eggs do we need?", "options": ["much", "any", "many"], "answer": 2, "type": "grammar" },
+    { "prompt": "My sister likes ___ cakes.", "options": ["making", "make", "makes"], "answer": 0, "type": "grammar" },
+    { "prompt": "Do you enjoy ___ vegetables?", "options": ["eat", "eating", "eats"], "answer": 1, "type": "grammar" }
+  ],
+  "actionCommands": [
+    "Hop on one foot",
+    "Touch your toes",
+    "Spin around",
+    "Wave your hands",
+    "Jump up and down",
+    "Clap your hands",
+    "Pretend to eat a banana",
+    "Pretend to drink some water",
+    "Stir the soup",
+    "Pretend to cut a carrot"
+  ],
+  "teams": ["Red", "Blue"]
+}

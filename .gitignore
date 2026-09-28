@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.offline-tmp/
+test-results/
+playwright-report/
+screenshots/
+.DS_Store

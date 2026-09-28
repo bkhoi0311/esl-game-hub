@@ -1,0 +1,26 @@
+{
+  "name": "esl-game-hub",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode offline --outDir .offline-tmp --emptyOutDir && vite build && node scripts/copy-offline.js",
+    "build:offline": "vite build --mode offline",
+    "preview": "vite preview",
+    "shots": "node tests/screenshots.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^1.0.1",
+    "canvas-confetti": "^1.9.4",
+    "gsap": "^3.15.0",
+    "howler": "^2.2.4",
+    "lucide": "^1.48.0",
+    "sortablejs": "^1.15.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "vite": "^8.3.1",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}
