@@ -243,6 +243,79 @@ TESTS['tug-of-war'] = async () => {
   await ph.context.close();
 };
 
+// ---------- Draw & Guess ----------
+TESTS['draw-guess'] = async () => {
+  const { context, page } = await open('#/game/draw-guess', BIG, { hasTouch: true });
+  await page.click('[data-testid=draw-guess-start]');
+  await page.click('[data-testid=dg-begin]');
+  const stageText = () => page.evaluate(() => document.querySelector('.stage').innerText.toLowerCase());
+
+  // Nhấn giữ: từ hiện; thả ra: từ biến mất khỏi trang.
+  const hold = page.locator('[data-testid=dg-hold]');
+  const hb = await hold.boundingBox();
+  await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2);
+  await page.mouse.down();
+  const word = (await page.textContent('[data-testid=dg-secret]')).trim();
+  assert.ok(word.length > 0);
+  await shot(page, 'draw-guess-2-holding');
+  await page.mouse.up();
+  assert.equal(await page.$('[data-testid=dg-secret]'), null, 'từ vẫn còn sau khi thả');
+  const re = new RegExp(`\\b${word.toLowerCase()}\\b`);
+  assert.ok(!re.test(await stageText()), `từ "${word}" hiện trên màn hình khi không nhấn giữ`);
+  const html = await page.content();
+  assert.ok(!html.toLowerCase().includes(`>${word.toLowerCase()}<`), 'từ nằm trong HTML khi không nhấn giữ');
+
+  // Vẽ bằng chuột.
+  const cv = await page.locator('.dg-canvas').boundingBox();
+  await page.mouse.move(cv.x + 100, cv.y + 100);
+  await page.mouse.down();
+  for (let k = 1; k <= 20; k++) await page.mouse.move(cv.x + 100 + k * 15, cv.y + 100 + Math.sin(k / 3) * 60);
+  await page.mouse.up();
+  // Vẽ bằng 2 ngón cùng lúc (cảm ứng).
+  const cdp = await context.newCDPSession(page);
+  const tp = (k) => [{ x: cv.x + 200 + k * 10, y: cv.y + 400, id: 1 }, { x: cv.x + 700 + k * 10, y: cv.y + 420 + k * 5, id: 2 }];
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: tp(0) });
+  for (let k = 1; k <= 15; k++) await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: tp(k) });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  const inked = (x, y) => page.evaluate(([px, py]) => {
+    const c = document.querySelector('.dg-canvas');
+    const r = c.getBoundingClientRect();
+    const sx = c.width / r.width;
+    const d = c.getContext('2d').getImageData(Math.round(px * sx) - 6, Math.round(py * sx) - 6, 12, 12).data;
+    for (let i = 3; i < d.length; i += 4) if (d[i] > 0) return true;
+    return false;
+  }, [x, y]);
+  assert.ok(await inked(100 + 10 * 15, 100 + Math.sin(10 / 3) * 60), 'nét chuột không được vẽ');
+  assert.ok(await inked(200 + 80, 400), 'ngón 1 không vẽ được');
+  assert.ok(await inked(700 + 80, 420 + 40), 'ngón 2 không vẽ được');
+  await shot(page, 'draw-guess-1-drawing');
+
+  // QR.
+  await page.click('[data-testid=dg-qr]');
+  await page.waitForSelector('[data-testid=dg-qr-code] svg');
+  await page.waitForTimeout(400);
+  await shot(page, 'draw-guess-3-qr');
+  await page.click('.modal .btn-primary');
+
+  // Xóa hết.
+  await page.click('[data-testid=dg-clear]');
+  assert.ok(!(await inked(280, 400)), 'xóa hết chưa sạch');
+
+  // Đúng -> chọn đội Blue -> Blue +1, hiện đáp án.
+  await page.click('[data-testid=dg-correct]');
+  await page.click('.dg-team-btn[data-team="1"]');
+  await page.waitForSelector('[data-testid=dg-round-end]');
+  const scores = await page.$$eval('.dg-scores .score-value', (els) => els.map((e) => Number(e.textContent)));
+  assert.deepEqual(scores, [0, 1]);
+  assert.match(await page.textContent('[data-testid=dg-round-end]'), new RegExp(word));
+  await shot(page, 'draw-guess-4-correct');
+  await page.click('[data-testid=dg-next]');
+  await page.click('[data-testid=dg-begin]');
+  await page.click('[data-testid=dg-finish]');
+  await page.waitForSelector('[data-testid=results]');
+  await context.close();
+};
+
 // ---------- Vào/ra game 5 lần (kiểm tra dọn dẹp) ----------
 async function enterExit(id) {
   const { context, page } = await open('#/');
