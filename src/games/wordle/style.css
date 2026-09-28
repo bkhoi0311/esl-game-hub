@@ -42,7 +42,11 @@
 .wd-result.bad { background: #ffe4dc; border-color: var(--red); }
 
 body.fluid .wd-play { grid-template-columns: 1fr; padding: 0.8rem; gap: 0.8rem; }
-body.fluid .wd-grid { height: auto; width: min(100%, calc(var(--len) * 3.6rem)); max-height: none; }
+body.fluid .wd-main { grid-template-rows: auto auto; justify-items: stretch; }
+body.fluid .wd-board { width: 100%; }
+body.fluid .wd-grid { width: min(100%, calc(var(--len) * 3.6rem)) !important; justify-self: center; }
+body.fluid .wd-grid { height: auto; width: min(100%, calc(var(--len) * 3.6rem)); max-height: none; aspect-ratio: auto; grid-template-rows: none; gap: 0.35rem; }
+body.fluid .wd-row { gap: 0.35rem; }
 body.fluid .wd-tile { font-size: 1.6rem; }
 body.fluid .wd-key { min-height: 3.4rem; font-size: 1.1rem; }
 body.fluid .wd-key.wide { font-size: 0.85rem; }

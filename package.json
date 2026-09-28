@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",
     "test": "node --test tests/logic.test.mjs",
-    "test:games": "node tests/games.mjs"
+    "test:games": "node tests/games.mjs",
+    "test:offline": "node tests/offline.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.0.1",
