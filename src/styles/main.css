@@ -428,7 +428,7 @@ body.fluid .game-frame { min-height: calc(100vh - 8rem); }
 
 /* Thông báo "Dùng trên màn hình lớn" */
 .big-screen-only { height: 100%; display: grid; place-items: center; align-content: center; gap: 1rem; padding: 2rem; text-align: center; font-size: 1.3rem; }
-.big-screen-only .icon { width: 4rem; height: 4rem; color: var(--orange); }
+.big-screen-only > .icon { width: 4rem; height: 4rem; color: var(--orange); }
 
 /* ---------- Hiệu ứng ---------- */
 
@@ -448,7 +448,8 @@ body.fluid .game-frame { min-height: calc(100vh - 8rem); }
 body.fluid .app-header { flex-wrap: wrap; height: auto; gap: 0.6rem; padding: 0.7rem 1rem; }
 body.fluid .brand { gap: 0.6rem; }
 body.fluid .brand-logo { height: 1.3rem; }
-body.fluid .brand-name { font-size: 1.1rem; }
+body.fluid .brand-name { font-size: 1rem; }
+@media (max-width: 420px) { body.fluid .brand-sep, body.fluid .brand-name { display: none; } }
 body.fluid .brand-sep { height: 1.4rem; }
 body.fluid .app-nav { order: 3; width: 100%; margin: 0; }
 body.fluid .nav-link { flex: 1; justify-content: center; min-height: 3rem; font-size: 1rem; }

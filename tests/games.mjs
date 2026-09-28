@@ -184,6 +184,65 @@ TESTS.wordle = async () => {
   await c2.close();
 };
 
+// ---------- Tug of War ----------
+TESTS['tug-of-war'] = async () => {
+  const { context, page } = await open('#/game/tug-of-war', BIG, { hasTouch: true });
+  await page.click('[data-testid=tug-of-war-start]');
+  await page.waitForSelector('[data-testid=tw-half-1] .answer-btn');
+  await shot(page, 'tug-of-war-1-play');
+
+  const center = async (side, which) => {
+    const correct = Number(await page.getAttribute(`[data-testid=tw-half-${side}] .tw-answers`, 'data-correct'));
+    const idx = which === 'correct' ? correct : (correct + 1) % 3;
+    const box = await page.locator(`[data-testid=tw-half-${side}] .answer-btn[data-index="${idx}"]`).boundingBox();
+    return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+  };
+  const counts = () => page.$$eval('.tw-half', (els) => els.map((e) => Number(e.dataset.correctCount)));
+
+  // 2 ngón chạm CÙNG LÚC vào đáp án đúng của 2 bên.
+  const cdp = await context.newCDPSession(page);
+  const a = await center(0, 'correct');
+  const b = await center(1, 'correct');
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: a.x, y: a.y, id: 1 }, { x: b.x, y: b.y, id: 2 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await page.waitForTimeout(500);
+  assert.deepEqual(await counts(), [1, 1], 'chạm đồng thời: cả 2 bên phải được tính');
+  assert.equal(await page.getAttribute('[data-testid=tw-flag]', 'data-pos'), '0');
+
+  // Bên phải trả lời sai -> khóa 2 giây, chạm trong lúc khóa không tính; bên trái vẫn chơi được.
+  const wrong = await center(1, 'wrong');
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: wrong.x, y: wrong.y, id: 3 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await page.waitForSelector('[data-testid=tw-half-1] .tw-lock:not([hidden])');
+  await shot(page, 'tug-of-war-2-locked');
+  const r = await center(1, 'correct');
+  const l = await center(0, 'correct');
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: r.x, y: r.y, id: 4 }, { x: l.x, y: l.y, id: 5 }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await page.waitForTimeout(400);
+  assert.deepEqual(await counts(), [2, 1], 'bên bị khóa không được tính, bên kia vẫn tính');
+  await page.waitForSelector('[data-testid=tw-half-1] .tw-lock', { state: 'hidden', timeout: 3000 });
+
+  // Bên trái kéo tới vạch thắng (5 nấc).
+  for (let k = 0; k < 4; k++) {
+    const p = await center(0, 'correct');
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: p.x, y: p.y, id: 10 + k }] });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await page.waitForTimeout(400);
+  }
+  await page.waitForSelector('[data-testid=results]');
+  assert.match(await page.textContent('[data-testid=results] h2'), /Red wins/);
+  await shot(page, 'tug-of-war-3-win');
+  await context.close();
+
+  // Điện thoại: báo dùng màn hình lớn.
+  const ph = await open('#/game/tug-of-war', PHONE);
+  await ph.page.waitForSelector('[data-testid=tw-big-screen]');
+  assert.match(await ph.page.textContent('[data-testid=tw-big-screen]'), /Dùng trên màn hình lớn/);
+  await shot(ph.page, 'tug-of-war-4-phone');
+  await ph.context.close();
+};
+
 // ---------- Vào/ra game 5 lần (kiểm tra dọn dẹp) ----------
 async function enterExit(id) {
   const { context, page } = await open('#/');
