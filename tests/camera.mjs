@@ -182,7 +182,7 @@ TESTS['word-ninja'] = async () => {
   await page.click('[data-testid=wn-mode] [data-value="touch"]');
   await page.click('[data-testid=word-ninja-start]');
   await page.waitForSelector('[data-testid=wn-canvas]');
-  assert.match(await page.textContent('[data-testid=wn-target]'), /Slice only [A-Z]+/);
+  await page.waitForFunction(() => /Slice only [A-Z]+/.test(document.querySelector('[data-testid=wn-target]').textContent), null, { timeout: 15000 });
   const box = await page.locator('[data-testid=wn-canvas]').boundingBox();
   let changed = false;
   for (let k = 0; k < 40 && !changed; k++) {
@@ -207,7 +207,7 @@ TESTS['word-ninja'] = async () => {
   await c2.page.waitForSelector('[data-testid=cam-start]:not([disabled])');
   await c2.page.click('[data-testid=cam-start]');
   await c2.page.waitForSelector('[data-testid=wn-canvas]');
-  await c2.page.waitForSelector('.sp-loading', { state: 'detached', timeout: 60000 });
+  await c2.page.waitForFunction(() => window.__ninjaScene, null, { timeout: 60000 });
   await c2.page.waitForTimeout(2500);
   await shot(c2.page, 'word-ninja-camera');
   await c2.context.close();

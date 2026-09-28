@@ -15,3 +15,6 @@
 body.fluid .wn-play { padding: 0.5rem; height: 70vh; }
 body.fluid .wn-target { font-size: 1.2rem; top: 3.4rem; }
 body.fluid .wn-score, body.fluid .wn-lives { font-size: 1.1rem; }
+.wn-phaser { position: absolute; inset: 0; touch-action: none; cursor: crosshair; }
+.wn-phaser canvas { display: block; touch-action: none; }
+.wn-box.touch { background: radial-gradient(circle at 30% 20%, rgba(90, 70, 190, 0.55), rgba(28, 31, 37, 0.35) 70%); }
