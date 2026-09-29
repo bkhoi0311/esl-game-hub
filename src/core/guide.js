@@ -1,5 +1,6 @@
-// Hướng dẫn cho giáo viên: trình chiếu 6 bước bằng ảnh giao diện thật (vòng xanh đánh số chỉ chỗ bấm)
-// + video có giọng đọc. Từ soạn bài trên máy tính đến mở bài trên màn hình tương tác ClassIn.
+// Hướng dẫn cho giáo viên: trình chiếu 8 bước bằng ảnh giao diện thật (vòng xanh đánh số chỉ chỗ bấm)
+// + video có giọng đọc. Soạn bài ngay trong Bảng đen của app ClassIn (file Interaction Game.edu),
+// lưu file .edu của bài, Upload lên Drive, rồi mở trên màn hình tương tác (cùng tài khoản).
 import { gsap } from 'gsap';
 import { button, h, openModal } from './ui.js';
 import { icon } from './icons.js';
@@ -10,20 +11,32 @@ const BASE = `${import.meta.env.BASE_URL}guide/`;
 // marks: [x%, y%] trên ảnh, theo thứ tự bấm. tips: 1 thẻ chữ ngắn cho mỗi vòng (cùng số).
 const STEPS = [
   {
+    place: 'laptop', label: 'Bảng đen', title: 'Mở Bảng đen', img: 'steps/0-bang-den.webp', ratio: 1100 / 840,
+    marks: [[12.7, 73.2]],
+    tips: ['Bấm Bảng đen (Blackboard)'],
+    note: 'Trước đó: đăng nhập app ClassIn trên máy tính',
+  },
+  {
+    place: 'laptop', label: 'Mở game', title: 'Mở Interaction Game', img: 'steps/0-drive-bang-den.webp', ratio: 2000 / 1168,
+    marks: [[97.35, 52.2], [77.4, 54.8]],
+    tips: ['Bấm biểu tượng đám mây', 'Mở Interaction Game.edu'],
+    note: 'File có sẵn trong My Drive hoặc Org Drive (Drive trường)',
+  },
+  {
     place: 'laptop', label: 'Soạn bài', title: 'Soạn bài', img: 'steps/1-soan-bai.webp', ratio: 16 / 9,
     marks: [[46.7, 5.5], [46.1, 34.6], [50, 61.2]],
     tips: ['Bấm Soạn bài', 'Gõ tên bài', 'Gõ từ vựng, hoặc dán bảng từ Excel'],
   },
   {
-    place: 'laptop', label: 'Lưu .edu', title: 'Lưu file .edu', img: 'steps/2-luu-edu.webp', ratio: 16 / 9,
+    place: 'laptop', label: 'Lưu .edu', title: 'Lưu file .edu của bài', img: 'steps/2-luu-edu.webp', ratio: 16 / 9,
     marks: [[54.7, 14.4], [70.1, 72.5]],
     tips: ['Bấm nút xanh Lưu file .edu', 'Bấm Lưu file .edu lần nữa'],
     note: 'File nằm trong thư mục Tải xuống (Downloads)',
   },
   {
-    place: 'laptop', label: 'Lên Drive', title: 'Tải file lên Drive ClassIn', img: 'steps/3-drive.webp', ratio: 1280 / 672,
-    marks: [[8.4, 50.2], [20.5, 25], [43, 12.8], [43.9, 20.2]],
-    tips: ['Mở app ClassIn, bấm Drive', 'Drive của tôi', 'Tải lên', 'Tệp, chọn file .edu'],
+    place: 'laptop', label: 'Upload', title: 'Đưa file bài lên Drive', img: 'steps/0-drive-bang-den.webp', ratio: 2000 / 1168,
+    marks: [[97.35, 52.2], [37.85, 16.3]],
+    tips: ['Bấm biểu tượng đám mây', 'Upload, chọn file .edu của bài'],
   },
   {
     place: 'board', label: 'Đăng nhập', title: 'Đăng nhập màn hình lớp', img: 'steps/4-dang-nhap.webp', ratio: 1280 / 636,
@@ -32,15 +45,16 @@ const STEPS = [
     warn: 'Đăng nhập CÙNG tài khoản với máy tính',
   },
   {
-    place: 'board', label: 'Mở file', title: 'Mở file .edu', img: 'steps/5-mo-file.webp', ratio: 16 / 9,
+    place: 'board', label: 'Mở bài', title: 'Mở file bài', img: 'steps/5-mo-file.webp', ratio: 16 / 9,
     marks: [[42.6, 91.6], [21.3, 20.2], [56, 55.6]],
     tips: ['Bấm Tệp (Files)', 'Drive của tôi', 'Bấm file .edu của bài'],
+    note: 'Mở file của bài (ví dụ unit-5-food.edu), không phải Interaction Game.edu',
   },
   {
     place: 'board', label: 'Chơi', title: 'Chọn trò chơi và chơi', img: 'steps/6-choi.webp', ratio: 16 / 9,
     marks: [[69.5, 46.1]],
     tips: ['Bấm trò chơi, rồi Bắt đầu chơi'],
-    note: 'Muốn sửa bài: sửa ở Soạn bài, lưu file .edu mới, tải lên Drive lại',
+    note: 'Sửa bài: mở lại Interaction Game, sửa, lưu và Upload file mới',
   },
 ];
 

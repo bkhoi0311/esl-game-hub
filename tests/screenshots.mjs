@@ -110,10 +110,10 @@ try {
     // Nút hướng dẫn: mở video + các bước
     await page.click('[data-testid=open-guide]');
     await page.waitForSelector('.gs-pic img');
-    assert.equal(await page.locator('.gs-dot').count(), 6, 'hướng dẫn phải có 6 bước');
+    assert.equal(await page.locator('.gs-dot').count(), 8, 'hướng dẫn phải có 8 bước');
     await page.waitForTimeout(2500);
     await page.screenshot({ path: `${OUT}/editor-guide-1366x768.png` });
-    for (let i = 0; i < 3; i++) await page.click('[data-testid=guide-next]');
+    for (let i = 0; i < 5; i++) await page.click('[data-testid=guide-next]');
     await page.waitForTimeout(2200);
     assert.ok(await page.locator('.gs-warn').isVisible(), 'bước đăng nhập phải nhắc cùng tài khoản');
     await page.screenshot({ path: `${OUT}/editor-guide-step4-1366x768.png` });
