@@ -296,7 +296,7 @@ try {
         await run();
         results.push(`PASS ${label}`);
       } catch (err) {
-        results.push(`FAIL ${label}: ${err.message.split('\n')[0]}`);
+        results.push(`FAIL ${label}: ${err.message.split("\n").slice(0, 3).join(" / ")} @ ${(err.stack || "").split("\n").find((l) => l.includes("camera.mjs")) || ""}`);
         process.exitCode = 1;
       }
     }

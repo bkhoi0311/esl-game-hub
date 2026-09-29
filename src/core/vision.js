@@ -149,7 +149,7 @@ function workerDetector(kind, options, tiers, delegates = ['GPU', 'CPU']) {
         worker.terminate();
         reject(new Error('vision worker timeout'));
       }
-    }, 30000);
+    }, 60000);
 
     const api = {
       mode: 'worker',
@@ -214,10 +214,18 @@ function workerDetector(kind, options, tiers, delegates = ['GPU', 'CPU']) {
           const c = new OffscreenCanvas(64, 64);
           c.getContext('2d').fillRect(0, 0, 32, 32);
           createImageBitmap(c).then((bitmap) => worker.postMessage({ type: 'frame', id: -1, bitmap, t: performance.now() }, [bitmap]));
+          // GPU treo thì bỏ sau 6 s để thử CPU. CPU chỉ chậm (máy yếu / đang bận) chứ không hỏng:
+          // vẫn dùng luồng riêng, vì chạy ở luồng chính còn làm game giật hơn.
           probeTimer = setTimeout(() => {
+            if (delegate === 'CPU') {
+              clearTimeout(timer);
+              ready = true;
+              resolve(api);
+              return;
+            }
             worker.terminate();
             reject(new Error(`vision probe timeout (${delegate})`));
-          }, 5000);
+          }, delegate === 'CPU' ? 12000 : 6000);
         }
       } else if (m.type === 'error') {
         switching = false;
@@ -233,8 +241,10 @@ function workerDetector(kind, options, tiers, delegates = ['GPU', 'CPU']) {
       } else if (m.type === 'result' && m.id === -1) {
         clearTimeout(probeTimer);
         clearTimeout(timer);
-        ready = true;
-        resolve(api);
+        if (!ready) {
+          ready = true;
+          resolve(api);
+        }
       } else if (m.type === 'result') {
         busy = false;
         sentAt = 0;
@@ -276,7 +286,9 @@ async function startDetector(kind, options, tiers, delegates) {
 }
 
 async function adaptive(kind, options, tiers) {
-  let inner = await startDetector(kind, options, tiers, window.__visionDelegates || ['GPU', 'CPU']);
+  // Mặc định CPU (XNNPACK): các model lite/full chỉ mất ~10–30 ms/khung ở luồng riêng. GPU trong worker
+  // có máy/trình duyệt bị treo cả tiến trình đồ hoạ (đơ luôn trang), rủi ro lớn hơn lợi ích.
+  let inner = await startDetector(kind, options, tiers, window.__visionDelegates || ['CPU']);
   let swapping = false;
   let closed = false;
   const api = {
