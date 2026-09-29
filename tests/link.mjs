@@ -35,7 +35,7 @@ try {
   assert.equal(edu.url, link, 'file .edu trỏ đúng link bài học');
   assert.equal(edu.title, 'Unit 9 - Animals');
   assert.equal(edu.classin_authority, true);
-  assert.equal(edu.size, '800x600,400x300');
+  assert.equal(edu.size, '1280x720,400x300');
   assert.ok(edu.uid === true && edu.identity === true);
   console.log('file .edu:', JSON.stringify(edu).length, 'byte JSON');
   assert.match(link, /#L=1[A-Za-z0-9_-]+$/, 'link phải có dạng #L=1...');

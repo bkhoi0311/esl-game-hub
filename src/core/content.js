@@ -1,22 +1,10 @@
-// Bộ nội dung (lesson pack): đọc, ghi, kiểm tra schema, xuất/nhập JSON, lưu thành file HTML mới.
+// Bộ nội dung (lesson pack): đọc, ghi, kiểm tra schema, link bài học, file .edu cho ClassIn.
 import samplePack from '../data/sample-food-a2.json';
 
 const STORAGE_PREFIX = 'eslhub.pack.';
 const EMBED_ID = 'embedded-lesson-pack';
 
 export const LIMITS = { minTeams: 2, maxTeams: 4, optionsPerQuestion: 3 };
-
-// Ảnh chụp HTML gốc lúc trang vừa nạp (trước khi app dựng giao diện).
-// Bản 1-file dùng nó để tạo "file mới" mà không cần mạng.
-const pristineHtml = captureHtml();
-
-function captureHtml() {
-  try {
-    return '<!doctype html>\n' + document.documentElement.outerHTML;
-  } catch {
-    return '';
-  }
-}
 
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -300,9 +288,9 @@ export async function lessonLink(pack) {
 
 // File .edu của ClassIn: JSON nhỏ trỏ tới 1 trang web; mở trong lớp ClassIn như học liệu.
 // Cùng khuôn với công cụ tạo .edu của classin.vn. classin_authority: false = mọi học sinh tương tác được,
-// true = chỉ học sinh được giáo viên cấp quyền. size: cỡ cửa sổ mặc định, cỡ nhỏ nhất.
+// true = chỉ học sinh được giáo viên cấp quyền. size: cỡ cửa sổ mặc định (1280x720 cho game), cỡ nhỏ nhất.
 export function eduFileText({ url, title, authorizedOnly = false }) {
-  const data = { url, uid: true, identity: true, title: title || 'ESL Game Hub', size: '800x600,400x300', classin_authority: Boolean(authorizedOnly) };
+  const data = { url, uid: true, identity: true, title: title || 'ESL Game Hub', size: '1280x720,400x300', classin_authority: Boolean(authorizedOnly) };
   return JSON.stringify(data, null, 1).replace(/\n/g, '\r\n');
 }
 
@@ -361,7 +349,7 @@ export function leaveLinkedPack({ edit = false } = {}) {
   if (sameDoc) location.reload(); // chỉ đổi phần # thì trình duyệt không tự nạp lại
 }
 
-// ---------- Xuất / nhập ----------
+// ---------- Tải file ----------
 
 export function fileSlug(pack) {
   const base = (pack.title || 'lesson')
@@ -384,58 +372,4 @@ export function downloadFile(filename, text, type) {
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-export function exportJson(pack) {
-  downloadFile(`${fileSlug(pack)}.json`, JSON.stringify(pack, null, 2), 'application/json');
-}
-
-// Đọc file JSON người dùng chọn. Ném lỗi tiếng Việt nếu file hỏng.
-export async function parseJsonFile(file) {
-  let data;
-  try {
-    data = JSON.parse(await file.text());
-  } catch {
-    throw new Error('File không phải JSON hợp lệ.');
-  }
-  if (!data || typeof data !== 'object' || (!Array.isArray(data.vocab) && !Array.isArray(data.questions))) {
-    throw new Error('File JSON không đúng định dạng bộ nội dung (thiếu "vocab" hoặc "questions").');
-  }
-  return normalizePack(data);
-}
-
-// Lấy mã HTML bản 1-file để nhúng nội dung vào.
-async function getSingleFileHtml() {
-  if (__SINGLE_FILE__ && pristineHtml) return pristineHtml;
-  // Bản online: tải bản 1-file nằm cạnh trang (dist/offline.html).
-  const res = await fetch('./offline.html', { cache: 'no-store' });
-  if (!res.ok) throw new Error('offline.html not found');
-  const html = await res.text();
-  if (!html.includes(EMBED_ID)) throw new Error('offline.html invalid');
-  return html;
-}
-
-function embedPack(html, pack) {
-  // Chặn chuỗi "</script" trong nội dung để không phá thẻ script.
-  const json = JSON.stringify(pack).replace(/</g, '\\u003c');
-  const tag = new RegExp(`(<script[^>]*id="${EMBED_ID}"[^>]*>)[\\s\\S]*?(<\\/script>)`);
-  if (!tag.test(html)) throw new Error('embed tag missing');
-  const title = (pack.title ? pack.title + ' - ' : '') + 'ESL Game Hub';
-  return html
-    .replace(tag, (_, open, close) => open + json + close)
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${title.replace(/[<>&]/g, '')}</title>`);
-}
-
-// "Lưu thành file mới": tải về 1 file HTML chạy offline, đã chứa sẵn nội dung bài.
-export async function saveAsNewFile(pack) {
-  let html;
-  try {
-    html = await getSingleFileHtml();
-  } catch {
-    throw new Error(
-      'Không tạo được file mới ở chế độ này. Hãy dùng bản online đã deploy hoặc bản offline (npm run build:offline). ' +
-        'Tạm thời có thể dùng "Xuất JSON" để lưu nội dung.',
-    );
-  }
-  downloadFile(`${fileSlug(pack)}.html`, embedPack(html, pack), 'text/html');
 }

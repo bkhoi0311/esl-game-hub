@@ -1,8 +1,6 @@
 // Kiểm tra Giai đoạn 1 bằng Playwright (Chromium):
 // 1. Chụp menu chính và tab Soạn bài ở 3 kích thước -> screenshots/
-// 2. Tab Soạn bài: dán 3 dòng từ vựng, xuất JSON, nhập lại JSON -> dữ liệu phải giữ nguyên.
-// 3. Bản 1-file (dist/index.html, cần chạy build:offline trước nếu có): mở bằng file://,
-//    "Lưu thành file mới" -> file tải về phải chứa nội dung bài và mở được.
+// 2. Tab Soạn bài: dán từ vựng, dán thẳng vào ô, mở video hướng dẫn, khôi phục nội dung mẫu.
 // Chạy: npm run shots
 import { chromium } from 'playwright';
 import { createServer } from 'vite';
@@ -72,7 +70,7 @@ try {
   });
 
   // ---------- 2. Dán -> xuất -> nhập ----------
-  await check('Soạn bài: dán 3 dòng, xuất JSON, nhập lại giữ nguyên', async () => {
+  await check('Soạn bài: dán từ vựng, hướng dẫn, khôi phục mẫu', async () => {
     const { context, page } = await newPage(SIZES[1]);
     await page.goto(BASE + '#/editor');
     await page.waitForSelector('[data-testid=vocab-table]');
@@ -99,27 +97,6 @@ try {
       'dữ liệu sau khi dán sai',
     );
 
-    const [download] = await Promise.all([page.waitForEvent('download'), page.click('[data-testid=export-json]')]);
-    const exportedPath = `${TMP}/exported.json`;
-    await download.saveAs(exportedPath);
-    const exported = JSON.parse(readFileSync(exportedPath, 'utf8'));
-    assert.deepEqual(exported, before, 'file JSON xuất ra khác dữ liệu đang có');
-
-    // Đổi nội dung (khôi phục mẫu) rồi nhập lại file đã xuất.
-    await page.click('[data-testid=reset-sample]');
-    await page.click('.modal .btn-danger');
-    await page.waitForTimeout(200);
-    assert.equal(await page.locator('[data-testid=vocab-table] tbody tr').count(), 24, 'khôi phục mẫu phải có 24 từ');
-
-    await page.setInputFiles('[data-testid=import-input]', exportedPath);
-    await page.click('.modal .btn-primary');
-    await page.waitForTimeout(200);
-    const after = await page.evaluate(() => JSON.parse(localStorage.getItem('eslhub.pack.default')));
-    assert.deepEqual(after, exported, 'dữ liệu sau khi nhập lại JSON bị thay đổi');
-    const firstRow = await page.locator('[data-testid=vocab-table] tbody tr').first().locator('input').evaluateAll((els) => els.map((e) => e.value));
-    assert.deepEqual(firstRow, ['apple', 'quả táo', 'fruit', 'An apple a day keeps the doctor away.']);
-    await page.screenshot({ path: `${OUT}/editor-after-import-1366x768.png` });
-
     // Dán nhiều ô trực tiếp vào bảng (Ctrl+V vào 1 ô).
     await page.locator('[data-testid=vocab-table] tbody tr').nth(2).locator('input').first().evaluate((input) => {
       const dt = new DataTransfer();
@@ -128,36 +105,24 @@ try {
     });
     await page.waitForTimeout(600);
     const pasted = await page.evaluate(() => JSON.parse(localStorage.getItem('eslhub.pack.default')).vocab.map((v) => v.word));
-    assert.deepEqual(pasted, ['apple', 'milk tea', 'rice', 'soup'], 'dán thẳng vào ô không đúng');
+    assert.deepEqual(pasted.slice(0, 2).concat(pasted.slice(-2)), [rows[0][0], rows[1][0], 'rice', 'soup'], 'dán thẳng vào ô không đúng');
+
+    // Nút hướng dẫn: mở video + các bước
+    await page.click('[data-testid=open-guide]');
+    await page.waitForSelector('[data-testid=guide-video]');
+    assert.ok((await page.locator('.guide-steps li').count()) >= 8, 'hướng dẫn phải có đủ các bước');
+    await page.waitForTimeout(500);
+    await page.screenshot({ path: `${OUT}/editor-guide-1366x768.png` });
+    await page.keyboard.press('Escape');
+
+    // Khôi phục nội dung mẫu
+    await page.click('[data-testid=reset-sample]');
+    await page.click('.modal .btn-danger');
+    await page.waitForTimeout(200);
+    assert.equal(await page.locator('[data-testid=vocab-table] tbody tr').count(), 24, 'khôi phục mẫu phải có 24 từ');
     await context.close();
   });
 
-  // ---------- 3. Bản 1-file + Lưu thành file mới ----------
-  const offline = resolve('dist/index.html');
-  if (existsSync(offline) && readFileSync(offline, 'utf8').includes('<style')) {
-    await check('Bản offline: mở file://, Lưu thành file mới có nội dung nhúng', async () => {
-      const { context, page } = await newPage(SIZES[1]);
-      await page.goto('file://' + offline + '#/editor');
-      await page.waitForSelector('[data-testid=vocab-table]');
-      await page.fill('[data-testid=pack-title]', 'Unit 9 - Test <Pack>');
-      await page.waitForTimeout(600);
-      const [download] = await Promise.all([page.waitForEvent('download'), page.click('[data-testid=save-html]')]);
-      const saved = `${TMP}/${download.suggestedFilename()}`;
-      await download.saveAs(saved);
-      const html = readFileSync(saved, 'utf8');
-      assert.ok(html.includes('Unit 9 - Test \\u003cPack>'), 'file mới không chứa nội dung bài');
-
-      const p2 = await context.newPage();
-      p2.on('pageerror', (e) => errors.push(`saved file: ${e.message}`));
-      await p2.goto('file://' + saved);
-      await p2.waitForSelector('.game-card');
-      const chip = await p2.textContent('[data-testid=pack-chip]');
-      assert.ok(chip.includes('Unit 9 - Test <Pack>'), `file mới mở ra sai tên bài: ${chip}`);
-      await context.close();
-    });
-  } else {
-    results.push('SKIP bản offline (chạy npm run build:offline trước)');
-  }
 } finally {
   await browser.close();
   await server.close();

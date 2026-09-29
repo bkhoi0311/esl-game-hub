@@ -1,11 +1,12 @@
 // Tab Soạn bài (giao diện tiếng Việt cho giáo viên).
-// Sửa trực tiếp trong bảng, dán bảng từ Excel/Google Sheet, xuất/nhập JSON,
-// lưu thành file HTML mới đã chứa sẵn nội dung, khôi phục nội dung mẫu.
+// Sửa trực tiếp trong bảng, dán bảng từ Excel/Google Sheet, lưu thành file .edu cho ClassIn,
+// xem video hướng dẫn, khôi phục nội dung mẫu.
 import {
-  LIMITS, exportJson, getPack, lessonLink, normalizePack, parseJsonFile, resetToSample, saveAsNewFile, saveEduFile,
+  LIMITS, getPack, lessonLink, normalizePack, resetToSample, saveEduFile,
   setPack, validatePack,
 } from './content.js';
 import { speak } from './audio.js';
+import { openGuide } from './guide.js';
 import { TEAM_COLORS, button, confirmModal, h, openModal, toast } from './ui.js';
 import { icon } from './icons.js';
 
@@ -178,7 +179,6 @@ export function mountEditor(root) {
   const vocabCount = h('span', { class: 'count' });
   const questionCount = h('span', { class: 'count' });
   const teamsBox = h('div', { class: 'teams-edit' });
-  const fileInput = h('input', { type: 'file', accept: '.json,application/json', hidden: true, 'data-testid': 'import-input' });
 
   // ----- Lưu tự động -----
   const commit = (immediate = false) => {
@@ -407,54 +407,16 @@ export function mountEditor(root) {
     return normalizePack(getPack());
   };
 
-  fileInput.addEventListener('change', async () => {
-    const file = fileInput.files && fileInput.files[0];
-    fileInput.value = '';
-    if (!file) return;
-    try {
-      const pack = await parseJsonFile(file);
-      const ok = await confirmModal({
-        title: 'Nhập JSON',
-        message: `Thay nội dung hiện tại bằng "${pack.title || file.name}" (${pack.vocab.length} từ, ${pack.questions.length} câu hỏi)?`,
-        okLabel: 'Thay thế',
-      });
-      if (!ok) return;
-      setPack(pack);
-      reloadAll();
-      toast('Đã nhập nội dung từ file JSON.', 'success');
-    } catch (err) {
-      toast(err.message, 'error', 5000);
-    }
-  });
-
   const actions = h(
     'div', { class: 'editor-actions' },
     button({ label: 'Lưu file .edu', iconName: 'download', variant: 'primary', onClick: () => openLinkModal(cleaned()), attrs: { 'data-testid': 'make-link' } }),
-    button({ label: 'Xuất JSON', iconName: 'download', onClick: () => exportJson(cleaned()), attrs: { 'data-testid': 'export-json' } }),
-    button({ label: 'Nhập JSON', iconName: 'upload', onClick: () => fileInput.click(), attrs: { 'data-testid': 'import-json' } }),
-    button({
-      label: 'Lưu thành file mới', iconName: 'file-code', attrs: { 'data-testid': 'save-html' },
-      onClick: async () => {
-        try {
-          await saveAsNewFile(cleaned());
-          openModal({
-            title: 'Đã tạo file mới',
-            body: h('div', {},
-              h('p', {}, 'File HTML vừa tải về đã chứa sẵn nội dung bài này.'),
-              h('p', {}, 'Mở bằng cách bấm đúp, không cần mạng (trừ các game dùng AI camera). Có thể gửi file cho giáo viên khác.')),
-            actions: [{ label: 'Đóng', variant: 'primary' }],
-          });
-        } catch (err) {
-          toast(err.message, 'error', 7000);
-        }
-      },
-    }),
+    button({ label: 'Hướng dẫn (video)', iconName: 'play', onClick: () => openGuide(), attrs: { 'data-testid': 'open-guide' } }),
     button({
       label: 'Khôi phục nội dung mẫu', iconName: 'refresh', variant: 'ghost', attrs: { 'data-testid': 'reset-sample' },
       onClick: async () => {
         const ok = await confirmModal({
           title: 'Khôi phục nội dung mẫu',
-          message: 'Toàn bộ nội dung đang soạn sẽ bị thay bằng bài mẫu "Unit 5 - Food". Nên Xuất JSON trước nếu muốn giữ lại.',
+          message: 'Toàn bộ nội dung đang soạn sẽ bị thay bằng bài mẫu "Unit 5 - Food". Nên bấm Lưu file .edu trước nếu muốn giữ lại.',
           okLabel: 'Khôi phục', danger: true,
         });
         if (!ok) return;
@@ -463,7 +425,6 @@ export function mountEditor(root) {
         toast('Đã khôi phục nội dung mẫu.', 'success');
       },
     }),
-    fileInput,
   );
 
   const section = (title, iconName, extra, ...body) =>

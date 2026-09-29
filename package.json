@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode offline --outDir .offline-tmp --emptyOutDir && vite build && node scripts/copy-offline.js",
+    "build": "vite build",
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",

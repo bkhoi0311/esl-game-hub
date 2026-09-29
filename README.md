@@ -24,9 +24,7 @@ https://<tên-tài-khoản-github>.github.io/esl-game-hub/
 
 Bản offline là **1 file HTML duy nhất**. Chép vào USB rồi bấm đúp để mở.
 
-Có 2 cách lấy file:
-- Trong tab **Soạn bài**, bấm **Lưu thành file mới**. File tải về chứa sẵn bài đang soạn.
-- Hoặc tự build trên máy (cần Node.js 20 trở lên):
+Tự build trên máy (cần Node.js 20 trở lên). Bản offline không còn đăng trên trang web:
 
   ```bash
   npm install
@@ -56,9 +54,8 @@ Mở tab **Soạn bài**. Nội dung tự lưu trên máy đang dùng.
    - Không có câu hỏi thì game tự tạo câu "chọn nghĩa đúng" từ từ vựng.
 4. **Lệnh hành động** (cho Statue Freeze): mỗi dòng 1 lệnh tiếng Anh.
 5. **Các nút:**
-   - **Xuất JSON:** lưu bài ra file để sao lưu hoặc gửi đồng nghiệp.
-   - **Nhập JSON:** mở lại bài đã lưu.
-   - **Lưu thành file mới:** tải 1 file HTML chạy offline, chứa sẵn bài này.
+   - **Lưu file .edu:** tải file .edu cho ClassIn (tải lên Drive, mở trên màn hình tương tác). Cửa sổ mở 1280x720.
+   - **Hướng dẫn (video):** video + các bước từ soạn bài đến mở trên màn hình ClassIn.
    - **Khôi phục nội dung mẫu:** quay về bài mẫu "Unit 5 - Food".
 
 Game nào thiếu nội dung sẽ báo rõ cần thêm gì. Ví dụ Impostor Word cần ít nhất 2 nhóm, mỗi nhóm 4 từ.
@@ -112,7 +109,7 @@ Game KHÔNG nhận diện từng học sinh, không ghi hình, không lưu ảnh
 ```bash
 npm install          # cài thư viện
 npm run dev          # chạy thử: http://localhost:5173
-npm run build        # bản online -> dist/ (kèm dist/offline.html)
+npm run build        # bản online -> dist/
 npm run build:offline  # 1 file -> dist/index.html
 npm run preview      # chạy bản build qua server local (dùng model AI lưu sẵn, không cần mạng)
 ```
