@@ -1,8 +1,11 @@
 // Router: menu chính (#/) -> tab Soạn bài (#/editor) -> từng game (#/game/<id>).
 import './styles/fonts.css';
+import './styles/liquid-glass.css';
 import './styles/main.css';
 import './styles/kids.css';
 import './styles/motion.css';
+import './styles/liquid.css';
+import './vendor/liquid-glass.js';
 import logoUrl from './assets/classin-logo-green.png';
 import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, initLinkedPack, isLinkedPack, leaveLinkedPack, missingForGame, onPackChange } from './core/content.js';
@@ -26,6 +29,8 @@ document.body.classList.toggle('present', PRESENT);
 
 // Test tự động (Playwright) chỉ bấm được phần tử đứng yên: tắt chuyển động lặp khi trình duyệt do máy điều khiển.
 if (navigator.webdriver) document.documentElement.classList.add('no-idle');
+// Giao diện sáng cố định: nền thế giới hoạt hình là cảnh ban ngày, kính đọc rõ nhất trên nền sáng.
+document.documentElement.dataset.theme = 'light';
 
 const app = document.getElementById('app');
 let cleanup = null; // hàm dọn dẹp của màn hình đang mở
@@ -37,13 +42,25 @@ const navLinks = {
   menu: h('a', { href: '#/', class: 'nav-link' }, icon('gamepad', 22), h('span', {}, 'Trò chơi')),
   editor: h('a', { href: '#/editor', class: 'nav-link' }, icon('book-open', 22), h('span', {}, 'Soạn bài')),
 };
+// Viên trắng trượt dưới mục đang chọn (kiểu thanh chọn của Apple), chạy theo lò xo.
+const navGlider = h('span', { class: 'nav-glider', 'aria-hidden': 'true' });
+function moveGlider() {
+  const nav = navGlider.parentElement;
+  const active = nav && nav.querySelector('.nav-link.active:not([hidden])');
+  if (!active || !active.offsetWidth) {
+    navGlider.style.width = '0';
+    return;
+  }
+  navGlider.style.left = `${active.offsetLeft}px`;
+  navGlider.style.width = `${active.offsetWidth}px`;
+}
 const header = h(
   'header', { class: 'app-header' },
   h('a', { href: '#/', class: 'brand', 'aria-label': 'ESL Game Hub' },
     h('img', { src: logoUrl, alt: 'ClassIn', class: 'brand-logo' }),
     h('span', { class: 'brand-sep' }),
     h('span', { class: 'brand-name' }, 'ESL Game Hub')),
-  h('nav', { class: 'app-nav' }, navLinks.menu, navLinks.editor),
+  h('nav', { class: 'app-nav has-glider' }, navGlider, navLinks.menu, navLinks.editor),
   h('div', { class: 'header-mascot' }),
   packChip,
   button({ iconName: 'settings', title: 'Cài đặt', variant: 'ghost', onClick: openSettings, attrs: { 'data-testid': 'open-settings' } }),
@@ -74,7 +91,10 @@ function fitStage() {
   document.body.classList.toggle('fluid', !framed);
 }
 fitStage();
-window.addEventListener('resize', fitStage);
+window.addEventListener('resize', () => {
+  fitStage();
+  moveGlider();
+});
 
 function renderPackChip(pack) {
   packChip.textContent = '';
@@ -125,7 +145,8 @@ function renderMenu(root) {
   const motion = !reducedMotion();
   const big = createMascot({ size: '10rem', react: false, bubble: false });
   const peek = createMascot({ size: '7rem', react: false, bubble: false });
-  const heads = h('div', { class: 'menu-heads' }, h('div', { class: 'menu-peek' }, peek.el));
+  const tabs = h('div', { class: 'group-tabs', role: 'group', 'aria-label': 'Nhóm trò chơi' });
+  const heads = h('div', { class: 'menu-heads' }, h('div', { class: 'menu-peek' }, peek.el), tabs);
   const grid = h('div', { class: 'card-grid' });
 
   // Lưới 6 cột x 2 hàng: 2 cột trái cho game camera, 4 cột phải cho game thi đấu.
@@ -149,7 +170,7 @@ function renderMenu(root) {
       if (motion) gsap.fromTo(grid.querySelectorAll(`[data-group="${group.id}"]`), { y: 0 }, { y: -18, duration: 0.18, yoyo: true, repeat: 1, stagger: 0.06, ease: 'power2.out' });
       speak(group.id === 'camera' ? 'Stand up and move!' : 'Come to the board!');
     });
-    heads.append(tab);
+    tabs.append(tab);
   }
   heads.append(h('div', { class: 'menu-sign', innerHTML: SIGN_SVG }));
   // Ô trống cuối lưới: bé Lumi cỡ lớn + chồng sách.
@@ -163,16 +184,19 @@ function renderMenu(root) {
   big.wave();
   peek.wave();
 
+  // Khúc xạ kính thật (Chromium) cho nhóm tab; trình duyệt khác dùng kính mờ.
+  const refract = window.liquidGlass && !reducedMotion() ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
   const tweens = [];
   if (motion) {
     gsap.from(view.querySelectorAll('.game-card'), { y: 60, opacity: 0, scale: 0.85, rotation: () => gsap.utils.random(-6, 6), duration: 0.6, stagger: 0.05, ease: 'back.out(1.8)', clearProps: 'transform,opacity' });
-    gsap.from(view.querySelectorAll('.group-tab'), { x: -40, opacity: 0, duration: 0.5, stagger: 0.12, ease: 'back.out(2)', clearProps: 'transform,opacity' });
+    gsap.from(view.querySelectorAll('.group-tab'), { y: 12, opacity: 0, duration: 0.5, stagger: 0.1, delay: 0.15, ease: 'back.out(2)', clearProps: 'transform,opacity' });
     tweens.push(gsap.fromTo(view.querySelector('.pick-bubble'), { scale: 0, rotation: -20 }, { scale: 1, rotation: -6, duration: 0.6, delay: 0.7, ease: 'back.out(3)' }));
   }
   // Lumi vẫy tay nhắc nhẹ mỗi 7 giây.
   const nudge = setInterval(() => big.wave(), 7000);
   return () => {
     clearInterval(nudge);
+    if (refract) refract.destroy();
     tweens.forEach((t) => t.kill());
     big.destroy();
     peek.destroy();
@@ -188,7 +212,7 @@ function gameCard(game, pack, index) {
     !game.ready ? h('span', { class: 'badge badge-soon' }, icon('clock', 16), 'Sắp có') : null,
     game.ready && missing.length ? h('span', { class: 'badge badge-warn' }, icon('alert', 16), 'Thiếu nội dung') : null,
   );
-  return h(
+  const card = h(
     'a',
     {
       href: game.ready ? `#/game/${game.id}` : null,
@@ -207,6 +231,20 @@ function gameCard(game, pack, index) {
       h('span', { class: 'card-desc' }, game.description),
       h('span', { class: 'card-go' }, icon('chevron-right', 26))),
   );
+  // Chuột: thẻ nghiêng nhẹ theo con trỏ (màn cảm ứng không có hover nên không bị ảnh hưởng).
+  if (!reducedMotion()) {
+    card.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--ry', `${(((e.clientX - r.left) / r.width) - 0.5) * 8}deg`);
+      card.style.setProperty('--rx', `${(0.5 - ((e.clientY - r.top) / r.height)) * 8}deg`);
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.removeProperty('--rx');
+      card.style.removeProperty('--ry');
+    });
+  }
+  return card;
 }
 
 // ---------- Màn hình game ----------
@@ -335,6 +373,7 @@ function route() {
 
   navLinks.menu.classList.toggle('active', view === 'menu');
   navLinks.editor.classList.toggle('active', view === 'editor');
+  requestAnimationFrame(moveGlider);
   document.body.dataset.view = view;
   main.scrollTop = 0;
   window.scrollTo(0, 0);

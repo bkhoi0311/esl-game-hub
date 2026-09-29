@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Liquid Glass Design — tokens + components (v2.1)
+   Drop-in CSS. Pair with liquid-glass.js for real refraction on Chromium.
+   v2.1: every text token passes WCAG AA (4.5:1) on #fff, #f5f5f7 and #1c1c1e;
+   separate tint for text vs button fill; semantic colours; B2B components
+   (proof row, pricing, KPI, alerts, responsive table-to-cards).
+   Sources (MIT): rohitg00/awesome-claude-design glass/apple.md,
+   s1gmamale1/apple-design-skills, deepika-builds/liquid-glass.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* Type: system stack only (Apple.com order: SF → Segoe → Roboto → Helvetica → Arial). Never ship SF Pro webfont files (licence).
+     Never end on system-ui: on Linux it resolves to a heavy DejaVu face. */
+  --lg-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --lg-font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --lg-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --lg-text-xs: 12px; --lg-text-sm: 13px; --lg-text-md: 15px; --lg-text-base: 17px;
+  --lg-text-lg: 21px; --lg-text-xl: 28px; --lg-text-2xl: 34px; --lg-text-3xl: 44px;
+  --lg-text-hero: clamp(36px, 5.2vw, 64px);
+
+  /* Neutrals (solid values, contrast-checked) */
+  --lg-bg: #f5f5f7;
+  --lg-bg-elevated: #ffffff;
+  --lg-surface-grouped: #f2f2f7;
+  --lg-fill: rgba(120, 120, 128, 0.12);
+  --lg-fill-strong: rgba(120, 120, 128, 0.2);
+  --lg-separator: rgba(60, 60, 67, 0.18);
+  --lg-text: #1d1d1f;
+  --lg-text-secondary: #424245;   /* 9.3:1 */
+  --lg-text-tertiary: #6e6e73;    /* 4.6:1 on #f5f5f7 — smallest text allowed */
+
+  /* Accent: ONE per product. --lg-tint for text/links/icons, --lg-tint-fill for filled buttons */
+  --lg-tint: #0066cc;             /* 5.1:1 on #f5f5f7 */
+  --lg-tint-fill: #0066cc;        /* white label 5.6:1 */
+  --lg-on-tint: #ffffff;
+  --lg-tint-soft: rgba(0, 102, 204, 0.1);
+  --lg-tint-ink: #0059b3;         /* tint text on --lg-tint-soft */
+
+  /* Semantic (never the accent) */
+  --lg-positive: #15703a; --lg-negative: #b42318; --lg-warning: #9c4600;
+  --lg-positive-soft: rgba(26, 127, 55, 0.1); --lg-negative-soft: rgba(180, 35, 24, 0.1); --lg-warning-soft: rgba(178, 80, 0, 0.12);
+
+  /* Materials (alpha fill over backdrop blur) */
+  --lg-material-ultrathin: rgba(255, 255, 255, 0.42);
+  --lg-material-thin: rgba(255, 255, 255, 0.6);
+  --lg-material-regular: rgba(255, 255, 255, 0.74);
+  --lg-material-thick: rgba(255, 255, 255, 0.9);
+  --lg-blur: 24px;
+  --lg-saturate: 180%;
+
+  /* Edges & depth: glass reads as glass through its rim, not its blur */
+  --lg-rim: inset 0 1px 0.5px rgba(255, 255, 255, 0.85),
+            inset 0 -1px 0.5px rgba(255, 255, 255, 0.25),
+            inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+  --lg-edge: 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  --lg-lift-1: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 14px rgba(0, 0, 0, 0.06);
+  --lg-lift-2: 0 2px 6px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.12);
+
+  /* Shape — ONE scale per page. Buttons pill, cards 20, inner items 12 (concentric) */
+  --lg-radius-xs: 8px; --lg-radius-sm: 12px; --lg-radius-md: 16px;
+  --lg-radius-lg: 20px; --lg-radius-xl: 28px; --lg-radius-pill: 999px;
+
+  /* Spacing — 4/8pt grid */
+  --lg-space-1: 4px; --lg-space-2: 8px; --lg-space-3: 12px; --lg-space-4: 16px;
+  --lg-space-5: 20px; --lg-space-6: 24px; --lg-space-8: 32px; --lg-space-10: 44px;
+  --lg-space-14: 56px; --lg-space-20: 80px; --lg-space-24: 96px;
+
+  --lg-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --lg-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --lg-dur-fast: 160ms; --lg-dur: 240ms; --lg-dur-slow: 420ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --lg-bg: #000000; --lg-bg-elevated: #1c1c1e; --lg-surface-grouped: #1c1c1e;
+    --lg-fill: rgba(120, 120, 128, 0.24); --lg-fill-strong: rgba(120, 120, 128, 0.36); --lg-separator: rgba(84, 84, 88, 0.6);
+    --lg-text: #f5f5f7; --lg-text-secondary: #aeaeb2; --lg-text-tertiary: #8e8e93;
+    --lg-tint: #409cff; --lg-tint-fill: #0071e3; --lg-tint-soft: rgba(64, 156, 255, 0.16); --lg-tint-ink: #5aabff;
+    --lg-positive: #30d158; --lg-negative: #ff6961; --lg-warning: #ffb340;
+    --lg-positive-soft: rgba(48, 209, 88, 0.14); --lg-negative-soft: rgba(255, 105, 97, 0.14); --lg-warning-soft: rgba(255, 179, 64, 0.14);
+    --lg-material-ultrathin: rgba(40, 40, 44, 0.4); --lg-material-thin: rgba(36, 36, 40, 0.55);
+    --lg-material-regular: rgba(30, 30, 34, 0.7); --lg-material-thick: rgba(28, 28, 30, 0.9);
+    --lg-rim: inset 0 1px 0.5px rgba(255, 255, 255, 0.22), inset 0 -1px 0.5px rgba(255, 255, 255, 0.06), inset 0 0 0 0.5px rgba(255, 255, 255, 0.14);
+    --lg-edge: 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+    --lg-lift-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+    --lg-lift-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --lg-bg: #000000; --lg-bg-elevated: #1c1c1e; --lg-surface-grouped: #1c1c1e;
+  --lg-fill: rgba(120, 120, 128, 0.24); --lg-fill-strong: rgba(120, 120, 128, 0.36); --lg-separator: rgba(84, 84, 88, 0.6);
+  --lg-text: #f5f5f7; --lg-text-secondary: #aeaeb2; --lg-text-tertiary: #8e8e93;
+  --lg-tint: #409cff; --lg-tint-fill: #0071e3; --lg-tint-soft: rgba(64, 156, 255, 0.16); --lg-tint-ink: #5aabff;
+  --lg-positive: #30d158; --lg-negative: #ff6961; --lg-warning: #ffb340;
+  --lg-positive-soft: rgba(48, 209, 88, 0.14); --lg-negative-soft: rgba(255, 105, 97, 0.14); --lg-warning-soft: rgba(255, 179, 64, 0.14);
+  --lg-material-ultrathin: rgba(40, 40, 44, 0.4); --lg-material-thin: rgba(36, 36, 40, 0.55);
+  --lg-material-regular: rgba(30, 30, 34, 0.7); --lg-material-thick: rgba(28, 28, 30, 0.9);
+  --lg-rim: inset 0 1px 0.5px rgba(255, 255, 255, 0.22), inset 0 -1px 0.5px rgba(255, 255, 255, 0.06), inset 0 0 0 0.5px rgba(255, 255, 255, 0.14);
+  --lg-edge: 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+  --lg-lift-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+  --lg-lift-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Base ---------- */
+.lg-root { background: var(--lg-bg); color: var(--lg-text); font: 400 var(--lg-text-base)/1.5 var(--lg-font); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+.lg-root body { margin: 0; background: var(--lg-bg); }
+.lg-display { font-family: var(--lg-font-display); font-weight: 650; letter-spacing: -0.03em; line-height: 1.08; text-wrap: balance; }
+.lg-secondary { color: var(--lg-text-secondary); }
+.lg-tertiary { color: var(--lg-text-tertiary); }
+.lg-num { font-variant-numeric: tabular-nums; }
+/* Utility screens (dashboards, apps): denser base size */
+.lg-dense { font-size: var(--lg-text-md); }
+.lg-dense .lg-card { padding: var(--lg-space-5); }
+
+/* ---------- Glass material (floating chrome ONLY) ---------- */
+.lg-glass, .lg-surface {
+  position: relative; background: var(--lg-material-regular);
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  box-shadow: var(--lg-rim), var(--lg-edge), var(--lg-lift-2);
+  border-radius: var(--lg-radius-lg); color: var(--lg-text); isolation: isolate;
+}
+.lg-glass::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 42%); mix-blend-mode: soft-light; }
+.lg-glass--thin { background: var(--lg-material-thin); }
+.lg-glass--ultrathin { background: var(--lg-material-ultrathin); }
+.lg-glass--thick { background: var(--lg-material-thick); }
+/* Over photos / video / saturated media: darker tint + white text keeps contrast */
+.lg-glass--media { background: linear-gradient(180deg, rgba(20, 20, 26, 0.34), rgba(20, 20, 26, 0.52)); color: #fff;
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.45), inset 0 0 0 0.5px rgba(255, 255, 255, 0.22), var(--lg-lift-2); }
+.lg-glass--media .lg-secondary { color: rgba(255, 255, 255, 0.86); }
+.lg-refract { background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08)); }
+.lg-glass--media.lg-refract { background: linear-gradient(180deg, rgba(20, 20, 26, 0.3), rgba(20, 20, 26, 0.46)); }
+
+/* ---------- Navigation ---------- */
+.lg-nav { position: sticky; top: 0; z-index: 50; background: var(--lg-material-thin);
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate)); backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  box-shadow: 0 0.5px 0 var(--lg-separator); }
+.lg-nav--floating { top: var(--lg-space-3); margin: var(--lg-space-3) auto 0; width: min(1120px, calc(100% - 24px));
+  border-radius: var(--lg-radius-pill); box-shadow: var(--lg-rim), var(--lg-edge), var(--lg-lift-1); }
+
+/* ---------- Buttons (label never wraps; one label per intent per page) ---------- */
+.lg-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--lg-space-2);
+  min-height: 44px; padding: 0 var(--lg-space-5); border: 0; border-radius: var(--lg-radius-pill); cursor: pointer; white-space: nowrap;
+  font: 600 var(--lg-text-md)/1 var(--lg-font); letter-spacing: -0.01em; text-decoration: none;
+  color: var(--lg-text); background: var(--lg-fill); box-shadow: inset 0 0 0 1px var(--lg-separator);
+  transition: transform var(--lg-dur-fast) var(--lg-ease), background var(--lg-dur) var(--lg-ease); }
+.lg-button:hover { background: var(--lg-fill-strong); }
+.lg-button:active { transform: scale(0.97); }
+.lg-button--prominent { background: var(--lg-tint-fill); color: var(--lg-on-tint); box-shadow: none; }
+.lg-button--prominent:hover { background: color-mix(in srgb, var(--lg-tint-fill) 88%, #000); }
+/* Glass button: ONLY over imagery / colourful backdrops */
+.lg-button--glass { background: var(--lg-material-thin); -webkit-backdrop-filter: blur(16px) saturate(var(--lg-saturate)); backdrop-filter: blur(16px) saturate(var(--lg-saturate)); box-shadow: var(--lg-rim), var(--lg-edge); }
+.lg-button--plain { background: none; box-shadow: none; color: var(--lg-tint); padding: 0 var(--lg-space-2); }
+.lg-button--plain:hover { background: none; text-decoration: underline; }
+.lg-button--sm { min-height: 36px; padding: 0 var(--lg-space-4); font-size: var(--lg-text-sm); }
+.lg-button--block { width: 100%; }
+.lg-icon-button { display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; color: inherit; cursor: pointer; transition: background var(--lg-dur-fast) var(--lg-ease), transform var(--lg-dur-fast) var(--lg-ease); }
+.lg-icon-button:hover { background: var(--lg-fill); }
+.lg-icon-button:active { transform: scale(0.92); }
+.lg-icon-button svg { width: 22px; height: 22px; }
+:where(a, button, input, select, [tabindex]):focus-visible { outline: 3px solid color-mix(in srgb, var(--lg-tint) 55%, transparent); outline-offset: 2px; }
+
+.lg-toolbar { display: inline-flex; align-items: center; gap: var(--lg-space-1); padding: var(--lg-space-1); border-radius: var(--lg-radius-pill); }
+.lg-segmented { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border-radius: var(--lg-radius-pill); background: var(--lg-fill); }
+.lg-segmented button { min-height: 32px; padding: 0 var(--lg-space-4); border: 0; border-radius: var(--lg-radius-pill); background: transparent;
+  color: var(--lg-text); font: 500 var(--lg-text-sm)/1 var(--lg-font); cursor: pointer; white-space: nowrap; }
+.lg-segmented button[aria-pressed="true"] { background: var(--lg-bg-elevated); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), var(--lg-edge); font-weight: 600; }
+
+/* ---------- Content surfaces (solid) ---------- */
+.lg-card { background: var(--lg-bg-elevated); border-radius: var(--lg-radius-lg); padding: var(--lg-space-6); box-shadow: var(--lg-edge); }
+.lg-list { background: var(--lg-bg-elevated); border-radius: var(--lg-radius-md); overflow: hidden; box-shadow: var(--lg-edge); }
+.lg-list > * { position: relative; display: flex; align-items: center; gap: var(--lg-space-3); min-height: 44px; padding: var(--lg-space-3) var(--lg-space-4); }
+.lg-list > * + *::before { content: ""; position: absolute; top: 0; right: 0; left: 58px; height: 0.5px; background: var(--lg-separator); }
+.lg-list-icon { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; flex: none; }
+.lg-list-icon svg { width: 18px; height: 18px; }
+
+/* ---------- B2B: proof row (put directly under the hero) ---------- */
+.lg-proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--lg-space-6);
+  padding: var(--lg-space-8) 0; border-block: 0.5px solid var(--lg-separator); }
+.lg-proof strong { display: block; font: 700 clamp(28px, 3.4vw, 40px)/1.05 var(--lg-font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.lg-proof span { display: block; margin-top: var(--lg-space-1); color: var(--lg-text-secondary); font-size: var(--lg-text-md); }
+
+/* ---------- B2B: pricing (featured tier = tint ring + badge IN FLOW, never overlapping the name) ---------- */
+.lg-pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--lg-space-5); align-items: stretch; }
+.lg-plan { display: flex; flex-direction: column; gap: var(--lg-space-4); background: var(--lg-bg-elevated); border-radius: var(--lg-radius-lg); padding: var(--lg-space-6); box-shadow: var(--lg-edge); }
+.lg-plan--featured { box-shadow: 0 0 0 2px var(--lg-tint-fill), var(--lg-lift-2); }
+.lg-plan-badge { align-self: flex-start; font: 600 var(--lg-text-xs)/1 var(--lg-font); padding: 6px 10px; border-radius: var(--lg-radius-pill); background: var(--lg-tint-soft); color: var(--lg-tint-ink); }
+.lg-plan h3 { margin: 0; font-size: var(--lg-text-lg); letter-spacing: -0.02em; }
+.lg-plan-price { font: 700 var(--lg-text-xl)/1.1 var(--lg-font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.lg-plan-price small { font: 500 var(--lg-text-md) var(--lg-font); color: var(--lg-text-secondary); letter-spacing: 0; }
+.lg-plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--lg-space-2); color: var(--lg-text-secondary); font-size: var(--lg-text-md); }
+.lg-plan li { display: flex; gap: var(--lg-space-2); }
+.lg-plan li::before { content: "✓"; color: var(--lg-positive); font-weight: 700; }
+.lg-plan .lg-button { margin-top: auto; }
+
+/* ---------- Dashboard: KPI (delta = arrow + sign + text + semantic colour; no decorative progress bars) ---------- */
+.lg-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--lg-space-4); }
+@media (max-width: 640px) { .lg-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lg-space-3); } .lg-kpi { padding: var(--lg-space-4); } .lg-kpi-value { font-size: var(--lg-text-xl); } }
+.lg-kpi { background: var(--lg-bg-elevated); border-radius: var(--lg-radius-lg); padding: var(--lg-space-5); box-shadow: var(--lg-edge);
+  display: grid; grid-template-rows: auto auto auto; gap: var(--lg-space-2); align-content: start; }
+.lg-kpi-label { color: var(--lg-text-secondary); font-size: var(--lg-text-sm); font-weight: 500; }
+.lg-kpi-value { font: 650 var(--lg-text-2xl)/1 var(--lg-font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.lg-delta { display: inline-flex; align-items: center; gap: 4px; font-size: var(--lg-text-sm); font-weight: 600; font-variant-numeric: tabular-nums; }
+.lg-delta--up { color: var(--lg-positive); } .lg-delta--down { color: var(--lg-negative); } .lg-delta--flat { color: var(--lg-text-secondary); }
+.lg-delta span { color: var(--lg-text-secondary); font-weight: 400; }
+
+
+/* ---------- Bar chart in HTML/CSS: text stays readable at any width (never scale an SVG chart down on phones) ----------
+   <div class="lg-bars" style="--max:180" role="img" aria-label="…">
+     <div class="lg-bars-ref" style="--v:125"><span>TB 125</span></div>          (optional average line)
+     <div class="lg-bar" style="--v:142"><b>142</b><i></i><span>T2</span></div> … </div>
+   --max = a round number above the data max. Variants: .lg-bar--peak, .lg-bar--muted (weekends/low). */
+.lg-bars { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--lg-space-2); height: 220px; }
+.lg-bar { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }
+.lg-bar b { height: 20px; margin-bottom: 6px; font: 600 var(--lg-text-sm)/20px var(--lg-font); font-variant-numeric: tabular-nums; }
+.lg-bar i { display: block; width: min(44px, 80%); height: calc((100% - 52px) * var(--v) / var(--max)); min-height: 4px; border-radius: 8px 8px 4px 4px; background: var(--lg-tint-fill); }
+.lg-bar--muted i { background: color-mix(in srgb, var(--lg-tint-fill) 35%, var(--lg-bg-elevated)); }
+.lg-bar--peak i { background: color-mix(in srgb, var(--lg-tint-fill) 78%, #000); }
+.lg-bar span { height: 18px; margin-top: 8px; font-size: var(--lg-text-sm); line-height: 18px; color: var(--lg-text-secondary); }
+.lg-bars-ref { position: absolute; left: 0; right: 0; bottom: calc(26px + (100% - 52px) * var(--v) / var(--max)); border-top: 1px dashed var(--lg-text-tertiary); pointer-events: none; }
+.lg-bars-ref span { position: absolute; right: 0; top: -22px; font-size: var(--lg-text-xs); color: var(--lg-text-secondary); background: var(--lg-bg-elevated); padding: 0 4px; }
+
+/* ---------- Status pills & severity ----------
+   Colour = meaning: negative/warning ONLY for problems; scheduled/in-progress = info; done = neutral. */
+.lg-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: var(--lg-radius-pill); font: 600 var(--lg-text-xs)/1.4 var(--lg-font); white-space: nowrap; }
+.lg-pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.lg-pill--positive { background: var(--lg-positive-soft); color: var(--lg-positive); }
+.lg-pill--negative { background: var(--lg-negative-soft); color: var(--lg-negative); }
+.lg-pill--warning { background: var(--lg-warning-soft); color: var(--lg-warning); }
+.lg-pill--info { background: var(--lg-tint-soft); color: var(--lg-tint-ink); }
+.lg-pill--neutral { background: var(--lg-fill); color: var(--lg-text-secondary); }
+.lg-alert { display: grid; grid-template-columns: 32px 1fr auto; gap: var(--lg-space-3); align-items: center; padding: var(--lg-space-3) 0; border-bottom: 0.5px solid var(--lg-separator); }
+.lg-alert:last-child { border-bottom: 0; }
+.lg-alert--critical { background: var(--lg-negative-soft); border-bottom-color: transparent; border-radius: var(--lg-radius-sm); padding-inline: var(--lg-space-3); margin-bottom: var(--lg-space-2); }
+.lg-alert-icon { width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center; background: var(--lg-fill); color: var(--lg-text-secondary); }
+.lg-alert-icon svg { width: 17px; height: 17px; }
+.lg-alert--critical .lg-alert-icon { background: var(--lg-negative-soft); color: var(--lg-negative); }
+.lg-alert--warning .lg-alert-icon { background: var(--lg-warning-soft); color: var(--lg-warning); }
+.lg-alert strong { display: block; font-size: var(--lg-text-md); font-weight: 600; line-height: 1.3; }
+.lg-alert small { display: block; color: var(--lg-text-secondary); font-size: var(--lg-text-sm); margin-top: 2px; }
+.lg-alert .lg-button--plain { font-size: var(--lg-text-sm); min-height: 44px; }
+
+/* ---------- Table that becomes cards on phones (keeps EVERY column) ----------
+   <table class="lg-table"> ... <td data-label="Giáo viên">…</td> */
+.lg-table { width: 100%; border-collapse: collapse; font-size: var(--lg-text-md); }
+.lg-table th { text-align: left; font: 600 var(--lg-text-xs)/1.2 var(--lg-font); text-transform: uppercase; letter-spacing: 0.04em; color: var(--lg-text-secondary); padding: var(--lg-space-3) var(--lg-space-4); border-bottom: 0.5px solid var(--lg-separator); }
+.lg-table td { padding: var(--lg-space-3) var(--lg-space-4); border-bottom: 0.5px solid var(--lg-separator); font-variant-numeric: tabular-nums; }
+.lg-table tr:last-child td { border-bottom: 0; }
+.lg-table .num { text-align: right; }
+@media (max-width: 640px) {
+  .lg-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .lg-table, .lg-table tbody, .lg-table tr, .lg-table td { display: block; width: 100%; }
+  .lg-table tr { padding: var(--lg-space-3) 0; border-bottom: 0.5px solid var(--lg-separator); }
+  .lg-table td { display: flex; justify-content: space-between; gap: var(--lg-space-4); border: 0; padding: 4px var(--lg-space-4); text-align: right; }
+  .lg-table td::before { content: attr(data-label); color: var(--lg-text-secondary); font-size: var(--lg-text-sm); text-align: left; }
+  .lg-table td:first-child { font-weight: 600; }
+}
+
+/* ---------- Sheet / tab bar / backdrop ---------- */
+.lg-sheet { border: 0; padding: var(--lg-space-6); width: min(440px, calc(100% - 24px)); border-radius: var(--lg-radius-xl); background: var(--lg-material-thick);
+  -webkit-backdrop-filter: blur(40px) saturate(var(--lg-saturate)); backdrop-filter: blur(40px) saturate(var(--lg-saturate));
+  box-shadow: var(--lg-rim), var(--lg-edge), 0 30px 80px rgba(0, 0, 0, 0.3); color: var(--lg-text); }
+.lg-sheet::backdrop { background: rgba(0, 0, 0, 0.25); }
+.lg-sheet[open] { animation: lg-sheet-in var(--lg-dur-slow) var(--lg-ease-spring); }
+@keyframes lg-sheet-in { from { opacity: 0; transform: translateY(24px) scale(0.97); } }
+.lg-tabbar { position: fixed; left: 50%; bottom: max(12px, env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 60;
+  display: flex; gap: var(--lg-space-1); padding: var(--lg-space-1); border-radius: var(--lg-radius-pill); }
+.lg-tabbar a { display: grid; place-items: center; gap: 2px; min-width: 64px; min-height: 52px; padding: 6px 10px; border-radius: var(--lg-radius-pill);
+  color: var(--lg-text-secondary); text-decoration: none; font: 500 11px/1 var(--lg-font); letter-spacing: 0; }
+.lg-tabbar a svg { width: 22px; height: 22px; }
+.lg-tabbar a[aria-current="page"] { color: var(--lg-tint); background: var(--lg-fill); }
+.lg-backdrop { position: relative; overflow: hidden; isolation: isolate; }
+.lg-backdrop::before, .lg-backdrop::after { content: ""; position: absolute; z-index: -1; width: 70%; aspect-ratio: 1; border-radius: 50%; filter: blur(60px); opacity: 0.85; animation: lg-drift 22s var(--lg-ease) infinite alternate; }
+.lg-backdrop::before { background: radial-gradient(circle, #5ac8fa, transparent 65%); top: -30%; left: -15%; }
+.lg-backdrop::after { background: radial-gradient(circle, #ff9f0a, transparent 65%); bottom: -35%; right: -15%; animation-delay: -11s; }
+@keyframes lg-drift { to { transform: translate(12%, 8%) scale(1.12); } }
+
+/* ---------- Reveal: content is VISIBLE by default; JS adds .lg-js to <html> to enable the effect ---------- */
+.lg-js .lg-reveal:not(.is-in) { opacity: 0; transform: translateY(14px); }
+.lg-reveal { transition: opacity 600ms var(--lg-ease), transform 600ms var(--lg-ease); }
+
+/* ---------- Accessibility fallbacks — keep these ---------- */
+@media (prefers-reduced-transparency: reduce) {
+  .lg-glass, .lg-surface, .lg-refract, .lg-nav, .lg-button--glass, .lg-sheet, .lg-toolbar, .lg-tabbar {
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important; background: var(--lg-bg-elevated) !important; }
+  .lg-glass--media { color: var(--lg-text); }
+}
+@media (prefers-contrast: more) {
+  .lg-glass, .lg-surface, .lg-nav, .lg-sheet, .lg-tabbar { background: var(--lg-material-thick); box-shadow: inset 0 0 0 1px var(--lg-text); }
+  .lg-secondary, .lg-tertiary { color: var(--lg-text); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lg-backdrop::before, .lg-backdrop::after, .lg-sheet[open] { animation: none; }
+  .lg-js .lg-reveal:not(.is-in) { opacity: 1; transform: none; }
+  .lg-reveal, .lg-button, .lg-icon-button { transition: none; }
+}

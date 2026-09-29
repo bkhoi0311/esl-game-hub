@@ -384,9 +384,18 @@ export function createGameFrame(root, { title, howTo, onPause, onResume, onResta
 
 // Nút chọn 1 trong nhiều giá trị. options: [{ value, label }].
 export function segmented(options, value, onChange, testId) {
-  const el = h('div', { class: 'segmented', role: 'group', 'data-testid': testId });
+  const el = h('div', { class: 'segmented has-thumb', role: 'group', 'data-testid': testId });
+  // Viên trắng trượt tới lựa chọn mới theo lò xo (CSS .seg-thumb).
+  const thumb = h('span', { class: 'seg-thumb', 'aria-hidden': 'true' });
+  const place = () => {
+    const on = el.querySelector('.btn[aria-pressed="true"]');
+    if (!on || !on.offsetWidth) return;
+    thumb.style.left = `${on.offsetLeft}px`;
+    thumb.style.width = `${on.offsetWidth}px`;
+  };
+  el.append(thumb);
   const render = () => {
-    el.textContent = '';
+    [...el.children].forEach((c) => c !== thumb && c.remove()); // giữ viên trượt để nó trượt được
     options.forEach((o) =>
       el.append(
         button({
@@ -395,6 +404,7 @@ export function segmented(options, value, onChange, testId) {
           onClick: () => {
             value = o.value;
             render();
+            place();
             onChange(value);
           },
         }),
@@ -402,6 +412,10 @@ export function segmented(options, value, onChange, testId) {
     );
   };
   render();
+  // Đặt vị trí lần đầu khi đã gắn vào trang (chưa gắn thì chưa đo được).
+  const first = () => (el.isConnected ? place() : requestAnimationFrame(first));
+  requestAnimationFrame(first);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(place).observe(el);
   return el;
 }
 

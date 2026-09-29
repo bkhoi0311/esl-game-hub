@@ -14,3 +14,6 @@
 ## Tranh minh hoạ thẻ game (src/assets/cards/*.webp)
 - Nguồn: ảnh mẫu giao diện do chủ dự án cung cấp (28/09/2026). Cắt phần tranh của từng thẻ, xoá huy hiệu "Cần camera" cũ, làm nét x4 bằng Real-ESRGAN (model realesrgan-x4plus-anime), xuất WebP 640px.
 - Dùng cho thẻ menu và màn cài đặt từng game. SVG vẽ tay trong src/core/art.js giữ làm dự phòng.
+
+## Liquid Glass (src/styles/liquid-glass.css, src/vendor/liquid-glass.js, tests/qa-audit.js)
+- Nguồn: bộ kit skill liquid-glass-design v2.2.1 (github.com/bkhoi0311/liquid-glass-design), giấy phép MIT; kit tổng hợp từ deepika-builds/liquid-glass, haider-nawaz/liquid-glass-skill, s1gmamale1/apple-design-skills (MIT).

@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Liquid Glass (skill liquid-glass-design v2.2.1) cho ESL Game Hub.
+   Nạp SAU CÙNG. Token màu, vật liệu, easing lấy từ liquid-glass.css (kit);
+   kích thước viết bằng rem để phóng theo khung A4 (main.js đặt cỡ chữ gốc).
+   Nguyên tắc: kính chỉ ở lớp điều khiển nổi (thanh trên, thanh game, nhóm tab,
+   hộp thoại, thông báo); nội dung (thẻ game, bảng, câu hỏi) nằm trên nền trắng đặc.
+   Một màu nhấn: xanh ClassIn (bản đậm cho chữ trắng đạt 4.5:1).
+   Nền "thế giới hoạt hình" sống động phía sau là thứ để kính có cái mà khúc xạ.
+   ========================================================================== */
+
+:root {
+  --lg-tint: #067a12;
+  --lg-tint-fill: #07801a;
+  --lg-tint-soft: rgba(7, 128, 26, 0.1);
+  --lg-tint-ink: #056a10;
+  --accent-grad: linear-gradient(180deg, #18b22d, #07801a);
+  --font: var(--lg-font);
+  --ui-display: var(--lg-font-display);
+  --r-card: 1.75rem;
+  --r-inner: 1.3rem; /* thẻ 1.75 - đệm 0.45 */
+  --spring: var(--lg-ease-spring);
+  --ease: var(--lg-ease);
+  --edge: 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  --lift-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0.4rem 1.2rem rgba(0, 0, 0, 0.07);
+  --lift-2: 0 2px 6px rgba(0, 0, 0, 0.06), 0 1.2rem 2.6rem rgba(0, 0, 0, 0.14);
+  --glass-rim: inset 0 1px 0.5px rgba(255, 255, 255, 0.9), inset 0 -1px 0.5px rgba(255, 255, 255, 0.3), inset 0 0 0 0.5px rgba(255, 255, 255, 0.55);
+}
+
+body { background: var(--lg-bg); color: var(--lg-text); font-family: var(--lg-font); letter-spacing: -0.01em; }
+body.framed .stage { border: 0; border-radius: 1.6rem; box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.12); }
+.muted { color: var(--lg-text-tertiary); }
+
+/* Vật liệu kính dùng chung (thanh trên, thanh game, nhóm tab) */
+.app-header, body.framed .game-bar, .group-tabs, .pause-pill {
+  background: var(--lg-material-thin);
+  -webkit-backdrop-filter: blur(1.5rem) saturate(180%);
+  backdrop-filter: blur(1.5rem) saturate(180%);
+  box-shadow: var(--glass-rim), var(--edge), var(--lift-1);
+  isolation: isolate;
+}
+
+/* ---------- Thanh trên: viên kính nổi ---------- */
+.app-header { margin: 0.8rem 1.2rem 0; height: 5.2rem; padding: 0 0.7rem 0 1.9rem; border: 0; border-radius: 999px; animation: lg-drop 0.6s var(--spring) both; }
+.brand-name { font-family: var(--ui-display); font-weight: 700; font-size: 1.55rem; letter-spacing: -0.025em; color: var(--lg-text); }
+.brand-sep { background: var(--lg-separator); }
+.app-nav { position: relative; display: flex; gap: 0; margin-left: 1.4rem; padding: 0.3rem; border-radius: 999px; background: var(--lg-fill); }
+.nav-link { position: relative; z-index: 1; min-height: 3.3rem; padding: 0 1.4rem; border-radius: 999px; font: 600 1.15rem/1 var(--lg-font); color: var(--lg-text-secondary); background: transparent; box-shadow: none; transition: color var(--lg-dur) var(--ease), transform var(--lg-dur-fast) var(--ease); }
+.nav-link:hover { background: transparent; color: var(--lg-text); transform: none; }
+.nav-link:active { transform: scale(0.96); }
+.nav-link.active { background: transparent; color: var(--lg-text); box-shadow: none; }
+.app-nav:not(.has-glider) .nav-link.active { background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), var(--edge); }
+.nav-glider { position: absolute; top: 0.3rem; bottom: 0.3rem; left: 0; width: 0; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), var(--edge); transition: left 0.5s var(--spring), width 0.5s var(--spring); pointer-events: none; }
+.pack-chip { gap: 0.55rem; padding: 0.75rem 1.1rem 0.75rem 1.2rem; border: 0; border-radius: 999px; background: var(--lg-fill); color: var(--lg-text); font: 600 1rem/1 var(--lg-font); transition: background var(--lg-dur) var(--ease), transform var(--lg-dur-fast) var(--ease); }
+.pack-chip:hover { background: var(--lg-fill-strong); transform: none; }
+.pack-chip:active { transform: scale(0.96); }
+.pack-chip .icon { color: var(--lg-tint); }
+.pack-chip .icon:last-child { color: var(--lg-text-tertiary); }
+.app-header > .btn { width: 3.6rem; height: 3.6rem; min-width: 0; min-height: 0; margin-left: 0.4rem; background: transparent; box-shadow: none; }
+.app-header > .btn:hover { background: var(--lg-fill); }
+
+/* ---------- Nút: viên thuốc, nhấn co lại theo lò xo ---------- */
+.btn {
+  min-height: var(--touch); padding: 0 1.5rem; border: 0; border-radius: 999px;
+  background: var(--lg-fill); color: var(--lg-text); box-shadow: inset 0 0 0 1px var(--lg-separator);
+  font: 600 1.1rem/1 var(--lg-font); letter-spacing: -0.01em;
+  transition: transform var(--lg-dur-fast) var(--spring), background var(--lg-dur) var(--ease), box-shadow var(--lg-dur) var(--ease);
+}
+.btn:hover { background: var(--lg-fill-strong); border-color: transparent; }
+.btn:active { transform: scale(0.96); }
+.btn-primary { background: var(--accent-grad); color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0.35rem 1rem rgba(7, 128, 26, 0.28); }
+.btn-primary:hover { background: linear-gradient(180deg, #13a326, #066f16); }
+a.btn-primary { color: #fff; }
+.btn-danger { background: #c4261a; color: #fff; box-shadow: 0 0.35rem 1rem rgba(196, 38, 26, 0.25); }
+.btn-ghost { background: transparent; box-shadow: none; }
+.btn-ghost:hover { background: var(--lg-fill); }
+.btn-lg { min-height: 5rem; padding: 0 2.4rem; border-radius: 999px; font-size: 1.55rem; }
+.btn:disabled { opacity: 0.4; transform: none; }
+
+/* Chọn 1 trong nhiều: ray xám + viên trắng trượt (ui.js thêm .seg-thumb) */
+.segmented { position: relative; display: inline-flex; flex-wrap: nowrap; gap: 0; max-width: 100%; padding: 0.3rem; border-radius: 999px; background: var(--lg-fill); justify-self: start; }
+.segmented .btn { position: relative; z-index: 1; min-width: 4.4rem; min-height: 3.4rem; padding: 0 1.3rem; background: transparent; box-shadow: none; color: var(--lg-text-secondary); font-size: 1.15rem; }
+.segmented .btn:hover { background: transparent; color: var(--lg-text); }
+.segmented .btn[aria-pressed='true'] { background: transparent; border-color: transparent; color: var(--lg-text); }
+.segmented:not(.has-thumb) .btn[aria-pressed='true'] { background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), var(--edge); }
+.seg-thumb { position: absolute; top: 0.3rem; bottom: 0.3rem; left: 0; width: 0; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0.3rem 0.8rem rgba(0, 0, 0, 0.06), var(--edge); transition: left 0.45s var(--spring), width 0.45s var(--spring); pointer-events: none; }
+
+/* Ô nhập */
+input[type='text'], select, textarea { border: 0; border-radius: 0.9rem; background: var(--lg-fill); box-shadow: none; font-family: var(--lg-font); transition: box-shadow var(--lg-dur) var(--ease), background var(--lg-dur) var(--ease); }
+input[type='text']:focus, select:focus, textarea:focus { background: #fff; box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--lg-tint) 45%, transparent); outline: none; }
+:where(a, button, input, select, textarea, .game-card, .answer-btn):focus-visible { outline: 0.2rem solid color-mix(in srgb, var(--lg-tint) 60%, transparent); outline-offset: 0.15rem; }
+
+/* ---------- Menu ---------- */
+.menu-heads { gap: 1rem; }
+.group-tabs { display: flex; gap: 0.3rem; padding: 0.4rem; border-radius: 2.4rem; animation: lg-materialize 0.6s var(--spring) 0.08s both; }
+.group-tab { min-height: 5.2rem; padding: 0.5rem 1.2rem 0.5rem 0.55rem; border-radius: 2rem; background: transparent; box-shadow: none; transition: background var(--lg-dur) var(--ease), transform var(--lg-dur-fast) var(--spring); }
+.group-tab:hover { background: rgba(255, 255, 255, 0.55); transform: none; }
+.group-tab:active { transform: scale(0.97); }
+.group-icon { width: 3.9rem; height: 3.9rem; border-radius: 1.2rem; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 80%, #fff), var(--accent)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0.3rem 0.8rem color-mix(in srgb, var(--accent) 35%, transparent); }
+.group-tab { --accent: #0a72e8; }
+.group-tab.group-class { --accent: #07801a; }
+.group-text strong { font-family: var(--ui-display); font-weight: 700; font-size: 1.65rem; letter-spacing: -0.025em; color: var(--lg-text); }
+.group-text small { color: var(--lg-text-secondary); font-size: 1rem; }
+.group-go { width: 2.4rem; height: 2.4rem; background: var(--lg-fill); color: var(--lg-text-secondary); transition: transform var(--lg-dur) var(--spring); }
+.group-tab:hover .group-go { transform: translateX(0.2rem); }
+
+/* Thẻ game: nền trắng đặc, tranh bo góc đồng tâm, nhấc lên theo lò xo */
+.game-card {
+  padding: 0.45rem; border: 0; border-radius: var(--r-card); background: #fff;
+  box-shadow: var(--edge), var(--lift-1);
+  transform: perspective(60rem) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.5s var(--spring), box-shadow 0.35s var(--ease);
+}
+.game-card:not(.disabled):hover { filter: none; transform: perspective(60rem) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-0.5rem) scale(1.025); box-shadow: var(--edge), var(--lift-2); }
+.game-card:not(.disabled):active { transform: scale(0.965); transition-duration: 0.16s; }
+.card-pic { margin: 0; border-radius: var(--r-inner); background: var(--lg-surface-grouped); }
+.card-pic .game-art img { -webkit-mask-image: none; mask-image: none; object-position: 50% 35%; }
+.game-card:not(.disabled):hover .card-pic img { transform: scale(1.06); }
+.card-panel { margin: 0; padding: 0.75rem 0.55rem 0.35rem; background: none; box-shadow: none; backdrop-filter: none; border-radius: 0; }
+.card-title { font-family: var(--ui-display); font-weight: 700; font-size: 1.6rem; line-height: 1.05; letter-spacing: -0.03em; color: var(--lg-text); }
+.card-desc { color: var(--lg-text-secondary); font-size: 0.95rem; min-height: 0; padding-right: 2.8rem; }
+.card-go { right: 0.4rem; bottom: 0.35rem; width: 2.8rem; height: 2.8rem; background: var(--lg-fill); color: var(--lg-text); box-shadow: none; transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.45s var(--spring); }
+.game-card:not(.disabled):hover .card-go { background: var(--accent-card); color: #fff; transform: translateX(0.15rem) scale(1.08); animation: none; }
+.card-badges { top: 0.9rem; left: 0.9rem; }
+.badge-camera { padding: 0.3rem 0.8rem; background: rgba(20, 20, 26, 0.48); -webkit-backdrop-filter: blur(0.8rem) saturate(160%); backdrop-filter: blur(0.8rem) saturate(160%); color: #fff; box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.3); font: 600 0.85rem/1.2 var(--lg-font); }
+.pick-bubble { font-family: var(--ui-display); letter-spacing: -0.02em; background: var(--accent-grad); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0.5rem 1.4rem rgba(7, 128, 26, 0.35); }
+.pick-bubble::after { border-top-color: #07801a; }
+
+/* ---------- Khung game ---------- */
+body.framed .game-bar { margin: 0.7rem 1.2rem 0; padding: 0.4rem 0.8rem 0.4rem 2rem; min-height: 5rem; border: 0; border-radius: 2.5rem; animation: lg-materialize 0.55s var(--spring) both; }
+.game-title { font-family: var(--ui-display); font-weight: 700; font-size: 1.8rem; letter-spacing: -0.03em; color: var(--lg-text); }
+.game-bar-actions .btn { min-height: 3.4rem; font-size: 1rem; padding: 0 1.05rem; }
+.pause-layer { background: rgba(0, 0, 0, 0.18); -webkit-backdrop-filter: blur(1rem) saturate(140%); backdrop-filter: blur(1rem) saturate(140%); animation: fade-in 0.25s var(--ease); }
+.pause-text { padding: 1.2rem 3rem; border-radius: 999px; background: var(--lg-material-regular); -webkit-backdrop-filter: blur(1.5rem); backdrop-filter: blur(1.5rem); box-shadow: var(--glass-rim), var(--edge), var(--lift-2); color: var(--lg-text); font-family: var(--ui-display); letter-spacing: -0.02em; font-size: 3.4rem; animation: lg-materialize 0.5s var(--spring) both; }
+
+/* Màn cài đặt, thông báo, soạn bài, kết quả: nền trắng đặc */
+.setup-card, .notice, .editor-card { border: 0; border-radius: 1.9rem; background: #fff; box-shadow: var(--edge), var(--lift-1); }
+.setup-card { animation: lg-materialize 0.55s var(--spring) both; }
+.setup-card h2, .editor-card h2, .editor-top h1, .notice h2 { font-family: var(--ui-display); letter-spacing: -0.03em; color: var(--lg-text); }
+.setup-row > span { font-weight: 650; color: var(--lg-text); }
+.setup-row small { color: var(--lg-text-tertiary); }
+.cam-hint { background: var(--lg-tint-soft); color: var(--lg-tint-ink); }
+.cam-preview { border: 0; border-radius: 1.4rem; box-shadow: var(--edge); }
+
+/* Nút đáp án cho học sinh: trắng đặc, chữ tròn Baloo, nhấn co lò xo */
+.answer-btn { border: 0; border-radius: 1.6rem; background: #fff; box-shadow: var(--edge), var(--lift-1); transition: transform 0.4s var(--spring), box-shadow 0.3s var(--ease), background 0.2s var(--ease); }
+.answer-btn:hover:not(:disabled) { transform: translateY(-0.2rem); box-shadow: var(--edge), var(--lift-2); }
+.answer-btn:active:not(:disabled) { transform: scale(0.96); transition-duration: 0.12s; }
+
+/* Bảng điểm: viên trắng, vạch màu đội bên trái, đội đang tới lượt nổi lên */
+.score-team { border: 0; border-radius: 1.3rem; background: #fff; box-shadow: inset 0.5rem 0 0 var(--team), var(--edge), var(--lift-1); transition: transform 0.45s var(--spring), box-shadow 0.3s var(--ease); }
+.score-team.active { transform: translateY(-0.25rem) scale(1.03); background: #fff; box-shadow: inset 0.5rem 0 0 var(--team), 0 0 0 0.2rem var(--team), var(--lift-2); }
+.rank-list li { border: 0; border-radius: 1.4rem; box-shadow: inset 0.7rem 0 0 var(--team), var(--edge), var(--lift-1); }
+.results h2 { font-family: var(--ui-display); letter-spacing: -0.035em; -webkit-text-stroke: 0; }
+
+/* ---------- Soạn bài ---------- */
+body[data-view='editor'] .app-main { background: none; }
+.table-wrap { border: 0; border-radius: 1.1rem; box-shadow: var(--edge); background: #fff; }
+table.grid th { background: var(--lg-surface-grouped); color: var(--lg-text-secondary); font: 600 0.82rem/1.2 var(--lg-font); text-transform: uppercase; letter-spacing: 0.04em; }
+table.grid td { border-top: 0.5px solid var(--lg-separator); }
+table.grid input[type='text'], table.grid select { background: transparent; }
+table.grid input[type='text']:hover { background: var(--lg-fill); }
+.paste-panel { border: 1.5px dashed var(--lg-separator); background: var(--lg-surface-grouped); }
+.paste-panel summary .icon, .editor-card h2 .icon { color: var(--lg-tint); }
+.issue-box { border: 0; background: var(--lg-warning-soft); color: var(--lg-text); }
+.editor-issues .issue.ok { color: var(--lg-positive); }
+
+/* ---------- Hộp thoại: tấm kính dày trồi lên ---------- */
+.modal-overlay { background: rgba(0, 0, 0, 0.26); -webkit-backdrop-filter: blur(0.4rem); backdrop-filter: blur(0.4rem); }
+.modal {
+  border-radius: 2rem; background: var(--lg-material-thick);
+  -webkit-backdrop-filter: blur(2.5rem) saturate(180%); backdrop-filter: blur(2.5rem) saturate(180%);
+  box-shadow: var(--glass-rim), var(--edge), 0 2rem 5rem rgba(0, 0, 0, 0.3);
+  animation: lg-materialize 0.5s var(--spring) both;
+}
+.modal-head h2 { font-family: var(--ui-display); font-weight: 700; letter-spacing: -0.03em; color: var(--lg-text); }
+.modal-head .btn { width: 3.2rem; height: 3.2rem; min-width: 0; min-height: 0; padding: 0; background: var(--lg-fill); }
+.link-field, .gs-pic { box-shadow: var(--edge); }
+
+/* Thông báo nhanh: viên kính tối */
+.toast { border-radius: 999px; padding: 0.85rem 1.4rem; background: rgba(28, 28, 30, 0.78); -webkit-backdrop-filter: blur(1.5rem) saturate(160%); backdrop-filter: blur(1.5rem) saturate(160%); box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.18), 0 1rem 2.5rem rgba(0, 0, 0, 0.25); font-family: var(--lg-font); animation: lg-materialize 0.45s var(--spring) both; }
+.toast-error { background: rgba(150, 30, 20, 0.84); }
+
+/* Chuyển trang: nội dung mới trồi lên nhẹ */
+.app-main > * { animation: lg-page-in 0.5s var(--ease) both; }
+
+@keyframes lg-materialize { from { opacity: 0; scale: 0.92; } 60% { opacity: 1; } }
+@keyframes lg-drop { from { opacity: 0; translate: 0 -1.5rem; scale: 0.96; } }
+@keyframes lg-page-in { from { opacity: 0; translate: 0 0.9rem; } }
+
+/* ---------- Điện thoại ---------- */
+body.fluid .app-header { margin: 0.5rem; padding: 0.6rem 0.8rem; border-radius: 1.8rem; }
+body.fluid .app-nav { margin: 0; }
+body.fluid .group-tabs { flex-direction: column; width: 100%; border-radius: 1.8rem; }
+body.fluid .segmented { flex-wrap: wrap; border-radius: 1.4rem; }
+body.fluid .seg-thumb { display: none; }
+body.fluid .segmented .btn[aria-pressed='true'] { background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
+body.fluid .card-title { font-size: 1.2rem; }
+
+/* ---------- Trợ năng: giữ nguyên các lối thoát của kit ---------- */
+@media (prefers-reduced-transparency: reduce) {
+  .app-header, body.framed .game-bar, .group-tabs, .pause-pill, .pause-text, .modal, .toast, .badge-camera, .pause-layer {
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  }
+  .app-header, body.framed .game-bar, .group-tabs, .modal, .pause-text { background: #fff !important; }
+  .toast { background: #1c1c1e !important; }
+}
+@media (prefers-contrast: more) {
+  .app-header, body.framed .game-bar, .group-tabs, .modal { background: rgba(255, 255, 255, 0.96); box-shadow: inset 0 0 0 1px var(--lg-text); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-header, .group-tabs, body.framed .game-bar, .setup-card, .modal, .toast, .pause-text, .app-main > * { animation: none !important; }
+  .nav-glider, .seg-thumb, .game-card, .btn, .answer-btn, .score-team { transition: none !important; }
+}
+
+/* Vùng chạm tối thiểu 44 px (quality gate) */
+.brand, .pack-chip { min-height: 3.2rem; }
+table.grid input[type='text'], table.grid select { min-height: 3.1rem; }
+.sp-pose input[type='checkbox'], .switch-row input { width: 1.9rem; height: 1.9rem; }
+.sp-pose { min-height: 3.2rem; }
