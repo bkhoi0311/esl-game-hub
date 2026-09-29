@@ -1,5 +1,6 @@
 // Thành phần giao diện dùng chung: tạo phần tử, nút, modal, hướng dẫn,
 // bảng điểm đội (2-4 đội), đồng hồ đếm ngược, khung game (Hướng dẫn / Tạm dừng / Chơi lại / Về menu).
+import { gsap } from 'gsap';
 import { icon } from './icons.js';
 
 // ---------- Tạo phần tử ----------
@@ -469,6 +470,17 @@ export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_
       button({ label: 'Menu', iconName: 'home', size: 'lg', onClick: onMenu || (() => (location.hash = '#/')) })),
   );
   el.querySelector('.icon').classList.add('trophy');
+  // Khoảnh khắc thắng (skill game-feel-motion): cúp -> tiêu đề -> từng hạng (hạng 1 nổi bật) -> nút.
+  requestAnimationFrame(() => {
+    if (!el.isConnected || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rows = el.querySelectorAll('.rank-list li');
+    gsap.timeline({ defaults: { overwrite: 'auto' } })
+      .from(el.querySelector('.trophy'), { scale: 0.5, rotation: -14, opacity: 0, duration: 0.55, ease: 'back.out(2.2)', clearProps: 'transform,opacity' })
+      .from(el.querySelector('h2'), { y: 16, opacity: 0, duration: 0.35, ease: 'power2.out', clearProps: 'transform,opacity' }, '-=0.25')
+      .from(rows, { x: -28, opacity: 0, duration: 0.35, ease: 'power2.out', stagger: 0.12, clearProps: 'transform,opacity' }, '-=0.1')
+      .fromTo(rows[0] || [], { scale: 1 }, { scale: 1.05, duration: 0.18, ease: 'power1.out', yoyo: true, repeat: 1, clearProps: 'transform' })
+      .from(el.querySelectorAll('.results-actions .btn'), { y: 10, opacity: 0, duration: 0.3, ease: 'power2.out', stagger: 0.06, clearProps: 'transform,opacity' }, '-=0.1');
+  });
   return el;
 }
 

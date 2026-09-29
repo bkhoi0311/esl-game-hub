@@ -188,8 +188,9 @@ function renderMenu(root) {
   const refract = window.liquidGlass && !reducedMotion() ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
   const tweens = [];
   if (motion) {
-    gsap.from(view.querySelectorAll('.game-card'), { y: 60, opacity: 0, scale: 0.85, rotation: () => gsap.utils.random(-6, 6), duration: 0.6, stagger: 0.05, ease: 'back.out(1.8)', clearProps: 'transform,opacity' });
-    gsap.from(view.querySelectorAll('.group-tab'), { y: 12, opacity: 0, duration: 0.5, stagger: 0.1, delay: 0.15, ease: 'back.out(2)', clearProps: 'transform,opacity' });
+    // Menu = thanh điều khiển: trượt lên gọn, không nảy; cả chuỗi so le ≤ 0,5 s (skill game-feel-motion).
+    gsap.from(view.querySelectorAll('.game-card'), { y: 24, opacity: 0, scale: 0.96, duration: 0.45, stagger: { each: 0.035, from: 'start' }, ease: 'power2.out', clearProps: 'transform,opacity' });
+    gsap.from(view.querySelectorAll('.group-tab'), { y: 10, opacity: 0, duration: 0.35, stagger: 0.06, delay: 0.1, ease: 'power2.out', clearProps: 'transform,opacity' });
     tweens.push(gsap.fromTo(view.querySelector('.pick-bubble'), { scale: 0, rotation: -20 }, { scale: 1, rotation: -6, duration: 0.6, delay: 0.7, ease: 'back.out(3)' }));
   }
   // Lumi vẫy tay nhắc nhẹ mỗi 7 giây.

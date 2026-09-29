@@ -177,9 +177,14 @@ function tone(ac, { freq, start, dur, type = 'sine', gain = 0.2, slideTo }) {
 
 // Âm hiệu vui tai cho trẻ (tổng hợp bằng Web Audio, không cần file). Âm sai nhẹ nhàng, không gắt.
 const SOUNDS = {
-  correct: (ac, t) => {
-    [784, 988, 1319].forEach((f, i) => tone(ac, { freq: f, start: t + i * 0.07, dur: 0.16, type: 'triangle', gain: 0.18 }));
-    tone(ac, { freq: 2637, start: t + 0.2, dur: 0.12, type: 'sine', gain: 0.06 });
+  // rate > 1: cao dần theo chuỗi trả lời đúng (tối đa 5 bậc)
+  correct: (ac, t, rate = 1) => {
+    [784, 988, 1319].forEach((f, i) => tone(ac, { freq: f * rate, start: t + i * 0.07, dur: 0.16, type: 'triangle', gain: 0.18 }));
+    tone(ac, { freq: 2637 * rate, start: t + 0.2, dur: 0.12, type: 'sine', gain: 0.06 });
+  },
+  // Khoảnh khắc chuỗi 3/5/10 câu đúng: arpeggio lấp lánh ngắn
+  streak: (ac, t) => {
+    [1047, 1319, 1568, 2093].forEach((f, i) => tone(ac, { freq: f, start: t + 0.18 + i * 0.06, dur: 0.14, type: 'sine', gain: 0.08 }));
   },
   wrong: (ac, t) => {
     tone(ac, { freq: 330, start: t, dur: 0.16, type: 'sine', gain: 0.16, slideTo: 262 });
@@ -203,10 +208,14 @@ const SOUNDS = {
 // Âm đúng / sai / thắng cũng là tín hiệu cho mascot và hiệu ứng.
 const BUS_EVENTS = { correct: 'correct', wrong: 'wrong', win: 'win' };
 
+// Chuỗi đúng liên tiếp -> âm "đúng" cao dần 6% mỗi bậc, dừng ở bậc 5.
+let run = 0;
 export function playSound(name) {
+  if (name === 'correct') run = Math.min(run + 1, 5);
+  if (name === 'wrong') run = 0;
   if (BUS_EVENTS[name]) bus.emit(BUS_EVENTS[name]);
   if (!getSettings().sound || !SOUNDS[name]) return;
   const ac = audioCtx();
   if (!ac) return;
-  SOUNDS[name](ac, ac.currentTime + 0.01);
+  SOUNDS[name](ac, ac.currentTime + 0.01, name === 'correct' ? 1 + (run - 1) * 0.06 : 1);
 }

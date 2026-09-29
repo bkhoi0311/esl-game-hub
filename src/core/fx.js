@@ -71,15 +71,21 @@ export function floatText(at, text, { color = '#04bc09' } = {}) {
   gsap.fromTo(t, { y: 0, scale: 0.4, opacity: 0 }, { y: -60, scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(2.5)', onComplete: () => gsap.to(t, { opacity: 0, y: -90, duration: 0.4, delay: 0.25, onComplete: () => t.remove() }) });
 }
 
+// Nảy 3 nhịp: lấy đà (co 0.94) -> nảy (1.12) -> lắng (elastic). Bấm liên tục thì tween mới thay tween cũ.
 export function pop(el, scale = 1.12) {
   if (!el || reducedMotion()) return;
-  gsap.fromTo(el, { scale }, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.4)', clearProps: 'transform' });
+  gsap.timeline({ defaults: { overwrite: 'auto' }, onComplete: () => gsap.set(el, { clearProps: 'scale' }) })
+    .to(el, { scale: 0.94, duration: 0.07, ease: 'power1.in' })
+    .to(el, { scale, duration: 0.18, ease: 'back.out(3)' })
+    .to(el, { scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)' });
 }
 
+// Rung nhẹ khi sai: biên độ giảm dần 8 -> 0 px trong ~360 ms (không giật, không chặn lần bấm sau).
 export function shake(el) {
   if (!el) return;
   if (reducedMotion()) return;
-  gsap.fromTo(el, { x: -10 }, { x: 0, duration: 0.5, ease: 'elastic.out(1.2, 0.2)', clearProps: 'transform' });
+  const unit = (parseFloat(getComputedStyle(document.documentElement).fontSize) || 16) / 16;
+  gsap.to(el, { keyframes: { x: [0, 8, -7, 5, -3, 1, 0].map((v) => v * unit) }, duration: 0.36, ease: 'none', overwrite: 'auto', onComplete: () => gsap.set(el, { clearProps: 'x' }) });
 }
 
 // Bắn pháo giấy (chỉ dùng cho khoảnh khắc lớn: thắng, xong màn).
@@ -92,20 +98,53 @@ export function feedback(ok, el, { text, sound = true } = {}) {
   if (sound) playSound(ok ? 'correct' : 'wrong');
   if (!el) return;
   if (ok) {
-    burst(el);
+    // Chuỗi đúng: nổ to và xa hơn mỗi bậc, dừng tăng ở bậc 5.
+    const level = Math.min(streak, 5);
+    burst(el, { count: 14 + level * 5, spread: 1 + level * 0.12 });
     pop(el);
     if (text) floatText(el, text);
   } else {
     shake(el);
-    if (text) floatText(el, text, { color: '#ff5a00' });
+    if (text) floatText(el, text, { color: '#c25700' });
   }
+}
+
+// Khoảnh khắc chuỗi đúng (hiếm, nên làm lớn): chữ nảy từng ký tự + tia sáng + pháo hạt, ~1,6 s.
+// Không chặn thao tác (pointer-events: none) để đội còn lại vẫn chơi tiếp được.
+export function streakMoment(count) {
+  const calm = reducedMotion();
+  const host = fxLayer();
+  const word = `${count} in a row!`;
+  const box = document.createElement('div');
+  box.className = 'fx-streak en';
+  box.innerHTML = `<span class="fx-rays"></span><span class="fx-streak-text">${[...word].map((c) => `<b>${c === ' ' ? '&nbsp;' : c}</b>`).join('')}</span>`;
+  host.appendChild(box);
+  const letters = box.querySelectorAll('b');
+  const done = () => box.remove();
+  if (calm) {
+    gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 1, repeatDelay: 1.2, onComplete: done });
+    return;
+  }
+  const r = box.getBoundingClientRect();
+  gsap.timeline({ onComplete: done })
+    .fromTo(box.querySelector('.fx-rays'), { scale: 0.4, opacity: 0, rotation: -20 }, { scale: 1, opacity: 1, rotation: 20, duration: 1.4, ease: 'power2.out' }, 0)
+    .fromTo(letters, { y: 40, scale: 0.4, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(3)', stagger: 0.035 }, 0.05)
+    .add(() => {
+      burst({ x: r.left + r.width * 0.2, y: r.top + r.height / 2 }, { count: 18, spread: 1.3 });
+      burst({ x: r.left + r.width * 0.8, y: r.top + r.height / 2 }, { count: 18, spread: 1.3 });
+    }, 0.3)
+    .to(box, { opacity: 0, scale: 0.96, duration: 0.3, ease: 'power2.in' }, 1.3);
 }
 
 // Chuỗi trả lời đúng liên tiếp -> sự kiện 'streak' ở mốc 3, 5, 10.
 let streak = 0;
 bus.on('correct', () => {
   streak += 1;
-  if ([3, 5, 10].includes(streak)) bus.emit('streak', { count: streak });
+  if ([3, 5, 10].includes(streak)) {
+    bus.emit('streak', { count: streak });
+    playSound('streak');
+    streakMoment(streak);
+  }
 });
 bus.on('wrong', () => (streak = 0));
 bus.on('reset', () => (streak = 0));
