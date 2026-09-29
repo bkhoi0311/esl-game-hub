@@ -217,3 +217,9 @@ body.fluid .card-title { font-size: 1.2rem; }
 table.grid input[type='text'], table.grid select { min-height: 3.1rem; }
 .sp-pose input[type='checkbox'], .switch-row input { width: 1.9rem; height: 1.9rem; }
 .sp-pose { min-height: 3.2rem; }
+/* Điện thoại: thẻ cài đặt không tràn ngang */
+body.fluid .setup-card, body.fluid .setup-row, body.fluid .cam-side { min-width: 0; max-width: 100%; }
+body.fluid .setup-row > * { min-width: 0; max-width: 100%; }
+body.fluid .gh-weights { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+body.fluid .sp-poses { grid-template-columns: 1fr !important; }
+body.fluid .cam-select-row { flex-wrap: wrap; } body.fluid .cam-select-row select { flex: 1 1 100%; }

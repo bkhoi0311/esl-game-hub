@@ -24,7 +24,9 @@ for (const [name, hash] of pages) {
     if (errors.length) out.push('JS: ' + errors.slice(0, 2).join(' | '));
     if (r.contrast && r.contrast.length) out.push('contrast: ' + JSON.stringify(r.contrast.slice(0, 6)));
     if (mobile && r.overflowX > 0) out.push('overflowX ' + r.overflowX);
-    if (mobile && r.pastEdge && r.pastEdge.length) out.push('pastEdge ' + JSON.stringify(r.pastEdge.slice(0, 5)));
+    // Hình SVG của nền thế giới bị khung cắt gọn (overflow hidden) nên không tính.
+    const past = (r.pastEdge || []).filter((s) => !/^(rect|path|g|circle|ellipse|svg)\./.test(s));
+    if (mobile && past.length) out.push('pastEdge ' + JSON.stringify(past.slice(0, 5)));
     if (out.length) hard += 1;
     console.log(`${name}/${label}: ${out.length ? 'FAIL ' + out.join(' ; ') : 'OK'}${r.smallTargets && r.smallTargets.length ? ' · WARN small targets ' + JSON.stringify(r.smallTargets.slice(0, 5)) : ''}${r.glassText ? ' · check glass text ' + r.glassText : ''}`);
     await ctx.close();
