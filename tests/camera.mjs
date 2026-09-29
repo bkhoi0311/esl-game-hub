@@ -152,6 +152,19 @@ TESTS['camera-errors'] = async () => {
   }
 };
 
+// ---------- Trang tự chẩn đoán camera ----------
+TESTS['camcheck'] = async () => {
+  const { context, page } = await open('#/camcheck', undefined,
+    "window.__busyIds = ['classin-s1']; window.__cams = [{ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'a' }, { kind: 'videoinput', deviceId: 'board', label: 'Board Camera', groupId: 'b' }]");
+  await page.click('[data-testid=cc-run]');
+  await page.waitForSelector('.cc-verdict:not([hidden])', { timeout: 30000 });
+  const text = await page.textContent('[data-testid=cc-list]');
+  assert.match(text, /NotReadableError/, 'phải báo S1 đang bị giữ');
+  assert.match(text, /Board Camera/);
+  await shot(page, 'camcheck');
+  await context.close();
+};
+
 // ---------- S1 đang bị lớp ClassIn giữ ----------
 // Có camera ảo (OBS): tự chuyển sang camera ảo.
 TESTS['camera-busy-virtual'] = async () => {
@@ -290,7 +303,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

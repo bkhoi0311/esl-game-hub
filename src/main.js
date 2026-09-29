@@ -10,6 +10,7 @@ import logoUrl from './assets/classin-logo-green.png';
 import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, initLinkedPack, isLinkedPack, leaveLinkedPack, missingForGame, onPackChange } from './core/content.js';
 import { mountEditor } from './core/editor.js';
+import { mountCamCheck } from './core/camcheck.js';
 import { getSettings, updateSettings } from './core/settings.js';
 import { clipCount, getEnglishVoices, setVoiceGame, stopSpeaking, speak, ttsSupported, voiceFor, voiceLabel } from './core/audio.js';
 import { line } from './core/voice-lines.js';
@@ -370,7 +371,7 @@ function route() {
     location.replace('#/');
     return;
   }
-  if (!['menu', 'editor', 'game'].includes(view)) view = 'menu';
+  if (!['menu', 'editor', 'game', 'camcheck'].includes(view)) view = 'menu';
 
   navLinks.menu.classList.toggle('active', view === 'menu');
   navLinks.editor.classList.toggle('active', view === 'editor');
@@ -384,6 +385,7 @@ function route() {
   const game = view === 'game' ? findGame(parts[1]) : null;
   setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');
   if (view === 'editor') cleanup = mountEditor(main);
+  else if (view === 'camcheck') cleanup = mountCamCheck(main);
   else if (view === 'game') cleanup = renderGame(main, parts[1]);
   else cleanup = renderMenu(main);
 }

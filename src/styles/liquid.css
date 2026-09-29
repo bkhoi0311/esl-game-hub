@@ -231,3 +231,15 @@ body.fluid .cam-select-row { flex-wrap: wrap; } body.fluid .cam-select-row selec
 .game-card { animation: none; }
 .card-go { animation: none; }
 @keyframes lg-materialize { from { opacity: 0; scale: 0.94; } }
+/* Trang kiểm tra camera */
+.cc-card { width: min(62rem, 100%); }
+.cc-list { display: grid; gap: 0.45rem; margin: 0; padding: 0; list-style: none; max-height: 32rem; overflow: auto; }
+.cc-list li { display: grid; grid-template-columns: 1.6rem 16rem 1fr; gap: 0.6rem; align-items: start; padding: 0.55rem 0.8rem; border-radius: 0.9rem; background: var(--lg-surface-grouped); font-size: 0.95rem; }
+.cc-list li span { color: var(--lg-text-secondary); word-break: break-word; }
+.cc-list li.ok .icon { color: var(--lg-positive); }
+.cc-list li.bad .icon { color: var(--lg-negative); }
+.cc-verdict { margin: 0; padding: 0.8rem 1.1rem; border-radius: 1rem; font-weight: 700; font-size: 1.1rem; }
+.cc-verdict.ok { background: var(--lg-positive-soft); color: var(--lg-positive); }
+.cc-verdict.bad { background: var(--lg-warning-soft); color: var(--lg-warning); }
+body.fluid .cc-list li { grid-template-columns: 1.6rem 1fr; }
+body.fluid .cc-list li span { grid-column: 2; }
