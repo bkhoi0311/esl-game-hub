@@ -2,7 +2,7 @@
 // KHÔNG nhận diện từng học sinh: chỉ tô đỏ vùng có chuyển động để giáo viên nhìn. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import { playSound, speak } from '../../core/audio.js';
-import { cameraSetupScreen, createCameraSession, createFpsMonitor } from '../../core/camera.js';
+import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { createMotionGrid } from '../../core/vision.js';
 import { button, createGameFrame, h, segmented, toast } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
@@ -79,14 +79,6 @@ function createGame(root, pack) {
     frame.stage.textContent = '';
     frame.stage.append(...nodes);
   };
-
-  const fps = createFpsMonitor({
-    onSlow: async (f) => {
-      toast(`Máy xử lý chậm (${Math.round(f)} khung/giây). Đang giảm độ phân giải camera.`, 'error', 5000);
-      await session.lowerResolution().catch(() => {});
-      grid.reset();
-    },
-  });
 
   // ---------- Cài đặt + chọn camera ----------
   function showSetup() {
@@ -249,7 +241,6 @@ function createGame(root, pack) {
     const tick = (now) => {
       raf = requestAnimationFrame(tick);
       if (!session.active || session.video.readyState < 2) return;
-      fps.tick(now);
       if (now - lastMeasure >= MEASURE_EVERY_MS) {
         lastMeasure = now;
         process(grid.measure(session.video));

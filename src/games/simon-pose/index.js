@@ -3,7 +3,7 @@
 import './style.css';
 import confetti from 'canvas-confetti';
 import { playSound, speak } from '../../core/audio.js';
-import { cameraSetupScreen, createCameraSession, createFpsMonitor } from '../../core/camera.js';
+import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { createPoseDetector, drawSkeleton } from '../../core/vision.js';
 import { TEAM_COLORS, button, createGameFrame, h, resultsScreen, segmented, toast } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
@@ -61,13 +61,6 @@ function createGame(root) {
     frame.stage.textContent = '';
     frame.stage.append(...nodes);
   };
-  const fps = createFpsMonitor({
-    onSlow: async (f) => {
-      toast(`Máy xử lý chậm (${Math.round(f)} khung/giây). Đang giảm độ phân giải camera.`, 'error', 5000);
-      await session.lowerResolution().catch(() => {});
-    },
-  });
-
   function showSetup() {
     stopLoop();
     clearTimers();
@@ -246,7 +239,6 @@ function createGame(root) {
       if (!detector || !session.active || v.readyState < 2) return;
       if (v.currentTime !== lastVideoTime) {
         lastVideoTime = v.currentTime;
-        fps.tick(now);
         const res = detector.detect(v, now);
         if (!res) return;
         // Bộ theo dõi: chọn người chơi trong vùng, giữ đúng số Player, làm mịn toạ độ.

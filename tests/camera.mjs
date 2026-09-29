@@ -1,7 +1,7 @@
 // Test 4 game camera bằng "camera giả": thay getUserMedia bằng luồng từ canvas mà test điều khiển được.
 // Chạy: npm run test:camera [tên-game ...]
 import { chromium } from 'playwright';
-import { createServer } from 'vite';
+import { createServer, preview } from 'vite';
 import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
@@ -10,8 +10,11 @@ const OUT = resolve('screenshots/camera');
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
-const server = await createServer({ server: { port: 5196, strictPort: true }, logLevel: 'error' });
-await server.listen();
+// PREVIEW=1: chạy trên bản build (dist/) thay vì dev server, để kiểm tra bản sẽ đưa lên web.
+const server = process.env.PREVIEW
+  ? await preview({ preview: { port: 5196, strictPort: true }, logLevel: 'error' })
+  : await createServer({ server: { port: 5196, strictPort: true }, logLevel: 'error' });
+if (!process.env.PREVIEW) await server.listen();
 const BASE = 'http://localhost:5196/';
 const browser = await chromium.launch();
 const results = [];
@@ -59,7 +62,13 @@ const FAKE_CAMERA = () => {
     s.getTracks().forEach((tr) => tracks.push(tr));
     return s;
   };
-  navigator.mediaDevices.getUserMedia = async () => {
+  navigator.mediaDevices.getUserMedia = async (c) => {
+    const want = c && c.video && c.video.deviceId && c.video.deviceId.exact;
+    if (want && (window.__busyIds || []).includes(want)) {
+      const e = new Error('busy');
+      e.name = 'NotReadableError';
+      throw e;
+    }
     if (window.__camError) {
       const e = new Error('fake');
       e.name = window.__camError;
@@ -131,7 +140,7 @@ TESTS['statue-freeze'] = async () => {
 
 // ---------- Lỗi camera ----------
 TESTS['camera-errors'] = async () => {
-  for (const [name, re] of [['NotReadableError', /ứng dụng khác/], ['NotAllowedError', /chặn quyền/], ['NotFoundError', /Không tìm thấy camera/]]) {
+  for (const [name, re] of [['NotReadableError', /app khác/], ['NotAllowedError', /chặn quyền/], ['NotFoundError', /Không tìm thấy camera/]]) {
     const { context, page } = await open('#/game/statue-freeze', undefined, `window.__camError = '${name}'`);
     await page.waitForSelector('[data-testid=cam-error]:not([hidden])');
     assert.match(await page.textContent('[data-testid=cam-error]'), re);
@@ -141,6 +150,29 @@ TESTS['camera-errors'] = async () => {
     }
     await context.close();
   }
+};
+
+// ---------- S1 đang bị lớp ClassIn giữ ----------
+// Có camera ảo (OBS): tự chuyển sang camera ảo.
+TESTS['camera-busy-virtual'] = async () => {
+  const { context, page } = await open('#/game/simon-pose', undefined,
+    "window.__busyIds = ['classin-s1']; localStorage.setItem('eslhub.settings', JSON.stringify({ cameraId: 'classin-s1' })); window.__cams = [{ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'a' }, { kind: 'videoinput', deviceId: 'obs', label: 'OBS Virtual Camera', groupId: 'b' }]");
+  await page.waitForFunction(() => document.querySelector('[data-testid=cam-select]').value === 'obs', null, { timeout: 8000 });
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  assert.equal(await page.isVisible('[data-testid=cam-busy]'), false, 'đã dùng camera ảo thì không hiện bảng lỗi');
+  await context.close();
+};
+// Không có camera ảo: hiện 2 cách, tự thử lại; tắt camera trong lớp là game tự nhận.
+TESTS['camera-busy-wait'] = async () => {
+  const { context, page } = await open('#/game/simon-pose', undefined,
+    "window.__busyIds = ['classin-s1']; localStorage.setItem('eslhub.settings', JSON.stringify({ cameraId: 'classin-s1' })); window.__cams = [{ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'a' }]");
+  await page.waitForSelector('[data-testid=cam-busy]');
+  assert.match(await page.textContent('[data-testid=cam-busy]'), /OBS Virtual Camera/);
+  await shot(page, 'camera-busy-wait');
+  await page.evaluate(() => (window.__busyIds = []));
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])', { timeout: 6000 });
+  assert.equal(await page.isVisible('[data-testid=cam-error]'), false, 'camera rảnh thì bảng lỗi phải ẩn');
+  await context.close();
 };
 
 // ---------- Cắm camera S1 sau khi mở trang: tự tìm thấy và tự chuyển sang S1 ----------
@@ -165,12 +197,27 @@ TESTS['camera-hotplug'] = async () => {
 // ---------- 3 game AI: nạp model, chạy vòng lặp không lỗi ----------
 for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]'], ['head-tilt', '[data-testid=ht-prompt]']]) {
   TESTS[id] = async () => {
-    const { context, page } = await open(`#/game/${id}`);
+    const { context, page } = await open(`#/game/${id}`, undefined, undefined);
     await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
     await page.click('[data-testid=cam-start]');
     await page.waitForSelector(ready);
     await page.waitForSelector('.sp-loading', { state: 'detached', timeout: 60000 });
     await page.waitForTimeout(3500);
+    const info = await page.evaluate(() => window.__vision && window.__vision.info());
+    console.log(`  ${id}: AI chạy ${info && info.mode} · bậc ${info && info.tier} · ${info && info.model} · ${info && info.delegate || ''} · ${info && info.ms}ms · ${info && info.results} lần`);
+
+    assert.equal(info && info.mode, 'worker', 'AI phải chạy ở luồng riêng');
+    assert.ok(info.results > 5, 'AI phải trả kết quả liên tục');
+    // Máy chậm: hạ 2 bậc (Simon: full -> lite, ảnh nhỏ hơn), AI vẫn chạy tiếp, không báo lỗi, không tắt camera.
+    const before = info.results;
+    await page.evaluate(() => window.__vision.degrade());
+    await page.waitForTimeout(3500); // đợi đổi model xong
+    await page.evaluate(() => window.__vision.degrade());
+    await page.waitForTimeout(2500);
+    const after = await page.evaluate(() => window.__vision.info());
+    assert.equal(after.tier, 2, 'phải xuống bậc 2');
+    assert.ok(after.results > before + 5, 'sau khi hạ bậc AI vẫn phải chạy');
+    assert.equal(await page.locator('.toast').count(), 0, 'không được hiện thông báo máy chậm');
     await shot(page, `${id}-play`);
     await context.close();
   };
@@ -232,7 +279,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

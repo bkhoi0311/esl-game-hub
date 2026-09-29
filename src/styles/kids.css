@@ -240,3 +240,13 @@ body.fluid .gs-head h3 { font-size: 1.3rem; }
 body.fluid .gs-tips li { font-size: 0.95rem; }
 body.fluid .gs-video { height: 70vh; }
 @media (prefers-reduced-motion: reduce) { .gs-mark, .gs-tips li { animation: none; opacity: 1; } .gs-mark::after, .gs-warn { animation: none; } }
+/* Camera bị lớp ClassIn giữ */
+.cam-busy { display: grid; gap: 0.8rem; }
+.cam-wait { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-weight: 800; color: #a82a0b; }
+.cam-spinner { width: 1.2rem; height: 1.2rem; border-radius: 999px; border: 0.2rem solid #f4b9a8; border-top-color: #a82a0b; animation: w-spin 0.9s linear infinite; }
+.cam-ways { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.cam-ways section { padding: 0.8rem 1rem; border-radius: var(--radius-tile); background: #fff; border: 2px solid #f4d2c8; }
+.cam-ways h4 { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--brand-ink); }
+.cam-ways h4 b { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 999px; background: #04bc09; color: #fff; }
+.cam-ways p { margin: 0; font-size: 0.98rem; line-height: 1.45; }
+body.fluid .cam-ways { grid-template-columns: 1fr; }

@@ -3,7 +3,7 @@
 // Chế độ dự phòng: chém bằng chuột / cảm ứng khi không có camera. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import { playSound, speak } from '../../core/audio.js';
-import { cameraSetupScreen, createCameraSession, createFpsMonitor } from '../../core/camera.js';
+import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { POSE, createPoseDetector } from '../../core/vision.js';
 import { createPoseTracker } from '../../core/pose-tracker.js';
 import { shuffle } from '../../core/content.js';
@@ -58,13 +58,6 @@ function createGame(root, pack) {
     frame.stage.textContent = '';
     frame.stage.append(...nodes);
   };
-  const fps = createFpsMonitor({
-    onSlow: async (f) => {
-      toast(`Máy xử lý chậm (${Math.round(f)} khung/giây). Đang giảm độ phân giải camera.`, 'error', 5000);
-      await session.lowerResolution().catch(() => {});
-    },
-  });
-
   function teardown() {
     cancelAnimationFrame(raf);
     raf = 0;
@@ -213,7 +206,6 @@ function createGame(root, pack) {
       const v = session.video;
       if (!sc || !detector || !session.active || v.readyState < 2 || frame.paused || v.currentTime === lastVideoTime) return;
       lastVideoTime = v.currentTime;
-      fps.tick(now);
       const res = detector.detect(v, now);
       if (!res) return;
       const box = view.box.getBoundingClientRect();

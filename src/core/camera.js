@@ -4,11 +4,8 @@ import { getSettings, updateSettings } from './settings.js';
 import { button, h } from './ui.js';
 import { icon } from './icons.js';
 
-export const RESOLUTIONS = [
-  { width: 1280, height: 720 },
-  { width: 640, height: 360 },
-  { width: 320, height: 180 },
-];
+// Luôn xin 1280x720: AI chỉ nhận ảnh đã thu nhỏ (vision.js) nên không cần hạ độ phân giải camera.
+export const RESOLUTIONS = [{ width: 1280, height: 720 }];
 
 // Lỗi camera -> { kind, title, steps } tiếng Việt.
 export function describeCameraError(err) {
@@ -88,12 +85,11 @@ export async function openCamera(deviceId, resolution = RESOLUTIONS[0]) {
   }
 }
 
-// Phiên camera của 1 game: video gương, đổi thiết bị, hạ độ phân giải, tắt/bật.
+// Phiên camera của 1 game: video gương, đổi thiết bị, tắt/bật.
 export function createCameraSession() {
   const video = h('video', { class: 'cam-video', autoplay: true, muted: true, playsInline: true });
   video.setAttribute('playsinline', '');
   let stream = null;
-  let resIndex = 0;
   let deviceId = getSettings().cameraId || '';
 
   const api = {
@@ -109,7 +105,7 @@ export function createCameraSession() {
     },
     async start(id = deviceId) {
       api.stop();
-      stream = await openCamera(id, RESOLUTIONS[resIndex]);
+      stream = await openCamera(id);
       const track = stream.getVideoTracks()[0];
       const actual = track && track.getSettings ? track.getSettings().deviceId : '';
       deviceId = id || actual || '';
@@ -119,13 +115,6 @@ export function createCameraSession() {
       await new Promise((r) => (video.readyState >= 2 ? r() : video.addEventListener('loadeddata', r, { once: true })));
       return stream;
     },
-    // Máy yếu: hạ độ phân giải 1 bậc. Trả về false nếu đã thấp nhất.
-    async lowerResolution() {
-      if (resIndex >= RESOLUTIONS.length - 1) return false;
-      resIndex += 1;
-      await api.start(deviceId);
-      return true;
-    },
     stop() {
       stopStream(stream);
       stream = null;
@@ -133,44 +122,6 @@ export function createCameraSession() {
     },
   };
   return api;
-}
-
-// Đo FPS vòng xử lý; gọi onSlow() nếu dưới 15 FPS liên tục 5 giây.
-export function createFpsMonitor({ min = 15, seconds = 5, onSlow } = {}) {
-  let frames = 0;
-  let windowStart = performance.now();
-  let slowSince = 0;
-  let fps = 30;
-  let lastTick = 0;
-  return {
-    get fps() {
-      return fps;
-    },
-    tick(now = performance.now()) {
-      // Quãng dừng dài (đang nạp model, tạm dừng, tắt camera): bắt đầu đo lại từ đầu.
-      if (lastTick && now - lastTick > 1500) {
-        frames = 0;
-        windowStart = now;
-        slowSince = 0;
-      }
-      lastTick = now;
-      frames += 1;
-      if (now - windowStart >= 1000) {
-        fps = (frames * 1000) / (now - windowStart);
-        frames = 0;
-        windowStart = now;
-        if (fps < min) {
-          if (!slowSince) slowSince = now;
-          if (now - slowSince >= seconds * 1000) {
-            slowSince = 0;
-            if (onSlow) onSlow(fps);
-          }
-        } else {
-          slowSince = 0;
-        }
-      }
-    },
-  };
 }
 
 // Màn hình chọn camera trước khi vào game (giáo viên, tiếng Việt).
@@ -192,6 +143,25 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       h('li', {}, 'Tắt app ClassIn hoặc tắt camera trong lớp ClassIn nếu đang mở.'),
       h('li', {}, 'Trình duyệt: bấm biểu tượng ổ khoá cạnh địa chỉ trang > Camera > Cho phép.')));
   let userChose = false;
+  let waitTimer = 0;
+  const triedVirtual = new Set();
+  const VIRTUAL = /virtual|obs|splitcam|manycam|xsplit/i;
+  const stopWaiting = () => {
+    clearInterval(waitTimer);
+    waitTimer = 0;
+  };
+
+  // Camera bị lớp ClassIn giữ: 2 cách, và tự thử lại mỗi 2,5 giây (tắt camera trong lớp là game tự bắt được).
+  const busyPanel = (id) => h('div', { class: 'cam-busy', 'data-testid': 'cam-busy' },
+    h('p', { class: 'cam-wait' }, h('span', { class: 'cam-spinner' }), 'Đang chờ camera rảnh, tự thử lại sau vài giây…'),
+    h('div', { class: 'cam-ways' },
+      h('section', {},
+        h('h4', {}, h('b', {}, '1'), 'Tạm tắt camera trong lớp ClassIn'),
+        h('p', {}, 'Trên thanh công cụ của lớp ClassIn, bấm biểu tượng camera của thầy cô để tắt. Game tự nhận camera sau vài giây. Chơi xong, thoát game rồi bật lại camera trong lớp.')),
+      h('section', {},
+        h('h4', {}, h('b', {}, '2'), 'Dùng chung camera (camera ảo)'),
+        h('p', {}, 'Cài OBS Studio (miễn phí) trên máy của màn tương tác. Trong OBS: thêm nguồn Video Capture Device là camera S1, bấm Start Virtual Camera. Trong lớp ClassIn và trong game đều chọn camera "OBS Virtual Camera". Làm 1 lần, lần sau chỉ cần mở OBS.'))),
+    button({ label: 'Thử lại ngay', iconName: 'refresh', onClick: () => connect(id) }));
 
   const fill = async () => {
     const cams = await listCameras();
@@ -220,25 +190,50 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
     return false;
   };
 
-  const connect = async (id) => {
-    errorBox.hidden = true;
-    startBtn.disabled = true;
+  const connect = async (id, { quiet = false } = {}) => {
+    if (!quiet) {
+      errorBox.hidden = true;
+      startBtn.disabled = true;
+    }
     try {
       await session.start(id);
+      stopWaiting();
+      errorBox.hidden = true;
       const cams = await fill(); // sau khi cấp quyền mới đọc được tên camera
-      if (preferClassIn(cams)) return;
+      if (!triedVirtual.size && preferClassIn(cams)) return;
       startBtn.disabled = false;
     } catch (err) {
+      if (quiet) return; // đang chờ camera rảnh: giữ nguyên bảng hướng dẫn
       const info = describeCameraError(err);
+      const cams = await fill().catch(() => []);
+      // Camera đang bị chiếm mà máy có camera ảo (OBS...): tự dùng camera ảo.
+      if (info.kind === 'busy') {
+        const virt = cams.find((c) => VIRTUAL.test(c.label) && c.deviceId !== id && !triedVirtual.has(c.deviceId));
+        if (virt) {
+          triedVirtual.add(virt.deviceId);
+          select.value = virt.deviceId;
+          connect(virt.deviceId);
+          return;
+        }
+      }
       errorBox.textContent = '';
       errorBox.dataset.kind = info.kind;
-      errorBox.append(
-        h('h3', {}, icon('alert', 26), info.title),
-        h('ol', {}, info.steps.map((s) => h('li', {}, s))),
-        retryBtn,
-      );
+      if (info.kind === 'busy') {
+        errorBox.append(h('h3', {}, icon('alert', 26), 'Camera đang được lớp ClassIn (hoặc app khác) sử dụng'), busyPanel(id));
+        helpBox.hidden = true; // camera có, chỉ đang bận: không cần hướng dẫn "không thấy camera"
+        stopWaiting();
+        waitTimer = setInterval(() => {
+          if (!el.isConnected) stopWaiting();
+          else connect(id, { quiet: true });
+        }, 2500);
+      } else {
+        errorBox.append(
+          h('h3', {}, icon('alert', 26), info.title),
+          h('ol', {}, info.steps.map((s) => h('li', {}, s))),
+          retryBtn,
+        );
+      }
       errorBox.hidden = false;
-      await fill().catch(() => {});
     }
   };
 
@@ -260,24 +255,27 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
 
   select.addEventListener('change', () => {
     userChose = true;
+    stopWaiting();
     connect(select.value);
   });
-  startBtn.addEventListener('click', () => onReady(session));
+  startBtn.addEventListener('click', () => {
+    stopWaiting();
+    onReady(session);
+  });
 
   const el = h(
     'div', { class: 'setup cam-setup' },
     h('div', { class: 'setup-card cam-card' },
       h('h2', {}, art || null, h('span', {}, title)),
       h('div', { class: 'cam-grid' },
-        h('div', { class: 'cam-left' }, preview, h('div', { class: 'setup-actions' }, startBtn)),
+        h('div', { class: 'cam-left' }, preview, errorBox, h('div', { class: 'setup-actions' }, startBtn)),
         h('div', { class: 'cam-side' },
           h('label', { class: 'setup-row' }, h('span', {}, 'Camera'), h('div', { class: 'cam-select-row' }, select, rescanBtn)),
           countEl,
           helpBox,
           h('p', { class: 'muted' }, 'Camera góc rộng ClassIn S1 thường có tên chứa "S1" hoặc "ClassIn". Hình hiển thị dạng gương. Không ghi hình, không lưu ảnh.'),
           hint ? h('p', { class: 'cam-hint' }, hint) : null,
-          extraRows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null)))),
-      errorBox),
+          extraRows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null))))),
   );
   connect(session.deviceId);
   return el;
