@@ -250,3 +250,4 @@ body.fluid .gs-video { height: 70vh; }
 .cam-ways h4 b { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 999px; background: #04bc09; color: #fff; }
 .cam-ways p { margin: 0; font-size: 0.98rem; line-height: 1.45; }
 body.fluid .cam-ways { grid-template-columns: 1fr; }
+.cam-switch { margin: 0; padding: 0.45rem 0.9rem; border-radius: var(--radius-tile); background: #e9f9e8; border: 2px solid #bfe9bc; font-size: 0.95rem; font-weight: 700; color: #047a08; }

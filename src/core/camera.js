@@ -134,6 +134,7 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
   const retryBtn = button({ label: 'Thử lại', iconName: 'refresh', onClick: () => connect(select.value) });
 
   const countEl = h('p', { class: 'cam-count', 'data-testid': 'cam-count' });
+  const switchNote = h('p', { class: 'cam-switch', 'data-testid': 'cam-switch', hidden: true });
   const helpBox = h('details', { class: 'cam-help', 'data-testid': 'cam-help', hidden: true },
     h('summary', {}, 'Không thấy camera ClassIn S1 trong danh sách?'),
     h('ol', {},
@@ -144,7 +145,7 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       h('li', {}, 'Trình duyệt: bấm biểu tượng ổ khoá cạnh địa chỉ trang > Camera > Cho phép.')));
   let userChose = false;
   let waitTimer = 0;
-  const triedVirtual = new Set();
+  const triedIds = new Set(); // camera đã thử khi S1 bận
   const VIRTUAL = /virtual|obs|splitcam|manycam|xsplit/i;
   const stopWaiting = () => {
     clearInterval(waitTimer);
@@ -200,19 +201,24 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       stopWaiting();
       errorBox.hidden = true;
       const cams = await fill(); // sau khi cấp quyền mới đọc được tên camera
-      if (!triedVirtual.size && preferClassIn(cams)) return;
+      if (!triedIds.size && preferClassIn(cams)) return;
       startBtn.disabled = false;
     } catch (err) {
       if (quiet) return; // đang chờ camera rảnh: giữ nguyên bảng hướng dẫn
       const info = describeCameraError(err);
       const cams = await fill().catch(() => []);
-      // Camera đang bị chiếm mà máy có camera ảo (OBS...): tự dùng camera ảo.
+      // Camera đang bị lớp ClassIn giữ: tự dùng camera khác đang rảnh, không hỏi giáo viên.
+      // Ưu tiên camera ảo (nhân bản S1, cùng góc quay với lớp), rồi đến camera khác của máy.
       if (info.kind === 'busy') {
-        const virt = cams.find((c) => VIRTUAL.test(c.label) && c.deviceId !== id && !triedVirtual.has(c.deviceId));
-        if (virt) {
-          triedVirtual.add(virt.deviceId);
-          select.value = virt.deviceId;
-          connect(virt.deviceId);
+        triedIds.add(id);
+        const free = cams.filter((c) => !triedIds.has(c.deviceId));
+        const next = free.find((c) => VIRTUAL.test(c.label)) || free[0];
+        if (next) {
+          triedIds.add(next.deviceId);
+          select.value = next.deviceId;
+          switchNote.textContent = `S1 đang được lớp ClassIn dùng nên game dùng camera "${next.label || 'khác'}".`;
+          switchNote.hidden = false;
+          connect(next.deviceId);
           return;
         }
       }
@@ -256,6 +262,7 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
   select.addEventListener('change', () => {
     userChose = true;
     stopWaiting();
+    switchNote.hidden = true;
     connect(select.value);
   });
   startBtn.addEventListener('click', () => {
@@ -272,6 +279,7 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
         h('div', { class: 'cam-side' },
           h('label', { class: 'setup-row' }, h('span', {}, 'Camera'), h('div', { class: 'cam-select-row' }, select, rescanBtn)),
           countEl,
+          switchNote,
           helpBox,
           h('p', { class: 'muted' }, 'Camera góc rộng ClassIn S1 thường có tên chứa "S1" hoặc "ClassIn". Hình hiển thị dạng gương. Không ghi hình, không lưu ảnh.'),
           hint ? h('p', { class: 'cam-hint' }, hint) : null,

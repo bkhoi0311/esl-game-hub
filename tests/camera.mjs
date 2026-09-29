@@ -160,9 +160,20 @@ TESTS['camera-busy-virtual'] = async () => {
   await page.waitForFunction(() => document.querySelector('[data-testid=cam-select]').value === 'obs', null, { timeout: 8000 });
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
   assert.equal(await page.isVisible('[data-testid=cam-busy]'), false, 'đã dùng camera ảo thì không hiện bảng lỗi');
+  assert.match(await page.textContent('[data-testid=cam-switch]'), /OBS Virtual Camera/);
   await context.close();
 };
-// Không có camera ảo: hiện 2 cách, tự thử lại; tắt camera trong lớp là game tự nhận.
+// Không có camera ảo nhưng máy có camera khác rảnh (camera của màn hình): tự dùng, không hỏi.
+TESTS['camera-busy-other'] = async () => {
+  const { context, page } = await open('#/game/simon-pose', undefined,
+    "window.__busyIds = ['classin-s1']; localStorage.setItem('eslhub.settings', JSON.stringify({ cameraId: 'classin-s1' })); window.__cams = [{ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'a' }, { kind: 'videoinput', deviceId: 'board', label: 'Board Camera', groupId: 'b' }]");
+  await page.waitForFunction(() => document.querySelector('[data-testid=cam-select]').value === 'board', null, { timeout: 8000 });
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  assert.equal(await page.isVisible('[data-testid=cam-busy]'), false);
+  await shot(page, 'camera-busy-other');
+  await context.close();
+};
+// Không có camera nào khác: hiện 2 cách, tự thử lại; tắt camera trong lớp là game tự nhận.
 TESTS['camera-busy-wait'] = async () => {
   const { context, page } = await open('#/game/simon-pose', undefined,
     "window.__busyIds = ['classin-s1']; localStorage.setItem('eslhub.settings', JSON.stringify({ cameraId: 'classin-s1' })); window.__cams = [{ kind: 'videoinput', deviceId: 'classin-s1', label: 'ClassIn Cam S1', groupId: 'a' }]");
@@ -279,7 +290,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();
