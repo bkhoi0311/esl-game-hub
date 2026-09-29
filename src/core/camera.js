@@ -160,8 +160,9 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
         h('h4', {}, h('b', {}, '1'), 'Tạm tắt camera trong lớp ClassIn'),
         h('p', {}, 'Trên thanh công cụ của lớp ClassIn, bấm biểu tượng camera của thầy cô để tắt. Game tự nhận camera sau vài giây. Chơi xong, thoát game rồi bật lại camera trong lớp.')),
       h('section', {},
-        h('h4', {}, h('b', {}, '2'), 'Dùng chung camera (camera ảo)'),
-        h('p', {}, 'Cài OBS Studio (miễn phí) trên máy của màn tương tác. Trong OBS: thêm nguồn Video Capture Device là camera S1, bấm Start Virtual Camera. Trong lớp ClassIn và trong game đều chọn camera "OBS Virtual Camera". Làm 1 lần, lần sau chỉ cần mở OBS.'))),
+        h('h4', {}, h('b', {}, '2'), 'Dùng chung camera (IT cài 1 lần)'),
+        h('p', {}, 'Bộ cài tự cài OBS (miễn phí), tự lấy camera S1 và chạy ẩn khi mở máy. Sau đó trong ClassIn chọn camera "OBS Virtual Camera" một lần; game tự dùng camera ảo, giáo viên không phải làm gì.'),
+        h('a', { class: 'btn btn-ghost', href: './camera-share/Camera-dung-chung-ClassIn.zip', download: '' }, icon('download', 20), h('span', {}, 'Tải bộ cài cho IT')))),
     button({ label: 'Thử lại ngay', iconName: 'refresh', onClick: () => connect(id) }));
 
   const fill = async () => {
