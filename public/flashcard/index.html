@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flashcard 3D</title>
+<meta name="description" content="Thẻ từ vựng động cho màn hình tương tác ClassIn: emoji động, ảnh, mô hình 3D, giọng đọc, đố nhanh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+  :root{
+    --bg:#0b0b0b; --panel:#141414; --card:#ffffff; --ink:#1b1b1b; --muted:#6b6b6b;
+    --green:#04bc09; --green-2:#0ee516; --pink:#ff4f8b; --yellow:#ffd23f; --blue:#3d8bff;
+    --r:28px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:#fff; font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    overflow:hidden; -webkit-user-select:none; user-select:none; touch-action:manipulation;
+  }
+  #bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+  #app{position:relative;z-index:1;height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:2.2vmin 3vmin;gap:1.6vmin}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:2vmin}
+  .brand{display:flex;align-items:center;gap:1.2vmin;font-weight:800;font-size:2.6vmin;letter-spacing:.02em}
+  .brand i{width:2.6vmin;height:2.6vmin;border-radius:50%;background:var(--green);box-shadow:0 0 2vmin rgba(4,188,9,.7)}
+  .search{display:flex;gap:1vmin;align-items:center;background:var(--panel);border-radius:999px;padding:.8vmin 1vmin .8vmin 2.4vmin;border:1px solid #262626}
+  .search input{background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:2.4vmin;width:34vmin}
+  .search input::placeholder{color:#666}
+  .btn{border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:1.3vmin 2.6vmin;font-size:2.2vmin;color:#000;background:var(--green);transition:transform .12s}
+  .btn:active{transform:scale(.94)}
+  .btn.ghost{background:#222;color:#fff}
+  .btn.round{width:5.4vmin;height:5.4vmin;padding:0;display:grid;place-items:center;font-size:2.6vmin}
+  .btn.mic.on{background:var(--pink);color:#fff;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,79,139,.6)}50%{box-shadow:0 0 0 1.6vmin rgba(255,79,139,0)}}
+
+  main{display:grid;grid-template-columns:1.05fr 1fr;gap:3vmin;min-height:0}
+  .stage{position:relative;border-radius:var(--r);background:radial-gradient(120% 100% at 50% 0%,#1d1d1d,#0f0f0f);border:1px solid #232323;display:grid;place-items:center;overflow:hidden;min-height:0}
+  .stage .visual{position:absolute;inset:0;display:grid;place-items:center}
+  .stage .visual.hidden{display:none}
+  #lottie{width:78%;height:78%}
+  #emojiBig{font-size:34vmin;line-height:1;filter:drop-shadow(0 2vmin 3vmin rgba(0,0,0,.6))}
+  #photo{width:100%;height:100%;object-fit:cover;opacity:.95}
+  model-viewer{width:100%;height:100%;--poster-color:transparent;background:transparent}
+  .tabs{position:absolute;left:50%;bottom:2vmin;transform:translateX(-50%);display:flex;gap:.8vmin;background:rgba(0,0,0,.55);padding:.6vmin;border-radius:999px;backdrop-filter:blur(8px)}
+  .tab{border:0;cursor:pointer;font:inherit;font-weight:700;font-size:1.9vmin;color:#ddd;background:transparent;padding:.9vmin 1.8vmin;border-radius:999px}
+  .tab.on{background:var(--green);color:#000}
+  .tab[disabled]{opacity:.3;cursor:default}
+  .badge3d{position:absolute;top:2vmin;right:2vmin;background:var(--yellow);color:#000;font-weight:800;font-size:1.8vmin;padding:.6vmin 1.4vmin;border-radius:999px;display:none}
+
+  .card-wrap{perspective:2200px;min-height:0}
+  .card{position:relative;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .card.flipped{transform:rotateY(180deg)}
+  .face{position:absolute;inset:0;border-radius:var(--r);backface-visibility:hidden;padding:4vmin;display:flex;flex-direction:column;gap:1.6vmin;overflow:hidden}
+  .front{background:var(--card);color:var(--ink)}
+  .back{background:linear-gradient(160deg,#1b1b1b,#101010);border:1px solid #2a2a2a;color:#fff;transform:rotateY(180deg)}
+  .pos{display:inline-flex;align-self:flex-start;background:#eaf9ea;color:#04850a;font-weight:800;font-size:1.9vmin;padding:.6vmin 1.6vmin;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+  .word{font-size:9.5vmin;font-weight:800;line-height:1;letter-spacing:-.02em;display:flex;flex-wrap:wrap}
+  .word span{display:inline-block}
+  .ipa{font-size:3.4vmin;color:var(--muted);font-weight:500}
+  .vi{font-size:5.2vmin;font-weight:800;color:#04850a;line-height:1.1}
+  .ex{font-size:2.9vmin;line-height:1.35;color:#333;background:#f6f6f6;border-left:.8vmin solid var(--green);padding:1.6vmin 2vmin;border-radius:1.4vmin}
+  .ex b{color:#000;background:#fff5b8;border-radius:.6vmin;padding:0 .4vmin}
+  .row{display:flex;gap:1.2vmin;flex-wrap:wrap;margin-top:auto}
+  .back h2{font-size:3.4vmin;color:var(--yellow)}
+  .q{font-size:3.6vmin;font-weight:700;line-height:1.3}
+  .opts{display:grid;gap:1.4vmin;margin-top:auto}
+  .opt{border:0;cursor:pointer;font:inherit;font-weight:800;font-size:3.2vmin;padding:2.2vmin 2.6vmin;border-radius:2vmin;background:#232323;color:#fff;text-align:left;display:flex;gap:2vmin;align-items:center;transition:transform .12s}
+  .opt:active{transform:scale(.97)}
+  .opt i{font-style:normal;width:4.6vmin;height:4.6vmin;border-radius:50%;background:#333;display:grid;place-items:center;font-size:2.4vmin;flex:none}
+  .opt.right{background:var(--green);color:#000}
+  .opt.right i{background:#000;color:#fff}
+  .opt.wrong{background:#3a1420;color:#ffb3c7}
+
+  footer{display:flex;align-items:center;justify-content:space-between;gap:2vmin;font-size:1.9vmin;color:#777}
+  .dots{display:flex;gap:.8vmin}
+  .dots b{width:1.4vmin;height:1.4vmin;border-radius:50%;background:#333}
+  .dots b.on{background:var(--green)}
+  .nav{display:flex;gap:1vmin}
+
+  #empty{position:absolute;inset:0;display:none;place-items:center;text-align:center;z-index:2}
+  #empty.on{display:grid} body.empty main,body.empty footer,body.empty header{display:none}
+  #empty h1{font-size:7vmin;font-weight:800;margin-bottom:2vmin}
+  #empty p{font-size:2.8vmin;color:#888;margin-bottom:3vmin}
+  #empty .search{margin:0 auto;padding:1.4vmin 1.4vmin 1.4vmin 3vmin} #empty .search input{font-size:3.2vmin;width:46vmin} #empty .btn{font-size:2.8vmin}
+  .chips{display:flex;gap:1vmin;justify-content:center;flex-wrap:wrap;margin-top:4vmin}
+  .chip{border:1px solid #333;background:#161616;color:#ddd;font:inherit;font-weight:700;font-size:2.2vmin;padding:1vmin 2vmin;border-radius:999px;cursor:pointer}
+  #toast{position:fixed;left:50%;bottom:3vmin;transform:translateX(-50%) translateY(200%);background:#fff;color:#000;font-weight:700;font-size:2.2vmin;padding:1.4vmin 2.6vmin;border-radius:999px;transition:transform .3s;z-index:9}
+  #toast.on{transform:translateX(-50%)}
+  @media (max-aspect-ratio: 1/1){ main{grid-template-columns:1fr;grid-template-rows:1fr 1fr} .word{font-size:8vmin} }
+  @media (prefers-reduced-motion: reduce){ .card{transition:none} }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="app">
+  <header>
+    <div class="brand"><i></i>Flashcard 3D</div>
+    <form class="search" id="form">
+      <input id="input" placeholder="Gõ hoặc nói một từ tiếng Anh…" autocomplete="off" spellcheck="false">
+      <button class="btn round mic ghost" type="button" id="mic" title="Nói từ">🎤</button>
+      <button class="btn" type="submit">Tạo thẻ</button>
+    </form>
+  </header>
+
+  <main>
+    <section class="stage" id="stage">
+      <div class="visual" id="vLottie"><div id="lottie"></div></div>
+      <div class="visual hidden" id="vEmoji"><div id="emojiBig">🍎</div></div>
+      <div class="visual hidden" id="vPhoto"><img id="photo" alt=""></div>
+      <div class="visual hidden" id="v3d"><model-viewer id="mv" auto-rotate camera-controls shadow-intensity="1" exposure="1.1" interaction-prompt="none"></model-viewer></div>
+      <span class="badge3d" id="badge3d">3D · xoay bằng tay</span>
+      <div class="tabs" id="tabs">
+        <button class="tab on" id="tabE" data-v="vLottie">Emoji</button>
+        <button class="tab" id="tabP" data-v="vPhoto">Ảnh</button>
+        <button class="tab" id="tab3" data-v="v3d">3D</button>
+      </div>
+    </section>
+
+    <section class="card-wrap">
+      <div class="card" id="card">
+        <div class="face front">
+          <span class="pos" id="pos">noun</span>
+          <div class="word" id="word"></div>
+          <div class="ipa" id="ipa"></div>
+          <div class="vi" id="vi"></div>
+          <div class="ex" id="ex"></div>
+          <div class="row">
+            <button class="btn" id="say">🔊 Nghe</button>
+            <button class="btn ghost" id="spell">🔤 Đánh vần</button>
+            <button class="btn ghost" id="flip">❓ Đố cả lớp</button>
+          </div>
+        </div>
+        <div class="face back">
+          <h2>Đố nhanh</h2>
+          <div class="q" id="q"></div>
+          <div class="opts" id="opts"></div>
+          <div class="row"><button class="btn ghost" id="unflip">← Quay lại thẻ</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="dots" id="dots"></div>
+    <div id="status">Nguồn: Google Noto Emoji · Wikipedia · Free Dictionary · Khronos glTF</div>
+    <div class="nav">
+      <button class="btn ghost round" id="prev">‹</button>
+      <button class="btn ghost round" id="next">›</button>
+    </div>
+  </footer>
+</div>
+
+<div id="empty">
+  <div>
+    <h1>Viết từ, khoanh, bấm AI</h1>
+    <p>Hoặc gõ / nói một từ tiếng Anh ở đây</p>
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+// ---------- Dữ liệu tĩnh ----------
+// Emoji cho từ ESL phổ biến. Thiếu từ nào thì AI truyền ?e=<mã hex> hoặc trang tự rơi về ảnh Wikipedia.
+const EMOJI = {
+  apple:'🍎',banana:'🍌',orange:'🍊',grape:'🍇',grapes:'🍇',strawberry:'🍓',watermelon:'🍉',lemon:'🍋',cherry:'🍒',peach:'🍑',pear:'🍐',pineapple:'🍍',mango:'🥭',coconut:'🥥',kiwi:'🥝',avocado:'🥑',tomato:'🍅',carrot:'🥕',corn:'🌽',potato:'🥔',onion:'🧅',garlic:'🧄',broccoli:'🥦',mushroom:'🍄',bread:'🍞',cheese:'🧀',egg:'🥚',eggs:'🥚',milk:'🥛',pizza:'🍕',burger:'🍔',hamburger:'🍔',fries:'🍟',hotdog:'🌭',sandwich:'🥪',taco:'🌮',rice:'🍚',noodles:'🍜',soup:'🍲',salad:'🥗',sushi:'🍣',cake:'🎂',cookie:'🍪',candy:'🍬',chocolate:'🍫',icecream:'🍦','ice cream':'🍦',donut:'🍩',doughnut:'🍩',popcorn:'🍿',coffee:'☕',tea:'🍵',juice:'🧃',water:'💧',
+  dog:'🐶',cat:'🐱',mouse:'🐭',rabbit:'🐰',fox:'🦊',bear:'🐻',panda:'🐼',koala:'🐨',tiger:'🐯',lion:'🦁',cow:'🐮',pig:'🐷',frog:'🐸',monkey:'🐵',chicken:'🐔',penguin:'🐧',bird:'🐦',duck:'🦆',eagle:'🦅',owl:'🦉',bat:'🦇',wolf:'🐺',horse:'🐴',unicorn:'🦄',bee:'🐝',butterfly:'🦋',snail:'🐌',ladybug:'🐞',ant:'🐜',spider:'🕷️',turtle:'🐢',snake:'🐍',lizard:'🦎',dinosaur:'🦖',octopus:'🐙',squid:'🦑',shrimp:'🦐',crab:'🦀',fish:'🐟',dolphin:'🐬',whale:'🐳',shark:'🦈',crocodile:'🐊',zebra:'🦓',giraffe:'🦒',elephant:'🐘',camel:'🐫',kangaroo:'🦘',sheep:'🐑',goat:'🐐',deer:'🦌',parrot:'🦜',flamingo:'🦩',peacock:'🦚',swan:'🦢',hamster:'🐹',hedgehog:'🦔',
+  sun:'☀️',moon:'🌙',star:'⭐',cloud:'☁️',rain:'🌧️',rainbow:'🌈',snow:'❄️',snowman:'⛄',fire:'🔥',lightning:'⚡',wind:'🌬️',tree:'🌳',flower:'🌸',rose:'🌹',sunflower:'🌻',leaf:'🍃',cactus:'🌵',earth:'🌍',mountain:'⛰️',volcano:'🌋',beach:'🏖️',ocean:'🌊',wave:'🌊',
+  car:'🚗',bus:'🚌',truck:'🚚',bike:'🚲',bicycle:'🚲',motorbike:'🏍️',train:'🚆',plane:'✈️',airplane:'✈️',rocket:'🚀',boat:'⛵',ship:'🚢',helicopter:'🚁',taxi:'🚕',police:'👮',ambulance:'🚑',firetruck:'🚒','fire truck':'🚒',tractor:'🚜',
+  house:'🏠',home:'🏠',school:'🏫',hospital:'🏥',church:'⛪',castle:'🏰',tent:'⛺',bridge:'🌉',city:'🏙️',
+  book:'📚',pen:'🖊️',pencil:'✏️',bag:'🎒',backpack:'🎒',scissors:'✂️',ruler:'📏',clock:'⏰',phone:'📱',computer:'💻',laptop:'💻',tv:'📺',camera:'📷',key:'🔑',lamp:'💡',light:'💡',bed:'🛏️',chair:'🪑',door:'🚪',umbrella:'☂️',gift:'🎁',balloon:'🎈',ball:'⚽',football:'⚽',soccer:'⚽',basketball:'🏀',tennis:'🎾',baseball:'⚾',guitar:'🎸',piano:'🎹',drum:'🥁',music:'🎵',trophy:'🏆',medal:'🏅',money:'💰',
+  hat:'🎩',cap:'🧢',shirt:'👕','t-shirt':'👕',dress:'👗',shoes:'👟',shoe:'👟',boots:'👢',socks:'🧦',glasses:'👓',crown:'👑',ring:'💍',watch:'⌚',
+  eye:'👁️',eyes:'👀',ear:'👂',nose:'👃',mouth:'👄',tongue:'👅',hand:'✋',foot:'🦶',leg:'🦵',tooth:'🦷',brain:'🧠',heart:'❤️',bone:'🦴',
+  happy:'😀',sad:'😢',angry:'😡',scared:'😱',surprised:'😲',tired:'😴',sleepy:'😴',sick:'🤒',cold:'🥶',hot:'🥵',love:'😍',laugh:'😂',cry:'😭',think:'🤔',cool:'😎',silly:'🤪',shy:'😊',
+  run:'🏃',walk:'🚶',swim:'🏊',dance:'💃',sing:'🎤',jump:'🤸',read:'📖',write:'✍️',eat:'🍽️',drink:'🥤',sleep:'😴',play:'🎮',cook:'🍳',clap:'👏',wave:'👋',pray:'🙏',
+  king:'🤴',queen:'👸',baby:'👶',boy:'👦',girl:'👧',man:'👨',woman:'👩',teacher:'🧑‍🏫',doctor:'🧑‍⚕️',farmer:'🧑‍🌾',chef:'🧑‍🍳',robot:'🤖',ghost:'👻',alien:'👽',monster:'👹',dragon:'🐉',witch:'🧙',fairy:'🧚',superhero:'🦸',
+  red:'🟥',blue:'🟦',green:'🟩',yellow:'🟨',orange_color:'🟧',purple:'🟪',black:'⬛',white:'⬜',circle:'⭕',square:'🟩',triangle:'🔺',
+  one:'1️⃣',two:'2️⃣',three:'3️⃣',four:'4️⃣',five:'5️⃣',six:'6️⃣',seven:'7️⃣',eight:'8️⃣',nine:'9️⃣',ten:'🔟',
+  birthday:'🎂',christmas:'🎄',party:'🎉',halloween:'🎃',
+};
+// Nghĩa tiếng Việt cho từ phổ biến (ưu tiên hơn máy dịch). Từ ngoài danh sách: MyMemory hoặc AI truyền ?vi=.
+const VI = {
+  apple:'quả táo',banana:'quả chuối',orange:'quả cam',grape:'quả nho',grapes:'nho',strawberry:'dâu tây',watermelon:'dưa hấu',lemon:'quả chanh',cherry:'quả anh đào',peach:'quả đào',pear:'quả lê',pineapple:'quả dứa',mango:'quả xoài',coconut:'quả dừa',kiwi:'quả kiwi',avocado:'quả bơ',tomato:'cà chua',carrot:'cà rốt',corn:'bắp ngô',potato:'khoai tây',onion:'củ hành',garlic:'tỏi',broccoli:'súp lơ xanh',mushroom:'nấm',bread:'bánh mì',cheese:'phô mai',egg:'quả trứng',eggs:'trứng',milk:'sữa',pizza:'bánh pizza',burger:'bánh burger',hamburger:'bánh hamburger',fries:'khoai tây chiên',hotdog:'bánh mì xúc xích',sandwich:'bánh sandwich',taco:'bánh taco',rice:'cơm',noodles:'mì',soup:'súp',salad:'rau trộn',sushi:'sushi',cake:'bánh kem',cookie:'bánh quy',candy:'kẹo',chocolate:'sô cô la',icecream:'kem','ice cream':'kem',donut:'bánh vòng',doughnut:'bánh vòng',popcorn:'bỏng ngô',coffee:'cà phê',tea:'trà',juice:'nước ép',water:'nước',
+  dog:'con chó',cat:'con mèo',mouse:'con chuột',rabbit:'con thỏ',fox:'con cáo',bear:'con gấu',panda:'gấu trúc',koala:'gấu koala',tiger:'con hổ',lion:'sư tử',cow:'con bò',pig:'con lợn',frog:'con ếch',monkey:'con khỉ',chicken:'con gà',penguin:'chim cánh cụt',bird:'con chim',duck:'con vịt',eagle:'đại bàng',owl:'con cú',bat:'con dơi',wolf:'con sói',horse:'con ngựa',unicorn:'kỳ lân',bee:'con ong',butterfly:'con bướm',snail:'ốc sên',ladybug:'bọ rùa',ant:'con kiến',spider:'con nhện',turtle:'con rùa',snake:'con rắn',lizard:'thằn lằn',dinosaur:'khủng long',octopus:'bạch tuộc',squid:'con mực',shrimp:'con tôm',crab:'con cua',fish:'con cá',dolphin:'cá heo',whale:'cá voi',shark:'cá mập',crocodile:'cá sấu',zebra:'ngựa vằn',giraffe:'hươu cao cổ',elephant:'con voi',camel:'lạc đà',kangaroo:'chuột túi',sheep:'con cừu',goat:'con dê',deer:'con hươu',parrot:'con vẹt',flamingo:'hồng hạc',peacock:'con công',swan:'thiên nga',hamster:'chuột hamster',hedgehog:'con nhím',
+  sun:'mặt trời',moon:'mặt trăng',star:'ngôi sao',cloud:'đám mây',rain:'mưa',rainbow:'cầu vồng',snow:'tuyết',snowman:'người tuyết',fire:'lửa',lightning:'tia sét',wind:'gió',tree:'cái cây',flower:'bông hoa',rose:'hoa hồng',sunflower:'hoa hướng dương',leaf:'chiếc lá',cactus:'xương rồng',earth:'trái đất',mountain:'ngọn núi',volcano:'núi lửa',beach:'bãi biển',ocean:'đại dương',wave:'con sóng',
+  car:'ô tô',bus:'xe buýt',truck:'xe tải',bike:'xe đạp',bicycle:'xe đạp',motorbike:'xe máy',train:'tàu hoả',plane:'máy bay',airplane:'máy bay',rocket:'tên lửa',boat:'thuyền',ship:'tàu thuỷ',helicopter:'trực thăng',taxi:'xe taxi',police:'cảnh sát',ambulance:'xe cứu thương',firetruck:'xe cứu hoả','fire truck':'xe cứu hoả',tractor:'máy kéo',
+  house:'ngôi nhà',home:'nhà',school:'trường học',hospital:'bệnh viện',church:'nhà thờ',castle:'lâu đài',tent:'cái lều',bridge:'cây cầu',city:'thành phố',
+  book:'quyển sách',pen:'cây bút',pencil:'bút chì',bag:'cái túi',backpack:'ba lô',scissors:'cái kéo',ruler:'cái thước',clock:'đồng hồ',phone:'điện thoại',computer:'máy tính',laptop:'máy tính xách tay',tv:'ti vi',camera:'máy ảnh',key:'chìa khoá',lamp:'cái đèn',light:'ánh sáng',bed:'cái giường',chair:'cái ghế',door:'cái cửa',umbrella:'cái ô',gift:'món quà',balloon:'bóng bay',ball:'quả bóng',football:'bóng đá',soccer:'bóng đá',basketball:'bóng rổ',tennis:'quần vợt',baseball:'bóng chày',guitar:'đàn ghi ta',piano:'đàn piano',drum:'cái trống',music:'âm nhạc',trophy:'chiếc cúp',medal:'huy chương',money:'tiền',
+  hat:'cái mũ',cap:'mũ lưỡi trai',shirt:'áo sơ mi','t-shirt':'áo phông',dress:'váy',shoes:'đôi giày',shoe:'chiếc giày',boots:'đôi bốt',socks:'đôi tất',glasses:'kính mắt',crown:'vương miện',ring:'chiếc nhẫn',watch:'đồng hồ đeo tay',
+  eye:'con mắt',eyes:'đôi mắt',ear:'cái tai',nose:'cái mũi',mouth:'cái miệng',tongue:'cái lưỡi',hand:'bàn tay',foot:'bàn chân',leg:'cái chân',tooth:'cái răng',brain:'bộ não',heart:'trái tim',bone:'xương',
+  happy:'vui vẻ',sad:'buồn',angry:'tức giận',scared:'sợ hãi',surprised:'ngạc nhiên',tired:'mệt',sleepy:'buồn ngủ',sick:'ốm',cold:'lạnh',hot:'nóng',love:'yêu',laugh:'cười',cry:'khóc',think:'suy nghĩ',cool:'ngầu',silly:'ngốc nghếch',shy:'nhút nhát',
+  run:'chạy',walk:'đi bộ',swim:'bơi',dance:'nhảy múa',sing:'hát',jump:'nhảy',read:'đọc',write:'viết',eat:'ăn',drink:'uống',sleep:'ngủ',play:'chơi',cook:'nấu ăn',clap:'vỗ tay',pray:'cầu nguyện',
+  king:'nhà vua',queen:'nữ hoàng',baby:'em bé',boy:'bé trai',girl:'bé gái',man:'người đàn ông',woman:'người phụ nữ',teacher:'giáo viên',doctor:'bác sĩ',farmer:'nông dân',chef:'đầu bếp',robot:'người máy',ghost:'con ma',alien:'người ngoài hành tinh',monster:'quái vật',dragon:'con rồng',witch:'phù thuỷ',fairy:'nàng tiên',superhero:'siêu anh hùng',
+  red:'màu đỏ',blue:'màu xanh dương',green:'màu xanh lá',yellow:'màu vàng',purple:'màu tím',black:'màu đen',white:'màu trắng',circle:'hình tròn',square:'hình vuông',triangle:'hình tam giác',
+  one:'một',two:'hai',three:'ba',four:'bốn',five:'năm',six:'sáu',seven:'bảy',eight:'tám',nine:'chín',ten:'mười',
+  birthday:'sinh nhật',christmas:'Giáng sinh',party:'bữa tiệc',halloween:'lễ Halloween',bottle:'cái chai',lantern:'đèn lồng',helmet:'mũ bảo hiểm',
+};
+// Mô hình 3D (Khronos glTF Sample Assets, CC0 hoặc CC-BY). Thêm từ mới: thêm dòng.
+const KH = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/';
+const MODELS = {
+  duck: KH+'Duck/glTF-Binary/Duck.glb',
+  fox: KH+'Fox/glTF-Binary/Fox.glb',
+  avocado: KH+'Avocado/glTF-Binary/Avocado.glb',
+  bottle: KH+'WaterBottle/glTF-Binary/WaterBottle.glb',
+  car: KH+'ToyCar/glTF-Binary/ToyCar.glb',
+  lantern: KH+'Lantern/glTF-Binary/Lantern.glb',
+  helmet: KH+'DamagedHelmet/glTF-Binary/DamagedHelmet.glb',
+  boombox: KH+'BoomBox/glTF-Binary/BoomBox.glb',
+  shoe: KH+'MaterialsVariantsShoe/glTF-Binary/MaterialsVariantsShoe.glb',
+  chair: KH+'SheenChair/glTF-Binary/SheenChair.glb',
+  robot: KH+'CesiumMan/glTF-Binary/CesiumMan.glb',
+  dragon: KH+'DragonAttenuation/glTF-Binary/DragonAttenuation.glb',
+  toy: KH+'ToyCar/glTF-Binary/ToyCar.glb',
+};
+const SAMPLE = ['apple','duck','fox','elephant','rainbow','rocket','happy','dragon'];
+
+// ---------- Trạng thái ----------
+const $ = s => document.querySelector(s);
+const params = new URLSearchParams(location.search);
+const list = (params.get('w') || '').split(/[,|]/).map(s => s.trim().toLowerCase()).filter(Boolean);
+let idx = 0;
+const cache = {};
+let anim = null, currentAudio = null;
+
+// ---------- Nền hạt ----------
+(function bg(){
+  const c = $('#bg'), ctx = c.getContext('2d'); let W,H,P=[];
+  const rs = () => { W=c.width=innerWidth; H=c.height=innerHeight; P=Array.from({length:40},()=>({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*3,s:.2+Math.random()*.5})); };
+  addEventListener('resize',rs); rs();
+  (function tick(){ ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(4,188,9,.18)'; for(const p of P){ p.y-=p.s; if(p.y<-5){p.y=H+5;p.x=Math.random()*W;} ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fill(); } requestAnimationFrame(tick); })();
+})();
+
+// ---------- Tiện ích ----------
+const toast = m => { const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('on'),2200); };
+const cp = ch => [...ch].map(c=>c.codePointAt(0).toString(16)).filter(h=>h!=='fe0f').join('_');
+const esc = s => s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const fetchJ = async (u, ms=6000) => { const ac=new AbortController(); const t=setTimeout(()=>ac.abort(),ms); try{ const r=await fetch(u,{signal:ac.signal}); if(!r.ok) throw 0; return await r.json(); } finally{ clearTimeout(t); } };
+
+async function lookup(word){
+  if (cache[word]) return cache[word];
+  const d = { word, pos: params.get('pos'), ipa: params.get('ipa'), vi: params.get('vi') || VI[word] || null, ex: params.get('ex'), audio:null, photo:null, emoji: null, model: MODELS[word] || null };
+  if (list.length > 1) { d.pos = d.ipa = d.ex = null; d.vi = VI[word] || null; } // tham số riêng chỉ áp cho 1 từ
+  const e = params.get('e');
+  d.emoji = (list.length === 1 && e) ? e.toLowerCase() : (EMOJI[word] ? cp(EMOJI[word]) : null);
+  const m = params.get('m'); if (list.length === 1 && m && MODELS[m]) d.model = MODELS[m];
+
+  const jobs = [];
+  // Datamuse: phiên âm + loại từ + định nghĩa (ổn định, có CORS).
+  jobs.push(fetchJ('https://api.datamuse.com/words?sp='+encodeURIComponent(word)+'&md=dpr&ipa=1&max=1', 5000).then(j=>{
+    const it = j[0]; if(!it || it.word!==word) return;
+    const ipa = (it.tags||[]).find(t=>t.startsWith('ipa_pron:'));
+    if (ipa && !d.ipa) d.ipa = '/'+ipa.slice(9).trim()+'/';
+    const tag = (it.tags||[]).find(t=>['n','v','adj','adv'].includes(t));
+    if (tag && !d.pos) d.pos = {n:'noun',v:'verb',adj:'adjective',adv:'adverb'}[tag];
+    if (it.defs && it.defs[0]) d.def = it.defs[0].split('\t')[1];
+  }).catch(()=>{}));
+  // Free Dictionary: audio thật + câu ví dụ (hay sập, chỉ chờ 4 giây).
+  jobs.push(fetchJ('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(word), 4000).then(j=>{
+    const en = j[0]; if(!en) return;
+    d.ipa ||= (en.phonetics.find(p=>p.text)||{}).text || '';
+    d.audio = (en.phonetics.find(p=>p.audio && p.audio.includes('-us'))||en.phonetics.find(p=>p.audio)||{}).audio || null;
+    const m0 = en.meanings[0]; if(!m0) return;
+    d.pos ||= m0.partOfSpeech;
+    d.ex ||= (m0.definitions.find(x=>x.example)||{}).example || '';
+  }).catch(()=>{}));
+  if (!d.vi) jobs.push(fetchJ('https://api.mymemory.translated.net/get?q='+encodeURIComponent(word)+'&langpair=en|vi').then(j=>{ d.vi = (j.responseData?.translatedText||'').toLowerCase(); }).catch(()=>{}));
+  jobs.push(fetchJ('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(word)).then(j=>{ d.photo = j.thumbnail?.source?.replace(/\/\d+px-/,'/900px-') || j.originalimage?.source || null; }).catch(()=>{}));
+  await Promise.all(jobs);
+  if (!d.ex) d.ex = `I can see ${/^[aeiou]/.test(word)?'an':'a'} ${word}.`;
+  if (!d.pos) d.pos = 'word';
+  cache[word] = d; return d;
+}
+
+// ---------- Hiển thị ----------
+function showVisual(id){
+  document.querySelectorAll('.visual').forEach(v=>v.classList.toggle('hidden', v.id!==id));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on', t.dataset.v===id));
+  $('#badge3d').style.display = id==='v3d' ? 'block' : 'none';
+}
+
+async function render(){
+  const word = list[idx]; if(!word) return;
+  $('#empty').classList.remove('on');
+  $('#card').classList.remove('flipped');
+  $('#status').textContent = 'Đang tìm ' + word + '…';
+  // Chữ hiện ngay, dữ liệu phụ đến sau.
+  $('#word').innerHTML = [...word].map(ch=>`<span>${esc(ch)}</span>`).join('');
+  gsap.fromTo('#word span',{y:40,opacity:0,rotate:-8},{y:0,opacity:1,rotate:0,stagger:.05,duration:.5,ease:'back.out(2)'});
+  gsap.fromTo('.front',{scale:.92,opacity:0},{scale:1,opacity:1,duration:.45,ease:'power3.out'});
+  $('#ipa').textContent=''; $('#vi').textContent=''; $('#ex').textContent=''; $('#pos').textContent='…';
+
+  const d = await lookup(word);
+  if (list[idx] !== word) return;
+  $('#pos').textContent = d.pos;
+  $('#ipa').textContent = d.ipa || '';
+  $('#vi').textContent = d.vi || '';
+  const re = new RegExp('\\b('+word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\w*)','i');
+  $('#ex').innerHTML = esc(d.ex).replace(re,'<b>$1</b>');
+  gsap.fromTo(['#ipa','#vi','#ex'],{x:-20,opacity:0},{x:0,opacity:1,stagger:.08,duration:.4});
+
+  // Emoji động: Noto animated emoji (lottie). Không có bản động thì hiện emoji tĩnh nảy.
+  if (anim) { anim.destroy(); anim=null; }
+  $('#lottie').innerHTML='';
+  const tabE = $('#tabE'), tabP = $('#tabP'), tab3 = $('#tab3');
+  let hasEmoji = false;
+  if (d.emoji) {
+    try {
+      const j = await fetchJ(`https://fonts.gstatic.com/s/e/notoemoji/latest/${d.emoji}/lottie.json`, 5000);
+      anim = lottie.loadAnimation({container:$('#lottie'),renderer:'svg',loop:true,autoplay:true,animationData:j});
+      hasEmoji = true;
+    } catch {
+      const ch = EMOJI[word] || String.fromCodePoint(...d.emoji.split('_').map(h=>parseInt(h,16)));
+      $('#emojiBig').textContent = ch; hasEmoji = 'static';
+      gsap.fromTo('#emojiBig',{scale:.3,rotate:-20},{scale:1,rotate:0,duration:.7,ease:'elastic.out(1,.5)'});
+      gsap.to('#emojiBig',{y:-18,duration:1.2,yoyo:true,repeat:-1,ease:'sine.inOut'});
+    }
+  }
+  tabE.disabled = !hasEmoji; tabE.dataset.v = hasEmoji==='static' ? 'vEmoji' : 'vLottie';
+  if (d.photo) { $('#photo').src = d.photo; tabP.disabled=false; } else { tabP.disabled=true; }
+  if (d.model) { $('#mv').src = d.model; tab3.disabled=false; } else { $('#mv').removeAttribute('src'); tab3.disabled=true; }
+  // Ưu tiên: 3D > emoji > ảnh
+  showVisual(d.model ? 'v3d' : hasEmoji ? tabE.dataset.v : d.photo ? 'vPhoto' : 'vEmoji');
+  if (!d.model && !hasEmoji && !d.photo) $('#emojiBig').textContent = '🔤';
+  if (d.model) gsap.fromTo('#mv',{scale:.6,opacity:0},{scale:1,opacity:1,duration:.8,ease:'back.out(1.6)'});
+
+  $('#status').textContent = `${idx+1}/${list.length} · ${d.model?'3D · ':''}${hasEmoji?'emoji động · ':''}${d.photo?'ảnh Wikipedia · ':''}Free Dictionary`;
+  $('#dots').innerHTML = list.map((_,i)=>`<b class="${i===idx?'on':''}"></b>`).join('');
+  buildQuiz(d);
+  if (params.get('say')!=='0') setTimeout(()=>speak(word, d.audio), 350);
+}
+
+// ---------- Âm thanh ----------
+function speak(text, url){
+  if (currentAudio) { currentAudio.pause(); currentAudio=null; }
+  if (url) { currentAudio = new Audio(url); currentAudio.play().catch(()=>tts(text)); return; }
+  tts(text);
+}
+function tts(text, rate=.85){
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  const v = speechSynthesis.getVoices().find(v=>/en[-_]US/i.test(v.lang) && /Google|Samantha|Aria|Jenny/i.test(v.name)) || speechSynthesis.getVoices().find(v=>/en[-_]US/i.test(v.lang));
+  if (v) u.voice = v; speechSynthesis.speak(u);
+}
+async function spell(word){
+  const spans = document.querySelectorAll('#word span');
+  for (let i=0;i<word.length;i++){
+    gsap.fromTo(spans[i],{scale:1,color:'#1b1b1b'},{scale:1.35,color:'#04bc09',duration:.25,yoyo:true,repeat:1});
+    tts(word[i], .9); await new Promise(r=>setTimeout(r,520));
+  }
+  tts(word);
+}
+
+// ---------- Đố ----------
+function buildQuiz(d){
+  const word = d.word;
+  const others = Object.keys(EMOJI).filter(k=>k!==word && !k.includes(' ') && !k.includes('_')).sort(()=>Math.random()-.5).slice(0,2);
+  const custom = (list.length===1 && params.get('q')) ? params.get('q').split('|') : null;
+  // Hỏi kiểu: emoji + 3 từ tiếng Anh (học sinh chọn đúng từ)
+  const opts = custom ? custom.map(t=>({t, ok: t.trim().toLowerCase()===word})) : [word,...others].map(t=>({t, ok:t===word})).sort(()=>Math.random()-.5);
+  if (custom && !opts.some(o=>o.ok)) opts[0].ok = true;
+  $('#q').textContent = d.vi ? `"${d.vi}" trong tiếng Anh là gì?` : `Từ này là gì?`;
+  $('#opts').innerHTML = opts.map((o,i)=>`<button class="opt" data-ok="${o.ok?1:0}"><i>${'ABC'[i]||'?'}</i>${esc(o.t)}</button>`).join('');
+  $('#opts').querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    if (b.dataset.ok==='1'){ b.classList.add('right'); confetti({particleCount:180,spread:90,origin:{y:.7},colors:['#04bc09','#ffd23f','#ffffff','#ff4f8b']}); tts('Correct! '+word); }
+    else { b.classList.add('wrong'); gsap.fromTo(b,{x:-8},{x:0,duration:.4,ease:'elastic.out(1,.3)'}); tts('Try again'); }
+  }));
+}
+
+// ---------- Nhập từ mới ----------
+function go(words){
+  const ws = words.split(/[,|\s]+/).map(s=>s.trim().toLowerCase()).filter(Boolean);
+  if (!ws.length) return;
+  const u = new URL(location.href); u.search = '?w='+encodeURIComponent(ws.join(','));
+  location.href = u.toString();
+}
+$('#form').addEventListener('submit', e=>{ e.preventDefault(); go($('#input').value); });
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!SR) $('#mic').style.display='none';
+$('#mic').addEventListener('click', ()=>{
+  const r = new SR(); r.lang='en-US'; r.interimResults=false;
+  $('#mic').classList.add('on'); toast('Nói một từ tiếng Anh…');
+  r.onresult = e => { const t=e.results[0][0].transcript; $('#input').value=t; go(t); };
+  r.onerror = () => { toast('Không nghe rõ, thử lại'); };
+  r.onend = () => $('#mic').classList.remove('on');
+  r.start();
+});
+
+// ---------- Nút ----------
+$('#say').addEventListener('click', ()=>{ const d=cache[list[idx]]; speak(list[idx], d?.audio); gsap.fromTo('#say',{scale:1},{scale:1.15,duration:.15,yoyo:true,repeat:1}); });
+$('#spell').addEventListener('click', ()=>spell(list[idx]));
+$('#flip').addEventListener('click', ()=>$('#card').classList.add('flipped'));
+$('#unflip').addEventListener('click', ()=>$('#card').classList.remove('flipped'));
+$('#prev').addEventListener('click', ()=>{ idx=(idx-1+list.length)%list.length; render(); });
+$('#next').addEventListener('click', ()=>{ idx=(idx+1)%list.length; render(); });
+$('#tabs').addEventListener('click', e=>{ const t=e.target.closest('.tab'); if(t && !t.disabled) showVisual(t.dataset.v); });
+$('#stage').addEventListener('click', e=>{ if(e.target.closest('.tab')) return; confetti({particleCount:40,spread:60,origin:{x:e.clientX/innerWidth,y:e.clientY/innerHeight},colors:['#04bc09','#ffffff']}); });
+addEventListener('keydown', e=>{ if(e.target.tagName==='INPUT') return; if(e.key==='ArrowRight') $('#next').click(); if(e.key==='ArrowLeft') $('#prev').click(); if(e.key===' ') $('#say').click(); });
+
+// ---------- Khởi động ----------
+if (list.length) { render(); }
+else {
+  $('#empty').classList.add('on'); document.body.classList.add('empty');
+  $('#chips').innerHTML = SAMPLE.map(w=>`<button class="chip">${w}</button>`).join('');
+  $('#chips').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(c) go(c.textContent); });
+  $('#chips').before($('#form'));
+}
+</script>
+</body>
+</html>
