@@ -65,6 +65,7 @@ function listQtChannel(transport) {
 }
 
 async function runChecks(log) {
+  log(row(true, 'Phiên bản kiểm tra', 'v3 (có đọc danh sách lệnh ClassIn)'));
   const ua = navigator.userAgent;
   const chrome = (ua.match(/Chrom(e|ium)\/([\d.]+)/) || [])[2] || '?';
   log(row(true, 'Trình duyệt', `${/ClassIn/i.test(ua) ? 'trình duyệt nhúng ClassIn · ' : ''}Chromium ${chrome} · ${navigator.platform}`));
@@ -108,7 +109,8 @@ async function runChecks(log) {
   let cams = (await md.enumerateDevices().catch(() => [])).filter((d) => d.kind === 'videoinput');
   log(row(cams.length > 0, 'Số camera thấy được', `${cams.length}: ${cams.map((c) => c.label || '(chưa có tên)').join(' | ')}`));
 
-  // 2. Mở camera mặc định
+  // 2. Mở camera mặc định (nếu ClassIn hiện hộp hỏi quyền camera: bấm Cho phép)
+  log(row(true, 'Đang mở camera…', 'nếu ClassIn hỏi quyền dùng camera, bấm Cho phép'));
   const def = await tryOpen({ video: true, audio: false });
   log(row(def.ok, 'Mở camera mặc định', def.ok ? `${def.label} · ${def.info}` : def.info));
   cams = (await md.enumerateDevices().catch(() => [])).filter((d) => d.kind === 'videoinput');
@@ -144,6 +146,7 @@ export function mountCamCheck(root) {
     } catch (err) {
       log(row(false, 'Lỗi khi kiểm tra', String(err && err.message)));
     }
+    log(row(true, 'Hoàn tất', 'đã chạy xong, có thể sao chép kết quả'));
     startBtn.disabled = false;
     const camRows = results.filter((r) => r.name.startsWith('Camera "'));
     const s1 = camRows.find((r) => /s1|classin|eeo/i.test(r.name));
