@@ -101,12 +101,13 @@ async function resilient(create) {
 // Mỗi bậc: model + chiều rộng ảnh gửi cho AI. Máy chậm (ClassIn đang chạy lớp ảo, máy OPS yếu)
 // thì xuống bậc dưới, không thông báo, không tắt/mở lại camera.
 const TIERS = {
-  full: [{ model: 'poseFull', width: 640 }, { model: 'pose', width: 512 }, { model: 'pose', width: 384 }, { model: 'pose', width: 256 }],
-  lite: [{ model: 'pose', width: 640 }, { model: 'pose', width: 512 }, { model: 'pose', width: 384 }, { model: 'pose', width: 256 }],
-  face: [{ model: 'face', width: 640 }, { model: 'face', width: 480 }, { model: 'face', width: 360 }, { model: 'face', width: 256 }],
+  // MediaPipe tự thu ảnh về ~256 px bên trong: gửi 480 px là đủ chính xác mà nhẹ hơn nhiều so với 640.
+  full: [{ model: 'poseFull', width: 480 }, { model: 'pose', width: 480 }, { model: 'pose', width: 384 }, { model: 'pose', width: 320 }],
+  lite: [{ model: 'pose', width: 480 }, { model: 'pose', width: 384 }, { model: 'pose', width: 320 }, { model: 'pose', width: 256 }],
+  face: [{ model: 'face', width: 480 }, { model: 'face', width: 384 }, { model: 'face', width: 320 }, { model: 'face', width: 256 }],
 };
-const SLOW_MS = 90; // AI mất hơn ~90 ms mỗi khung (dưới ~11 lần/giây) thì hạ bậc
-const SAMPLES = 12;
+const SLOW_MS = 50; // AI mất hơn ~50 ms mỗi khung (dưới ~20 lần/giây: khung xương bắt đầu giật) thì hạ bậc
+const SAMPLES = 10;
 
 function sourcesFor(modelKey) {
   const abs = (u) => new URL(u, location.href).href;

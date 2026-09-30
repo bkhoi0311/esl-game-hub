@@ -24,7 +24,7 @@
 .ht-zone.right { right: 0; }
 .ht-meter[data-side='left'] .ht-zone.left, .ht-meter[data-side='right'] .ht-zone.right { background: var(--green); }
 .ht-center { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: #999; }
-.ht-needle { position: absolute; top: -0.2rem; bottom: -0.2rem; width: 0.7rem; translate: -50% 0; border-radius: 999px; background: var(--brand-ink); transition: left 0.08s linear; }
+.ht-needle { position: absolute; top: -0.2rem; bottom: -0.2rem; width: 0.7rem; translate: -50% 0; border-radius: 999px; background: var(--brand-ink); transition: left 0.14s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .ht-deg { width: 4.5rem; font-size: 1.4rem; color: var(--brand-ink); }
 
 body.fluid .ht-play { padding: 0.6rem; grid-template-rows: auto auto auto; }

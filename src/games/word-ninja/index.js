@@ -200,33 +200,53 @@ function createGame(root, pack) {
 
   // Theo dõi 2 cổ tay qua camera, đổi sang toạ độ game Phaser rồi đưa vào vệt chém.
   function trackLoop() {
+    // Cổ tay: AI cho vị trí mới 15–30 lần/giây; mỗi khung hình (60 fps) con trỏ trượt dần tới đó
+    // và vẽ vệt chém, nên vệt liền mạch thay vì nhảy cóc.
+    const targets = new Map(); // khoá -> { x, y, at }
+    const cursors = new Map(); // khoá -> { x, y }
     const tick = (now) => {
       raf = requestAnimationFrame(tick);
       const sc = window.__ninjaScene;
       const v = session.video;
-      if (!sc || !detector || !session.active || v.readyState < 2 || frame.paused || v.currentTime === lastVideoTime) return;
-      lastVideoTime = v.currentTime;
-      const res = detector.detect(v, now);
-      if (!res) return;
-      const box = view.box.getBoundingClientRect();
-      const cv = phaser.game.canvas.getBoundingClientRect();
-      const vw = v.videoWidth || 16;
-      const vh = v.videoHeight || 9;
-      const scale = Math.max(box.width / vw, box.height / vh); // video hiển thị kiểu cover
-      const ox = box.left + (box.width - vw * scale) / 2;
-      const oy = box.top + (box.height - vh * scale) / 2;
-      tracker.update(res.landmarks || [], now).players.forEach((pl, i) => {
-        if (!pl || !pl.fresh) return;
-        const lm = pl.lm;
-        [POSE.leftWrist, POSE.rightWrist].forEach((k) => {
-          const p = lm[k];
-          if (!p || (p.visibility ?? 1) < 0.5) return;
-          const sx = ox + (1 - p.x) * vw * scale;
-          const sy = oy + p.y * vh * scale;
-          const gx = ((sx - cv.left) / cv.width) * phaser.game.scale.width;
-          const gy = ((sy - cv.top) / cv.height) * phaser.game.scale.height;
-          sc.addPoint(`w${i}-${k}`, gx, gy, sc.time.now, 0.9);
-        });
+      if (!sc || !detector || !session.active || v.readyState < 2 || frame.paused) return;
+      if (v.currentTime !== lastVideoTime) {
+        lastVideoTime = v.currentTime;
+        const res = detector.detect(v, now);
+        if (res) {
+          const box = view.box.getBoundingClientRect();
+          const cv = phaser.game.canvas.getBoundingClientRect();
+          const vw = v.videoWidth || 16;
+          const vh = v.videoHeight || 9;
+          const scale = Math.max(box.width / vw, box.height / vh); // video hiển thị kiểu cover
+          const ox = box.left + (box.width - vw * scale) / 2;
+          const oy = box.top + (box.height - vh * scale) / 2;
+          tracker.update(res.landmarks || [], now).players.forEach((pl, i) => {
+            if (!pl || !pl.fresh) return;
+            [POSE.leftWrist, POSE.rightWrist].forEach((k) => {
+              const p = pl.lm[k];
+              if (!p || (p.visibility ?? 1) < 0.5) return;
+              const sx = ox + (1 - p.x) * vw * scale;
+              const sy = oy + p.y * vh * scale;
+              targets.set(`w${i}-${k}`, {
+                x: ((sx - cv.left) / cv.width) * phaser.game.scale.width,
+                y: ((sy - cv.top) / cv.height) * phaser.game.scale.height,
+                at: now,
+              });
+            });
+          });
+        }
+      }
+      targets.forEach((t, key) => {
+        if (now - t.at > 400) { // mất dấu cổ tay: dừng vệt
+          targets.delete(key);
+          cursors.delete(key);
+          return;
+        }
+        const c = cursors.get(key) || { x: t.x, y: t.y };
+        c.x += (t.x - c.x) * 0.5;
+        c.y += (t.y - c.y) * 0.5;
+        cursors.set(key, c);
+        sc.addPoint(key, c.x, c.y, sc.time.now, 0.9);
       });
     };
     raf = requestAnimationFrame(tick);

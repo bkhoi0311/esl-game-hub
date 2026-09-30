@@ -383,6 +383,8 @@ function route() {
   stopSpeaking();
   setVoiceGame(view === 'game' ? parts[1] : null);
   const game = view === 'game' ? findGame(parts[1]) : null;
+  // Game camera: chế độ nhẹ (bỏ kính mờ, dừng nền động) để máy OPS còn sức cho video + AI + lớp ClassIn.
+  document.body.classList.toggle('perf-cam', Boolean(game && game.needsCamera));
   setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');
   if (view === 'editor') cleanup = mountEditor(main);
   else if (view === 'camcheck') cleanup = mountCamCheck(main);

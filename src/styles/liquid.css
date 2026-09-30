@@ -243,3 +243,16 @@ body.fluid .cam-select-row { flex-wrap: wrap; } body.fluid .cam-select-row selec
 .cc-verdict.bad { background: var(--lg-warning-soft); color: var(--lg-warning); }
 body.fluid .cc-list li { grid-template-columns: 1.6rem 1fr; }
 body.fluid .cc-list li span { grid-column: 2; }
+
+/* ---------- Chế độ nhẹ cho game camera (body.perf-cam) ----------
+   Kính mờ (backdrop-filter) phải tính lại mỗi khung khi video/nền phía sau chuyển động: rất nặng trên máy OPS
+   đang chạy lớp ClassIn. Trong game camera: nền trắng đặc thay kính, nền thế giới đứng yên, bỏ chuyển động lặp. */
+body.perf-cam .app-header, body.perf-cam .game-bar, body.perf-cam .modal, body.perf-cam .toast,
+body.perf-cam .pause-layer, body.perf-cam .pause-text, body.perf-cam .badge-camera, body.perf-cam .modal-overlay {
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+body.perf-cam .app-header, body.perf-cam.framed .game-bar, body.perf-cam .modal, body.perf-cam .pause-text { background: rgba(255, 255, 255, 0.97) !important; }
+body.perf-cam .toast { background: rgba(28, 28, 30, 0.94) !important; }
+body.perf-cam .pause-layer { background: rgba(0, 0, 0, 0.45) !important; }
+body.perf-cam .world *, body.perf-cam .w-float, body.perf-cam .gh-chest-art, body.perf-cam .wn-heart { animation: none !important; }
+body.perf-cam .cam-video, body.perf-cam .sp-overlay, body.perf-cam .sf-overlay { contain: strict; }

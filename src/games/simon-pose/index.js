@@ -40,6 +40,7 @@ function createGame(root) {
   let scores = [0, 0, 0];
   let players = [null, null, null]; // chỗ Player 1..3 (bộ theo dõi giữ đúng người)
   let others = []; // người không được tính (đứng xa / ngoài vùng chơi)
+  const shown = [null, null, null]; // khung xương đang vẽ (trượt dần tới kết quả AI)
   let seen = new Set(); // chỗ đã từng có người chơi trong ván
   let detectorModel = null;
   let tracker = null;
@@ -310,8 +311,17 @@ function createGame(root) {
     // Người không được tính: khung xương mờ.
     others.forEach((lm) => drawSkeleton(ctx, lm, { width: dw, height: dh, color: 'rgba(255, 255, 255, 0.35)', lineWidth: Math.max(3, dw / 300) }));
     players.forEach((p, i) => {
-      if (!p) return;
-      const lm = p.lm;
+      if (!p) {
+        shown[i] = null;
+        return;
+      }
+      // Vẽ khung xương trượt dần tới kết quả AI mới nhất ở mọi khung hình (60 fps),
+      // nên AI nhận diện 15–20 lần/giây vẫn thấy chuyển động liền mạch.
+      const prev = shown[i];
+      const lm = (shown[i] = p.lm.map((q, k) => {
+        const o = prev && prev[k];
+        return o ? { ...q, x: o.x + (q.x - o.x) * 0.45, y: o.y + (q.y - o.y) * 0.45 } : q;
+      }));
       const ok = round && round.matched[i];
       drawSkeleton(ctx, lm, { width: dw, height: dh, color: ok ? '#04bc09' : TEAM_COLORS[i], lineWidth: Math.max(4, dw / 180) });
       const nose = lm[0];
