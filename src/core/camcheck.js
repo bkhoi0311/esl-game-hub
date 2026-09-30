@@ -5,6 +5,7 @@ import { button, h, toast } from './ui.js';
 import { icon } from './icons.js';
 
 const row = (ok, name, detail) => ({ ok, name, detail });
+let fullApi = ''; // danh sách lệnh đầy đủ của ClassIn (cho nút sao chép riêng)
 
 async function tryOpen(constraints, ms = 6000) {
   const t0 = performance.now();
@@ -47,11 +48,16 @@ function listQtChannel(transport) {
       if (data.type !== 10 || data.id !== 'esl-init') return;
       clearTimeout(timer);
       transport.onmessage = prev;
+      const uniq = (list) => [...new Set(list.filter((n) => !n.includes('(') && !/^(deleteLater|destroyed|objectNameChanged|_q_)/.test(n)))];
+      const MEDIA = /cam|video|media|device|stream|mic|audio|capture|publish|rtc|av|seat|stage|screen|share|record/i;
+      fullApi = '';
       const out = Object.entries(data.data || {}).map(([name, o]) => {
-        const methods = (o.methods || []).map((m) => m[0]).filter((m) => !/^(deleteLater|destroyed|objectNameChanged|_q_)/.test(m));
-        const props = (o.properties || []).map((p) => `${p[1]}=${JSON.stringify(p[3]).slice(0, 40)}`);
-        const signals = (o.signals || []).map((sg) => sg[0]).filter((sg) => !/^(destroyed|objectNameChanged)/.test(sg));
-        return { name, detail: `hàm: ${methods.join(', ') || '-'} · thuộc tính: ${props.join(', ') || '-'} · tín hiệu: ${signals.join(', ') || '-'}` };
+        const methods = uniq((o.methods || []).map((m) => m[0]));
+        const props = (o.properties || []).map((p) => p[1]).filter((n) => n !== 'objectName');
+        const signals = uniq((o.signals || []).map((sg) => sg[0]));
+        fullApi += `[${name}]\nhàm: ${methods.join(', ')}\nthuộc tính: ${props.join(', ')}\ntín hiệu: ${signals.join(', ')}\n\n`;
+        const hot = [...methods, ...props, ...signals].filter((n) => MEDIA.test(n));
+        return { name, detail: `${methods.length} hàm, ${props.length} thuộc tính, ${signals.length} tín hiệu · liên quan camera/video: ${hot.join(', ') || 'KHÔNG CÓ'}` };
       });
       resolve(out.length ? out : { error: 'kênh có nhưng không mở đối tượng nào' });
     };
@@ -65,7 +71,7 @@ function listQtChannel(transport) {
 }
 
 async function runChecks(log) {
-  log(row(true, 'Phiên bản kiểm tra', 'v3 (có đọc danh sách lệnh ClassIn)'));
+  log(row(true, 'Phiên bản kiểm tra', 'v4 (camera trước, lệnh ClassIn rút gọn)'));
   const ua = navigator.userAgent;
   const chrome = (ua.match(/Chrom(e|ium)\/([\d.]+)/) || [])[2] || '?';
   log(row(true, 'Trình duyệt', `${/ClassIn/i.test(ua) ? 'trình duyệt nhúng ClassIn · ' : ''}Chromium ${chrome} · ${navigator.platform}`));
@@ -87,13 +93,6 @@ async function runChecks(log) {
     window.parent !== window ? 'trang nằm trong khung (iframe)' : '',
   ].filter(Boolean);
   log(row(bridge.length > 0, 'Cầu nối ClassIn (JS bridge)', bridge.length ? bridge.join(' · ') : 'không thấy'));
-  // QWebChannel của ClassIn (Qt WebEngine): chỉ ĐỌC danh sách đối tượng / hàm / thuộc tính / tín hiệu,
-  // KHÔNG gọi hàm nào (không ảnh hưởng lớp học).
-  if (window.qt && window.qt.webChannelTransport) {
-    const api = await listQtChannel(window.qt.webChannelTransport);
-    if (api.error) log(row(false, 'Kênh QWebChannel', api.error));
-    else api.forEach((o) => log(row(true, `Đối tượng "${o.name}"`, o.detail)));
-  }
   log(row(true, 'Tham số ClassIn gửi kèm', (location.search + location.hash).replace(/#L=[^&]*/, '#L=…') || '(không có)'));
   // Nghe tin nhắn từ ClassIn trong 2 giây (nếu ClassIn dùng postMessage)
   const msgs = [];
@@ -125,6 +124,13 @@ async function runChecks(log) {
   if (s1) {
     const low = await tryOpen({ video: { deviceId: { exact: s1.deviceId }, width: { exact: 640 }, height: { exact: 360 } }, audio: false });
     log(row(low.ok, 'S1 ở 640×360', low.info));
+  }
+  // QWebChannel của ClassIn (Qt WebEngine): chỉ ĐỌC danh sách đối tượng / hàm / thuộc tính / tín hiệu,
+  // KHÔNG gọi hàm nào (không ảnh hưởng lớp học).
+  if (window.qt && window.qt.webChannelTransport) {
+    const api = await listQtChannel(window.qt.webChannelTransport);
+    if (api.error) log(row(false, 'Kênh QWebChannel', api.error));
+    else api.forEach((o) => log(row(true, `Đối tượng "${o.name}"`, o.detail)));
   }
 }
 
@@ -179,11 +185,22 @@ export function mountCamCheck(root) {
       }
     },
   });
+  const apiBtn = button({
+    label: 'Sao chép danh sách lệnh đầy đủ', iconName: 'copy',
+    onClick: async () => {
+      try {
+        await navigator.clipboard.writeText(fullApi || '(chưa có: bấm Bắt đầu kiểm tra trước)');
+        toast('Đã sao chép danh sách lệnh.', 'success');
+      } catch {
+        toast('Không sao chép được.', 'error');
+      }
+    },
+  });
   const el = h('div', { class: 'setup' },
     h('div', { class: 'setup-card cc-card' },
       h('h2', {}, icon('camera', 34), h('span', {}, 'Kiểm tra camera trong lớp ClassIn')),
       h('p', { class: 'muted' }, 'Mở trang này bằng file .edu ngay trong lớp ClassIn, lúc camera của lớp đang bật. Bấm "Bắt đầu kiểm tra", đợi khoảng 10 giây, rồi chụp màn hình gửi đội kỹ thuật. Trang không ghi hình và không gửi dữ liệu đi đâu.'),
-      h('div', { class: 'setup-actions' }, copyBtn, startBtn),
+      h('div', { class: 'setup-actions' }, apiBtn, copyBtn, startBtn),
       verdict,
       list));
   root.append(el);
