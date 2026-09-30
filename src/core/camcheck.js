@@ -32,6 +32,38 @@ async function tryOpen(constraints, ms = 6000) {
   }
 }
 
+// Đọc danh sách API mà ClassIn mở cho trang qua QWebChannel (giao thức: gửi {type: 3 (Init)}, nhận {type: 10}).
+function listQtChannel(transport) {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve({ error: 'không phản hồi sau 3 giây' }), 3000);
+    const prev = transport.onmessage;
+    transport.onmessage = (msg) => {
+      let data;
+      try {
+        data = typeof msg.data === 'string' ? JSON.parse(msg.data) : msg.data;
+      } catch {
+        return;
+      }
+      if (data.type !== 10 || data.id !== 'esl-init') return;
+      clearTimeout(timer);
+      transport.onmessage = prev;
+      const out = Object.entries(data.data || {}).map(([name, o]) => {
+        const methods = (o.methods || []).map((m) => m[0]).filter((m) => !/^(deleteLater|destroyed|objectNameChanged|_q_)/.test(m));
+        const props = (o.properties || []).map((p) => `${p[1]}=${JSON.stringify(p[3]).slice(0, 40)}`);
+        const signals = (o.signals || []).map((sg) => sg[0]).filter((sg) => !/^(destroyed|objectNameChanged)/.test(sg));
+        return { name, detail: `hàm: ${methods.join(', ') || '-'} · thuộc tính: ${props.join(', ') || '-'} · tín hiệu: ${signals.join(', ') || '-'}` };
+      });
+      resolve(out.length ? out : { error: 'kênh có nhưng không mở đối tượng nào' });
+    };
+    try {
+      transport.send(JSON.stringify({ type: 3, id: 'esl-init' }));
+    } catch (err) {
+      clearTimeout(timer);
+      resolve({ error: String(err && err.message) });
+    }
+  });
+}
+
 async function runChecks(log) {
   const ua = navigator.userAgent;
   const chrome = (ua.match(/Chrom(e|ium)\/([\d.]+)/) || [])[2] || '?';
@@ -54,6 +86,13 @@ async function runChecks(log) {
     window.parent !== window ? 'trang nằm trong khung (iframe)' : '',
   ].filter(Boolean);
   log(row(bridge.length > 0, 'Cầu nối ClassIn (JS bridge)', bridge.length ? bridge.join(' · ') : 'không thấy'));
+  // QWebChannel của ClassIn (Qt WebEngine): chỉ ĐỌC danh sách đối tượng / hàm / thuộc tính / tín hiệu,
+  // KHÔNG gọi hàm nào (không ảnh hưởng lớp học).
+  if (window.qt && window.qt.webChannelTransport) {
+    const api = await listQtChannel(window.qt.webChannelTransport);
+    if (api.error) log(row(false, 'Kênh QWebChannel', api.error));
+    else api.forEach((o) => log(row(true, `Đối tượng "${o.name}"`, o.detail)));
+  }
   log(row(true, 'Tham số ClassIn gửi kèm', (location.search + location.hash).replace(/#L=[^&]*/, '#L=…') || '(không có)'));
   // Nghe tin nhắn từ ClassIn trong 2 giây (nếu ClassIn dùng postMessage)
   const msgs = [];
