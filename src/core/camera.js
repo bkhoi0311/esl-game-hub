@@ -1,7 +1,7 @@
 // Camera: liệt kê thiết bị, chọn camera (ClassIn Cam S1 thường không phải camera mặc định),
 // báo lỗi rõ ràng bằng tiếng Việt, tắt hẳn camera khi rời game. Không ghi hình, không gửi hình đi đâu.
 import { getSettings, updateSettings } from './settings.js';
-import { button, h } from './ui.js';
+import { button, h, toast } from './ui.js';
 import { icon } from './icons.js';
 
 // Luôn xin 1280x720: AI chỉ nhận ảnh đã thu nhỏ (vision.js) nên không cần hạ độ phân giải camera.
@@ -115,7 +115,13 @@ export function createCameraSession() {
       await new Promise((r) => (video.readyState >= 2 ? r() : video.addEventListener('loadeddata', r, { once: true })));
       return stream;
     },
+    // true khi game "mượn" camera sau lúc lớp ClassIn tắt camera: thoát game thì nhắc bật lại camera lớp.
+    borrowed: false,
     stop() {
+      if (api.borrowed && stream) {
+        toast('Đã trả camera cho lớp ClassIn: bật lại camera trong lớp nhé.', 'info', 6000);
+        api.borrowed = false;
+      }
       stopStream(stream);
       stream = null;
       video.srcObject = null;
@@ -199,6 +205,7 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
     }
     try {
       await session.start(id);
+      if (waitTimer) session.borrowed = true; // bắt được camera sau khi chờ lớp nhả ra
       stopWaiting();
       errorBox.hidden = true;
       const cams = await fill(); // sau khi cấp quyền mới đọc được tên camera

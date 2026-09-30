@@ -42,6 +42,27 @@ async function runChecks(log) {
   log(row(Boolean(md && md.getUserMedia), 'Có API camera (getUserMedia)', md && md.getUserMedia ? 'có' : 'KHÔNG'));
   log(row(Boolean(md && md.getDisplayMedia), 'Có API quay màn hình (getDisplayMedia)', md && md.getDisplayMedia ? 'có' : 'không'));
   log(row(typeof Worker === 'function' && typeof OffscreenCanvas === 'function', 'Luồng riêng cho AI (Worker + OffscreenCanvas)', typeof Worker === 'function' && typeof OffscreenCanvas === 'function' ? 'có' : 'không'));
+  // Cầu nối ClassIn -> trang web (nếu có thì có thể tự tắt/bật camera của lớp khi mở/thoát game)
+  const names = Object.getOwnPropertyNames(window).filter((k) => /classin|eeo|cef|bridge|native|jsb|webview|external|qt|electron|ipc/i.test(k) && !/^on/.test(k));
+  const bridge = [
+    names.length ? `biến lạ: ${names.join(', ')}` : '',
+    typeof window.cefQuery === 'function' ? 'cefQuery' : '',
+    window.chrome && window.chrome.webview ? 'chrome.webview' : '',
+    window.webkit && window.webkit.messageHandlers ? 'webkit.messageHandlers' : '',
+    window.external && Object.keys(window.external).length ? `external: ${Object.keys(window.external).join(',')}` : '',
+    typeof window.qt === 'object' ? 'qt.webChannelTransport' : '',
+    window.parent !== window ? 'trang nằm trong khung (iframe)' : '',
+  ].filter(Boolean);
+  log(row(bridge.length > 0, 'Cầu nối ClassIn (JS bridge)', bridge.length ? bridge.join(' · ') : 'không thấy'));
+  log(row(true, 'Tham số ClassIn gửi kèm', (location.search + location.hash).replace(/#L=[^&]*/, '#L=…') || '(không có)'));
+  // Nghe tin nhắn từ ClassIn trong 2 giây (nếu ClassIn dùng postMessage)
+  const msgs = [];
+  const onMsg = (e) => msgs.push(`${e.origin}: ${String(typeof e.data === 'string' ? e.data : JSON.stringify(e.data)).slice(0, 120)}`);
+  window.addEventListener('message', onMsg);
+  try { window.parent !== window && window.parent.postMessage({ type: 'esl-hub-hello' }, '*'); } catch { /* bỏ qua */ }
+  await new Promise((r) => setTimeout(r, 2000));
+  window.removeEventListener('message', onMsg);
+  log(row(msgs.length > 0, 'Tin nhắn từ ClassIn (postMessage)', msgs.length ? msgs.join(' | ') : 'không có'));
   if (!md || !md.getUserMedia) return;
 
   // 1. Danh sách camera (trước khi xin quyền, tên có thể bị ẩn)
