@@ -228,8 +228,8 @@ function createGame(root, pack) {
               const sx = ox + (1 - p.x) * vw * scale;
               const sy = oy + p.y * vh * scale;
               targets.set(`w${i}-${k}`, {
-                x: ((sx - cv.left) / cv.width) * phaser.game.scale.width,
-                y: ((sy - cv.top) / cv.height) * phaser.game.scale.height,
+                x: ((sx - cv.left) / cv.width) * phaser.game.scale.width * (phaser.game.__worldWidth ? phaser.game.__worldWidth / phaser.game.scale.width : 1),
+                y: ((sy - cv.top) / cv.height) * phaser.game.scale.height * (phaser.game.__worldWidth ? phaser.game.__worldWidth / phaser.game.scale.width : 1),
                 at: now,
               });
             });

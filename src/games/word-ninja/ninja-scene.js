@@ -71,9 +71,9 @@ export function makeNinjaScene(Phaser) {
         speed: { min: 20, max: 80 }, scale: { start: 0.5, end: 0 }, lifespan: 260, blendMode: 'ADD', tint: 0x9ff6ff, emitting: false,
       }).setDepth(41);
       this.input.addPointer(4);
-      this.input.on('pointerdown', (p) => this.blades.set(`p${p.id}`, [{ x: p.x, y: p.y, t: this.time.now }]));
+      this.input.on('pointerdown', (p) => this.blades.set(`p${p.id}`, [{ x: p.worldX, y: p.worldY, t: this.time.now }]));
       this.input.on('pointermove', (p) => {
-        if (p.isDown && this.blades.has(`p${p.id}`)) this.addPoint(`p${p.id}`, p.x, p.y, this.time.now, 0.45);
+        if (p.isDown && this.blades.has(`p${p.id}`)) this.addPoint(`p${p.id}`, p.worldX, p.worldY, this.time.now, 0.45);
       });
       this.input.on('pointerup', (p) => this.blades.delete(`p${p.id}`));
     }

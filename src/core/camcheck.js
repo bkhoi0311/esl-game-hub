@@ -81,6 +81,30 @@ async function runChecks(log) {
   log(row(Boolean(md && md.getUserMedia), 'Có API camera (getUserMedia)', md && md.getUserMedia ? 'có' : 'KHÔNG'));
   log(row(Boolean(md && md.getDisplayMedia), 'Có API quay màn hình (getDisplayMedia)', md && md.getDisplayMedia ? 'có' : 'không'));
   log(row(typeof Worker === 'function' && typeof OffscreenCanvas === 'function', 'Luồng riêng cho AI (Worker + OffscreenCanvas)', typeof Worker === 'function' && typeof OffscreenCanvas === 'function' ? 'có' : 'không'));
+  // Card đồ hoạ: game Phaser rất chậm nếu trình duyệt nhúng vẽ WebGL bằng CPU (SwiftShader / "software").
+  {
+    let gl = null;
+    try {
+      gl = document.createElement('canvas').getContext('webgl2') || document.createElement('canvas').getContext('webgl');
+    } catch { /* bỏ qua */ }
+    if (!gl) log(row(false, 'Card đồ hoạ (WebGL)', 'KHÔNG có WebGL'));
+    else {
+      const ext = gl.getExtension('WEBGL_debug_renderer_info');
+      const name = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+      const soft = /swiftshader|software|llvmpipe|basic render/i.test(String(name));
+      log(row(!soft, 'Card đồ hoạ (WebGL)', `${name}${soft ? ' · ĐANG VẼ BẰNG CPU (không có tăng tốc GPU): game Phaser sẽ chậm' : ' · có tăng tốc GPU'}`));
+    }
+  }
+  // Đo nhanh tốc độ vẽ của trang (khung hình/giây trong 2 giây)
+  {
+    const fps = await new Promise((res) => {
+      let n = 0;
+      const t0 = performance.now();
+      const tick = (now) => (now - t0 < 2000 ? (n++, requestAnimationFrame(tick)) : res(n / ((now - t0) / 1000)));
+      requestAnimationFrame(tick);
+    });
+    log(row(fps > 50, 'Tốc độ vẽ của trang', `${fps.toFixed(0)} khung/giây`));
+  }
   // Cầu nối ClassIn -> trang web (nếu có thì có thể tự tắt/bật camera của lớp khi mở/thoát game)
   const names = Object.getOwnPropertyNames(window).filter((k) => /classin|eeo|cef|bridge|native|jsb|webview|external|qt|electron|ipc/i.test(k) && !/^on/.test(k));
   const bridge = [

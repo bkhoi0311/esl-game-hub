@@ -25,6 +25,8 @@ import { clearFx, setStreakEnabled } from './core/fx.js';
 
 // Game 2 học sinh bấm song song trên 2 nửa bảng.
 const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war']);
+// Game vẽ bằng Phaser (canvas cập nhật 60 khung/giây).
+const PHASER_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'word-ninja', 'statue-freeze']);
 
 // Mở từ "link bài học" (#L=...): dùng bài trong link, chế độ trình chiếu (ẩn Soạn bài).
 await initLinkedPack();
@@ -390,7 +392,8 @@ function route() {
   // Game 2 bé bấm song song: không có "chuỗi đúng" chung (tránh hiệu ứng lớn bật liên tục).
   setStreakEnabled(!(game && DUEL_GAMES.has(game.id)));
   // Game camera: chế độ nhẹ (bỏ kính mờ, dừng nền động) để máy OPS còn sức cho video + AI + lớp ClassIn.
-  document.body.classList.toggle('perf-cam', Boolean(game && game.needsCamera));
+  // Game Phaser (canvas vẽ lại liên tục) cũng dùng chế độ nhẹ: kính mờ đè lên canvas động rất tốn GPU.
+  document.body.classList.toggle('perf-cam', Boolean(game && (game.needsCamera || PHASER_GAMES.has(game.id))));
   setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');
   if (view === 'editor') cleanup = mountEditor(main);
   else if (view === 'camcheck') cleanup = mountCamCheck(main);

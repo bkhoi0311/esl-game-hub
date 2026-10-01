@@ -4,7 +4,7 @@ import { playSound, speak } from '../../core/audio.js';
 import { bus } from '../../core/events.js';
 import { balloonTarget } from '../../core/voice-lines.js';
 import { createPhaserDuel } from '../shared/duel-phaser.js';
-import { DESIGN, FONT_EN, INK, makeFxTextures, toScreen } from '../shared/phaser-host.js';
+import { DESIGN, FONT_EN, INK, bake, makeFxTextures, textPool, toScreen } from '../shared/phaser-host.js';
 import { playableCategories } from '../word-ninja/logic.js';
 
 const TARGET_MS = 20000;
@@ -28,6 +28,7 @@ function makeBalloonScene(Phaser, shared) {
       this.calm = data.calm;
       this.balloons = [];
       this.nextSpawn = [0, 350];
+      this.recentLanes = [[], []]; // 2 làn vừa dùng mỗi bên: bóng mới không ra trùng làn -> không che chữ nhau
       this.started = 0;
     }
 
@@ -44,10 +45,27 @@ function makeBalloonScene(Phaser, shared) {
         g.generateTexture(`balloon-${i}`, 140, 152).destroy();
       });
 
+      // Hình tĩnh vẽ 1 lần thành ảnh (Graphics bị vẽ lại mỗi khung -> giật trên máy yếu).
+      bake(this, 'bp-divider', 6, H, (g) => {
+        g.fillStyle(0xffffff, 0.8);
+        for (let y = 10; y < H; y += 40) g.fillRect(0, y, 6, 22);
+      });
+      bake(this, 'bp-string', 20, 100, (g) => {
+        g.lineStyle(3, INK, 0.9);
+        g.beginPath();
+        g.moveTo(10, 2);
+        g.lineTo(4, 36);
+        g.lineTo(14, 66);
+        g.lineTo(8, 96);
+        g.strokePath();
+      });
+      bake(this, 'bp-label', 100, 54, (g) => {
+        g.fillStyle(0xffffff, 0.95).fillRoundedRect(2, 2, 96, 50, 16);
+        g.lineStyle(4, INK).strokeRoundedRect(2, 2, 96, 50, 16);
+      });
+      this.add.image(LANE, H / 2, 'bp-divider');
+      this.float = textPool(this, { '+1': '#04bc09', '-1': '#ff5a00' });
       // Vạch chia 2 bên + tên đội ở đáy mỗi bên
-      const d = this.add.graphics();
-      d.lineStyle(6, 0xffffff, 0.8);
-      for (let y = 10; y < H; y += 40) d.lineBetween(LANE, y, LANE, y + 22);
       this.api.teams.forEach((name, i) => {
         this.add.text(LANE * i + LANE / 2, H - 36, name, { fontFamily: FONT_EN, fontSize: '44px', fontStyle: '800', color: '#ffffff' })
           .setOrigin(0.5).setAlpha(0.9).setStroke(this.api.colors[i], 10);
@@ -75,22 +93,20 @@ function makeBalloonScene(Phaser, shared) {
       if (!item || this.balloons.filter((b) => b.side === side && !b.done).length >= MAX_PER_SIDE) return;
 
       const ci = Math.floor(Math.random() * COLORS.length);
-      const x = LANE * side + 90 + Math.random() * (LANE - 180);
+      // 4 làn mỗi bên; tránh 2 làn vừa dùng để bóng không chồng lên nhau che mất chữ.
+      const LANES = 4;
+      const laneW = (LANE - 120) / LANES;
+      const used = this.recentLanes[side];
+      const options = [0, 1, 2, 3].filter((l) => !used.includes(l));
+      const lane = options[Math.floor(Math.random() * options.length)];
+      used.push(lane);
+      if (used.length > 2) used.shift();
+      const x = LANE * side + 60 + laneW * (lane + 0.5) + (Math.random() - 0.5) * laneW * 0.3;
       const c = this.add.container(x, H + 110).setDepth(10);
-      const string = this.add.graphics();
-      string.lineStyle(3, INK, 0.9);
-      string.beginPath();
-      string.moveTo(0, 76);
-      string.lineTo(-6, 110);
-      string.lineTo(4, 140);
-      string.lineTo(-2, 170);
-      string.strokePath();
+      const string = this.add.image(0, 76, 'bp-string').setOrigin(0.5, 0);
       const img = this.add.image(0, 0, `balloon-${ci}`).setInteractive({ useHandCursor: true });
       const label = this.add.text(0, -2, item.word, { fontFamily: FONT_EN, fontSize: '34px', fontStyle: '800', color: '#1c1f25' }).setOrigin(0.5);
-      const bg = this.add.graphics();
-      const bw = Math.max(label.width + 26, 70);
-      bg.fillStyle(0xffffff, 0.95).fillRoundedRect(-bw / 2, -26, bw, 50, 16);
-      bg.lineStyle(4, INK).strokeRoundedRect(-bw / 2, -26, bw, 50, 16);
+      const bg = this.add.nineslice(0, -1, 'bp-label', undefined, Math.max(label.width + 26, 70), 54, 20, 20, 0, 0);
       c.add([string, img, bg, label]);
       const t = (this.time.now - this.started) / 1000;
       // Bay hết màn hình trong ~4,8 s lúc đầu, nhanh dần tới ~3,2 s (trước: 7,5 s, các bé thấy quá chậm).
@@ -106,7 +122,7 @@ function makeBalloonScene(Phaser, shared) {
       const good = b.item.category.toLowerCase() === shared.cat;
       this.api.addScore(b.side, good ? 1 : -1);
       const { x, y } = b.c;
-      this.floatText(x, y - 40, good ? '+1' : '-1', good ? '#04bc09' : '#ff5a00');
+      this.float(x, y - 40, good ? '+1' : '-1');
       if (good) {
         playSound('pop');
         bus.emit('correct', { duel: true }); // 2 bé chơi song song: không tính "chuỗi đúng" chung
@@ -123,11 +139,6 @@ function makeBalloonScene(Phaser, shared) {
           onComplete: () => this.tweens.add({ targets: b.c, y: H + 220, angle: 40, alpha: 0.4, duration: 900, ease: 'Quad.easeIn', onComplete: () => b.c.destroy() }),
         });
       }
-    }
-
-    floatText(x, y, text, color) {
-      const t = this.add.text(x, y, text, { fontFamily: FONT_EN, fontSize: '64px', fontStyle: '800', color }).setOrigin(0.5).setStroke('#ffffff', 10).setDepth(60);
-      this.tweens.add({ targets: t, y: y - 90, alpha: { from: 1, to: 0 }, scale: { from: 0.6, to: 1.2 }, duration: 800, ease: 'Back.easeOut', onComplete: () => t.destroy() });
     }
 
     update(time, delta) {

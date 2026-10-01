@@ -4,7 +4,7 @@ import { playSound, speak } from '../../core/audio.js';
 import { shuffle } from '../../core/content.js';
 import { line } from '../../core/voice-lines.js';
 import { createPhaserDuel } from '../shared/duel-phaser.js';
-import { DESIGN, FONT_EN, INK, makeFxTextures, toScreen } from '../shared/phaser-host.js';
+import { DESIGN, FONT_EN, INK, bake, makeFxTextures, textPool, toScreen } from '../shared/phaser-host.js';
 import { nextTarget, pickMoleWord, usableWords } from './logic.js';
 
 const COLS = 3;
@@ -65,13 +65,32 @@ function makeWhackScene(Phaser) {
         tint: [0xffd23f, 0xffffff, 0xfd3cc6, 0x00a2fd], emitting: false,
       }).setDepth(80);
       this.input.addPointer(4);
-
-      const d = this.add.graphics().setDepth(1);
-      d.lineStyle(6, 0xffffff, 0.8);
-      for (let y = 10; y < H; y += 40) d.lineBetween(LANE, y, LANE, y + 22);
+      // Hình tĩnh vẽ 1 lần thành ảnh (Graphics bị vẽ lại mỗi khung -> giật trên máy yếu).
+      bake(this, 'wh-divider', 6, H, (g) => {
+        g.fillStyle(0xffffff, 0.8);
+        for (let y = 10; y < H; y += 40) g.fillRect(0, y, 6, 22);
+      });
+      bake(this, 'wh-back', 200, 72, (g) => {
+        g.fillStyle(0x3d2a1c).fillEllipse(100, 36, 190, 62);
+        g.lineStyle(5, INK).strokeEllipse(100, 36, 190, 62);
+      });
+      bake(this, 'wh-front', 224, 56, (g) => {
+        g.fillStyle(0x7a5236).fillEllipse(112, 30, 214, 44);
+        g.lineStyle(5, INK).strokeEllipse(112, 30, 214, 44);
+        g.fillStyle(0x9b6b47).fillEllipse(112, 24, 190, 26);
+      });
+      [['wh-sign-y', 0xffe14d], ['wh-sign-g', 0x04bc09], ['wh-sign-r', 0xff5a00]].forEach(([key, fill]) =>
+        bake(this, key, 120, 64, (g) => {
+          g.fillStyle(fill).fillRoundedRect(3, 3, 114, 58, 18);
+          g.lineStyle(5, INK).strokeRoundedRect(3, 3, 114, 58, 18);
+        }));
+      bake(this, 'wh-pole', 10, 20, (g) => g.fillStyle(0x8a5a36).fillRect(0, 0, 10, 20));
+      this.add.image(LANE, H / 2, 'wh-divider').setDepth(1);
+      this.float = textPool(this, { '+1': '#04bc09', '-1': '#ff5a00' });
+      this.hammers = Array.from({ length: 6 }, () => this.add.image(0, 0, 'hammer').setOrigin(0.5, 0.95).setDepth(90).setVisible(false));
 
       [0, 1].forEach((i) => this.sides.push(this.buildSide(i)));
-      this.input.on('pointerdown', (p) => this.swing(p.x, p.y));
+      this.input.on('pointerdown', (p) => this.swing(p.worldX, p.worldY));
       this.started = this.time.now;
     }
 
@@ -79,9 +98,12 @@ function makeWhackScene(Phaser) {
       const x0 = LANE * i;
       const color = Phaser.Display.Color.HexStringToColor(this.api.colors[i]).color;
       // Bảng mục tiêu (nghĩa tiếng Việt)
-      const panel = this.add.graphics().setDepth(2);
-      panel.fillStyle(0xffffff, 0.96).fillRoundedRect(x0 + 40, 18, LANE - 80, 132, 28);
-      panel.lineStyle(6, color).strokeRoundedRect(x0 + 40, 18, LANE - 80, 132, 28);
+      const pw = LANE - 80;
+      bake(this, `wh-panel-${i}`, pw + 8, 140, (g) => {
+        g.fillStyle(0xffffff, 0.96).fillRoundedRect(4, 4, pw, 132, 28);
+        g.lineStyle(6, color).strokeRoundedRect(4, 4, pw, 132, 28);
+      });
+      this.add.image(x0 + 40 - 4, 14, `wh-panel-${i}`).setOrigin(0, 0).setDepth(2);
       this.add.text(x0 + LANE / 2, 44, 'Find the English word for', { fontFamily: FONT_EN, fontSize: '28px', fontStyle: '700', color: '#6b6b6b' }).setOrigin(0.5).setDepth(3);
       const meaning = this.add.text(x0 + LANE / 2, 100, '', { fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '50px', fontStyle: '800', color: '#1c1f25' }).setOrigin(0.5).setDepth(3);
 
@@ -93,20 +115,17 @@ function makeWhackScene(Phaser) {
           const hx = x0 + 40 + ((LANE - 80) / COLS) * (c + 0.5);
           const hy = top + rowH * (r + 0.72);
           const depth = 10 + r * 10;
-          const back = this.add.graphics().setDepth(depth);
-          back.fillStyle(0x3d2a1c).fillEllipse(hx, hy, 190, 62);
-          back.lineStyle(5, INK).strokeEllipse(hx, hy, 190, 62);
+          this.add.image(hx, hy, 'wh-back').setDepth(depth);
           const mole = this.add.container(hx, hy + 8).setDepth(depth + 1);
           const body = this.add.image(0, 0, 'mole').setOrigin(0.5, 1);
-          const signBg = this.add.graphics();
+          // Bảng chữ: ảnh co giãn ngang (giữ bo góc), đổi màu = đổi ảnh, không vẽ lại.
+          const signBg = this.add.nineslice(0, -186, 'wh-sign-y', undefined, 120, 64, 24, 24, 0, 0);
+          const pole = this.add.image(0, -146, 'wh-pole');
           const sign = this.add.text(0, -186, '', { fontFamily: FONT_EN, fontSize: '40px', fontStyle: '800', color: '#1c1f25' }).setOrigin(0.5);
-          mole.add([body, signBg, sign]);
+          mole.add([body, pole, signBg, sign]);
           mole.setScale(1, 0).setVisible(false);
           // Mép đất phía trước che chân chuột: tạo cảm giác chui lên từ hang.
-          const front = this.add.graphics().setDepth(depth + 2);
-          front.fillStyle(0x7a5236).fillEllipse(hx, hy + 18, 214, 44);
-          front.lineStyle(5, INK).strokeEllipse(hx, hy + 18, 214, 44);
-          front.fillStyle(0x9b6b47).fillEllipse(hx, hy + 12, 190, 26);
+          this.add.image(hx, hy + 16, 'wh-front').setDepth(depth + 2);
           const hit = this.add.zone(hx, hy - 90, 190, 200).setDepth(depth + 3).setInteractive({ useHandCursor: true });
           const slot = { hx, hy, mole, body, sign, signBg, item: null, hideAt: 0, hit: false };
           hit.on('pointerdown', () => this.whack(i, slot));
@@ -126,12 +145,9 @@ function makeWhackScene(Phaser) {
       if (!this.calm) this.tweens.add({ targets: side.meaning, scale: { from: 0.6, to: 1 }, duration: 350, ease: 'Back.easeOut' });
     }
 
-    drawSign(slot, fill) {
-      const w = Math.max(slot.sign.width + 34, 90);
-      slot.signBg.clear();
-      slot.signBg.fillStyle(fill).fillRoundedRect(-w / 2, -216, w, 60, 18);
-      slot.signBg.lineStyle(5, INK).strokeRoundedRect(-w / 2, -216, w, 60, 18);
-      slot.signBg.fillStyle(0x8a5a36).fillRect(-5, -156, 10, 20);
+    drawSign(slot, key) {
+      slot.signBg.setTexture(key);
+      slot.signBg.setSize(Math.max(slot.sign.width + 40, 96), 64);
     }
 
     stayMs() {
@@ -149,8 +165,8 @@ function makeWhackScene(Phaser) {
       const slot = free[Math.floor(Math.random() * free.length)];
       slot.item = item;
       slot.hit = false;
-      slot.sign.setText(item.word).setColor('#1c1f25');
-      this.drawSign(slot, 0xffe14d);
+      slot.sign.setText(item.word);
+      this.drawSign(slot, 'wh-sign-y');
       slot.body.clearTint();
       slot.mole.setVisible(true).setAngle(0);
       slot.hideAt = this.time.now + this.stayMs();
@@ -166,8 +182,11 @@ function makeWhackScene(Phaser) {
 
     swing(x, y) {
       if (this.calm) return;
-      const hm = this.add.image(x + 60, y + 20, 'hammer').setOrigin(0.5, 0.95).setDepth(90).setAngle(40);
-      this.tweens.add({ targets: hm, angle: -30, duration: 110, ease: 'Quad.easeIn', yoyo: false, onComplete: () => this.tweens.add({ targets: hm, alpha: 0, duration: 220, delay: 80, onComplete: () => hm.destroy() }) });
+      // Dùng lại búa có sẵn (không tạo mới mỗi lần chạm).
+      const hm = this.hammers.find((o) => !o.visible) || this.hammers[0];
+      this.tweens.killTweensOf(hm);
+      hm.setPosition(x + 60, y + 20).setAngle(40).setAlpha(1).setVisible(true);
+      this.tweens.add({ targets: hm, angle: -30, duration: 110, ease: 'Quad.easeIn', onComplete: () => this.tweens.add({ targets: hm, alpha: 0, duration: 220, delay: 80, onComplete: () => hm.setVisible(false) }) });
     }
 
     whack(i, slot) {
@@ -177,27 +196,20 @@ function makeWhackScene(Phaser) {
       slot.hit = true;
       const good = item === side.target;
       this.api.addScore(i, good ? 1 : -1);
-      this.floatText(slot.hx, slot.hy - 240, good ? '+1' : '-1', good ? '#04bc09' : '#ff5a00');
+      this.float(slot.hx, slot.hy - 240, good ? '+1' : '-1');
       if (good) {
         playSound('correct');
         speak(item.word, { priority: 'low' }); // 2 bé đập liên tục: không chồng giọng
-        slot.sign.setColor('#ffffff');
-        this.drawSign(slot, 0x04bc09);
-        this.stars.explode(this.calm ? 6 : 20, slot.hx, slot.hy - 120);
+        this.drawSign(slot, 'wh-sign-g');
+        this.stars.explode(this.calm ? 5 : 12, slot.hx, slot.hy - 120);
         this.setTarget(side, nextTarget(this.words, side.target));
       } else {
         playSound('wrong');
-        slot.sign.setColor('#ffffff');
-        this.drawSign(slot, 0xff5a00);
+        this.drawSign(slot, 'wh-sign-r');
         slot.body.setTint(0xffb0a0);
       }
       this.tweens.killTweensOf(slot.mole);
       this.tweens.add({ targets: slot.mole, scaleY: 0.72, scaleX: 1.18, duration: 90, yoyo: true, ease: 'Quad.easeOut', onComplete: () => this.time.delayedCall(220, () => this.hide(slot)) });
-    }
-
-    floatText(x, y, text, color) {
-      const t = this.add.text(x, y, text, { fontFamily: FONT_EN, fontSize: '64px', fontStyle: '800', color }).setOrigin(0.5).setStroke('#ffffff', 10).setDepth(95);
-      this.tweens.add({ targets: t, y: y - 80, alpha: { from: 1, to: 0 }, scale: { from: 0.6, to: 1.2 }, duration: 800, ease: 'Back.easeOut', onComplete: () => t.destroy() });
     }
 
     update(time) {
