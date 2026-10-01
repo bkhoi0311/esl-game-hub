@@ -180,7 +180,7 @@ function makeWhackScene(Phaser) {
       this.floatText(slot.hx, slot.hy - 240, good ? '+1' : '-1', good ? '#04bc09' : '#ff5a00');
       if (good) {
         playSound('correct');
-        speak(item.word);
+        speak(item.word, { priority: 'low' }); // 2 bé đập liên tục: không chồng giọng
         slot.sign.setColor('#ffffff');
         this.drawSign(slot, 0x04bc09);
         this.stars.explode(this.calm ? 6 : 20, slot.hx, slot.hy - 120);

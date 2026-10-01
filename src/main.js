@@ -21,7 +21,10 @@ import { gsap } from 'gsap';
 import { mountWorld, setWorld } from './core/world.js';
 import { createMascot } from './core/mascot.js';
 import { reducedMotion } from './core/events.js';
-import './core/fx.js';
+import { clearFx, setStreakEnabled } from './core/fx.js';
+
+// Game 2 học sinh bấm song song trên 2 nửa bảng.
+const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war']);
 
 // Mở từ "link bài học" (#L=...): dùng bài trong link, chế độ trình chiếu (ẩn Soạn bài).
 await initLinkedPack();
@@ -381,8 +384,11 @@ function route() {
   window.scrollTo(0, 0);
 
   stopSpeaking();
+  clearFx(); // hạt, pháo giấy, chữ bay của màn trước không được chạy tiếp sang màn mới
   setVoiceGame(view === 'game' ? parts[1] : null);
   const game = view === 'game' ? findGame(parts[1]) : null;
+  // Game 2 bé bấm song song: không có "chuỗi đúng" chung (tránh hiệu ứng lớn bật liên tục).
+  setStreakEnabled(!(game && DUEL_GAMES.has(game.id)));
   // Game camera: chế độ nhẹ (bỏ kính mờ, dừng nền động) để máy OPS còn sức cho video + AI + lớp ClassIn.
   document.body.classList.toggle('perf-cam', Boolean(game && game.needsCamera));
   setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');

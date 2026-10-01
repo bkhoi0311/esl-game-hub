@@ -99,8 +99,14 @@ async function pickVoice(accent) {
   return pool.find((v) => v.localService) || pool[0] || null;
 }
 
+// Chỉ 1 câu được đọc tại một thời điểm (2 bé bấm cùng lúc không làm giọng chồng lên nhau).
+let speakToken = 0;
+let speaking = false;
+
 export function stopSpeaking() {
   playToken++;
+  speakToken++;
+  speaking = false;
   if (player) player.pause();
   player = null;
   if (ttsSupported()) synth.cancel();
@@ -108,24 +114,29 @@ export function stopSpeaking() {
 
 // Đọc 1 câu tiếng Anh. Luôn resolve (kể cả khi máy không có giọng), trả về true nếu đã đọc.
 // options.voice: ép dùng 1 giọng OmniVoice; options.web: ép dùng giọng máy.
+// options.priority: 'normal' (mặc định) ngắt câu đang đọc; 'low' (vd đọc lại từ vừa bấm) bị BỎ QUA nếu đang có câu khác.
 export async function speak(text, options = {}) {
   if (!text) return false;
+  if (options.priority === 'low' && speaking) return false;
+  stopSpeaking(); // dừng mọi âm đang đọc: cả giọng thu sẵn lẫn giọng máy
+  const token = speakToken;
+  speaking = true;
   const settings = getSettings();
+  let ok = false;
   if (settings.voiceMode !== 'web' && !options.web) {
     const url = clipUrl(text, options.voice || voiceFor());
-    if (url) {
-      if (ttsSupported()) synth.cancel();
-      if (await playClip(url)) return true;
-    }
+    if (url) ok = await playClip(url);
   }
-  return speakWeb(speakable(text).replace(/\.\.\./g, ','), options);
+  if (!ok && token === speakToken) ok = await speakWeb(speakable(text).replace(/\.\.\./g, ','), options, token);
+  if (token === speakToken) speaking = false;
+  return ok;
 }
 
-async function speakWeb(text, options = {}) {
+async function speakWeb(text, options = {}, token = speakToken) {
   if (!ttsSupported() || !text) return false;
   const { ttsRate, accent } = getSettings();
   const voice = await pickVoice(options.accent || accent);
-  if (!voice) return false;
+  if (!voice || token !== speakToken) return false; // đã có câu mới trong lúc chờ chọn giọng
 
   synth.cancel();
   const u = new SpeechSynthesisUtterance(text);

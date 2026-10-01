@@ -157,13 +157,23 @@ export function createMascot({ size = '6rem', mood = 'idle', react = true, bubbl
 
   if (react) {
     const cheers = ['Yay!', 'Great!', 'Super!', 'Well done!', 'Awesome!'];
-    offs.push(bus.on('correct', () => {
+    // 2 bé bấm liên tục: tối đa 1 lần phản ứng mỗi 0,7 s, không hiện bong bóng chữ (đỡ giật, đỡ rối mắt).
+    let lastReact = 0;
+    const throttled = () => {
+      const now = performance.now();
+      if (now - lastReact < 700) return true;
+      lastReact = now;
+      return false;
+    };
+    offs.push(bus.on('correct', (data) => {
+      if (throttled()) return;
       api.cheer();
-      if (Math.random() < 0.35) api.say(cheers[Math.floor(Math.random() * cheers.length)], 1200);
+      if (!data.duel && Math.random() < 0.35) api.say(cheers[Math.floor(Math.random() * cheers.length)], 1200);
     }));
-    offs.push(bus.on('wrong', () => {
+    offs.push(bus.on('wrong', (data) => {
+      if (throttled()) return;
       api.sad();
-      if (Math.random() < 0.3) api.say('Oops!', 1000);
+      if (!data.duel && Math.random() < 0.3) api.say('Oops!', 1000);
     }));
     offs.push(bus.on('win', () => {
       api.cheer();

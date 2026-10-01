@@ -136,9 +136,28 @@ export function streakMoment(count) {
     .to(box, { opacity: 0, scale: 0.96, duration: 0.3, ease: 'power2.in' }, 1.3);
 }
 
+// Rời game: xoá ngay mọi hạt, chữ bay, khoảnh khắc chuỗi đúng và pháo giấy còn đang chạy.
+export function clearFx() {
+  if (layer) {
+    gsap.killTweensOf(layer.querySelectorAll('*'));
+    layer.textContent = '';
+  }
+  confetti.reset();
+  streak = 0;
+}
+
+// Game 2 bé chơi song song (Balloon Pop, Whack-a-Word, Tug of War): "chuỗi đúng" chung không có nghĩa
+// và hiệu ứng lớn mỗi 3/5/10 lần đúng làm game giật -> tắt khi game đó đang mở.
+let streakEnabled = true;
+export function setStreakEnabled(on) {
+  streakEnabled = on;
+  streak = 0;
+}
+
 // Chuỗi trả lời đúng liên tiếp -> sự kiện 'streak' ở mốc 3, 5, 10.
 let streak = 0;
-bus.on('correct', () => {
+bus.on('correct', (data) => {
+  if (!streakEnabled || (data && data.duel)) return;
   streak += 1;
   if ([3, 5, 10].includes(streak)) {
     bus.emit('streak', { count: streak });

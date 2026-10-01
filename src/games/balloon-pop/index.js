@@ -93,7 +93,8 @@ function makeBalloonScene(Phaser, shared) {
       bg.lineStyle(4, INK).strokeRoundedRect(-bw / 2, -26, bw, 50, 16);
       c.add([string, img, bg, label]);
       const t = (this.time.now - this.started) / 1000;
-      const b = { c, img, item, side, color: COLORS[ci], speed: (H + 300) / Math.max(5, 7.5 - t * 0.05), phase: Math.random() * 6, baseX: x, done: false };
+      // Bay hết màn hình trong ~4,8 s lúc đầu, nhanh dần tới ~3,2 s (trước: 7,5 s, các bé thấy quá chậm).
+      const b = { c, img, item, side, color: COLORS[ci], speed: (H + 300) / Math.max(3.2, 4.8 - t * 0.03), phase: Math.random() * 6, baseX: x, done: false };
       img.on('pointerdown', () => this.pop(b));
       this.balloons.push(b);
       if (!this.calm) this.tweens.add({ targets: c, scale: { from: 0.6, to: 1 }, duration: 350, ease: 'Back.easeOut' });
@@ -108,11 +109,11 @@ function makeBalloonScene(Phaser, shared) {
       this.floatText(x, y - 40, good ? '+1' : '-1', good ? '#04bc09' : '#ff5a00');
       if (good) {
         playSound('pop');
-        bus.emit('correct');
-        speak(b.item.word);
+        bus.emit('correct', { duel: true }); // 2 bé chơi song song: không tính "chuỗi đúng" chung
+        speak(b.item.word, { priority: 'low' }); // đang đọc câu khác thì bỏ qua, không chồng giọng
         this.stars.setParticleTint(b.color);
-        this.stars.explode(this.calm ? 8 : 26, x, y);
-        this.dots.explode(this.calm ? 4 : 14, x, y);
+        this.stars.explode(this.calm ? 6 : 14, x, y);
+        this.dots.explode(this.calm ? 3 : 8, x, y);
         this.tweens.add({ targets: b.c, scale: 1.4, alpha: 0, duration: 170, ease: 'Quad.easeOut', onComplete: () => b.c.destroy() });
       } else {
         playSound('wrong');
@@ -135,7 +136,7 @@ function makeBalloonScene(Phaser, shared) {
       [0, 1].forEach((side) => {
         if (time >= this.nextSpawn[side]) {
           this.spawn(side);
-          this.nextSpawn[side] = time + 650 + Math.random() * 450;
+          this.nextSpawn[side] = time + 550 + Math.random() * 350;
         }
       });
       this.balloons.forEach((b) => {
