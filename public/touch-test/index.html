@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Test đa điểm chạm</title>
+<meta name="description" content="Trang chẩn đoán: trình duyệt nhúng của ClassIn trên ClassIn X có chuyển nhiều điểm chạm đồng thời cho trang web không.">
+<style>
+  :root{--bg:#0b0b0b;--hud:rgba(20,20,20,.88);--ink:#fff;--muted:#9a9a9a;--green:#04bc09}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  #c{position:fixed;inset:0;touch-action:none;-webkit-user-select:none;user-select:none;cursor:crosshair}
+  #hud{position:fixed;left:12px;top:12px;max-width:min(46vw,560px);background:var(--hud);border:1px solid #333;border-radius:14px;padding:12px 14px;font-size:clamp(13px,1.6vmin,20px);line-height:1.45;pointer-events:none;backdrop-filter:blur(6px)}
+  #hud b{color:var(--green)}
+  #big{position:fixed;right:16px;top:12px;text-align:right;pointer-events:none}
+  #big .n{font-size:clamp(48px,12vmin,160px);font-weight:800;line-height:1;color:var(--green)}
+  #big .l{font-size:clamp(12px,1.8vmin,22px);color:var(--muted)}
+  #bar{position:fixed;left:12px;bottom:12px;display:flex;gap:10px;flex-wrap:wrap}
+  button{font:inherit;font-size:clamp(14px,1.8vmin,22px);padding:10px 18px;border-radius:12px;border:1px solid #444;background:#1c1c1c;color:#fff}
+  button:active{background:#333}
+  #rep{position:fixed;right:12px;bottom:12px;width:min(44vw,560px);height:26vh;background:#111;color:#ddd;border:1px solid #333;border-radius:12px;padding:10px;font:12px/1.4 ui-monospace,Menlo,monospace;white-space:pre-wrap;overflow:auto;display:none}
+  #dots{position:fixed;inset:0;pointer-events:none}
+  .dot{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#000;opacity:.9}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="dots"></div>
+<div id="hud">
+  <div>Đang chạm: <b id="now">0</b> · Nhiều nhất cùng lúc: <b id="max">0</b> · maxTouchPoints: <b id="mtp">?</b></div>
+  <div>Loại: touch <b id="nt">0</b> · pen <b id="np">0</b> · mouse <b id="nm">0</b> · áp lực gần nhất <b id="pr">–</b></div>
+  <div>touchstart tối đa touches.length: <b id="tl">0</b> · PointerEvent: <b id="pe">?</b> · TouchEvent: <b id="te">?</b></div>
+  <div>Khung: <b id="vp">?</b> · DPR <b id="dpr">?</b></div>
+  <div style="color:var(--muted);margin-top:4px">Cách test: 2–4 người cùng vẽ bằng ngón và bút. Nếu "Nhiều nhất cùng lúc" ≥ 2 thì trình duyệt nhúng có chuyển đa điểm chạm.</div>
+</div>
+<div id="big"><div class="n" id="bign">0</div><div class="l">điểm chạm cùng lúc</div></div>
+<div id="bar">
+  <button id="clear">Xoá bảng</button>
+  <button id="show">Báo cáo</button>
+  <button id="copy">Copy báo cáo</button>
+</div>
+<pre id="rep"></pre>
+<script>
+(function(){
+  var c=document.getElementById('c'),ctx=c.getContext('2d',{desynchronized:true});
+  var dots=document.getElementById('dots');
+  var colors=['#ff4f8b','#3d8bff','#ffd23f','#04bc09','#ff8c00','#a855f7','#00d4ff','#ff3b30','#34c759','#ffffff'];
+  var active={},maxNow=0,types={touch:0,pen:0,mouse:0},lastP='–',tlMax=0,log=[],strokes=0;
+  var $=function(id){return document.getElementById(id)};
+  function resize(){var d=window.devicePixelRatio||1;c.width=innerWidth*d;c.height=innerHeight*d;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';ctx.setTransform(d,0,0,d,0,0);ctx.lineCap='round';ctx.lineJoin='round';
+    $('vp').textContent=innerWidth+'×'+innerHeight+' (screen '+screen.width+'×'+screen.height+')';$('dpr').textContent=d;}
+  addEventListener('resize',resize);resize();
+  $('mtp').textContent=navigator.maxTouchPoints;
+  $('pe').textContent=('PointerEvent' in window)?'có':'không';
+  $('te').textContent=('TouchEvent' in window)?'có':'không';
+  function count(){var n=Object.keys(active).length;$('now').textContent=n;$('bign').textContent=n;if(n>maxNow){maxNow=n;$('max').textContent=n;}}
+  function color(id){return colors[Math.abs(id)%colors.length]}
+  function addLog(s){log.push(s);if(log.length>60)log.shift();}
+  function dotFor(id){var el=document.getElementById('d'+id);if(!el){el=document.createElement('div');el.className='dot';el.id='d'+id;el.textContent=Object.keys(active).length;el.style.background=color(id);dots.appendChild(el);}return el;}
+  function down(e){if(e.pointerType!=='mouse')e.preventDefault();
+    try{c.setPointerCapture(e.pointerId)}catch(_){}
+    active[e.pointerId]={x:e.clientX,y:e.clientY,type:e.pointerType,w:e.width};types[e.pointerType]=(types[e.pointerType]||0)+1;
+    $('nt').textContent=types.touch||0;$('np').textContent=types.pen||0;$('nm').textContent=types.mouse||0;
+    count();var d=dotFor(e.pointerId);d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';strokes++;
+    addLog('down id='+e.pointerId+' '+e.pointerType+' p='+(e.pressure||0).toFixed(2)+' w='+Math.round(e.width)+' n='+Object.keys(active).length);
+    ctx.fillStyle=color(e.pointerId);ctx.beginPath();ctx.arc(e.clientX,e.clientY,3,0,7);ctx.fill();}
+  function move(e){var a=active[e.pointerId];if(!a)return;
+    var pts=(e.getCoalescedEvents&&e.getCoalescedEvents().length)?e.getCoalescedEvents():[e];
+    ctx.strokeStyle=color(e.pointerId);ctx.lineWidth=e.pointerType==='pen'?3+10*(e.pressure||0.3):6;ctx.beginPath();ctx.moveTo(a.x,a.y);
+    for(var i=0;i<pts.length;i++){ctx.lineTo(pts[i].clientX,pts[i].clientY);}ctx.stroke();
+    a.x=e.clientX;a.y=e.clientY;if(e.pressure){lastP=e.pressure.toFixed(2);$('pr').textContent=lastP;}
+    var d=document.getElementById('d'+e.pointerId);if(d){d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';}}
+  function up(e){delete active[e.pointerId];var d=document.getElementById('d'+e.pointerId);if(d)d.remove();count();addLog('up id='+e.pointerId);}
+  c.addEventListener('pointerdown',down);c.addEventListener('pointermove',move);c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up);c.addEventListener('pointerleave',function(e){if(active[e.pointerId])up(e)});
+  // Dự phòng: trình duyệt cũ chỉ có touch events
+  c.addEventListener('touchstart',function(e){e.preventDefault();if(e.touches.length>tlMax){tlMax=e.touches.length;$('tl').textContent=tlMax;}},{passive:false});
+  c.addEventListener('touchmove',function(e){e.preventDefault();if(e.touches.length>tlMax){tlMax=e.touches.length;$('tl').textContent=tlMax;}},{passive:false});
+  c.addEventListener('contextmenu',function(e){e.preventDefault()});
+  $('clear').onclick=function(){ctx.clearRect(0,0,c.width,c.height)};
+  function report(){var q={};try{(location.search+location.hash).replace(/[?&#]([^=&#]+)=([^&#]*)/g,function(_,k,v){q[k]=decodeURIComponent(v)})}catch(_){}
+    return ['Test đa điểm chạm – '+new Date().toLocaleString('vi-VN'),'URL: '+location.href,'Tham số ClassIn gắn vào URL: '+JSON.stringify(q),'UA: '+navigator.userAgent,'Nền tảng: '+navigator.platform+' · maxTouchPoints='+navigator.maxTouchPoints+' · PointerEvent='+('PointerEvent' in window)+' · TouchEvent='+('TouchEvent' in window),'Khung: '+innerWidth+'x'+innerHeight+' · screen '+screen.width+'x'+screen.height+' · DPR '+devicePixelRatio,'Nhiều nhất cùng lúc (pointer): '+maxNow+' · touches.length max: '+tlMax,'Số lần đặt bút/ngón: '+strokes+' · touch='+(types.touch||0)+' pen='+(types.pen||0)+' mouse='+(types.mouse||0)+' · áp lực gần nhất '+lastP,'--- 60 sự kiện gần nhất ---'].concat(log).join('\n');}
+  $('show').onclick=function(){var r=$('rep');r.textContent=report();r.style.display=r.style.display==='block'?'none':'block';};
+  $('copy').onclick=function(){var t=report();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){$('copy').textContent='Đã copy'},function(){$('copy').textContent='Copy lỗi – đọc Báo cáo'})}else{$('copy').textContent='Không có clipboard – đọc Báo cáo'}};
+})();
+</script>
+</body>
+</html>

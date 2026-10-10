@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi" class="glass-lite">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="icon" href="data:,">
+<meta name="theme-color" content="#0B0B0B">
+<title>Bảng nhiều người viết</title>
+<link rel="stylesheet" href="./css/board.css">
+</head>
+<body>
+<div id="brand-backdrop"></div>
+<header id="topbar" class="pane pane--bar"></header>
+<main id="stage">
+  <canvas id="ink"></canvas>
+  <canvas id="live"></canvas>
+  <div id="input-layer"></div>
+</main>
+<div id="overlay"></div>
+<div id="floaters"></div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
