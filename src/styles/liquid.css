@@ -260,3 +260,21 @@ body.perf-cam .toast { background: rgba(28, 28, 30, 0.94) !important; }
 body.perf-cam .pause-layer { background: rgba(0, 0, 0, 0.45) !important; }
 body.perf-cam .world *, body.perf-cam .w-float, body.perf-cam .gh-chest-art, body.perf-cam .wn-heart { animation: none !important; }
 body.perf-cam .cam-video, body.perf-cam .sp-overlay, body.perf-cam .sf-overlay { contain: strict; }
+
+/* ---------- Soạn nhanh: kính ---------- */
+.qt-btn, .lib-card, .tpl-item { border: 0; border-radius: 1.4rem; background: var(--lg-surface-grouped); box-shadow: var(--edge); color: var(--lg-text); transition: transform 0.4s var(--pop), box-shadow 0.3s var(--ease), background 0.2s var(--ease); }
+.qt-btn:hover, .lib-card:hover, .tpl-item:hover { background: #fff; box-shadow: var(--edge), var(--lift-1); transform: translateY(-0.12rem); }
+.qt-btn:active, .lib-card:active, .tpl-item:active { transform: scale(0.97); }
+.qt-btn .icon, .tpl-item .icon, .dropzone .icon { color: var(--lg-tint); }
+.qt-sub, .qtype-cap, .tpl-item small, .lib-vi { color: var(--lg-text-secondary); }
+.qt-link { color: var(--lg-tint); }
+.qt-label, .lib-title { font-family: var(--ui-display); letter-spacing: -0.02em; }
+.lib-count { color: var(--lg-tint); }
+.lib-words em, .qtype-row { background: var(--lg-fill); }
+.dropzone { border: 2px dashed var(--lg-tint); border-radius: 1.6rem; background: var(--lg-tint-soft); }
+.dropzone.over { background: var(--lg-tint-soft); border-style: solid; box-shadow: 0 0 0 0.25rem var(--lg-tint-soft); }
+.soan-table th { background: var(--lg-surface-grouped); color: var(--lg-text-secondary); }
+.soan-table-wrap { background: #fff; box-shadow: var(--edge); }
+.drop-overlay { background: rgba(10, 132, 255, 0.14); border-color: var(--lg-tint); -webkit-backdrop-filter: blur(0.3rem); backdrop-filter: blur(0.3rem); }
+.row-missing td { background: var(--lg-warning-soft); }
+.soan-error { background: #fdeceb; border-radius: 1rem; }

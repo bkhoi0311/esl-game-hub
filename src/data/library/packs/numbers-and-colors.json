@@ -1,0 +1,300 @@
+{
+  "title": "Numbers and Colors",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "one",
+      "meaning": "một",
+      "category": "number",
+      "example": "I have one red balloon.",
+      "image": ""
+    },
+    {
+      "word": "two",
+      "meaning": "hai",
+      "category": "number",
+      "example": "I see two birds in the tree.",
+      "image": ""
+    },
+    {
+      "word": "three",
+      "meaning": "ba",
+      "category": "number",
+      "example": "She has three cats.",
+      "image": ""
+    },
+    {
+      "word": "four",
+      "meaning": "bốn",
+      "category": "number",
+      "example": "A table has four legs.",
+      "image": ""
+    },
+    {
+      "word": "five",
+      "meaning": "năm",
+      "category": "number",
+      "example": "I am five years old.",
+      "image": ""
+    },
+    {
+      "word": "six",
+      "meaning": "sáu",
+      "category": "number",
+      "example": "We play for six minutes.",
+      "image": ""
+    },
+    {
+      "word": "seven",
+      "meaning": "bảy",
+      "category": "number",
+      "example": "My brother is seven years old.",
+      "image": ""
+    },
+    {
+      "word": "eight",
+      "meaning": "tám",
+      "category": "number",
+      "example": "The bus comes at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "nine",
+      "meaning": "chín",
+      "category": "number",
+      "example": "There are nine eggs in the box.",
+      "image": ""
+    },
+    {
+      "word": "ten",
+      "meaning": "mười",
+      "category": "number",
+      "example": "Count to ten with me.",
+      "image": ""
+    },
+    {
+      "word": "red",
+      "meaning": "màu đỏ",
+      "category": "color",
+      "example": "The apple is red.",
+      "image": ""
+    },
+    {
+      "word": "blue",
+      "meaning": "màu xanh dương",
+      "category": "color",
+      "example": "The sky is blue today.",
+      "image": ""
+    },
+    {
+      "word": "green",
+      "meaning": "màu xanh lá",
+      "category": "color",
+      "example": "The grass is green.",
+      "image": ""
+    },
+    {
+      "word": "yellow",
+      "meaning": "màu vàng",
+      "category": "color",
+      "example": "The sun is yellow.",
+      "image": ""
+    },
+    {
+      "word": "black",
+      "meaning": "màu đen",
+      "category": "color",
+      "example": "My cat is black.",
+      "image": ""
+    },
+    {
+      "word": "white",
+      "meaning": "màu trắng",
+      "category": "color",
+      "example": "Snow is white and cold.",
+      "image": ""
+    },
+    {
+      "word": "pink",
+      "meaning": "màu hồng",
+      "category": "color",
+      "example": "Her dress is pink.",
+      "image": ""
+    },
+    {
+      "word": "purple",
+      "meaning": "màu tím",
+      "category": "color",
+      "example": "She has a purple bag.",
+      "image": ""
+    },
+    {
+      "word": "orange",
+      "meaning": "màu cam",
+      "category": "color",
+      "example": "The sun looks orange at sunset.",
+      "image": ""
+    },
+    {
+      "word": "brown",
+      "meaning": "màu nâu",
+      "category": "color",
+      "example": "The bear is brown.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (màu hồng)",
+      "options": [
+        "pynk",
+        "pnik",
+        "pink"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"one\" mean?",
+      "options": [
+        "bốn",
+        "một",
+        "sáu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (màu đen)",
+      "options": [
+        "black",
+        "blacck",
+        "balck"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"màu trắng\"?",
+      "options": [
+        "white",
+        "six",
+        "three"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (màu nâu)",
+      "options": [
+        "bruwn",
+        "brwon",
+        "brown"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_o (hai)",
+      "options": [
+        "v",
+        "w",
+        "t"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has a ___ bag.",
+      "options": [
+        "purple",
+        "find",
+        "mosque"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_n (mười)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chín\"?",
+      "options": [
+        "ten",
+        "nine",
+        "six"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: or_nge (màu cam)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"four\" mean?",
+      "options": [
+        "ba",
+        "bảy",
+        "bốn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sáu\"?",
+      "options": [
+        "two",
+        "six",
+        "eight"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"eight\" mean?",
+      "options": [
+        "một",
+        "năm",
+        "tám"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"five\" mean?",
+      "options": [
+        "năm",
+        "bảy",
+        "chín"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Jump five times",
+    "Clap three times",
+    "Point to something red",
+    "Point to something blue",
+    "Count to ten with your fingers",
+    "Stamp your feet two times"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

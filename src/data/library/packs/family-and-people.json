@@ -1,0 +1,282 @@
+{
+  "title": "Family and People",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "mum",
+      "meaning": "mẹ",
+      "category": "family",
+      "example": "My mum makes good soup.",
+      "image": ""
+    },
+    {
+      "word": "dad",
+      "meaning": "bố",
+      "category": "family",
+      "example": "My dad cooks dinner on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "brother",
+      "meaning": "anh trai, em trai",
+      "category": "family",
+      "example": "My brother is eight years old.",
+      "image": ""
+    },
+    {
+      "word": "sister",
+      "meaning": "chị gái, em gái",
+      "category": "family",
+      "example": "Her sister likes to draw.",
+      "image": ""
+    },
+    {
+      "word": "grandma",
+      "meaning": "bà",
+      "category": "family",
+      "example": "I visit my grandma every weekend.",
+      "image": ""
+    },
+    {
+      "word": "grandpa",
+      "meaning": "ông",
+      "category": "family",
+      "example": "I play chess with my grandpa.",
+      "image": ""
+    },
+    {
+      "word": "aunt",
+      "meaning": "cô, dì",
+      "category": "family",
+      "example": "My aunt lives in a small town.",
+      "image": ""
+    },
+    {
+      "word": "uncle",
+      "meaning": "chú, bác",
+      "category": "family",
+      "example": "My uncle drives a big truck.",
+      "image": ""
+    },
+    {
+      "word": "cousin",
+      "meaning": "anh chị em họ",
+      "category": "family",
+      "example": "My cousin visits us in summer.",
+      "image": ""
+    },
+    {
+      "word": "baby",
+      "meaning": "em bé",
+      "category": "people",
+      "example": "The baby is sleeping now.",
+      "image": ""
+    },
+    {
+      "word": "boy",
+      "meaning": "cậu bé",
+      "category": "people",
+      "example": "The boy plays with a ball.",
+      "image": ""
+    },
+    {
+      "word": "girl",
+      "meaning": "cô bé",
+      "category": "people",
+      "example": "That girl has long hair.",
+      "image": ""
+    },
+    {
+      "word": "man",
+      "meaning": "người đàn ông",
+      "category": "people",
+      "example": "The man is reading a newspaper.",
+      "image": ""
+    },
+    {
+      "word": "woman",
+      "meaning": "người phụ nữ",
+      "category": "people",
+      "example": "The woman is waiting for the bus.",
+      "image": ""
+    },
+    {
+      "word": "friend",
+      "meaning": "người bạn",
+      "category": "people",
+      "example": "She is my best friend.",
+      "image": ""
+    },
+    {
+      "word": "child",
+      "meaning": "đứa trẻ",
+      "category": "people",
+      "example": "Every child likes to play.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (đứa trẻ)",
+      "options": [
+        "child",
+        "chlid",
+        "cihld"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"friend\" mean?",
+      "options": [
+        "em bé",
+        "người bạn",
+        "người đàn ông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cậu bé\"?",
+      "options": [
+        "friend",
+        "man",
+        "boy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cô, dì)",
+      "options": [
+        "aunnt",
+        "anut",
+        "aunt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_n (người đàn ông)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Her ___ likes to draw.",
+      "options": [
+        "eat",
+        "sister",
+        "dry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người phụ nữ\"?",
+      "options": [
+        "girl",
+        "friend",
+        "woman"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cous_n (anh chị em họ)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ông)",
+      "options": [
+        "grandpa",
+        "grendpa",
+        "grnadpa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_rl (cô bé)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"baby\" mean?",
+      "options": [
+        "đứa trẻ",
+        "người bạn",
+        "em bé"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ is eight years old.",
+      "options": [
+        "brother",
+        "lucky",
+        "take"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dad\" mean?",
+      "options": [
+        "bố",
+        "mẹ",
+        "ông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chú, bác\"?",
+      "options": [
+        "mum",
+        "grandpa",
+        "uncle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grandma\" mean?",
+      "options": [
+        "ông",
+        "bà",
+        "mẹ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wave to your family",
+    "Give yourself a big hug",
+    "Pretend to rock a baby",
+    "Wave to a friend",
+    "Blow a kiss to your family",
+    "Smile at your friend"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

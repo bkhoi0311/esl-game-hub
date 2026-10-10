@@ -1,0 +1,289 @@
+{
+  "title": "Transport",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "car",
+      "meaning": "xe ô tô",
+      "category": "transport",
+      "example": "My dad has a red car.",
+      "image": ""
+    },
+    {
+      "word": "bus",
+      "meaning": "xe buýt",
+      "category": "transport",
+      "example": "I go to school by bus.",
+      "image": ""
+    },
+    {
+      "word": "train",
+      "meaning": "tàu hỏa",
+      "category": "transport",
+      "example": "The train is very long.",
+      "image": ""
+    },
+    {
+      "word": "plane",
+      "meaning": "máy bay",
+      "category": "transport",
+      "example": "The plane is flying to Hanoi.",
+      "image": ""
+    },
+    {
+      "word": "boat",
+      "meaning": "con thuyền",
+      "category": "transport",
+      "example": "A small boat is on the lake.",
+      "image": ""
+    },
+    {
+      "word": "ship",
+      "meaning": "con tàu",
+      "category": "transport",
+      "example": "The big ship is leaving the port.",
+      "image": ""
+    },
+    {
+      "word": "helicopter",
+      "meaning": "máy bay trực thăng",
+      "category": "transport",
+      "example": "The helicopter flies over the city.",
+      "image": ""
+    },
+    {
+      "word": "motorbike",
+      "meaning": "xe máy",
+      "category": "transport",
+      "example": "My uncle rides a motorbike to work.",
+      "image": ""
+    },
+    {
+      "word": "taxi",
+      "meaning": "xe taxi",
+      "category": "transport",
+      "example": "We take a taxi to the station.",
+      "image": ""
+    },
+    {
+      "word": "truck",
+      "meaning": "xe tải",
+      "category": "transport",
+      "example": "The truck carries many boxes.",
+      "image": ""
+    },
+    {
+      "word": "bicycle",
+      "meaning": "xe đạp",
+      "category": "transport",
+      "example": "She has a red bicycle.",
+      "image": ""
+    },
+    {
+      "word": "ambulance",
+      "meaning": "xe cứu thương",
+      "category": "transport",
+      "example": "The ambulance is coming very fast.",
+      "image": ""
+    },
+    {
+      "word": "fire engine",
+      "meaning": "xe cứu hỏa",
+      "category": "transport",
+      "example": "The fire engine is red and loud.",
+      "image": ""
+    },
+    {
+      "word": "airport",
+      "meaning": "sân bay",
+      "category": "place",
+      "example": "We wait at the airport for Grandma.",
+      "image": ""
+    },
+    {
+      "word": "station",
+      "meaning": "nhà ga",
+      "category": "place",
+      "example": "Mum meets us at the station.",
+      "image": ""
+    },
+    {
+      "word": "bus stop",
+      "meaning": "trạm xe buýt",
+      "category": "place",
+      "example": "Wait for me at the bus stop.",
+      "image": ""
+    },
+    {
+      "word": "road",
+      "meaning": "con đường",
+      "category": "place",
+      "example": "The road is long and quiet.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: tr_ck (xe tải)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle rides a ___ to work.",
+      "options": [
+        "motorbike",
+        "pudding",
+        "builder"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"train\" mean?",
+      "options": [
+        "xe máy",
+        "con thuyền",
+        "tàu hỏa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà ga)",
+      "options": [
+        "statoin",
+        "stetion",
+        "station"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"helicopter\" mean?",
+      "options": [
+        "máy bay trực thăng",
+        "xe cứu thương",
+        "xe cứu hỏa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: airp_rt (sân bay)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"car\" mean?",
+      "options": [
+        "xe cứu thương",
+        "xe ô tô",
+        "xe buýt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xe taxi\"?",
+      "options": [
+        "taxi",
+        "motorbike",
+        "bus"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_cycle (xe đạp)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"boat\" mean?",
+      "options": [
+        "con thuyền",
+        "máy bay trực thăng",
+        "xe đạp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy bay\"?",
+      "options": [
+        "ambulance",
+        "plane",
+        "bus"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xe cứu thương)",
+      "options": [
+        "ambullance",
+        "amublance",
+        "ambulance"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xe buýt\"?",
+      "options": [
+        "car",
+        "bus",
+        "taxi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The big ___ is leaving the port.",
+      "options": [
+        "dinner",
+        "doughnut",
+        "ship"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con đường\"?",
+      "options": [
+        "road",
+        "station",
+        "airport"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to drive a car",
+    "Pretend to ride a bicycle",
+    "Fly like a plane",
+    "Pretend to row a boat",
+    "Wait at the bus stop",
+    "Make a train sound"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

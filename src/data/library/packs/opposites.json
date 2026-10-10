@@ -1,0 +1,310 @@
+{
+  "title": "Opposites",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "big",
+      "meaning": "to lớn",
+      "category": "describe",
+      "example": "The elephant is very big.",
+      "image": ""
+    },
+    {
+      "word": "small",
+      "meaning": "nhỏ",
+      "category": "describe",
+      "example": "My room is small.",
+      "image": ""
+    },
+    {
+      "word": "tall",
+      "meaning": "cao",
+      "category": "describe",
+      "example": "The giraffe is very tall.",
+      "image": ""
+    },
+    {
+      "word": "short",
+      "meaning": "thấp, ngắn",
+      "category": "describe",
+      "example": "My brother is short.",
+      "image": ""
+    },
+    {
+      "word": "hot",
+      "meaning": "nóng",
+      "category": "describe",
+      "example": "The soup is very hot.",
+      "image": ""
+    },
+    {
+      "word": "cold",
+      "meaning": "lạnh",
+      "category": "describe",
+      "example": "The water is very cold.",
+      "image": ""
+    },
+    {
+      "word": "fast",
+      "meaning": "nhanh",
+      "category": "describe",
+      "example": "A cheetah is very fast.",
+      "image": ""
+    },
+    {
+      "word": "slow",
+      "meaning": "chậm",
+      "category": "describe",
+      "example": "The snail is very slow.",
+      "image": ""
+    },
+    {
+      "word": "new",
+      "meaning": "mới",
+      "category": "describe",
+      "example": "I have a new school bag.",
+      "image": ""
+    },
+    {
+      "word": "old",
+      "meaning": "già, cũ",
+      "category": "describe",
+      "example": "My grandfather is very old.",
+      "image": ""
+    },
+    {
+      "word": "clean",
+      "meaning": "sạch",
+      "category": "describe",
+      "example": "Her hands are clean now.",
+      "image": ""
+    },
+    {
+      "word": "dirty",
+      "meaning": "bẩn",
+      "category": "describe",
+      "example": "My shoes are dirty.",
+      "image": ""
+    },
+    {
+      "word": "full",
+      "meaning": "đầy",
+      "category": "describe",
+      "example": "The bag is full of books.",
+      "image": ""
+    },
+    {
+      "word": "empty",
+      "meaning": "trống rỗng",
+      "category": "describe",
+      "example": "The box is empty.",
+      "image": ""
+    },
+    {
+      "word": "wet",
+      "meaning": "ướt",
+      "category": "describe",
+      "example": "The dog is wet from the rain.",
+      "image": ""
+    },
+    {
+      "word": "dry",
+      "meaning": "khô",
+      "category": "describe",
+      "example": "The towel is dry now.",
+      "image": ""
+    },
+    {
+      "word": "strong",
+      "meaning": "khoẻ",
+      "category": "describe",
+      "example": "My dad is very strong.",
+      "image": ""
+    },
+    {
+      "word": "weak",
+      "meaning": "yếu",
+      "category": "describe",
+      "example": "The old dog is weak and slow.",
+      "image": ""
+    },
+    {
+      "word": "good",
+      "meaning": "tốt",
+      "category": "describe",
+      "example": "This is a good book.",
+      "image": ""
+    },
+    {
+      "word": "bad",
+      "meaning": "xấu, tệ",
+      "category": "describe",
+      "example": "The weather is bad today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nhỏ\"?",
+      "options": [
+        "small",
+        "empty",
+        "hot"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cao)",
+      "options": [
+        "tlal",
+        "tal",
+        "tall"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lạnh\"?",
+      "options": [
+        "good",
+        "cold",
+        "old"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wet\" mean?",
+      "options": [
+        "nóng",
+        "xấu, tệ",
+        "ướt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_rt (thấp, ngắn)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"new\" mean?",
+      "options": [
+        "mới",
+        "nhỏ",
+        "già, cũ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_ng (khoẻ)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dry\" mean?",
+      "options": [
+        "bẩn",
+        "mới",
+        "khô"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_st (nhanh)",
+      "options": [
+        "u",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hot\" mean?",
+      "options": [
+        "khoẻ",
+        "nóng",
+        "ướt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bẩn)",
+      "options": [
+        "drity",
+        "ditry",
+        "dirty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My grandfather is very ___.",
+      "options": [
+        "old",
+        "spider",
+        "dna"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chậm)",
+      "options": [
+        "solw",
+        "sllow",
+        "slow"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trống rỗng\"?",
+      "options": [
+        "empty",
+        "clean",
+        "full"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Her hands are ___ now.",
+      "options": [
+        "thermometer",
+        "clean",
+        "television"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Stand tall",
+    "Make yourself small",
+    "Clap fast",
+    "Clap slowly",
+    "Pretend you are cold",
+    "Pretend you are hot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

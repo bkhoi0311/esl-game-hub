@@ -22,7 +22,7 @@ const SIZES = [
 const server = await createServer({ server: { port: 5199, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const BASE = 'http://localhost:5199/';
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: 'chrome' });
 const results = [];
 const errors = [];
 

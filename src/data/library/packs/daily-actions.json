@@ -1,0 +1,301 @@
+{
+  "title": "Daily Actions",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "get up",
+      "meaning": "dậy, ngồi dậy",
+      "category": "action",
+      "example": "We get up early on Monday.",
+      "image": ""
+    },
+    {
+      "word": "wake up",
+      "meaning": "thức dậy",
+      "category": "action",
+      "example": "I wake up at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "brush teeth",
+      "meaning": "đánh răng",
+      "category": "action",
+      "example": "I brush my teeth after breakfast.",
+      "image": ""
+    },
+    {
+      "word": "wash",
+      "meaning": "rửa",
+      "category": "action",
+      "example": "Please wash your hands.",
+      "image": ""
+    },
+    {
+      "word": "eat",
+      "meaning": "ăn",
+      "category": "action",
+      "example": "We eat lunch at noon.",
+      "image": ""
+    },
+    {
+      "word": "go to bed",
+      "meaning": "đi ngủ",
+      "category": "action",
+      "example": "I go to bed at nine.",
+      "image": ""
+    },
+    {
+      "word": "sleep",
+      "meaning": "ngủ",
+      "category": "action",
+      "example": "Babies sleep a lot.",
+      "image": ""
+    },
+    {
+      "word": "read",
+      "meaning": "đọc",
+      "category": "action",
+      "example": "I read a book every night.",
+      "image": ""
+    },
+    {
+      "word": "write",
+      "meaning": "viết",
+      "category": "action",
+      "example": "Please write your name here.",
+      "image": ""
+    },
+    {
+      "word": "draw",
+      "meaning": "vẽ",
+      "category": "action",
+      "example": "She likes to draw cats.",
+      "image": ""
+    },
+    {
+      "word": "sing",
+      "meaning": "hát",
+      "category": "action",
+      "example": "We sing songs in class.",
+      "image": ""
+    },
+    {
+      "word": "play",
+      "meaning": "chơi",
+      "category": "action",
+      "example": "They play games after school.",
+      "image": ""
+    },
+    {
+      "word": "run",
+      "meaning": "chạy",
+      "category": "action",
+      "example": "Dogs run very fast.",
+      "image": ""
+    },
+    {
+      "word": "walk",
+      "meaning": "đi bộ",
+      "category": "action",
+      "example": "I walk to school with Tom.",
+      "image": ""
+    },
+    {
+      "word": "jump",
+      "meaning": "nhảy",
+      "category": "action",
+      "example": "Frogs jump into the water.",
+      "image": ""
+    },
+    {
+      "word": "swim",
+      "meaning": "bơi",
+      "category": "action",
+      "example": "Fish swim in the river.",
+      "image": ""
+    },
+    {
+      "word": "sit",
+      "meaning": "ngồi",
+      "category": "action",
+      "example": "I sit on the red chair.",
+      "image": ""
+    },
+    {
+      "word": "stand",
+      "meaning": "đứng",
+      "category": "action",
+      "example": "Please stand up and sing.",
+      "image": ""
+    },
+    {
+      "word": "open",
+      "meaning": "mở",
+      "category": "action",
+      "example": "Please open your book.",
+      "image": ""
+    },
+    {
+      "word": "listen",
+      "meaning": "nghe",
+      "category": "action",
+      "example": "We listen to music in the car.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: st_nd (đứng)",
+      "options": [
+        "u",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (rửa)",
+      "options": [
+        "wsah",
+        "wassh",
+        "wash"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ your name here.",
+      "options": [
+        "write",
+        "love",
+        "grandpa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sle_p (ngủ)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mở\"?",
+      "options": [
+        "listen",
+        "open",
+        "run"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dr_w (vẽ)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đọc\"?",
+      "options": [
+        "listen",
+        "sleep",
+        "read"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"listen\" mean?",
+      "options": [
+        "nghe",
+        "đứng",
+        "bơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chơi)",
+      "options": [
+        "paly",
+        "play",
+        "pllay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sing\" mean?",
+      "options": [
+        "hát",
+        "vẽ",
+        "chơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bơi)",
+      "options": [
+        "swym",
+        "siwm",
+        "swim"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"run\" mean?",
+      "options": [
+        "hát",
+        "chạy",
+        "rửa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đi bộ\"?",
+      "options": [
+        "play",
+        "walk",
+        "run"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sit\" mean?",
+      "options": [
+        "nhảy",
+        "nghe",
+        "ngồi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wake up and stretch",
+    "Pretend to brush your teeth",
+    "Pretend to wash your hands",
+    "Jump up and down",
+    "Run on the spot",
+    "Sit down",
+    "Stand up"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

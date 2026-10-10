@@ -1,0 +1,289 @@
+{
+  "title": "Animals",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "cat",
+      "meaning": "con mèo",
+      "category": "animal",
+      "example": "My cat sleeps on the sofa.",
+      "image": ""
+    },
+    {
+      "word": "dog",
+      "meaning": "con chó",
+      "category": "animal",
+      "example": "My dog runs in the park.",
+      "image": ""
+    },
+    {
+      "word": "rabbit",
+      "meaning": "con thỏ",
+      "category": "animal",
+      "example": "The rabbit has long ears.",
+      "image": ""
+    },
+    {
+      "word": "hamster",
+      "meaning": "chuột hamster",
+      "category": "animal",
+      "example": "My hamster runs on a small wheel.",
+      "image": ""
+    },
+    {
+      "word": "pig",
+      "meaning": "con lợn",
+      "category": "animal",
+      "example": "The pig is rolling in the mud.",
+      "image": ""
+    },
+    {
+      "word": "cow",
+      "meaning": "con bò",
+      "category": "animal",
+      "example": "The cow gives us milk.",
+      "image": ""
+    },
+    {
+      "word": "sheep",
+      "meaning": "con cừu",
+      "category": "animal",
+      "example": "The sheep has soft white wool.",
+      "image": ""
+    },
+    {
+      "word": "goat",
+      "meaning": "con dê",
+      "category": "animal",
+      "example": "The goat eats grass on the hill.",
+      "image": ""
+    },
+    {
+      "word": "horse",
+      "meaning": "con ngựa",
+      "category": "animal",
+      "example": "The horse runs very fast.",
+      "image": ""
+    },
+    {
+      "word": "donkey",
+      "meaning": "con lừa",
+      "category": "animal",
+      "example": "The donkey carries a heavy bag.",
+      "image": ""
+    },
+    {
+      "word": "mouse",
+      "meaning": "con chuột",
+      "category": "animal",
+      "example": "The cat sees a little mouse.",
+      "image": ""
+    },
+    {
+      "word": "kitten",
+      "meaning": "mèo con",
+      "category": "animal",
+      "example": "The kitten plays with a ball.",
+      "image": ""
+    },
+    {
+      "word": "puppy",
+      "meaning": "chó con",
+      "category": "animal",
+      "example": "The puppy is very small and cute.",
+      "image": ""
+    },
+    {
+      "word": "duck",
+      "meaning": "con vịt",
+      "category": "bird",
+      "example": "The duck swims on the lake.",
+      "image": ""
+    },
+    {
+      "word": "chicken",
+      "meaning": "con gà",
+      "category": "bird",
+      "example": "The chicken has ten little chicks.",
+      "image": ""
+    },
+    {
+      "word": "hen",
+      "meaning": "gà mái",
+      "category": "bird",
+      "example": "The hen lays an egg every day.",
+      "image": ""
+    },
+    {
+      "word": "rooster",
+      "meaning": "con gà trống",
+      "category": "bird",
+      "example": "The rooster wakes us up early.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: h_n (gà mái)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has soft white wool.",
+      "options": [
+        "drive",
+        "win",
+        "sheep"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con vịt)",
+      "options": [
+        "ducck",
+        "duck",
+        "dcuk"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: chick_n (con gà)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con thỏ)",
+      "options": [
+        "rabbit",
+        "rabit",
+        "rebbit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chó con\"?",
+      "options": [
+        "rabbit",
+        "pig",
+        "puppy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hamster\" mean?",
+      "options": [
+        "chuột hamster",
+        "con chó",
+        "con thỏ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_rse (con ngựa)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"donkey\" mean?",
+      "options": [
+        "chuột hamster",
+        "chó con",
+        "con lừa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con gà trống\"?",
+      "options": [
+        "rooster",
+        "duck",
+        "hamster"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dog\" mean?",
+      "options": [
+        "con ngựa",
+        "con chó",
+        "con mèo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mèo con)",
+      "options": [
+        "kiten",
+        "kittin",
+        "kitten"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con lợn\"?",
+      "options": [
+        "dog",
+        "pig",
+        "puppy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"goat\" mean?",
+      "options": [
+        "con dê",
+        "chó con",
+        "mèo con"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The cat sees a little ___.",
+      "options": [
+        "brave",
+        "sleepy",
+        "mouse"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Walk like a cat",
+    "Hop like a rabbit",
+    "Moo like a cow",
+    "Quack like a duck",
+    "Run on the spot like a dog",
+    "Flap your arms like a chicken"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

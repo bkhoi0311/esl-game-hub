@@ -1,0 +1,470 @@
+{
+  "sampled": [
+    "father christmas",
+    "mother",
+    "alien",
+    "angel",
+    "woman",
+    "diamond",
+    "judge",
+    "star",
+    "teenager",
+    "builder",
+    "vampire",
+    "mechanic",
+    "king",
+    "robot",
+    "driver"
+  ],
+  "sampleErrors": [
+    "father christmas",
+    "mother",
+    "teenager"
+  ],
+  "alsoReviewed": [
+    "square",
+    "children",
+    "grandpa",
+    "brother",
+    "son",
+    "friends",
+    "old",
+    "young",
+    "queen",
+    "ghost",
+    "witch",
+    "zombie",
+    "santa",
+    "guard",
+    "elves",
+    "cook",
+    "footballer",
+    "police",
+    "waiter",
+    "pupil"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "square",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "square",
+      "field": "note",
+      "old": "emoji Fountain lệch nghĩa (quảng trường); chọn nghĩa hình vuông",
+      "new": ""
+    },
+    {
+      "word": "kid",
+      "field": "vi",
+      "old": "đứa trẻ",
+      "new": "trẻ con"
+    },
+    {
+      "word": "father",
+      "field": "vi",
+      "old": "bố",
+      "new": "cha"
+    },
+    {
+      "word": "mother",
+      "field": "vi",
+      "old": "mẹ",
+      "new": "người mẹ"
+    },
+    {
+      "word": "grandfather",
+      "field": "vi",
+      "old": "ông",
+      "new": "ông nội, ông ngoại"
+    },
+    {
+      "word": "grandmother",
+      "field": "vi",
+      "old": "bà",
+      "new": "bà nội, bà ngoại"
+    },
+    {
+      "word": "grandpa",
+      "field": "ex",
+      "old": "Grandpa plays chess with me.",
+      "new": "I play chess with my grandpa."
+    },
+    {
+      "word": "grandpa",
+      "field": "note",
+      "old": "ex bắt đầu bằng chính từ (chấp nhận)",
+      "new": ""
+    },
+    {
+      "word": "brother",
+      "field": "vi",
+      "old": "anh trai, em trai",
+      "new": "anh hoặc em trai"
+    },
+    {
+      "word": "brother",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "brother",
+      "field": "note",
+      "old": "vi không dấu (tiếng Việt thường); nghĩa đúng",
+      "new": "check.mjs còn chặn \"anh trai, em trai\" (âm tiết trai), dùng tạm cách viết có dấu"
+    },
+    {
+      "word": "son",
+      "field": "vi",
+      "old": "con trai",
+      "new": "đứa con trai"
+    },
+    {
+      "word": "son",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "son",
+      "field": "note",
+      "old": "vi không dấu (tiếng Việt thường); ex chứa daughter nhưng từ đích là son",
+      "new": "check.mjs còn chặn \"con trai\" (âm tiết trai)"
+    },
+    {
+      "word": "uncle",
+      "field": "level",
+      "old": "starters",
+      "new": "movers"
+    },
+    {
+      "word": "uncle",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "aunt",
+      "field": "level",
+      "old": "starters",
+      "new": "movers"
+    },
+    {
+      "word": "aunt",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "cousin",
+      "field": "level",
+      "old": "starters",
+      "new": "movers"
+    },
+    {
+      "word": "cousin",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "person",
+      "field": "vi",
+      "old": "một người",
+      "new": "người"
+    },
+    {
+      "word": "teenager",
+      "field": "ex",
+      "old": "A teenager can use a phone.",
+      "new": "My cousin is a teenager now."
+    },
+    {
+      "word": "adult",
+      "field": "ex",
+      "old": "An adult must sign this form.",
+      "new": "Children must swim with an adult."
+    },
+    {
+      "word": "old",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "old",
+      "field": "note",
+      "old": "emoji Old man; chọn nghĩa già (còn nghĩa cũ)",
+      "new": ""
+    },
+    {
+      "word": "young",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "young",
+      "field": "note",
+      "old": "ex chứa old nhưng từ đích là young",
+      "new": ""
+    },
+    {
+      "word": "king",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "king",
+      "field": "note",
+      "old": "emoji Prince lệch nghĩa; chọn nghĩa vua",
+      "new": ""
+    },
+    {
+      "word": "king",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "queen",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "queen",
+      "field": "note",
+      "old": "emoji Princess lệch nghĩa; chọn nghĩa nữ hoàng",
+      "new": ""
+    },
+    {
+      "word": "queen",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "princess",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "ghost",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "ghost",
+      "field": "note",
+      "old": "vi không dấu (tiếng Việt thường); nghĩa đúng",
+      "new": "giữ: nhân vật Halloween phổ biến trong chương trình thiếu nhi"
+    },
+    {
+      "word": "monster",
+      "field": "note",
+      "old": "",
+      "new": "giữ: nhân vật hoạt hình, Starters"
+    },
+    {
+      "word": "witch",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "witch",
+      "field": "note",
+      "old": "emoji Woman mage; chọn nghĩa phù thuỷ nữ",
+      "new": "giữ: nhân vật truyện cổ tích/Halloween"
+    },
+    {
+      "word": "wizard",
+      "field": "ex",
+      "old": "The wizard has a magic stick.",
+      "new": "The wizard has a magic hat."
+    },
+    {
+      "word": "vampire",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "vampire",
+      "field": "note",
+      "old": "hơi đáng sợ với trẻ nhỏ; cân nhắc giữ hay bỏ",
+      "new": "giữ ở mức Halloween/hoạt hình; câu ví dụ vui, không đáng sợ"
+    },
+    {
+      "word": "zombie",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "zombie",
+      "field": "note",
+      "old": "hơi đáng sợ với trẻ nhỏ; cân nhắc giữ hay bỏ",
+      "new": "giữ ở mức Halloween/hoạt hình; câu ví dụ vui, không đáng sợ"
+    },
+    {
+      "word": "elf",
+      "field": "vi",
+      "old": "chú lùn tinh linh",
+      "new": "chú yêu tinh"
+    },
+    {
+      "word": "elves",
+      "field": "vi",
+      "old": "những chú lùn tinh linh",
+      "new": "những chú yêu tinh"
+    },
+    {
+      "word": "santa",
+      "field": "ex",
+      "old": "Santa brings gifts at Christmas.",
+      "new": "At Christmas, Santa brings gifts."
+    },
+    {
+      "word": "father christmas",
+      "field": "ex",
+      "old": "Father Christmas has a long white beard.",
+      "new": "Look, Father Christmas is here!"
+    },
+    {
+      "word": "father christmas",
+      "field": "note",
+      "old": "ex bắt đầu bằng chính cụm từ",
+      "new": ""
+    },
+    {
+      "word": "guard",
+      "field": "vi",
+      "old": "bảo vệ, lính gác",
+      "new": "người bảo vệ"
+    },
+    {
+      "word": "guard",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "guard",
+      "field": "note",
+      "old": "đa nghĩa (người bảo vệ / canh giữ); chọn người bảo vệ",
+      "new": ""
+    },
+    {
+      "word": "businessman",
+      "field": "vi",
+      "old": "doanh nhân nam",
+      "new": "doanh nhân"
+    },
+    {
+      "word": "cook",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "cook",
+      "field": "note",
+      "old": "emoji Cooking; cook vừa là danh từ vừa là động từ; chọn danh từ người nấu ăn",
+      "new": ""
+    },
+    {
+      "word": "dentist",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "doctor",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "nurse",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "farmer",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "driver",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "driver",
+      "field": "note",
+      "old": "emoji Automobile; chọn nghĩa tài xế",
+      "new": ""
+    },
+    {
+      "word": "driver",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "footballer",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "footballer",
+      "field": "note",
+      "old": "emoji Soccer ball; nghĩa cầu thủ",
+      "new": ""
+    },
+    {
+      "word": "police officer",
+      "field": "vi",
+      "old": "sĩ quan cảnh sát",
+      "new": "viên cảnh sát"
+    },
+    {
+      "word": "policeman",
+      "field": "vi",
+      "old": "cảnh sát nam",
+      "new": "chú cảnh sát"
+    },
+    {
+      "word": "waiter",
+      "field": "vi",
+      "old": "người phục vụ nam",
+      "new": "người phục vụ"
+    },
+    {
+      "word": "waiter",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "waiter",
+      "field": "note",
+      "old": "emoji Person chung chung; nghĩa bồi bàn nam",
+      "new": ""
+    }
+  ],
+  "stillCheck": []
+}

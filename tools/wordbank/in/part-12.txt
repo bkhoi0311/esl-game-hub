@@ -1,0 +1,94 @@
+dvd	Dvd
+video	Video camera
+selfie	Selfie
+message	Speech balloon
+chat	Speech balloon
+drone	Helicopter
+satellite	Satellite
+telescope	Telescope
+microscope	Microscope
+magnet	Magnet
+torch	Flashlight
+flashlight	Flashlight
+lock	Locked
+coin	Coin
+money	Money bag
+cash	Dollar banknote
+credit card	Credit card
+card	Credit card
+note	Memo
+list	Clipboard
+compass	Compass
+flag	Triangular flag
+sign	Stop sign
+ribbon	Ribbon
+nail	Hammer
+rope	Knot
+chain	Chains
+gear	Gear
+bomb	Bomb
+sword	Crossed swords
+shield	Shield
+gun	Water pistol
+pistol	Water pistol
+axe	Axe
+needle	Sewing needle
+thread	Thread
+parcel	Package
+envelope	Envelope
+stamp	Postbox
+medicine	Pill
+pill	Pill
+bandage	Adhesive bandage
+plaster	Adhesive bandage
+thermometer	Thermometer
+syringe	Syringe
+injection	Syringe
+wheelchair	Wheelchair symbol
+crutch	Crutch
+x-ray	X-ray
+test tube	Test tube
+dna	Dna
+atom	Atom symbol
+magnifying glass	Magnifying glass tilted left
+light bulb	Light bulb
+gem	Gem stone
+jewel	Gem stone
+gold	Coin
+treasure	Gem stone
+sleeping bag	Bed
+pager	Pager
+fax	Fax machine
+abacus	Abacus
+calculator	Abacus
+alarm	Alarm clock
+hourglass	Hourglass done
+timer	Timer clock
+stopwatch	Stopwatch
+magic wand	Magic wand
+crystal ball	Crystal ball
+joystick	Joystick
+dice	Game die
+yo-yo	Yo-yo
+teddy	Teddy bear
+pinata	Piñata
+nesting doll	Nesting dolls
+puzzle piece	Puzzle piece
+confetti	Confetti ball
+firecracker	Firecracker
+sparkler	Sparkler
+trophy cup	Trophy
+silver medal	2nd place medal
+bronze medal	3rd place medal
+zero	Keycap 0
+one	Keycap 1
+two	Keycap 2
+three	Keycap 3
+four	Keycap 4
+five	Keycap 5
+six	Keycap 6
+seven	Keycap 7
+eight	Keycap 8
+nine	Keycap 9
+ten	Keycap 10
+hundred	Hundred points

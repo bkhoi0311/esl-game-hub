@@ -1,0 +1,300 @@
+{
+  "title": "Nature",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "sea",
+      "meaning": "biển",
+      "category": "nature",
+      "example": "The sea is warm today.",
+      "image": ""
+    },
+    {
+      "word": "beach",
+      "meaning": "bãi biển",
+      "category": "nature",
+      "example": "We play on the beach.",
+      "image": ""
+    },
+    {
+      "word": "river",
+      "meaning": "con sông",
+      "category": "nature",
+      "example": "The river is wide and blue.",
+      "image": ""
+    },
+    {
+      "word": "lake",
+      "meaning": "cái hồ",
+      "category": "nature",
+      "example": "Ducks swim on the lake.",
+      "image": ""
+    },
+    {
+      "word": "mountain",
+      "meaning": "ngọn núi",
+      "category": "nature",
+      "example": "The mountain is covered with snow.",
+      "image": ""
+    },
+    {
+      "word": "forest",
+      "meaning": "khu rừng",
+      "category": "nature",
+      "example": "A fox lives in the forest.",
+      "image": ""
+    },
+    {
+      "word": "hill",
+      "meaning": "ngọn đồi",
+      "category": "nature",
+      "example": "We run up the hill.",
+      "image": ""
+    },
+    {
+      "word": "island",
+      "meaning": "hòn đảo",
+      "category": "nature",
+      "example": "The island has white sand.",
+      "image": ""
+    },
+    {
+      "word": "desert",
+      "meaning": "sa mạc",
+      "category": "nature",
+      "example": "Camels live in the desert.",
+      "image": ""
+    },
+    {
+      "word": "sky",
+      "meaning": "bầu trời",
+      "category": "nature",
+      "example": "The sky is blue today.",
+      "image": ""
+    },
+    {
+      "word": "sand",
+      "meaning": "cát",
+      "category": "nature",
+      "example": "We build a castle in the sand.",
+      "image": ""
+    },
+    {
+      "word": "rock",
+      "meaning": "tảng đá",
+      "category": "nature",
+      "example": "A big rock is in the river.",
+      "image": ""
+    },
+    {
+      "word": "jungle",
+      "meaning": "rừng rậm",
+      "category": "nature",
+      "example": "Monkeys play in the jungle.",
+      "image": ""
+    },
+    {
+      "word": "cave",
+      "meaning": "hang động",
+      "category": "nature",
+      "example": "A bat sleeps in the cave.",
+      "image": ""
+    },
+    {
+      "word": "waterfall",
+      "meaning": "thác nước",
+      "category": "nature",
+      "example": "The waterfall is very high.",
+      "image": ""
+    },
+    {
+      "word": "volcano",
+      "meaning": "núi lửa",
+      "category": "nature",
+      "example": "The volcano is red and hot.",
+      "image": ""
+    },
+    {
+      "word": "tree",
+      "meaning": "cái cây",
+      "category": "plant",
+      "example": "A bird sits in the tree.",
+      "image": ""
+    },
+    {
+      "word": "flower",
+      "meaning": "bông hoa",
+      "category": "plant",
+      "example": "The flower smells nice.",
+      "image": ""
+    },
+    {
+      "word": "leaf",
+      "meaning": "chiếc lá",
+      "category": "plant",
+      "example": "A green leaf falls from the branch.",
+      "image": ""
+    },
+    {
+      "word": "grass",
+      "meaning": "cỏ",
+      "category": "plant",
+      "example": "The sheep eat the grass.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"mountain\" mean?",
+      "options": [
+        "ngọn núi",
+        "rừng rậm",
+        "con sông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Ducks swim on the ___.",
+      "options": [
+        "white",
+        "lake",
+        "celebrate"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grass\" mean?",
+      "options": [
+        "chiếc lá",
+        "biển",
+        "cỏ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Monkeys play in the ___.",
+      "options": [
+        "jungle",
+        "hungry",
+        "warm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_ach (bãi biển)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bông hoa\"?",
+      "options": [
+        "toy",
+        "hair",
+        "flower"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khu rừng)",
+      "options": [
+        "foresst",
+        "forrest",
+        "forest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái cây\"?",
+      "options": [
+        "bottle",
+        "tree",
+        "board"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cave\" mean?",
+      "options": [
+        "hang động",
+        "bãi biển",
+        "tảng đá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bầu trời\"?",
+      "options": [
+        "sea",
+        "sky",
+        "jungle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hòn đảo)",
+      "options": [
+        "island",
+        "islend",
+        "issland"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rock\" mean?",
+      "options": [
+        "hòn đảo",
+        "núi lửa",
+        "tảng đá"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thác nước)",
+      "options": [
+        "watirfall",
+        "waterfall",
+        "waterflal"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_nd (cát)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to climb a mountain",
+    "Pretend to swim in the sea",
+    "Sway like a tree",
+    "Make a wave with your arms",
+    "Pretend to pick a flower",
+    "Walk slowly on hot sand"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

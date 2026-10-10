@@ -1,0 +1,296 @@
+{
+  "title": "Technology",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "computer",
+      "meaning": "máy tính",
+      "category": "tech",
+      "example": "I play games on the computer.",
+      "image": ""
+    },
+    {
+      "word": "laptop",
+      "meaning": "máy tính xách tay",
+      "category": "tech",
+      "example": "She works on her laptop.",
+      "image": ""
+    },
+    {
+      "word": "tablet",
+      "meaning": "máy tính bảng",
+      "category": "tech",
+      "example": "My brother plays games on a tablet.",
+      "image": ""
+    },
+    {
+      "word": "phone",
+      "meaning": "điện thoại",
+      "category": "tech",
+      "example": "Can I use your phone?",
+      "image": ""
+    },
+    {
+      "word": "mobile phone",
+      "meaning": "điện thoại di động",
+      "category": "tech",
+      "example": "He has a new mobile phone.",
+      "image": ""
+    },
+    {
+      "word": "camera",
+      "meaning": "máy ảnh",
+      "category": "tech",
+      "example": "She takes photos with her new camera.",
+      "image": ""
+    },
+    {
+      "word": "tv",
+      "meaning": "cái tivi",
+      "category": "tech",
+      "example": "I watch TV after dinner.",
+      "image": ""
+    },
+    {
+      "word": "robot",
+      "meaning": "người máy",
+      "category": "tech",
+      "example": "My robot can dance and sing.",
+      "image": ""
+    },
+    {
+      "word": "internet",
+      "meaning": "mạng internet",
+      "category": "tech",
+      "example": "I use the internet to learn.",
+      "image": ""
+    },
+    {
+      "word": "website",
+      "meaning": "trang web",
+      "category": "tech",
+      "example": "This website has fun games.",
+      "image": ""
+    },
+    {
+      "word": "email",
+      "meaning": "thư điện tử",
+      "category": "tech",
+      "example": "She sends an email to her teacher.",
+      "image": ""
+    },
+    {
+      "word": "screen",
+      "meaning": "màn hình",
+      "category": "tech",
+      "example": "The screen is very bright.",
+      "image": ""
+    },
+    {
+      "word": "headphones",
+      "meaning": "tai nghe",
+      "category": "tech",
+      "example": "I wear headphones to listen to music.",
+      "image": ""
+    },
+    {
+      "word": "speaker",
+      "meaning": "cái loa",
+      "category": "tech",
+      "example": "This speaker is very loud.",
+      "image": ""
+    },
+    {
+      "word": "microphone",
+      "meaning": "cái micro",
+      "category": "tech",
+      "example": "She sings into the microphone.",
+      "image": ""
+    },
+    {
+      "word": "printer",
+      "meaning": "máy in",
+      "category": "tech",
+      "example": "The printer is next to the desk.",
+      "image": ""
+    },
+    {
+      "word": "radio",
+      "meaning": "cái đài",
+      "category": "tech",
+      "example": "We listen to the radio in the car.",
+      "image": ""
+    },
+    {
+      "word": "video",
+      "meaning": "đoạn video",
+      "category": "tech",
+      "example": "The video is very funny.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (tai nghe)",
+      "options": [
+        "headhpones",
+        "headphones",
+        "headphonis"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đoạn video\"?",
+      "options": [
+        "video",
+        "printer",
+        "computer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (máy tính bảng)",
+      "options": [
+        "tbalet",
+        "teblet",
+        "tablet"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"printer\" mean?",
+      "options": [
+        "máy in",
+        "máy ảnh",
+        "màn hình"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ph_ne (điện thoại)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy tính xách tay\"?",
+      "options": [
+        "mobile phone",
+        "website",
+        "laptop"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"microphone\" mean?",
+      "options": [
+        "người máy",
+        "cái đài",
+        "cái micro"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_dio (cái đài)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She sends an ___ to her teacher.",
+      "options": [
+        "email",
+        "office",
+        "angel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mạng internet)",
+      "options": [
+        "internet",
+        "interrnet",
+        "itnernet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái loa\"?",
+      "options": [
+        "camera",
+        "speaker",
+        "radio"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mobile phone\" mean?",
+      "options": [
+        "trang web",
+        "máy tính bảng",
+        "điện thoại di động"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ can dance and sing.",
+      "options": [
+        "insect",
+        "robot",
+        "superhero"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"screen\" mean?",
+      "options": [
+        "cái micro",
+        "cái loa",
+        "màn hình"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: comput_r (máy tính)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Walk like a robot",
+    "Pretend to type",
+    "Pretend to take a photo",
+    "Pretend to talk on the phone",
+    "Pretend to put on headphones",
+    "Pretend to watch TV"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

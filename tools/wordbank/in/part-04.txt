@@ -1,0 +1,97 @@
+factory worker	Factory worker
+office worker	Office worker
+technician	Technologist
+programmer	Technologist
+photographer	Camera
+journalist	Newspaper
+manager	Office worker
+secretary	Office worker
+shop assistant	Shopping bags
+cleaner	Broom
+dancer	Woman dancing
+musician	Guitar
+painter	Artist
+writer	Writing hand
+vet	Health worker
+soldier	Military helmet
+sailor	Sailboat
+royal guard	Guard
+hairdresser	Person getting haircut
+barber	Barber pole
+baker	Bread
+bus driver	Bus
+taxi driver	Taxi
+postman	Envelope
+lifeguard	Person swimming
+apple	Red apple
+banana	Banana
+bean	Beans
+beans	Beans
+bread	Bread
+breakfast	Pancakes
+burger	Hamburger
+hamburger	Hamburger
+cake	Shortcake
+birthday cake	Birthday cake
+candy	Candy
+sweets	Candy
+carrot	Carrot
+cheese	Cheese wedge
+chips	French fries
+fries	French fries
+chocolate	Chocolate bar
+coconut	Coconut
+coffee	Hot beverage
+cookie	Cookie
+biscuit	Cookie
+drink	Cup with straw
+fruit	Red apple
+grape	Grapes
+grapes	Grapes
+ice cream	Ice cream
+juice	Beverage box
+lemon	Lemon
+lemonade	Cup with straw
+lime	Lime
+lunch	Bento box
+dinner	Fork and knife with plate
+mango	Mango
+meat	Cut of meat
+steak	Cut of meat
+sausage	Hot dog
+hot dog	Hot dog
+meatball	Pot of food
+milk	Glass of milk
+milkshake	Cup with straw
+noodles	Steaming bowl
+onion	Onion
+pancake	Pancakes
+pancakes	Pancakes
+pasta	Spaghetti
+spaghetti	Spaghetti
+pea	Pea pod
+peas	Pea pod
+pear	Pear
+pepper	Bell pepper
+pie	Pie
+pineapple	Pineapple
+pizza	Pizza
+potato	Potato
+rice	Cooked rice
+salad	Green salad
+salt	Salt
+sandwich	Sandwich
+soup	Pot of food
+strawberry	Strawberry
+sugar	Cupcake
+sweet	Candy
+tea	Teacup without handle
+tomato	Tomato
+vegetable	Broccoli
+vegetables	Broccoli
+water	Droplet
+watermelon	Watermelon
+yoghurt	Glass of milk
+honey	Honey pot
+jam	Jar
+butter	Butter

@@ -1,0 +1,275 @@
+{
+  "title": "Sea Animals and Insects",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "fish",
+      "meaning": "con cá",
+      "category": "sea-animal",
+      "example": "There is a fish in the bowl.",
+      "image": ""
+    },
+    {
+      "word": "shark",
+      "meaning": "con cá mập",
+      "category": "sea-animal",
+      "example": "The shark swims very fast.",
+      "image": ""
+    },
+    {
+      "word": "whale",
+      "meaning": "con cá voi",
+      "category": "sea-animal",
+      "example": "The whale is the biggest animal in the sea.",
+      "image": ""
+    },
+    {
+      "word": "dolphin",
+      "meaning": "con cá heo",
+      "category": "sea-animal",
+      "example": "A dolphin jumps out of the water.",
+      "image": ""
+    },
+    {
+      "word": "crab",
+      "meaning": "con cua",
+      "category": "sea-animal",
+      "example": "A crab is walking on the beach.",
+      "image": ""
+    },
+    {
+      "word": "jellyfish",
+      "meaning": "con sứa",
+      "category": "sea-animal",
+      "example": "The jellyfish floats in the sea.",
+      "image": ""
+    },
+    {
+      "word": "octopus",
+      "meaning": "con bạch tuộc",
+      "category": "sea-animal",
+      "example": "The octopus has eight arms.",
+      "image": ""
+    },
+    {
+      "word": "shrimp",
+      "meaning": "con tôm",
+      "category": "sea-animal",
+      "example": "We eat shrimp with rice.",
+      "image": ""
+    },
+    {
+      "word": "bee",
+      "meaning": "con ong",
+      "category": "insect",
+      "example": "A bee is on the yellow flower.",
+      "image": ""
+    },
+    {
+      "word": "ant",
+      "meaning": "con kiến",
+      "category": "insect",
+      "example": "The ant carries a small leaf.",
+      "image": ""
+    },
+    {
+      "word": "butterfly",
+      "meaning": "con bướm",
+      "category": "insect",
+      "example": "A butterfly is sitting on my hand.",
+      "image": ""
+    },
+    {
+      "word": "spider",
+      "meaning": "con nhện",
+      "category": "insect",
+      "example": "A spider is making a web in the corner.",
+      "image": ""
+    },
+    {
+      "word": "snail",
+      "meaning": "con ốc sên",
+      "category": "insect",
+      "example": "The snail moves very slowly.",
+      "image": ""
+    },
+    {
+      "word": "worm",
+      "meaning": "con giun",
+      "category": "insect",
+      "example": "A worm is in the soil.",
+      "image": ""
+    },
+    {
+      "word": "fly",
+      "meaning": "con ruồi",
+      "category": "insect",
+      "example": "A fly is on the window.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"spider\" mean?",
+      "options": [
+        "con kiến",
+        "con giun",
+        "con nhện"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ is walking on the beach.",
+      "options": [
+        "quiet",
+        "crab",
+        "dangerous"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ant\" mean?",
+      "options": [
+        "con kiến",
+        "con bướm",
+        "con ốc sên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: oct_pus (con bạch tuộc)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con tôm)",
+      "options": [
+        "shrimp",
+        "shrrimp",
+        "shrimmp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con cá\"?",
+      "options": [
+        "baby",
+        "fish",
+        "hand"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con sứa)",
+      "options": [
+        "jelylfish",
+        "jellyfsih",
+        "jellyfish"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con ong\"?",
+      "options": [
+        "bee",
+        "fly",
+        "ant"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con giun)",
+      "options": [
+        "worrm",
+        "worm",
+        "wrom"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wh_le (con cá voi)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fly\" mean?",
+      "options": [
+        "con nhện",
+        "con ốc sên",
+        "con ruồi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con cá heo\"?",
+      "options": [
+        "dolphin",
+        "crab",
+        "jellyfish"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shark\" mean?",
+      "options": [
+        "con cua",
+        "con cá mập",
+        "con cá heo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ is sitting on my hand.",
+      "options": [
+        "butterfly",
+        "scared",
+        "strong"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sna_l (con ốc sên)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to swim",
+    "Fly like a butterfly",
+    "Walk like a crab",
+    "Buzz like a bee",
+    "Move slowly like a snail",
+    "Float like a jellyfish"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

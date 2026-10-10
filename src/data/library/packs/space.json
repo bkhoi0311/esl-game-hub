@@ -1,0 +1,261 @@
+{
+  "title": "Space",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "earth",
+      "meaning": "Trái Đất",
+      "category": "space",
+      "example": "The earth moves around the sun.",
+      "image": ""
+    },
+    {
+      "word": "moon",
+      "meaning": "mặt trăng",
+      "category": "space",
+      "example": "The moon is bright tonight.",
+      "image": ""
+    },
+    {
+      "word": "planet",
+      "meaning": "hành tinh",
+      "category": "space",
+      "example": "Jupiter is a very big planet.",
+      "image": ""
+    },
+    {
+      "word": "star",
+      "meaning": "ngôi sao",
+      "category": "space",
+      "example": "I can see a bright star.",
+      "image": ""
+    },
+    {
+      "word": "sun",
+      "meaning": "mặt trời",
+      "category": "space",
+      "example": "The sun is hot today.",
+      "image": ""
+    },
+    {
+      "word": "space",
+      "meaning": "vũ trụ",
+      "category": "space",
+      "example": "The astronaut floats in space.",
+      "image": ""
+    },
+    {
+      "word": "satellite",
+      "meaning": "vệ tinh",
+      "category": "space",
+      "example": "A satellite goes around the Earth.",
+      "image": ""
+    },
+    {
+      "word": "telescope",
+      "meaning": "kính thiên văn",
+      "category": "space",
+      "example": "He looks at the moon with a telescope.",
+      "image": ""
+    },
+    {
+      "word": "astronaut",
+      "meaning": "phi hành gia",
+      "category": "job",
+      "example": "The astronaut flies to the moon.",
+      "image": ""
+    },
+    {
+      "word": "rocket",
+      "meaning": "tên lửa",
+      "category": "transport",
+      "example": "The rocket flies up to the moon.",
+      "image": ""
+    },
+    {
+      "word": "spaceship",
+      "meaning": "tàu vũ trụ",
+      "category": "transport",
+      "example": "The spaceship lands on a new planet.",
+      "image": ""
+    },
+    {
+      "word": "alien",
+      "meaning": "người ngoài hành tinh",
+      "category": "fantasy",
+      "example": "The alien comes from a far planet.",
+      "image": ""
+    },
+    {
+      "word": "ufo",
+      "meaning": "đĩa bay",
+      "category": "fantasy",
+      "example": "I see a UFO in the picture.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: al_en (người ngoài hành tinh)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sun\" mean?",
+      "options": [
+        "mặt trăng",
+        "mặt trời",
+        "kính thiên văn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He looks at the moon with a ___.",
+      "options": [
+        "telescope",
+        "paper",
+        "boots"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"space\" mean?",
+      "options": [
+        "vũ trụ",
+        "vệ tinh",
+        "hành tinh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pl_net (hành tinh)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ moves around the sun.",
+      "options": [
+        "astronaut",
+        "alien",
+        "earth"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngôi sao)",
+      "options": [
+        "sttar",
+        "satr",
+        "star"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"astronaut\" mean?",
+      "options": [
+        "tàu vũ trụ",
+        "phi hành gia",
+        "Trái Đất"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: spacesh_p (tàu vũ trụ)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vệ tinh\"?",
+      "options": [
+        "flamingo",
+        "satellite",
+        "ladybird"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phi hành gia)",
+      "options": [
+        "astrronaut",
+        "astronnaut",
+        "astronaut"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mặt trăng\"?",
+      "options": [
+        "moon",
+        "sun",
+        "telescope"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"UFO\" mean?",
+      "options": [
+        "người ngoài hành tinh",
+        "mặt trời",
+        "đĩa bay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tên lửa\"?",
+      "options": [
+        "spaceship",
+        "rocket",
+        "sun"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kính thiên văn\"?",
+      "options": [
+        "telescope",
+        "planet",
+        "space"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Walk like an astronaut",
+    "Blast off like a rocket",
+    "Spin like a planet",
+    "Float in space",
+    "Pretend to look through a telescope",
+    "Walk like an alien"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

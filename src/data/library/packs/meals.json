@@ -1,0 +1,265 @@
+{
+  "title": "Meals and Dishes",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "breakfast",
+      "meaning": "bữa sáng",
+      "category": "meal",
+      "example": "I have breakfast at seven o'clock.",
+      "image": ""
+    },
+    {
+      "word": "lunch",
+      "meaning": "bữa trưa",
+      "category": "meal",
+      "example": "We have lunch at school.",
+      "image": ""
+    },
+    {
+      "word": "dinner",
+      "meaning": "bữa tối",
+      "category": "meal",
+      "example": "We have dinner at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "pizza",
+      "meaning": "bánh pizza",
+      "category": "meal",
+      "example": "We share a big pizza on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "burger",
+      "meaning": "bánh burger",
+      "category": "meal",
+      "example": "He wants a big burger for lunch.",
+      "image": ""
+    },
+    {
+      "word": "rice",
+      "meaning": "cơm",
+      "category": "meal",
+      "example": "We eat rice every day.",
+      "image": ""
+    },
+    {
+      "word": "noodles",
+      "meaning": "mì sợi",
+      "category": "meal",
+      "example": "We eat noodles with chopsticks.",
+      "image": ""
+    },
+    {
+      "word": "soup",
+      "meaning": "món súp",
+      "category": "meal",
+      "example": "Hot soup is great on a cold day.",
+      "image": ""
+    },
+    {
+      "word": "salad",
+      "meaning": "món salad",
+      "category": "meal",
+      "example": "Mum makes a fresh salad for lunch.",
+      "image": ""
+    },
+    {
+      "word": "sandwich",
+      "meaning": "bánh mì kẹp",
+      "category": "meal",
+      "example": "I eat a cheese sandwich at school.",
+      "image": ""
+    },
+    {
+      "word": "spaghetti",
+      "meaning": "mì Ý",
+      "category": "meal",
+      "example": "We eat spaghetti for dinner tonight.",
+      "image": ""
+    },
+    {
+      "word": "pasta",
+      "meaning": "mì ống",
+      "category": "meal",
+      "example": "My brother loves pasta with tomato sauce.",
+      "image": ""
+    },
+    {
+      "word": "hot dog",
+      "meaning": "bánh mì xúc xích",
+      "category": "meal",
+      "example": "She buys a hot dog at the park.",
+      "image": ""
+    },
+    {
+      "word": "pancake",
+      "meaning": "bánh kếp",
+      "category": "food",
+      "example": "Dad flips a pancake in the pan.",
+      "image": ""
+    },
+    {
+      "word": "steak",
+      "meaning": "bít tết",
+      "category": "meal",
+      "example": "He cooks a steak for dinner.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"mì Ý\"?",
+      "options": [
+        "salad",
+        "spaghetti",
+        "dinner"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He wants a big ___ for lunch.",
+      "options": [
+        "burger",
+        "sparkler",
+        "cards"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pancake\" mean?",
+      "options": [
+        "món salad",
+        "món súp",
+        "bánh kếp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mì ống)",
+      "options": [
+        "pastta",
+        "pasta",
+        "patsa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"breakfast\" mean?",
+      "options": [
+        "bữa sáng",
+        "bánh burger",
+        "bữa tối"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bánh mì kẹp\"?",
+      "options": [
+        "breakfast",
+        "pizza",
+        "sandwich"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have ___ at school.",
+      "options": [
+        "scared",
+        "look",
+        "lunch"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dinner\" mean?",
+      "options": [
+        "mì ống",
+        "bữa tối",
+        "mì Ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_odles (mì sợi)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bít tết)",
+      "options": [
+        "steak",
+        "setak",
+        "staek"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_zza (bánh pizza)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"món súp\"?",
+      "options": [
+        "soup",
+        "hot dog",
+        "rice"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sal_d (món salad)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cơm)",
+      "options": [
+        "rcie",
+        "ricce",
+        "rice"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat noodles",
+    "Pretend to eat a burger",
+    "Pretend to stir the soup",
+    "Pretend to eat with chopsticks",
+    "Rub your tummy",
+    "Say \"Yummy!\""
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

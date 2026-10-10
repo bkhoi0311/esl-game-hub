@@ -1,0 +1,114 @@
+{
+  "sampled": [
+    "bridge",
+    "motorbike",
+    "park",
+    "island",
+    "boat",
+    "bank",
+    "tractor",
+    "street",
+    "skates",
+    "sled",
+    "sports centre",
+    "fire engine",
+    "volcano",
+    "shopping",
+    "university"
+  ],
+  "sampleErrors": [
+    "shopping"
+  ],
+  "alsoReviewed": [
+    "wood",
+    "train"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "cooking",
+      "field": "vi",
+      "old": "việc nấu ăn",
+      "new": "nấu ăn"
+    },
+    {
+      "word": "shopping",
+      "field": "vi",
+      "old": "việc mua sắm",
+      "new": "mua sắm"
+    },
+    {
+      "word": "trip",
+      "field": "cat",
+      "old": "transport",
+      "new": "hobby"
+    },
+    {
+      "word": "journey",
+      "field": "cat",
+      "old": "transport",
+      "new": "hobby"
+    },
+    {
+      "word": "ambulance",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "car",
+      "field": "vi",
+      "old": "xe hơi",
+      "new": "xe ô tô"
+    },
+    {
+      "word": "taxi",
+      "field": "vi",
+      "old": "xe tắc xi",
+      "new": "xe taxi"
+    },
+    {
+      "word": "railway",
+      "field": "vi",
+      "old": "đường ray",
+      "new": "đường sắt"
+    },
+    {
+      "word": "railway",
+      "field": "cat",
+      "old": "transport",
+      "new": "place"
+    },
+    {
+      "word": "canoe",
+      "field": "vi",
+      "old": "cái ca nô",
+      "new": "chiếc xuồng"
+    },
+    {
+      "word": "wheel",
+      "field": "ex",
+      "old": "The bike has a flat wheel.",
+      "new": "My bike has a new front wheel."
+    },
+    {
+      "word": "store",
+      "field": "vi",
+      "old": "cửa hàng",
+      "new": "cửa tiệm"
+    },
+    {
+      "word": "wood",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "wood",
+      "field": "note",
+      "old": "emoji cây; \"wood\" đa nghĩa (gỗ / rừng nhỏ), chọn khu rừng nhỏ",
+      "new": "chọn nghĩa khu rừng nhỏ (gỗ cũng đúng)"
+    }
+  ],
+  "stillCheck": []
+}

@@ -1,0 +1,54 @@
+{
+  "sampled": [
+    "dream",
+    "scared",
+    "goodbye",
+    "good",
+    "quick",
+    "silly",
+    "danger",
+    "rich",
+    "ugly",
+    "weak",
+    "quiet",
+    "frightened",
+    "celebration",
+    "open",
+    "laugh"
+  ],
+  "sampleErrors": [
+    "dream"
+  ],
+  "alsoReviewed": [
+    "date",
+    "right"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "christmas",
+      "field": "vi",
+      "old": "Giáng sinh",
+      "new": "lễ Giáng sinh"
+    },
+    {
+      "word": "new year",
+      "field": "ex",
+      "old": "Our family has a big dinner at new year.",
+      "new": "Our family has a big dinner at New Year."
+    },
+    {
+      "word": "strong",
+      "field": "vi",
+      "old": "khoẻ mạnh",
+      "new": "khoẻ"
+    },
+    {
+      "word": "dream",
+      "field": "ex",
+      "old": "I had a funny dream last night.",
+      "new": "Tell me about your dream."
+    }
+  ],
+  "stillCheck": []
+}

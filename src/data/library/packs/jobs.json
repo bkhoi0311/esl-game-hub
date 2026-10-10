@@ -1,0 +1,303 @@
+{
+  "title": "Jobs",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "teacher",
+      "meaning": "giáo viên",
+      "category": "job",
+      "example": "Our teacher reads us a story.",
+      "image": ""
+    },
+    {
+      "word": "doctor",
+      "meaning": "bác sĩ",
+      "category": "job",
+      "example": "The doctor helps sick people.",
+      "image": ""
+    },
+    {
+      "word": "nurse",
+      "meaning": "y tá",
+      "category": "job",
+      "example": "The nurse works at the hospital.",
+      "image": ""
+    },
+    {
+      "word": "farmer",
+      "meaning": "nông dân",
+      "category": "job",
+      "example": "The farmer has many cows.",
+      "image": ""
+    },
+    {
+      "word": "driver",
+      "meaning": "tài xế",
+      "category": "job",
+      "example": "The driver stops at the red light.",
+      "image": ""
+    },
+    {
+      "word": "chef",
+      "meaning": "đầu bếp",
+      "category": "job",
+      "example": "The chef makes tasty pasta.",
+      "image": ""
+    },
+    {
+      "word": "dentist",
+      "meaning": "nha sĩ",
+      "category": "job",
+      "example": "The dentist looks at my teeth.",
+      "image": ""
+    },
+    {
+      "word": "pilot",
+      "meaning": "phi công",
+      "category": "job",
+      "example": "The pilot flies the plane.",
+      "image": ""
+    },
+    {
+      "word": "policeman",
+      "meaning": "chú cảnh sát",
+      "category": "job",
+      "example": "The policeman stands near the bank.",
+      "image": ""
+    },
+    {
+      "word": "fireman",
+      "meaning": "lính cứu hoả",
+      "category": "job",
+      "example": "The fireman carries a long hose.",
+      "image": ""
+    },
+    {
+      "word": "singer",
+      "meaning": "ca sĩ",
+      "category": "job",
+      "example": "The singer has a lovely voice.",
+      "image": ""
+    },
+    {
+      "word": "actor",
+      "meaning": "diễn viên",
+      "category": "job",
+      "example": "The actor is in a new film.",
+      "image": ""
+    },
+    {
+      "word": "artist",
+      "meaning": "hoạ sĩ",
+      "category": "job",
+      "example": "The artist paints a beautiful picture.",
+      "image": ""
+    },
+    {
+      "word": "baker",
+      "meaning": "thợ làm bánh",
+      "category": "job",
+      "example": "The baker gets up early to make bread.",
+      "image": ""
+    },
+    {
+      "word": "builder",
+      "meaning": "thợ xây",
+      "category": "job",
+      "example": "The builder is building a house.",
+      "image": ""
+    },
+    {
+      "word": "scientist",
+      "meaning": "nhà khoa học",
+      "category": "job",
+      "example": "The scientist studies small insects.",
+      "image": ""
+    },
+    {
+      "word": "vet",
+      "meaning": "bác sĩ thú y",
+      "category": "job",
+      "example": "The vet looks at my sick dog.",
+      "image": ""
+    },
+    {
+      "word": "waiter",
+      "meaning": "người phục vụ",
+      "category": "job",
+      "example": "The waiter brings us some water.",
+      "image": ""
+    },
+    {
+      "word": "postman",
+      "meaning": "người đưa thư",
+      "category": "job",
+      "example": "The postman brings a letter to our house.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"fireman\" mean?",
+      "options": [
+        "bác sĩ thú y",
+        "lính cứu hoả",
+        "hoạ sĩ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has many cows.",
+      "options": [
+        "farmer",
+        "white",
+        "afraid"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người đưa thư\"?",
+      "options": [
+        "scientist",
+        "waiter",
+        "postman"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: driv_r (tài xế)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hoạ sĩ)",
+      "options": [
+        "arttist",
+        "artist",
+        "arrtist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has a lovely voice.",
+      "options": [
+        "learn",
+        "relax",
+        "singer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pilot\" mean?",
+      "options": [
+        "phi công",
+        "nha sĩ",
+        "lính cứu hoả"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_ctor (bác sĩ)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"baker\" mean?",
+      "options": [
+        "nhà khoa học",
+        "hoạ sĩ",
+        "thợ làm bánh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"y tá\"?",
+      "options": [
+        "nurse",
+        "pilot",
+        "postman"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wait_r (người phục vụ)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà khoa học)",
+      "options": [
+        "sceintist",
+        "scienntist",
+        "scientist"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"teacher\" mean?",
+      "options": [
+        "chú cảnh sát",
+        "giáo viên",
+        "nông dân"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nha sĩ\"?",
+      "options": [
+        "dentist",
+        "fireman",
+        "baker"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thợ xây)",
+      "options": [
+        "buillder",
+        "buildir",
+        "builder"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a teacher",
+    "Pretend to drive a bus",
+    "Pretend to cook",
+    "Pretend to fly a plane",
+    "Pretend to paint",
+    "Pretend to sing on stage"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

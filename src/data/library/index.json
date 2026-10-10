@@ -1,0 +1,529 @@
+[
+  {
+    "id": "animals",
+    "level": "starters",
+    "series": "",
+    "title": "Animals",
+    "titleVi": "Động vật nuôi và gần gũi",
+    "words": 17,
+    "questions": 15,
+    "preview": [
+      "cat",
+      "dog",
+      "rabbit",
+      "hamster",
+      "pig",
+      "cow"
+    ]
+  },
+  {
+    "id": "wild-animals",
+    "level": "starters",
+    "series": "",
+    "title": "Wild Animals",
+    "titleVi": "Động vật hoang dã",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "lion",
+      "tiger",
+      "elephant",
+      "giraffe",
+      "zebra",
+      "monkey"
+    ]
+  },
+  {
+    "id": "sea-and-insects",
+    "level": "movers",
+    "series": "",
+    "title": "Sea Animals and Insects",
+    "titleVi": "Sinh vật biển và côn trùng",
+    "words": 15,
+    "questions": 15,
+    "preview": [
+      "fish",
+      "shark",
+      "whale",
+      "dolphin",
+      "crab",
+      "jellyfish"
+    ]
+  },
+  {
+    "id": "birds",
+    "level": "movers",
+    "series": "",
+    "title": "Birds",
+    "titleVi": "Các loài chim",
+    "words": 13,
+    "questions": 15,
+    "preview": [
+      "bird",
+      "duck",
+      "chicken",
+      "eagle",
+      "owl",
+      "parrot"
+    ]
+  },
+  {
+    "id": "food-and-drink",
+    "level": "starters",
+    "series": "",
+    "title": "Food and Drink",
+    "titleVi": "Đồ ăn và thức uống",
+    "words": 16,
+    "questions": 15,
+    "preview": [
+      "bread",
+      "cake",
+      "cheese",
+      "egg",
+      "chocolate",
+      "ice cream"
+    ]
+  },
+  {
+    "id": "meals",
+    "level": "starters",
+    "series": "",
+    "title": "Meals and Dishes",
+    "titleVi": "Bữa ăn và món ăn",
+    "words": 15,
+    "questions": 14,
+    "preview": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "pizza",
+      "burger",
+      "rice"
+    ]
+  },
+  {
+    "id": "fruit-and-vegetables",
+    "level": "movers",
+    "series": "",
+    "title": "Fruit and Vegetables",
+    "titleVi": "Trái cây và rau củ",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "apple",
+      "banana",
+      "mango",
+      "grape",
+      "lemon",
+      "pear"
+    ]
+  },
+  {
+    "id": "clothes",
+    "level": "starters",
+    "series": "",
+    "title": "Clothes",
+    "titleVi": "Quần áo và phụ kiện",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "hat",
+      "coat",
+      "dress",
+      "jacket",
+      "jeans",
+      "shirt"
+    ]
+  },
+  {
+    "id": "family-and-people",
+    "level": "starters",
+    "series": "",
+    "title": "Family and People",
+    "titleVi": "Gia đình và con người",
+    "words": 16,
+    "questions": 15,
+    "preview": [
+      "mum",
+      "dad",
+      "brother",
+      "sister",
+      "grandma",
+      "grandpa"
+    ]
+  },
+  {
+    "id": "body",
+    "level": "starters",
+    "series": "",
+    "title": "Body",
+    "titleVi": "Cơ thể",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "head",
+      "face",
+      "eye",
+      "ear",
+      "nose",
+      "mouth"
+    ]
+  },
+  {
+    "id": "school",
+    "level": "starters",
+    "series": "",
+    "title": "School",
+    "titleVi": "Trường học",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "classroom",
+      "desk",
+      "book",
+      "pencil",
+      "pen",
+      "ruler"
+    ]
+  },
+  {
+    "id": "home",
+    "level": "starters",
+    "series": "",
+    "title": "Home",
+    "titleVi": "Ngôi nhà",
+    "words": 17,
+    "questions": 15,
+    "preview": [
+      "bedroom",
+      "kitchen",
+      "bathroom",
+      "living room",
+      "garden",
+      "bed"
+    ]
+  },
+  {
+    "id": "transport",
+    "level": "movers",
+    "series": "",
+    "title": "Transport",
+    "titleVi": "Phương tiện giao thông",
+    "words": 17,
+    "questions": 15,
+    "preview": [
+      "car",
+      "bus",
+      "train",
+      "plane",
+      "boat",
+      "ship"
+    ]
+  },
+  {
+    "id": "weather",
+    "level": "starters",
+    "series": "",
+    "title": "Weather and Seasons",
+    "titleVi": "Thời tiết và mùa",
+    "words": 17,
+    "questions": 15,
+    "preview": [
+      "weather",
+      "sunny",
+      "rainy",
+      "windy",
+      "cloudy",
+      "snowy"
+    ]
+  },
+  {
+    "id": "sports",
+    "level": "movers",
+    "series": "",
+    "title": "Sports",
+    "titleVi": "Thể thao",
+    "words": 19,
+    "questions": 15,
+    "preview": [
+      "football",
+      "basketball",
+      "tennis",
+      "swimming",
+      "baseball",
+      "volleyball"
+    ]
+  },
+  {
+    "id": "hobbies",
+    "level": "movers",
+    "series": "",
+    "title": "Hobbies",
+    "titleVi": "Sở thích",
+    "words": 19,
+    "questions": 15,
+    "preview": [
+      "dancing",
+      "singing",
+      "reading",
+      "drawing",
+      "cooking",
+      "fishing"
+    ]
+  },
+  {
+    "id": "jobs",
+    "level": "movers",
+    "series": "",
+    "title": "Jobs",
+    "titleVi": "Nghề nghiệp",
+    "words": 19,
+    "questions": 15,
+    "preview": [
+      "teacher",
+      "doctor",
+      "nurse",
+      "farmer",
+      "driver",
+      "chef"
+    ]
+  },
+  {
+    "id": "places-in-town",
+    "level": "movers",
+    "series": "",
+    "title": "Places in Town",
+    "titleVi": "Địa điểm trong thị trấn",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "library",
+      "park",
+      "zoo",
+      "shop",
+      "supermarket",
+      "cinema"
+    ]
+  },
+  {
+    "id": "feelings",
+    "level": "movers",
+    "series": "",
+    "title": "Feelings",
+    "titleVi": "Cảm xúc",
+    "words": 16,
+    "questions": 15,
+    "preview": [
+      "happy",
+      "sad",
+      "angry",
+      "tired",
+      "hungry",
+      "thirsty"
+    ]
+  },
+  {
+    "id": "numbers-and-colors",
+    "level": "starters",
+    "series": "",
+    "title": "Numbers and Colors",
+    "titleVi": "Số đếm và màu sắc",
+    "words": 20,
+    "questions": 14,
+    "preview": [
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six"
+    ]
+  },
+  {
+    "id": "nature",
+    "level": "movers",
+    "series": "",
+    "title": "Nature",
+    "titleVi": "Thiên nhiên",
+    "words": 20,
+    "questions": 14,
+    "preview": [
+      "sea",
+      "beach",
+      "river",
+      "lake",
+      "mountain",
+      "forest"
+    ]
+  },
+  {
+    "id": "celebrations",
+    "level": "movers",
+    "series": "",
+    "title": "Celebrations",
+    "titleVi": "Lễ hội và tiệc",
+    "words": 16,
+    "questions": 15,
+    "preview": [
+      "birthday",
+      "birthday cake",
+      "christmas",
+      "new year",
+      "party",
+      "present"
+    ]
+  },
+  {
+    "id": "technology",
+    "level": "movers",
+    "series": "",
+    "title": "Technology",
+    "titleVi": "Công nghệ",
+    "words": 18,
+    "questions": 15,
+    "preview": [
+      "computer",
+      "laptop",
+      "tablet",
+      "phone",
+      "mobile phone",
+      "camera"
+    ]
+  },
+  {
+    "id": "opposites",
+    "level": "starters",
+    "series": "",
+    "title": "Opposites",
+    "titleVi": "Từ trái nghĩa",
+    "words": 20,
+    "questions": 15,
+    "preview": [
+      "big",
+      "small",
+      "tall",
+      "short",
+      "hot",
+      "cold"
+    ]
+  },
+  {
+    "id": "daily-actions",
+    "level": "starters",
+    "series": "",
+    "title": "Daily Actions",
+    "titleVi": "Hoạt động hằng ngày",
+    "words": 20,
+    "questions": 14,
+    "preview": [
+      "get up",
+      "wake up",
+      "brush teeth",
+      "wash",
+      "eat",
+      "go to bed"
+    ]
+  },
+  {
+    "id": "toys-and-games",
+    "level": "starters",
+    "series": "",
+    "title": "Toys and Games",
+    "titleVi": "Đồ chơi và trò chơi",
+    "words": 14,
+    "questions": 15,
+    "preview": [
+      "ball",
+      "balloon",
+      "doll",
+      "kite",
+      "teddy bear",
+      "toy"
+    ]
+  },
+  {
+    "id": "music-and-art",
+    "level": "movers",
+    "series": "",
+    "title": "Music and Art",
+    "titleVi": "Âm nhạc và mỹ thuật",
+    "words": 18,
+    "questions": 14,
+    "preview": [
+      "music",
+      "song",
+      "band",
+      "concert",
+      "guitar",
+      "piano"
+    ]
+  },
+  {
+    "id": "space",
+    "level": "movers",
+    "series": "",
+    "title": "Space",
+    "titleVi": "Vũ trụ",
+    "words": 13,
+    "questions": 15,
+    "preview": [
+      "earth",
+      "moon",
+      "planet",
+      "star",
+      "sun",
+      "space"
+    ]
+  },
+  {
+    "id": "fairy-tales",
+    "level": "movers",
+    "series": "",
+    "title": "Fairy Tales",
+    "titleVi": "Truyện cổ tích",
+    "words": 18,
+    "questions": 14,
+    "preview": [
+      "dragon",
+      "fairy",
+      "witch",
+      "wizard",
+      "king",
+      "queen"
+    ]
+  },
+  {
+    "id": "time-and-days",
+    "level": "starters",
+    "series": "",
+    "title": "Time",
+    "titleVi": "Thời gian",
+    "words": 15,
+    "questions": 15,
+    "preview": [
+      "day",
+      "night",
+      "morning",
+      "evening",
+      "week",
+      "month"
+    ]
+  },
+  {
+    "id": "everyday-objects",
+    "level": "movers",
+    "series": "",
+    "title": "Everyday Objects",
+    "titleVi": "Đồ vật hằng ngày",
+    "words": 20,
+    "questions": 15,
+    "preview": [
+      "bag",
+      "bottle",
+      "bowl",
+      "box",
+      "cup",
+      "fork"
+    ]
+  }
+]

@@ -1,0 +1,289 @@
+{
+  "title": "Home",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bedroom",
+      "meaning": "phòng ngủ",
+      "category": "house",
+      "example": "My bedroom is quiet at night.",
+      "image": ""
+    },
+    {
+      "word": "kitchen",
+      "meaning": "nhà bếp",
+      "category": "house",
+      "example": "Dad is cooking in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "bathroom",
+      "meaning": "phòng tắm",
+      "category": "house",
+      "example": "Wash your hands in the bathroom.",
+      "image": ""
+    },
+    {
+      "word": "living room",
+      "meaning": "phòng khách",
+      "category": "house",
+      "example": "We watch TV in the living room.",
+      "image": ""
+    },
+    {
+      "word": "garden",
+      "meaning": "khu vườn",
+      "category": "house",
+      "example": "We have flowers in the garden.",
+      "image": ""
+    },
+    {
+      "word": "bed",
+      "meaning": "cái giường",
+      "category": "house",
+      "example": "My cat sleeps on my bed.",
+      "image": ""
+    },
+    {
+      "word": "chair",
+      "meaning": "cái ghế",
+      "category": "house",
+      "example": "Sit on the chair, please.",
+      "image": ""
+    },
+    {
+      "word": "table",
+      "meaning": "cái bàn",
+      "category": "house",
+      "example": "The books are on the table.",
+      "image": ""
+    },
+    {
+      "word": "sofa",
+      "meaning": "ghế sofa",
+      "category": "house",
+      "example": "The cat is sleeping on the sofa.",
+      "image": ""
+    },
+    {
+      "word": "door",
+      "meaning": "cánh cửa",
+      "category": "house",
+      "example": "Please close the door.",
+      "image": ""
+    },
+    {
+      "word": "window",
+      "meaning": "cửa sổ",
+      "category": "house",
+      "example": "She looks out of the window.",
+      "image": ""
+    },
+    {
+      "word": "lamp",
+      "meaning": "cái đèn",
+      "category": "house",
+      "example": "Turn on the lamp, please.",
+      "image": ""
+    },
+    {
+      "word": "fridge",
+      "meaning": "tủ lạnh",
+      "category": "house",
+      "example": "The milk is in the fridge.",
+      "image": ""
+    },
+    {
+      "word": "mirror",
+      "meaning": "cái gương",
+      "category": "house",
+      "example": "I look in the mirror.",
+      "image": ""
+    },
+    {
+      "word": "clock",
+      "meaning": "đồng hồ",
+      "category": "house",
+      "example": "The clock says six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "stairs",
+      "meaning": "cầu thang",
+      "category": "house",
+      "example": "Walk up the stairs slowly.",
+      "image": ""
+    },
+    {
+      "word": "wardrobe",
+      "meaning": "tủ quần áo",
+      "category": "house",
+      "example": "My clothes are in the wardrobe.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: cha_r (cái ghế)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"living room\" mean?",
+      "options": [
+        "phòng ngủ",
+        "phòng khách",
+        "cái gương"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khu vườn)",
+      "options": [
+        "garden",
+        "gardin",
+        "gadren"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lamp\" mean?",
+      "options": [
+        "cái đèn",
+        "phòng ngủ",
+        "cửa sổ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The books are on the ___.",
+      "options": [
+        "sad",
+        "row",
+        "table"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồng hồ\"?",
+      "options": [
+        "bedroom",
+        "clock",
+        "bed"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sta_rs (cầu thang)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dad is cooking in the ___.",
+      "options": [
+        "slow",
+        "stop",
+        "kitchen"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phòng ngủ\"?",
+      "options": [
+        "kitchen",
+        "bedroom",
+        "clock"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mirror\" mean?",
+      "options": [
+        "tủ lạnh",
+        "cái gương",
+        "đồng hồ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_or (cánh cửa)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cửa sổ)",
+      "options": [
+        "wnidow",
+        "winduw",
+        "window"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fridge\" mean?",
+      "options": [
+        "tủ quần áo",
+        "tủ lạnh",
+        "nhà bếp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phòng tắm)",
+      "options": [
+        "bethroom",
+        "batrhoom",
+        "bathroom"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tủ quần áo\"?",
+      "options": [
+        "wardrobe",
+        "door",
+        "bedroom"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open the door",
+    "Pretend to sit on the sofa",
+    "Pretend to open the window",
+    "Pretend to cook",
+    "Pretend to sleep in bed",
+    "Pretend to walk up the stairs"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

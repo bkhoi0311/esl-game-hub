@@ -57,7 +57,14 @@ Mở tab **Soạn bài**. Nội dung tự lưu trên máy đang dùng.
    - Dùng `___` cho chỗ trống.
    - Không có câu hỏi thì game tự tạo câu "chọn nghĩa đúng" từ từ vựng.
 4. **Lệnh hành động** (cho Statue Freeze): mỗi dòng 1 lệnh tiếng Anh.
-5. **Các nút:**
+5. **Soạn nhanh (4 công cụ, thanh phía trên bảng từ vựng):**
+   - **Điền từ danh sách:** gõ hoặc dán các từ tiếng Anh (mỗi dòng 1 từ hoặc cách nhau dấu phẩy). Máy tự điền nghĩa tiếng Việt, nhóm và câu ví dụ từ kho khoảng 1.150 từ có sẵn, không cần mạng. Từ chưa có trong kho hiện viền cam để bạn tự điền. Nút **Tự điền ô trống** trong bảng từ vựng chỉ điền ô còn trống, không ghi đè chữ bạn đã gõ.
+   - **Tạo câu hỏi tự động:** chọn số câu (5, 10, 15...) và loại câu (chọn nghĩa, chọn từ, điền chỗ trống, đúng chính tả...). Cần ít nhất 3 từ có nghĩa. Có thể "Thêm vào cuối" hoặc "Thay toàn bộ"; luôn xem và sửa được trong bảng.
+   - **Nhập file:** CSV, TXT (danh sách từ) hoặc Excel .xlsx, bấm chọn hoặc kéo thả vào trang. Có bước xem trước rồi mới Đưa vào bảng. Bấm **Tải file mẫu** để lấy file .xlsx (3 trang) hoặc 2 file CSV mẫu.
+   - **Thư viện bài:** hơn 30 bài theo chủ đề (Animals, Food and Drink, Clothes, Body, School, Jobs, Weather...), mỗi bài 12 đến 20 từ, 15 câu hỏi và lệnh hành động cho Statue Freeze. Chọn bài rồi "Thay bài đang soạn" hoặc "Chỉ thêm vào cuối" và sửa tuỳ ý. Nhãn Starters/Movers/Flyers chỉ là gợi ý mức độ, không phải chuẩn Cambridge.
+   - **Nhập từ Google Sheet:** trong Google Sheet bấm Tệp > Chia sẻ > **Xuất bản lên web**, chọn đúng trang tính, chọn định dạng **CSV**, bấm Xuất bản, rồi copy link dán vào ô "link Google Sheet" trong **Nhập file** (cần mạng). Mỗi trang tính 1 link, dán nhiều link mỗi dòng 1 link. Nếu báo "chưa công khai" thì chưa Xuất bản; cách chắc chắn nhất là Tệp > Tải xuống > CSV rồi kéo thả vào trang.
+   - **Lưu ý:** kho từ không phủ hết mọi từ. Từ lạ, tên riêng, từ rất khó sẽ không có sẵn nghĩa; cấp độ trong kho do AI gán nên chỉ để tham khảo. Hãy đọc lại nghĩa và câu hỏi trước khi dùng trên lớp.
+6. **Các nút:**
    - **Lưu file .edu:** tải file .edu cho ClassIn (tải lên Drive, mở trên màn hình tương tác). Cửa sổ mở 1280x720.
    - **Hướng dẫn (video):** video + các bước từ soạn bài đến mở trên màn hình ClassIn.
    - **Khôi phục nội dung mẫu:** quay về bài mẫu "Unit 5 - Food".
@@ -121,7 +128,10 @@ npm run preview      # chạy bản build qua server local (dùng model AI lưu 
 Kiểm tra tự động (Playwright + Chromium):
 
 ```bash
-npm test               # logic game
+npm test               # logic game + Soạn nhanh + kho từ + thư viện bài
+npm run test:soanbai   # Soạn nhanh trên trình duyệt (dev; thêm đối số dist hoặc offline sau khi build)
+node tools/library/build.mjs   # sinh lại thư viện bài từ tools/library/topics.json và kho từ
+node tools/wordbank/merge.mjs  # ghép tools/wordbank/parts thành src/data/wordbank/words.json
 npm run test:games     # 7 game thi đấu, có test 2 chạm đồng thời
 npm run test:camera    # 4 game camera với camera giả
 npm run shots          # chụp menu, Soạn bài ở 1920x1080, 1366x768, 390x844

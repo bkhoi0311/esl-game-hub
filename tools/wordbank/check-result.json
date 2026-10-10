@@ -1,0 +1,115 @@
+{
+  "target": "all",
+  "at": "2026-10-10T05:14:46.126Z",
+  "errors": 0,
+  "notes": 32,
+  "stats": {
+    "part-01": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 56,
+      "skip": 0
+    },
+    "part-02": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 51,
+      "skip": 1
+    },
+    "part-03": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 49,
+      "skip": 0
+    },
+    "part-04": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 76,
+      "skip": 0
+    },
+    "part-05": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 67,
+      "skip": 2
+    },
+    "part-06": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 44,
+      "skip": 0
+    },
+    "part-07": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 18,
+      "skip": 0
+    },
+    "part-08": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 28,
+      "skip": 0
+    },
+    "part-09": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 73,
+      "skip": 0
+    },
+    "part-10": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 22,
+      "skip": 0
+    },
+    "part-11": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 22,
+      "skip": 0
+    },
+    "part-12": {
+      "entries": 94,
+      "check": 0,
+      "levelCheck": 75,
+      "skip": 8
+    }
+  },
+  "errorList": [],
+  "noteList": [
+    "part-02 | skull: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "part-02 | blood: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "part-02 | gray: cùng vi \"màu xám\" với \"grey\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-03 | father christmas: cùng vi \"ông già Noel\" với \"santa\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-03 | fireman: cùng vi \"lính cứu hoả\" với \"firefighter\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-04 | fries: cùng vi \"khoai tây chiên\" với \"chips\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-04 | pancakes: cùng vi \"bánh kếp\" với \"pancake\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-05 | cherries: cùng vi \"quả anh đào\" với \"cherry\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-05 | donut: cùng vi \"bánh vòng\" với \"doughnut\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-05 | knife: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "part-05 | apartment: cùng vi \"căn hộ\" với \"flat\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-05 | tv: cùng vi \"cái tivi\" với \"television\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | elevator: cùng vi \"thang máy\" với \"lift\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | rubber: cùng vi \"cục tẩy\" với \"eraser\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | math: cùng vi \"môn toán\" với \"maths\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | bicycle: cùng vi \"xe đạp\" với \"bike\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | soccer: cùng vi \"bóng đá\" với \"football\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | ping pong: cùng vi \"bóng bàn\" với \"table tennis\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | jumping: cùng vi \"nhảy\" với \"jump\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | riding: cùng vi \"cưỡi ngựa\" với \"horse riding\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | balloons: cùng vi \"quả bóng bay\" với \"balloon\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | movie: cùng vi \"bộ phim\" với \"film\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | airplane: cùng vi \"máy bay\" với \"aeroplane\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | plane: cùng vi \"máy bay\" với \"aeroplane\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | fire truck: cùng vi \"xe cứu hỏa\" với \"fire engine\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | truck: cùng vi \"xe tải\" với \"lorry\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | metro: cùng vi \"tàu điện ngầm\" với \"underground\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-08 | sled: cùng vi \"xe trượt tuyết\" với \"sledge\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-09 | earth: vi viết hoa đầu (chỉ đúng với tên riêng)",
+    "part-09 | fall: cùng vi \"mùa thu\" với \"autumn\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-12 | flashlight: cùng vi \"đèn pin\" với \"torch\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-12 | dna: vi viết hoa đầu (chỉ đúng với tên riêng)"
+  ]
+}

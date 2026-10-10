@@ -1,0 +1,97 @@
+animal	Paw prints
+bat	Bat
+bear	Bear
+bee	Honeybee
+bird	Bird
+butterfly	Butterfly
+cat	Cat
+kitten	Cat
+chicken	Chicken
+hen	Chicken
+cow	Cow
+crocodile	Crocodile
+dog	Dog
+puppy	Dog
+dolphin	Dolphin
+donkey	Donkey
+duck	Duck
+eagle	Eagle
+elephant	Elephant
+fish	Fish
+fly	Airplane
+frog	Frog
+giraffe	Giraffe
+goat	Goat
+hippo	Hippopotamus
+horse	Horse
+insect	Beetle
+beetle	Beetle
+jellyfish	Jellyfish
+kangaroo	Kangaroo
+lion	Lion
+lizard	Lizard
+monkey	Monkey
+mouse	Mouse
+octopus	Octopus
+owl	Owl
+panda	Panda
+parrot	Parrot
+penguin	Penguin
+pet	Dog
+pig	Pig
+polar bear	Polar bear
+rabbit	Rabbit
+rat	Rat
+shark	Shark
+sheep	Ewe
+snail	Snail
+snake	Snake
+spider	Spider
+swan	Swan
+tiger	Tiger
+turtle	Turtle
+tortoise	Turtle
+whale	Spouting whale
+wolf	Wolf
+zebra	Zebra
+camel	Camel
+crab	Crab
+deer	Deer
+dinosaur	T-rex
+dragon	Dragon
+fox	Fox
+hamster	Hamster
+koala	Koala
+ladybird	Lady beetle
+ant	Ant
+squirrel	Chipmunk
+seal	Seal
+otter	Otter
+gorilla	Gorilla
+rhino	Rhinoceros
+flamingo	Flamingo
+peacock	Peacock
+unicorn	Unicorn
+worm	Worm
+mosquito	Mosquito
+cockroach	Cockroach
+lobster	Lobster
+shrimp	Shrimp
+squid	Squid
+sloth	Sloth
+hedgehog	Hedgehog
+bison	Bison
+moose	Moose
+ox	Ox
+buffalo	Water buffalo
+rooster	Rooster
+turkey	Turkey
+dove	Dove
+chick	Baby chick
+pony	Horse face
+feather	Feather
+nest	Nest with eggs
+paw	Paw prints
+egg	Egg
+body	Person standing
+arm	Flexed biceps

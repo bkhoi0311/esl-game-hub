@@ -1,0 +1,303 @@
+{
+  "title": "Hobbies",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "dancing",
+      "meaning": "nhảy múa",
+      "category": "hobby",
+      "example": "I love dancing with my friends.",
+      "image": ""
+    },
+    {
+      "word": "singing",
+      "meaning": "ca hát",
+      "category": "hobby",
+      "example": "She loves singing with her friends.",
+      "image": ""
+    },
+    {
+      "word": "reading",
+      "meaning": "đọc sách",
+      "category": "hobby",
+      "example": "I enjoy reading before bed.",
+      "image": ""
+    },
+    {
+      "word": "drawing",
+      "meaning": "bức vẽ",
+      "category": "hobby",
+      "example": "This drawing is for my mum.",
+      "image": ""
+    },
+    {
+      "word": "cooking",
+      "meaning": "nấu ăn",
+      "category": "hobby",
+      "example": "My dad loves cooking on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "fishing",
+      "meaning": "câu cá",
+      "category": "hobby",
+      "example": "Grandpa goes fishing at the lake.",
+      "image": ""
+    },
+    {
+      "word": "camping",
+      "meaning": "cắm trại",
+      "category": "hobby",
+      "example": "We go camping in summer.",
+      "image": ""
+    },
+    {
+      "word": "chess",
+      "meaning": "cờ vua",
+      "category": "hobby",
+      "example": "We play chess at the club.",
+      "image": ""
+    },
+    {
+      "word": "shopping",
+      "meaning": "mua sắm",
+      "category": "hobby",
+      "example": "We go shopping on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "picnic",
+      "meaning": "buổi dã ngoại",
+      "category": "hobby",
+      "example": "We have a picnic in the park.",
+      "image": ""
+    },
+    {
+      "word": "game",
+      "meaning": "trò chơi",
+      "category": "hobby",
+      "example": "This game is very fun.",
+      "image": ""
+    },
+    {
+      "word": "video game",
+      "meaning": "trò chơi điện tử",
+      "category": "hobby",
+      "example": "He plays a video game after dinner.",
+      "image": ""
+    },
+    {
+      "word": "photography",
+      "meaning": "nhiếp ảnh",
+      "category": "hobby",
+      "example": "Her hobby is photography.",
+      "image": ""
+    },
+    {
+      "word": "comic",
+      "meaning": "truyện tranh",
+      "category": "hobby",
+      "example": "He reads a comic after school.",
+      "image": ""
+    },
+    {
+      "word": "film",
+      "meaning": "bộ phim",
+      "category": "hobby",
+      "example": "This film is funny.",
+      "image": ""
+    },
+    {
+      "word": "hobby",
+      "meaning": "sở thích",
+      "category": "hobby",
+      "example": "Painting is my hobby.",
+      "image": ""
+    },
+    {
+      "word": "story",
+      "meaning": "câu chuyện",
+      "category": "hobby",
+      "example": "Mum tells me a funny story.",
+      "image": ""
+    },
+    {
+      "word": "walking",
+      "meaning": "đi bộ",
+      "category": "hobby",
+      "example": "We go walking in the hills.",
+      "image": ""
+    },
+    {
+      "word": "horse riding",
+      "meaning": "cưỡi ngựa",
+      "category": "hobby",
+      "example": "She loves horse riding on the farm.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"đọc sách\"?",
+      "options": [
+        "reading",
+        "video game",
+        "cooking"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: com_c (truyện tranh)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nấu ăn\"?",
+      "options": [
+        "drawing",
+        "cooking",
+        "reading"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sở thích)",
+      "options": [
+        "hoby",
+        "hobby",
+        "hboby"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"horse riding\" mean?",
+      "options": [
+        "cưỡi ngựa",
+        "cờ vua",
+        "buổi dã ngoại"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhiếp ảnh)",
+      "options": [
+        "pohtography",
+        "phootgraphy",
+        "photography"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We go ___ in the hills.",
+      "options": [
+        "spaghetti",
+        "rock",
+        "walking"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"drawing\" mean?",
+      "options": [
+        "bức vẽ",
+        "câu chuyện",
+        "câu cá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cờ vua)",
+      "options": [
+        "chses",
+        "chess",
+        "cehss"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_cnic (buổi dã ngoại)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shopping\" mean?",
+      "options": [
+        "đọc sách",
+        "mua sắm",
+        "bộ phim"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: danc_ng (nhảy múa)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"story\" mean?",
+      "options": [
+        "câu chuyện",
+        "ca hát",
+        "trò chơi điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Grandpa goes ___ at the lake.",
+      "options": [
+        "lizard",
+        "fishing",
+        "jungle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bộ phim\"?",
+      "options": [
+        "story",
+        "camping",
+        "film"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Dance to the music",
+    "Pretend to sing",
+    "Pretend to take a photo",
+    "Pretend to fish",
+    "Pretend to read a story",
+    "Pretend to ride a horse"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

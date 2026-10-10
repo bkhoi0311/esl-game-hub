@@ -1,0 +1,296 @@
+{
+  "title": "Clothes",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "hat",
+      "meaning": "cái mũ",
+      "category": "clothes",
+      "example": "He wears a hat in the sun.",
+      "image": ""
+    },
+    {
+      "word": "coat",
+      "meaning": "áo khoác",
+      "category": "clothes",
+      "example": "I wear my coat on cold days.",
+      "image": ""
+    },
+    {
+      "word": "dress",
+      "meaning": "chiếc váy",
+      "category": "clothes",
+      "example": "She wears a pink dress.",
+      "image": ""
+    },
+    {
+      "word": "jacket",
+      "meaning": "áo khoác mỏng",
+      "category": "clothes",
+      "example": "My jacket has two pockets.",
+      "image": ""
+    },
+    {
+      "word": "jeans",
+      "meaning": "quần bò",
+      "category": "clothes",
+      "example": "He wears blue jeans.",
+      "image": ""
+    },
+    {
+      "word": "shirt",
+      "meaning": "áo sơ mi",
+      "category": "clothes",
+      "example": "He has a clean shirt.",
+      "image": ""
+    },
+    {
+      "word": "shoes",
+      "meaning": "đôi giày",
+      "category": "clothes",
+      "example": "Put on your shoes.",
+      "image": ""
+    },
+    {
+      "word": "shorts",
+      "meaning": "quần soóc",
+      "category": "clothes",
+      "example": "I wear shorts in summer.",
+      "image": ""
+    },
+    {
+      "word": "skirt",
+      "meaning": "chân váy",
+      "category": "clothes",
+      "example": "She wears a long skirt.",
+      "image": ""
+    },
+    {
+      "word": "socks",
+      "meaning": "đôi tất",
+      "category": "clothes",
+      "example": "Put on warm socks.",
+      "image": ""
+    },
+    {
+      "word": "t-shirt",
+      "meaning": "áo phông",
+      "category": "clothes",
+      "example": "My t-shirt has a funny picture.",
+      "image": ""
+    },
+    {
+      "word": "trousers",
+      "meaning": "quần dài",
+      "category": "clothes",
+      "example": "These trousers are too long.",
+      "image": ""
+    },
+    {
+      "word": "boots",
+      "meaning": "đôi ủng",
+      "category": "clothes",
+      "example": "I wear boots in the rain.",
+      "image": ""
+    },
+    {
+      "word": "gloves",
+      "meaning": "đôi găng tay",
+      "category": "clothes",
+      "example": "Wear gloves when it is cold.",
+      "image": ""
+    },
+    {
+      "word": "scarf",
+      "meaning": "khăn quàng cổ",
+      "category": "clothes",
+      "example": "Wrap a scarf around your neck.",
+      "image": ""
+    },
+    {
+      "word": "glasses",
+      "meaning": "kính mắt",
+      "category": "clothes",
+      "example": "Grandpa wears glasses to read.",
+      "image": ""
+    },
+    {
+      "word": "bag",
+      "meaning": "cái túi",
+      "category": "thing",
+      "example": "My bag is under the desk.",
+      "image": ""
+    },
+    {
+      "word": "umbrella",
+      "meaning": "cái ô",
+      "category": "thing",
+      "example": "Take an umbrella, it is raining.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "I wear ___ in summer.",
+      "options": [
+        "shorts",
+        "volcano",
+        "field"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_rt (áo sơ mi)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He wears a ___ in the sun.",
+      "options": [
+        "soccer",
+        "forest",
+        "hat"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quần bò)",
+      "options": [
+        "jeans",
+        "jeens",
+        "jians"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bo_ts (đôi ủng)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái túi\"?",
+      "options": [
+        "umbrella",
+        "boots",
+        "bag"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đôi tất)",
+      "options": [
+        "sokcs",
+        "sockks",
+        "socks"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quần dài\"?",
+      "options": [
+        "trousers",
+        "shirt",
+        "socks"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gl_ves (đôi găng tay)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jacket\" mean?",
+      "options": [
+        "chiếc váy",
+        "áo khoác mỏng",
+        "khăn quàng cổ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"áo khoác\"?",
+      "options": [
+        "socks",
+        "scarf",
+        "coat"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dress\" mean?",
+      "options": [
+        "chiếc váy",
+        "quần dài",
+        "đôi tất"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chân váy)",
+      "options": [
+        "skyrt",
+        "skirt",
+        "skrit"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"scarf\" mean?",
+      "options": [
+        "đôi giày",
+        "chân váy",
+        "khăn quàng cổ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"glasses\" mean?",
+      "options": [
+        "kính mắt",
+        "áo phông",
+        "cái mũ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put on your jacket",
+    "Pretend to put on your shoes",
+    "Pretend to put on a hat",
+    "Pretend to pull on your socks",
+    "Pretend to button your coat",
+    "Pretend to put on your gloves"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

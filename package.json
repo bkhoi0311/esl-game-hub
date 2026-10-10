@@ -9,14 +9,18 @@
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",
-    "test": "node --test tests/logic.test.mjs",
+    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs",
     "test:games": "node tests/games.mjs",
     "test:offline": "node tests/offline.mjs",
     "predev": "node scripts/copy-wasm.js",
     "prebuild": "node scripts/copy-wasm.js",
     "test:camera": "node tests/camera.mjs",
     "test:link": "node tests/link.mjs",
-    "test:qa": "node tests/qa.mjs"
+    "test:qa": "node tests/qa.mjs",
+    "test:soanbai": "node tests/soanbai.mjs",
+    "build:library": "node tools/library/build.mjs",
+    "build:wordbank": "node tools/wordbank/merge.mjs",
+    "test:soanbai-real": "node tests/soanbai-real.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.0.1",

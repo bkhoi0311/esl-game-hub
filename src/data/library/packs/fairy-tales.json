@@ -1,0 +1,286 @@
+{
+  "title": "Fairy Tales",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "dragon",
+      "meaning": "con rồng",
+      "category": "fantasy",
+      "example": "The dragon can breathe fire.",
+      "image": ""
+    },
+    {
+      "word": "fairy",
+      "meaning": "nàng tiên",
+      "category": "fantasy",
+      "example": "The fairy waves her magic wand.",
+      "image": ""
+    },
+    {
+      "word": "witch",
+      "meaning": "phù thuỷ",
+      "category": "fantasy",
+      "example": "The witch has a black cat.",
+      "image": ""
+    },
+    {
+      "word": "wizard",
+      "meaning": "pháp sư",
+      "category": "fantasy",
+      "example": "The wizard has a magic hat.",
+      "image": ""
+    },
+    {
+      "word": "king",
+      "meaning": "vua",
+      "category": "fantasy",
+      "example": "The king lives in a castle.",
+      "image": ""
+    },
+    {
+      "word": "queen",
+      "meaning": "nữ hoàng",
+      "category": "fantasy",
+      "example": "The queen has a gold crown.",
+      "image": ""
+    },
+    {
+      "word": "prince",
+      "meaning": "hoàng tử",
+      "category": "fantasy",
+      "example": "The prince rides a white horse.",
+      "image": ""
+    },
+    {
+      "word": "princess",
+      "meaning": "công chúa",
+      "category": "fantasy",
+      "example": "The princess lives in a tall tower.",
+      "image": ""
+    },
+    {
+      "word": "castle",
+      "meaning": "lâu đài",
+      "category": "place",
+      "example": "The king lives in a big castle.",
+      "image": ""
+    },
+    {
+      "word": "monster",
+      "meaning": "quái vật",
+      "category": "fantasy",
+      "example": "The monster has three green eyes.",
+      "image": ""
+    },
+    {
+      "word": "ghost",
+      "meaning": "con ma",
+      "category": "fantasy",
+      "example": "The ghost is friendly, not scary.",
+      "image": ""
+    },
+    {
+      "word": "magic",
+      "meaning": "ảo thuật",
+      "category": "thing",
+      "example": "He shows us a magic trick.",
+      "image": ""
+    },
+    {
+      "word": "mermaid",
+      "meaning": "nàng tiên cá",
+      "category": "fantasy",
+      "example": "The mermaid swims with the fish.",
+      "image": ""
+    },
+    {
+      "word": "unicorn",
+      "meaning": "kỳ lân",
+      "category": "fantasy",
+      "example": "The unicorn has a magic horn.",
+      "image": ""
+    },
+    {
+      "word": "pirate",
+      "meaning": "cướp biển",
+      "category": "fantasy",
+      "example": "The pirate has a map of an island.",
+      "image": ""
+    },
+    {
+      "word": "treasure",
+      "meaning": "kho báu",
+      "category": "thing",
+      "example": "The pirates find the treasure.",
+      "image": ""
+    },
+    {
+      "word": "superhero",
+      "meaning": "siêu anh hùng",
+      "category": "fantasy",
+      "example": "My favourite superhero can fly.",
+      "image": ""
+    },
+    {
+      "word": "genie",
+      "meaning": "thần đèn",
+      "category": "fantasy",
+      "example": "The genie gives him three wishes.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (con rồng)",
+      "options": [
+        "dragon",
+        "dregon",
+        "draggon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has a magic hat.",
+      "options": [
+        "clean",
+        "thirsty",
+        "wizard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nữ hoàng\"?",
+      "options": [
+        "monster",
+        "queen",
+        "dragon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ghost\" mean?",
+      "options": [
+        "con ma",
+        "siêu anh hùng",
+        "cướp biển"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lâu đài\"?",
+      "options": [
+        "princess",
+        "fairy",
+        "castle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_asure (kho báu)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fairy\" mean?",
+      "options": [
+        "công chúa",
+        "quái vật",
+        "nàng tiên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: unic_rn (kỳ lân)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"princess\" mean?",
+      "options": [
+        "nàng tiên cá",
+        "công chúa",
+        "phù thuỷ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nàng tiên cá)",
+      "options": [
+        "mermaid",
+        "mermeid",
+        "mermayd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gen_e (thần đèn)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quái vật)",
+      "options": [
+        "mosnter",
+        "monstir",
+        "monster"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ rides a white horse.",
+      "options": [
+        "treasure",
+        "prince",
+        "magic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"king\" mean?",
+      "options": [
+        "vua",
+        "pháp sư",
+        "kỳ lân"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wave a magic wand",
+    "Flap your wings like a fairy",
+    "Roar like a dragon",
+    "Walk like a king",
+    "Swim like a mermaid",
+    "Pretend to find treasure"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

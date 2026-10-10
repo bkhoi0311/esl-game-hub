@@ -1,0 +1,272 @@
+{
+  "sampled": [
+    "spaghetti",
+    "musician",
+    "bean",
+    "coconut",
+    "pizza",
+    "tomato",
+    "photographer",
+    "pea",
+    "milkshake",
+    "grape",
+    "office worker",
+    "bread",
+    "pepper",
+    "strawberry",
+    "journalist"
+  ],
+  "sampleErrors": [
+    "musician"
+  ],
+  "alsoReviewed": [
+    "painter",
+    "royal guard",
+    "chips",
+    "fries",
+    "drink",
+    "meatball",
+    "pie",
+    "sugar",
+    "sweet",
+    "yoghurt"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "musician",
+      "field": "vi",
+      "old": "nhạc sĩ",
+      "new": "nhạc công"
+    },
+    {
+      "word": "painter",
+      "field": "vi",
+      "old": "họa sĩ",
+      "new": "người vẽ tranh"
+    },
+    {
+      "word": "painter",
+      "field": "ex",
+      "old": "The painter is drawing a river with bright colours.",
+      "new": "The painter is painting a river with bright colours."
+    },
+    {
+      "word": "painter",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "painter",
+      "field": "note",
+      "old": "painter đa nghĩa (thợ sơn); emoji Artist nên chọn họa sĩ",
+      "new": "emoji Artist; tránh trùng \"hoạ sĩ\" của artist"
+    },
+    {
+      "word": "royal guard",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "royal guard",
+      "field": "note",
+      "old": "cụm ít gặp; cần duyệt cấp độ và nghĩa",
+      "new": ""
+    },
+    {
+      "word": "writer",
+      "field": "ex",
+      "old": "My favourite writer makes funny books.",
+      "new": "My favourite writer writes funny books."
+    },
+    {
+      "word": "barber",
+      "field": "vi",
+      "old": "thợ cắt tóc nam",
+      "new": "thợ cắt tóc"
+    },
+    {
+      "word": "baker",
+      "field": "vi",
+      "old": "thợ làm bánh mì",
+      "new": "thợ làm bánh"
+    },
+    {
+      "word": "candy",
+      "field": "vi",
+      "old": "kẹo",
+      "new": "kẹo ngọt"
+    },
+    {
+      "word": "sweet",
+      "field": "vi",
+      "old": "kẹo",
+      "new": "viên kẹo"
+    },
+    {
+      "word": "sweet",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "sweet",
+      "field": "note",
+      "old": "sweet còn là tính từ (ngọt); chọn danh từ kẹo theo emoji Candy",
+      "new": "danh từ (viên kẹo) theo emoji Candy"
+    },
+    {
+      "word": "chips",
+      "field": "ex",
+      "old": "We eat chips and fish on Friday.",
+      "new": "We eat fish and chips on Friday."
+    },
+    {
+      "word": "chips",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "chips",
+      "field": "note",
+      "old": "chips (Anh) và fries (Mỹ) cùng nghĩa",
+      "new": "BrE, cùng nghĩa với fries"
+    },
+    {
+      "word": "fries",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "fries",
+      "field": "note",
+      "old": "chips (Anh) và fries (Mỹ) cùng nghĩa",
+      "new": "AmE, cùng nghĩa với chips"
+    },
+    {
+      "word": "drink",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "drink",
+      "field": "note",
+      "old": "drink vừa là danh từ vừa là động từ; chọn danh từ theo emoji",
+      "new": ""
+    },
+    {
+      "word": "fruit",
+      "field": "ex",
+      "old": "Fruit is good for your health.",
+      "new": "We eat fresh fruit after lunch."
+    },
+    {
+      "word": "dinner",
+      "field": "level",
+      "old": "movers",
+      "new": "starters"
+    },
+    {
+      "word": "dinner",
+      "field": "levelCheck",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dinner",
+      "field": "ex",
+      "old": "Dinner is ready at six o'clock.",
+      "new": "We have dinner at six o'clock."
+    },
+    {
+      "word": "meat",
+      "field": "level",
+      "old": "movers",
+      "new": "starters"
+    },
+    {
+      "word": "meatball",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "meatball",
+      "field": "note",
+      "old": "emoji Pot of food lệch nghĩa; chọn nghĩa thịt viên",
+      "new": ""
+    },
+    {
+      "word": "milkshake",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "milkshake",
+      "field": "note",
+      "old": "emoji Cup with straw; cân nhắc tên gọi tiếng Việt",
+      "new": ""
+    },
+    {
+      "word": "pepper",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pepper",
+      "field": "note",
+      "old": "pepper đa nghĩa (hạt tiêu); chọn ớt chuông theo emoji",
+      "new": ""
+    },
+    {
+      "word": "pie",
+      "field": "vi",
+      "old": "bánh nướng nhân",
+      "new": "bánh nướng"
+    },
+    {
+      "word": "pie",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pie",
+      "field": "note",
+      "old": "cần duyệt tên tiếng Việt; ví dụ chứa apple (từ khác)",
+      "new": ""
+    },
+    {
+      "word": "sugar",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "sugar",
+      "field": "note",
+      "old": "emoji Cupcake lệch nghĩa; chọn nghĩa đường",
+      "new": ""
+    },
+    {
+      "word": "yoghurt",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "yoghurt",
+      "field": "note",
+      "old": "emoji Glass of milk lệch nghĩa; chọn sữa chua; alt yogurt",
+      "new": ""
+    }
+  ],
+  "stillCheck": []
+}

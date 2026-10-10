@@ -1,0 +1,63 @@
+{
+  "sampled": [
+    "postcard",
+    "bike",
+    "word",
+    "pencil",
+    "basketball",
+    "lesson",
+    "cycling",
+    "toothpaste",
+    "lift",
+    "bin",
+    "library",
+    "bookshop",
+    "newspaper",
+    "notebook",
+    "key"
+  ],
+  "sampleErrors": [
+    "cycling",
+    "key"
+  ],
+  "alsoReviewed": [
+    "letter",
+    "board",
+    "rubber",
+    "ruler"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "key",
+      "field": "ex",
+      "old": "I can not find my key.",
+      "new": "I cannot find my key."
+    },
+    {
+      "word": "eraser",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "rubber",
+      "field": "note",
+      "old": "",
+      "new": "BrE: cục tẩy, cùng nghĩa eraser"
+    },
+    {
+      "word": "math",
+      "field": "note",
+      "old": "",
+      "new": "AmE của maths"
+    },
+    {
+      "word": "cycling",
+      "field": "ex",
+      "old": "Cycling is good for your legs.",
+      "new": "My dad loves cycling at the weekend."
+    }
+  ],
+  "stillCheck": []
+}

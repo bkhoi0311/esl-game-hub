@@ -1,0 +1,296 @@
+{
+  "title": "School",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "classroom",
+      "meaning": "phòng học",
+      "category": "school",
+      "example": "The classroom is big and bright.",
+      "image": ""
+    },
+    {
+      "word": "desk",
+      "meaning": "bàn học",
+      "category": "school",
+      "example": "My pencil case is on the desk.",
+      "image": ""
+    },
+    {
+      "word": "book",
+      "meaning": "quyển sách",
+      "category": "school",
+      "example": "This book has many pictures.",
+      "image": ""
+    },
+    {
+      "word": "pencil",
+      "meaning": "bút chì",
+      "category": "school",
+      "example": "I draw a cat with my pencil.",
+      "image": ""
+    },
+    {
+      "word": "pen",
+      "meaning": "cái bút mực",
+      "category": "school",
+      "example": "Can I borrow your pen?",
+      "image": ""
+    },
+    {
+      "word": "ruler",
+      "meaning": "cái thước kẻ",
+      "category": "school",
+      "example": "He draws a line with a ruler.",
+      "image": ""
+    },
+    {
+      "word": "eraser",
+      "meaning": "cục tẩy",
+      "category": "school",
+      "example": "Use the eraser to clean the mistake.",
+      "image": ""
+    },
+    {
+      "word": "notebook",
+      "meaning": "quyển vở",
+      "category": "school",
+      "example": "I write new words in my notebook.",
+      "image": ""
+    },
+    {
+      "word": "backpack",
+      "meaning": "ba lô",
+      "category": "school",
+      "example": "My backpack is full of books.",
+      "image": ""
+    },
+    {
+      "word": "scissors",
+      "meaning": "cái kéo",
+      "category": "school",
+      "example": "Use the scissors to cut the paper.",
+      "image": ""
+    },
+    {
+      "word": "glue",
+      "meaning": "keo dán",
+      "category": "school",
+      "example": "Put some glue on the paper.",
+      "image": ""
+    },
+    {
+      "word": "homework",
+      "meaning": "bài tập về nhà",
+      "category": "school",
+      "example": "I do my homework after dinner.",
+      "image": ""
+    },
+    {
+      "word": "lesson",
+      "meaning": "bài học",
+      "category": "school",
+      "example": "Our English lesson is fun.",
+      "image": ""
+    },
+    {
+      "word": "math",
+      "meaning": "môn toán",
+      "category": "school",
+      "example": "My brother is good at math.",
+      "image": ""
+    },
+    {
+      "word": "art",
+      "meaning": "môn mỹ thuật",
+      "category": "school",
+      "example": "We paint pictures in art.",
+      "image": ""
+    },
+    {
+      "word": "science",
+      "meaning": "môn khoa học",
+      "category": "school",
+      "example": "We do an experiment in science class.",
+      "image": ""
+    },
+    {
+      "word": "english",
+      "meaning": "tiếng Anh",
+      "category": "school",
+      "example": "We speak English in class.",
+      "image": ""
+    },
+    {
+      "word": "dictionary",
+      "meaning": "từ điển",
+      "category": "school",
+      "example": "I look up new words in my dictionary.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: bo_k (quyển sách)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái kéo\"?",
+      "options": [
+        "science",
+        "homework",
+        "scissors"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dictionary\" mean?",
+      "options": [
+        "bài học",
+        "từ điển",
+        "môn toán"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We paint pictures in ___.",
+      "options": [
+        "seed",
+        "pumpkin",
+        "art"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quyển vở\"?",
+      "options": [
+        "notebook",
+        "book",
+        "math"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pen\" mean?",
+      "options": [
+        "môn mỹ thuật",
+        "cái bút mực",
+        "cái thước kẻ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bút chì\"?",
+      "options": [
+        "pen",
+        "scissors",
+        "pencil"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bàn học)",
+      "options": [
+        "dessk",
+        "desk",
+        "dsek"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Use the ___ to clean the mistake.",
+      "options": [
+        "eraser",
+        "king",
+        "day"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gl_e (keo dán)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bài học)",
+      "options": [
+        "lisson",
+        "leson",
+        "lesson"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"backpack\" mean?",
+      "options": [
+        "cục tẩy",
+        "ba lô",
+        "bàn học"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phòng học)",
+      "options": [
+        "clasrsoom",
+        "classruom",
+        "classroom"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"homework\" mean?",
+      "options": [
+        "bài tập về nhà",
+        "cái thước kẻ",
+        "môn toán"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rul_r (cái thước kẻ)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write",
+    "Pretend to open your book",
+    "Raise your hand",
+    "Pretend to draw",
+    "Pretend to cut paper",
+    "Pretend to read your book quietly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

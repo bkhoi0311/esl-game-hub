@@ -1,0 +1,12 @@
+[
+  { "word": "banana", "vi": "quả chuối", "pos": "n", "cat": "fruit", "level": "starters", "ex": "I eat a banana every morning.", "img": "Banana", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "apple", "vi": "quả táo", "pos": "n", "cat": "fruit", "level": "starters", "ex": "She has an apple in her bag.", "img": "Red apple", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "orange", "vi": "quả cam", "pos": "n", "cat": "fruit", "level": "starters", "ex": "This orange is very sweet.", "img": "Orange circle", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "carrot", "vi": "cà rốt", "pos": "n", "cat": "vegetable", "level": "starters", "ex": "Rabbits like to eat carrots.", "img": "Carrot", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "potato", "vi": "khoai tây", "pos": "n", "cat": "vegetable", "level": "movers", "ex": "We need two potatoes for the soup.", "img": "Potato", "alt": [], "pl": "", "check": false, "levelCheck": true, "skip": false, "note": "" },
+  { "word": "milk", "vi": "sữa", "pos": "n", "cat": "drink", "level": "starters", "ex": "He drinks milk before bed.", "img": "Glass of milk", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "breakfast", "vi": "bữa sáng", "pos": "n", "cat": "meal", "level": "starters", "ex": "I have breakfast at seven o'clock.", "img": "Pancakes", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "lunch", "vi": "bữa trưa", "pos": "n", "cat": "meal", "level": "starters", "ex": "We have lunch at school.", "img": "Bento box", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": false, "note": "" },
+  { "word": "club", "vi": "câu lạc bộ", "pos": "n", "cat": "hobby", "level": "movers", "ex": "I go to the chess club on Friday.", "img": "Microphone", "alt": [], "pl": "", "check": true, "levelCheck": true, "skip": false, "note": "emoji Microphone lệch nghĩa; chọn nghĩa câu lạc bộ, cần duyệt" },
+  { "word": "beer", "vi": "", "pos": "n", "cat": "drink", "level": "other", "ex": "", "img": "Beer mug", "alt": [], "pl": "", "check": false, "levelCheck": false, "skip": true, "note": "đồ uống có cồn, không hợp trẻ em" }
+]

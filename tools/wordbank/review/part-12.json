@@ -1,0 +1,287 @@
+{
+  "sampled": [
+    "pistol",
+    "injection",
+    "thread",
+    "sparkler",
+    "treasure",
+    "test tube",
+    "stamp",
+    "nine",
+    "two",
+    "x-ray",
+    "fax",
+    "flashlight",
+    "syringe",
+    "needle",
+    "flag"
+  ],
+  "sampleErrors": [
+    "sparkler",
+    "stamp"
+  ],
+  "alsoReviewed": [
+    "card",
+    "gear",
+    "bomb",
+    "sword",
+    "gun",
+    "plaster",
+    "dna",
+    "pager",
+    "alarm",
+    "pinata",
+    "confetti",
+    "firecracker"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "stamp",
+      "field": "vi",
+      "old": "tem thư",
+      "new": "con tem"
+    },
+    {
+      "word": "card",
+      "field": "vi",
+      "old": "tấm thẻ",
+      "new": "tấm thẻ, tấm thiệp"
+    },
+    {
+      "word": "card",
+      "field": "ex",
+      "old": "I have a card with my name on it.",
+      "new": "I make a birthday card for my mum."
+    },
+    {
+      "word": "card",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "card",
+      "field": "note",
+      "old": "nhiều nghĩa (thiệp/thẻ/bài); emoji là thẻ tín dụng nên chọn thẻ",
+      "new": ""
+    },
+    {
+      "word": "gear",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "gear",
+      "field": "note",
+      "old": "gear đa nghĩa (đồ dùng/số xe); chọn bánh răng theo emoji",
+      "new": ""
+    },
+    {
+      "word": "pill",
+      "field": "skip",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "pill",
+      "field": "vi",
+      "old": "viên thuốc",
+      "new": ""
+    },
+    {
+      "word": "pill",
+      "field": "ex",
+      "old": "Take one pill after dinner.",
+      "new": ""
+    },
+    {
+      "word": "pill",
+      "field": "note",
+      "old": "",
+      "new": "thuốc viên, không đưa trẻ câu hướng dẫn uống thuốc; giữ medicine (ngữ cảnh bác sĩ)"
+    },
+    {
+      "word": "axe",
+      "field": "note",
+      "old": "",
+      "new": "giữ: dụng cụ chặt gỗ như hammer, không phải vũ khí"
+    },
+    {
+      "word": "shield",
+      "field": "note",
+      "old": "",
+      "new": "giữ: đồ phòng thủ trong truyện, không phải vũ khí"
+    },
+    {
+      "word": "plaster",
+      "field": "vi",
+      "old": "miếng băng dán",
+      "new": "băng dán cá nhân"
+    },
+    {
+      "word": "plaster",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "plaster",
+      "field": "note",
+      "old": "British: băng dán vết thương; cũng có nghĩa thạch cao",
+      "new": "BrE: băng dán vết thương"
+    },
+    {
+      "word": "dna",
+      "field": "ex",
+      "old": "Every person has their own dna.",
+      "new": "Every person has their own DNA."
+    },
+    {
+      "word": "dna",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dna",
+      "field": "note",
+      "old": "chữ viết tắt khoa học; chưa chắc cấp độ",
+      "new": "viết tắt khoa học, viết hoa ADN là đúng"
+    },
+    {
+      "word": "pager",
+      "field": "ex",
+      "old": "Grandpa had a pager long ago.",
+      "new": "My grandpa has an old pager."
+    },
+    {
+      "word": "pager",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pager",
+      "field": "note",
+      "old": "đồ cũ ít dùng",
+      "new": "đồ cũ, ít dùng"
+    },
+    {
+      "word": "fax",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "fax",
+      "field": "note",
+      "old": "đồ cũ ít dùng",
+      "new": "đồ cũ, ít dùng"
+    },
+    {
+      "word": "alarm",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "alarm",
+      "field": "note",
+      "old": "alarm có nghĩa báo động; emoji là đồng hồ báo thức",
+      "new": ""
+    },
+    {
+      "word": "pinata",
+      "field": "vi",
+      "old": "con lừa pi-nha-ta",
+      "new": "hình nộm pinata"
+    },
+    {
+      "word": "pinata",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pinata",
+      "field": "note",
+      "old": "tên riêng văn hoá, khó dịch tự nhiên",
+      "new": ""
+    },
+    {
+      "word": "confetti",
+      "field": "vi",
+      "old": "giấy hoa rải",
+      "new": "pháo giấy"
+    },
+    {
+      "word": "confetti",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "confetti",
+      "field": "note",
+      "old": "khó dịch tự nhiên",
+      "new": ""
+    },
+    {
+      "word": "firecracker",
+      "field": "skip",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "firecracker",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "firecracker",
+      "field": "vi",
+      "old": "pháo",
+      "new": ""
+    },
+    {
+      "word": "firecracker",
+      "field": "ex",
+      "old": "The firecracker goes bang at the festival.",
+      "new": ""
+    },
+    {
+      "word": "firecracker",
+      "field": "note",
+      "old": "an toàn cho trẻ cần cân nhắc",
+      "new": "pháo nổ: chất nổ nguy hiểm, bị cấm ở Việt Nam"
+    },
+    {
+      "word": "sparkler",
+      "field": "ex",
+      "old": "She holds a sparkler on New Year night.",
+      "new": "She holds a sparkler on New Year's Eve."
+    },
+    {
+      "word": "sparkler",
+      "field": "vi",
+      "old": "pháo que",
+      "new": "pháo bông que"
+    },
+    {
+      "word": "sparkler",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "sparkler",
+      "field": "note",
+      "old": "an toàn cho trẻ cần cân nhắc",
+      "new": "giữ: pháo bông que cầm tay, có người lớn"
+    }
+  ],
+  "stillCheck": []
+}

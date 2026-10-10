@@ -1,0 +1,97 @@
+radio	Radio
+camera	Camera
+key	Key
+box	Package
+basket	Basket
+bin	Wastebasket
+rubbish	Wastebasket
+soap	Soap
+toothbrush	Toothbrush
+toothpaste	Toothbrush
+towel	Bathtub
+brush	Paintbrush
+comb	Barber pole
+broom	Broom
+bucket	Bucket
+sponge	Sponge
+washing machine	Soap
+tap	Droplet
+ladder	Ladder
+balcony	Office building
+fence	House with garden
+gate	Door
+lift	Elevator
+elevator	Elevator
+address	Round pushpin
+letter	Envelope
+email	E-mail
+postcard	Envelope
+newspaper	Newspaper
+magazine	Newspaper
+diary	Notebook
+calendar	Calendar
+scissors	Scissors
+string	Thread
+tape	Thread
+tool	Hammer and wrench
+hammer	Hammer
+toolbox	Toolbox
+school	School
+class	School
+classroom	School
+board	School
+blackboard	School
+book	Open book
+books	Books
+bookshop	Books
+library	Books
+pen	Pen
+pencil	Pencil
+crayon	Crayon
+eraser	Pencil
+rubber	Pencil
+ruler	Straight ruler
+paper	Page facing up
+notebook	Notebook
+homework	Memo
+lesson	Teacher
+exam	Memo
+test	Memo
+question	Red question mark
+answer	Check mark button
+map	World map
+globe	Globe showing asia-australia
+maths	Abacus
+math	Abacus
+science	Test tube
+art	Artist palette
+music	Musical note
+history	Scroll
+geography	World map
+language	Speaking head
+english	Open book
+sport	Running shoe
+pe	Running shoe
+playground	Playground slide
+timetable	Calendar
+bell	Bell
+glue	Thread
+stapler	Paperclip
+paperclip	Paperclip
+dictionary	Open book
+alphabet	Input latin letters
+number	Input numbers
+word	Input latin letters
+sentence	Memo
+story	Open book
+comic	Open book
+poster	Framed picture
+computer room	Desktop computer
+badminton	Badminton
+baseball	Baseball
+basketball	Basketball
+bike	Bicycle
+bicycle	Bicycle
+cycling	Person biking
+boxing	Boxing glove
+chess	Chess pawn

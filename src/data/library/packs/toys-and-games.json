@@ -1,0 +1,268 @@
+{
+  "title": "Toys and Games",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "ball",
+      "meaning": "quả bóng",
+      "category": "toy",
+      "example": "He kicks the ball to me.",
+      "image": ""
+    },
+    {
+      "word": "balloon",
+      "meaning": "quả bóng bay",
+      "category": "toy",
+      "example": "The red balloon flies away.",
+      "image": ""
+    },
+    {
+      "word": "doll",
+      "meaning": "búp bê",
+      "category": "toy",
+      "example": "She plays with her doll.",
+      "image": ""
+    },
+    {
+      "word": "kite",
+      "meaning": "con diều",
+      "category": "toy",
+      "example": "The kite flies high in the sky.",
+      "image": ""
+    },
+    {
+      "word": "teddy bear",
+      "meaning": "gấu bông",
+      "category": "toy",
+      "example": "I sleep with my teddy bear.",
+      "image": ""
+    },
+    {
+      "word": "toy",
+      "meaning": "đồ chơi",
+      "category": "toy",
+      "example": "The baby has a new toy.",
+      "image": ""
+    },
+    {
+      "word": "puzzle",
+      "meaning": "trò xếp hình",
+      "category": "toy",
+      "example": "She finishes the puzzle quickly.",
+      "image": ""
+    },
+    {
+      "word": "skateboard",
+      "meaning": "ván trượt",
+      "category": "toy",
+      "example": "He rides his skateboard to the park.",
+      "image": ""
+    },
+    {
+      "word": "dice",
+      "meaning": "con xúc xắc",
+      "category": "toy",
+      "example": "Roll the dice and move forward.",
+      "image": ""
+    },
+    {
+      "word": "cards",
+      "meaning": "lá bài",
+      "category": "toy",
+      "example": "We play cards on rainy days.",
+      "image": ""
+    },
+    {
+      "word": "game",
+      "meaning": "trò chơi",
+      "category": "hobby",
+      "example": "This game is very fun.",
+      "image": ""
+    },
+    {
+      "word": "video game",
+      "meaning": "trò chơi điện tử",
+      "category": "hobby",
+      "example": "He plays a video game after dinner.",
+      "image": ""
+    },
+    {
+      "word": "chess",
+      "meaning": "cờ vua",
+      "category": "hobby",
+      "example": "We play chess at the club.",
+      "image": ""
+    },
+    {
+      "word": "robot",
+      "meaning": "người máy",
+      "category": "tech",
+      "example": "My robot can dance and sing.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"cards\" mean?",
+      "options": [
+        "con diều",
+        "lá bài",
+        "con xúc xắc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gấu bông\"?",
+      "options": [
+        "teddy bear",
+        "video game",
+        "skateboard"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Roll the ___ and move forward.",
+      "options": [
+        "garlic",
+        "astronaut",
+        "dice"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trò xếp hình)",
+      "options": [
+        "puzzle",
+        "puzlze",
+        "puzle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trò chơi\"?",
+      "options": [
+        "rabbit",
+        "mango",
+        "game"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"doll\" mean?",
+      "options": [
+        "con xúc xắc",
+        "búp bê",
+        "lá bài"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con diều)",
+      "options": [
+        "kitte",
+        "kyte",
+        "kite"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ba_l (quả bóng)",
+      "options": [
+        "r",
+        "l",
+        "t"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"toy\" mean?",
+      "options": [
+        "đồ chơi",
+        "con cá sấu",
+        "con ếch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cờ vua\"?",
+      "options": [
+        "video game",
+        "chess",
+        "skateboard"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: skatebo_rd (ván trượt)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"skateboard\" mean?",
+      "options": [
+        "ván trượt",
+        "con diều",
+        "trò xếp hình"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He plays a ___ after dinner.",
+      "options": [
+        "video game",
+        "flower",
+        "spaghetti"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả bóng bay)",
+      "options": [
+        "baloon",
+        "balloon",
+        "blaloon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rob_t (người máy)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to throw a ball",
+    "Pretend to fly a kite",
+    "Pretend to hug a teddy bear",
+    "Pretend to ride a skateboard",
+    "Pretend to roll the dice",
+    "Pretend to play a video game"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

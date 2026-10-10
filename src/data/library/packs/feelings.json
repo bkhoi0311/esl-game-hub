@@ -1,0 +1,282 @@
+{
+  "title": "Feelings",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "happy",
+      "meaning": "vui vẻ",
+      "category": "feeling",
+      "example": "The children are happy today.",
+      "image": ""
+    },
+    {
+      "word": "sad",
+      "meaning": "buồn",
+      "category": "feeling",
+      "example": "She is sad about her lost toy.",
+      "image": ""
+    },
+    {
+      "word": "angry",
+      "meaning": "tức giận",
+      "category": "feeling",
+      "example": "Dad is angry about the mess.",
+      "image": ""
+    },
+    {
+      "word": "tired",
+      "meaning": "mệt",
+      "category": "feeling",
+      "example": "I am tired after the long walk.",
+      "image": ""
+    },
+    {
+      "word": "hungry",
+      "meaning": "đói",
+      "category": "feeling",
+      "example": "The puppy is hungry and wants food.",
+      "image": ""
+    },
+    {
+      "word": "thirsty",
+      "meaning": "khát",
+      "category": "feeling",
+      "example": "I am thirsty after the game.",
+      "image": ""
+    },
+    {
+      "word": "scared",
+      "meaning": "sợ hãi",
+      "category": "feeling",
+      "example": "The little boy is scared of thunder.",
+      "image": ""
+    },
+    {
+      "word": "sleepy",
+      "meaning": "buồn ngủ",
+      "category": "feeling",
+      "example": "The baby is sleepy now.",
+      "image": ""
+    },
+    {
+      "word": "excited",
+      "meaning": "hào hứng",
+      "category": "feeling",
+      "example": "I am excited about the trip.",
+      "image": ""
+    },
+    {
+      "word": "shy",
+      "meaning": "nhút nhát",
+      "category": "feeling",
+      "example": "The shy girl smiles quietly.",
+      "image": ""
+    },
+    {
+      "word": "bored",
+      "meaning": "chán",
+      "category": "feeling",
+      "example": "He is bored in the car.",
+      "image": ""
+    },
+    {
+      "word": "surprised",
+      "meaning": "ngạc nhiên",
+      "category": "feeling",
+      "example": "We are surprised by the big cake.",
+      "image": ""
+    },
+    {
+      "word": "worried",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "Mum is worried about the test.",
+      "image": ""
+    },
+    {
+      "word": "sick",
+      "meaning": "ốm",
+      "category": "feeling",
+      "example": "Tom is sick, so he stays home.",
+      "image": ""
+    },
+    {
+      "word": "sorry",
+      "meaning": "xin lỗi",
+      "category": "feeling",
+      "example": "I am sorry for the noise.",
+      "image": ""
+    },
+    {
+      "word": "afraid",
+      "meaning": "sợ",
+      "category": "feeling",
+      "example": "I am afraid of big dogs.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"sorry\" mean?",
+      "options": [
+        "xin lỗi",
+        "ngạc nhiên",
+        "khát"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mệt\"?",
+      "options": [
+        "angry",
+        "happy",
+        "tired"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: th_rsty (khát)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"buồn\"?",
+      "options": [
+        "happy",
+        "sad",
+        "scared"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sick\" mean?",
+      "options": [
+        "sợ",
+        "chán",
+        "ốm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hào hứng\"?",
+      "options": [
+        "excited",
+        "hungry",
+        "sorry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The little boy is ___ of thunder.",
+      "options": [
+        "email",
+        "grape",
+        "scared"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: afra_d (sợ)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"surprised\" mean?",
+      "options": [
+        "buồn ngủ",
+        "ngạc nhiên",
+        "tức giận"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đói)",
+      "options": [
+        "hnugry",
+        "hungry",
+        "hunngry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shy\" mean?",
+      "options": [
+        "sợ hãi",
+        "xin lỗi",
+        "nhút nhát"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The children are ___ today.",
+      "options": [
+        "happy",
+        "see",
+        "joystick"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bor_d (chán)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tức giận)",
+      "options": [
+        "angry",
+        "agnry",
+        "anngry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buồn ngủ)",
+      "options": [
+        "selepy",
+        "sleepy",
+        "slepy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Look happy",
+    "Look sad",
+    "Pretend to be sleepy",
+    "Look surprised",
+    "Yawn like you are tired",
+    "Look scared"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

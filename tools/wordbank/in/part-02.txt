@@ -1,0 +1,97 @@
+ear	Ear
+eye	Eye
+eyes	Eyes
+face	Smiling face
+foot	Foot
+feet	Foot
+hair	Person red hair
+hand	Raised hand
+head	Face without mouth
+leg	Leg
+mouth	Mouth
+nose	Nose
+tooth	Tooth
+teeth	Tooth
+tongue	Tongue
+bone	Bone
+brain	Brain
+heart	Red heart
+lungs	Lungs
+muscle	Flexed biceps
+beard	Person beard
+moustache	Person beard
+finger	Index pointing up
+skeleton	Skull
+skull	Skull
+blood	Drop of blood
+lips	Mouth
+knee	Leg
+toe	Foot
+bag	Handbag
+handbag	Handbag
+backpack	Backpack
+baseball cap	Billed cap
+cap	Billed cap
+belt	Jeans
+boots	Hiking boot
+boot	Hiking boot
+coat	Coat
+dress	Dress
+glasses	Glasses
+sunglasses	Sunglasses
+glove	Gloves
+gloves	Gloves
+hat	Top hat
+helmet	Rescue workers helmet
+jacket	Coat
+jeans	Jeans
+trousers	Jeans
+pants	Jeans
+necklace	Prayer beads
+ring	Ring
+scarf	Scarf
+shirt	T-shirt
+t-shirt	T-shirt
+shoe	Running shoe
+shoes	Running shoe
+trainers	Running shoe
+sneakers	Running shoe
+shorts	Shorts
+skirt	Womans clothes
+sock	Socks
+socks	Socks
+swimsuit	One-piece swimsuit
+swimming costume	One-piece swimsuit
+bikini	Bikini
+umbrella	Umbrella
+watch	Watch
+crown	Crown
+kimono	Kimono
+sari	Sari
+lab coat	Lab coat
+uniform	Lab coat
+pyjamas	Bed
+sandal	Thong sandal
+sandals	Thong sandal
+high heels	High-heeled shoe
+tie	Necktie
+purse	Purse
+wallet	Purse
+suitcase	Luggage
+luggage	Luggage
+button	Thread
+pocket	Jeans
+zip	Jeans
+red	Red circle
+blue	Blue circle
+green	Green circle
+yellow	Yellow circle
+orange	Orange circle
+purple	Purple circle
+black	Black circle
+white	White circle
+brown	Brown circle
+pink	Pink heart
+grey	White circle
+gray	White circle
+colour	Artist palette

@@ -1,0 +1,225 @@
+{
+  "sampled": [
+    "nuts",
+    "chair",
+    "flower",
+    "snack",
+    "couch",
+    "curry",
+    "bookcase",
+    "television",
+    "restaurant",
+    "apartment",
+    "living room",
+    "mushroom",
+    "fork",
+    "glass",
+    "garlic"
+  ],
+  "sampleErrors": [
+    "nuts",
+    "couch",
+    "mushroom"
+  ],
+  "alsoReviewed": [
+    "donut",
+    "pudding",
+    "dumpling",
+    "cup",
+    "wine",
+    "beer",
+    "flat",
+    "light",
+    "painting",
+    "cupboard",
+    "wardrobe",
+    "oven",
+    "table"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "mushroom",
+      "field": "ex",
+      "old": "Mushrooms grow in the wet forest.",
+      "new": "We find mushrooms in the wet forest."
+    },
+    {
+      "word": "nut",
+      "field": "vi",
+      "old": "hạt, quả hạch",
+      "new": "hạt"
+    },
+    {
+      "word": "nuts",
+      "field": "vi",
+      "old": "hạt, quả hạch",
+      "new": "các loại hạt"
+    },
+    {
+      "word": "peanut",
+      "field": "vi",
+      "old": "đậu phộng",
+      "new": "lạc, đậu phộng"
+    },
+    {
+      "word": "cupcake",
+      "field": "vi",
+      "old": "bánh nướng nhỏ",
+      "new": "bánh cupcake"
+    },
+    {
+      "word": "cupcake",
+      "field": "ex",
+      "old": "Mum made a pink cupcake for me.",
+      "new": "Mum makes a pink cupcake for me."
+    },
+    {
+      "word": "pudding",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "snack",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "painting",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "cupboard",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "wardrobe",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "oven",
+      "field": "note",
+      "old": "c",
+      "new": ""
+    },
+    {
+      "word": "dumpling",
+      "field": "vi",
+      "old": "bánh bao, há cảo",
+      "new": "há cảo, sủi cảo"
+    },
+    {
+      "word": "dumpling",
+      "field": "ex",
+      "old": "She is cooking a dumpling in the pot.",
+      "new": "We eat dumplings at New Year."
+    },
+    {
+      "word": "dumpling",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dumpling",
+      "field": "note",
+      "old": "nghĩa theo vùng miền, cần duyệt",
+      "new": ""
+    },
+    {
+      "word": "cup",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "cup",
+      "field": "note",
+      "old": "emoji Trophy lệch nghĩa (cúp); chọn nghĩa cái tách",
+      "new": "emoji Trophy lệch; chọn nghĩa cái tách (glass = cốc thuỷ tinh)"
+    },
+    {
+      "word": "knife",
+      "field": "ex",
+      "old": "Be careful with the sharp knife.",
+      "new": "I eat with a knife and fork."
+    },
+    {
+      "word": "knife",
+      "field": "note",
+      "old": "",
+      "new": "giữ: dao ăn trong bộ đồ ăn (Movers), không phải vũ khí; câu ví dụ trung tính"
+    },
+    {
+      "word": "soda",
+      "field": "vi",
+      "old": "nước ngọt có ga",
+      "new": "nước ngọt"
+    },
+    {
+      "word": "flat",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "flat",
+      "field": "note",
+      "old": "flat đa nghĩa (bằng phẳng); emoji Office building hợp nghĩa căn hộ",
+      "new": ""
+    },
+    {
+      "word": "couch",
+      "field": "vi",
+      "old": "ghế sofa",
+      "new": "ghế dài"
+    },
+    {
+      "word": "light",
+      "field": "vi",
+      "old": "bóng đèn",
+      "new": "đèn, ánh sáng"
+    },
+    {
+      "word": "light",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "light",
+      "field": "note",
+      "old": "light đa nghĩa (ánh sáng, nhẹ); emoji Light bulb nên chọn cái đèn",
+      "new": ""
+    },
+    {
+      "word": "plant",
+      "field": "vi",
+      "old": "cái cây",
+      "new": "cây trồng"
+    },
+    {
+      "word": "cupboard",
+      "field": "vi",
+      "old": "tủ chén",
+      "new": "cái tủ"
+    },
+    {
+      "word": "television",
+      "field": "alt",
+      "old": [],
+      "new": [
+        "tv"
+      ]
+    }
+  ],
+  "stillCheck": []
+}

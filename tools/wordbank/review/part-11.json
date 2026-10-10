@@ -1,0 +1,221 @@
+{
+  "sampled": [
+    "internet",
+    "paint",
+    "stand",
+    "website",
+    "click",
+    "wake up",
+    "kick",
+    "screen",
+    "printer",
+    "sail",
+    "exclamation",
+    "build",
+    "throw",
+    "shout",
+    "fight"
+  ],
+  "sampleErrors": [
+    "website",
+    "click",
+    "kick",
+    "throw"
+  ],
+  "alsoReviewed": [
+    "play"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "brush teeth",
+      "field": "ex",
+      "old": "I brush teeth after every meal.",
+      "new": "I brush my teeth after breakfast."
+    },
+    {
+      "word": "brush teeth",
+      "field": "alt",
+      "old": [],
+      "new": [
+        "brush my teeth",
+        "brush your teeth"
+      ]
+    },
+    {
+      "word": "watch tv",
+      "field": "vi",
+      "old": "xem truyền hình",
+      "new": "xem ti vi"
+    },
+    {
+      "word": "watch tv",
+      "field": "ex",
+      "old": "We watch tv after dinner.",
+      "new": "We watch TV after dinner."
+    },
+    {
+      "word": "say",
+      "field": "vi",
+      "old": "nói",
+      "new": "nói, bảo"
+    },
+    {
+      "word": "say",
+      "field": "ex",
+      "old": "Say hello to my friend.",
+      "new": "I say hello to my friend."
+    },
+    {
+      "word": "listen",
+      "field": "ex",
+      "old": "Listen to the teacher, please.",
+      "new": "We listen to music in the car."
+    },
+    {
+      "word": "look",
+      "field": "ex",
+      "old": "Look at the red bird!",
+      "new": "Please look at the red bird!"
+    },
+    {
+      "word": "whisper",
+      "field": "ex",
+      "old": "Whisper to me, please.",
+      "new": "We whisper in the library."
+    },
+    {
+      "word": "clap",
+      "field": "ex",
+      "old": "Clap your hands with me.",
+      "new": "We clap our hands to the music."
+    },
+    {
+      "word": "point",
+      "field": "ex",
+      "old": "Point to the big tree.",
+      "new": "Please point to the big tree."
+    },
+    {
+      "word": "hold",
+      "field": "ex",
+      "old": "Hold my hand when we cross.",
+      "new": "Please hold my hand when we cross."
+    },
+    {
+      "word": "throw",
+      "field": "ex",
+      "old": "Throw the ball to me.",
+      "new": "Can you throw the ball to me?"
+    },
+    {
+      "word": "kick",
+      "field": "ex",
+      "old": "Kick the ball to your friend.",
+      "new": "He can kick the ball very far."
+    },
+    {
+      "word": "push",
+      "field": "ex",
+      "old": "Push the door to open it.",
+      "new": "Please push the door to open it."
+    },
+    {
+      "word": "pull",
+      "field": "ex",
+      "old": "Pull the rope very hard.",
+      "new": "We pull the rope very hard."
+    },
+    {
+      "word": "sit",
+      "field": "ex",
+      "old": "Sit on the red chair.",
+      "new": "I sit on the red chair."
+    },
+    {
+      "word": "lie down",
+      "field": "ex",
+      "old": "Lie down on the soft bed.",
+      "new": "I lie down on the soft bed."
+    },
+    {
+      "word": "pay",
+      "field": "ex",
+      "old": "Pay the money at the shop.",
+      "new": "We pay for the food at the shop."
+    },
+    {
+      "word": "take",
+      "field": "ex",
+      "old": "Take a pencil from the box.",
+      "new": "Please take a pencil from the box."
+    },
+    {
+      "word": "click",
+      "field": "ex",
+      "old": "Click the green button.",
+      "new": "Please click the green button."
+    },
+    {
+      "word": "cut",
+      "field": "ex",
+      "old": "Cut the paper with scissors.",
+      "new": "I cut the paper with scissors."
+    },
+    {
+      "word": "mix",
+      "field": "ex",
+      "old": "Mix the eggs and the milk.",
+      "new": "Mum and I mix the eggs and milk."
+    },
+    {
+      "word": "fry",
+      "field": "ex",
+      "old": "Mum will fry some eggs.",
+      "new": "Mum fries eggs for breakfast."
+    },
+    {
+      "word": "boil",
+      "field": "ex",
+      "old": "Boil the water for the tea.",
+      "new": "Dad boils water for the tea."
+    },
+    {
+      "word": "seek",
+      "field": "vi",
+      "old": "tìm kiếm",
+      "new": "đi tìm"
+    },
+    {
+      "word": "seek",
+      "field": "ex",
+      "old": "Let's seek the lost puppy.",
+      "new": "We play hide and seek in the garden."
+    },
+    {
+      "word": "stretch",
+      "field": "ex",
+      "old": "Stretch your arms up high.",
+      "new": "We stretch our arms up high."
+    },
+    {
+      "word": "website",
+      "field": "vi",
+      "old": "trang mạng",
+      "new": "trang web"
+    },
+    {
+      "word": "headphones",
+      "field": "vi",
+      "old": "bộ tai nghe",
+      "new": "tai nghe"
+    },
+    {
+      "word": "battery",
+      "field": "ex",
+      "old": "The battery in my toy is dead.",
+      "new": "My toy needs a new battery."
+    }
+  ],
+  "stillCheck": []
+}

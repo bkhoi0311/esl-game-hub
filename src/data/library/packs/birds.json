@@ -1,0 +1,261 @@
+{
+  "title": "Birds",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "bird",
+      "meaning": "con chim",
+      "category": "bird",
+      "example": "The bird sings in the tree.",
+      "image": ""
+    },
+    {
+      "word": "duck",
+      "meaning": "con vịt",
+      "category": "bird",
+      "example": "The duck swims on the lake.",
+      "image": ""
+    },
+    {
+      "word": "chicken",
+      "meaning": "con gà",
+      "category": "bird",
+      "example": "The chicken has ten little chicks.",
+      "image": ""
+    },
+    {
+      "word": "eagle",
+      "meaning": "con đại bàng",
+      "category": "bird",
+      "example": "An eagle flies high in the sky.",
+      "image": ""
+    },
+    {
+      "word": "owl",
+      "meaning": "con cú",
+      "category": "bird",
+      "example": "The owl looks for food at night.",
+      "image": ""
+    },
+    {
+      "word": "parrot",
+      "meaning": "con vẹt",
+      "category": "bird",
+      "example": "The parrot can say hello.",
+      "image": ""
+    },
+    {
+      "word": "penguin",
+      "meaning": "chim cánh cụt",
+      "category": "bird",
+      "example": "The penguin walks on the ice.",
+      "image": ""
+    },
+    {
+      "word": "swan",
+      "meaning": "con thiên nga",
+      "category": "bird",
+      "example": "The swan is white and beautiful.",
+      "image": ""
+    },
+    {
+      "word": "dove",
+      "meaning": "chim bồ câu",
+      "category": "bird",
+      "example": "A white dove flies in the sky.",
+      "image": ""
+    },
+    {
+      "word": "peacock",
+      "meaning": "con công",
+      "category": "bird",
+      "example": "The peacock opens its beautiful tail.",
+      "image": ""
+    },
+    {
+      "word": "flamingo",
+      "meaning": "chim hồng hạc",
+      "category": "bird",
+      "example": "The flamingo stands on one leg.",
+      "image": ""
+    },
+    {
+      "word": "turkey",
+      "meaning": "con gà tây",
+      "category": "bird",
+      "example": "The turkey is a big bird.",
+      "image": ""
+    },
+    {
+      "word": "chick",
+      "meaning": "gà con",
+      "category": "bird",
+      "example": "The chick is small and yellow.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"con công\"?",
+      "options": [
+        "flamingo",
+        "peacock",
+        "swan"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ sings in the tree.",
+      "options": [
+        "children",
+        "light",
+        "bird"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chim cánh cụt\"?",
+      "options": [
+        "penguin",
+        "chick",
+        "parrot"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_ve (chim bồ câu)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con chim\"?",
+      "options": [
+        "dad",
+        "bird",
+        "morning"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"owl\" mean?",
+      "options": [
+        "con cú",
+        "con đại bàng",
+        "gà con"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con vẹt)",
+      "options": [
+        "perrot",
+        "parort",
+        "parrot"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is white and beautiful.",
+      "options": [
+        "swan",
+        "fry",
+        "see"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con gà)",
+      "options": [
+        "chikcen",
+        "chicken",
+        "chciken"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"parrot\" mean?",
+      "options": [
+        "con công",
+        "con vẹt",
+        "chim hồng hạc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: chi_k (gà con)",
+      "options": [
+        "c",
+        "s",
+        "k"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"duck\" mean?",
+      "options": [
+        "chim hồng hạc",
+        "gà con",
+        "con vịt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con đại bàng\"?",
+      "options": [
+        "dove",
+        "flamingo",
+        "eagle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_rkey (con gà tây)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flamingo\" mean?",
+      "options": [
+        "con thiên nga",
+        "chim hồng hạc",
+        "con đại bàng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Flap your wings like a bird",
+    "Waddle like a penguin",
+    "Stand on one leg like a flamingo",
+    "Spread your wings like an eagle",
+    "Walk like a duck",
+    "Sit still like an owl"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

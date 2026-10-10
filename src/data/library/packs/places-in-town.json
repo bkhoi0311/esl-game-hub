@@ -1,0 +1,296 @@
+{
+  "title": "Places in Town",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "library",
+      "meaning": "thư viện",
+      "category": "place",
+      "example": "We read books in the library.",
+      "image": ""
+    },
+    {
+      "word": "park",
+      "meaning": "công viên",
+      "category": "place",
+      "example": "I play football in the park.",
+      "image": ""
+    },
+    {
+      "word": "zoo",
+      "meaning": "sở thú",
+      "category": "place",
+      "example": "We see lions at the zoo.",
+      "image": ""
+    },
+    {
+      "word": "shop",
+      "meaning": "cửa hàng",
+      "category": "place",
+      "example": "The shop opens at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "supermarket",
+      "meaning": "siêu thị",
+      "category": "place",
+      "example": "Mum buys milk at the supermarket.",
+      "image": ""
+    },
+    {
+      "word": "cinema",
+      "meaning": "rạp chiếu phim",
+      "category": "place",
+      "example": "We go to the cinema today.",
+      "image": ""
+    },
+    {
+      "word": "hospital",
+      "meaning": "bệnh viện",
+      "category": "place",
+      "example": "The doctor works in the hospital.",
+      "image": ""
+    },
+    {
+      "word": "bank",
+      "meaning": "ngân hàng",
+      "category": "place",
+      "example": "Mum goes to the bank today.",
+      "image": ""
+    },
+    {
+      "word": "bakery",
+      "meaning": "tiệm bánh mì",
+      "category": "place",
+      "example": "We buy fresh bread at the bakery.",
+      "image": ""
+    },
+    {
+      "word": "restaurant",
+      "meaning": "nhà hàng",
+      "category": "place",
+      "example": "We eat at a restaurant on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "museum",
+      "meaning": "viện bảo tàng",
+      "category": "place",
+      "example": "The museum has old pictures.",
+      "image": ""
+    },
+    {
+      "word": "post office",
+      "meaning": "bưu điện",
+      "category": "place",
+      "example": "Dad sends a letter at the post office.",
+      "image": ""
+    },
+    {
+      "word": "market",
+      "meaning": "chợ",
+      "category": "place",
+      "example": "We buy fish at the market.",
+      "image": ""
+    },
+    {
+      "word": "station",
+      "meaning": "nhà ga",
+      "category": "place",
+      "example": "Mum meets us at the station.",
+      "image": ""
+    },
+    {
+      "word": "swimming pool",
+      "meaning": "hồ bơi",
+      "category": "place",
+      "example": "The swimming pool is cool and clean.",
+      "image": ""
+    },
+    {
+      "word": "theatre",
+      "meaning": "nhà hát",
+      "category": "place",
+      "example": "The theatre is in the city.",
+      "image": ""
+    },
+    {
+      "word": "hotel",
+      "meaning": "khách sạn",
+      "category": "place",
+      "example": "Our hotel is near the beach.",
+      "image": ""
+    },
+    {
+      "word": "town",
+      "meaning": "thị trấn",
+      "category": "place",
+      "example": "My grandma lives in a small town.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"cửa hàng\"?",
+      "options": [
+        "balloon",
+        "shop",
+        "doctor"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: hot_l (khách sạn)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cinema\" mean?",
+      "options": [
+        "nhà hát",
+        "viện bảo tàng",
+        "rạp chiếu phim"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngân hàng\"?",
+      "options": [
+        "bank",
+        "hospital",
+        "station"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"zoo\" mean?",
+      "options": [
+        "công viên",
+        "sở thú",
+        "chợ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thư viện\"?",
+      "options": [
+        "cinema",
+        "park",
+        "library"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I play football in the ___.",
+      "options": [
+        "park",
+        "thin",
+        "run"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bakery\" mean?",
+      "options": [
+        "công viên",
+        "ngân hàng",
+        "tiệm bánh mì"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: resta_rant (nhà hàng)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"post office\" mean?",
+      "options": [
+        "bưu điện",
+        "nhà hàng",
+        "tiệm bánh mì"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_tion (nhà ga)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà hát)",
+      "options": [
+        "thiatre",
+        "theatre",
+        "thetare"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My grandma lives in a small ___.",
+      "options": [
+        "butter",
+        "town",
+        "wifi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bệnh viện)",
+      "options": [
+        "hospital",
+        "hospytal",
+        "hospitel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chợ)",
+      "options": [
+        "makret",
+        "markit",
+        "market"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ride a bike in the park",
+    "Pretend to read in the library",
+    "Pretend to buy bread",
+    "Look left and right",
+    "Pretend to swim",
+    "Pretend to take a bus"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

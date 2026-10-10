@@ -1,0 +1,82 @@
+// Từ tiếng Anh có thật (3-6 chữ cái) dễ trùng với chữ nhiễu khi đục chữ / sai chính tả từ trong kho. Dùng cho qgen: letter, spell.
+// Lọc từ từ điển máy (NSSpellChecker) các biến thể một chữ của 1150 từ kho, bỏ dạng suy ra được bằng s/es/ed/ing từ kho. Nén tiền tố:
+// mỗi mục = 1 chữ số (số chữ đầu dùng lại của mục trước) + phần còn lại. Cố ý chặn dư (từ hiếm) vì chặn dư chỉ làm bớt ứng viên nhiễu.
+const PACKED =
+  '0acton1dder1iling2mer2tch1lack3te2ign3ve2oud1pace2ort1rcher1ster1utist0baa2ba3e3u2ck2d2e2g2h3t2il4or' +
+  '3t4er2ke2l3d3e4r3k3l3m2m3boo2n3d3e3g4er3i3k2p2r3bed5l5t3d3e4r3k4er3m3ter2s3e3h3k3set3t4er2t2ud2wd3l2' +
+  'y1ears2cket2er2g2tter1ib2d3e3ing2g2ke2le3k3l4ow4y2n2rr2s3ter2t3ch3e3ten5r2z1lain3nk2ed2ock3od4m4p3t3' +
+  'w4er4n2ue3r3sh1oa3r4d3st3t2b3by2ck2d3e3ing2g3gy3y2il2ld3e3l3t2mb2n3d3g3k3y2o3b3k3l3m3n3r3st3t2p2re4r' +
+  '3ing3n2t3h3tle2ut2w3ed4l4r3ing3l2y1race4h3d3e3id4l4n3ke3n3sh4s3t3vo3w4n3y3ze2eak4m3d3ed3ve2ide4ge4le' +
+  '3nk2oad3ke5r3od4k4m3w4n2uin4t1ub2ck4ed5r2d3ge2g3ger2ilt2ll2m3mer3p2n3ch3d3gle3k3ny3t4er2r3gee3ier3ne' +
+  'r3rer4y3ton2s2t3ler3te5r4on2y0cab3le2d3dy3e2ge4r2in2ke3y2l3f3k3l3m3x2m3e4o3p2n2p2r2se3h3k4et3t4e5r2t' +
+  '2ul2va3e3y2w2y1ell4o3t2nt2p2rcus3n3o2ss1had3i4n4r4s3p4s3r4ge4r3t3w2eck3ep4ry4se5y3rry4ty3ss4t3w2ic4k' +
+  '3d3le4i4l3n4k4o3p3t2ock3ir3ker3p3se2ub3ck1ig2ne2rrus2t3e1lack3d3m3n3sh4p4s3ver3w3y2ear4t3f3ve5r2ick3' +
+  'me3nk3p4s2oak3ck3d4dy3ne3p3se3th3ud4t3ve5n5r3wn2uck3e3tch1oach3l3st3t3x2b2ck4er2d3a2ed2ffee5r2g2if3l' +
+  '3n3r2ke3ing2l3a3d3i4c3let3on4r3t2ma3e2n3ch3e3ic3k4er3n3y2o3er3ing3k3l3n3p4er3t4er4ie2p3e2rd3e4d3k4er' +
+  '3m3n3p3se2s3h3t4er2t3e2uch3gh3p2ve4r2w2x2y2z1rag3m3p4e3ss3ve3w2eam3e4se3ss2ib3ck2ock3ne3on3p3tch3w4d' +
+  '4n2unch3sh2y1ub2ck2d2e2ll2m3ber2p2r3d4y3ly3ry3se3vy2t0dab2ce2d2gger2h2iry2l3e2m3e3mer3p2n3ce3der4le4' +
+  'y3ger3k2p2r3e3k3t2s3h2ta3e2w2y2ze1ead3f3l3n3r2ck2e3d3m3p3r2g2ll2mon2n3t2rry2si2w1ice3k2d2e2g3ht2ke2l' +
+  'l4y2me4r2n3e4r3g3k4ey3ner2p2re3t2sh3k3s2t3ch3ty2va3e1ocket2ttle1rab3g3in3m3nk3pe3t3y2ead4r3gs3ss3w2i' +
+  'er3p3ve2oop3ss3ve5r3wn2ub3g3m3nk2y1ubber2ct2d2el2g2ll2m3p2n3ce3k3ner2p2sk1ye3r0each2ger2r2se4r3ier3t' +
+  '2t2ve4s1ddy2ea1ft1gg2o1ight1ke1late2d2k2l2m2s2ute2ver1mpt1nd2ow1on1quid1ra3se5d2e2g2r1ster1ta1ve1we1' +
+  'xcite2es0fable2ce3t4or2d3e2e3ry2g2il3n4t3r2ke4r5y2ll2m3e2n2r2t2ugh2y2ze1ear3t2d2e3d3l2ll4ow3on3t2n3d' +
+  '3ny2rny3ry2st2tter2w2y1iat2b2d3e2e3nd2fe2g3gy3ht2le3l3s2n3d3e4r3ger3k3ny2r3e3m4an4er3ry2st2t3ch2ve2x' +
+  '1lack3g3k3m3n3p3t3w3x3y2ed4ge2ick3t2ock3g3od4r3ur3w4n2u3b3e3ke3me3ty2y1oal2b2e2g2il2ld3k2nd3t2o3d3l3' +
+  't2p2r2ster2ul3r2wl2x1ramer3t3y2ee3t2ied4nd4r3nge2o3m3wn2y1udge2el2ll2n2r3l3ry0gable3y2d3der2g3e4r2in' +
+  '3t4er2l3e3l4ic2m3e3ily3mer3p3y2n3ger2ol2p3e4r4s3py2r3th2sh3ket2t3e3her2ve2y2ze1ear2d2e3k2l3d3t2m2ne3' +
+  'ii3re3t2o2t1hat1ibbon3e2ft2g2ld3l3t2n3ger2p2rd3o3t2st2t2ve1lans3ss2ean3be3e2obe3ss3ve3w4er3ze2ue3m3t' +
+  '1nar3t1od1rab3ce3d4e3in3m3nge3pe4h3sp4s3te3ve5l3y3ze2eed4n4t3w3y2ip4e2oat3g3om3pe3ss3t3ve1uar2ild2lf' +
+  '3l2m3mer2n3ny2ppy2rl2sh2t3ter2y2zzle1ym2n2p2ve0had3e2g2h2ik3l3r2ke2le3l3t2m3e3mer3per2nd3ger3k2p3ly3' +
+  'py2rbor3d3k3m4er3ry3t2t2ve2w2y1elmed2mmer2pper1ick4ey2d3e2e2ke2ll3t2m2nd3ger3ter2p3po4y2re4d2s2t2ve1' +
+  'oar4d2b3by2ck4er2d2e3r2g2key2ld3e3lo3m3t3y2mo3y2ne4y3g2od3ey3f3k4er3t2p3e3py2rde3n3se4y2se3t2t2ur3se' +
+  '2ve4l2w3e3l2y1ub3by2d2e2h2ll2m3mer3p2nch3t2rry2sh2t0infect2ject2land2sert1rate0jab2cker5t2g2il2ngle2' +
+  'pe4r2r2w2y1ean4s2er2ll2rry2st2t1ig2ngle3k2ve1ock4ey2e2g2in4t2t2wl2y1ug3gle2icy2ngly2t0kay1ea2g2lp3t2' +
+  'n2t1hat1ibe2ck2d2ll2n3d3g3k3o2p2ri3k2ss3t2t3h3ten1nack2ee3w2ow1ola1rone1ung0lace3k2d3der3e3ler2g3er2' +
+  'in3r2ke3y2m3a3b3e3p2n3ce5r3d4er3e3k2p2rd4er3i3k2sh3s3t4er2t3ch3e4r3h4er3ter2ud4er2ve2w2x2y2ze1ea3ch3' +
+  'd3k3l3n4er3p3r3se3ve5d5n5r2d3ge2e3k3r3t2ft2i2k2man2nd3t2sion3sen4on5r3t2t2u2v3er1ice3k2d2e2fe3o3t2gh' +
+  't2ke2ll3t2mb3e3n3o3p3y2nch3e3g4er3k3t4er2p3a2re2s3p3t2t3e3ter2ve2zard1oad3f2bby3e2ch3i3k3o2de2ft2g3e' +
+  '2in2ll2ne3g2o3k3m3n3p3se3t2pe2rd3e3n3ry3y2se3s3t2t2ud3gh3se3t2ve2w2x1ubber2ck2g2ll2mber3p2nes3g4e4i2' +
+  'rch2sh3t2te1ye2nch2se0mac3e2d3der2g3i2il3n2ke2le3l3m3t2n2p2r3cel4h3k3l3ry2sh3que3t4er2t3ch3e4r3h3ure' +
+  '2ul2w2y1ellow2n1ice2d2ght2ke2l3d3e3l3o3t2m3e4r2n3d3e3g3k3ter3uet2r3e3k3ror2ss3t4er2te3ten2x1oan3t2ck' +
+  '2dal2ggy2il2ld3l2ney3key3o3te4h2o3d3n3r3se3t2p3e2rn3se3t2sey2t3e4l3h3tle2use4se4y3th2ve2w3er3ing3n1u' +
+  'ck4y2d2g2ll2nch3go2scly3e3h2tter4on2zzle0nag2if3l3n2m3e2n2p3e3py2rd2t3ch2ve2w2y1ear3t2b2e3d2ss3t2t3t' +
+  'er2xt1ice3k2gh4t2l2p2t2x1oodle1ub2dge2ll2n2rse2t2zzle1ye0ogive1odles1rang2ead1ther2tar3er1wing0pac3e' +
+  '4r3k4et2d3der2ge4r2il3n4t3r2l3er3l4et2m2n2p3er3py2r3a3d3e4nt4r3i3r4ot4y3se4on3t2sh4a3t4e5r4y2t3ch3e4' +
+  'r3h3ty2ve4r2w2x2y1eeper2lmet2pper2ster1hon4o4y3t1ic3e3k3ot3ric2e2g2ke2ll4ow2n3e3g3t4a3y2p3er2ss2t3ch' +
+  '3y2vot2x2zza1lace3it3n4e4k4t3t4e4y3y2ed4ge2ot3ver3w4er3y2um3s2y1oach2ck4et2e3t2int2ky2l3icy4te3l3o3y' +
+  '2me2nd3e3g2of3h3l3p3r2pe3per4y2rch3e4d3k4er3t2se4r3h3t3y2t3her3ter4le4o2uch3r3t4er2w3er2x3y1ram3nce3' +
+  't4e3y2een3set4s3tty3y2ice3de3me3nk4t2og3ne4g3p3w2y1st1uck2dge2g2l3e3i3l3p4y3se2mp2n3ch3k3t3y2p3al3py' +
+  '2re4e3ge5r3l3ply3se4y2s3s2t2zzle1ya0quack2ean3en4r3rn2id3lt3nt3rk4t3t4e0rabbet4i5t2ce3k4er5t3y2d3ii4' +
+  'x2g3e4r2h2id3l3n2j2ke4r2m3mer3ous3p2n3d4y3g4e5r3i3k2p3e4r2re2se3h3ter2t2ve4l4r2w2y2ze1each3d3l3m3p3r' +
+  '3son2ck3t2d2ed3k2f3t2g2in2lay2nd3t2p2sent3t2t2v2x1ibber4on2ce3h3k2d3e3ge2fe3t2g3ht2le3l2me4r2nd3g3k2' +
+  'p3e2se4r3ing2te2ve4n4r4t3ing1oad3m3n3r3st2b3ber3e3ing2c3k2d3e2e2il2le3l2od3f3k4ie3m3t4er2pe3ing3y2se' +
+  '3s3ter3y2t3e2use2ve4r3ing2w1ub3bed5r2ck2de2e3r2g2in2le2m3mer3p2n2se3h3t2t1ye0sable2cred2int2ker2lat3' +
+  'ly2ppy2rong1caled3mp3re5r4p4y2hool4rl2one3re5d3ter3ut2ree5d5n3imp2ull3rf1edge2men2ver2x1hack3ke3le4l' +
+  '3nk3rd4e4p2ied4s3ft3ll3re4k4r4t2oat3ne3ot3re4n4t3ut3ver2ree1ider3ing2fter2ght2lky3ly3ty2mmer2nker3ne' +
+  'r3ter1kate2eet2ulk4l1lack3ke3nt3te2eek4p4t5y2ick3der2osh2udge1mack3ll2ell2ily3te2oky3te1naky3re4k4l2' +
+  'eak3ll2ick2ore4t3ut2uck1occer2lder2ng2wing1pade5r3ll3re4k3te2eak4r3ck3ll2ice5r3er3ker3rt2oke3ngy3of4' +
+  'k4l4n4r3re4t3ut2rang3ig4ng5t3ung2urt1quad4rk3ib4re1tack3id4r3ke3ll3nk3ple3te2ead4k4l4m3ep3re2ile3ng2' +
+  'ogy3ke3le3mp3ne4y3op3re4k4m4y3ut3ve2reet3ing3ong3ung2ump1ubset2lly2ng1wamp2eat3ep4t3ll3pt2oon3re0tab' +
+  'la4e2int2mer2n3go2rry2ster2ter1eeth2rry1hank2ick3rst4ty2reat4e4w3ob4e1icked5r2ded3ing2ger3ger3ht2led' +
+  '4r2mor2ned3ter2ter1offee2iled5r2ther2wing1rack3il4n4t2ead4t3ss2ick3ed3te2oth2uce3nk1ubber2nny1wain2e' +
+  'et2ine4k0umber2p1nfair2ion2set1rger2n1tter0vail3n2le2mp2n2s3a3t2t1eal2er2nd3t2rb2st2t2x1ice2e2ll2ne2' +
+  'reo2se2ve2zard1ote2uch2w3el4r0wack2d3der3e4r2fer3t4er2g3e4r2if3l4er3n3ver2ke3ing2le3i4ng3k3l2n3d3e3n' +
+  'er3t2r3d4en3e3m3n3p3t4y3y2sh3p3t4er2tch3er3t2ugh2ve3y2x3er2y1hat2eal3e4l3rry2ile3ne3p3t4e4s2ole3p2y1' +
+  'ick4et2de3ow2eld3ner2fe2g3ht2ld3l4et4ow4y2n3e2re4d2s3h3t2t3ch3h3ter2ve2z3ard1oad2e2k2ld3f2mb2n2o3d3f' +
+  '3l2rd3e3k3m3n3ry3se5r3t2t2uld2ve2w1rier3ng3t4e2ote2ung2y1ut1ye2n0yam3mer2nk2p2rd2s2w1ea3h3r2es2ll4ow' +
+  '3p2n2p2r2s2t2w1ield2n2p1uck4y0zag1eal2d2e2st1ig2ng1ombi2ne2o2ster';
+
+let cache = null;
+export function commonWords() {
+  if (cache) return cache;
+  const set = new Set();
+  const re = /(\d)([a-z]*)/g;
+  let prev = '';
+  let m;
+  while ((m = re.exec(PACKED))) {
+    prev = prev.slice(0, Number(m[1])) + m[2];
+    set.add(prev);
+  }
+  cache = set;
+  return set;
+}

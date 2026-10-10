@@ -1,0 +1,304 @@
+{
+  "title": "Sports",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "football",
+      "meaning": "bóng đá",
+      "category": "sport",
+      "example": "We play football after school.",
+      "image": ""
+    },
+    {
+      "word": "basketball",
+      "meaning": "bóng rổ",
+      "category": "sport",
+      "example": "They play basketball after school.",
+      "image": ""
+    },
+    {
+      "word": "tennis",
+      "meaning": "quần vợt",
+      "category": "sport",
+      "example": "She plays tennis every Friday.",
+      "image": ""
+    },
+    {
+      "word": "swimming",
+      "meaning": "bơi lội",
+      "category": "sport",
+      "example": "We go swimming every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "baseball",
+      "meaning": "bóng chày",
+      "category": "sport",
+      "example": "He plays baseball on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "volleyball",
+      "meaning": "bóng chuyền",
+      "category": "sport",
+      "example": "We play volleyball on the beach.",
+      "image": ""
+    },
+    {
+      "word": "badminton",
+      "meaning": "cầu lông",
+      "category": "sport",
+      "example": "We play badminton in the park.",
+      "image": ""
+    },
+    {
+      "word": "table tennis",
+      "meaning": "bóng bàn",
+      "category": "sport",
+      "example": "We play table tennis at lunch.",
+      "image": ""
+    },
+    {
+      "word": "golf",
+      "meaning": "môn gôn",
+      "category": "sport",
+      "example": "My uncle plays golf at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "judo",
+      "meaning": "võ judo",
+      "category": "sport",
+      "example": "My cousin does judo twice a week.",
+      "image": ""
+    },
+    {
+      "word": "karate",
+      "meaning": "võ karate",
+      "category": "sport",
+      "example": "He learns karate after school.",
+      "image": ""
+    },
+    {
+      "word": "skiing",
+      "meaning": "trượt tuyết",
+      "category": "sport",
+      "example": "We go skiing in the mountains.",
+      "image": ""
+    },
+    {
+      "word": "cycling",
+      "meaning": "môn đạp xe",
+      "category": "sport",
+      "example": "My dad loves cycling at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "running",
+      "meaning": "chạy bộ",
+      "category": "sport",
+      "example": "Dad goes running every morning.",
+      "image": ""
+    },
+    {
+      "word": "goal",
+      "meaning": "khung thành",
+      "category": "sport",
+      "example": "The ball goes into the goal.",
+      "image": ""
+    },
+    {
+      "word": "team",
+      "meaning": "đội",
+      "category": "sport",
+      "example": "Our team wins the game.",
+      "image": ""
+    },
+    {
+      "word": "match",
+      "meaning": "trận đấu",
+      "category": "sport",
+      "example": "We watch the match on TV.",
+      "image": ""
+    },
+    {
+      "word": "race",
+      "meaning": "cuộc đua",
+      "category": "sport",
+      "example": "He wins the race today.",
+      "image": ""
+    },
+    {
+      "word": "racket",
+      "meaning": "cây vợt",
+      "category": "sport",
+      "example": "She has a new racket.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: swimm_ng (bơi lội)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (võ judo)",
+      "options": [
+        "jduo",
+        "judo",
+        "juddo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dad goes ___ every morning.",
+      "options": [
+        "summer",
+        "clover",
+        "running"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"baseball\" mean?",
+      "options": [
+        "bóng chày",
+        "môn gôn",
+        "trượt tuyết"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộc đua\"?",
+      "options": [
+        "match",
+        "race",
+        "team"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our ___ wins the game.",
+      "options": [
+        "pasta",
+        "elves",
+        "team"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"match\" mean?",
+      "options": [
+        "trận đấu",
+        "bóng bàn",
+        "bóng đá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trượt tuyết)",
+      "options": [
+        "sking",
+        "skiing",
+        "skinig"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_al (khung thành)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"badminton\" mean?",
+      "options": [
+        "cầu lông",
+        "trượt tuyết",
+        "bóng chày"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cây vợt\"?",
+      "options": [
+        "judo",
+        "racket",
+        "badminton"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tennis\" mean?",
+      "options": [
+        "cầu lông",
+        "cuộc đua",
+        "quần vợt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bóng rổ)",
+      "options": [
+        "basketball",
+        "basketblal",
+        "baskebtall"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_lf (môn gôn)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"võ karate\"?",
+      "options": [
+        "racket",
+        "karate",
+        "table tennis"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to kick a ball",
+    "Pretend to throw a basketball",
+    "Pretend to swing a tennis racket",
+    "Pretend to swim",
+    "Run on the spot",
+    "Pretend to ski",
+    "Jump like a volleyball player"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

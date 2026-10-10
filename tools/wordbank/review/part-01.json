@@ -1,0 +1,256 @@
+{
+  "sampled": [
+    "unicorn",
+    "insect",
+    "feather",
+    "turtle",
+    "duck",
+    "body",
+    "koala",
+    "arm",
+    "shark",
+    "buffalo",
+    "frog",
+    "ant",
+    "cow",
+    "owl",
+    "flamingo"
+  ],
+  "sampleErrors": [
+    "feather",
+    "turtle",
+    "arm"
+  ],
+  "alsoReviewed": [
+    "elephant",
+    "fly",
+    "tortoise",
+    "bat"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "bee",
+      "field": "vi",
+      "old": "ong mật",
+      "new": "con ong"
+    },
+    {
+      "word": "bee",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "bird",
+      "field": "vi",
+      "old": "loài chim",
+      "new": "con chim"
+    },
+    {
+      "word": "crab",
+      "field": "vi",
+      "old": "cua biển",
+      "new": "con cua"
+    },
+    {
+      "word": "worm",
+      "field": "vi",
+      "old": "giun đất",
+      "new": "con giun"
+    },
+    {
+      "word": "butterfly",
+      "field": "ex",
+      "old": "A butterfly landed on my hand.",
+      "new": "A butterfly is sitting on my hand."
+    },
+    {
+      "word": "butterfly",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "elephant",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "elephant",
+      "field": "note",
+      "old": "nghĩa \"con voi\" không có dấu tiếng Việt, đúng nghĩa; chỉ để qua check",
+      "new": ""
+    },
+    {
+      "word": "fly",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "fly",
+      "field": "note",
+      "old": "emoji Airplane lệch nghĩa; chọn con ruồi (fly còn là động từ bay), cần duyệt",
+      "new": "emoji Airplane lệch; trong nhóm con vật chọn con ruồi"
+    },
+    {
+      "word": "jellyfish",
+      "field": "level",
+      "old": "flyers",
+      "new": "starters"
+    },
+    {
+      "word": "hippo",
+      "field": "level",
+      "old": "movers",
+      "new": "starters"
+    },
+    {
+      "word": "lion",
+      "field": "level",
+      "old": "starters",
+      "new": "movers"
+    },
+    {
+      "word": "lion",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "lizard",
+      "field": "level",
+      "old": "movers",
+      "new": "starters"
+    },
+    {
+      "word": "lizard",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "polar bear",
+      "field": "level",
+      "old": "flyers",
+      "new": "starters"
+    },
+    {
+      "word": "spider",
+      "field": "level",
+      "old": "movers",
+      "new": "starters"
+    },
+    {
+      "word": "spider",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "spider",
+      "field": "ex",
+      "old": "A spider made a web in the corner.",
+      "new": "A spider is making a web in the corner."
+    },
+    {
+      "word": "rabbit",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "turtle",
+      "field": "vi",
+      "old": "con rùa biển",
+      "new": "con rùa"
+    },
+    {
+      "word": "turtle",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "turtle",
+      "field": "note",
+      "old": "emoji Turtle; turtle thường là rùa nước, tortoise là rùa cạn; cần duyệt",
+      "new": ""
+    },
+    {
+      "word": "tortoise",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "tortoise",
+      "field": "note",
+      "old": "emoji Turtle trùng với turtle; phân biệt rùa cạn, cần duyệt",
+      "new": "rùa cạn, phân biệt với turtle"
+    },
+    {
+      "word": "rat",
+      "field": "ex",
+      "old": "A rat ran under the table.",
+      "new": "A rat is running under the table."
+    },
+    {
+      "word": "hamster",
+      "field": "vi",
+      "old": "chuột đồng",
+      "new": "chuột hamster"
+    },
+    {
+      "word": "mosquito",
+      "field": "ex",
+      "old": "A mosquito bit my arm.",
+      "new": "A mosquito is flying near my ear."
+    },
+    {
+      "word": "pony",
+      "field": "vi",
+      "old": "ngựa con",
+      "new": "ngựa lùn"
+    },
+    {
+      "word": "feather",
+      "field": "cat",
+      "old": "bird",
+      "new": "nature"
+    },
+    {
+      "word": "feather",
+      "field": "ex",
+      "old": "I found a blue feather on the grass.",
+      "new": "There is a blue feather on the grass."
+    },
+    {
+      "word": "nest",
+      "field": "cat",
+      "old": "bird",
+      "new": "nature"
+    },
+    {
+      "word": "body",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "body",
+      "field": "note",
+      "old": "emoji Person standing; chọn nghĩa cơ thể, cần duyệt",
+      "new": ""
+    },
+    {
+      "word": "arm",
+      "field": "ex",
+      "old": "He raised his arm to say hello.",
+      "new": "He raises his arm to say hello."
+    }
+  ],
+  "stillCheck": []
+}

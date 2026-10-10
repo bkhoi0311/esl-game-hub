@@ -1,0 +1,296 @@
+{
+  "title": "Fruit and Vegetables",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "apple",
+      "meaning": "quả táo",
+      "category": "fruit",
+      "example": "She has an apple in her bag.",
+      "image": ""
+    },
+    {
+      "word": "banana",
+      "meaning": "quả chuối",
+      "category": "fruit",
+      "example": "I eat a banana every morning.",
+      "image": ""
+    },
+    {
+      "word": "mango",
+      "meaning": "quả xoài",
+      "category": "fruit",
+      "example": "A ripe mango is yellow and sweet.",
+      "image": ""
+    },
+    {
+      "word": "grape",
+      "meaning": "quả nho",
+      "category": "fruit",
+      "example": "She puts one grape in her mouth.",
+      "image": ""
+    },
+    {
+      "word": "lemon",
+      "meaning": "quả chanh vàng",
+      "category": "fruit",
+      "example": "A lemon tastes very sour.",
+      "image": ""
+    },
+    {
+      "word": "pear",
+      "meaning": "quả lê",
+      "category": "fruit",
+      "example": "The pear on the table is juicy.",
+      "image": ""
+    },
+    {
+      "word": "pineapple",
+      "meaning": "quả dứa",
+      "category": "fruit",
+      "example": "A pineapple has a rough skin.",
+      "image": ""
+    },
+    {
+      "word": "strawberry",
+      "meaning": "quả dâu tây",
+      "category": "fruit",
+      "example": "A strawberry is red and sweet.",
+      "image": ""
+    },
+    {
+      "word": "watermelon",
+      "meaning": "quả dưa hấu",
+      "category": "fruit",
+      "example": "We eat watermelon in the summer.",
+      "image": ""
+    },
+    {
+      "word": "peach",
+      "meaning": "quả đào",
+      "category": "fruit",
+      "example": "The peach is soft and sweet.",
+      "image": ""
+    },
+    {
+      "word": "coconut",
+      "meaning": "quả dừa",
+      "category": "fruit",
+      "example": "A coconut grows on a tall palm tree.",
+      "image": ""
+    },
+    {
+      "word": "carrot",
+      "meaning": "cà rốt",
+      "category": "vegetable",
+      "example": "Rabbits like to eat carrots.",
+      "image": ""
+    },
+    {
+      "word": "tomato",
+      "meaning": "quả cà chua",
+      "category": "vegetable",
+      "example": "A tomato is red and round.",
+      "image": ""
+    },
+    {
+      "word": "potato",
+      "meaning": "khoai tây",
+      "category": "vegetable",
+      "example": "We need two potatoes for the soup.",
+      "image": ""
+    },
+    {
+      "word": "onion",
+      "meaning": "củ hành tây",
+      "category": "vegetable",
+      "example": "Cutting an onion makes me cry.",
+      "image": ""
+    },
+    {
+      "word": "corn",
+      "meaning": "ngô",
+      "category": "vegetable",
+      "example": "We eat corn at the picnic.",
+      "image": ""
+    },
+    {
+      "word": "cucumber",
+      "meaning": "dưa chuột",
+      "category": "vegetable",
+      "example": "This cucumber is fresh and green.",
+      "image": ""
+    },
+    {
+      "word": "pumpkin",
+      "meaning": "quả bí ngô",
+      "category": "vegetable",
+      "example": "The pumpkin is big and orange.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"banana\" mean?",
+      "options": [
+        "quả chuối",
+        "quả dưa hấu",
+        "quả nho"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả đào)",
+      "options": [
+        "piach",
+        "paech",
+        "peach"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grape\" mean?",
+      "options": [
+        "quả táo",
+        "quả nho",
+        "quả xoài"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ tastes very sour.",
+      "options": [
+        "lemon",
+        "doll",
+        "bridge"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: oni_n (củ hành tây)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả dâu tây)",
+      "options": [
+        "strwaberry",
+        "strawberry",
+        "strawbirry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"coconut\" mean?",
+      "options": [
+        "quả nho",
+        "quả dâu tây",
+        "quả dừa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ on the table is juicy.",
+      "options": [
+        "pear",
+        "timer",
+        "funfair"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_rn (ngô)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả dứa)",
+      "options": [
+        "pineappl",
+        "piniapple",
+        "pineapple"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pot_to (khoai tây)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mango\" mean?",
+      "options": [
+        "quả dứa",
+        "quả xoài",
+        "quả táo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dưa chuột\"?",
+      "options": [
+        "corn",
+        "pumpkin",
+        "cucumber"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quả táo\"?",
+      "options": [
+        "peach",
+        "apple",
+        "strawberry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cà rốt\"?",
+      "options": [
+        "carrot",
+        "tomato",
+        "cucumber"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat an apple",
+    "Pretend to peel a banana",
+    "Pretend to pick fruit from a tree",
+    "Pretend to cut a carrot",
+    "Make a round shape like a pumpkin",
+    "Pretend to squeeze a lemon"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

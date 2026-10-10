@@ -1,0 +1,10 @@
+banana	Banana
+apple	Red apple
+orange	Orange circle
+carrot	Carrot
+potato	Potato
+milk	Glass of milk
+breakfast	Pancakes
+lunch	Bento box
+club	Microphone
+beer	Beer mug

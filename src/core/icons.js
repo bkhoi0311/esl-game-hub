@@ -5,7 +5,7 @@ import {
   PersonStanding, Play, Plus, RefreshCcw, RotateCcw, ScanFace, Search, Settings, Swords, Timer,
   Trash2, TriangleAlert, Trophy, Upload, Users, Volume2, X,
   Link, Copy, PencilLine, ChevronRight, ExternalLink, LogOut, Sparkles,
-  Laptop, Presentation, ChevronLeft, Film, ListOrdered,
+  Laptop, Presentation, ChevronLeft, Film, ListOrdered, WandSparkles, LibraryBig, FileSpreadsheet,
 } from 'lucide';
 
 const ICONS = {
@@ -19,6 +19,7 @@ const ICONS = {
   users: Users, volume: Volume2, x: X,
   link: Link, copy: Copy, pencil: PencilLine, 'chevron-right': ChevronRight, external: ExternalLink, 'log-out': LogOut, sparkles: Sparkles,
   laptop: Laptop, board: Presentation, 'chevron-left': ChevronLeft, film: Film, steps: ListOrdered,
+  wand: WandSparkles, library: LibraryBig, sheet: FileSpreadsheet,
 };
 
 const SVG_NS = 'http://www.w3.org/2000/svg';

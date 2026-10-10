@@ -1,0 +1,343 @@
+{
+  "sampled": [
+    "skeleton",
+    "brain",
+    "gloves",
+    "dress",
+    "swimsuit",
+    "colour",
+    "scarf",
+    "muscle",
+    "grey",
+    "hand",
+    "pink",
+    "shoes",
+    "lungs",
+    "handbag",
+    "head"
+  ],
+  "sampleErrors": [
+    "muscle"
+  ],
+  "alsoReviewed": [
+    "belt",
+    "pants",
+    "necklace",
+    "bikini",
+    "uniform",
+    "pyjamas",
+    "purse",
+    "wallet",
+    "suitcase",
+    "button",
+    "zip",
+    "gray",
+    "ring",
+    "watch",
+    "orange"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "eye",
+      "field": "vi",
+      "old": "con mắt",
+      "new": "mắt"
+    },
+    {
+      "word": "eye",
+      "field": "ex",
+      "old": "She has a small mole near her eye.",
+      "new": "Close one eye and look at the star."
+    },
+    {
+      "word": "leg",
+      "field": "ex",
+      "old": "The table has four legs.",
+      "new": "A spider has eight legs."
+    },
+    {
+      "word": "tooth",
+      "field": "ex",
+      "old": "I lost a tooth yesterday.",
+      "new": "The baby has one small tooth."
+    },
+    {
+      "word": "muscle",
+      "field": "ex",
+      "old": "He has a strong muscle in his arm.",
+      "new": "Swimming makes every muscle strong."
+    },
+    {
+      "word": "skull",
+      "field": "note",
+      "old": "",
+      "new": "giữ: từ giải phẫu, câu ví dụ trung tính; cân nhắc khi dạy trẻ nhỏ"
+    },
+    {
+      "word": "blood",
+      "field": "ex",
+      "old": "Blood in our body is red.",
+      "new": "Our blood is red."
+    },
+    {
+      "word": "blood",
+      "field": "note",
+      "old": "",
+      "new": "giữ: từ cơ thể người, câu ví dụ trung tính"
+    },
+    {
+      "word": "knee",
+      "field": "ex",
+      "old": "I fell and hurt my knee.",
+      "new": "She has a small cut on her knee."
+    },
+    {
+      "word": "baseball cap",
+      "field": "vi",
+      "old": "mũ lưỡi trai",
+      "new": "mũ bóng chày"
+    },
+    {
+      "word": "belt",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "belt",
+      "field": "note",
+      "old": "emoji Jeans lệch nghĩa; chọn nghĩa thắt lưng",
+      "new": ""
+    },
+    {
+      "word": "glasses",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "sunglasses",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "helmet",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "necklace",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "necklace",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "necklace",
+      "field": "note",
+      "old": "emoji Prayer beads lệch nghĩa; chọn nghĩa vòng cổ",
+      "new": ""
+    },
+    {
+      "word": "necklace",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "ring",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "watch",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "crown",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "pants",
+      "field": "vi",
+      "old": "quần dài",
+      "new": "cái quần"
+    },
+    {
+      "word": "pants",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pants",
+      "field": "note",
+      "old": "Anh-Mỹ là quần dài, Anh-Anh là quần lót; emoji Jeans",
+      "new": "nghĩa Anh-Mỹ (quần); trousers = quần dài"
+    },
+    {
+      "word": "sneakers",
+      "field": "vi",
+      "old": "giày thể thao",
+      "new": "giày sneaker"
+    },
+    {
+      "word": "swimming costume",
+      "field": "vi",
+      "old": "đồ bơi",
+      "new": "bộ đồ bơi"
+    },
+    {
+      "word": "coat",
+      "field": "ex",
+      "old": "Put on your coat, it is cold.",
+      "new": "I wear my coat on cold days."
+    },
+    {
+      "word": "uniform",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "uniform",
+      "field": "note",
+      "old": "emoji Lab coat lệch nghĩa; chọn nghĩa đồng phục",
+      "new": ""
+    },
+    {
+      "word": "pyjamas",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "pyjamas",
+      "field": "note",
+      "old": "emoji Bed lệch nghĩa; chọn nghĩa đồ ngủ",
+      "new": ""
+    },
+    {
+      "word": "purse",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "purse",
+      "field": "note",
+      "old": "purse Anh-Anh là ví nhỏ, Anh-Mỹ là túi xách",
+      "new": "BrE: ví nhỏ của nữ"
+    },
+    {
+      "word": "wallet",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "wallet",
+      "field": "note",
+      "old": "emoji Purse lệch nghĩa; chọn nghĩa ví tiền",
+      "new": ""
+    },
+    {
+      "word": "suitcase",
+      "field": "vi",
+      "old": "vali",
+      "new": "va li"
+    },
+    {
+      "word": "suitcase",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "suitcase",
+      "field": "note",
+      "old": "từ mượn vali, không dấu",
+      "new": ""
+    },
+    {
+      "word": "button",
+      "field": "ex",
+      "old": "A button fell off my shirt.",
+      "new": "My coat has three big buttons."
+    },
+    {
+      "word": "button",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "button",
+      "field": "note",
+      "old": "emoji Thread lệch nghĩa; chọn nghĩa cúc áo",
+      "new": ""
+    },
+    {
+      "word": "zip",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "zip",
+      "field": "note",
+      "old": "emoji Jeans lệch nghĩa; chọn nghĩa khoá kéo",
+      "new": ""
+    },
+    {
+      "word": "lab coat",
+      "field": "vi",
+      "old": "áo choàng phòng thí nghiệm",
+      "new": "áo choàng thí nghiệm"
+    },
+    {
+      "word": "grey",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "grey",
+      "field": "note",
+      "old": "emoji White circle lệch màu",
+      "new": "trùng nghĩa với gray (biến thể chính tả), đã có alt"
+    },
+    {
+      "word": "gray",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "gray",
+      "field": "note",
+      "old": "emoji White circle lệch màu",
+      "new": "biến thể chính tả Mỹ của grey, đã có alt"
+    },
+    {
+      "word": "gray",
+      "field": "levelCheck",
+      "old": false,
+      "new": true
+    }
+  ],
+  "stillCheck": []
+}

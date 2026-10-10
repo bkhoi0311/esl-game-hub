@@ -1,0 +1,282 @@
+{
+  "title": "Food and Drink",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bread",
+      "meaning": "bánh mì",
+      "category": "food",
+      "example": "We buy fresh bread from the shop.",
+      "image": ""
+    },
+    {
+      "word": "cake",
+      "meaning": "bánh ngọt",
+      "category": "food",
+      "example": "My mum makes a chocolate cake on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "cheese",
+      "meaning": "phô mai",
+      "category": "food",
+      "example": "I like cheese on my pizza.",
+      "image": ""
+    },
+    {
+      "word": "egg",
+      "meaning": "quả trứng",
+      "category": "food",
+      "example": "I have an egg for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "chocolate",
+      "meaning": "sô cô la",
+      "category": "food",
+      "example": "This chocolate is sweet and soft.",
+      "image": ""
+    },
+    {
+      "word": "ice cream",
+      "meaning": "kem",
+      "category": "food",
+      "example": "We eat ice cream on a hot day.",
+      "image": ""
+    },
+    {
+      "word": "butter",
+      "meaning": "bơ",
+      "category": "food",
+      "example": "Please put some butter on my toast.",
+      "image": ""
+    },
+    {
+      "word": "biscuit",
+      "meaning": "bánh quy giòn",
+      "category": "food",
+      "example": "He dips a biscuit in his tea.",
+      "image": ""
+    },
+    {
+      "word": "meat",
+      "meaning": "thịt",
+      "category": "food",
+      "example": "My cat likes to eat meat.",
+      "image": ""
+    },
+    {
+      "word": "milk",
+      "meaning": "sữa",
+      "category": "drink",
+      "example": "He drinks milk before bed.",
+      "image": ""
+    },
+    {
+      "word": "juice",
+      "meaning": "nước ép",
+      "category": "drink",
+      "example": "I drink orange juice at breakfast.",
+      "image": ""
+    },
+    {
+      "word": "water",
+      "meaning": "nước",
+      "category": "drink",
+      "example": "I drink water after the game.",
+      "image": ""
+    },
+    {
+      "word": "tea",
+      "meaning": "trà",
+      "category": "drink",
+      "example": "My grandpa drinks green tea every day.",
+      "image": ""
+    },
+    {
+      "word": "coffee",
+      "meaning": "cà phê",
+      "category": "drink",
+      "example": "My dad drinks hot coffee in the morning.",
+      "image": ""
+    },
+    {
+      "word": "lemonade",
+      "meaning": "nước chanh",
+      "category": "drink",
+      "example": "We sell cold lemonade in the garden.",
+      "image": ""
+    },
+    {
+      "word": "sugar",
+      "meaning": "đường",
+      "category": "food",
+      "example": "He puts some sugar in his tea.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "I have an ___ for breakfast.",
+      "options": [
+        "eat",
+        "egg",
+        "excited"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sô cô la\"?",
+      "options": [
+        "biscuit",
+        "sugar",
+        "chocolate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bánh mì)",
+      "options": [
+        "bread",
+        "berad",
+        "brread"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước chanh\"?",
+      "options": [
+        "milk",
+        "lemonade",
+        "coffee"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_ice (nước ép)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sữa)",
+      "options": [
+        "mlik",
+        "millk",
+        "milk"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước\"?",
+      "options": [
+        "milk",
+        "water",
+        "tea"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My cat likes to eat ___.",
+      "options": [
+        "meat",
+        "buy",
+        "write"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_a (trà)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sugar\" mean?",
+      "options": [
+        "bánh ngọt",
+        "phô mai",
+        "đường"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bơ)",
+      "options": [
+        "butetr",
+        "butter",
+        "buttir"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"coffee\" mean?",
+      "options": [
+        "cà phê",
+        "sữa",
+        "nước ép"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: che_se (phô mai)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"biscuit\" mean?",
+      "options": [
+        "quả trứng",
+        "bánh quy giòn",
+        "bánh ngọt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cake\" mean?",
+      "options": [
+        "đường",
+        "bánh mì",
+        "bánh ngọt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat ice cream",
+    "Pretend to drink milk",
+    "Rub your tummy",
+    "Pretend to cut a cake",
+    "Pretend to eat bread",
+    "Pretend to drink hot tea"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

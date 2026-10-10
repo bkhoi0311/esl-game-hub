@@ -1,0 +1,310 @@
+{
+  "title": "Everyday Objects",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "bag",
+      "meaning": "cái túi",
+      "category": "thing",
+      "example": "My bag is under the desk.",
+      "image": ""
+    },
+    {
+      "word": "bottle",
+      "meaning": "cái chai",
+      "category": "thing",
+      "example": "The bottle is full of juice.",
+      "image": ""
+    },
+    {
+      "word": "bowl",
+      "meaning": "cái bát",
+      "category": "thing",
+      "example": "There is a bowl of soup on the table.",
+      "image": ""
+    },
+    {
+      "word": "box",
+      "meaning": "cái hộp",
+      "category": "thing",
+      "example": "There is a toy in the box.",
+      "image": ""
+    },
+    {
+      "word": "cup",
+      "meaning": "cái tách",
+      "category": "thing",
+      "example": "He drinks tea from a cup.",
+      "image": ""
+    },
+    {
+      "word": "fork",
+      "meaning": "cái dĩa",
+      "category": "thing",
+      "example": "I use a fork to eat noodles.",
+      "image": ""
+    },
+    {
+      "word": "knife",
+      "meaning": "cái dao",
+      "category": "thing",
+      "example": "I eat with a knife and fork.",
+      "image": ""
+    },
+    {
+      "word": "spoon",
+      "meaning": "cái thìa",
+      "category": "thing",
+      "example": "The baby eats with a small spoon.",
+      "image": ""
+    },
+    {
+      "word": "plate",
+      "meaning": "cái đĩa",
+      "category": "thing",
+      "example": "Put the food on the plate.",
+      "image": ""
+    },
+    {
+      "word": "key",
+      "meaning": "chìa khoá",
+      "category": "thing",
+      "example": "I cannot find my key.",
+      "image": ""
+    },
+    {
+      "word": "brush",
+      "meaning": "cái bàn chải",
+      "category": "thing",
+      "example": "She uses a brush to paint.",
+      "image": ""
+    },
+    {
+      "word": "comb",
+      "meaning": "cái lược",
+      "category": "thing",
+      "example": "He has a small comb in his bag.",
+      "image": ""
+    },
+    {
+      "word": "toothbrush",
+      "meaning": "bàn chải đánh răng",
+      "category": "thing",
+      "example": "I have a blue toothbrush.",
+      "image": ""
+    },
+    {
+      "word": "towel",
+      "meaning": "cái khăn tắm",
+      "category": "house",
+      "example": "Dad gives me a clean towel.",
+      "image": ""
+    },
+    {
+      "word": "soap",
+      "meaning": "xà phòng",
+      "category": "thing",
+      "example": "Wash your hands with soap.",
+      "image": ""
+    },
+    {
+      "word": "wallet",
+      "meaning": "ví tiền",
+      "category": "thing",
+      "example": "He has money in his wallet.",
+      "image": ""
+    },
+    {
+      "word": "map",
+      "meaning": "bản đồ",
+      "category": "thing",
+      "example": "We look at the map to find the zoo.",
+      "image": ""
+    },
+    {
+      "word": "ticket",
+      "meaning": "tấm vé",
+      "category": "thing",
+      "example": "I have a ticket for the show.",
+      "image": ""
+    },
+    {
+      "word": "umbrella",
+      "meaning": "cái ô",
+      "category": "thing",
+      "example": "Take an umbrella, it is raining.",
+      "image": ""
+    },
+    {
+      "word": "suitcase",
+      "meaning": "va li",
+      "category": "thing",
+      "example": "My suitcase is very heavy.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: m_p (bản đồ)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"spoon\" mean?",
+      "options": [
+        "cái lược",
+        "cái tách",
+        "cái thìa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái khăn tắm\"?",
+      "options": [
+        "bowl",
+        "towel",
+        "wallet"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: umbr_lla (cái ô)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"soap\" mean?",
+      "options": [
+        "cái hộp",
+        "xà phòng",
+        "ví tiền"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái lược\"?",
+      "options": [
+        "fork",
+        "box",
+        "comb"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Put the food on the ___.",
+      "options": [
+        "carry",
+        "plate",
+        "beautiful"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chìa khoá\"?",
+      "options": [
+        "key",
+        "cup",
+        "ticket"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái bàn chải)",
+      "options": [
+        "brsuh",
+        "brussh",
+        "brush"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I have a ___ for the show.",
+      "options": [
+        "ticket",
+        "rooster",
+        "cave"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_x (cái hộp)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wallet\" mean?",
+      "options": [
+        "chìa khoá",
+        "cái thìa",
+        "ví tiền"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái chai)",
+      "options": [
+        "botle",
+        "bottli",
+        "bottle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"toothbrush\" mean?",
+      "options": [
+        "bàn chải đánh răng",
+        "chìa khoá",
+        "cái ô"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (va li)",
+      "options": [
+        "suytcase",
+        "suitcase",
+        "suticase"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to brush your hair",
+    "Pretend to wash with soap",
+    "Pretend to drink from a cup",
+    "Pretend to open a box",
+    "Pretend to lock a door",
+    "Pretend to carry a heavy bag"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

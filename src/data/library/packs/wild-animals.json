@@ -1,0 +1,296 @@
+{
+  "title": "Wild Animals",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "lion",
+      "meaning": "con sư tử",
+      "category": "animal",
+      "example": "The lion is the king of animals.",
+      "image": ""
+    },
+    {
+      "word": "tiger",
+      "meaning": "con hổ",
+      "category": "animal",
+      "example": "The tiger has orange and black stripes.",
+      "image": ""
+    },
+    {
+      "word": "elephant",
+      "meaning": "con voi",
+      "category": "animal",
+      "example": "The elephant has a long nose.",
+      "image": ""
+    },
+    {
+      "word": "giraffe",
+      "meaning": "con hươu cao cổ",
+      "category": "animal",
+      "example": "The giraffe eats leaves from tall trees.",
+      "image": ""
+    },
+    {
+      "word": "zebra",
+      "meaning": "con ngựa vằn",
+      "category": "animal",
+      "example": "The zebra has black and white stripes.",
+      "image": ""
+    },
+    {
+      "word": "monkey",
+      "meaning": "con khỉ",
+      "category": "animal",
+      "example": "The monkey likes to eat bananas.",
+      "image": ""
+    },
+    {
+      "word": "bear",
+      "meaning": "con gấu",
+      "category": "animal",
+      "example": "The bear is eating honey.",
+      "image": ""
+    },
+    {
+      "word": "wolf",
+      "meaning": "con sói",
+      "category": "animal",
+      "example": "A wolf is howling at the moon.",
+      "image": ""
+    },
+    {
+      "word": "fox",
+      "meaning": "con cáo",
+      "category": "animal",
+      "example": "The fox is red and clever.",
+      "image": ""
+    },
+    {
+      "word": "kangaroo",
+      "meaning": "chuột túi",
+      "category": "animal",
+      "example": "The kangaroo jumps with her baby.",
+      "image": ""
+    },
+    {
+      "word": "panda",
+      "meaning": "con gấu trúc",
+      "category": "animal",
+      "example": "The panda is eating bamboo.",
+      "image": ""
+    },
+    {
+      "word": "crocodile",
+      "meaning": "con cá sấu",
+      "category": "animal",
+      "example": "The crocodile has big sharp teeth.",
+      "image": ""
+    },
+    {
+      "word": "hippo",
+      "meaning": "con hà mã",
+      "category": "animal",
+      "example": "The hippo is lying in the river.",
+      "image": ""
+    },
+    {
+      "word": "rhino",
+      "meaning": "con tê giác",
+      "category": "animal",
+      "example": "The rhino has a big horn.",
+      "image": ""
+    },
+    {
+      "word": "gorilla",
+      "meaning": "con khỉ đột",
+      "category": "animal",
+      "example": "The gorilla is big and strong.",
+      "image": ""
+    },
+    {
+      "word": "deer",
+      "meaning": "con hươu",
+      "category": "animal",
+      "example": "The deer runs into the forest.",
+      "image": ""
+    },
+    {
+      "word": "squirrel",
+      "meaning": "con sóc",
+      "category": "animal",
+      "example": "The squirrel is climbing up the tree.",
+      "image": ""
+    },
+    {
+      "word": "snake",
+      "meaning": "con rắn",
+      "category": "animal",
+      "example": "The snake is long and green.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (con sóc)",
+      "options": [
+        "squrirel",
+        "squirril",
+        "squirrel"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fox\" mean?",
+      "options": [
+        "con sư tử",
+        "con cáo",
+        "con khỉ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con voi\"?",
+      "options": [
+        "elephant",
+        "rhino",
+        "tiger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: de_r (con hươu)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is big and strong.",
+      "options": [
+        "work",
+        "excited",
+        "gorilla"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_nda (con gấu trúc)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"giraffe\" mean?",
+      "options": [
+        "con hươu cao cổ",
+        "con gấu trúc",
+        "con cá sấu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has big sharp teeth.",
+      "options": [
+        "recycle",
+        "search",
+        "crocodile"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con hà mã)",
+      "options": [
+        "hyppo",
+        "hippo",
+        "hippu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con tê giác\"?",
+      "options": [
+        "hippo",
+        "gorilla",
+        "rhino"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tig_r (con hổ)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"zebra\" mean?",
+      "options": [
+        "con hươu cao cổ",
+        "con ngựa vằn",
+        "con hươu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con sói)",
+      "options": [
+        "wlof",
+        "wolf",
+        "wollf"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con khỉ\"?",
+      "options": [
+        "monkey",
+        "zebra",
+        "tiger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"snake\" mean?",
+      "options": [
+        "chuột túi",
+        "con tê giác",
+        "con rắn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Roar like a lion",
+    "Walk like an elephant",
+    "Hop like a kangaroo",
+    "Swing like a monkey",
+    "Stand tall like a giraffe",
+    "Hiss like a snake"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

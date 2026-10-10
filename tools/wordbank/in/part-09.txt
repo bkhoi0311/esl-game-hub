@@ -1,0 +1,97 @@
+earth	Globe showing europe-africa
+country	World map
+space	Milky way
+planet	Ringed planet
+moon	Full moon
+sun	Sun
+sky	Cloud
+factory	Factory
+tower	Tokyo tower
+temple	Hindu temple
+mosque	Mosque
+camp	Camping
+car park	Automobile
+funfair	Ferris wheel
+theme park	Roller coaster
+pool	Person swimming
+club	Microphone
+chemist	Pill
+pharmacy	Pill
+bakery	Bread
+butcher	Cut of meat
+florist	Bouquet
+railway station	Station
+harbour	Anchor
+port	Anchor
+lighthouse	Anchor
+cloud	Cloud
+cloudy	Cloud
+rain	Cloud with rain
+rainy	Cloud with rain
+snow	Snowflake
+snowy	Cloud with snow
+sunny	Sun
+wind	Wind face
+windy	Wind face
+storm	Cloud with lightning and rain
+thunder	Cloud with lightning
+lightning	High voltage
+fog	Fog
+foggy	Fog
+hot	Hot face
+cold	Cold face
+warm	Sun behind small cloud
+fire	Fire
+weather	Sun behind cloud
+temperature	Thermometer
+spring	Blossom
+summer	Sun
+autumn	Fallen leaf
+fall	Fallen leaf
+winter	Snowflake
+season	Deciduous tree
+tree	Deciduous tree
+leaf	Leaf fluttering in wind
+leaves	Fallen leaf
+grass	Herb
+rose	Rose
+tulip	Tulip
+sunflower	Sunflower
+cactus	Cactus
+seed	Seedling
+rock	Rock
+stone	Rock
+sand	Desert
+shell	Spiral shell
+wave	Waving hand
+night	Night with stars
+day	Sunrise
+morning	Sunrise
+evening	Sunset
+sunrise	Sunrise
+sunset	Sunset
+tornado	Tornado
+earthquake	Rock
+flood	Water wave
+environment	Globe showing europe-africa
+recycle	Recycling symbol
+pollution	Factory
+nature	National park
+air	Wind face
+smoke	Fire
+drop	Droplet
+ice cube	Ice
+palm tree	Palm tree
+bamboo	Seedling
+herb	Herb
+four-leaf clover	Four leaf clover
+clover	Four leaf clover
+mountains	Snow-capped mountain
+hour	Hourglass done
+minute	Alarm clock
+time	Alarm clock
+week	Calendar
+month	Calendar
+year	Calendar
+today	Calendar
+tomorrow	Calendar

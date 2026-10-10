@@ -1,0 +1,275 @@
+{
+  "title": "Time",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "day",
+      "meaning": "ngày",
+      "category": "time",
+      "example": "We have a long day at school.",
+      "image": ""
+    },
+    {
+      "word": "night",
+      "meaning": "ban đêm",
+      "category": "time",
+      "example": "The stars shine at night.",
+      "image": ""
+    },
+    {
+      "word": "morning",
+      "meaning": "buổi sáng",
+      "category": "time",
+      "example": "I brush my teeth in the morning.",
+      "image": ""
+    },
+    {
+      "word": "evening",
+      "meaning": "buổi tối",
+      "category": "time",
+      "example": "We eat dinner in the evening.",
+      "image": ""
+    },
+    {
+      "word": "week",
+      "meaning": "tuần",
+      "category": "time",
+      "example": "There are seven days in a week.",
+      "image": ""
+    },
+    {
+      "word": "month",
+      "meaning": "tháng",
+      "category": "time",
+      "example": "My birthday is next month.",
+      "image": ""
+    },
+    {
+      "word": "year",
+      "meaning": "năm",
+      "category": "time",
+      "example": "There are twelve months in a year.",
+      "image": ""
+    },
+    {
+      "word": "today",
+      "meaning": "hôm nay",
+      "category": "time",
+      "example": "I feel happy today.",
+      "image": ""
+    },
+    {
+      "word": "tomorrow",
+      "meaning": "ngày mai",
+      "category": "time",
+      "example": "We visit Grandma tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "yesterday",
+      "meaning": "hôm qua",
+      "category": "time",
+      "example": "We played football here yesterday.",
+      "image": ""
+    },
+    {
+      "word": "hour",
+      "meaning": "giờ đồng hồ",
+      "category": "time",
+      "example": "The lesson is one hour long.",
+      "image": ""
+    },
+    {
+      "word": "minute",
+      "meaning": "phút",
+      "category": "time",
+      "example": "Wait a minute, please.",
+      "image": ""
+    },
+    {
+      "word": "time",
+      "meaning": "thời gian",
+      "category": "time",
+      "example": "I have no time to play.",
+      "image": ""
+    },
+    {
+      "word": "season",
+      "meaning": "mùa",
+      "category": "time",
+      "example": "Summer is my favourite season.",
+      "image": ""
+    },
+    {
+      "word": "date",
+      "meaning": "ngày tháng",
+      "category": "time",
+      "example": "What is today's date?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"night\" mean?",
+      "options": [
+        "buổi sáng",
+        "ban đêm",
+        "ngày tháng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mùa)",
+      "options": [
+        "seeson",
+        "seasson",
+        "season"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_te (ngày tháng)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phút)",
+      "options": [
+        "minutte",
+        "minute",
+        "mynute"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giờ đồng hồ\"?",
+      "options": [
+        "year",
+        "evening",
+        "hour"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thời gian)",
+      "options": [
+        "time",
+        "timme",
+        "tyme"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We played football here ___.",
+      "options": [
+        "yesterday",
+        "please",
+        "kangaroo"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"day\" mean?",
+      "options": [
+        "phút",
+        "ngày",
+        "mùa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tuần\"?",
+      "options": [
+        "month",
+        "minute",
+        "week"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We eat dinner in the ___.",
+      "options": [
+        "evening",
+        "visit",
+        "recycle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tom_rrow (ngày mai)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"today\" mean?",
+      "options": [
+        "hôm qua",
+        "hôm nay",
+        "ngày mai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_rning (buổi sáng)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"year\" mean?",
+      "options": [
+        "năm",
+        "tuần",
+        "tháng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tháng\"?",
+      "options": [
+        "morning",
+        "day",
+        "month"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Yawn in the morning",
+    "Pretend to sleep at night",
+    "Pretend to look at your watch",
+    "Stretch in the morning",
+    "Wave goodbye",
+    "Say good night"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

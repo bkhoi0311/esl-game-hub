@@ -10,96 +10,13 @@ import { openGuide } from './guide.js';
 import { TEAM_COLORS, button, confirmModal, h, openModal, toast } from './ui.js';
 import { icon } from './icons.js';
 
+import { parseTsv, rowsToVocab, rowsToQuestions } from './soanbai/table.js';
+
+// Giữ tương thích: các hàm đọc bảng đã chuyển sang soanbai/table.js (thuần, test được bằng node).
+export { parseTsv, rowsToVocab, rowsToQuestions } from './soanbai/table.js';
+
 const VOCAB_COLS = ['word', 'meaning', 'category', 'example'];
 const VOCAB_LABELS = { word: 'Từ (word)', meaning: 'Nghĩa (meaning)', category: 'Nhóm (category)', example: 'Câu ví dụ (example)' };
-const HEADER_ALIASES = {
-  word: ['word', 'từ', 'tu', 'từ vựng', 'vocabulary'],
-  meaning: ['meaning', 'nghĩa', 'nghia', 'vietnamese'],
-  category: ['category', 'nhóm', 'nhom', 'group', 'topic'],
-  example: ['example', 'ví dụ', 'vi du', 'câu ví dụ', 'sentence'],
-};
-
-// ---------- Đọc bảng dán từ Excel / Google Sheet (TSV, có hỗ trợ ô trong ngoặc kép) ----------
-
-export function parseTsv(text) {
-  const rows = [];
-  let row = [];
-  let cell = '';
-  let quoted = false;
-  const src = text.replace(/\r\n?/g, '\n');
-  for (let i = 0; i < src.length; i++) {
-    const c = src[i];
-    if (quoted) {
-      if (c === '"' && src[i + 1] === '"') {
-        cell += '"';
-        i++;
-      } else if (c === '"') {
-        quoted = false;
-      } else {
-        cell += c;
-      }
-    } else if (c === '"' && cell === '') {
-      quoted = true;
-    } else if (c === '\t') {
-      row.push(cell);
-      cell = '';
-    } else if (c === '\n') {
-      row.push(cell);
-      rows.push(row);
-      row = [];
-      cell = '';
-    } else {
-      cell += c;
-    }
-  }
-  row.push(cell);
-  rows.push(row);
-  return rows.map((r) => r.map((c) => c.trim())).filter((r) => r.some(Boolean));
-}
-
-function headerMap(firstRow) {
-  const lower = firstRow.map((c) => c.toLowerCase());
-  const map = {};
-  for (const [key, aliases] of Object.entries(HEADER_ALIASES)) {
-    const idx = lower.findIndex((c) => aliases.includes(c));
-    if (idx >= 0) map[key] = idx;
-  }
-  return 'word' in map ? map : null;
-}
-
-export function rowsToVocab(rows) {
-  if (!rows.length) return [];
-  const map = headerMap(rows[0]);
-  const body = map ? rows.slice(1) : rows;
-  const cols = map || { word: 0, meaning: 1, category: 2, example: 3 };
-  return body
-    .map((r) => ({
-      word: r[cols.word] || '',
-      meaning: cols.meaning != null ? r[cols.meaning] || '' : '',
-      category: cols.category != null ? (r[cols.category] || '').toLowerCase() : '',
-      example: cols.example != null ? r[cols.example] || '' : '',
-      image: '',
-    }))
-    .filter((v) => v.word);
-}
-
-// Cột câu hỏi: prompt | đáp án A | đáp án B | đáp án C | đáp án đúng (A/B/C, 1/2/3 hoặc chính nội dung) | type
-export function rowsToQuestions(rows) {
-  if (!rows.length) return [];
-  const first = rows[0].map((c) => c.toLowerCase());
-  const body = first[0] === 'prompt' || first[0] === 'câu hỏi' || first[0] === 'question' ? rows.slice(1) : rows;
-  return body
-    .filter((r) => r[0])
-    .map((r) => {
-      const options = [r[1] || '', r[2] || '', r[3] || ''];
-      const key = (r[4] || '').trim();
-      let answer = 0;
-      if (/^[abc]$/i.test(key)) answer = key.toUpperCase().charCodeAt(0) - 65;
-      else if (/^[123]$/.test(key)) answer = Number(key) - 1;
-      else if (key) answer = Math.max(0, options.findIndex((o) => o.toLowerCase() === key.toLowerCase()));
-      return { prompt: r[0], options, answer, type: (r[5] || 'grammar').toLowerCase() };
-    });
-}
 
 // ---------- Link bài học ----------
 
@@ -171,6 +88,7 @@ export function mountEditor(root) {
   let draft = normalizePack(getPack());
   let saveTimer = null;
   let savedAt = null;
+  const missing = new Set(); // dòng từ chưa có trong kho (chỉ tạm, không lưu vào bài)
 
   const status = h('span', { class: 'editor-status' });
   const issues = h('div', { class: 'editor-issues' });
@@ -255,10 +173,10 @@ export function mountEditor(root) {
   };
 
   // ----- Bảng từ vựng -----
-  const cellInput = (obj, key, onPasteRows) =>
+  const cellInput = (obj, key, onPasteRows, onEdit) =>
     h('input', {
       type: 'text', value: obj[key] ?? '', 'aria-label': key,
-      onInput: (e) => { obj[key] = key === 'category' ? e.target.value.toLowerCase() : e.target.value; commit(); },
+      onInput: (e) => { obj[key] = key === 'category' ? e.target.value.toLowerCase() : e.target.value; if (onEdit) onEdit(); commit(); },
       onPaste: onPasteRows,
     });
 
@@ -272,18 +190,26 @@ export function mountEditor(root) {
         e.preventDefault();
         pasteIntoVocab(i, col, parseTsv(text));
       };
-      vocabBody.append(
+      const clearMissing = () => {
+        if (!missing.delete(v)) return;
+        tr.classList.remove('row-missing');
+        const tag = tr.querySelector('.missing-tag');
+        if (tag) tag.remove();
+      };
+      const tr = h(
+        'tr', { class: missing.has(v) ? 'row-missing' : '' },
+        h('td', { class: 'num' }, i + 1),
+        VOCAB_COLS.map((key, col) => h(
+          'td', { class: `col-${key}` },
+          cellInput(v, key, pasteAt(col), key === 'meaning' ? clearMissing : null),
+          key === 'word' && missing.has(v) ? h('span', { class: 'missing-tag' }, 'chưa có trong kho') : null)),
         h(
-          'tr', {},
-          h('td', { class: 'num' }, i + 1),
-          VOCAB_COLS.map((key, col) => h('td', { class: `col-${key}` }, cellInput(v, key, pasteAt(col)))),
-          h(
-            'td', { class: 'row-actions' },
-            button({ iconName: 'volume', title: `Nghe "${v.word}"`, variant: 'ghost', onClick: () => speak(v.word) }),
-            button({ iconName: 'trash', title: 'Xóa dòng', variant: 'ghost', onClick: () => { draft.vocab.splice(i, 1); renderVocab(); commit(); } }),
-          ),
+          'td', { class: 'row-actions' },
+          button({ iconName: 'volume', title: `Nghe "${v.word}"`, variant: 'ghost', onClick: () => speak(v.word) }),
+          button({ iconName: 'trash', title: 'Xóa dòng', variant: 'ghost', onClick: () => { missing.delete(v); draft.vocab.splice(i, 1); renderVocab(); commit(); } }),
         ),
       );
+      vocabBody.append(tr);
     });
     const cats = new Set(draft.vocab.map((v) => v.category).filter(Boolean));
     vocabCount.textContent = `${draft.vocab.length} từ, ${cats.size} nhóm`;
@@ -393,6 +319,7 @@ export function mountEditor(root) {
   // ----- Nút chính -----
   const reloadAll = () => {
     draft = normalizePack(getPack());
+    missing.clear();
     titleInput.value = draft.title;
     levelInput.value = draft.level;
     commandsArea.value = draft.actionCommands.join('\n');
@@ -427,8 +354,125 @@ export function mountEditor(root) {
     }),
   );
 
+  // ----- Soạn nhanh (công cụ nạp lười từ soanbai/panel.js) -----
+  let panelPromise = null;
+  const loadPanel = async (btn) => {
+    const sub = btn ? btn.querySelector('.qt-sub, .btn-label') : null;
+    const oldText = sub ? sub.textContent : '';
+    if (btn) {
+      btn.setAttribute('aria-busy', 'true');
+      btn.classList.add('is-busy');
+      btn.disabled = true;
+      if (sub) sub.textContent = 'Đang tải kho từ...';
+    }
+    try {
+      if (!panelPromise) panelPromise = import('./soanbai/panel.js');
+      return await panelPromise;
+    } catch (err) {
+      console.error(err);
+      panelPromise = null;
+      toast('Không tải được công cụ. Tải lại trang (F5) rồi thử lại.', 'error', 6000);
+      return null;
+    } finally {
+      if (btn) {
+        btn.removeAttribute('aria-busy');
+        btn.classList.remove('is-busy');
+        btn.disabled = false;
+        if (sub) sub.textContent = oldText;
+      }
+    }
+  };
+  const run = (name, btn, arg) => async () => {
+    const m = await loadPanel(btn);
+    if (m) {
+      try {
+        await m[name](api, arg);
+      } catch (err) {
+        console.error(err);
+        toast('Công cụ gặp lỗi. Tải lại trang (F5) rồi thử lại.', 'error', 6000);
+      }
+    }
+  };
+
+  const api = {
+    getDraft: () => draft,
+    addVocab(items, mode) {
+      if (mode === 'replace') { draft.vocab.length = 0; missing.clear(); }
+      draft.vocab.push(...items);
+      renderVocab();
+      commit(true);
+    },
+    fillEmpty(updater) {
+      const n = updater(draft.vocab);
+      renderVocab();
+      commit(true);
+      return n;
+    },
+    addQuestions(items, mode) {
+      if (mode === 'replace') draft.questions.length = 0;
+      draft.questions.push(...items);
+      renderQuestions();
+      commit(true);
+    },
+    replacePack(pack) {
+      setPack(normalizePack(pack));
+      reloadAll();
+    },
+    markMissing(rows) {
+      rows.forEach((r) => missing.add(r));
+      renderVocab();
+    },
+    setMissing(rows) {
+      missing.clear();
+      rows.forEach((r) => missing.add(r));
+    },
+    scrollToVocab: () => view.querySelector('.vocab-table').closest('.editor-card').scrollIntoView({ block: 'start', behavior: 'smooth' }),
+    scrollToQuestions: () => view.querySelector('.question-table').closest('.editor-card').scrollIntoView({ block: 'start', behavior: 'smooth' }),
+  };
+
+  const qtButton = (iconName, label, sub, testId, name) => {
+    const b = h('button', { type: 'button', class: 'qt-btn', 'data-testid': testId },
+      icon(iconName, 24), h('span', { class: 'qt-text' }, h('span', { class: 'qt-label' }, label), h('span', { class: 'qt-sub' }, sub)));
+    b.addEventListener('click', run(name, b));
+    return b;
+  };
+  const importBtn = qtButton('sheet', 'Nhập file', 'CSV, Excel, TXT, Google Sheet', 'qt-import', 'openImport');
+  const templateLink = h('button', { type: 'button', class: 'qt-link', 'data-testid': 'qt-template' }, 'Tải file mẫu');
+  templateLink.addEventListener('click', run('openTemplates', templateLink));
+  const quickGrid = h('div', { class: 'qt-grid' },
+    qtButton('wand', 'Điền từ danh sách', 'Gõ từ, máy điền nghĩa', 'qt-fill', 'openFill'),
+    qtButton('sparkles', 'Tạo câu hỏi tự động', 'Sinh từ bảng từ vựng', 'qt-questions', 'openQuestions'),
+    h('div', { class: 'qt-cell' }, importBtn, templateLink),
+    qtButton('library', 'Thư viện bài', 'Starters, Movers, Flyers', 'qt-library', 'openLibrary'));
+
+  const autofillBtn = button({ label: 'Tự điền ô trống', iconName: 'wand', variant: 'ghost', attrs: { 'data-testid': 'vocab-autofill' }, onClick: null });
+  autofillBtn.addEventListener('click', run('autofillEmpty', autofillBtn));
+  const autoQBtn = button({ label: 'Tạo câu hỏi tự động', iconName: 'sparkles', variant: 'ghost', attrs: { 'data-testid': 'questions-auto' }, onClick: null });
+  autoQBtn.addEventListener('click', run('openQuestions', autoQBtn));
+
+  // Kéo thả file CSV / Excel / TXT vào cả trang Soạn bài.
+  const dropOverlay = h('div', { class: 'drop-overlay', 'data-testid': 'drop-overlay', hidden: true }, icon('upload', 40), h('strong', {}, 'Thả file CSV, Excel hoặc TXT vào đây'));
+  let dragDepth = 0;
+  const hasFiles = (e) => e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], 'Files') >= 0;
+  const onDragEnter = (e) => { if (hasFiles(e)) { dragDepth++; dropOverlay.hidden = false; } };
+  const onDragOver = (e) => { if (hasFiles(e)) e.preventDefault(); };
+  const onDragLeave = (e) => { if (hasFiles(e)) { dragDepth = Math.max(0, dragDepth - 1); if (!dragDepth) dropOverlay.hidden = true; } };
+  const onDrop = (e) => {
+    dragDepth = 0;
+    dropOverlay.hidden = true;
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f) return;
+    e.preventDefault();
+    run('openImport', null, f)();
+  };
+
   const section = (title, iconName, extra, ...body) =>
     h('section', { class: 'editor-card' }, h('header', {}, h('h2', {}, icon(iconName, 24), title), extra), ...body);
+
+  const quickCard = section('Soạn nhanh', 'sparkles', null,
+    h('p', { class: 'muted' }, 'Gõ danh sách từ tiếng Anh, máy tự điền nghĩa, nhóm, câu ví dụ. Không cần mạng.'),
+    quickGrid);
+  quickCard.setAttribute('data-testid', 'quick-tools');
 
   const view = h(
     'div', { class: 'editor' },
@@ -436,12 +480,13 @@ export function mountEditor(root) {
       h('div', {}, h('h1', {}, 'Soạn bài'), status),
       actions),
     issues,
+    quickCard,
     section('Thông tin bài', 'info', null,
       h('div', { class: 'field-row' },
         h('label', { class: 'field grow' }, h('span', {}, 'Tên bài'), titleInput),
         h('label', { class: 'field' }, h('span', {}, 'Trình độ'), levelInput)),
       h('div', { class: 'field' }, h('span', {}, 'Tên đội (2-4 đội)'), teamsBox)),
-    section('Từ vựng', 'book-open', vocabCount,
+    section('Từ vựng', 'book-open', h('span', { class: 'head-extra' }, vocabCount, autofillBtn),
       pastePanel({
         kind: 'vocab',
         hint: 'Các cột theo thứ tự: word, meaning, category, example. Dòng tiêu đề (nếu có) sẽ tự nhận. Có thể dán thẳng vào 1 ô trong bảng.',
@@ -456,7 +501,7 @@ export function mountEditor(root) {
         renderVocab();
         vocabBody.lastElementChild.querySelector('input').focus();
       } })),
-    section('Câu hỏi trắc nghiệm', 'help', questionCount,
+    section('Câu hỏi trắc nghiệm', 'help', h('span', { class: 'head-extra' }, questionCount, autoQBtn),
       pastePanel({
         kind: 'questions',
         hint: 'Các cột: câu hỏi, đáp án A, đáp án B, đáp án C, đáp án đúng (A/B/C), loại (grammar/vocab). Dùng ___ cho chỗ trống.',
@@ -477,13 +522,31 @@ export function mountEditor(root) {
       commandsArea),
   );
 
+  view.append(dropOverlay);
+  view.addEventListener('dragenter', onDragEnter);
+  view.addEventListener('dragover', onDragOver);
+  view.addEventListener('dragleave', onDragLeave);
+  view.addEventListener('drop', onDrop);
+
   root.appendChild(view);
   renderTeams();
   renderVocab();
   renderQuestions();
   renderStatus();
 
+  // Rảnh rỗi sau 1,5 giây: nạp sẵn công cụ và kho từ để bấm nút là chạy ngay (bị huỷ nếu rời tab sớm).
+  let prefetchTimer = setTimeout(() => {
+    prefetchTimer = null;
+    const go = () => {
+      if (!panelPromise) panelPromise = import('./soanbai/panel.js');
+      panelPromise.then((m) => m.preload && m.preload()).catch(() => { panelPromise = null; });
+    };
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(go, { timeout: 3000 });
+    else go();
+  }, 1500);
+
   return () => {
+    if (prefetchTimer) clearTimeout(prefetchTimer);
     // Rời tab: lưu ngay phần đang chờ.
     if (saveTimer) {
       clearTimeout(saveTimer);

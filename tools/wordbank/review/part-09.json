@@ -1,0 +1,79 @@
+{
+  "sampled": [
+    "shell",
+    "week",
+    "tomorrow",
+    "mountains",
+    "temple",
+    "herb",
+    "mosque",
+    "today",
+    "evening",
+    "sunset",
+    "environment",
+    "thunder",
+    "fire",
+    "clover",
+    "country"
+  ],
+  "sampleErrors": [],
+  "alsoReviewed": [
+    "club",
+    "fall",
+    "wave",
+    "earthquake",
+    "spring"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "camp",
+      "field": "cat",
+      "old": "hobby",
+      "new": "action"
+    },
+    {
+      "word": "club",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "club",
+      "field": "note",
+      "old": "emoji Microphone lệch nghĩa; chọn nghĩa câu lạc bộ, cần duyệt",
+      "new": "emoji Microphone lệch; chọn câu lạc bộ"
+    },
+    {
+      "word": "florist",
+      "field": "ex",
+      "old": "The florist makes beautiful bouquets.",
+      "new": "The florist sells pretty flowers."
+    },
+    {
+      "word": "wave",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "wave",
+      "field": "note",
+      "old": "emoji là bàn tay vẫy; từ còn nghĩa 'sóng biển'",
+      "new": "theo emoji chọn vẫy tay; còn nghĩa sóng biển"
+    },
+    {
+      "word": "pollution",
+      "field": "ex",
+      "old": "Pollution makes the air dirty.",
+      "new": "The air is dirty because of pollution."
+    },
+    {
+      "word": "smoke",
+      "field": "ex",
+      "old": "Smoke goes up from the chimney.",
+      "new": "We see grey smoke from the fire."
+    }
+  ],
+  "stillCheck": []
+}

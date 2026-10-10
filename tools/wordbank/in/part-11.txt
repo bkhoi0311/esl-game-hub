@@ -1,0 +1,97 @@
+exclamation	Red exclamation mark
+eat	Fork and knife with plate
+read	Open book
+write	Writing hand
+draw	Crayon
+paint	Artist palette
+play	Video game
+climb	Person climbing
+drive	Automobile
+ride	Person biking
+wash	Soap
+brush teeth	Toothbrush
+listen	Ear
+look	Eyes
+see	Eye
+watch tv	Television
+speak	Speaking head
+talk	Speaking head
+say	Speech balloon
+shout	Loudspeaker
+whisper	Shushing face
+clap	Clapping hands
+point	Index pointing up
+touch	Raised hand
+hold	Raised hand
+carry	Backpack
+throw	Baseball
+catch	Softball
+kick	Soccer ball
+hit	Boxing glove
+push	Flexed biceps
+pull	Flexed biceps
+close	Door
+sit	Chair
+stand	Person standing
+lie down	Person in bed
+wake up	Alarm clock
+get up	Alarm clock
+go to bed	Bed
+study	Student
+learn	Student
+teach	Teacher
+work	Briefcase
+buy	Shopping cart
+pay	Money bag
+sell	Money with wings
+give	Wrapped gift
+take	Raised hand
+send	Envelope
+call	Telephone
+text	Mobile phone
+type	Keyboard
+click	Computer mouse
+search	Magnifying glass tilted left
+find	Magnifying glass tilted left
+lose	Face with spiral eyes
+win	Trophy
+fix	Wrench
+build	Building construction
+grow	Seedling
+cut	Scissors
+mix	Cooking
+bake	Bread
+fry	Cooking
+boil	Pot of food
+visit	Luggage
+hide	See-no-evil monkey
+seek	Magnifying glass tilted left
+fight	Crossed swords
+hug	People hugging
+meet	Handshake
+shake hands	Handshake
+rest	Person in bed
+relax	Relieved face
+exercise	Person lifting weights
+stretch	Person in lotus position
+pray	Folded hands
+celebrate	Party popper
+sail	Sailboat
+row	Person rowing boat
+skate	Roller skate
+dive	Diving mask
+snorkel	Diving mask
+app	Mobile phone
+internet	Globe with meridians
+website	Globe with meridians
+wifi	Antenna bars
+screen	Desktop computer
+tablet	Mobile phone
+headphones	Headphone
+speaker	Loudspeaker
+microphone	Microphone
+printer	Printer
+battery	Battery
+plug	Electric plug
+charger	Electric plug
+cd	Optical disk

@@ -1,0 +1,310 @@
+{
+  "sampled": [
+    "concert",
+    "archery",
+    "sailing",
+    "winner",
+    "tent",
+    "drums",
+    "yoga",
+    "darts",
+    "walk",
+    "movie",
+    "doll",
+    "kite",
+    "match",
+    "sing",
+    "piano"
+  ],
+  "sampleErrors": [],
+  "alsoReviewed": [
+    "dance",
+    "skating",
+    "ski",
+    "snowboarding",
+    "jumping",
+    "riding",
+    "racket",
+    "goal",
+    "cards",
+    "magic",
+    "drawing",
+    "keyboard",
+    "band",
+    "present"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "climbing",
+      "field": "vi",
+      "old": "leo núi",
+      "new": "leo trèo"
+    },
+    {
+      "word": "dance",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dance",
+      "field": "note",
+      "old": "danh từ; emoji là nhảy múa chung",
+      "new": ""
+    },
+    {
+      "word": "dancing",
+      "field": "ex",
+      "old": "Dancing is fun with my friends.",
+      "new": "I love dancing with my friends."
+    },
+    {
+      "word": "skating",
+      "field": "ex",
+      "old": "Skating is easy for her.",
+      "new": "She is very good at skating."
+    },
+    {
+      "word": "skating",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "skating",
+      "field": "note",
+      "old": "có thể là trượt băng hoặc patin; theo emoji chọn patin",
+      "new": "theo emoji chọn patin"
+    },
+    {
+      "word": "skateboarding",
+      "field": "ex",
+      "old": "Skateboarding is his favourite hobby.",
+      "new": "My brother loves skateboarding in the park."
+    },
+    {
+      "word": "ski",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "ski",
+      "field": "note",
+      "old": "pos n (đôi ván); cũng là động từ",
+      "new": ""
+    },
+    {
+      "word": "snowboarding",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "swimming",
+      "field": "ex",
+      "old": "Swimming is my favourite sport.",
+      "new": "We go swimming every Sunday."
+    },
+    {
+      "word": "running",
+      "field": "ex",
+      "old": "Running is good for your health.",
+      "new": "Dad goes running every morning."
+    },
+    {
+      "word": "jogging",
+      "field": "ex",
+      "old": "Jogging in the park is relaxing.",
+      "new": "Mum goes jogging in the park."
+    },
+    {
+      "word": "walking",
+      "field": "ex",
+      "old": "Walking to school is healthy.",
+      "new": "We go walking in the hills."
+    },
+    {
+      "word": "jumping",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "jumping",
+      "field": "note",
+      "old": "emoji Person cartwheeling lệch nhẹ",
+      "new": "danh động từ; trùng nghĩa với jump"
+    },
+    {
+      "word": "riding",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "riding",
+      "field": "note",
+      "old": "emoji Horse racing; riding đa nghĩa (đi xe đạp), chọn cưỡi ngựa",
+      "new": "BrE: riding = cưỡi ngựa; trùng nghĩa horse riding"
+    },
+    {
+      "word": "racket",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "racket",
+      "field": "note",
+      "old": "emoji Tennis",
+      "new": ""
+    },
+    {
+      "word": "goal",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "goal",
+      "field": "note",
+      "old": "goal còn nghĩa bàn thắng; theo emoji chọn khung thành",
+      "new": ""
+    },
+    {
+      "word": "match",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "match",
+      "field": "note",
+      "old": "emoji Soccer ball; match còn nghĩa que diêm",
+      "new": ""
+    },
+    {
+      "word": "race",
+      "field": "ex",
+      "old": "I win the race today.",
+      "new": "He wins the race today."
+    },
+    {
+      "word": "trophy",
+      "field": "vi",
+      "old": "cúp",
+      "new": "chiếc cúp"
+    },
+    {
+      "word": "cards",
+      "field": "vi",
+      "old": "bài",
+      "new": "lá bài"
+    },
+    {
+      "word": "cards",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "cards",
+      "field": "note",
+      "old": "cards = lá bài, cũng là thiệp",
+      "new": ""
+    },
+    {
+      "word": "doll",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "doll",
+      "field": "note",
+      "old": "emoji Nesting dolls (búp bê Nga) lệch nhẹ",
+      "new": ""
+    },
+    {
+      "word": "darts",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "darts",
+      "field": "note",
+      "old": "emoji Bullseye",
+      "new": ""
+    },
+    {
+      "word": "magic",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "magic",
+      "field": "note",
+      "old": "magic còn nghĩa phép thuật; ví dụ dùng magic như tính từ",
+      "new": ""
+    },
+    {
+      "word": "drawing",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "drawing",
+      "field": "note",
+      "old": "drawing vừa là bản vẽ vừa là việc vẽ",
+      "new": ""
+    },
+    {
+      "word": "keyboard",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "keyboard",
+      "field": "note",
+      "old": "keyboard còn nghĩa bàn phím máy tính; theo emoji chọn đàn organ",
+      "new": ""
+    },
+    {
+      "word": "band",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "band",
+      "field": "note",
+      "old": "band đa nghĩa; emoji Guitar",
+      "new": ""
+    },
+    {
+      "word": "present",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "present",
+      "field": "note",
+      "old": "present đa nghĩa; chọn món quà theo emoji",
+      "new": ""
+    },
+    {
+      "word": "gift",
+      "field": "vi",
+      "old": "món quà",
+      "new": "quà tặng"
+    }
+  ],
+  "stillCheck": []
+}

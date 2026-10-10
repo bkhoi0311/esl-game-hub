@@ -1,0 +1,97 @@
+color	Artist palette
+circle	Red circle
+square	Fountain
+triangle	Red triangle
+star	Star
+diamond	Gem stone
+rainbow	Rainbow
+baby	Baby
+boy	Boy
+girl	Girl
+man	Man
+woman	Woman
+child	Child
+children	Child
+kid	Child
+dad	Man
+father	Man
+mum	Woman
+mother	Woman
+parents	People hugging
+grandfather	Old man
+grandpa	Old man
+grandmother	Old woman
+grandma	Old woman
+brother	Boy
+sister	Girl
+son	Boy
+daughter	Girl
+uncle	Man
+aunt	Woman
+cousin	Child
+friend	People hugging
+friends	People hugging
+family	People hugging
+people	Busts in silhouette
+person	Bust in silhouette
+twins	People hugging
+teenager	Person
+adult	Person
+old	Old man
+young	Child
+king	Prince
+queen	Princess
+prince	Prince
+princess	Princess
+pirate	Pirate flag
+clown	Clown face
+ghost	Ghost
+monster	Alien monster
+robot	Robot
+alien	Alien
+angel	Baby angel
+superhero	Person superhero
+witch	Woman mage
+wizard	Man mage
+fairy	Person fairy
+genie	Person genie
+mermaid	Woman merpeople
+vampire	Person vampire
+zombie	Person zombie
+elf	Person elf
+santa	Santa claus
+father christmas	Santa claus
+snowman	Snowman
+detective	Detective
+guard	Guard
+ninja	Ninja
+elves	Person elf
+actor	Artist
+artist	Artist
+astronaut	Astronaut
+builder	Construction worker
+businessman	Office worker
+businesswoman	Office worker
+chef	Cook
+cook	Cooking
+dentist	Tooth
+doctor	Health worker
+nurse	Health worker
+driver	Automobile
+farmer	Farmer
+firefighter	Firefighter
+fireman	Firefighter
+footballer	Soccer ball
+judge	Judge
+mechanic	Mechanic
+pilot	Pilot
+police officer	Police officer
+policeman	Police officer
+police	Police officer
+scientist	Scientist
+singer	Singer
+student	Student
+pupil	Student
+teacher	Teacher
+waiter	Person
+worker	Factory worker

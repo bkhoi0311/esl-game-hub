@@ -29,7 +29,7 @@ const SIZES = [
   { name: '390x844', width: 390, height: 844 },
 ];
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: 'chrome' });
 const results = [];
 const errors = [];
 

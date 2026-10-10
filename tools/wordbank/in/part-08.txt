@@ -1,0 +1,97 @@
+cooking	Cooking
+shopping	Shopping bags
+trip	Luggage
+travel	Airplane
+aeroplane	Airplane
+airplane	Airplane
+plane	Airplane
+airport	Airplane departure
+ambulance	Ambulance
+boat	Sailboat
+ship	Ship
+bus	Bus
+bus stop	Bus stop
+car	Automobile
+fire engine	Fire engine
+fire truck	Fire engine
+helicopter	Helicopter
+lorry	Delivery truck
+truck	Delivery truck
+motorbike	Motorcycle
+motorcycle	Motorcycle
+scooter	Kick scooter
+taxi	Taxi
+train	Locomotive
+railway	Railway track
+station	Station
+tram	Tram
+underground	Metro
+metro	Metro
+tractor	Tractor
+rocket	Rocket
+spaceship	Flying saucer
+ufo	Flying saucer
+van	Delivery truck
+police car	Police car
+canoe	Canoe
+ferry	Ferry
+submarine	Anchor
+wheel	Wheel
+road	Motorway
+street	Motorway
+traffic light	Vertical traffic light
+traffic	Vertical traffic light
+bridge	Bridge at night
+petrol station	Fuel pump
+fuel	Fuel pump
+passport	Passport control
+journey	Luggage
+sledge	Sled
+sled	Sled
+skates	Roller skate
+parachute	Parachute
+bank	Bank
+beach	Beach with umbrella
+castle	Castle
+church	Church
+city	Cityscape
+town	Cityscape
+village	Houses
+countryside	Sunrise over mountains
+farm	Farmer
+field	Ear of corn
+forest	Evergreen tree
+wood	Deciduous tree
+park	National park
+hospital	Hospital
+hotel	Hotel
+island	Desert island
+lake	Water wave
+river	Water wave
+sea	Water wave
+ocean	Water wave
+market	Shopping cart
+supermarket	Shopping cart
+shop	Shopping bags
+store	Department store
+shopping centre	Department store
+mall	Department store
+mountain	Mountain
+hill	Mountain
+museum	Classical building
+office	Office building
+post office	Post office
+police station	Police car
+university	Graduation cap
+college	Graduation cap
+sports centre	Stadium
+stadium	Stadium
+swimming pool	Person swimming
+zoo	Lion
+fountain	Fountain
+desert	Desert
+jungle	Palm tree
+cave	Mountain
+waterfall	Water wave
+volcano	Volcano
+world	Globe showing europe-africa

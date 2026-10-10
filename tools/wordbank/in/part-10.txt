@@ -1,0 +1,97 @@
+yesterday	Calendar
+christmas	Christmas tree
+halloween	Jack-o-lantern
+pumpkin	Jack-o-lantern
+easter	Hatching chick
+new year	Fireworks
+fireworks	Fireworks
+wedding	Wedding
+festival	Party popper
+carnival	Party popper
+celebration	Confetti ball
+date	Calendar
+happy	Grinning face
+sad	Crying face
+angry	Angry face
+afraid	Fearful face
+scared	Face screaming in fear
+frightened	Face screaming in fear
+surprised	Astonished face
+excited	Star-struck
+bored	Expressionless face
+tired	Sleepy face
+sleepy	Sleepy face
+sick	Face with thermometer
+ill	Face with thermometer
+hungry	Drooling face
+thirsty	Cup with straw
+worried	Worried face
+shy	Smiling face with smiling eyes
+funny	Face with tears of joy
+laugh	Face with tears of joy
+cry	Loudly crying face
+smile	Smiling face
+love	Smiling face with hearts
+kiss	Kiss mark
+kind	Smiling face with hearts
+brave	Flexed biceps
+strong	Flexed biceps
+weak	Face with head-bandage
+clever	Nerd face
+silly	Zany face
+cool	Smiling face with sunglasses
+sleep	Sleeping face
+dream	Zzz
+think	Thinking face
+idea	Light bulb
+careful	Warning
+dangerous	Warning
+safe	Locked
+lucky	Four leaf clover
+rich	Money bag
+poor	Money with wings
+famous	Glowing star
+beautiful	Sparkles
+pretty	Sparkles
+ugly	Nauseated face
+big	Elephant
+small	Mouse
+tall	Giraffe
+short	Mouse
+fat	Pig
+thin	Leg
+fast	Rocket
+quick	Rocket
+slow	Snail
+loud	Loudspeaker
+quiet	Muted speaker
+new	New button
+clean	Sponge
+dirty	Pile of poo
+wet	Droplet
+dry	Desert
+full	Bento box
+empty	Hollow red circle
+open	Open mailbox with raised flag
+closed	Closed mailbox with lowered flag
+broken	Broken heart
+right	Check mark button
+wrong	Cross mark
+correct	Check mark button
+yes	Check mark button
+no	Cross mark
+ok	Ok hand
+good	Thumbs up
+bad	Thumbs down
+great	Star-struck
+sorry	Pleading face
+thank you	Folded hands
+please	Folded hands
+hello	Waving hand
+goodbye	Waving hand
+welcome	Hugging face
+stop	Stop sign
+go	Green circle
+wait	Hourglass not done
+help	Sos button
+danger	Warning

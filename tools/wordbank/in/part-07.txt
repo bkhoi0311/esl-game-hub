@@ -1,0 +1,97 @@
+climbing	Person climbing
+cricket	Cricket game
+dance	Woman dancing
+dancing	Woman dancing
+fishing	Fishing pole
+football	Soccer ball
+soccer	Soccer ball
+golf	Flag in hole
+gym	Person lifting weights
+hockey	Ice hockey
+ice skating	Ice skate
+skating	Roller skate
+skateboard	Skateboard
+skateboarding	Skateboard
+skiing	Skier
+ski	Skis
+snowboarding	Snowboarder
+swimming	Person swimming
+swim	Person swimming
+table tennis	Ping pong
+ping pong	Ping pong
+tennis	Tennis
+volleyball	Volleyball
+running	Person running
+run	Person running
+jogging	Person running
+walking	Person walking
+walk	Person walking
+jump	Person cartwheeling
+jumping	Person cartwheeling
+surfing	Person surfing
+sailing	Sailboat
+rowing	Person rowing boat
+horse riding	Horse racing
+riding	Horse racing
+kite	Kite
+ball	Soccer ball
+racket	Tennis
+goal	Goal net
+team	People hugging
+match	Soccer ball
+race	Chequered flag
+medal	Sports medal
+prize	Trophy
+trophy	Trophy
+winner	1st place medal
+champion	1st place medal
+game	Video game
+video game	Video game
+computer game	Joystick
+cards	Joker
+puzzle	Puzzle piece
+toy	Teddy bear
+teddy bear	Teddy bear
+doll	Nesting dolls
+balloon	Balloon
+balloons	Balloon
+bowling	Bowling
+darts	Bullseye
+yoga	Person in lotus position
+karate	Martial arts uniform
+judo	Martial arts uniform
+fencing	Person fencing
+archery	Bow and arrow
+circus	Circus tent
+magic	Magic wand
+drawing	Crayon
+photography	Camera
+reading	Open book
+singing	Microphone
+sing	Microphone
+guitar	Guitar
+piano	Musical keyboard
+keyboard	Musical keyboard
+drum	Drum
+drums	Drum
+violin	Violin
+trumpet	Trumpet
+saxophone	Saxophone
+flute	Flute
+song	Musical notes
+concert	Microphone
+band	Guitar
+film	Clapper board
+movie	Clapper board
+cinema	Film projector
+theatre	Performing arts
+ticket	Ticket
+party	Party popper
+birthday	Birthday cake
+present	Wrapped gift
+gift	Wrapped gift
+holiday	Beach with umbrella
+camping	Camping
+tent	Tent
+hobby	Artist palette
+collect	Gem stone

@@ -1,0 +1,286 @@
+{
+  "title": "Music and Art",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "music",
+      "meaning": "âm nhạc",
+      "category": "music",
+      "example": "She listens to music on the bus.",
+      "image": ""
+    },
+    {
+      "word": "song",
+      "meaning": "bài hát",
+      "category": "music",
+      "example": "This song is very nice.",
+      "image": ""
+    },
+    {
+      "word": "band",
+      "meaning": "ban nhạc",
+      "category": "music",
+      "example": "The band plays loud music.",
+      "image": ""
+    },
+    {
+      "word": "concert",
+      "meaning": "buổi hòa nhạc",
+      "category": "music",
+      "example": "We go to a concert tonight.",
+      "image": ""
+    },
+    {
+      "word": "guitar",
+      "meaning": "đàn ghi-ta",
+      "category": "music",
+      "example": "He plays the guitar well.",
+      "image": ""
+    },
+    {
+      "word": "piano",
+      "meaning": "đàn piano",
+      "category": "music",
+      "example": "She plays the piano at home.",
+      "image": ""
+    },
+    {
+      "word": "drums",
+      "meaning": "bộ trống",
+      "category": "music",
+      "example": "My brother plays the drums.",
+      "image": ""
+    },
+    {
+      "word": "violin",
+      "meaning": "đàn vi-ô-lông",
+      "category": "music",
+      "example": "She practises the violin every day.",
+      "image": ""
+    },
+    {
+      "word": "flute",
+      "meaning": "cây sáo",
+      "category": "music",
+      "example": "She plays the flute at school.",
+      "image": ""
+    },
+    {
+      "word": "trumpet",
+      "meaning": "kèn trumpet",
+      "category": "music",
+      "example": "He plays the trumpet at school.",
+      "image": ""
+    },
+    {
+      "word": "singer",
+      "meaning": "ca sĩ",
+      "category": "job",
+      "example": "The singer has a lovely voice.",
+      "image": ""
+    },
+    {
+      "word": "musician",
+      "meaning": "nhạc công",
+      "category": "job",
+      "example": "The musician plays the guitar very well.",
+      "image": ""
+    },
+    {
+      "word": "dancer",
+      "meaning": "vũ công",
+      "category": "job",
+      "example": "The dancer moves to the music.",
+      "image": ""
+    },
+    {
+      "word": "artist",
+      "meaning": "hoạ sĩ",
+      "category": "job",
+      "example": "The artist paints a beautiful picture.",
+      "image": ""
+    },
+    {
+      "word": "painter",
+      "meaning": "người vẽ tranh",
+      "category": "job",
+      "example": "The painter is painting a river with bright colours.",
+      "image": ""
+    },
+    {
+      "word": "painting",
+      "meaning": "bức hoạ",
+      "category": "house",
+      "example": "The painting is on the wall.",
+      "image": ""
+    },
+    {
+      "word": "picture",
+      "meaning": "bức tranh",
+      "category": "house",
+      "example": "He draws a picture of a cat.",
+      "image": ""
+    },
+    {
+      "word": "drawing",
+      "meaning": "bức vẽ",
+      "category": "hobby",
+      "example": "This drawing is for my mum.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"âm nhạc\"?",
+      "options": [
+        "sandwich",
+        "bus",
+        "music"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She plays the ___ at school.",
+      "options": [
+        "flute",
+        "orange",
+        "wet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kèn trumpet\"?",
+      "options": [
+        "drums",
+        "trumpet",
+        "guitar"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"painter\" mean?",
+      "options": [
+        "nhạc công",
+        "người vẽ tranh",
+        "vũ công"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: paint_ng (bức hoạ)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"concert\" mean?",
+      "options": [
+        "buổi hòa nhạc",
+        "cây sáo",
+        "đàn vi-ô-lông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dr_ms (bộ trống)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dancer\" mean?",
+      "options": [
+        "ca sĩ",
+        "người vẽ tranh",
+        "vũ công"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đàn vi-ô-lông)",
+      "options": [
+        "violyn",
+        "vyolin",
+        "violin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"musician\" mean?",
+      "options": [
+        "nhạc công",
+        "hoạ sĩ",
+        "vũ công"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He plays the ___ well.",
+      "options": [
+        "kind",
+        "guitar",
+        "beautiful"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pict_re (bức tranh)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ban nhạc\"?",
+      "options": [
+        "flute",
+        "song",
+        "band"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đàn piano)",
+      "options": [
+        "pianu",
+        "piano",
+        "pianno"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the guitar",
+    "Pretend to play the drums",
+    "Pretend to play the piano",
+    "Pretend to sing",
+    "Pretend to paint",
+    "Dance to the music"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

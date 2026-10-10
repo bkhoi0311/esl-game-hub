@@ -1,0 +1,97 @@
+cereal	Bowl with spoon
+toast	Bread
+corn	Ear of corn
+mushroom	Mushroom
+garlic	Garlic
+cucumber	Cucumber
+avocado	Avocado
+peach	Peach
+cherry	Cherries
+cherries	Cherries
+kiwi	Kiwi fruit
+melon	Melon
+olive	Olive
+nut	Peanuts
+nuts	Peanuts
+peanut	Peanuts
+popcorn	Popcorn
+doughnut	Doughnut
+donut	Doughnut
+cupcake	Cupcake
+pudding	Custard
+lollipop	Lollipop
+taco	Taco
+sushi	Sushi
+dumpling	Dumpling
+curry	Curry rice
+bowl	Bowl with spoon
+cup	Trophy
+glass	Glass of milk
+bottle	Bottle with popping cork
+plate	Fork and knife with plate
+fork	Fork and knife
+knife	Kitchen knife
+spoon	Spoon
+chopsticks	Chopsticks
+picnic	Basket
+menu	Fork and knife with plate
+restaurant	Fork and knife with plate
+cafe	Hot beverage
+kitchen	Cooking
+snack	Pretzel
+ice	Ice
+soda	Cup with straw
+wine	Wine glass
+beer	Beer mug
+house	House
+home	House
+flat	Office building
+apartment	Office building
+bathroom	Bathtub
+bath	Bathtub
+shower	Shower
+toilet	Toilet
+bed	Bed
+bedroom	Bed
+blanket	Bed
+pillow	Bed
+chair	Chair
+armchair	Couch and lamp
+sofa	Couch and lamp
+couch	Couch and lamp
+table	Fork and knife with plate
+desk	Desktop computer
+door	Door
+window	Window
+wall	Brick
+roof	House
+floor	House
+stairs	Ladder
+garden	Potted plant
+garage	Automobile
+living room	Couch and lamp
+lamp	Light bulb
+light	Light bulb
+candle	Candle
+clock	Alarm clock
+mirror	Mirror
+picture	Framed picture
+painting	Artist palette
+photo	Camera
+plant	Seedling
+flower	Blossom
+vase	Potted plant
+cupboard	File cabinet
+wardrobe	Coat
+shelf	Books
+bookcase	Books
+fridge	Ice
+oven	Fire
+cooker	Cooking
+television	Television
+tv	Television
+telephone	Telephone
+phone	Mobile phone
+mobile phone	Mobile phone
+computer	Laptop
+laptop	Laptop
