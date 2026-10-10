@@ -60,8 +60,13 @@ function moveGlider() {
   navGlider.style.left = `${active.offsetLeft}px`;
   navGlider.style.width = `${active.offsetWidth}px`;
 }
+// Nút về màn chọn 2 phần (trang tĩnh start/). Ẩn ở chế độ trình chiếu và bản offline 1 file.
+const toChooser = h('a', { href: './start/index.html', class: 'to-chooser', 'data-testid': 'to-chooser', 'aria-label': 'Về màn chọn', title: 'Về màn chọn' },
+  icon('grid', 22), h('span', {}, 'Màn chọn'));
+if (PRESENT || __SINGLE_FILE__) toChooser.hidden = true;
 const header = h(
   'header', { class: 'app-header' },
+  toChooser,
   h('a', { href: '#/', class: 'brand', 'aria-label': 'ESL Game Hub' },
     h('img', { src: logoUrl, alt: 'ClassIn', class: 'brand-logo' }),
     h('span', { class: 'brand-sep' }),

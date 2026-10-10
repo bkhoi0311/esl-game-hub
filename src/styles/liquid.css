@@ -59,6 +59,10 @@ body.framed .stage { border: 0; border-radius: 1.6rem; box-shadow: 0 1.5rem 4rem
 .pack-chip .icon:last-child { color: var(--lg-text-tertiary); }
 .app-header > .btn { width: 3.6rem; height: 3.6rem; min-width: 0; min-height: 0; margin-left: 0.4rem; background: transparent; box-shadow: none; }
 .app-header > .btn:hover { background: var(--lg-fill); }
+.to-chooser { border: 0; background: var(--lg-fill); color: var(--lg-text); font: 600 1rem/1 var(--lg-font); margin-right: 0.6rem; margin-left: -1rem; padding: 0 1.1rem; }
+.to-chooser:hover { background: var(--lg-fill-strong); }
+body.fluid .to-chooser { margin: 0; padding: 0; min-width: 2.8rem; min-height: 2.8rem; justify-content: center; }
+body.fluid .to-chooser span { display: none; }
 
 /* ---------- Nút: viên thuốc, nhấn co lại theo lò xo ---------- */
 .btn {

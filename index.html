@@ -2,6 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--chooser-redirect:start-->
+    <script>
+      (function () {
+        try {
+          if (location.protocol !== 'file:' && !location.hash && !/[?&]L=/.test(location.search)) {
+            location.replace('start/index.html' + location.search);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!--chooser-redirect:end-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>ESL Game Hub</title>

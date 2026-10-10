@@ -49,7 +49,7 @@ try {
   await check('Chụp menu + Soạn bài ở 3 kích thước', async () => {
     for (const size of SIZES) {
       const { context, page } = await newPage(size);
-      await page.goto(BASE);
+      await page.goto(BASE + '#/');
       await page.waitForSelector('.game-card');
       await page.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 10000 });
       assert.equal(await page.locator('.game-card').count(), 11, 'menu phải có 11 thẻ');

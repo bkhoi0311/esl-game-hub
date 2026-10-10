@@ -115,7 +115,7 @@ TESTS.impostor = async () => {
   const c2 = await browser.newContext({ viewport: BIG });
   const p2 = await c2.newPage();
   p2.on('pageerror', (e) => pageErrors.push(`impostor-missing: ${e.message}`));
-  await p2.goto(BASE);
+  await p2.goto(BASE + '#/');
   await p2.evaluate(() => localStorage.setItem('eslhub.pack.default', JSON.stringify({ title: 'T', vocab: [
     { word: 'apple', category: 'fruit' }, { word: 'pear', category: 'fruit' }, { word: 'kiwi', category: 'fruit' }, { word: 'lime', category: 'fruit' },
     { word: 'tea', category: 'drink' }, { word: 'milk', category: 'drink' }, { word: 'soda', category: 'drink' }, { word: 'rice', category: 'meal' } ], questions: [], teams: ['A', 'B'] })));

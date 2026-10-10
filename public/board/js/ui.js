@@ -50,6 +50,8 @@ export function pressable(el, fn) {
   el.addEventListener('click', (e) => { if (e.detail === 0) fn(e); });
 }
 
+const FROM_HUB = new URLSearchParams(location.search).get('from') === 'hub';
+
 export function createUI({ board, brand, actions, getS }) {
   const root = document.documentElement;
   const topbar = $('#topbar');
@@ -72,8 +74,12 @@ export function createUI({ board, brand, actions, getS }) {
     const second = brand.wordmark
       ? '<span class="tb-pill" data-testid="brand-pill"><i></i>' + brand.label + '</span>'
       : '<span class="tb-sub" data-testid="brand-sub">Công cụ bổ trợ cho ClassIn X</span>';
+    // Nút "Về màn chọn": chỉ có khi mở từ màn chọn của Hub (URL có from=hub)
+    const backHtml = FROM_HUB
+      ? '<button type="button" class="tbtn tbtn--icon tbtn--back" data-testid="back-hub" aria-label="Về màn chọn">' + icon('chevron-left') + '</button><span class="tb-div tb-div--back"></span>'
+      : '';
     topbar.innerHTML =
-      '<div class="tb-left">' + logoHtml + (brand.wordmark ? '<span class="tb-div"></span>' : '') +
+      '<div class="tb-left">' + backHtml + logoHtml + (brand.wordmark ? '<span class="tb-div"></span>' : '') +
       '<div class="tb-title" data-testid="brand-label">' +
       '<div class="tb-row"><span class="tb-name">Bảng nhiều người viết</span>' + second + '</div>' +
       '<div class="tb-disc" data-testid="brand-disclaimer">' + brand.disclaimer + '</div></div></div>' +
@@ -87,6 +93,7 @@ export function createUI({ board, brand, actions, getS }) {
       pressable(b, () => actions.setZones(i));
       seg.appendChild(b);
     }
+    if (FROM_HUB) pressable($('[data-testid="back-hub"]', topbar), () => askBackHub());
     pressable($('[data-testid="clear-all"]', topbar), () => askClearAll());
     const fs = $('[data-testid="fullscreen"]', topbar);
     if (!document.fullscreenEnabled) fs.hidden = true;
@@ -116,6 +123,15 @@ export function createUI({ board, brand, actions, getS }) {
     } catch (e) { fsDenied(); }
   }
   function fsDenied() { toast('Cửa sổ này không cho toàn màn hình. Hãy phóng to cửa sổ bằng thanh của ClassIn.'); }
+
+  async function askBackHub() {
+    // Rời bảng là mất nét viết (bảng không lưu): hỏi lại nếu còn nét.
+    let go = true;
+    if (board.zones.some((z) => z.strokes.length)) {
+      go = await confirmDialog({ title: 'Về màn chọn?', body: 'Nét viết trên bảng sẽ mất.', ok: 'Rời bảng', cancel: 'Ở lại', danger: true });
+    }
+    if (go) location.href = '../start/index.html';
+  }
 
   async function askClearAll() {
     const ok = await confirmDialog({ title: 'Xoá hết bảng?', body: 'Mọi vùng sẽ được xoá. Có thể hoàn tác từng vùng.', ok: 'Xoá hết', cancel: 'Huỷ', danger: true });
