@@ -101,6 +101,7 @@ export function createDiag({ getInfo, onToast, onReset }) {
       'pointercancel: ' + st.cancels + ' (khi có ngón khác: ' + st.cancelsWithOthers + ') · mất capture: ' + st.lostCaptures,
       'Loại pointer: touch ' + st.types.touch + ' · pen ' + st.types.pen + ' · mouse ' + st.types.mouse,
       'Gần nhất: ' + st.last.type + ' · áp lực ' + f(st.last.p, 2) + ' · w ' + f(st.last.w, 1) + ' · h ' + f(st.last.h, 1),
+      'Lọc lòng bàn tay: ' + (i.palm ? (i.palm.enabled ? 'bật' : 'tắt') + ' (lý do: ' + i.palm.reasonText + ') · w/h: ' + (i.palm.recent.length ? i.palm.recent.map((r) => f(r[0], 0) + '/' + f(r[1], 0)).join(' ') : '-') : '-'),
       'Hồ sơ: ' + (i.profile || '-'),
       'Canvas: ' + (i.canvasInfo ? i.canvasInfo.desc + ' = ' + vn(i.canvasInfo.mp, 2) + ' MP' : '-') + ' · màn vật lý ' + i.physW + 'x' + i.physH + ' · DPR ' + i.dpr,
       'Khung khi vẽ: ' + i.perf.fps + ' fps · khoảng p95 ' + vn(i.perf.intervalP95, 1) + ' ms · nhàn rỗi (Đo 3 s): ' +

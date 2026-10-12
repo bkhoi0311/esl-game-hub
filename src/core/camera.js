@@ -1,7 +1,7 @@
 // Camera: liệt kê thiết bị, chọn camera (ClassIn Cam S1 thường không phải camera mặc định),
 // báo lỗi rõ ràng bằng tiếng Việt, tắt hẳn camera khi rời game. Không ghi hình, không gửi hình đi đâu.
 import { getSettings, updateSettings } from './settings.js';
-import { button, h, toast } from './ui.js';
+import { button, h, setupRow, toast } from './ui.js';
 import { icon } from './icons.js';
 
 // Luôn xin 1280x720: AI chỉ nhận ảnh đã thu nhỏ (vision.js) nên không cần hạ độ phân giải camera.
@@ -134,6 +134,10 @@ export function createCameraSession() {
 // onReady(session) được gọi khi giáo viên bấm "Bắt đầu".
 export function cameraSetupScreen({ session, title, art, hint, extraRows = [], onReady }) {
   const select = h('select', { 'aria-label': 'Chọn camera', 'data-testid': 'cam-select' });
+  // Nhóm nút to thay cho <select> (popup select có thể không hiện trên ClassIn X). Chỉ hiện trên ClassIn X hoặc ?touchui=1.
+  const touchUi = /ClassIn X/i.test(navigator.userAgent) || /[?&]touchui=1/.test(location.search + location.hash);
+  const camPick = h('div', { class: 'cam-pick', role: 'group', 'aria-label': 'Chọn camera bằng nút', 'data-testid': 'cam-pick', hidden: !touchUi });
+  const syncPick = () => camPick.querySelectorAll('.btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === select.value)));
   const preview = h('div', { class: 'cam-preview' }, session.video);
   const errorBox = h('div', { class: 'cam-error', hidden: true, 'data-testid': 'cam-error' });
   const startBtn = button({ label: 'Bắt đầu', iconName: 'play', variant: 'primary', size: 'lg', attrs: { disabled: true, 'data-testid': 'cam-start' } });
@@ -180,6 +184,25 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       select.append(h('option', { value: c.deviceId, selected: c.deviceId === session.deviceId }, label + hintS1));
     });
     if (!cams.length) select.append(h('option', { value: '' }, 'Chưa thấy camera'));
+    // Chỉ dựng lại nút khi danh sách camera đổi (giữ nguyên nút đang bấm).
+    const key = cams.map((c) => `${c.deviceId}|${c.label}`).join(';');
+    if (camPick.dataset.key === key) syncPick();
+    else {
+      camPick.dataset.key = key;
+      camPick.textContent = '';
+      cams.forEach((c, i) => {
+      camPick.append(button({
+        label: (c.label || `Camera ${i + 1}`) + (/s1|classin|eeo/i.test(c.label || '') ? ' (ClassIn)' : ''),
+        attrs: { 'data-value': c.deviceId, 'aria-pressed': String(c.deviceId === select.value) },
+        onClick: (e) => {
+          e.preventDefault();
+          select.value = c.deviceId;
+          select.dispatchEvent(new Event('change'));
+          syncPick();
+        },
+      }));
+      });
+    }
     countEl.textContent = `Tìm thấy ${cams.length} camera${cams.length ? ': ' + cams.map((c, i) => c.label || `Camera ${i + 1}`).join(', ') : ''}.`;
     const hasClassIn = cams.some((c) => /s1|classin|eeo/i.test(c.label));
     helpBox.hidden = hasClassIn && cams.length > 1;
@@ -285,13 +308,13 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
       h('div', { class: 'cam-grid' },
         h('div', { class: 'cam-left' }, preview, errorBox, h('div', { class: 'setup-actions' }, startBtn)),
         h('div', { class: 'cam-side' },
-          h('label', { class: 'setup-row' }, h('span', {}, 'Camera'), h('div', { class: 'cam-select-row' }, select, rescanBtn)),
+          h('div', { class: 'setup-row', role: 'group', 'aria-label': 'Camera' }, h('span', {}, 'Camera'), h('div', { class: 'cam-select-row' }, select, rescanBtn), camPick),
           countEl,
           switchNote,
           helpBox,
           h('p', { class: 'muted' }, 'Camera góc rộng ClassIn S1 thường có tên chứa "S1" hoặc "ClassIn". Hình hiển thị dạng gương. Không ghi hình, không lưu ảnh.'),
           hint ? h('p', { class: 'cam-hint' }, hint) : null,
-          extraRows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null))))),
+          extraRows.map((r, i) => setupRow(r, `cam-setup-row-${i}`))))),
   );
   connect(session.deviceId);
   return el;

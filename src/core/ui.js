@@ -384,6 +384,9 @@ export function createGameFrame(root, { title, howTo, onPause, onResume, onResta
 // ---------- Dùng chung cho các game ----------
 
 // Nút chọn 1 trong nhiều giá trị. options: [{ value, label }].
+// Cập nhật aria-pressed TẠI CHỖ (không xoá/dựng lại nút) và chặn mặc định của click:
+// Chromium 109 (ClassIn X) coi click lên nút đã bị tách khỏi DOM là click vào chữ của <label> bao ngoài
+// và bắn click giả vào nút đầu tiên, làm giá trị nhảy về lựa chọn đầu.
 export function segmented(options, value, onChange, testId) {
   const el = h('div', { class: 'segmented has-thumb', role: 'group', 'data-testid': testId });
   // Viên trắng trượt tới lựa chọn mới theo lò xo (CSS .seg-thumb).
@@ -395,29 +398,66 @@ export function segmented(options, value, onChange, testId) {
     thumb.style.width = `${on.offsetWidth}px`;
   };
   el.append(thumb);
-  const render = () => {
-    [...el.children].forEach((c) => c !== thumb && c.remove()); // giữ viên trượt để nó trượt được
-    options.forEach((o) =>
-      el.append(
-        button({
-          label: o.label,
-          attrs: { 'aria-pressed': String(o.value === value), disabled: o.disabled || null, 'data-value': o.value },
-          onClick: () => {
-            value = o.value;
-            render();
-            place();
-            onChange(value);
-          },
-        }),
-      ),
-    );
-  };
-  render();
+  const buttons = options.map((o) => {
+    const b = button({
+      label: o.label,
+      attrs: { 'aria-pressed': String(o.value === value), disabled: o.disabled || null, 'data-value': String(o.value) },
+      onClick: (e) => {
+        e.preventDefault();
+        if (b.disabled || o.value === value) return;
+        value = o.value;
+        buttons.forEach((x, k) => x.setAttribute('aria-pressed', String(options[k].value === value)));
+        place();
+        onChange(value);
+      },
+    });
+    return b;
+  });
+  el.append(...buttons);
   // Đặt vị trí lần đầu khi đã gắn vào trang (chưa gắn thì chưa đo được).
   const first = () => (el.isConnected ? place() : requestAnimationFrame(first));
   requestAnimationFrame(first);
   if (typeof ResizeObserver === 'function') new ResizeObserver(place).observe(el);
   return el;
+}
+
+// Bộ chỉnh số bằng nút -/+ (to, dễ chạm trên bảng ClassIn). Thay cho <input type=number>.
+export function stepper({ value, min = 0, max = 100, step = 1, onChange, testId, label = '', format = (v) => String(v) }) {
+  const round = (v) => Math.round(v * 1000) / 1000;
+  const out = h('output', { class: 'stepper-value', 'aria-live': 'polite' }, format(value));
+  const set = (v) => {
+    const next = round(Math.min(max, Math.max(min, v)));
+    if (next === value) return;
+    value = next;
+    out.textContent = format(value);
+    el.dataset.value = String(value);
+    onChange(value);
+  };
+  const dec = button({ iconName: 'minus', title: `Giảm ${label}`.trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); set(value - step); } });
+  const inc = button({ iconName: 'plus', title: `Tăng ${label}`.trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); set(value + step); } });
+  const el = h('div', { class: 'stepper', role: 'group', 'aria-label': label || null, 'data-testid': testId, dataset: { value: String(value) } }, dec, out, inc);
+  return el;
+}
+
+// Thanh trượt có thêm nút -/+ hai bên (ngón tay 50 px che núm trượt nhỏ). input: <input type=range>.
+export function rangeWithSteps(input, { step = Number(input.step) || 1, label = '', testId } = {}) {
+  const nudge = (d) => {
+    const lo = Number(input.min);
+    const hi = Number(input.max);
+    input.value = String(Math.round(Math.min(hi, Math.max(lo, Number(input.value) + d)) * 1000) / 1000);
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+  return h('div', { class: 'range-steps', 'data-testid': testId },
+    button({ iconName: 'minus', title: `Giảm ${label}`.trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); nudge(-step); } }),
+    input,
+    button({ iconName: 'plus', title: `Tăng ${label}`.trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); nudge(step); } }));
+}
+
+// Một dòng cài đặt. KHÔNG dùng <label>: label bao nút sẽ chuyển click về nút đầu tiên (xem segmented()).
+export function setupRow(r, id) {
+  return h('div', { class: 'setup-row', role: 'group', 'aria-labelledby': id },
+    h('span', { id }, r.label), r.control, r.hint ? h('small', {}, r.hint) : null);
 }
 
 // Màn hình cài đặt trước khi chơi. rows: [{ label, hint, control }].
@@ -426,7 +466,7 @@ export function setupScreen({ gameId, title, rows, startLabel = 'Bắt đầu ch
     'div', { class: 'setup' },
     h('div', { class: 'setup-card' },
       h('h2', {}, art || null, h('span', {}, title)),
-      rows.map((r) => h('label', { class: 'setup-row' }, h('span', {}, r.label), r.control, r.hint ? h('small', {}, r.hint) : null)),
+      rows.map((r, i) => setupRow(r, `setup-${gameId}-row-${i}`)),
       h('div', { class: 'setup-actions' },
         button({ label: startLabel, iconName: 'play', variant: 'primary', size: 'lg', onClick: onStart, attrs: { 'data-testid': `${gameId}-start` } }))),
   );

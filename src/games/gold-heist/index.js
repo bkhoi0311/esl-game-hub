@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti';
 import { getQuestions, shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
-  TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen,
+  TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen, stepper,
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
@@ -76,11 +76,11 @@ function createGame(root, pack) {
 
     const weightInputs = h('div', { class: 'gh-weights' },
       Object.entries(CHESTS).map(([key, c]) =>
-        h('label', { class: 'gh-weight' },
+        h('div', { class: 'gh-weight', role: 'group', 'aria-label': `Tỉ lệ ${c.label}` },
           h('span', { class: 'en' }, c.label),
-          h('input', {
-            type: 'number', min: 0, max: 100, value: opts.weights[key], 'aria-label': `Tỉ lệ ${c.label}`,
-            onInput: (e) => { opts.weights[key] = Math.max(0, Number(e.target.value) || 0); },
+          stepper({
+            value: opts.weights[key], min: 0, max: 100, step: 5, label: `tỉ lệ ${c.label}`, testId: `gh-weight-${key}`,
+            onChange: (v) => { opts.weights[key] = v; },
           }))));
 
     setStage(setupScreen({

@@ -13,7 +13,7 @@ const only = process.argv.slice(2);
 const server = await createServer({ server: { port: 5198, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const BASE = 'http://localhost:5198/';
-const browser = await chromium.launch();
+const browser = await chromium.launch().catch(() => chromium.launch({ channel: 'chrome' })); // máy không có bản Chromium của Playwright thì dùng Chrome
 const results = [];
 const pageErrors = [];
 
@@ -40,7 +40,10 @@ TESTS['gold-heist'] = async () => {
   await page.waitForSelector('[data-testid=gold-heist-start]');
   await shot(page, 'gold-heist-1-setup');
   await page.click('[data-testid=gh-teams] [data-value="3"]');
+  assert.equal(await page.getAttribute('[data-testid=gh-teams] [aria-pressed=true]', 'data-value'), '3');
   await page.click('[data-testid=gold-heist-start]');
+  await page.waitForSelector('[data-testid=gh-question]');
+  assert.equal(await page.locator('.gh-scores .score-team').count(), 3, 'chọn 3 đội thì phải có 3 thẻ đội');
 
   let chestShot = false;
   for (let q = 0; q < 10; q++) {
@@ -270,11 +273,16 @@ TESTS['balloon-pop'] = async () => {
 // ---------- Memory Match ----------
 TESTS['memory-match'] = async () => {
   const { context, page } = await open('#/game/memory-match');
-  await page.click('[data-testid=mm-pairs] [data-value="6"]');
+  // Chọn lựa chọn KHÔNG phải đầu tiên (8 cặp, 3 đội) để bắt lỗi nhảy về lựa chọn đầu.
+  await page.click('[data-testid=mm-pairs] [data-value="8"]');
+  await page.click('[data-testid=mm-teams] [data-value="3"]');
+  assert.equal(await page.getAttribute('[data-testid=mm-pairs] [aria-pressed=true]', 'data-value'), '8');
+  assert.equal(await page.getAttribute('[data-testid=mm-teams] [aria-pressed=true]', 'data-value'), '3');
   await page.click('[data-testid=memory-match-start]');
   await page.waitForSelector('[data-testid=mm-grid]');
   const pairs = await page.$$eval('.mm-card', (els) => els.map((e) => Number(e.dataset.pair)));
-  assert.equal(pairs.length, 12);
+  assert.equal(pairs.length, 16);
+  assert.equal(await page.locator('.mm-scores .score-team').count(), 3);
   // Lật sai 1 lần: đổi lượt.
   const first = pairs[0];
   const wrongIdx = pairs.findIndex((p, i) => i > 0 && p !== first);
@@ -284,7 +292,7 @@ TESTS['memory-match'] = async () => {
   assert.match(await page.textContent('[data-testid=mm-turn]'), /Blue team/);
   await shot(page, 'memory-match-1-play');
   // Lật đúng hết các cặp.
-  for (let p = 0; p < 6; p++) {
+  for (let p = 0; p < 8; p++) {
     const idx = pairs.map((x, i) => (x === p ? i : -1)).filter((i) => i >= 0);
     await page.click(`.mm-card[data-index="${idx[0]}"]`);
     await page.click(`.mm-card[data-index="${idx[1]}"]`);
@@ -293,7 +301,7 @@ TESTS['memory-match'] = async () => {
   }
   await page.waitForSelector('[data-testid=results]', { timeout: 5000 });
   const scores = await page.$$eval('.rank-list li span:last-child', (els) => els.map((e) => parseInt(e.textContent, 10)));
-  assert.deepEqual(scores.sort(), [0, 6]);
+  assert.deepEqual(scores.sort(), [0, 0, 8]);
   await context.close();
 };
 

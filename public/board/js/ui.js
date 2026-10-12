@@ -1,6 +1,6 @@
 // Giao diện: thanh trên, dock từng vùng, khay màu/cỡ, hộp thoại, toast, dải cảnh báo, bảng Thông tin.
 import { icon } from './icons.js';
-import { isPalm } from './input.js';
+import { isHugePalm } from './palm.js';
 
 export const COLORS = [
   { key: 'white', name: 'Trắng', hex: '#FFFFFF' },
@@ -31,7 +31,7 @@ function h(tag, cls, html, attrs) {
 export function pressable(el, fn) {
   let pid = null;
   el.addEventListener('pointerdown', (e) => {
-    if (isPalm(e)) return;
+    if (isHugePalm(e)) return; // nút luôn bấm được; chỉ bỏ qua chạm to bất thường
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     pid = e.pointerId;
     el.classList.add('is-pressed');

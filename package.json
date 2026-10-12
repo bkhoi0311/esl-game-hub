@@ -11,6 +11,7 @@
     "shots": "node tests/screenshots.mjs",
     "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs",
     "test:games": "node tests/games.mjs",
+    "test:classin": "node tests/classin-touch.mjs",
     "test:offline": "node tests/offline.mjs",
     "predev": "node scripts/copy-wasm.js",
     "prebuild": "node scripts/copy-wasm.js",

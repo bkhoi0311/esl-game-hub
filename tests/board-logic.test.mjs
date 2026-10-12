@@ -1,6 +1,7 @@
 // Test logic thuần của "Bảng nhiều người viết" (không cần trình duyệt). Chạy: npm test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { createPalmFilter, parsePalmMode, isHugePalm, PALM_MIN } from '../public/board/js/palm.js';
 import { computeZones, calcScale, topHeight, zoneAt, parseZones, GAP } from '../public/board/js/layout.js';
 import {
   createBoard, setZoneRects, toZoneUnits, zoneScale, beginStroke, addPoint, addPointSplit, endStroke,
@@ -240,4 +241,53 @@ test('T5b: addPoint/addPointSplit nhận minStep và maxPts', () => {
   let cur = beginStroke(z, {}); let fin = 0;
   for (let i = 0; i < 12; i++) { const r = addPointSplit(z, cur, i * 5, 0, 0.5, false, 5, 1.2); cur = r.stroke; if (r.finished) fin++; }
   assert.ok(fin >= 2, 'tách nét theo maxPts=5');
+});
+
+const UA_CI = 'Mozilla/5.0 (Windows NT 10.0) ClassIn X/6.0.9.1813 Safari/537.36';
+const UA_N = 'Mozilla/5.0 (Windows NT 10.0) Chrome/130.0.0.0 Safari/537.36';
+const tch = (w, h = w) => ({ pointerType: 'touch', width: w, height: h });
+
+test('PALM1: UA ClassIn => không lọc kể cả width 50', () => {
+  const f = createPalmFilter({ mode: 'auto', ua: UA_CI });
+  f.observe(tch(50)); assert.equal(f.isPalm(tch(50)), false);
+  assert.equal(f.isPalm(tch(120)), false);
+  const st = f.state(); assert.equal(st.enabled, false); assert.equal(st.reason, 'ua'); assert.equal(st.samples, 1);
+});
+test('PALM2: UA thường + 3 chạm width 50 ổn định => tự tắt', () => {
+  const f = createPalmFilter({ mode: 'auto', ua: UA_N });
+  assert.equal(f.isPalm(tch(50)), true);
+  assert.equal(f.observe(tch(50)), false); assert.equal(f.observe(tch(51)), false);
+  assert.equal(f.isPalm(tch(50)), true);
+  assert.equal(f.observe(tch(50)), true);
+  assert.equal(f.isPalm(tch(50)), false);
+  assert.equal(f.state().reason, 'auto');
+  assert.deepEqual(f.state().recent, [[50, 50], [51, 51], [50, 50]]);
+  assert.equal(f.isPalm({ pointerType: 'pen', width: 80, height: 80 }), false);
+});
+test('PALM3: một chạm width 80 lẫn chạm width 12 => vẫn lọc', () => {
+  const f = createPalmFilter({ mode: 'auto', ua: UA_N });
+  for (const w of [12, 12, 80, 12, 12, 80, 13, 12]) f.observe(tch(w));
+  assert.equal(f.state().enabled, true);
+  assert.equal(f.isPalm(tch(80)), true); assert.equal(f.isPalm(tch(12)), false);
+  // dao động lớn (50, 60, 70) không coi là cố định
+  const g = createPalmFilter({ mode: 'auto', ua: UA_N });
+  for (const w of [50, 60, 70, 55]) g.observe(tch(w));
+  assert.equal(g.state().enabled, true);
+  // cố định nhưng nhỏ (12) không tắt, và w cố định cũ bị xen chạm nhỏ thì cửa sổ không còn đồng nhất
+  const h = createPalmFilter({ mode: 'auto', ua: UA_N });
+  for (const w of [50, 50, 12, 50]) h.observe(tch(w));
+  assert.equal(h.state().enabled, true);
+});
+test('PALM4: palm=0 / palm=1 ghi đè; parsePalmMode', () => {
+  const off = createPalmFilter({ mode: '0', ua: UA_N });
+  assert.equal(off.isPalm(tch(90)), false); assert.equal(off.state().reason, 'param');
+  const on = createPalmFilter({ mode: '1', ua: UA_CI });
+  for (let i = 0; i < 5; i++) on.observe(tch(50));
+  assert.equal(on.isPalm(tch(50)), true); assert.equal(on.state().reason, 'forced');
+  assert.equal(parsePalmMode('?palm=0'), '0'); assert.equal(parsePalmMode('?palm=1'), '1');
+  assert.equal(parsePalmMode('?palm=auto'), 'auto'); assert.equal(parsePalmMode(''), 'auto');
+});
+test('PALM5: nút bấm chỉ bỏ qua chạm to >= 3 x ngưỡng', () => {
+  assert.equal(isHugePalm(tch(50)), false); assert.equal(isHugePalm(tch(PALM_MIN * 3)), true);
+  assert.equal(isHugePalm({ pointerType: 'mouse', width: 500, height: 500 }), false);
 });

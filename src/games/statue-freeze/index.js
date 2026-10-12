@@ -4,7 +4,7 @@ import './style.css';
 import { playSound, speak } from '../../core/audio.js';
 import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { createMotionGrid } from '../../core/vision.js';
-import { button, createGameFrame, h, segmented, toast } from '../../core/ui.js';
+import { button, createGameFrame, h, rangeWithSteps, segmented, toast } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
 import { shuffle } from '../../core/content.js';
@@ -139,7 +139,7 @@ function createGame(root, pack) {
       }
     });
     frame.extra.textContent = '';
-    frame.extra.append(h('label', { class: 'sf-sens' }, h('span', {}, 'Độ nhạy'), slider), camBtn);
+    frame.extra.append(h('div', { class: 'sf-sens', role: 'group', 'aria-label': 'Độ nhạy' }, h('span', {}, 'Độ nhạy'), rangeWithSteps(slider, { step: 1, label: 'độ nhạy' })), camBtn);
 
     setStage(h('div', { class: 'sf-play' },
       videoBox,

@@ -14,7 +14,7 @@ import { mountCamCheck } from './core/camcheck.js';
 import { getSettings, updateSettings } from './core/settings.js';
 import { clipCount, getEnglishVoices, setVoiceGame, stopSpeaking, speak, ttsSupported, voiceFor, voiceLabel } from './core/audio.js';
 import { line } from './core/voice-lines.js';
-import { button, h, openModal } from './core/ui.js';
+import { button, h, openModal, rangeWithSteps, segmented } from './core/ui.js';
 import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
 import { gsap } from 'gsap';
@@ -102,6 +102,20 @@ function fitStage() {
   document.body.classList.toggle('fluid', !framed);
 }
 fitStage();
+
+// Cờ chẩn đoán ?diag=1: ghi mỗi lần chạm/bấm vào hộp chữ xanh ở góc dưới trái (chỉ đọc, không đổi hành vi).
+if (/[?&]diag=1/.test(location.search) || location.hash.includes('diag=1')) {
+  const box = h('pre', { class: 'diag-box', style: { position: 'fixed', left: '8px', bottom: '8px', zIndex: 99999, maxWidth: '46vw', maxHeight: '40vh', overflow: 'auto', background: 'rgba(0,0,0,.82)', color: '#0f0', font: '12px/1.35 monospace', padding: '8px', borderRadius: '8px', pointerEvents: 'none' } });
+  document.body.append(box);
+  const logDiag = (t) => { box.textContent = (t + '\n' + box.textContent).slice(0, 4000); };
+  logDiag(`UA ${navigator.userAgent}\nmaxTouchPoints ${navigator.maxTouchPoints} dpr ${devicePixelRatio} rem ${getComputedStyle(document.documentElement).fontSize}`);
+  const desc = (t) => (t && t.nodeType === 1
+    ? `${t.tagName.toLowerCase()}${t.dataset && t.dataset.value != null ? '[v=' + t.dataset.value + ']' : ''}${t.closest('[data-testid]') ? ' in ' + t.closest('[data-testid]').dataset.testid : ''}${t.isConnected ? '' : ' (DETACHED)'}`
+    : String(t));
+  for (const type of ['pointerdown', 'pointerup', 'pointercancel', 'click']) {
+    document.addEventListener(type, (e) => logDiag(`${type} ${e.pointerType || ''} w${Math.round(e.width || 0)} trusted=${e.isTrusted} -> ${desc(e.target)}`), true);
+  }
+}
 window.addEventListener('resize', () => {
   fitStage();
   moveGlider();
@@ -324,22 +338,22 @@ async function openSettings() {
     h('label', { class: 'switch-row' },
       h('input', { type: 'checkbox', checked: s.sound, onChange: (e) => updateSettings({ sound: e.target.checked }) }),
       h('span', {}, 'Bật âm thanh hiệu ứng (đúng / sai / thắng)')),
-    h('label', { class: 'field' },
-      h('span', {}, 'Giọng đọc tiếng Anh'),
-      h('select', { onChange: (e) => updateSettings({ accent: e.target.value }) },
-        h('option', { value: 'en-US', selected: s.accent === 'en-US' }, 'Anh-Mỹ (en-US)'),
-        h('option', { value: 'en-GB', selected: s.accent === 'en-GB' }, 'Anh-Anh (en-GB)'))),
-    h('label', { class: 'field' },
-      h('span', {}, 'Tốc độ đọc ', rateValue),
-      h('input', {
-        type: 'range', min: 0.5, max: 1.5, step: 0.1, value: s.ttsRate,
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-accent' },
+      h('span', { id: 'set-accent' }, 'Giọng đọc tiếng Anh'),
+      segmented([{ value: 'en-US', label: 'Anh-Mỹ (en-US)' }, { value: 'en-GB', label: 'Anh-Anh (en-GB)' }], s.accent, (v) => updateSettings({ accent: v }), 'accent')),
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-rate' },
+      h('span', { id: 'set-rate' }, 'Tốc độ đọc ', rateValue),
+      rangeWithSteps(h('input', {
+        type: 'range', min: 0.5, max: 1.5, step: 0.1, value: s.ttsRate, 'aria-labelledby': 'set-rate', 'data-testid': 'tts-rate',
         onInput: (e) => { rateValue.textContent = Number(e.target.value).toFixed(1); updateSettings({ ttsRate: Number(e.target.value) }); },
-      })),
-    h('label', { class: 'field' },
-      h('span', {}, 'Giọng đọc'),
-      h('select', { 'data-testid': 'voice-mode', onChange: (e) => updateSettings({ voiceMode: e.target.value }) },
-        h('option', { value: 'omni', selected: s.voiceMode !== 'web' }, `Giọng OmniVoice thu sẵn, mỗi game 1 giọng dẫn (${clipCount()} câu)`),
-        h('option', { value: 'web', selected: s.voiceMode === 'web' }, 'Chỉ dùng giọng máy (Web Speech)'))),
+      }), { step: 0.1, label: 'tốc độ đọc' })),
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-voice' },
+      h('span', { id: 'set-voice' }, 'Giọng đọc'),
+      segmented([
+        { value: 'omni', label: 'Giọng thu sẵn (OmniVoice)' },
+        { value: 'web', label: 'Giọng máy (Web Speech)' },
+      ], s.voiceMode !== 'web' ? 'omni' : 'web', (v) => updateSettings({ voiceMode: v }), 'voice-mode'),
+      h('small', { class: 'muted' }, `Giọng thu sẵn: mỗi game 1 giọng dẫn (${clipCount()} câu).`)),
     h('div', { class: 'voice-list' },
       GAMES.filter((g) => g.ready).map((g) =>
         h('div', { class: 'voice-row' },

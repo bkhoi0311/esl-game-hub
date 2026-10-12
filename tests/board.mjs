@@ -694,7 +694,7 @@ t('P17', async () => {
   const b = await open({ zones: 4, query: 'debug=1' });
   const s = await b.state();
   // HUD che góc trên-trái nên vẽ ở nửa dưới
-  await b.multiTouch([1, 2, 3, 4].map((i) => zoneLine(s, i, 230)));
+  await b.multiTouch([1, 2, 3, 4].map((i) => zoneLine(s, i, 260)));
   await b.page.waitForTimeout(400);
   const txt = await b.id('hud').innerText();
   ok(txt.includes('Nhiều nhất cùng lúc: 4'), 'HUD: ' + txt.slice(0, 300));
@@ -1235,6 +1235,88 @@ t('T7', async () => {
   console.log(hdr + '\n' + rows.map((r) => `| ${r.mode} | ${r.profile} | ${r.fingers} | ${r.fps} | ${r.avgMs} | ${r.p95Ms} | ${r.intervalP95} | ${r.getStroke} | ${r.getStrokePerS} | ${r.latAvg}/${r.latP95} | ${r.mpPerFrame} | ${r.canvasMP} | ${r.screencastFps} |`).join('\n'));
   const A = rows.find((r) => r.mode === 'nogpu' && r.profile === 'A' && r.fingers === 4), C = rows.find((r) => r.mode === 'nogpu' && r.profile === 'C' && r.fingers === 4);
   ok(C.intervalP95 <= A.intervalP95 * 1.1, `ultra p95 khoảng khung ${C.intervalP95} > full ${A.intervalP95} (+10%)`);
+});
+
+
+// ================= Sửa lọc lòng bàn tay (ClassIn X báo width=height=50 cho mọi chạm) =================
+const UA_CLASSIN_PALM = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ClassIn X/6.0.9.1813 Safari/537.36';
+async function tapBtn(b, testid, extra = {}, pid = 77) {
+  await b.page.evaluate(([tid, pid, extra]) => {
+    const el = document.querySelector(`[data-testid="${tid}"]`);
+    const r = el.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const o = (type) => new PointerEvent(type, Object.assign({ pointerId: pid, pointerType: 'touch', clientX: x, clientY: y, pressure: 0, width: 50, height: 50, buttons: type === 'pointerup' ? 0 : 1, bubbles: true, cancelable: true, isPrimary: true }, extra));
+    el.dispatchEvent(o('pointerdown')); el.dispatchEvent(o('pointerup'));
+  }, [testid, pid, extra]);
+}
+const W50 = { width: 50, height: 50, pressure: 0 };
+for (const prof of ['full', 'lite', 'ultra']) {
+  t('P-' + prof, async () => {
+    const b = await open({ zones: 4, w: 1280, h: 720, ua: UA_CLASSIN_PALM, query: 'perf=' + prof });
+    let s = await b.state();
+    eq(s.palm.enabled, false, 'lọc tắt do UA ClassIn'); eq(s.palm.reason, 'ua');
+    // vẽ 1 ngón width 50 ở vùng 1 và 4
+    await b.drawFake(1, 'touch', ...zoneLine(s, 1), W50);
+    await b.drawFake(2, 'touch', ...zoneLine(s, 4), W50);
+    s = await b.state();
+    eq(s.zones[0].strokeCount, 1, 'vẽ được vùng 1 (width 50)'); eq(s.zones[3].strokeCount, 1, 'vẽ được vùng 4');
+    // nút Hoàn tác / Xoá vùng
+    await tapBtn(b, 'z1-undo'); await b.flush();
+    eq((await b.state()).zones[0].strokeCount, 0, 'Hoàn tác bấm được');
+    await b.drawFake(3, 'touch', ...zoneLine(s, 2), W50);
+    await tapBtn(b, 'z2-clear'); await b.flush();
+    eq((await b.state()).zones[1].strokeCount, 0, 'Xoá vùng bấm được');
+    // Tẩy / Bút
+    await tapBtn(b, 'z3-eraser');
+    eq((await b.state()).zones[2].tool, 'eraser', 'Tẩy bấm được');
+    await tapBtn(b, 'z3-pen');
+    eq((await b.state()).zones[2].tool, 'pen', 'Bút bấm được');
+    // Xoá hết + hộp thoại xác nhận bằng chạm width 50
+    await tapBtn(b, 'clear-all'); await tapBtn(b, 'dialog-ok'); await b.flush();
+    ok((await b.state()).zones.every((z) => z.strokeCount === 0), 'Xoá hết bấm được');
+    // 1-2-3-4 vùng
+    for (const n of [2, 3, 1, 4]) { await tapBtn(b, 'zones-' + n); await b.page.waitForFunction((k) => window.__board.state().zones.length === k, n, { timeout: 3000 }).catch(() => {}); eq((await b.state()).zones.length, n, 'chia ' + n + ' vùng'); }
+    // 4 ngón width 50 vẽ đồng thời
+    s = await b.state();
+    await b.page.evaluate(async (zs) => {
+      const el = document.getElementById('input-layer');
+      const fire = (type, id, x, y) => el.dispatchEvent(new PointerEvent(type, { pointerId: id, pointerType: 'touch', clientX: x, clientY: y, pressure: 0, width: 50, height: 50, buttons: type === 'pointerup' ? 0 : 1, bubbles: true, cancelable: true, isPrimary: id === 11 }));
+      const P = zs.map((r, i) => [r.x + r.w * 0.3, r.y + r.h * 0.4, 11 + i]);
+      for (const [x, y, id] of P) fire('pointerdown', id, x, y);
+      for (let k = 1; k <= 10; k++) for (const [x, y, id] of P) fire('pointermove', id, x + k * 8, y + k * 4);
+      for (const [x, y, id] of P) fire('pointerup', id, x + 80, y + 40);
+    }, s.zones.map((z) => z.rect));
+    await b.flush();
+    s = await b.state();
+    ok(s.zones.every((z) => z.strokeCount === 1), 'mỗi vùng 1 nét: ' + s.zones.map((z) => z.strokeCount));
+    eq(b.log.errors.length, 0, b.log.errors.join('|'));
+    await b.close();
+  });
+}
+t('P-auto', async () => {
+  const b = await open({ zones: 2, w: 1280, h: 720 }); // UA thường
+  let s = await b.state();
+  eq(s.palm.enabled, true); eq(s.palm.reason, 'default');
+  for (let i = 0; i < 4; i++) await b.drawFake(10 + i, 'touch', ...zoneLine(s, 1, i * 20), W50);
+  s = await b.state();
+  eq(s.palm.enabled, false, 'tự tắt sau 3 chạm w cố định'); eq(s.palm.reason, 'auto');
+  ok(s.zones[0].strokeCount >= 2, 'chạm thứ 3-4 vẽ được: ' + s.zones[0].strokeCount);
+  eq(s.zones[0].strokeCount, 2);
+  // nút vẫn bấm được ngay cả khi lọc còn bật (palm=1)
+  const b2 = await open({ zones: 2, query: 'palm=1', ua: UA_CLASSIN_PALM });
+  s = await b2.state(); eq(s.palm.enabled, true); eq(s.palm.reason, 'forced');
+  await b2.drawFake(1, 'touch', ...zoneLine(s, 1), W50);
+  eq((await b2.state()).zones[0].strokeCount, 0, 'palm=1 vẫn lọc');
+  await tapBtn(b2, 'zones-3'); await b2.page.waitForFunction(() => window.__board.state().zones.length === 3, null, { timeout: 3000 }).catch(() => {});
+  eq((await b2.state()).zones.length, 3, 'nút bấm được khi palm=1');
+  const b3 = await open({ zones: 2, query: 'palm=0' });
+  s = await b3.state(); eq(s.palm.enabled, false); eq(s.palm.reason, 'param');
+  await b3.drawFake(1, 'touch', ...zoneLine(s, 1), { width: 80, height: 80 });
+  eq((await b3.state()).zones[0].strokeCount, 1, 'palm=0 vẽ cả khi w 80');
+  // HUD có dòng mới
+  const b4 = await open({ zones: 2, query: 'debug=1', ua: UA_CLASSIN_PALM });
+  const txt = await b4.id('hud-text').textContent();
+  ok(/Lọc lòng bàn tay: tắt \(lý do: UA ClassIn\)/.test(txt), txt.slice(0, 400));
+  for (const x of [b, b2, b3, b4]) await x.close();
 });
 
 // ================= chạy =================

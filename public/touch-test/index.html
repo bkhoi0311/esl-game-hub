@@ -21,6 +21,20 @@
   #rep{position:fixed;right:12px;bottom:12px;width:min(44vw,560px);height:26vh;background:#111;color:#ddd;border:1px solid #333;border-radius:12px;padding:10px;font:12px/1.4 ui-monospace,Menlo,monospace;white-space:pre-wrap;overflow:auto;display:none}
   #dots{position:fixed;inset:0;pointer-events:none}
   .dot{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#000;opacity:.9}
+  #forms{position:fixed;inset:6vh 6vw;display:none;overflow:auto;background:rgba(18,18,18,.97);border:1px solid #444;border-radius:16px;padding:16px 20px;z-index:20;touch-action:pan-y}
+  #forms.on{display:block}
+  #forms h2{font-size:clamp(16px,2.4vmin,26px);margin-bottom:6px}
+  #forms .row{display:grid;gap:6px;margin:12px 0;padding:10px 12px;border:1px solid #333;border-radius:12px}
+  #forms .row b{color:var(--green)}
+  #forms .out{font:13px/1.4 ui-monospace,Menlo,monospace;color:#bbb}
+  #forms select,#forms input[type=number]{font:inherit;font-size:clamp(16px,2.2vmin,24px);padding:10px 12px;border-radius:10px;border:1px solid #555;background:#222;color:#fff;min-height:56px}
+  #forms input[type=range]{width:100%;min-height:56px}
+  .seg{display:inline-flex;gap:0;padding:4px;border-radius:999px;background:#2a2a2a;justify-self:start}
+  .seg button{min-width:max(72px,4.4rem);min-height:56px;padding:0 20px;border-radius:999px;border:0;background:transparent;color:#aaa}
+  .seg button[aria-pressed=true]{background:#fff;color:#000;font-weight:700}
+  .step{display:inline-flex;align-items:center;gap:10px}
+  .step button{min-width:56px;min-height:56px;font-size:28px;padding:0}
+  .step output{min-width:3ch;text-align:center;font-size:24px;font-weight:700}
 </style>
 </head>
 <body>
@@ -38,6 +52,30 @@
   <button id="clear">Xoá bảng</button>
   <button id="show">Báo cáo</button>
   <button id="copy">Copy báo cáo</button>
+  <button id="formsBtn">Thử điều khiển biểu mẫu</button>
+</div>
+<div id="forms" role="dialog" aria-label="Thử điều khiển biểu mẫu">
+  <h2>Thử điều khiển biểu mẫu (cho ClassIn X)</h2>
+  <p class="out">Chạm lần lượt từng điều khiển, rồi bấm "Đóng" và "Copy báo cáo" gửi lại. Mỗi ô có dòng kết quả bên dưới.</p>
+  <div class="row"><label for="fSel"><b>1.</b> Danh sách chọn (select): chọn "Hai" rồi "Ba"</label>
+    <select id="fSel"><option value="1">Một</option><option value="2">Hai</option><option value="3">Ba</option></select>
+    <div class="out" id="oSel">chưa chạm</div></div>
+  <div class="row"><label for="fRange"><b>2.</b> Thanh trượt (range): kéo núm sang phải</label>
+    <input id="fRange" type="range" min="0" max="10" step="1" value="5">
+    <div class="out" id="oRange">chưa chạm</div></div>
+  <div class="row"><label for="fNum"><b>3.</b> Ô số (number): chạm vào ô, xem có hiện bàn phím ảo không</label>
+    <input id="fNum" type="number" min="0" max="100" value="25">
+    <div class="out" id="oNum">chưa chạm</div></div>
+  <div class="row"><span><b>4.</b> Nút phân đoạn trong thẻ label (kiểu CŨ, dựng lại nút khi bấm): bấm "8", rồi "10"</span>
+    <label id="segOldBox" style="display:block"></label>
+    <div class="out" id="oSegOld">chưa chạm</div></div>
+  <div class="row"><span><b>5.</b> Nút phân đoạn trong thẻ div (kiểu MỚI): bấm "8", rồi "10"</span>
+    <div id="segNewBox"></div>
+    <div class="out" id="oSegNew">chưa chạm</div></div>
+  <div class="row"><span><b>6.</b> Nút cộng/trừ (stepper): bấm + vài lần</span>
+    <div class="step"><button id="stM" type="button">−</button><output id="stV">25</output><button id="stP" type="button">+</button></div>
+    <div class="out" id="oStep">chưa chạm</div></div>
+  <button id="formsClose" type="button">Đóng</button>
 </div>
 <pre id="rep"></pre>
 <script>
@@ -78,7 +116,33 @@
   c.addEventListener('contextmenu',function(e){e.preventDefault()});
   $('clear').onclick=function(){ctx.clearRect(0,0,c.width,c.height)};
   function report(){var q={};try{(location.search+location.hash).replace(/[?&#]([^=&#]+)=([^&#]*)/g,function(_,k,v){q[k]=decodeURIComponent(v)})}catch(_){}
-    return ['Test đa điểm chạm – '+new Date().toLocaleString('vi-VN'),'URL: '+location.href,'Tham số ClassIn gắn vào URL: '+JSON.stringify(q),'UA: '+navigator.userAgent,'Nền tảng: '+navigator.platform+' · maxTouchPoints='+navigator.maxTouchPoints+' · PointerEvent='+('PointerEvent' in window)+' · TouchEvent='+('TouchEvent' in window),'Khung: '+innerWidth+'x'+innerHeight+' · screen '+screen.width+'x'+screen.height+' · DPR '+devicePixelRatio,'Nhiều nhất cùng lúc (pointer): '+maxNow+' · touches.length max: '+tlMax,'Số lần đặt bút/ngón: '+strokes+' · touch='+(types.touch||0)+' pen='+(types.pen||0)+' mouse='+(types.mouse||0)+' · áp lực gần nhất '+lastP,'--- 60 sự kiện gần nhất ---'].concat(log).join('\n');}
+    return ['Test đa điểm chạm – '+new Date().toLocaleString('vi-VN'),'URL: '+location.href,'Tham số ClassIn gắn vào URL: '+JSON.stringify(q),'UA: '+navigator.userAgent,'Nền tảng: '+navigator.platform+' · maxTouchPoints='+navigator.maxTouchPoints+' · PointerEvent='+('PointerEvent' in window)+' · TouchEvent='+('TouchEvent' in window),'Khung: '+innerWidth+'x'+innerHeight+' · screen '+screen.width+'x'+screen.height+' · DPR '+devicePixelRatio,'Nhiều nhất cùng lúc (pointer): '+maxNow+' · touches.length max: '+tlMax,'Số lần đặt bút/ngón: '+strokes+' · touch='+(types.touch||0)+' pen='+(types.pen||0)+' mouse='+(types.mouse||0)+' · áp lực gần nhất '+lastP,'--- 60 sự kiện gần nhất ---'].concat(log).concat([formsReport()]).join('\n');}
+
+  // ----- Thử điều khiển biểu mẫu -----
+  var F={sel:'-',range:'-',num:'-',old:'-',oldFake:0,oldClicks:0,neu:'-',neuFake:0,neuClicks:0,step:'25',stepClicks:0,evs:{}};
+  function ev(k){F.evs[k]=(F.evs[k]||0)+1;}
+  function show(id,t){$(id).textContent=t;}
+  $('formsBtn').onclick=function(){$('forms').classList.add('on');};
+  $('formsClose').onclick=function(){$('forms').classList.remove('on');};
+  var fs=$('fSel');
+  ['focus','mousedown','pointerdown','change','input','blur'].forEach(function(t){fs.addEventListener(t,function(){ev('select.'+t);F.sel=fs.options[fs.selectedIndex].text;show('oSel','giá trị: '+F.sel+' · '+Object.keys(F.evs).filter(function(k){return k.indexOf('select.')==0}).map(function(k){return k.slice(7)+'×'+F.evs[k]}).join(' '));});});
+  var fr=$('fRange');
+  ['pointerdown','input','change'].forEach(function(t){fr.addEventListener(t,function(){ev('range.'+t);F.range=fr.value;show('oRange','giá trị: '+fr.value+' (input×'+(F.evs['range.input']||0)+', change×'+(F.evs['range.change']||0)+')');});});
+  var fn=$('fNum');
+  ['focus','input','change'].forEach(function(t){fn.addEventListener(t,function(){ev('number.'+t);F.num=fn.value;show('oNum','giá trị: '+fn.value+' · focus×'+(F.evs['number.focus']||0)+' input×'+(F.evs['number.input']||0));});});
+  var OPTS=['6','8','10'];
+  // Kiểu CŨ: nút bị xoá và dựng lại khi bấm, nằm trong <label>
+  var oldVal='6',oldBox=$('segOldBox');
+  function renderOld(){oldBox.textContent='';var w=document.createElement('span');w.className='seg';OPTS.forEach(function(v){var b=document.createElement('button');b.type='button';b.textContent=v;b.setAttribute('aria-pressed',String(v===oldVal));b.onclick=function(e){F.oldClicks++;if(!e.isTrusted)F.oldFake++;oldVal=v;renderOld();F.old=v;show('oSegOld','đang chọn: '+v+' · click thật×'+(F.oldClicks-F.oldFake)+' · click giả×'+F.oldFake+(F.oldFake?'  <- label đã chuyển click về nút đầu (LỖI)':''));};w.appendChild(b);});oldBox.appendChild(w);}
+  renderOld();
+  // Kiểu MỚI: cập nhật tại chỗ, preventDefault, nằm trong <div>
+  var newVal='6',newBox=$('segNewBox'),newBtns=[];
+  var nw=document.createElement('span');nw.className='seg';nw.setAttribute('role','group');
+  OPTS.forEach(function(v){var b=document.createElement('button');b.type='button';b.textContent=v;b.setAttribute('aria-pressed',String(v===newVal));b.onclick=function(e){e.preventDefault();F.neuClicks++;if(!e.isTrusted)F.neuFake++;newVal=v;newBtns.forEach(function(x){x.setAttribute('aria-pressed',String(x.textContent===newVal))});F.neu=v;show('oSegNew','đang chọn: '+v+' · click thật×'+(F.neuClicks-F.neuFake)+' · click giả×'+F.neuFake);};newBtns.push(b);nw.appendChild(b);});
+  newBox.appendChild(nw);
+  var sv=25;function stp(d){return function(){F.stepClicks++;sv=Math.max(0,Math.min(100,sv+d));F.step=String(sv);$('stV').textContent=sv;show('oStep','giá trị: '+sv+' · bấm×'+F.stepClicks);};}
+  $('stM').onclick=stp(-5);$('stP').onclick=stp(5);
+  function formsReport(){return ['--- Điều khiển biểu mẫu ---','select: '+F.sel+' | sự kiện '+JSON.stringify(F.evs),'range: '+F.range,'number: '+F.num,'segmented trong label (cũ): chọn '+F.old+', click thật '+(F.oldClicks-F.oldFake)+', click giả '+F.oldFake,'segmented trong div (mới): chọn '+F.neu+', click thật '+(F.neuClicks-F.neuFake)+', click giả '+F.neuFake,'stepper: '+F.step+' (bấm '+F.stepClicks+')'].join('\n');}
   $('show').onclick=function(){var r=$('rep');r.textContent=report();r.style.display=r.style.display==='block'?'none':'block';};
   $('copy').onclick=function(){var t=report();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){$('copy').textContent='Đã copy'},function(){$('copy').textContent='Copy lỗi – đọc Báo cáo'})}else{$('copy').textContent='Không có clipboard – đọc Báo cáo'}};
 })();

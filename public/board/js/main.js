@@ -6,6 +6,7 @@ import { createRenderer } from './render.js';
 import { createTiledRenderer } from './render-tiles.js';
 import { parseProfile, profileText } from './perf.js';
 import { createInput } from './input.js';
+import { createPalmFilter, parsePalmMode } from './palm.js';
 import { createDiag } from './diag.js';
 import { createGlass } from './glass.js';
 import { createUI } from './ui.js';
@@ -13,6 +14,7 @@ import { createUI } from './ui.js';
 const root = document.documentElement;
 const q = new URLSearchParams(location.search);
 const TEST = q.get('test') === '1';
+const PALM = createPalmFilter({ mode: parsePalmMode(location.search), ua: navigator.userAgent });
 const PERF = parseProfile(location.search, navigator.userAgent);
 if (PERF.calm) root.classList.add('perf-calm');
 
@@ -94,7 +96,7 @@ const diag = createDiag({
     glassText: glass.text(), search: location.search, ua: navigator.userAgent,
     profile: profileText(PERF), perfName: PERF.name, canvasInfo: renderer.canvasInfo(), counters: renderer.counters(),
     physW: Math.round(innerWidth * (window.devicePixelRatio || 1)), physH: Math.round(innerHeight * (window.devicePixelRatio || 1)),
-    calm: !!PERF.calm,
+    calm: !!PERF.calm, palm: PALM.state(),
   }),
   onReset: () => renderer.resetPerf(),
 });
@@ -122,7 +124,7 @@ const hooks = {
 };
 
 const input = createInput({
-  el: document.getElementById('input-layer'), board, getScale: () => S, render: renderer, diag, hooks, perf: PERF,
+  el: document.getElementById('input-layer'), board, getScale: () => S, render: renderer, diag, hooks, perf: PERF, palm: PALM,
 });
 
 // 3. bố cục
@@ -161,7 +163,7 @@ if (TEST) {
         warning: ui.bannerVisible(), hudOpen: diag.isOpen(), s: S, k: renderer.k,
         glass: glass.state.mode, glassReason: glass.state.reason,
         brand: { logo: brand.logo, wordmark: brand.wordmark },
-        profile: PERF.name, profileSource: PERF.source, renderer: PERF.renderer, perfOverrides: PERF.overrides.slice(),
+        palm: PALM.state(), profile: PERF.name, profileSource: PERF.source, renderer: PERF.renderer, perfOverrides: PERF.overrides.slice(),
       };
     },
     lastStroke(zoneId) {

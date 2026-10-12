@@ -5,16 +5,19 @@ import {
   toZoneUnits, zoneScale, zoneFull, touchZone,
 } from './strokes.js';
 
-export const PALM_MIN = 48;      // CSS px: điểm chạm có max(width,height) >= ngưỡng bị coi là lòng bàn tay
+import { PALM_MIN, createPalmFilter } from './palm.js';
+export { PALM_MIN };
 export const MAX_LIVE = 10;      // trần số nét đang vẽ toàn bảng
 export const STALE_MS = 2000;    // pointer không có sự kiện quá lâu thì tự lưu và bỏ
 export const ERASE_R = 18;       // bán kính tẩy (CSS px, chưa nhân s)
 
+// Bản tĩnh (luôn lọc) giữ cho tương thích; trong ứng dụng dùng bộ lọc thích nghi (palm.js).
 export function isPalm(e) {
   return e.pointerType === 'touch' && Math.max(e.width || 0, e.height || 0) >= PALM_MIN;
 }
 
-export function createInput({ el, board, getScale, render, diag, hooks, perf }) {
+export function createInput({ el, board, getScale, render, diag, hooks, perf, palm }) {
+  const palmF = palm || createPalmFilter({ mode: 'auto', ua: '' });
   const P = perf || {};
   const active = new Map(); // pointerId -> {kind:'draw'|'erase', zone, stroke|session, type, lastT}
 
@@ -65,7 +68,8 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf }) 
 
   function onDown(e) {
     if (e.pointerType === 'mouse' && e.button > 0) return;
-    if (isPalm(e)) { diag.log('bỏ qua lòng bàn tay w' + e.width + ' h' + e.height); return; }
+    if (palmF.observe(e)) diag.log('tự tắt lọc lòng bàn tay: w cố định ' + e.width + 'x' + e.height);
+    if (palmF.isPalm(e)) { diag.log('bỏ qua lòng bàn tay w' + e.width + ' h' + e.height + ' (lọc bật: ' + palmF.state().reasonText + ')'); return; }
     if (active.has(e.pointerId)) finish(e.pointerId, 'up');
     if (active.size >= MAX_LIVE) return;
     const zr = zoneAt(rects(), e.clientX, e.clientY);
@@ -98,7 +102,7 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf }) 
     if (!a) return;
     a.lastT = performance.now();
     diag.note(e);
-    if (isPalm(e)) { finish(e.pointerId, 'drop'); diag.log('huỷ nét: lòng bàn tay'); return; }
+    if (palmF.isPalm(e)) { finish(e.pointerId, 'drop'); diag.log('huỷ nét: lòng bàn tay'); return; }
     const t0 = performance.now();
     const list = (P.coal !== false && e.getCoalescedEvents) ? e.getCoalescedEvents() : [];
     const pts = list.length ? list : [e];

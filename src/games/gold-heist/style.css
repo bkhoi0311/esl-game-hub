@@ -37,8 +37,8 @@
 .gh-outcome.bad { background: #ffe4dc; color: #a82a0b; border: 3px solid var(--red); }
 .gh-next { display: flex; justify-content: center; align-items: start; }
 
-.gh-weights { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.5rem; }
-.gh-weight { display: grid; gap: 0.25rem; justify-items: center; font-weight: 800; font-size: 1rem; }
+.gh-weights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 1.2rem; }
+.gh-weight { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; font-weight: 800; font-size: 1.1rem; }
 .gh-weight input { width: 100%; min-height: 3rem; text-align: center; border: 2px solid var(--rule); border-radius: 0.75rem; font-size: 1.15rem; }
 
 body.fluid .gh-play { padding: 1rem; gap: 1rem; grid-template-rows: auto auto auto; }
@@ -54,6 +54,6 @@ body.fluid .gh-reveal { font-size: 1.4rem; }
 body.fluid .gh-targets { flex-wrap: wrap; }
 body.fluid .gh-target { min-width: 0; font-size: 1.5rem; padding: 1rem; }
 body.fluid .gh-outcome { font-size: 1.8rem; padding: 1rem 1.5rem; }
-body.fluid .gh-weights { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.fluid .gh-weights { grid-template-columns: minmax(0, 1fr); }
 body.fluid .gh-scores .score-name { font-size: 1rem; }
 body.fluid .gh-scores .score-value { font-size: 1.5rem; }
