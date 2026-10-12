@@ -2,11 +2,13 @@
 export const SLOW_P95 = 20;   // ms
 export const SLOW_FPS = 40;
 
-export function pickMode(search) {
+export function pickMode(search, perf) {
   const q = new URLSearchParams(search);
   const g = q.get('glass');
   if (g === '0') return { mode: 'lite', reason: 'param', allowAuto: false };
   if (g === '1') return { mode: 'on', reason: 'param', allowAuto: false };
+  if (perf && perf.glass === 'off') return { mode: 'lite', reason: 'profile', allowAuto: false };
+  if (perf && perf.glass === 'on') return { mode: 'on', reason: 'param', allowAuto: false };
   let supported = false;
   try {
     supported = !!(window.CSS && (CSS.supports('backdrop-filter', 'blur(1px)') || CSS.supports('-webkit-backdrop-filter', 'blur(1px)')));
@@ -20,13 +22,13 @@ export function pickMode(search) {
 
 const TEXT = {
   'on:default': 'bật', 'on:param': 'bật (tham số)',
-  'lite:param': 'nhẹ (tham số)', 'lite:unsupported': 'nhẹ (không hỗ trợ)',
+  'lite:param': 'nhẹ (tham số)', 'lite:profile': 'nhẹ (hồ sơ hiệu năng)', 'lite:unsupported': 'nhẹ (không hỗ trợ)',
   'lite:transparency': 'nhẹ (giảm trong suốt)', 'lite:auto': 'nhẹ (tự hạ)',
 };
 
-export function createGlass(search) {
+export function createGlass(search, perf) {
   const root = document.documentElement;
-  const st = pickMode(search);
+  const st = pickMode(search, perf);
   let bad = 0;
   function apply() {
     root.classList.toggle('glass-on', st.mode === 'on');

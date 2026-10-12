@@ -50,11 +50,12 @@ export function beginStroke(zone, opts) {
 const FAKE_PRESSURE = [0, 0.5, 1];
 
 // Thêm điểm; bỏ điểm cách điểm trước < MIN_STEP. Trả true nếu đã thêm.
-export function addPoint(stroke, ux, uy, p, isPen) {
+export function addPoint(stroke, ux, uy, p, isPen, minStep) {
   const n = stroke.pts.length;
   if (n >= 3) {
+    const ms = minStep > 0 ? minStep : MIN_STEP;
     const dx = ux - stroke.pts[n - 3], dy = uy - stroke.pts[n - 2];
-    if (dx * dx + dy * dy < MIN_STEP * MIN_STEP) return false;
+    if (dx * dx + dy * dy < ms * ms) return false;
   }
   const pr = p > 0 ? p : 0.5;
   stroke.pts.push(ux, uy, pr);
@@ -68,15 +69,16 @@ export function addPoint(stroke, ux, uy, p, isPen) {
 }
 
 // Thêm điểm, tự tách nét khi quá MAX_PTS. Trả { stroke: nét đang vẽ, finished: nét vừa kết thúc | null }.
-export function addPointSplit(zone, stroke, ux, uy, p, isPen) {
-  const added = addPoint(stroke, ux, uy, p, isPen);
-  if (added && stroke.pts.length / 3 >= MAX_PTS) {
+export function addPointSplit(zone, stroke, ux, uy, p, isPen, maxPts, minStep) {
+  const mp = maxPts > 0 ? maxPts : MAX_PTS;
+  const added = addPoint(stroke, ux, uy, p, isPen, minStep);
+  if (added && stroke.pts.length / 3 >= mp) {
     const n = stroke.pts.length;
     const lx = stroke.pts[n - 3], ly = stroke.pts[n - 2], lp = stroke.pts[n - 1];
     const finished = endStroke(zone, stroke);
     const next = beginStroke(zone, { color: stroke.color, size: stroke.size });
     next.realPressure = stroke.realPressure;
-    addPoint(next, lx, ly, lp, false);
+    addPoint(next, lx, ly, lp, false, minStep);
     return { stroke: next, finished };
   }
   return { stroke, finished: null };
@@ -167,4 +169,38 @@ export function undo(zone) {
     zone.strokes = a.removed.concat(zone.strokes);
   }
   return a;
+}
+
+// Đoạn làm mượt kiểu nối điểm giữa cho các điểm [from, to) của pts (mảng phẳng x,y,p).
+// Trả { segs: [[x0,y0, cx,cy, x1,y1], ...], minX, minY, maxX, maxY }; đoạn i dùng P[i-1], P[i].
+// i = 1: thẳng P0 -> M1 (cx,cy = P0); i >= 2: M(i-1) --quad(P[i-1])--> M(i); M(i) = (P[i-1]+P[i])/2.
+// closeTail = true (lúc nhả tay): thêm đoạn thẳng M(n-1) -> P(n-1).
+export function smoothSegments(pts, from, to, closeTail) {
+  const n = pts.length / 3;
+  const end = Math.min(to, n);
+  const segs = [];
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  const grow = (x, y) => {
+    if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y;
+  };
+  const mid = (i) => [(pts[(i - 1) * 3] + pts[i * 3]) / 2, (pts[(i - 1) * 3 + 1] + pts[i * 3 + 1]) / 2];
+  for (let i = Math.max(1, from); i < end; i++) {
+    let seg;
+    if (i === 1) {
+      const m = mid(1);
+      seg = [pts[0], pts[1], pts[0], pts[1], m[0], m[1]];
+    } else {
+      const a = mid(i - 1), b = mid(i);
+      seg = [a[0], a[1], pts[(i - 1) * 3], pts[(i - 1) * 3 + 1], b[0], b[1]];
+    }
+    segs.push(seg);
+    grow(seg[0], seg[1]); grow(seg[2], seg[3]); grow(seg[4], seg[5]);
+  }
+  if (closeTail && end >= 2 && end >= Math.max(2, from + 1)) {
+    const m = mid(end - 1 >= 1 ? end - 1 : 1);
+    const lx = pts[(end - 1) * 3], ly = pts[(end - 1) * 3 + 1];
+    segs.push([m[0], m[1], m[0], m[1], lx, ly]);
+    grow(m[0], m[1]); grow(lx, ly);
+  }
+  return { segs, minX, minY, maxX, maxY };
 }

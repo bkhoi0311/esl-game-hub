@@ -171,3 +171,73 @@ test('vùng đầy sau 2000 nét', () => {
   addPoint(s, 1, 1, 0.5);
   assert.equal(endStroke(z, s), null);
 });
+
+// ---------- PLAN-PERF: hồ sơ hiệu năng (T1) và đoạn làm mượt gia tăng (T5a) ----------
+import { parseProfile, profileText, isClassInUA } from '../public/board/js/perf.js';
+import { smoothSegments } from '../public/board/js/strokes.js';
+
+const UA_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0';
+const UA_CLASSIN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ClassIn X/6.0.9.1813 Chrome/109.0.5414.120 Safari/537.36';
+
+test('T1: parseProfile chọn hồ sơ theo UA / tham số và ghi đè từng khoá', () => {
+  assert.equal(isClassInUA(UA_CLASSIN), true);
+  assert.equal(isClassInUA(UA_EDGE), false);
+  let p = parseProfile('', UA_EDGE);
+  assert.equal(p.name, 'full'); assert.equal(p.source, 'default'); assert.equal(p.kCap, 2); assert.equal(p.renderer, 'classic'); assert.equal(p.desync, true);
+  p = parseProfile('?zones=2', UA_CLASSIN);
+  assert.equal(p.name, 'lite'); assert.equal(p.source, 'ua'); assert.equal(p.kCap, 1.25); assert.equal(p.glass, 'off'); assert.equal(p.calm, true);
+  p = parseProfile('?perf=full', UA_CLASSIN);
+  assert.equal(p.name, 'full'); assert.equal(p.source, 'param');
+  p = parseProfile('?perf=ultra&dpr=1.5&final=line', UA_EDGE);
+  assert.equal(p.name, 'ultra'); assert.equal(p.kCap, 1.5); assert.equal(p.final, 'line'); assert.equal(p.renderer, 'tiles');
+  assert.deepEqual(p.overrides.slice().sort(), ['dpr', 'final']);
+  p = parseProfile('?tiles=0', UA_EDGE);
+  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 0);
+  p = parseProfile('?perf=ultra&tiles=0', UA_EDGE);
+  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 0);
+  p = parseProfile('?perf=ultra&inc=0&tiles=128', UA_EDGE);
+  assert.equal(p.renderer, 'classic'); assert.equal(p.tile, 128);
+  p = parseProfile('?perf=full&inc=1', UA_EDGE);
+  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 192);
+  p = parseProfile('?perf=lite&dpr=abc', UA_EDGE);
+  assert.equal(p.kCap, 1.25); assert.deepEqual(p.overrides, []);
+  p = parseProfile('?perf=lite&dpr=9&tiles=7&step=99&livepts=5&final=xx', UA_EDGE);
+  assert.equal(p.kCap, 1.25); assert.equal(p.tile, 192); assert.equal(p.minStep, 1.2); assert.equal(p.livePts, 400); assert.deepEqual(p.overrides, []);
+  p = parseProfile('?perf=full&glass=0&desync=0&step=2&livepts=300&calm=1&predict=1&coal=0', UA_EDGE);
+  assert.equal(p.glass, 'off'); assert.equal(p.desync, false); assert.equal(p.minStep, 2); assert.equal(p.livePts, 300);
+  assert.equal(p.calm, true); assert.equal(p.predict, true); assert.equal(p.coal, false);
+  p = parseProfile('?perf=nope', UA_CLASSIN);
+  assert.equal(p.name, 'lite'); assert.equal(p.source, 'ua');
+  const txt = profileText(parseProfile('?dpr=1.5&glass=1', UA_CLASSIN));
+  assert.ok(txt.startsWith('lite (tự nhận ClassIn)')); assert.ok(txt.includes('ghi đè: dpr, glass'));
+  assert.ok(profileText(parseProfile('?perf=ultra', UA_EDGE)).includes('lát 192 px'));
+});
+
+test('T5a: smoothSegments cho 3 điểm trả 2 đoạn, hộp bao đúng, closeTail thêm đoạn cuối', () => {
+  const pts = [0, 0, 0.5, 10, 0, 0.5, 10, 10, 0.5];
+  const r = smoothSegments(pts, 1, 3, false);
+  assert.equal(r.segs.length, 2);
+  assert.deepEqual(r.segs[0], [0, 0, 0, 0, 5, 0]);            // P0 -> M1 thẳng
+  assert.deepEqual(r.segs[1], [5, 0, 10, 0, 10, 5]);          // M1 --quad(P1)--> M2
+  assert.deepEqual([r.minX, r.minY, r.maxX, r.maxY], [0, 0, 10, 5]);
+  const c = smoothSegments(pts, 1, 3, true);
+  assert.equal(c.segs.length, 3);
+  assert.deepEqual(c.segs[2], [10, 5, 10, 5, 10, 10]);       // M2 -> P2
+  assert.equal(c.maxY, 10);
+  // gia tăng khớp liền: đoạn cuối lần 1 kết thúc đúng chỗ đoạn đầu lần 2 bắt đầu
+  const a = smoothSegments(pts, 1, 2, false), b = smoothSegments(pts, 2, 3, false);
+  assert.deepEqual([a.segs[a.segs.length - 1][4], a.segs[a.segs.length - 1][5]], [b.segs[0][0], b.segs[0][1]]);
+  assert.equal(smoothSegments(pts, 3, 3, false).segs.length, 0);
+});
+
+test('T5b: addPoint/addPointSplit nhận minStep và maxPts', () => {
+  const z = createBoard(1).zones[0];
+  const s = beginStroke(z, {});
+  addPoint(s, 0, 0, 0.5, false, 1.2);
+  assert.equal(addPoint(s, 1, 0, 0.5, false, 1.2), false);   // < 1.2
+  assert.equal(addPoint(s, 1.3, 0, 0.5, false, 1.2), true);
+  assert.equal(addPoint(s, 2.1, 0, 0.5, false), true);       // mặc định 0.6
+  let cur = beginStroke(z, {}); let fin = 0;
+  for (let i = 0; i < 12; i++) { const r = addPointSplit(z, cur, i * 5, 0, 0.5, false, 5, 1.2); cur = r.stroke; if (r.finished) fin++; }
+  assert.ok(fin >= 2, 'tách nét theo maxPts=5');
+});

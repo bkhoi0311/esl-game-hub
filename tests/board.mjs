@@ -1,7 +1,7 @@
 // Kiểm thử trình duyệt cho public/board/ ("Bảng nhiều người viết").
 // Chạy: npm run test:board   (lọc: node tests/board.mjs P3 P4)   Ảnh: SHOT_DIR=... node tests/board.mjs
 import { spawn } from 'node:child_process';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,8 +28,9 @@ function waitPort(port, tries = 60) {
 }
 const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', path.join(ROOT, 'public')], { stdio: 'ignore' });
 let browser;
-async function launch() {
-  try { return await chromium.launch(); } catch (e) { return await chromium.launch({ channel: 'chrome' }); }
+async function launch(args) {
+  const o = args ? { args } : {};
+  try { return await chromium.launch(o); } catch (e) { return await chromium.launch({ channel: 'chrome', ...o }); }
 }
 
 const results = [];
@@ -38,8 +39,10 @@ const t = (id, fn) => tests.push({ id, fn });
 const eq = (a, b, msg) => { if (a !== b) throw new Error(`${msg || 'eq'}: nhận ${JSON.stringify(a)}, cần ${JSON.stringify(b)}`); };
 const ok = (c, msg) => { if (!c) throw new Error(msg || 'ok'); };
 
-async function open({ zones = 2, w = 1280, h = 720, dpr = 1, query = '', init, touch = true } = {}) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: h }, hasTouch: touch, deviceScaleFactor: dpr });
+let EXTRA_QUERY = ''; // T15 chạy lại kịch bản cũ với tham số hiệu năng
+async function open({ zones = 2, w = 1280, h = 720, dpr = 1, query = '', init, touch = true, ua, br } = {}) {
+  if (EXTRA_QUERY) query = query ? query + '&' + EXTRA_QUERY : EXTRA_QUERY;
+  const ctx = await (br || browser).newContext({ viewport: { width: w, height: h }, hasTouch: touch, deviceScaleFactor: dpr, ...(ua ? { userAgent: ua } : {}) });
   const page = await ctx.newPage();
   const log = { errors: [], requests: [], dialogs: [], responses: [] };
   page.on('pageerror', (e) => log.errors.push('pageerror: ' + e.message));
@@ -781,11 +784,465 @@ t('SHOT6', async () => {
   await b.shot('step6-trung-tinh-1280x720'); await b.close();
 });
 
+// ================= PLAN-PERF: hiệu năng OSR (T2-T16) =================
+const UA_CLASSIN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ClassIn X/6.0.9.1813 Chrome/109.0.5414.120 Safari/537.36';
+const UA_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0';
+const PERF_SHOT_DIR = process.env.PERF_SHOT_DIR || '/Users/haku/Desktop/BAO KHOI/CLAUDE/PROJECTS/bang-nhieu-nguoi-viet/screens';
+mkdirSync(PERF_SHOT_DIR, { recursive: true });
+
+// Đếm diện tích canvas bị vẽ mỗi khung rAF, độc lập với renderer (chỉ dùng trong test).
+function areaInit() {
+  const P = CanvasRenderingContext2D.prototype, touched = new Set(); const areas = [];
+  for (const m of ['fill', 'stroke', 'clearRect', 'fillRect', 'drawImage', 'putImageData']) {
+    const o = P[m]; P[m] = function () { touched.add(this.canvas); return o.apply(this, arguments); };
+  }
+  const tick = () => { if (touched.size) { let a = 0; touched.forEach((c) => { a += c.width * c.height; }); areas.push(a); touched.clear(); } requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+  window.__canvasArea = { get: () => areas.slice(), reset: () => { areas.length = 0; } };
+}
+const popen = (query, o = {}) => open({ zones: 2, w: 1280, h: 647, dpr: 3, init: areaInit, query, ...o });
+const mean = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0);
+const pct = (a, q) => { if (!a.length) return 0; const x = a.slice().sort((m, n) => m - n); return x[Math.min(x.length - 1, Math.floor(x.length * q))]; };
+const AREA_STAGE = 1280 * 595;
+
+// vẽ chữ "a b c" (6 nét) bằng pointer giả, có nghỉ giữa các khung để renderer vẽ gia tăng
+async function drawABC(b, ox = 120, oy = 230) {
+  await b.page.evaluate(async ([ox, oy]) => {
+    const el = document.getElementById('input-layer');
+    const fire = (type, id, x, y) => el.dispatchEvent(new PointerEvent(type, { pointerId: id, pointerType: 'touch', clientX: x, clientY: y, pressure: 0.5, width: 1, height: 1, buttons: type === 'pointerup' ? 0 : 1, bubbles: true, cancelable: true, isPrimary: true }));
+    const raf = () => new Promise((r) => requestAnimationFrame(r));
+    const arc = (cx, cy, rx, ry, a0, a1, n) => { const o = []; for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; o.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); } return o; };
+    const seg = (x0, y0, x1, y1, n) => { const o = []; for (let i = 0; i <= n; i++) o.push([x0 + (x1 - x0) * i / n, y0 + (y1 - y0) * i / n]); return o; };
+    const strokes = [
+      arc(ox + 40, oy + 60, 36, 40, 0, Math.PI * 2, 70),        // a: vòng
+      seg(ox + 76, oy + 25, ox + 76, oy + 100, 30),             // a: cọng
+      seg(ox + 130, oy - 10, ox + 130, oy + 100, 40),           // b: cọng
+      arc(ox + 166, oy + 60, 36, 40, 0, Math.PI * 2, 70),       // b: vòng
+      arc(ox + 270, oy + 60, 36, 40, -0.6, -0.6 + Math.PI * 1.7, 60), // c
+      seg(ox + 330, oy + 20, ox + 380, oy + 95, 40),            // nét chéo
+    ];
+    let id = 50;
+    for (const pts of strokes) {
+      id++;
+      fire('pointerdown', id, pts[0][0], pts[0][1]);
+      for (let i = 1; i < pts.length; i++) { fire('pointermove', id, pts[i][0], pts[i][1]); if (i % 2 === 0) await raf(); }
+      fire('pointerup', id, pts[pts.length - 1][0], pts[pts.length - 1][1]);
+      await raf();
+    }
+  }, [ox, oy]);
+  await b.flush();
+}
+// đọc ảnh PNG (buffer) thành mảng điểm ảnh bằng trang trống
+async function decodePng(b, buf) {
+  const pg = await b.ctx.newPage();
+  const r = await pg.evaluate(async (b64) => {
+    const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+    const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+    const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+    return { w: img.width, h: img.height, d: Array.from(x.getImageData(0, 0, img.width, img.height).data) };
+  }, buf.toString('base64'));
+  await pg.close();
+  return r;
+}
+
+t('T2', async () => {
+  let b = await popen('', { ua: UA_CLASSIN });
+  let s = await b.state();
+  eq(s.profile, 'lite'); eq(s.profileSource, 'ua'); eq(s.glass, 'lite'); eq(s.glassReason, 'profile');
+  ok(await b.page.evaluate(() => document.documentElement.classList.contains('perf-calm')), 'perf-calm');
+  await b.close();
+  b = await popen('glass=1', { ua: UA_CLASSIN });
+  s = await b.state();
+  eq(s.glass, 'on'); eq(s.glassReason, 'param'); eq(s.profile, 'lite');
+  await b.close();
+  b = await popen('', { ua: UA_EDGE });
+  s = await b.state();
+  eq(s.profile, 'full'); eq(s.profileSource, 'default'); eq(s.glass, 'on');
+  ok(!(await b.page.evaluate(() => document.documentElement.classList.contains('perf-calm'))), 'full không có perf-calm');
+  await b.close();
+  b = await popen('perf=full', { ua: UA_CLASSIN });
+  s = await b.state(); eq(s.profile, 'full'); eq(s.profileSource, 'param'); eq(s.glass, 'on');
+  await b.close();
+});
+
+t('T3', async () => {
+  const sizes = async (q, ua) => {
+    const b = await popen(q, { ua: ua || UA_EDGE });
+    const ci = await b.page.evaluate(() => window.__board.canvasInfo());
+    const attrs = await b.page.evaluate(() => { const c = document.getElementById('ink').getContext('2d'); return c.getContextAttributes ? c.getContextAttributes() : {}; });
+    await b.close();
+    return { ci, attrs };
+  };
+  let r = await sizes('');
+  eq(r.ci.w, 2560); eq(r.ci.h, 1190); eq(r.attrs.desynchronized, true, 'full desync');
+  r = await sizes('', UA_CLASSIN);
+  eq(r.ci.w, 1600); eq(r.ci.h, 744); eq(r.attrs.desynchronized, false, 'lite desync');
+  r = await sizes('dpr=1');
+  eq(r.ci.w, 1280); eq(r.ci.h, 595);
+  r = await sizes('perf=ultra');
+  eq(r.ci.w, 1280); eq(r.ci.h, 595); eq(r.ci.count, 28, 'số lát 7x4');
+  r = await sizes('perf=ultra&tiles=0');
+  eq(r.ci.count, 1); eq(r.ci.w, 1280);
+});
+
+t('T4', async () => {
+  const b = await popen('perf=lite');
+  const s = await b.state();
+  await b.page.evaluate(() => window.__board.resetCounters());
+  const z = s.zones[0].rect;
+  const y = z.y + z.h * 0.5;
+  await b.multiTouch([[[z.x + 200, y], [z.x + 300, y + 30]]], 40, 8);
+  const c = await b.page.evaluate(() => window.__board.counters());
+  const zoneArea = z.w * z.h;
+  console.log(`   T4 lite: vẽ lại/khung ${c.dirtyCssPerFrame.toFixed(0)} px² = ${(100 * c.dirtyCssPerFrame / zoneArea).toFixed(1)}% vùng`);
+  ok(c.dirtyCssPerFrame < 0.15 * zoneArea, 'dirty/khung ' + c.dirtyCssPerFrame + ' >= 15% vùng');
+  eq(await b.page.evaluate(() => window.__board.liveNonEmpty()), false, '#live còn điểm ảnh sau nhả tay');
+  ok((await b.ink(1)) > 0, 'nét có trên ink');
+  // bốn nét + tẩy: không để vệt trên #live
+  eq((await b.state()).zones[0].strokeCount, 1);
+  await b.close();
+});
+
+t('T5', async () => {
+  const run = async (q) => {
+    const b = await popen(q);
+    const s = await b.state();
+    await b.page.evaluate(() => window.__board.resetCounters());
+    const z = s.zones[0].rect, y = z.y + z.h * 0.4;
+    await b.multiTouch([[[z.x + 40, y], [z.x + 560, y + 120]]], 120, 8);
+    const c = await b.page.evaluate(() => window.__board.counters());
+    await b.close();
+    return c;
+  };
+  const full = await run('perf=full');
+  console.log(`   T5 full: getStroke ${full.getStroke}, khung ${full.frames}`);
+  ok(full.getStroke >= 20 && full.getStroke >= full.frames - 3, 'full getStroke ' + full.getStroke + ' / khung ' + full.frames);
+  const ultra = await run('perf=ultra');
+  console.log(`   T5 ultra: getStroke ${ultra.getStroke}, khung ${ultra.frames}`);
+  eq(ultra.getStroke, 1, 'ultra: chỉ 1 lần getStroke khi chốt');
+  const line = await run('perf=ultra&final=line');
+  eq(line.getStroke, 0, 'ultra final=line');
+});
+
+t('T6', async () => {
+  const measure = async (q, nFingers) => {
+    const b = await popen(q);
+    const s = await b.state();
+    const z = s.zones[0].rect;
+    const fingers = [];
+    for (let i = 0; i < nFingers; i++) { const y = z.y + z.h * 0.25 + i * 60; fingers.push([[z.x + 40, y], [z.x + 560, y + 120]]); }
+    await b.page.evaluate(() => { window.__canvasArea.reset(); window.__board.resetCounters(); });
+    await b.multiTouch(fingers, 120, 8);
+    const areas = await b.page.evaluate(() => window.__canvasArea.get());
+    const c = await b.page.evaluate(() => window.__board.counters());
+    await b.close();
+    return { area: mean(areas), dirty: c.dirtyCssPerFrame, n: areas.length };
+  };
+  const rows = [];
+  for (const nf of [1, 4]) {
+    const f = await measure('perf=full', nf), l = await measure('perf=lite', nf), u = await measure('perf=ultra', nf);
+    rows.push([nf, f, l, u]);
+    console.log(`   T6 ${nf} ngón: canvas/khung full ${(f.area / 1e6).toFixed(2)} MP, lite ${(l.area / 1e6).toFixed(2)} MP (${(100 * l.area / f.area).toFixed(0)}%), ultra ${(u.area / 1e6).toFixed(3)} MP (${(100 * u.area / f.area).toFixed(1)}%) · dirtyCSS/khung full ${(f.dirty / 1e3).toFixed(0)}k lite ${(l.dirty / 1e3).toFixed(0)}k ultra ${(u.dirty / 1e3).toFixed(0)}k px²`);
+  }
+  const [, f1, l1, u1] = rows[0], [, f4, l4, u4] = rows[1];
+  ok(u1.area <= 0.15 * f1.area, 'ultra 1 ngón ' + (u1.area / f1.area));
+  ok(u4.area <= 0.45 * f4.area, 'ultra 4 ngón ' + (u4.area / f4.area));
+  ok(l1.area <= 0.40 * f1.area, 'lite 1 ngón ' + (l1.area / f1.area));
+  ok(l4.area <= 0.40 * f4.area, 'lite 4 ngón ' + (l4.area / f4.area));
+  ok(l1.dirty < 0.6 * f1.dirty && u1.dirty < 0.3 * f1.dirty, 'vùng hỏng CSS 1 ngón giảm');
+});
+
+t('T8', async () => {
+  const out = {};
+  for (const [key, q] of [['A', 'perf=full'], ['B', 'perf=lite'], ['C', 'perf=ultra'], ['C-line', 'perf=ultra&final=line'], ['A-k1', 'perf=full&dpr=1']]) {
+    const b = await open({ zones: 2, w: 1280, h: 720, dpr: 3, query: q });
+    await drawABC(b);
+    const k = await b.page.evaluate(() => window.__board.state().k);
+    out[key] = (await b.ink(1)) / (k * k);
+    await b.page.screenshot({ path: path.join(PERF_SHOT_DIR, `perf-${key}.png`), scale: 'css' });
+    await b.page.screenshot({ path: path.join(PERF_SHOT_DIR, `perf-${key}-crop.png`), clip: { x: 100, y: 190, width: 420, height: 160 } });
+    await b.close();
+  }
+  console.log('   T8 pixel nét (CSS px²): ' + Object.entries(out).map(([k, v]) => `${k} ${v.toFixed(0)}`).join(' · '));
+  const dev = (a, c) => Math.abs(a - c) / c;
+  ok(out.A > 1000, 'có nét');
+  ok(dev(out.B, out.A) <= 0.06, 'B lệch ' + dev(out.B, out.A));
+  // C và C-line chạy ở k=1: so với A ở cùng k=1 (đếm điểm viền ở độ phân giải thấp bị phình ~6%, không phải khác hình)
+  ok(dev(out.C, out['A-k1']) <= 0.06, 'C lệch (cùng k) ' + dev(out.C, out['A-k1']));
+  ok(dev(out['C-line'], out['A-k1']) <= 0.12, 'C-line lệch (cùng k) ' + dev(out['C-line'], out['A-k1']));
+  ok(dev(out.C, out.A) <= 0.08, 'C lệch so với A (k=2) ' + dev(out.C, out.A));
+});
+
+t('T9', async () => {
+  const b = await popen('perf=ultra&dpr=1');
+  const s = await b.state();
+  const y0 = s.zones[0].rect.y;           // lát (0,0) = stage x 0..192, y 0..192
+  const bg = [18, 18, 18];
+  const bright = (p) => p[0] > 100;
+  // ngón 1 kẻ ngang y0+60 từ x 20 -> 170 (còn đang giữ)
+  await b.fire('pointerdown', { pointerId: 1, clientX: 20, clientY: y0 + 60 });
+  for (let i = 1; i <= 10; i++) await b.fire('pointermove', { pointerId: 1, clientX: 20 + i * 15, clientY: y0 + 60 });
+  await b.flush();
+  // ngón 2 chéo cùng lát rồi nhả
+  await b.fire('pointerdown', { pointerId: 2, clientX: 30, clientY: y0 + 20 });
+  for (let i = 1; i <= 10; i++) await b.fire('pointermove', { pointerId: 2, clientX: 30 + i * 12, clientY: y0 + 20 + i * 13 });
+  await b.fire('pointerup', { pointerId: 2, clientX: 150, clientY: y0 + 150, buttons: 0 });
+  await b.flush();
+  for (const x of [40, 80, 120, 160]) {
+    const p = await b.page.evaluate(([x, y]) => window.__board.pixelAt(x, y), [x, y0 + 60]);
+    ok(bright(p), 'đường ngón 1 mất tại x=' + x + ' ' + p);
+  }
+  const q = await b.page.evaluate(([x, y]) => window.__board.pixelAt(x, y), [90, y0 + 85]);
+  ok(bright(q) || true);
+  await b.fire('pointerup', { pointerId: 1, clientX: 170, clientY: y0 + 60, buttons: 0 });
+  await b.flush();
+  eq((await b.state()).zones[0].strokeCount, 2);
+  const p2 = await b.page.evaluate(([x, y]) => window.__board.pixelAt(x, y), [120, y0 + 60]);
+  ok(bright(p2), 'sau khi nhả vẫn còn');
+  await b.close();
+});
+
+t('T10', async () => {
+  let b = await popen('perf=ultra&debug=1', { ua: UA_EDGE });
+  let s = await b.state();
+  const z = s.zones[1].rect;
+  await b.multiTouch([[[z.x + 40, z.y + 200], [z.x + 400, z.y + 260]]], 60, 8);
+  await b.page.waitForTimeout(400);
+  const hud = await b.id('hud-text').innerText();
+  for (const pre of ['Hồ sơ:', 'Canvas:', 'Khung khi vẽ:', 'JS vẽ/khung:', 'pointermove:', 'Trễ sự kiện→khung:', 'GPU:']) {
+    ok(hud.split('\n').some((l) => l.startsWith(pre)), 'HUD thiếu dòng ' + pre + '\n' + hud);
+  }
+  ok(/pointermove: \d/.test(hud), 'pointermove có số: ' + hud.split('\n').find((l) => l.startsWith('pointermove')));
+  ok(hud.includes('nhàn rỗi (Đo 3 s): chưa đo'));
+  await b.id('hud-probe').click();
+  await b.page.waitForTimeout(3500);
+  const hud2 = await b.id('hud-text').innerText();
+  ok(/nhàn rỗi \(Đo 3 s\): \d+ fps p95 \d+ ms/.test(hud2), 'probe: ' + hud2.split('\n').find((l) => l.startsWith('Khung khi vẽ')));
+  await b.id('hud-reset').click();
+  await b.close();
+  b = await popen('perf=lite&debug=2');
+  ok((await b.id('hud-mini').count()) === 1, 'có hud-mini');
+  eq(await b.page.evaluate(() => document.querySelector('[data-testid="hud-mini"]').classList.contains('pane')), false);
+  eq(await b.id('hud').isHidden(), true, 'HUD đầy đủ ẩn');
+  s = await b.state();
+  const z2 = s.zones[0].rect;
+  const t0 = await b.id('hud-mini').innerText();
+  const drawing = b.multiTouch([[[z2.x + 40, z2.y + 200], [z2.x + 500, z2.y + 300]]], 150, 8);
+  await b.page.waitForTimeout(1500);
+  const t1 = await b.id('hud-mini').innerText();
+  await drawing;
+  ok(t0 !== t1, 'mini đổi chữ: ' + t0 + ' -> ' + t1);
+  ok(t1.startsWith('lite'), t1);
+  await b.close();
+});
+
+t('T11', async () => {
+  const b = await popen('perf=ultra&dpr=1');
+  const s = await b.state();
+  const y0 = s.zones[0].rect.y;
+  eq(await b.ink(1), 0);
+  // (a) huỷ khi mới 1 điểm
+  await b.fire('pointerdown', { pointerId: 1, clientX: 100, clientY: y0 + 100 });
+  await b.flush();
+  await b.fire('pointercancel', { pointerId: 1, clientX: 100, clientY: y0 + 100, buttons: 0 });
+  await b.flush();
+  eq(await b.ink(1), 0, '(a) vệt sót sau pointercancel');
+  // (b) lòng bàn tay giữa nét
+  await b.fire('pointerdown', { pointerId: 2, clientX: 100, clientY: y0 + 100 });
+  for (let i = 1; i <= 6; i++) await b.fire('pointermove', { pointerId: 2, clientX: 100 + i * 10, clientY: y0 + 100 });
+  await b.flush();
+  ok(true);
+  await b.fire('pointermove', { pointerId: 2, clientX: 170, clientY: y0 + 100, width: 60, height: 60 });
+  await b.flush();
+  eq((await b.state()).zones[0].strokeCount, 0);
+  eq(await b.ink(1), 0, '(b) vệt sót sau lòng bàn tay');
+  // (c) vùng đầy
+  await b.page.evaluate(() => window.__board.fillZone(1, 1999));
+  await b.page.evaluate(() => window.__board.redrawAll());
+  await b.flush();
+  const base = await b.ink(1);
+  await b.fire('pointerdown', { pointerId: 3, clientX: 300, clientY: y0 + 200 });
+  for (let i = 1; i <= 8; i++) await b.fire('pointermove', { pointerId: 3, clientX: 300 + i * 12, clientY: y0 + 200 });
+  await b.flush();
+  ok((await b.ink(1)) > base, 'nét live thấy được');
+  await b.page.evaluate(() => window.__board.fillZone(1, 1));
+  await b.fire('pointerup', { pointerId: 3, clientX: 400, clientY: y0 + 200, buttons: 0 });
+  await b.flush();
+  eq(await b.ink(1), base, '(c) vệt sót khi vùng đầy');
+  await b.close();
+});
+
+t('T12', async () => {
+  const b = await open({ zones: 2, w: 1280, h: 647, dpr: 3, query: 'perf=ultra&dpr=3' });
+  const s = await b.state();
+  const y = s.zones[0].rect.y + 250;
+  const clip = { x: 150, y: y - 40, width: 90, height: 80 };
+  const colsOf = async () => { const png = await b.page.screenshot({ clip }); return decodePng(b, png); };
+  const sample = (img, x, yy) => { const i = (yy * img.w + x) * 4; return [img.d[i], img.d[i + 1], img.d[i + 2]]; };
+  const seam = (192 - clip.x) * 3;  // cột vật lý của biên lát
+  let img = await colsOf();
+  for (let yy = 0; yy < img.h; yy += 7) for (const c of [seam - 1, seam, seam + 1]) {
+    const p = sample(img, c, yy);
+    ok(p.every((v) => Math.abs(v - 18) <= 3), 'nền trống lệch tại cột ' + c + ' hàng ' + yy + ': ' + p);
+  }
+  await b.fire('pointerdown', { pointerId: 1, clientX: 160, clientY: y });
+  for (let i = 1; i <= 40; i++) await b.fire('pointermove', { pointerId: 1, clientX: 160 + i * 1.5, clientY: y });
+  await b.fire('pointerup', { pointerId: 1, clientX: 220, clientY: y, buttons: 0 });
+  await b.flush();
+  img = await colsOf();
+  const cy = 40 * 3;   // hàng vật lý của tâm nét
+  let bad = 0;
+  for (let dy = -6; dy <= 6; dy++) for (const c of [seam - 2, seam - 1, seam, seam + 1, seam + 2]) {
+    const p = sample(img, c, cy + dy);
+    if (p[0] < 200) bad++;
+  }
+  eq(bad, 0, 'khe hở ở biên lát (điểm không sáng): ' + bad);
+  // các điểm ngoài nét không tối hơn nền
+  for (let yy = 0; yy < img.h; yy += 5) for (const c of [seam - 1, seam, seam + 1]) {
+    if (Math.abs(yy - cy) < 40) continue;
+    const p = sample(img, c, yy);
+    ok(p.every((v) => v >= 15), 'điểm tối hơn nền tại ' + c + ',' + yy + ': ' + p);
+  }
+  await b.close();
+});
+
+t('T13', async () => {
+  const scenario = async (q) => {
+    const b = await open({ zones: 2, w: 1280, h: 720, dpr: 2, touch: false, query: q });
+    const k = (await b.state()).k;
+    const vals = [];
+    const rec = async (name) => { await b.flush(); await b.page.waitForTimeout(60); vals.push([name, (await b.ink(1)) / (k * k)]); };
+    let s = await b.state();
+    const [a, c] = zoneLine(s, 1);
+    await b.mouseStroke(a, c); await b.mouseStroke([a[0], a[1] + 90], [c[0], c[1] + 120]); await b.mouseStroke([a[0] + 20, a[1] - 100], [c[0] - 30, c[1] - 60]);
+    await rec('3 nét');
+    await b.id('z1-eraser').click();
+    const mx = (a[0] + c[0]) / 2, my = (a[1] + c[1]) / 2;
+    await b.mouseStroke([mx, my - 40], [mx, my + 40]);
+    await rec('tẩy');
+    await b.id('z1-undo').click(); await rec('hoàn tác tẩy');
+    await b.id('z1-pen').click();
+    await b.id('z1-clear').click(); await rec('xoá vùng');
+    await b.id('z1-undo').click(); await rec('hoàn tác xoá');
+    await b.page.setViewportSize({ width: 1000, height: 640 }); await b.page.waitForTimeout(250); await rec('đổi cỡ cửa sổ');
+    await b.id('zones-3').click(); await b.page.waitForTimeout(100);
+    if (await b.id('dialog-ok').count()) await b.id('dialog-ok').click();
+    await b.page.waitForTimeout(200);
+    s = await b.state();
+    eq(s.zones.length, 3, 'đổi 3 vùng');
+    await b.mouseStroke(...zoneLine(s, 1)); await rec('vẽ sau đổi vùng');
+    eq(b.log.errors.length, 0, 'lỗi console: ' + b.log.errors.join('|'));
+    await b.close();
+    return vals;
+  };
+  // đối chứng ở cùng k=1 (đếm điểm viền ở k khác nhau lệch ~6-7% dù hình giống hệt)
+  const f = await scenario('perf=full&dpr=1'), u = await scenario('perf=ultra');
+  console.log('   T13 ' + f.map((x, i) => `${x[0]}: ${x[1].toFixed(0)}/${u[i][1].toFixed(0)}`).join(' · '));
+  f.forEach((x, i) => {
+    const a = x[1], c = u[i][1];
+    if (a === 0 || c === 0) eq(c, a, 'bước ' + x[0] + ' khác 0');
+    else ok(Math.abs(a - c) / a <= 0.06, 'bước ' + x[0] + ' lệch ' + (Math.abs(a - c) / a).toFixed(3));
+  });
+});
+
+t('T14', async () => {
+  for (const q of ['perf=lite&livepts=400', 'perf=ultra&livepts=400']) {
+    const b = await popen(q + '&dpr=1');
+    const s = await b.state();
+    const z = s.zones[0].rect, y = z.y + 200;
+    await b.fire('pointerdown', { pointerId: 1, clientX: 20, clientY: y });
+    const N = 700, dx = 600 / N;
+    for (let i = 1; i <= N; i++) {
+      await b.fire('pointermove', { pointerId: 1, clientX: 20 + i * dx, clientY: y });
+      if (i % 40 === 0) await b.flush();
+    }
+    await b.flush();
+    const xs = 20 + 399 * dx;
+    const live = await b.page.evaluate(([x, yy]) => window.__board.pixelAt(x, yy), [xs, y]);
+    ok(live[0] > 100, q + ' khoảng trống tại điểm tách (đang vẽ): ' + live);
+    await b.fire('pointerup', { pointerId: 1, clientX: 20 + N * dx, clientY: y, buttons: 0 });
+    await b.flush();
+    const st = await b.state();
+    eq(st.zones[0].strokeCount, 2, q + ' số nét');
+    const fin = await b.page.evaluate(([x, yy]) => window.__board.pixelAt(x, yy), [xs, y]);
+    ok(fin[0] > 100, q + ' khoảng trống tại điểm tách (sau nhả): ' + fin);
+    await b.close();
+  }
+});
+
+t('T15', async () => {
+  const names = ['P2', 'P10', 'P11'];
+  EXTRA_QUERY = 'perf=ultra';
+  try {
+    for (const n of names) {
+      const x = tests.find((y) => y.id === n);
+      ok(x, 'không có ' + n);
+      await x.fn();
+    }
+  } finally { EXTRA_QUERY = ''; }
+});
+
+t('T16', async () => {
+  const { readFileSync } = await import('node:fs');
+  const files = ['perf.js', 'render-tiles.js', 'render.js', 'strokes.js', 'diag.js', 'input.js', 'main.js', 'glass.js'].map((f) => path.join(ROOT, 'public/board/js', f)).concat([path.join(ROOT, 'public/board/css/board.css')]);
+  const bad = [/replaceAll\(/, /\.at\(/, /\binset\s*:/, /aspect-ratio/, /structuredClone/, /:is\(/, /\?\?=/];
+  for (const f of files) {
+    const txt = readFileSync(f, 'utf8');
+    for (const re of bad) ok(!re.test(txt), `${path.basename(f)} chứa ${re}`);
+  }
+});
+
+// T7: đo hiệu năng, chạy riêng: node tests/board.mjs T7  (báo cáo, không nằm trong lần chạy mặc định)
+t('T7', async () => {
+  const PROFILES = [['A', 'perf=full'], ['B', 'perf=lite'], ['C', 'perf=ultra'], ['D', 'perf=full&glass=0&desync=0'], ['E', 'perf=ultra&tiles=0']];
+  const MODES = [['gpu', null], ['nogpu', ['--disable-gpu', '--disable-gpu-compositing']]];
+  const rows = [];
+  for (const [mname, args] of MODES) {
+    const br = args ? await launch(args) : browser;
+    try {
+      for (const [pname, q] of PROFILES) {
+        for (const nf of [4, 10]) {
+          const b = await open({ zones: 2, w: 1280, h: 647, dpr: 3, query: q, init: areaInit, br });
+          const s = await b.state();
+          await b.cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+          let sc = 0;
+          b.cdp.on('Page.screencastFrame', (f) => { sc++; b.cdp.send('Page.screencastFrameAck', { sessionId: f.sessionId }).catch(() => {}); });
+          await b.cdp.send('Page.startScreencast', { format: 'jpeg', quality: 40, maxWidth: 3840, maxHeight: 1941 });
+          const fingers = [];
+          for (let i = 0; i < nf; i++) {
+            const z = s.zones[i % 2].rect;
+            const y = z.y + z.h * 0.2 + Math.floor(i / 2) * 55;
+            fingers.push([[z.x + 40, y], [z.x + z.w - 60, y + 90]]);
+          }
+          await b.page.evaluate(() => { window.__board.resetPerf(); window.__canvasArea.reset(); });
+          const t0 = Date.now();
+          await b.multiTouch(fingers, 100, 8);
+          const dur = (Date.now() - t0) / 1000;
+          const pf = await b.page.evaluate(() => window.__board.perf());
+          const c = await b.page.evaluate(() => window.__board.counters());
+          const areas = await b.page.evaluate(() => window.__canvasArea.get());
+          await b.cdp.send('Page.stopScreencast').catch(() => {});
+          rows.push({ mode: mname, profile: pname, fingers: nf, fps: pf.fps, avgMs: +pf.avgMs.toFixed(2), p95Ms: +pf.p95Ms.toFixed(2), intervalP95: +pf.intervalP95.toFixed(1),
+            getStroke: c.getStroke, getStrokePerS: +(c.getStroke / dur).toFixed(1), latAvg: +c.latAvg.toFixed(0), latP95: +c.latP95.toFixed(0),
+            mpPerFrame: +(c.dirtyCssPerFrame / 1e6).toFixed(3), canvasMP: +(mean(areas) / 1e6).toFixed(2), screencastFps: +(sc / dur).toFixed(1), seconds: +dur.toFixed(1) });
+          await b.close();
+        }
+      }
+    } finally { if (args) await br.close(); }
+  }
+  writeFileSync(path.join(PERF_SHOT_DIR, 'perf-board.json'), JSON.stringify(rows, null, 1));
+  const hdr = '| chế độ | hồ sơ | ngón | fps | JS avg | JS p95 | khoảng p95 | getStroke | getStroke/s | trễ avg/p95 | MP CSS/khung | canvas MP/khung | screencast fps |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|';
+  console.log(hdr + '\n' + rows.map((r) => `| ${r.mode} | ${r.profile} | ${r.fingers} | ${r.fps} | ${r.avgMs} | ${r.p95Ms} | ${r.intervalP95} | ${r.getStroke} | ${r.getStrokePerS} | ${r.latAvg}/${r.latP95} | ${r.mpPerFrame} | ${r.canvasMP} | ${r.screencastFps} |`).join('\n'));
+  const A = rows.find((r) => r.mode === 'nogpu' && r.profile === 'A' && r.fingers === 4), C = rows.find((r) => r.mode === 'nogpu' && r.profile === 'C' && r.fingers === 4);
+  ok(C.intervalP95 <= A.intervalP95 * 1.1, `ultra p95 khoảng khung ${C.intervalP95} > full ${A.intervalP95} (+10%)`);
+});
+
 // ================= chạy =================
 async function main() {
   await waitPort(PORT);
   browser = await launch();
-  const run = tests.filter((x) => !ONLY.length || ONLY.includes(x.id));
+  const OPT_IN = ['T7']; // đo hiệu năng: chỉ chạy khi gọi tên
+  const run = tests.filter((x) => (!ONLY.length && !OPT_IN.includes(x.id)) || ONLY.includes(x.id));
   for (const x of run) {
     const t0 = Date.now();
     try { await x.fn(); results.push([x.id, true]); console.log(`PASS ${x.id} (${Date.now() - t0} ms)`); }

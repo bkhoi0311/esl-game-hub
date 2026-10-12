@@ -222,6 +222,18 @@ button { font-family: inherit; color: inherit; }
 .hud-pre { margin: 0; white-space: pre-wrap; word-break: break-all; font: inherit; color: var(--text); }
 .hud-copybox { width: 100%; height: calc(120px * var(--s)); margin-top: 8px; background: #0B0B0B; color: var(--text); border: 1px solid rgba(255, 255, 255, .2); border-radius: 8px; font: inherit; }
 
+/* ---------- chế độ êm cho CEF off-screen (hồ sơ lite/ultra) ---------- */
+.perf-calm *, .perf-calm *::before, .perf-calm *::after { transition: none !important; animation: none !important; }
+.perf-calm .pane { box-shadow: var(--rim), var(--edge); }
+.perf-calm #stage { contain: strict; }
+#tiles { position: absolute; top: 0; left: 0; z-index: 0; }
+#tiles canvas { position: absolute; display: block; }
+.erase-ring { position: absolute; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 2;
+  background: rgba(255,255,255,.10); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.5); }
+.hud-mini { position: fixed; top: 0; left: 0; right: 0; margin: 0 auto; width: -webkit-fit-content; width: fit-content; z-index: 45;
+  pointer-events: none; padding: 1px 8px; background: #000; color: #9EF59F; border-radius: 0 0 6px 6px;
+  font: 10px/14px ui-monospace, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
 /* ---------- trợ năng ---------- */
 @media (prefers-contrast: more) {
   :root { --text-2: var(--text); --text-3: var(--text); }

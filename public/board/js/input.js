@@ -14,7 +14,8 @@ export function isPalm(e) {
   return e.pointerType === 'touch' && Math.max(e.width || 0, e.height || 0) >= PALM_MIN;
 }
 
-export function createInput({ el, board, getScale, render, diag, hooks }) {
+export function createInput({ el, board, getScale, render, diag, hooks, perf }) {
+  const P = perf || {};
   const active = new Map(); // pointerId -> {kind:'draw'|'erase', zone, stroke|session, type, lastT}
 
   const rects = () => board.zones.map((z) => ({ id: z.id, ...z.rect }));
@@ -28,17 +29,17 @@ export function createInput({ el, board, getScale, render, diag, hooks }) {
     const [ux, uy] = toZoneUnits(z, x, y);
     const rCss = ERASE_R * getScale();
     const hit = eraseAt(z, ux, uy, rCss / zoneScale(z), a.session);
-    if (hit.length) render.markDirty(z.id);
+    if (hit.length) { if (render.strokesRemoved) render.strokesRemoved(z, hit); else render.markDirty(z.id); }
     render.setRing(id, z, x, y, rCss);
   }
 
-  function drawPoint(a, id, x, y, p, isPen) {
+  function drawPoint(a, id, x, y, p, isPen, evtT) {
     const z = a.zone;
     const [ux, uy] = toZoneUnits(z, x, y);
-    const res = addPointSplit(z, a.stroke, ux, uy, p, isPen);
+    const res = addPointSplit(z, a.stroke, ux, uy, p, isPen, P.livePts, P.minStep);
     if (res.finished) render.strokeFinished(z, res.finished);
     if (res.stroke !== a.stroke) { a.stroke = res.stroke; }
-    render.setLive(id, z, a.stroke);
+    render.setLive(id, z, a.stroke, evtT);
   }
 
   function finish(id, how) {
@@ -85,8 +86,8 @@ export function createInput({ el, board, getScale, render, diag, hooks }) {
       a.stroke = beginStroke(zone, { color: zone.color, size: zone.size });
       active.set(e.pointerId, a);
       const [ux, uy] = toZoneUnits(zone, e.clientX, e.clientY);
-      addPoint(a.stroke, ux, uy, e.pressure, e.pointerType === 'pen');
-      render.setLive(e.pointerId, zone, a.stroke);
+      addPoint(a.stroke, ux, uy, e.pressure, e.pointerType === 'pen', P.minStep);
+      render.setLive(e.pointerId, zone, a.stroke, e.timeStamp);
     }
     diag.setActive(active.size);
     hooks.onSimul(diag.st.maxSimul);
@@ -98,13 +99,20 @@ export function createInput({ el, board, getScale, render, diag, hooks }) {
     a.lastT = performance.now();
     diag.note(e);
     if (isPalm(e)) { finish(e.pointerId, 'drop'); diag.log('huỷ nét: lòng bàn tay'); return; }
-    const list = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+    const t0 = performance.now();
+    const list = (P.coal !== false && e.getCoalescedEvents) ? e.getCoalescedEvents() : [];
     const pts = list.length ? list : [e];
     const isPen = e.pointerType === 'pen';
     for (const p of pts) {
       if (a.kind === 'erase') eraseHere(a, e.pointerId, p.clientX, p.clientY);
-      else drawPoint(a, e.pointerId, p.clientX, p.clientY, p.pressure, isPen);
+      else drawPoint(a, e.pointerId, p.clientX, p.clientY, p.pressure, isPen, e.timeStamp);
     }
+    if (P.predict && a.kind === 'draw' && e.getPredictedEvents && render.setPredict) {
+      const pr = e.getPredictedEvents();
+      const last = pr.length ? pr[pr.length - 1] : null;
+      render.setPredict(e.pointerId, last ? toZoneUnits(a.zone, last.clientX, last.clientY) : null);
+    }
+    if (diag.moveStat) diag.moveStat(pts.length, performance.now() - t0, t0 - e.timeStamp);
   }
 
   function onUp(e) {
