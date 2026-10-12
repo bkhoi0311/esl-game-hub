@@ -1,6 +1,8 @@
 // Tic-Tac-Toe Quiz — cờ ca-rô 3x3: đội chọn ô rồi trả lời câu hỏi; đúng thì chiếm ô. 3 ô thẳng hàng là thắng ván.
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import { getQuestions, shuffle } from '../../core/content.js';
 import { TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h } from '../../core/ui.js';
@@ -141,7 +143,7 @@ function createGame(root, pack) {
       scoreboard.add(res.winner, 1);
       playSound('win');
       speak(line('threeInRow')).then(() => speak(line('teamWins', { team: teams[res.winner] })));
-      confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
+      confetti({ particleCount: Math.round(150 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
       panel.append(h('p', { class: 'ttt-result en', 'data-testid': 'ttt-result', style: { '--team': TEAM_COLORS[res.winner] } }, `${teams[res.winner]} team wins`));
     }
     starter = 1 - starter;

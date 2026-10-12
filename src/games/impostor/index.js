@@ -1,6 +1,8 @@
 // Impostor Word — 5 thẻ từ, tìm 1 từ khác nhóm và giải thích. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import { button, createCountdown, createGameFrame, h, segmented, setupScreen } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
@@ -154,7 +156,7 @@ function createGame(root, pack) {
     playSound(correct ? 'correct' : 'wrong');
     const odd = round.cardEls.find((el, k) => round.cards[k].impostor);
     if (correct && odd) burst(odd, { count: 22 });
-    if (correct) confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 }, disableForReducedMotion: true });
+    if (correct) confetti({ particleCount: Math.round(90 * PERF.confetti), spread: 70, origin: { y: 0.55 }, disableForReducedMotion: true, ...confettiLite() });
     const why = explain(round.major, round.odd);
     speak(line(correct ? 'correct' : 'tryAgain')).then(() => round && round.done && speak(why));
   }

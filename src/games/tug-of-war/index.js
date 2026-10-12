@@ -2,6 +2,8 @@
 // Mỗi nửa màn hình nhận Pointer Events riêng, 2 người chạm cùng lúc không chặn nhau. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { getQuestions, shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import { line } from '../../core/voice-lines.js';
@@ -221,7 +223,7 @@ function createGame(root, pack) {
         { name: pack.teams[loser], index: loser, score: state.sides[loser].correct },
       ];
       setStage(resultsScreen({ title: `${pack.teams[i]} wins`, ranking, unit: ' correct', onReplay: showSetup }));
-      confetti({ particleCount: 180, spread: 100, origin: { x: i === 0 ? 0.25 : 0.75, y: 0.6 }, disableForReducedMotion: true });
+      confetti({ particleCount: Math.round(180 * PERF.confetti), spread: 100, origin: { x: i === 0 ? 0.25 : 0.75, y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
     }, 2200);
   }
 

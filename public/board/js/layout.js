@@ -50,3 +50,30 @@ export function parseZones(v) {
   const n = parseInt(v, 10);
   return n >= 1 && n <= 4 ? n : 2;
 }
+
+// ---------- v2: thanh lớp, dải đề (PLAN-V2 mục C.1, C.3, C.8) ----------
+export function classbarHeight(s) {
+  return Math.round(64 * s);
+}
+
+// Chiều cao dải đề đầu mỗi vùng: clamp(96·s, 0,2·stageH, 160·s); 0 khi chưa có đề.
+export function bandHeight(s, stageH, hasDeck) {
+  if (!hasDeck) return 0;
+  return Math.round(Math.min(160 * s, Math.max(96 * s, 0.2 * stageH)));
+}
+
+// Cỡ chữ đề lớn nhất theo số vùng (đơn vị gốc ở s = 1: 44 / 38 / 32 / 28).
+export function fontMax(n, s) {
+  return Math.round(([44, 38, 32, 28][Math.min(4, Math.max(1, n)) - 1]) * s);
+}
+
+// Tách mỗi vùng thành dải đề (trên) và vùng viết (dưới). bandH = 0: vùng viết = cả vùng.
+export function splitBands(rects, bandH) {
+  const bands = [], writes = [];
+  for (const r of rects) {
+    const b = Math.min(bandH, Math.max(0, r.h - 40));
+    bands.push({ id: r.id, x: r.x, y: r.y, w: r.w, h: b });
+    writes.push({ id: r.id, x: r.x, y: r.y + b, w: r.w, h: r.h - b });
+  }
+  return { bands, writes };
+}

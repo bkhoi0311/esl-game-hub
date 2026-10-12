@@ -759,7 +759,7 @@ function areaInit() {
 const popen = (query, o = {}) => open({ zones: 2, w: 1280, h: 647, dpr: 3, init: areaInit, query, ...o });
 const mean = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0);
 const pct = (a, q) => { if (!a.length) return 0; const x = a.slice().sort((m, n) => m - n); return x[Math.min(x.length - 1, Math.floor(x.length * q))]; };
-const AREA_STAGE = 1280 * 595;
+const AREA_STAGE = 1280 * 536;   // v2: sân khấu 647 - (52 + 59) = 536 (có thanh lớp học)
 
 // vẽ chữ "a b c" (6 nét) bằng pointer giả, có nghỉ giữa các khung để renderer vẽ gia tăng
 async function drawABC(b, ox = 120, oy = 230) {
@@ -819,7 +819,7 @@ t('T2', async () => {
     const r = await info('', ua);
     ok(r.glassLite && r.calm && !r.glassOn, 'class html: ' + JSON.stringify(r));
     eq(r.st.filter, true, 'lọc bật'); eq(r.st.raw, false); eq(r.st.k, 3); eq(r.st.tile, 192);
-    eq(r.ci.count, 28, 'số lát'); eq(r.bf, 0, 'có backdrop-filter');
+    eq(r.ci.count, 21, 'số lát (7 cột x 3 hàng; v2: sân khấu cao 536)'); eq(r.bf, 0, 'có backdrop-filter');
     if (!first) first = r.ci;
   }
   // URL cũ bị bỏ qua hoàn toàn
@@ -833,7 +833,7 @@ t('T2', async () => {
   await pg.goto(`${BASE}?zones=2&ink=raw&k=1&livepts=100`);
   await pg.waitForSelector('#tiles canvas');
   const cnt = await pg.evaluate(() => document.querySelectorAll('#tiles canvas').length);
-  eq(cnt, 28, 'không test=1 thì ink=raw&k=1 bị bỏ qua'); eq(errs.length, 0, errs.join('|'));
+  eq(cnt, 21, 'không test=1 thì ink=raw&k=1 bị bỏ qua'); eq(errs.length, 0, errs.join('|'));
   await ctx.close();
 });
 
@@ -842,7 +842,7 @@ t('INK-K', async () => {
   let s = await b.state();
   eq(s.ink.k, 3, 'k ở DPR 3');
   let ci = await b.page.evaluate(() => window.__board.canvasInfo());
-  eq(ci.count, 28); eq(ci.w, 3840); eq(ci.h, 1785);
+  eq(ci.count, 21); eq(ci.w, 3840); eq(ci.h, 1608);   // v2: 536 x 3 (s = 0,92: thanh 52 + thanh lớp 59)
   await b.close();
   for (const [dpr, k, w] of [[1, 1, 1280], [2, 2, 2560]]) {
     b = await open({ zones: 2, w: 1280, h: 647, dpr });
@@ -911,7 +911,7 @@ t('T6', async () => {
     await b.close();
     return { area: mean(areas), dirty: c.dirtyCssPerFrame, n: areas.length };
   };
-  const full = 3840 * 1785;
+  const full = 3840 * 1608;
   const a1 = await measure(1), a4 = await measure(4);
   console.log(`   T6 k=3: 1 ngón ${(a1.area / 1e6).toFixed(3)} MP/khung (${(100 * a1.area / full).toFixed(1)}%), 4 ngón ${(a4.area / 1e6).toFixed(3)} MP/khung (${(100 * a4.area / full).toFixed(1)}%) · vùng hỏng CSS ${(a1.dirty / 1e3).toFixed(0)}k/${(a4.dirty / 1e3).toFixed(0)}k px²`);
   ok(a1.area <= 0.10 * full, '1 ngón ' + (a1.area / full));
@@ -1155,8 +1155,8 @@ t('T14', async () => {
 
 t('T16', async () => {
   const { readFileSync } = await import('node:fs');
-  const files = ['ink.js', 'render-tiles.js', 'strokes.js', 'diag.js', 'input.js', 'main.js', 'palm.js', 'layout.js', 'ui.js'].map((f) => path.join(ROOT, 'public/board/js', f)).concat([path.join(ROOT, 'public/board/css/board.css')]);
-  const bad = [/replaceAll\(/, /\.at\(/, /\binset\s*:/, /aspect-ratio/, /structuredClone/, /:is\(/, /\?\?=/];
+  const files = ['ink.js', 'render-tiles.js', 'strokes.js', 'diag.js', 'input.js', 'main.js', 'palm.js', 'layout.js', 'ui.js', 'v2.js', 'cards.js', 'classbar.js', 'classroom.js', 'tasks.js', 'timer.js', 'dom.js', 'sheets.js', 'deck-dialog.js', 'paper.js', 'lesson.js', 'math/render.js', 'math/gen.js', 'math/expr.js', 'math/rational.js'].map((f) => path.join(ROOT, 'public/board/js', f)).concat([path.join(ROOT, 'public/board/css/board.css')]);
+  const bad = [/replaceAll\(/, /\.at\(/, /\binset\s*:/, /aspect-ratio/, /structuredClone/, /:is\(/, /\?\?=/, /findLast/, /:has\(/, /^await /m];   // v2: thêm findLast, :has, await ở mức tệp
   for (const f of files) {
     const txt = readFileSync(f, 'utf8');
     for (const re of bad) ok(!re.test(txt), `${path.basename(f)} chứa ${re}`);
@@ -1164,8 +1164,12 @@ t('T16', async () => {
   // đã gỡ hẳn: không còn tệp / tham chiếu cũ
   const { existsSync, readdirSync } = await import('node:fs');
   for (const f of ['js/render.js', 'js/perf.js', 'js/glass.js', 'vendor/perfect-freehand.mjs', 'vendor']) ok(!existsSync(path.join(ROOT, 'public/board', f)), 'còn ' + f);
-  for (const f of readdirSync(path.join(ROOT, 'public/board/js'))) {
-    const txt = readFileSync(path.join(ROOT, 'public/board/js', f), 'utf8');
+  const jsFiles = [];
+  const walk = (d) => { for (const f of readdirSync(d, { withFileTypes: true })) { if (f.isDirectory()) walk(path.join(d, f.name)); else if (f.name.endsWith('.js')) jsFiles.push(path.join(d, f.name)); } };
+  walk(path.join(ROOT, 'public/board/js'));   // v2: có thêm thư mục js/math
+  for (const fp of jsFiles) {
+    const f = path.relative(path.join(ROOT, 'public/board/js'), fp);
+    const txt = readFileSync(fp, 'utf8');
     ok(!/perfect-freehand|from '\.\/(render|perf|glass)\.js'/.test(txt), f + ' còn import cũ');
   }
 });

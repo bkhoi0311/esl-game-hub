@@ -2,6 +2,8 @@
 // 1-2 học sinh đứng gần camera (dưới 1.5 mét). MediaPipe Face Landmarker. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { createFaceDetector } from '../../core/vision.js';
@@ -194,7 +196,7 @@ function createGame(root, pack) {
     setStage(resultsScreen({ title: 'Head Tilt Quiz: results', ranking, unit: ` / ${list.length}`, onReplay: () => startGame() }));
     playSound('win');
     speak(line('greatJob'));
-    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
+    confetti({ particleCount: Math.round(150 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
   // ---------- Vòng nhận diện ----------

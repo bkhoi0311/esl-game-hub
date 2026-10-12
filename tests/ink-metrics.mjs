@@ -16,12 +16,15 @@ function wavePts() {
   return { raw, cum, len: cum[cum.length - 1] };
 }
 const WV = wavePts();
+// v2: thanh lớp học (64·s) đẩy vùng viết xuống 64 px (s = 1): toạ độ mẫu dịch xuống YOFF; tiêu chí đo giữ nguyên.
+export const YOFF = 64;
 function at(shape, s) {
-  if (shape === 'W') { let i = 0; while (i < WV.cum.length - 1 && WV.cum[i + 1] < s) i++; return WV.raw[i]; }
-  return SHAPES[shape].f(s);
+  if (shape === 'W') { let i = 0; while (i < WV.cum.length - 1 && WV.cum[i + 1] < s) i++; return [WV.raw[i][0], WV.raw[i][1] + YOFF]; }
+  const p = SHAPES[shape].f(s);
+  return [p[0], p[1] + YOFF];
 }
 export const NOISE = { N0: { g: 0, ar: 0, q: 1 / 3 }, N1: { g: 0.8, ar: 0.3, q: 1 }, N2: { g: 0.6, ar: 0.7, q: 1 } };
-export const CLIPS = { H: { x: 40, y: 125, width: 560, height: 75 }, V: { x: 1170, y: 70, width: 80, height: 420 }, C: { x: 200, y: 210, width: 260, height: 260 }, W: { x: 680, y: 230, width: 480, height: 140 } };
+export const CLIPS = { H: { x: 40, y: 125 + YOFF, width: 560, height: 75 }, V: { x: 1170, y: 70 + YOFF, width: 80, height: 420 }, C: { x: 200, y: 210 + YOFF, width: 260, height: 260 }, W: { x: 680, y: 230 + YOFF, width: 480, height: 140 } };
 
 // -> [[tMs, x, y], ...] nhịp 120 Hz, tăng/giảm tốc 40 px đầu/cuối
 export function genSamples(shape, noise, seed) {

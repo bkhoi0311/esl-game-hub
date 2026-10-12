@@ -6,6 +6,7 @@ import './styles/kids.css';
 import './styles/motion.css';
 import './styles/liquid.css';
 import './vendor/liquid-glass.js';
+import { PERF, applyPerfClasses } from './core/perf.js';
 import logoUrl from './assets/classin-logo-green.png';
 import { GAMES, GROUPS, findGame } from './games/index.js';
 import { getPack, hasEmbeddedPack, initLinkedPack, isLinkedPack, leaveLinkedPack, missingForGame, onPackChange } from './core/content.js';
@@ -37,6 +38,11 @@ document.body.classList.toggle('present', PRESENT);
 if (navigator.webdriver) document.documentElement.classList.add('no-idle');
 // Giao diện sáng cố định: nền thế giới hoạt hình là cảnh ban ngày, kính đọc rõ nhất trên nền sáng.
 document.documentElement.dataset.theme = 'light';
+// Hồ sơ hiệu năng (ClassIn X tự chọn 'lite'): đặt lớp html.perf-lite / no-glass / no-loop trước khi dựng nền.
+applyPerfClasses();
+window.__perf = PERF;
+// Tab/cửa sổ bị ẩn thì dừng mọi GSAP (đỡ tốn CPU nền).
+document.addEventListener('visibilitychange', () => gsap.globalTimeline.paused(document.hidden));
 
 const app = document.getElementById('app');
 let cleanup = null; // hàm dọn dẹp của màn hình đang mở
@@ -115,6 +121,49 @@ if (/[?&]diag=1/.test(location.search) || location.hash.includes('diag=1')) {
   for (const type of ['pointerdown', 'pointerup', 'pointercancel', 'click']) {
     document.addEventListener(type, (e) => logDiag(`${type} ${e.pointerType || ''} w${Math.round(e.width || 0)} trusted=${e.isTrusted} -> ${desc(e.target)}`), true);
   }
+}
+// HUD chẩn đoán ?diag=2 (nhỏ, cập nhật 1 lần/giây): hồ sơ, nhịp rAF, số animation đang chạy, Phaser k + khung hình, GPU.
+if (PERF.diag === '2') {
+  const hud = h('pre', { 'data-testid': 'hud-perf', style: { position: 'fixed', right: '6px', bottom: '6px', zIndex: 99999, width: '220px', height: '90px', overflow: 'hidden', margin: 0, background: '#000c', color: '#9f9', font: '11px/1.3 monospace', padding: '4px 6px', borderRadius: '6px', pointerEvents: 'none', whiteSpace: 'pre' } });
+  document.body.append(hud);
+  let gpu = '?';
+  try {
+    const gl = document.createElement('canvas').getContext('webgl');
+    const ext = gl && gl.getExtension('WEBGL_debug_renderer_info');
+    gpu = gl ? String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)) : 'không có WebGL';
+    const lose = gl && gl.getExtension('WEBGL_lose_context');
+    if (lose) lose.loseContext();
+  } catch { /* giữ '?' */ }
+  const soft = /swiftshader|software|llvmpipe|basic render/i.test(gpu);
+  const gpuShort = gpu.replace(/^ANGLE \(|\)$/g, '').slice(0, 24);
+  let frames = 0;
+  let last = performance.now();
+  let durs = [];
+  let lastR = 0;
+  let lastT = performance.now();
+  const loop = (now) => { frames++; durs.push(now - last); last = now; requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+  setInterval(() => {
+    const sorted = durs.slice().sort((a, b) => a - b);
+    const p95 = sorted.length ? sorted[Math.floor(sorted.length * 0.95)] : 0;
+    const fps = frames;
+    frames = 0;
+    durs = [];
+    const anims = document.getAnimations().filter((a) => a.playState === 'running').length;
+    const g = window.__phaser;
+    const live = g && g.canvas && g.canvas.isConnected;
+    const now = performance.now();
+    let draw = '-';
+    if (live) {
+      // Số khung Phaser thật sự vẽ mỗi giây (có giới hạn: đếm khung đã qua bộ giới hạn).
+      draw = g.__fpsLimit ? `${Math.round(((g.__rendered || 0) - lastR) / ((now - lastT) / 1000))}/${g.__fpsLimit}` : `${Math.round(g.loop.actualFps)}/-`;
+      lastR = g.__rendered || 0;
+    }
+    lastT = now;
+    const phaser = live ? `k=${(g.__k || 1).toFixed(2)} ${g.canvas.width}x${g.canvas.height}->${Math.round(g.canvas.getBoundingClientRect().width * devicePixelRatio)} ${draw}` : '-';
+    hud.textContent = `Hồ sơ: ${PERF.name}(${PERF.source}) kính:${PERF.glass ? 1 : 0} lặp:${PERF.idle ? 1 : 0}\n`
+      + `rAF: ${fps} fps p95 ${Math.round(p95)} ms\nAnim: ${anims} CSS\nPhaser: ${phaser}\nGL: ${gpuShort}${soft ? ' (PHẦN MỀM)' : ''}`;
+  }, 1000);
 }
 window.addEventListener('resize', () => {
   fitStage();
@@ -206,22 +255,30 @@ function renderMenu(root) {
   grid.append(menuMascot);
   const view = h('div', { class: 'menu' }, heads, grid);
   root.append(view);
-  big.wave();
-  peek.wave();
+  // Hồ sơ lite: chờ lớp fade mở menu xong (600 ms) rồi mới vẫy tay. 2 bé vẫy LẦN LƯỢT: nếu cùng lúc, vùng hỏng của khung
+  // là hình chữ nhật bao cả 2 bé (gần hết màn) dù mỗi bé chỉ nhỏ.
+  const lite = PERF.name === 'lite';
+  const waveTimers = [setTimeout(() => big.wave(), lite ? 600 : 0), setTimeout(() => peek.wave(), lite ? 2200 : 0)];
 
   // Khúc xạ kính thật (Chromium) cho nhóm tab; trình duyệt khác dùng kính mờ.
-  const refract = window.liquidGlass && !reducedMotion() ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
+  const refract = window.liquidGlass && !reducedMotion() && PERF.glass ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
   const tweens = [];
-  if (motion) {
+  if (motion && PERF.name === 'lite') {
+    // Hồ sơ lite: chỉ 1 lớp fade 0,25 s cho cả menu (opacity trên lớp được nâng), không GSAP từng thẻ.
+    view.style.willChange = 'opacity';
+    tweens.push(gsap.fromTo(view, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power1.out', onComplete: () => { view.style.willChange = ''; gsap.set(view, { clearProps: 'opacity' }); } }));
+    gsap.set(view.querySelector('.pick-bubble'), { rotation: -6 });
+  } else if (motion) {
     // Menu = thanh điều khiển: trượt lên gọn, không nảy; cả chuỗi so le ≤ 0,5 s (skill game-feel-motion).
     gsap.from(view.querySelectorAll('.game-card'), { y: 24, opacity: 0, scale: 0.96, duration: 0.45, stagger: { each: 0.035, from: 'start' }, ease: 'power2.out', clearProps: 'transform,opacity' });
     gsap.from(view.querySelectorAll('.group-tab'), { y: 10, opacity: 0, duration: 0.35, stagger: 0.06, delay: 0.1, ease: 'power2.out', clearProps: 'transform,opacity' });
     tweens.push(gsap.fromTo(view.querySelector('.pick-bubble'), { scale: 0, rotation: -20 }, { scale: 1, rotation: -6, duration: 0.6, delay: 0.7, ease: 'back.out(3)' }));
   }
   // Lumi vẫy tay nhắc nhẹ mỗi 7 giây.
-  const nudge = setInterval(() => big.wave(), 7000);
+  const nudge = setInterval(() => big.wave(), PERF.idle ? 7000 : 20000);
   return () => {
     clearInterval(nudge);
+    waveTimers.forEach(clearTimeout);
     if (refract) refract.destroy();
     tweens.forEach((t) => t.kill());
     big.destroy();
@@ -412,7 +469,7 @@ function route() {
   setStreakEnabled(!(game && DUEL_GAMES.has(game.id)));
   // Game camera: chế độ nhẹ (bỏ kính mờ, dừng nền động) để máy OPS còn sức cho video + AI + lớp ClassIn.
   // Game Phaser (canvas vẽ lại liên tục) cũng dùng chế độ nhẹ: kính mờ đè lên canvas động rất tốn GPU.
-  document.body.classList.toggle('perf-cam', Boolean(game && (game.needsCamera || PHASER_GAMES.has(game.id))));
+  document.body.classList.toggle('perf-cam', Boolean(game && (PERF.name === 'lite' || game.needsCamera || PHASER_GAMES.has(game.id))));
   setWorld(view === 'editor' ? 'plain' : game ? game.theme || 'meadow' : 'meadow');
   if (view === 'editor') cleanup = mountEditor(main);
   else if (view === 'camcheck') cleanup = mountCamCheck(main);

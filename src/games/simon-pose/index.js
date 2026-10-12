@@ -2,6 +2,8 @@
 // Không có "Simon says" mà vẫn làm: -1. MediaPipe Pose (tối đa 5 người, bộ theo dõi chọn người chơi trong vùng chơi), giữ đúng 0.5 giây mới tính. Đặc tả: docs/GAMES_SPEC.md
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import { cameraSetupScreen, createCameraSession } from '../../core/camera.js';
 import { createPoseDetector, drawSkeleton } from '../../core/vision.js';
@@ -228,7 +230,7 @@ function createGame(root) {
     setStage(resultsScreen({ title: 'Simon Says: results', ranking, unit: ' pts', onReplay: () => startGame() }));
     playSound('win');
     speak(line('greatJob'));
-    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
+    confetti({ particleCount: Math.round(150 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
   // ---------- Vòng nhận diện ----------

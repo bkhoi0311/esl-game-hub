@@ -1,0 +1,312 @@
+// Điều phối "bảng thi đua có đề" (v2): nối trạng thái lớp học, thanh lớp, thẻ đề, đồng hồ, hộp thoại với bảng viết.
+// main.js chỉ gọi vài hàm ở các khối có chú thích "// v2:".
+import { fontMax, bandHeight } from './layout.js';
+import { buildDeck } from './tasks.js';
+import { createCards } from './cards.js';
+import { createClassbar } from './classbar.js';
+import { createTimer } from './timer.js';
+import { createSheets, openTeamSheet, openPaperSheet, openScoreSheet, PAPERS } from './sheets.js';
+import { openDeckDialog } from './deck-dialog.js';
+import { applyPaper } from './paper.js';
+import * as C from './classroom.js';
+
+const STORE = 'board.v2';
+const KINDS = ['write', 'missing', 'mc'];
+const TIMER_PARAM = { 0: ['off', 0], 30: ['down', 30], 60: ['down', 60], 90: ['down', 90], 120: ['down', 120], up: ['up', 0] };
+
+export function createV2({ board, ui, strokes, relayout, test, query }) {
+  // strokes: { clearAll(), clearZone(zid) }  ·  relayout(): tính lại bố cục (dải đề xuất hiện / biến mất)
+  const q = query || new URLSearchParams(location.search);
+  const overlay = document.getElementById('overlay');
+  const stage = document.getElementById('stage');
+  let cls = restore() || C.createClassroom(board.zones.length);
+  let curG = null;
+  let lesson = null;          // bài đang mở từ link #L= (đã giải mã), hoặc null
+  let packTeams = null;
+  const sheets = createSheets();
+  let audio = null;
+  let lastLockToast = 0;
+
+  /* ----- lưu tạm (sessionStorage, không lưu nét) ----- */
+  function restore() {
+    try {
+      if (q.get('src')) return null;                // có src thì nạp đề theo link, bỏ bản lưu
+      const raw = sessionStorage.getItem(STORE);
+      const c = raw ? C.fromJSON(JSON.parse(raw)) : null;
+      if (!c) return null;
+      if (c.zones.length !== board.zones.length) C.setZoneCount(c, board.zones.length);
+      return c;
+    } catch (e) { return null; }
+  }
+  let persistT = 0;
+  function persist() {
+    clearTimeout(persistT);
+    persistT = setTimeout(() => {
+      try {
+        // đề lấy từ link bài (#L=) không ghi vào storage: tải lại thì đọc lại từ hash
+        // chưa có đề thì không ghi gì (test riêng tư P22: sessionStorage rỗng)
+        if (!cls.deck || (cls.deck.source && cls.deck.source.type === 'lesson')) { if (sessionStorage.getItem(STORE) !== null) sessionStorage.removeItem(STORE); }
+        else sessionStorage.setItem(STORE, JSON.stringify(C.toJSON(cls)));
+      } catch (e) { /* bỏ qua */ }
+    }, 500);
+  }
+
+  /* ----- đồng hồ ----- */
+  let lastRun = false, lastEnded = false;
+  const speed = test ? Number(q.get('timerSpeed')) || 1 : 1;
+  const timer = createTimer({
+    speed,
+    onTick(st) {
+      cls.timer.left = st.left; cls.timer.running = st.running;
+      bar.tick(st);
+      if (st.running !== lastRun) { lastRun = st.running; bar.update(cls, tstate()); }
+    },
+    onEnd() {
+      C.endTimer(cls);
+      lastRun = false;
+      ui.toast('Hết giờ', 3000);
+      beep();
+      refresh();
+    },
+  });
+  const tstate = () => ({ mode: cls.timer.mode, total: cls.timer.total, left: cls.timer.left, running: cls.timer.running });
+  function ensureAudio() {
+    try { if (!audio) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) audio = new AC(); } if (audio && audio.state === 'suspended') audio.resume(); } catch (e) { audio = null; }
+  }
+  function beep() {
+    try {
+      if (!audio) return;
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.frequency.value = 880; o.type = 'sine';
+      g.gain.setValueAtTime(0.25, audio.currentTime); g.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 0.3);
+      o.connect(g); g.connect(audio.destination); o.start(); o.stop(audio.currentTime + 0.3);
+    } catch (e) { /* im lặng khi lỗi */ }
+  }
+
+  /* ----- thẻ đề, thanh lớp ----- */
+  const cards = createCards({
+    overlay,
+    actions: {
+      team: (zid) => teamSheet(zid),
+      prev: (zid) => { if (C.prevForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toast('Đây là câu đầu của vùng ' + zid + '.'); },
+      next: (zid) => { if (C.nextForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.'); },
+      verdict: (zid, v) => { C.setVerdict(cls, zid, v); refresh(); },
+    },
+  });
+  const bar = createClassbar({
+    actions: {
+      openDeck: () => openDeck(),
+      openPaper: () => paperSheet(),
+      sharedPrev: () => { if (C.prevShared(cls)) refresh(); },
+      sharedNext: () => { if (C.nextShared(cls)) refresh(); else ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.'); },
+      timerSet(mode, sec) { C.setTimerConfig(cls, mode, sec); timer.set(mode, sec); lastRun = false; refresh(); },
+      timerToggle() {
+        const st = timer.state();
+        if (st.running) { timer.pause(); cls.timer.running = false; lastRun = false; refresh(); return; }
+        ensureAudio();
+        C.startTimer(cls);
+        timer.start();
+        lastRun = true;
+        refresh();
+      },
+      timerReset() { timer.reset(); C.resetTimer(cls); lastRun = false; refresh(); },
+      toggleAnswers: () => { C.setRevealed(cls, !cls.revealed); refresh(); },
+      newRound: () => doNewRound(),
+      openScore: () => scoreSheet(),
+    },
+  });
+  document.body.insertBefore(bar.el, stage);
+  timer.set(cls.timer.mode, cls.timer.total);
+
+  function refresh() {
+    bar.update(cls, tstate());
+    cards.render(cls);
+    persist();
+  }
+
+  function doNewRound() {
+    const r = C.newRound(cls);
+    timer.reset();
+    lastRun = false;
+    strokes.clearAll();
+    if (r.end) ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.');
+    refresh();
+  }
+
+  /* ----- tấm: đội, nền, điểm ----- */
+  function teamSheet(zid) { openTeamSheet(sheets, { cls, zid, packTeams, onChange: refresh }); }
+  function paperSheet() {
+    openPaperSheet(sheets, {
+      cls,
+      onApply(target, kind) {
+        const ids = target === 'all' ? cls.zones.map((z) => z.id) : [target];
+        ids.forEach((id) => { cls.zones[id - 1].paper = kind; cls.zones[id - 1].paperManual = true; });
+        paintPapers();
+        persist();
+      },
+    });
+  }
+  function scoreSheet() { openScoreSheet(sheets, { cls, ui, onReset() { C.resetScores(cls); refresh(); } }); }
+
+  /* ----- nền viết (lớp tĩnh trong #stage) ----- */
+  let paperEls = {};
+  function buildPapers(g) {
+    for (const k in paperEls) paperEls[k].remove();
+    paperEls = {};
+    g.writes.forEach((w) => {
+      const el = document.createElement('div');
+      el.className = 'paper'; el.dataset.testid = 'z' + w.id + '-paper'; el.setAttribute('data-testid', 'z' + w.id + '-paper');
+      el.style.left = w.x + 'px'; el.style.top = (w.y - g.top) + 'px'; el.style.width = w.w + 'px'; el.style.height = w.h + 'px';
+      stage.appendChild(el);
+      paperEls[w.id] = el;
+    });
+    paintPapers();
+  }
+  function paintPapers() {
+    if (!curG) return;
+    curG.writes.forEach((w) => {
+      const el = paperEls[w.id];
+      const z = cls.zones[w.id - 1];
+      if (el && z) applyPaper(el, z.paper, w, curG.s);
+    });
+  }
+  function autoPaper(paper) {
+    cls.zones.forEach((z) => { if (!z.paperManual) z.paper = paper; });
+  }
+
+  /* ----- nạp đề ----- */
+  async function loadPack(id) { return (await import('../packs/' + id + '.js')).default; }
+
+  function paperFor(choice) {
+    if (choice.paper && PAPERS.some((p) => p.key === choice.paper)) return choice.paper;
+    if (choice.subject === 'math') {
+      if (choice.mathType === 'graph-point') return 'axes';
+      return choice.grade <= 3 ? 'oli' : 'grid';
+    }
+    if (choice.source.type === 'lib') {
+      const lv = (choice.level || '');
+      return lv === 'starters' || lv === 'movers' ? 'lines4' : 'blank';
+    }
+    return 'blank';
+  }
+
+  // choice: { subject, source: { type, id, title }, kind, mode, order, count, difficulty, grade, mathType, lang, timer: { mode, total }, paper?, seed? }
+  async function loadChoice(choice) {
+    let tasks = [], teams = null, title = choice.source.title || '', level = '';
+    const seed = choice.seed || ((Date.now() & 0x7fffffff) || 1);
+    if (choice.source.type === 'lib' || choice.source.type === 'lesson') {
+      let pack;
+      if (choice.source.type === 'lesson') {
+        if (!lesson) { ui.toast('Chưa có bài trong link.'); return false; }
+        pack = lesson.source;
+      } else pack = await loadPack(choice.source.id);
+      title = pack.title; teams = pack.teams; level = pack.level || '';
+      tasks = buildDeck({ source: pack, kind: choice.kind, count: choice.count, order: choice.order, seed, difficulty: choice.difficulty || 1 });
+      if (tasks.length && tasks.length < choice.count) ui.toast('Gói này chỉ có ' + tasks.length + ' câu loại này.');
+    } else if (choice.source.type === 'math') {
+      const m = await import('./math/gen.js');
+      const r = m.generateMath({ grade: choice.grade, type: choice.mathType, difficulty: choice.difficulty || 2, count: choice.count, seed, lang: choice.lang || 'vi', withOptions: false });
+      tasks = r.tasks || r;
+      if (r.short) ui.toast('Dạng này chỉ sinh được ' + tasks.length + ' câu khác nhau.');
+    }
+    if (!tasks.length) { ui.toast('Gói này chưa có câu loại này.'); return false; }
+    if (board.zones.some((z) => z.strokes.length)) {
+      const ok = await ui.confirm({ title: 'Bắt đầu đề mới?', body: 'Nét trên bảng sẽ bị xoá.', ok: 'Bắt đầu', cancel: 'Huỷ' });
+      if (!ok) return false;
+    }
+    strokes.clearAll();
+    packTeams = teams;
+    autoPaper(paperFor(Object.assign({ level }, choice)));
+    C.applyDeck(cls, { source: Object.assign({}, choice.source, { title }), kind: choice.kind, tasks, mode: choice.mode, order: choice.order, seed, lang: choice.lang || 'en' },
+      { teams, timer: choice.timer });
+    timer.set(cls.timer.mode, cls.timer.total);
+    lastRun = false;
+    paintPapers();
+    relayout();
+    refresh();
+    return true;
+  }
+
+  async function openDeck() {
+    closeSheets();
+    const choice = await openDeckDialog({ sheets, lesson: lesson ? { title: lesson.title } : null, prefill: lastPrefill });
+    if (!choice) return;
+    lastPrefill = { subject: choice.subject, packId: choice.source.id, kind: choice.kind === 'math' ? 'write' : choice.kind, grade: choice.grade, mathType: choice.mathType, difficulty: choice.difficulty, lang: choice.lang, mode: choice.mode, order: choice.order, count: choice.count, timer: choice.timer };
+    await loadChoice(choice);
+  }
+  let lastPrefill = null;
+  function closeSheets() { sheets.close(); }
+
+  /* ----- tham số URL (B.v) và link bài (#L=) ----- */
+  async function start() {
+    if (location.hash.indexOf('#L=') === 0) {
+      try {
+        const m = await import('./lesson.js');
+        const r = await m.readLessonFromHash();
+        if (r) lesson = r;
+      } catch (e) { ui.toast('Link bài hỏng hoặc bị cắt.', 4000); }
+    }
+    const src = q.get('src');
+    if (!src) return;
+    const ch = await choiceFromParams(q);
+    if (!ch) {
+      if (src === 'lesson' && lesson) { lastPrefill = { subject: 'en', packId: 'lesson' }; await openDeck(); }
+      return;
+    }
+    await loadChoice(ch);
+  }
+  async function choiceFromParams(p) {
+    const src = p.get('src') || '';
+    const num = (k, lo, hi, d) => { const v = parseInt(p.get(k), 10); return v >= lo && v <= hi ? v : d; };
+    const mode = p.get('mode') === 'split' ? 'split' : 'common';
+    let tm = TIMER_PARAM[p.get('timer')];
+    if (!tm) tm = mode === 'split' ? ['off', 0] : ['down', 60];
+    const base = { mode, order: p.get('order') === 'rand' ? 'rand' : 'seq', count: num('n', 1, 50, 10), timer: { mode: tm[0], total: tm[1] || 60 }, paper: p.get('paper') || '', seed: parseInt(p.get('seed'), 10) || 0, difficulty: num('d', 1, 3, 2) };
+    if (src === 'math') {
+      const grade = num('grade', 1, 12, 3);
+      let mt = p.get('type') || '';
+      try { const m = await import('./math/gen.js'); if (!m.MATH_TYPES[grade].some((x) => x.type === mt)) mt = m.MATH_TYPES[grade][0].type; } catch (e) { return null; }
+      return Object.assign(base, { subject: 'math', source: { type: 'math', id: 'math-' + grade, title: 'Toán lớp ' + grade }, kind: 'math', grade, mathType: mt, lang: p.get('lang') === 'en' ? 'en' : 'vi' });
+    }
+    const kind = KINDS.indexOf(p.get('kind')) >= 0 ? p.get('kind') : null;
+    if (src === 'lesson') {
+      if (!lesson || !kind) return null;
+      return Object.assign(base, { subject: 'en', source: { type: 'lesson', id: 'lesson', title: lesson.title }, kind });
+    }
+    if (src.indexOf('lib:') === 0) {
+      const id = src.slice(4);
+      if (!/^[a-z0-9-]+$/.test(id)) return null;
+      return Object.assign(base, { subject: 'en', source: { type: 'lib', id, title: '' }, kind: kind || 'write' });
+    }
+    return null;
+  }
+
+  /* ----- API cho main.js ----- */
+  const api = {
+    bandH: (s, stageH) => bandHeight(s, stageH, C.hasDeck(cls)),
+    layout(g) {   // g = { bands, writes, top, s, W }
+      curG = g;
+      const n = board.zones.length;
+      document.documentElement.classList.toggle('cb-compact', g.W < 1400);
+      document.documentElement.style.setProperty('--band-h', (g.bands[0] ? g.bands[0].h : 0) + 'px');   // toast / banner nằm dưới dải đề
+      cards.layout({ bands: g.bands, writes: g.writes, top: g.top, s: g.s, fm: fontMax(n, g.s), n });
+      buildPapers(g);
+      refresh();
+    },
+    hasDeck: () => C.hasDeck(cls),
+    isLocked: (zid) => C.isLocked(cls, zid),
+    lockedTouch(zid) {
+      const now = Date.now();
+      if (cls.hidden && now - lastLockToast > 2500) { lastLockToast = now; ui.toast('Bấm Bắt đầu để mở đề.', 2000); }
+    },
+    // đổi số vùng (main đã dựng lại board.zones): đặt lại điểm, chia lại câu
+    zoneCount(n) { C.setZoneCount(cls, n); timer.reset(); lastRun = false; closeSheets(); cards.closeZoom(); },
+    start,
+    escape() { if (sheets.isOpen()) { sheets.close(); return true; } if (cards.closeZoom()) return true; return bar.closePop(); },
+    closeSheets,
+    cls: () => cls,
+    loadChoice, refresh,
+  };
+  if (test) window.__v2 = { state: () => C.toJSON(cls), load: loadChoice, cls: () => cls, bandH: () => (curG && curG.bands[0] ? curG.bands[0].h : 0), timer: () => timer.state() };
+  return api;
+}

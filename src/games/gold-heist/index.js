@@ -2,6 +2,8 @@
 import './style.css';
 import { gsap } from 'gsap';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { getQuestions, shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
@@ -264,7 +266,7 @@ function createGame(root, pack) {
     setStage(resultsScreen({ title: tie ? "It's a tie" : `${ranking[0].name} team wins`, ranking, unit: ' gold', onReplay: showSetup }));
     playSound('win');
     speak(tie ? line('tie') : line('teamWins', { team: ranking[0].name }));
-    confetti({ particleCount: 160, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
+    confetti({ particleCount: Math.round(160 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
   showSetup();

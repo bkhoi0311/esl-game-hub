@@ -104,6 +104,7 @@ export function createInput({ el, board, getScale, render, diag, hooks, ink, pal
     if (active.size >= MAX_LIVE) return;
     const zr = zoneAt(rects(), e.clientX, e.clientY);
     const zone = board.zones[zr.id - 1];
+    if (hooks.isLocked && hooks.isLocked(zone.id)) { hooks.lockedTouch(zone.id); return; }   // v2: vùng bị khoá (hết giờ / chờ Bắt đầu)
     if (hooks.closeTray(zone.id)) return; // chạm này chỉ để đóng khay
     diag.down(e);
     try { el.setPointerCapture(e.pointerId); } catch (_) { /* pointer giả không bắt được */ }

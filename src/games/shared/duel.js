@@ -2,6 +2,8 @@
 // mỗi nửa nhận Pointer Events riêng (2 người chạm cùng lúc không chặn nhau), đồng hồ chung, xếp hạng cuối.
 import './duel.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
   TEAM_COLORS, createCountdown, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
@@ -140,7 +142,7 @@ export function createDuelGame(root, pack, game) {
     setStage(resultsScreen({ title: tie ? "It's a tie" : `${ranking[0].name} wins`, ranking, unit: ' pts', onReplay: showSetup }));
     playSound('win');
     speak(tie ? "It's a tie!" : `${ranking[0].name} wins!`);
-    confetti({ particleCount: 170, spread: 100, origin: { x: tie ? 0.5 : ranking[0].index ? 0.75 : 0.25, y: 0.6 }, disableForReducedMotion: true });
+    confetti({ particleCount: Math.round(170 * PERF.confetti), spread: 100, origin: { x: tie ? 0.5 : ranking[0].index ? 0.75 : 0.25, y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
   showSetup();

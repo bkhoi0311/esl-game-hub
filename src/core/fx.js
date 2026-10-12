@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import confetti from 'canvas-confetti';
 import { bus, reducedMotion } from './events.js';
 import { playSound } from './audio.js';
+import { PERF } from './perf.js';
 
 const COLORS = ['#ffd23f', '#04bc09', '#00a2fd', '#fd3cc6', '#ff9800', '#bbee23'];
 const SHAPES = {
@@ -31,7 +32,7 @@ export function centerOf(el) {
 export function burst(at, { count = 16, shapes = ['star', 'dot', 'heart'], colors = COLORS, spread = 1 } = {}) {
   const { x, y } = at instanceof Element ? centerOf(at) : at;
   const calm = reducedMotion();
-  const n = calm ? Math.min(6, count) : count;
+  const n = calm ? Math.min(6, count) : PERF.name === 'lite' ? Math.min(8, count) : count;
   const unit = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
   const host = fxLayer();
   for (let i = 0; i < n; i++) {
@@ -88,9 +89,14 @@ export function shake(el) {
   gsap.to(el, { keyframes: { x: [0, 8, -7, 5, -3, 1, 0].map((v) => v * unit) }, duration: 0.36, ease: 'none', overwrite: 'auto', onComplete: () => gsap.set(el, { clearProps: 'x' }) });
 }
 
+// Hồ sơ lite: pháo giấy ngắn và hạt to hơn (ít hạt hơn nhưng vẫn thấy rõ).
+export function confettiLite() {
+  return PERF.name === 'lite' ? { ticks: 120, scalar: 1.2 } : {};
+}
+
 // Bắn pháo giấy (chỉ dùng cho khoảnh khắc lớn: thắng, xong màn).
 export function celebrate(origin = { x: 0.5, y: 0.6 }) {
-  confetti({ particleCount: 150, spread: 95, origin, colors: COLORS, disableForReducedMotion: true });
+  confetti({ particleCount: Math.round(150 * PERF.confetti), spread: 95, origin, colors: COLORS, disableForReducedMotion: true, ...confettiLite() });
 }
 
 // Phản hồi nhanh cho 1 lần trả lời: âm thanh (kèm sự kiện cho mascot) + hiệu ứng tại phần tử.

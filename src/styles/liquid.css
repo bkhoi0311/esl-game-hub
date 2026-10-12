@@ -289,3 +289,15 @@ body.perf-cam .cam-video, body.perf-cam .sp-overlay, body.perf-cam .sf-overlay {
 .cam-pick[hidden] { display: none; }
 .cam-pick .btn { min-height: max(3.4rem, 52px); padding: 0 1.2rem; }
 .cam-pick .btn[aria-pressed='true'] { background: #fff; border-color: var(--lg-tint); box-shadow: 0 0 0 0.18rem color-mix(in srgb, var(--lg-tint) 45%, transparent), var(--edge); color: var(--lg-text); }
+
+/* ---------- Hồ sơ nhẹ (html.no-glass / html.perf-lite, src/core/perf.js) ----------
+   Kính (backdrop-filter, khúc xạ SVG) tính lại mỗi khung khi nền phía sau chuyển động: nền đặc thay kính. */
+html.no-glass :is(.app-header, .game-bar, .group-tabs, .pause-pill, .modal, .toast, .pause-layer, .pause-text, .badge-camera, .modal-overlay, .card-panel, .drop-overlay) {
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+html.no-glass :is(.app-header, .game-bar, .group-tabs, .modal, .pause-text) { background: rgba(255, 255, 255, 0.97) !important; }
+html.no-glass .card-panel { background: rgba(255, 255, 255, 0.9); }
+html.no-glass .toast { background: rgba(28, 28, 30, 0.94) !important; }
+html.no-glass .pause-layer { background: rgba(0, 0, 0, 0.45) !important; }
+html.no-glass .badge-camera { background: #1d6ff2; }
+/* Hiệu ứng vào màn (opacity + scale trên phần tử có bóng lớn) làm vẽ lại cả vùng: bỏ; menu có 1 lớp fade riêng. Modal/toast giữ pop-in nhỏ. */
+html.perf-lite :is(.app-header, .group-tabs, body.framed .game-bar, .setup-card, .app-main > *) { animation: none !important; }

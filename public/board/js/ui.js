@@ -354,14 +354,19 @@ export function createUI({ board, brand, actions, getS }) {
     const logo = brand.wordmark ? (brand.logo ? '<img class="logo-img info-logo" src="./assets/classin-logo.png" alt="ClassIn">' : '<span class="brand-word">ClassIn</span>') : '';
     const card = h('div', 'pane pane--sheet sheet sheet--info', null, { 'data-testid': 'info-panel', role: 'dialog', 'aria-modal': 'true' });
     card.innerHTML =
-      '<div class="info-head">' + logo + '<h2 class="sheet-title">Bảng nhiều người viết <span class="ver">v0.1</span></h2></div>' +
+      '<div class="info-head">' + logo + '<h2 class="sheet-title">Bảng nhiều người viết <span class="ver">v0.2</span></h2></div>' +
       '<p class="sheet-body">Dành cho ClassIn X. Công cụ bổ trợ do ClassIn Việt Nam thử nghiệm, không phải tính năng chính thức của ClassIn.</p>' +
-      '<h3>Cách dùng</h3><ul><li>Mỗi vùng có thanh công cụ riêng ở dưới. Nhiều người viết cùng lúc được.</li>' +
-      '<li>Bấm Bút lần nữa để chọn màu và cỡ nét.</li>' +
-      '<li>Tẩy xoá cả nét chạm vào. Hoàn tác chỉ tác động vùng của mình.</li></ul>' +
+      '<div class="info-cols"><div><h3>Cách dùng</h3><ul><li>Mỗi vùng có thanh công cụ riêng ở dưới. Nhiều người viết cùng lúc được. Bấm Bút lần nữa để chọn màu và cỡ nét.</li>' +
+      '<li>Bấm Chọn đề để lấy câu hỏi từ thư viện, từ bài soạn trong Hub hoặc đề Toán lớp 1 đến 12. Đề hiện ở đầu mỗi vùng.</li>' +
+      '<li>Đề chung: mọi vùng cùng một câu. Chia câu: mỗi vùng một câu, có nút ‹ › riêng.</li>' +
+      '<li>Bấm Đáp án rồi chấm ✓ ✗ cho từng vùng. Điểm xem bảng điểm. Lượt mới xoá nét, giữ điểm và sang câu kế.</li>' +
+      '<li>Đồng hồ đếm ngược hoặc bấm giờ; hết giờ các vùng bị khoá. Nền viết: 4 dòng, ô li, lưới, trục toạ độ.</li></ul></div>' +
+      '<div><h3>Nguồn đề</h3><ul><li>Gói thư viện là chủ đề tự soạn, không theo sách giáo khoa nào. Đề Toán do máy sinh theo luật, giáo viên nên xem lại trước giờ học.</li>' +
+      '<li>Đề tự soạn trong Hub là trách nhiệm của giáo viên. Muốn dùng đề riêng: soạn trên laptop rồi bấm Lưu .edu cho Bảng nhiều người viết.</li></ul>' +
       '<h3>Nếu chỉ 1 người viết được</h3><p class="sheet-body">Mở địa chỉ dưới đây bằng Edge hoặc Chrome trên Windows của màn hình:</p><p class="info-url"></p>' +
-      '<h3>Quyền riêng tư</h3><ul><li>Trang không gửi dữ liệu đi đâu và không lưu gì. Nét vẽ mất khi đóng cửa sổ.</li>' +
-      '<li>ClassIn tự gắn mã trường, mã lớp vào địa chỉ trang. Máy chủ lưu trang (GitHub Pages) có thể ghi nhận địa chỉ này trong nhật ký truy cập. File .edu đã tắt gửi mã người dùng, tên và vai trò.</li></ul>' +
+      '<h3>Quyền riêng tư</h3><ul><li>Trang không gửi dữ liệu đi đâu. Nét vẽ mất khi đóng cửa sổ. Đề, điểm, tên đội chỉ nằm trong cửa sổ này (bộ nhớ phiên).</li>' +
+      '<li>Link bài từ Hub chứa toàn bộ bài: không ghi tên học sinh vào bài.</li>' +
+      '<li>ClassIn tự gắn mã trường, mã lớp vào địa chỉ trang. Máy chủ lưu trang (GitHub Pages) có thể ghi nhận địa chỉ này trong nhật ký truy cập. File .edu đã tắt gửi mã người dùng, tên và vai trò.</li></ul></div></div>' +
       '<div class="sheet-actions"></div>';
     $('.info-url', card).textContent = url;
     const x = h('button', 'sbtn sbtn--primary', 'Đóng', { type: 'button', 'data-testid': 'info-close' });

@@ -2,6 +2,7 @@
 // Tâm trạng: idle, happy, sad, wow, think. Tự chớp mắt, thở nhẹ; reo khi đúng, buồn khi sai (nghe kênh sự kiện).
 import { gsap } from 'gsap';
 import { bus, reducedMotion } from './events.js';
+import { PERF } from './perf.js';
 
 const INK = '#1c1f25';
 
@@ -90,7 +91,9 @@ export function createMascot({ size = '6rem', mood = 'idle', react = true, bubbl
   };
   render(mood);
 
-  const idle = calm ? null : gsap.to(body, { scaleY: 0.97, scaleX: 1.02, y: 2, transformOrigin: '50% 100%', duration: 1.1, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+  // Hồ sơ lite (ClassIn X): không "thở" lặp vô hạn (giữ giao diện đứng yên), chớp mắt thưa. wave/cheer/sad/wow vẫn chạy khi có sự kiện.
+  const loop = PERF.idle && !calm;
+  const idle = !loop ? null : gsap.to(body, { scaleY: 0.97, scaleX: 1.02, y: 2, transformOrigin: '50% 100%', duration: 1.1, yoyo: true, repeat: -1, ease: 'sine.inOut' });
 
   const blink = () => {
     const b = body.querySelector('.m-blink');
@@ -103,7 +106,7 @@ export function createMascot({ size = '6rem', mood = 'idle', react = true, bubbl
         b.setAttribute('opacity', '0');
       }, 140);
     }
-    blinkTimer = setTimeout(blink, 2200 + Math.random() * 2600);
+    blinkTimer = setTimeout(blink, loop ? 2200 + Math.random() * 2600 : 6000 + Math.random() * 3000);
   };
   blinkTimer = setTimeout(blink, 1500);
 

@@ -3,7 +3,7 @@
 // xem video hướng dẫn, khôi phục nội dung mẫu.
 import {
   LIMITS, getPack, lessonLink, normalizePack, resetToSample, saveEduFile,
-  setPack, validatePack,
+  setPack, validatePack, encodeLesson, eduFileText, downloadFile, fileSlug,
 } from './content.js';
 import { speak } from './audio.js';
 import { openGuide } from './guide.js';
@@ -57,7 +57,27 @@ async function openLinkModal(pack) {
       toast('Không lưu được file .edu.', 'error');
     }
   };
-  const long = url.length > 2000;
+  // v2: link riêng cho Bảng nhiều người viết (bài đi theo phần sau dấu #, không gửi lên máy chủ)
+  let boardUrl = '';
+  try {
+    boardUrl = new URL('board/?zones=3&src=lesson', location.href.split('#')[0]).href + '#L=' + await encodeLesson(pack);
+  } catch (err) {
+    console.error(err);
+  }
+  const saveBoardEdu = () => {
+    try {
+      const title = titleInput.value.trim() || pack.title || 'ESL Game Hub';
+      const o = JSON.parse(eduFileText({ url: boardUrl, title: title + ' – Bảng', authorizedOnly: who.value === 'true' }));
+      Object.assign(o, { uid: false, identity: false, nickname: false, size: '1280x720,960x540' });
+      const name = `${fileSlug({ title })}-bang.edu`;
+      downloadFile(name, JSON.stringify(o, null, 1).replace(/\n/g, '\r\n'), 'application/octet-stream');
+      toast(`Đã lưu ${name}. Tải file này lên Cloud Drive ClassIn.`, 'success', 5000);
+    } catch (err) {
+      console.error(err);
+      toast('Không lưu được file .edu cho Bảng.', 'error');
+    }
+  };
+  const long = url.length > 2000 || boardUrl.length > 2000;
   openModal({
     title: 'Lưu bài cho ClassIn (.edu)',
     wide: true,
@@ -77,8 +97,10 @@ async function openLinkModal(pack) {
     actions: [
       { label: 'Mở thử', iconName: 'external', onClick: () => { window.open(url, '_blank', 'noopener'); return false; } },
       { label: 'Sao chép link', iconName: 'copy', onClick: () => { copy(); return false; } },
+      boardUrl ? { label: 'Mở thử trên Bảng', iconName: 'external', attrs: { 'data-testid': 'open-board' }, onClick: () => { window.open(boardUrl, '_blank', 'noopener'); return false; } } : null,
+      boardUrl ? { label: 'Lưu .edu cho Bảng nhiều người viết', iconName: 'download', attrs: { 'data-testid': 'save-edu-board' }, onClick: () => { saveBoardEdu(); return false; } } : null,
       { label: 'Lưu file .edu', iconName: 'download', variant: 'primary', attrs: { 'data-testid': 'save-edu' }, onClick: () => { saveEdu(); return false; } },
-    ],
+    ].filter(Boolean),
   });
 }
 

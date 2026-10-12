@@ -95,6 +95,7 @@ const THEMES = {
 
 // Hạt lấp lánh / bong bóng nhỏ trôi từ dưới lên, lặp mãi (CSS .w-float trong motion.css).
 function floaters(key) {
+  if (document.documentElement.classList.contains('no-loop')) return ''; // hồ sơ lite: bớt 16 nút SVG đứng yên
   const night = key === 'night';
   return Array.from({ length: 16 }, (_, i) => {
     const x = ((i * 397) % (W - 60)) + 30;

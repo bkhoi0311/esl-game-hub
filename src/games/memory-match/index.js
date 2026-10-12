@@ -2,6 +2,8 @@
 // 2-4 đội thay phiên trên cùng bảng. Máy đọc từ khi tìm được cặp.
 import './style.css';
 import confetti from 'canvas-confetti';
+import { PERF } from '../../core/perf.js';
+import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
   TEAM_COLORS, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen,
@@ -134,7 +136,7 @@ function createGame(root, pack) {
     setStage(resultsScreen({ title: tie ? "It's a tie" : `${ranking[0].name} team wins`, ranking, unit: ' pairs', onReplay: showSetup }));
     playSound('win');
     speak(tie ? line('tie') : line('teamWins', { team: ranking[0].name }));
-    confetti({ particleCount: 160, spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true });
+    confetti({ particleCount: Math.round(160 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
   showSetup();

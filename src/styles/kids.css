@@ -256,3 +256,10 @@ body.fluid .cam-ways { grid-template-columns: 1fr; }
 .fx-rays { position: absolute; inset: -6rem 6rem; border-radius: 50%; background: repeating-conic-gradient(rgba(255, 214, 64, 0.55) 0 10deg, rgba(255, 214, 64, 0) 10deg 20deg); -webkit-mask: radial-gradient(circle, #000 20%, transparent 70%); mask: radial-gradient(circle, #000 20%, transparent 70%); }
 .fx-streak-text { position: relative; display: flex; font-size: 6rem; font-weight: 800; line-height: 1; color: #ff7a00; -webkit-text-stroke: 0.35rem #fff; paint-order: stroke fill; filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25)); }
 .fx-streak-text b { display: inline-block; }
+
+/* ---------- Hồ sơ nhẹ (html.no-loop, src/core/perf.js): giao diện đứng yên khi không ai chạm ----------
+   Mỗi khung có thay đổi buộc ClassIn X (CEF OSR) chép lại vùng hỏng theo điểm ảnh vật lý. Chỉ dừng chuyển động LẶP VÔ HẠN
+   của phần trang trí; chuyển động chạy 1 lần (mo-pop-in, rung khi sai...) và vòng đếm ngược cảnh báo được giữ. */
+html.no-loop .world *, html.no-loop .w-float, html.no-loop .card-pic img, html.no-loop .menu-sign, html.no-loop .card-go,
+html.no-loop .game-card, html.no-loop .gh-chest-art, html.no-loop .wn-heart, html.no-loop .ttt-cell, html.no-loop .ttt-num, html.no-loop .ht-arrow,
+html.no-loop .gs-mark::after, html.no-loop .gs-warn, html.no-loop .setup-card h2 .game-art.has-pic img { animation: none !important; }
