@@ -144,13 +144,14 @@ t('C14', 'A', async () => {
   const files = [];
   const walk = (d) => { for (const n of readdirSync(d)) { const p = path.join(d, n); statSync(p).isDirectory() ? walk(p) : p.endsWith('.edu') && files.push(p); } };
   walk(path.join(ROOT, 'public'));
-  ok(files.length >= 5, 'số file .edu: ' + files.length);
+  ok(files.length >= 4, 'số file .edu: ' + files.length);
   const J = {};
   for (const f of files) J[path.basename(f)] = JSON.parse(readFileSync(f, 'utf8'));
   eq(JSON.stringify(J['ESL-Game-Hub-2-phan.edu']), JSON.stringify({ url: 'https://bkhoi0311.github.io/esl-game-hub/', uid: false, nickname: false, identity: false, title: 'ESL Game Hub va Bang viet', size: '1280x720,960x540', classin_authority: false }), 'edu mới');
   const board = (z) => ({ url: `https://bkhoi0311.github.io/esl-game-hub/board/?zones=${z}`, uid: false, nickname: false, identity: false, title: 'Bang nhieu nguoi viet', size: '1280x720,960x540', classin_authority: false });
-  eq(JSON.stringify(J['Bang-nhieu-nguoi-viet-2-vung.edu']), JSON.stringify(board(2)), 'edu bảng 2');
-  eq(JSON.stringify(J['Bang-nhieu-nguoi-viet-4-vung.edu']), JSON.stringify(board(4)), 'edu bảng 4');
+  // PLAN-INK 1.4: đúng MỘT file .edu cho bảng (số vùng đổi ngay trong trang), không còn file perf/2-vung/4-vung
+  eq(JSON.stringify(J['Bang-nhieu-nguoi-viet.edu']), JSON.stringify(board(2)), 'edu bảng');
+  eq(Object.keys(J).filter((n) => /^Bang-/.test(n)).join(','), 'Bang-nhieu-nguoi-viet.edu', 'chỉ một file .edu của bảng');
   ok(J['Test-da-diem-cham.edu'] && J['Kiem-tra-camera.edu'], 'thiếu edu touch/camera');
 });
 

@@ -2,41 +2,32 @@
 import { BRAND } from './brand.js';
 import { calcScale, topHeight, computeZones, parseZones } from './layout.js';
 import { createBoard, setZoneRects, clearZone, undo } from './strokes.js';
-import { createRenderer } from './render.js';
 import { createTiledRenderer } from './render-tiles.js';
-import { parseProfile, profileText } from './perf.js';
+import { INK, parseInkOverrides, inkText } from './ink.js';
 import { createInput } from './input.js';
 import { createPalmFilter, parsePalmMode } from './palm.js';
 import { createDiag } from './diag.js';
-import { createGlass } from './glass.js';
 import { createUI } from './ui.js';
 
 const root = document.documentElement;
 const q = new URLSearchParams(location.search);
 const TEST = q.get('test') === '1';
 const PALM = createPalmFilter({ mode: parsePalmMode(location.search), ua: navigator.userAgent });
-const PERF = parseProfile(location.search, navigator.userAgent);
-if (PERF.calm) root.classList.add('perf-calm');
+const INKO = parseInkOverrides(location.search);   // chỉ có khoá khi test=1
 
-// 1. thương hiệu + kính (trước khi hiện giao diện, tránh nháy)
+// 1. thương hiệu (trước khi hiện giao diện, tránh nháy). Kính tắt hẳn: <html class="glass-lite perf-calm"> có sẵn trong index.html
 const brand = Object.assign({}, BRAND);
 if (TEST && q.get('brand') === 'text') brand.logo = false;
 if (TEST && q.get('brand') === 'neutral') brand.wordmark = false;
 root.style.setProperty('--accent', brand.accent);
 root.style.setProperty('--accent-hover', brand.accentHover);
 root.classList.add(!brand.wordmark ? 'brand-neutral' : brand.logo ? 'brand-logo' : 'brand-text');
-const glass = createGlass(location.search, PERF);
 
 // 2. dữ liệu + module
 const board = createBoard(parseZones(q.get('zones')));
 let S = 1, TOPH = 56, lastKey = '';
 
-const makeRenderer = PERF.renderer === 'tiles' ? createTiledRenderer : createRenderer;
-const renderer = makeRenderer({
-  board, ink: document.getElementById('ink'), live: document.getElementById('live'),
-  stage: document.getElementById('stage'), perf: PERF,
-  onWindow: (st) => glass.onWindow(st),
-});
+const renderer = createTiledRenderer({ board, stage: document.getElementById('stage'), ink: INKO });
 
 let ui;
 const actions = {
@@ -93,10 +84,10 @@ const diag = createDiag({
   getInfo: () => ({
     perf: renderer.perf(), k: renderer.k, canvas: renderer.canvasSize(), dpr: window.devicePixelRatio,
     maxTouchPoints: navigator.maxTouchPoints, W: innerWidth, H: innerHeight, s: S,
-    glassText: glass.text(), search: location.search, ua: navigator.userAgent,
-    profile: profileText(PERF), perfName: PERF.name, canvasInfo: renderer.canvasInfo(), counters: renderer.counters(),
+    search: location.search, ua: navigator.userAgent,
+    inkText: inkText(renderer.k, INKO), canvasInfo: renderer.canvasInfo(), counters: renderer.counters(),
     physW: Math.round(innerWidth * (window.devicePixelRatio || 1)), physH: Math.round(innerHeight * (window.devicePixelRatio || 1)),
-    calm: !!PERF.calm, palm: PALM.state(),
+    palm: PALM.state(),
   }),
   onReset: () => renderer.resetPerf(),
 });
@@ -124,7 +115,7 @@ const hooks = {
 };
 
 const input = createInput({
-  el: document.getElementById('input-layer'), board, getScale: () => S, render: renderer, diag, hooks, perf: PERF, palm: PALM,
+  el: document.getElementById('input-layer'), board, getScale: () => S, render: renderer, diag, hooks, ink: INKO, palm: PALM,
 });
 
 // 3. bố cục
@@ -161,9 +152,8 @@ if (TEST) {
         })),
         active: input.activeCount(), maxSimul: diag.st.maxSimul, cancels: diag.st.cancels,
         warning: ui.bannerVisible(), hudOpen: diag.isOpen(), s: S, k: renderer.k,
-        glass: glass.state.mode, glassReason: glass.state.reason,
         brand: { logo: brand.logo, wordmark: brand.wordmark },
-        palm: PALM.state(), profile: PERF.name, profileSource: PERF.source, renderer: PERF.renderer, perfOverrides: PERF.overrides.slice(),
+        palm: PALM.state(), ink: { k: renderer.k, tile: INK.TILE, filter: !INKO.raw, raw: !!INKO.raw },
       };
     },
     lastStroke(zoneId) {
@@ -181,7 +171,6 @@ if (TEST) {
     pixelAt: (x, y) => renderer.pixelAt(x, y),
     redrawAll: () => renderer.markDirty(),
     canvasInfo: () => renderer.canvasInfo(),
-    liveNonEmpty: () => (renderer.liveNonEmpty ? renderer.liveNonEmpty() : false),
     fillZone: (zid, n) => {
       const z = board.zones[zid - 1];
       for (let i = 0; i < n; i++) z.strokes.push({ id: -i - 1, zone: zid, color: '#FFFFFF', size: 2, pts: [10, 10, 0.5, 11, 11, 0.5], realPressure: false, bbox: { minX: 10, minY: 10, maxX: 11, maxY: 11 }, done: true, path: null });

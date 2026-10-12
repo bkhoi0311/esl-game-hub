@@ -43,21 +43,22 @@ export function beginStroke(zone, opts) {
     id: strokeSeq++, zone: zone.id, color: opts.color || zone.color, size: opts.size || zone.size,
     pts: [], realPressure: false,
     bbox: { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity },
-    done: false, path: null,
+    done: false, path: null, cum: null, contStart: false, contEnd: false,
   };
 }
 
 const FAKE_PRESSURE = [0, 0.5, 1];
 
 // Thêm điểm; bỏ điểm cách điểm trước < MIN_STEP. Trả true nếu đã thêm.
-export function addPoint(stroke, ux, uy, p, isPen, minStep) {
+// Ô thứ 3 của điểm = hệ số độ dày wf (PLAN-INK); không truyền wf thì giữ hành vi cũ (áp lực).
+export function addPoint(stroke, ux, uy, p, isPen, minStep, wf) {
   const n = stroke.pts.length;
   if (n >= 3) {
     const ms = minStep > 0 ? minStep : MIN_STEP;
     const dx = ux - stroke.pts[n - 3], dy = uy - stroke.pts[n - 2];
     if (dx * dx + dy * dy < ms * ms) return false;
   }
-  const pr = p > 0 ? p : 0.5;
+  const pr = wf > 0 ? wf : (p > 0 ? p : 0.5);
   stroke.pts.push(ux, uy, pr);
   if (isPen && FAKE_PRESSURE.indexOf(p) === -1 && p > 0) stroke.realPressure = true;
   const b = stroke.bbox;
@@ -69,16 +70,18 @@ export function addPoint(stroke, ux, uy, p, isPen, minStep) {
 }
 
 // Thêm điểm, tự tách nét khi quá MAX_PTS. Trả { stroke: nét đang vẽ, finished: nét vừa kết thúc | null }.
-export function addPointSplit(zone, stroke, ux, uy, p, isPen, maxPts, minStep) {
+export function addPointSplit(zone, stroke, ux, uy, p, isPen, maxPts, minStep, wf) {
   const mp = maxPts > 0 ? maxPts : MAX_PTS;
-  const added = addPoint(stroke, ux, uy, p, isPen, minStep);
+  const added = addPoint(stroke, ux, uy, p, isPen, minStep, wf);
   if (added && stroke.pts.length / 3 >= mp) {
     const n = stroke.pts.length;
     const lx = stroke.pts[n - 3], ly = stroke.pts[n - 2], lp = stroke.pts[n - 1];
+    stroke.contEnd = true;                      // chỗ nối: không thon cuối
     const finished = endStroke(zone, stroke);
     const next = beginStroke(zone, { color: stroke.color, size: stroke.size });
     next.realPressure = stroke.realPressure;
-    addPoint(next, lx, ly, lp, false, minStep);
+    next.contStart = true;                      // và không thon đầu
+    addPoint(next, lx, ly, lp, false, minStep, lp);
     return { stroke: next, finished };
   }
   return { stroke, finished: null };

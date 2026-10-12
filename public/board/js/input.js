@@ -6,6 +6,7 @@ import {
 } from './strokes.js';
 
 import { PALM_MIN, createPalmFilter } from './palm.js';
+import { INK, createPointFilter, widthFromSpeed } from './ink.js';
 export { PALM_MIN };
 export const MAX_LIVE = 10;      // trần số nét đang vẽ toàn bảng
 export const STALE_MS = 2000;    // pointer không có sự kiện quá lâu thì tự lưu và bỏ
@@ -16,9 +17,11 @@ export function isPalm(e) {
   return e.pointerType === 'touch' && Math.max(e.width || 0, e.height || 0) >= PALM_MIN;
 }
 
-export function createInput({ el, board, getScale, render, diag, hooks, perf, palm }) {
+export function createInput({ el, board, getScale, render, diag, hooks, ink, palm }) {
   const palmF = palm || createPalmFilter({ mode: 'auto', ua: '' });
-  const P = perf || {};
+  const RAW = !!(ink && ink.raw);
+  const MIN_STEP = INK.MIN_STEP;
+  const LIVE_PTS = (ink && ink.livepts) || INK.LIVE_PTS;
   const active = new Map(); // pointerId -> {kind:'draw'|'erase', zone, stroke|session, type, lastT}
 
   const rects = () => board.zones.map((z) => ({ id: z.id, ...z.rect }));
@@ -36,13 +39,36 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf, pa
     render.setRing(id, z, x, y, rCss);
   }
 
-  function drawPoint(a, id, x, y, p, isPen, evtT) {
+  // x, y: toạ độ thô (CSS px); tp: thời điểm của chính điểm này; evtT: thời điểm sự kiện cha (đo trễ)
+  function drawPoint(a, id, x, y, p, isPen, tp, evtT) {
     const z = a.zone;
+    a.rx = x; a.ry = y; a.rt = tp;                    // điểm thô cuối, cho kéo đuôi
+    let sp = 0;
+    if (a.f) { const r = a.f.push(x, y, tp); x = r[0]; y = r[1]; sp = r[2]; }
+    let wf = 1;
+    if (!RAW) {
+      if (isPen && p > 0 && p !== 0.5 && p !== 1) wf = INK.PEN_MIN + (1 - INK.PEN_MIN) * p;
+      else { a.w = a.w + INK.SPEED.ema * (widthFromSpeed(sp) - a.w); wf = a.w; }
+    }
     const [ux, uy] = toZoneUnits(z, x, y);
-    const res = addPointSplit(z, a.stroke, ux, uy, p, isPen, P.livePts, P.minStep);
+    const res = addPointSplit(z, a.stroke, ux, uy, p, isPen, LIVE_PTS, MIN_STEP, wf);
     if (res.finished) render.strokeFinished(z, res.finished);
     if (res.stroke !== a.stroke) { a.stroke = res.stroke; }
     render.setLive(id, z, a.stroke, evtT);
+  }
+
+  // Kéo đuôi: bộ lọc đang trễ sau ngón tay; trước khi chốt, đẩy thêm vài điểm về đúng chỗ nhả tay.
+  function catchUp(a, id) {
+    const C = INK.CATCHUP;
+    let t = a.rt;
+    for (let i = 0; i < C.maxIter; i++) {
+      const l = a.f.last();
+      if (!l || Math.hypot(l[0] - a.rx, l[1] - a.ry) < C.eps) break;
+      t += C.stepMs;
+      drawPoint(a, id, a.rx, a.ry, 0, false, t, 0);
+    }
+    const [ux, uy] = toZoneUnits(a.zone, a.rx, a.ry);
+    addPoint(a.stroke, ux, uy, 0, false, MIN_STEP, a.w);   // chạm đúng điểm nhả (bị bỏ nếu < MIN_STEP)
   }
 
   function finish(id, how) {
@@ -56,7 +82,11 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf, pa
       hooks.zoneChanged(a.zone);
       return;
     }
-    render.clearLive(id);
+    if (how === 'up' && a.f) catchUp(a, id);
+    const np = a.stroke.pts.length / 3;
+    // nét sẽ được lưu? (khớp điều kiện bên dưới) => renderer chỉ vẽ lại đuôi thay vì xoá cả hộp
+    const keep = how !== 'drop' && !(how === 'cancel' && np < 2) && np >= 1 && !zoneFull(a.zone);
+    render.clearLive(id, keep);
     if (how === 'drop') return;
     if (how === 'cancel' && a.stroke.pts.length / 3 < 2) return;
     const full = zoneFull(a.zone);
@@ -89,8 +119,11 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf, pa
       a.kind = 'draw';
       a.stroke = beginStroke(zone, { color: zone.color, size: zone.size });
       active.set(e.pointerId, a);
+      a.f = RAW ? null : createPointFilter(INK.FILTER);
+      a.w = 1; a.rx = e.clientX; a.ry = e.clientY; a.rt = e.timeStamp;
+      if (a.f) a.f.push(e.clientX, e.clientY, e.timeStamp);
       const [ux, uy] = toZoneUnits(zone, e.clientX, e.clientY);
-      addPoint(a.stroke, ux, uy, e.pressure, e.pointerType === 'pen', P.minStep);
+      addPoint(a.stroke, ux, uy, e.pressure, e.pointerType === 'pen', MIN_STEP, 1);
       render.setLive(e.pointerId, zone, a.stroke, e.timeStamp);
     }
     diag.setActive(active.size);
@@ -104,23 +137,22 @@ export function createInput({ el, board, getScale, render, diag, hooks, perf, pa
     diag.note(e);
     if (palmF.isPalm(e)) { finish(e.pointerId, 'drop'); diag.log('huỷ nét: lòng bàn tay'); return; }
     const t0 = performance.now();
-    const list = (P.coal !== false && e.getCoalescedEvents) ? e.getCoalescedEvents() : [];
+    const list = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
     const pts = list.length ? list : [e];
     const isPen = e.pointerType === 'pen';
     for (const p of pts) {
       if (a.kind === 'erase') eraseHere(a, e.pointerId, p.clientX, p.clientY);
-      else drawPoint(a, e.pointerId, p.clientX, p.clientY, p.pressure, isPen, e.timeStamp);
-    }
-    if (P.predict && a.kind === 'draw' && e.getPredictedEvents && render.setPredict) {
-      const pr = e.getPredictedEvents();
-      const last = pr.length ? pr[pr.length - 1] : null;
-      render.setPredict(e.pointerId, last ? toZoneUnits(a.zone, last.clientX, last.clientY) : null);
+      else drawPoint(a, e.pointerId, p.clientX, p.clientY, p.pressure, isPen, p.timeStamp || e.timeStamp, e.timeStamp);
     }
     if (diag.moveStat) diag.moveStat(pts.length, performance.now() - t0, t0 - e.timeStamp);
   }
 
   function onUp(e) {
-    if (!active.has(e.pointerId)) return;
+    const a = active.get(e.pointerId);
+    if (!a) return;
+    if (a.kind === 'draw' && a.f && isFinite(e.clientX) && isFinite(e.clientY)) {   // điểm nhả tay (chỉ cập nhật đích kéo đuôi)
+      a.rx = e.clientX; a.ry = e.clientY; if (e.timeStamp > a.rt) a.rt = e.timeStamp;
+    }
     diag.up(e);
     if (active.size >= 2) hooks.onPairUp();
     finish(e.pointerId, 'up');

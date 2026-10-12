@@ -20,7 +20,7 @@ https://<tên-tài-khoản-github>.github.io/esl-game-hub/
 - Mở địa chỉ gốc sẽ thấy **màn chọn 2 phần**: ESL Game Hub và Bảng nhiều người viết.
 - ESL Game Hub nằm ở `#/` (thêm `#/` sau địa chỉ gốc để vào thẳng); bảng nhiều người viết nằm ở `board/`.
 - File `.edu` mới `public/start/edu/ESL-Game-Hub-2-phan.edu` mở màn chọn trong ClassIn.
-- Hai file `.edu` của bảng (`public/board/edu/`) mở thẳng bảng, không qua màn chọn.
+- File `.edu` của bảng `public/board/edu/Bang-nhieu-nguoi-viet.edu` mở thẳng bảng (mặc định 2 vùng, đổi 1–4 vùng ngay trong trang), không qua màn chọn. Mọi trình duyệt chạy cùng một bản; HUD chẩn đoán ẩn, mở bằng bấm 5 lần vào nhãn tiêu đề (hoặc `?debug=1`).
 - Cả app nằm gọn trong 1 khung, tự phóng to theo màn hình. Trên bảng tương tác nên bấm **F11** để xem toàn màn hình.
 - Lần đầu mở game camera AI (Simon Says, Head Tilt, Word Ninja), máy tải model AI khoảng 10 MB, cần Internet. Các lần sau trình duyệt tự lưu.
 

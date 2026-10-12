@@ -1,4 +1,4 @@
-/* Bảng nhiều người viết – giao diện tối, nhận diện ClassIn, kính kiểu Liquid Glass cho phần nổi.
+/* Bảng nhiều người viết – giao diện tối, nhận diện ClassIn, bảng điều khiển nền đặc (không dùng backdrop-filter).
    Chỉ dùng tính năng CSS có từ Chromium 84: tránh các thuộc tính mới hơn (xem mục 4.2 của PLAN). */
 :root {
   --chrome: #0B0B0B;
@@ -15,11 +15,7 @@
   --danger: #FF6961;
   --warning: #FFB340;
   --focus: #0EE516;
-  --glass: rgba(30, 30, 34, .62);
-  --glass-thick: rgba(28, 28, 30, .86);
   --glass-lite: linear-gradient(180deg, #2A2A2E, #1C1C1F);
-  --blur: blur(20px) saturate(180%);
-  --blur-dock: blur(14px) saturate(160%);
   --rim: inset 0 1px .5px rgba(255, 255, 255, .22), inset 0 -1px .5px rgba(255, 255, 255, .06), inset 0 0 0 .5px rgba(255, 255, 255, .14);
   --edge: 0 0 0 .5px rgba(255, 255, 255, .08);
   --lift: 0 2px 6px rgba(0, 0, 0, .4), 0 16px 40px rgba(0, 0, 0, .5);
@@ -53,13 +49,6 @@ button { font-family: inherit; color: inherit; }
 .pane { position: relative; box-shadow: var(--rim), var(--edge), var(--lift); }
 .pane > * { position: relative; }
 .glass-lite .pane { background: var(--glass-lite); -webkit-backdrop-filter: none; backdrop-filter: none; }
-.glass-on .pane { background: var(--glass); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
-.glass-on .pane--dock, .glass-on .pane--tray { -webkit-backdrop-filter: var(--blur-dock); backdrop-filter: var(--blur-dock); }
-.glass-on .pane--sheet { background: var(--glass-thick); }
-.glass-on .pane::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, 0) 42%);
-}
 
 /* ---------- khung trang ---------- */
 #brand-backdrop {
@@ -69,8 +58,6 @@ button { font-family: inherit; color: inherit; }
 #stage, #overlay { position: fixed; top: var(--top-h); left: 0; right: 0; bottom: 0; }
 #stage { z-index: 1; background: var(--board); }
 #overlay { z-index: 5; pointer-events: none; }
-#ink, #live { position: absolute; top: 0; left: 0; display: block; }
-#live { pointer-events: none; }
 #input-layer { position: absolute; top: 0; left: 0; right: 0; bottom: 0; touch-action: none; z-index: 3; }
 #floaters { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 40; }
 #floaters > * { pointer-events: auto; }
@@ -166,6 +153,7 @@ button { font-family: inherit; color: inherit; }
 .segbtn.is-selected.is-pressed { background: var(--accent-hover); }
 @media (hover: hover) {
   .dbtn:hover, .cdot:hover, .sdot:hover, .tbtn:hover, .segbtn:hover { background: rgba(255, 255, 255, .10); }
+  .tbtn--danger:hover { background: rgba(255, 255, 255, .06); }   /* chữ đỏ trên nền hover vẫn đạt tương phản 4,5 */
   .dbtn.is-active:hover, .segbtn.is-selected:hover { background: var(--accent-hover); }
   .sdot.is-selected:hover { background: var(--accent-soft); }
 }
@@ -222,7 +210,7 @@ button { font-family: inherit; color: inherit; }
 .hud-pre { margin: 0; white-space: pre-wrap; word-break: break-all; font: inherit; color: var(--text); }
 .hud-copybox { width: 100%; height: calc(120px * var(--s)); margin-top: 8px; background: #0B0B0B; color: var(--text); border: 1px solid rgba(255, 255, 255, .2); border-radius: 8px; font: inherit; }
 
-/* ---------- chế độ êm cho CEF off-screen (hồ sơ lite/ultra) ---------- */
+/* ---------- chế độ êm cho CEF off-screen (luôn bật: <html class="perf-calm">) ---------- */
 .perf-calm *, .perf-calm *::before, .perf-calm *::after { transition: none !important; animation: none !important; }
 .perf-calm .pane { box-shadow: var(--rim), var(--edge); }
 .perf-calm #stage { contain: strict; }
@@ -238,7 +226,6 @@ button { font-family: inherit; color: inherit; }
 @media (prefers-contrast: more) {
   :root { --text-2: var(--text); --text-3: var(--text); }
   .pane { background: var(--glass-lite) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: inset 0 0 0 1px var(--text); }
-  .pane::before { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .tray { transform: none; transition: opacity 200ms linear; }

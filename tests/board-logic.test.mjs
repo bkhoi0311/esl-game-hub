@@ -173,46 +173,9 @@ test('vùng đầy sau 2000 nét', () => {
   assert.equal(endStroke(z, s), null);
 });
 
-// ---------- PLAN-PERF: hồ sơ hiệu năng (T1) và đoạn làm mượt gia tăng (T5a) ----------
-import { parseProfile, profileText, isClassInUA } from '../public/board/js/perf.js';
+// ---------- PLAN-PERF: đoạn làm mượt gia tăng (T5a) ----------
 import { smoothSegments } from '../public/board/js/strokes.js';
 
-const UA_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0';
-const UA_CLASSIN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ClassIn X/6.0.9.1813 Chrome/109.0.5414.120 Safari/537.36';
-
-test('T1: parseProfile chọn hồ sơ theo UA / tham số và ghi đè từng khoá', () => {
-  assert.equal(isClassInUA(UA_CLASSIN), true);
-  assert.equal(isClassInUA(UA_EDGE), false);
-  let p = parseProfile('', UA_EDGE);
-  assert.equal(p.name, 'full'); assert.equal(p.source, 'default'); assert.equal(p.kCap, 2); assert.equal(p.renderer, 'classic'); assert.equal(p.desync, true);
-  p = parseProfile('?zones=2', UA_CLASSIN);
-  assert.equal(p.name, 'lite'); assert.equal(p.source, 'ua'); assert.equal(p.kCap, 1.25); assert.equal(p.glass, 'off'); assert.equal(p.calm, true);
-  p = parseProfile('?perf=full', UA_CLASSIN);
-  assert.equal(p.name, 'full'); assert.equal(p.source, 'param');
-  p = parseProfile('?perf=ultra&dpr=1.5&final=line', UA_EDGE);
-  assert.equal(p.name, 'ultra'); assert.equal(p.kCap, 1.5); assert.equal(p.final, 'line'); assert.equal(p.renderer, 'tiles');
-  assert.deepEqual(p.overrides.slice().sort(), ['dpr', 'final']);
-  p = parseProfile('?tiles=0', UA_EDGE);
-  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 0);
-  p = parseProfile('?perf=ultra&tiles=0', UA_EDGE);
-  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 0);
-  p = parseProfile('?perf=ultra&inc=0&tiles=128', UA_EDGE);
-  assert.equal(p.renderer, 'classic'); assert.equal(p.tile, 128);
-  p = parseProfile('?perf=full&inc=1', UA_EDGE);
-  assert.equal(p.renderer, 'tiles'); assert.equal(p.tile, 192);
-  p = parseProfile('?perf=lite&dpr=abc', UA_EDGE);
-  assert.equal(p.kCap, 1.25); assert.deepEqual(p.overrides, []);
-  p = parseProfile('?perf=lite&dpr=9&tiles=7&step=99&livepts=5&final=xx', UA_EDGE);
-  assert.equal(p.kCap, 1.25); assert.equal(p.tile, 192); assert.equal(p.minStep, 1.2); assert.equal(p.livePts, 400); assert.deepEqual(p.overrides, []);
-  p = parseProfile('?perf=full&glass=0&desync=0&step=2&livepts=300&calm=1&predict=1&coal=0', UA_EDGE);
-  assert.equal(p.glass, 'off'); assert.equal(p.desync, false); assert.equal(p.minStep, 2); assert.equal(p.livePts, 300);
-  assert.equal(p.calm, true); assert.equal(p.predict, true); assert.equal(p.coal, false);
-  p = parseProfile('?perf=nope', UA_CLASSIN);
-  assert.equal(p.name, 'lite'); assert.equal(p.source, 'ua');
-  const txt = profileText(parseProfile('?dpr=1.5&glass=1', UA_CLASSIN));
-  assert.ok(txt.startsWith('lite (tự nhận ClassIn)')); assert.ok(txt.includes('ghi đè: dpr, glass'));
-  assert.ok(profileText(parseProfile('?perf=ultra', UA_EDGE)).includes('lát 192 px'));
-});
 
 test('T5a: smoothSegments cho 3 điểm trả 2 đoạn, hộp bao đúng, closeTail thêm đoạn cuối', () => {
   const pts = [0, 0, 0.5, 10, 0, 0.5, 10, 10, 0.5];
@@ -290,4 +253,178 @@ test('PALM4: palm=0 / palm=1 ghi đè; parsePalmMode', () => {
 test('PALM5: nút bấm chỉ bỏ qua chạm to >= 3 x ngưỡng', () => {
   assert.equal(isHugePalm(tch(50)), false); assert.equal(isHugePalm(tch(PALM_MIN * 3)), true);
   assert.equal(isHugePalm({ pointerType: 'mouse', width: 500, height: 500 }), false);
+});
+
+// ---------- PLAN-INK: lọc One Euro, độ dày, thon, đo ----------
+import {
+  INK, smoothstep, createPointFilter, widthFromSpeed, cumLengths, taperFactor, pointWidth, widthRuns, tailBox,
+  parseInkOverrides, inkText,
+} from '../public/board/js/ink.js';
+import { genSamples, alphaFromRGBA, lineMetrics, changedFraction, movingAvg } from './ink-metrics.mjs';
+
+function lcg(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+function gaussR(r) { let u = 0; while (u === 0) u = r(); const v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+test('INK1: One Euro – điểm đầu nguyên, độ trễ ổn định, đứng yên hội tụ', () => {
+  const f0 = createPointFilter(INK.FILTER);
+  assert.deepEqual(f0.push(10, 20, 100), [10, 20, 0]);
+  assert.deepEqual(f0.last(), [10, 20]);
+  for (const [v, maxLag] of [[120, 2.6], [600, 4.6], [1200, 5.6]]) {
+    const f = createPointFilter(INK.FILTER);
+    let lag = 0;
+    for (let i = 0; i < 240; i++) {
+      const t = i * 1000 / 120, x = 50 + v * t / 1000;
+      const r = f.push(x, 100, t);
+      lag = x - r[0];
+    }
+    assert.ok(lag > 0 && lag <= maxLag, 'trễ ' + v + ' px/s = ' + lag.toFixed(2) + ' (<= ' + maxLag + ')');
+  }
+  const f = createPointFilter(INK.FILTER);
+  f.push(0, 0, 0);
+  let r;
+  for (let i = 1; i <= 200; i++) r = f.push(30, 40, i * 1000 / 120);
+  assert.ok(Math.hypot(r[0] - 30, r[1] - 40) < 0.01, 'hội tụ: ' + r);
+});
+
+test('INK2: lọc giảm nhiễu >= 2 lần (std vuông góc)', () => {
+  const rg = lcg(99);
+  const f = createPointFilter(INK.FILTER);
+  const raw = [], fil = [];
+  for (let i = 0; i < 480; i++) {
+    const t = i * 1000 / 120, x = 20 + 120 * t / 1000;
+    const nx = Math.round(x + 0.8 * gaussR(rg)), ny = Math.round(100 + 0.8 * gaussR(rg));
+    const r = f.push(nx, ny, t);
+    if (i >= 30) { raw.push(ny - 100); fil.push(r[1] - 100); }
+  }
+  const sd = (a) => { const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((x, y) => x + (y - m) * (y - m), 0) / a.length); };
+  assert.ok(sd(fil) <= 0.5 * sd(raw), 'lọc ' + sd(fil).toFixed(3) + ' thô ' + sd(raw).toFixed(3));
+});
+
+test('INK3: dt bất thường không ra NaN/Infinity', () => {
+  const f = createPointFilter(INK.FILTER);
+  f.push(0, 0, 1000);
+  const chk = (r) => assert.ok(r.every((v) => Number.isFinite(v)), 'hữu hạn: ' + r);
+  chk(f.push(5, 5, 1000));          // dt = 0
+  chk(f.push(8, 5, 990));           // lùi thời gian
+  chk(f.push(12, 9, 3000));         // nghỉ 2 s
+  chk(f.push(13, 9, 3004));
+});
+
+test('INK4: widthFromSpeed', () => {
+  assert.equal(widthFromSpeed(0), 1);
+  assert.equal(widthFromSpeed(150), 1);
+  assert.ok(Math.abs(widthFromSpeed(1500) - 0.7) < 1e-12);
+  assert.ok(Math.abs(widthFromSpeed(99999) - 0.7) < 1e-12);
+  let prev = 2;
+  for (let v = 0; v <= 2000; v += 25) { const w = widthFromSpeed(v); assert.ok(w <= prev + 1e-12); prev = w; }
+  assert.equal(smoothstep(0, 1, -1), 0); assert.equal(smoothstep(0, 1, 2), 1);
+});
+
+test('INK5: taperFactor', () => {
+  const size = 10, T = INK.TAPER;
+  assert.equal(taperFactor(0, 100, size, false, false, false), T.startMin);
+  assert.equal(taperFactor(5, 100, size, false, false, false), taperFactor(5, 9999, size, false, false, false), 'fin=false không phụ thuộc total');
+  assert.equal(taperFactor(2 * size, 500, size, false, false, false), 1);
+  assert.equal(taperFactor(300, 500, size, false, false, false), 1);
+  assert.ok(Math.abs(taperFactor(400, 400, size, true, false, false) - T.endMin) < 1e-12, 'cuối = 0,3');
+  assert.ok(Math.abs(taperFactor(300, 300, size, true, true, false) - T.endMin) < 1e-12, 'contStart tắt thon đầu, giữ thon cuối');
+  assert.equal(taperFactor(0, 300, size, true, false, true), T.startMin, 'contEnd tắt thon cuối, giữ thon đầu');
+  assert.equal(taperFactor(0, 300, size, true, true, true), 1);
+  assert.equal(taperFactor(0, 19, size, true, false, false), 1, 'total < 2 size => 1');
+  assert.equal(taperFactor(0, 19, size, false, false, false), T.startMin, 'đang vẽ vẫn thon đầu');
+});
+
+function lineStroke(n, wf = 1, size = 10, step = 5) {
+  const pts = [];
+  for (let i = 0; i < n; i++) pts.push(i * step, 0, wf);
+  return { pts, size, cum: null, contStart: false, contEnd: false };
+}
+function segsOf(s, from, to, close) { return smoothSegments(s.pts, from, to, close).segs; }
+
+test('INK6: widthRuns – thon đầu đơn điệu, số đoạn bảo toàn, fin không đổi phần giữa', () => {
+  const s = lineStroke(50);
+  s.cum = cumLengths(s.pts, s.cum);
+  const segs = segsOf(s, 1, 50, false);
+  const runs = widthRuns(s, segs, 1, false, 0.05);
+  assert.equal(runs.reduce((a, r) => a + r.segs.length, 0), segs.length);
+  const ws = runs.map((r) => r.w);
+  for (let i = 1; i < ws.length; i++) assert.ok(ws[i] >= ws[i - 1] - 1e-9, 'không giảm dọc phần thon đầu');
+  assert.ok(ws[0] < ws[ws.length - 1]);
+  // fin=true: cùng độ dày ở mọi điểm cách cuối > le
+  const total = s.cum[s.cum.length - 1], le = Math.min(INK.TAPER.endLen * s.size, INK.TAPER.endMaxFrac * total);
+  for (let i = 0; i < 50; i++) {
+    if (total - s.cum[i] > le) assert.equal(pointWidth(s, i, true), pointWidth(s, i, false), 'điểm ' + i);
+  }
+  const segsF = segsOf(s, 1, 50, true);
+  const runsF = widthRuns(s, segsF, 1, true, 0.05);
+  assert.equal(runsF.reduce((a, r) => a + r.segs.length, 0), segsF.length);
+});
+
+test('INK7: tailBox chứa điểm cuối, không chứa điểm đầu nét dài 300 đv', () => {
+  const s = lineStroke(61, 1, 10, 5);   // x 0..300
+  const b = tailBox(s);
+  assert.ok(b.maxX === 300 && b.minX <= 300 && b.minX > 0, JSON.stringify(b));
+  assert.ok(b.minX > 100, 'không chứa điểm đầu: ' + b.minX);
+});
+
+test('INK8: addPoint với wf; realPressure theo p; addPointSplit đặt contEnd/contStart', () => {
+  const z = createBoard(1).zones[0];
+  const s = beginStroke(z, {});
+  assert.equal(s.contStart, false); assert.equal(s.contEnd, false); assert.equal(s.cum, null);
+  addPoint(s, 0, 0, 0.5, true, 1.2, 0.8);
+  assert.equal(s.pts[2], 0.8);
+  assert.equal(s.realPressure, false, 'pen p 0,5 + wf 0,8 => false');
+  addPoint(s, 10, 0, 0.37, true, 1.2, 0.8);
+  assert.equal(s.realPressure, true);
+  addPoint(s, 20, 0, 0.5, false, 1.2);
+  assert.equal(s.pts[8], 0.5, 'không truyền wf => cũ');
+  addPoint(s, 30, 0, 0, false, 1.2);
+  assert.equal(s.pts[11], 0.5);
+  let cur = beginStroke(z, {}); let fin = null;
+  for (let i = 0; i < 12; i++) { const r = addPointSplit(z, cur, i * 5, 0, 0.5, false, 5, 1.2, 0.6); cur = r.stroke; if (r.finished && !fin) fin = r.finished; }
+  assert.ok(fin && fin.contEnd === true && fin.contStart === false);
+  assert.equal(cur.contStart, true); assert.equal(cur.contEnd, false);
+  assert.equal(cur.pts[2], 0.6, 'điểm đầu nét nối giữ wf');
+});
+
+test('INK9: parseInkOverrides', () => {
+  assert.deepEqual(parseInkOverrides('?ink=raw&k=1&livepts=400'), {});
+  assert.deepEqual(parseInkOverrides(''), {});
+  assert.deepEqual(parseInkOverrides('?test=1&ink=raw&k=1&livepts=400'), { raw: true, k: 1, livepts: 400 });
+  assert.deepEqual(parseInkOverrides('?test=1&k=9&livepts=5&ink=zz'), {});
+  assert.deepEqual(parseInkOverrides('?test=1&k=2.5'), { k: 2.5 });
+  assert.ok(inkText(3, {}).startsWith('lọc One Euro'));
+  assert.ok(inkText(1, { raw: true }).startsWith('THÔ'));
+  assert.ok(inkText(2.5, {}).includes('k 2,5'));
+});
+
+// ---------- hàm đo (ink-metrics) ----------
+function synthStrip(noise, seed) {
+  // dải ngang dày 18 px, biên khử răng cưa chính xác (alpha theo độ phủ)
+  const w = 600, h = 60, a = new Float64Array(w * h), rg = lcg(seed || 7);
+  for (let x = 0; x < w; x++) {
+    const n1 = noise ? (rg() < 0.5 ? -noise : noise) : 0, n2 = noise ? (rg() < 0.5 ? -noise : noise) : 0;
+    const top = 20 + n1, bot = 38 + n2;
+    for (let y = 0; y < h; y++) a[y * w + x] = Math.max(0, Math.min(1, Math.min(y + 1, bot) - Math.max(y, top)));
+  }
+  return { a, w, h };
+}
+test('INK-M: hàm đo – dải sạch hf < 0,05, dải nhiễu ±1 px hf > 0,3; ma/changedFraction', () => {
+  const c = synthStrip(0), n = synthStrip(1);
+  const mc = lineMetrics(c.a, c.w, c.h, 60, false, 3), mn = lineMetrics(n.a, n.w, n.h, 60, false, 3);
+  assert.ok(mc.hf < 0.05, 'sạch ' + mc.hf);
+  assert.ok(mn.hf > 0.3, 'nhiễu ' + mn.hf);
+  assert.ok(Math.abs(mc.wmean - 18) < 0.2, 'dày ' + mc.wmean);
+  // transpose cho nét dọc
+  const tr = new Float64Array(c.w * c.h); for (let y = 0; y < c.h; y++) for (let x = 0; x < c.w; x++) tr[x * c.h + y] = c.a[y * c.w + x];
+  const mt = lineMetrics(tr, c.h, c.w, 60, true, 3);
+  assert.deepEqual(mt, mc);
+  const ma = movingAvg(Float64Array.from([1, 2, 3, 4, 5]), 3);
+  assert.deepEqual(Array.from(ma), [4 / 3, 2, 3, 4, 14 / 3]);
+  const img = (v) => { const d = new Uint8ClampedArray(16 * 4); for (let i = 0; i < 16; i++) { d[i * 4] = d[i * 4 + 1] = d[i * 4 + 2] = v(i); d[i * 4 + 3] = 255; } return { w: 4, h: 4, d }; };
+  assert.equal(changedFraction(img(() => 255), img(() => 255)), 0);
+  assert.equal(changedFraction(img((i) => (i < 8 ? 255 : 18)), img((i) => (i < 4 ? 255 : 18))), 0.5);
+  const al = alphaFromRGBA(img((i) => (i === 0 ? 255 : 18)));
+  assert.equal(al[0], 1); assert.equal(al[1], 0);
+  assert.ok(genSamples('H', 'N1', 5).length > 300);
 });

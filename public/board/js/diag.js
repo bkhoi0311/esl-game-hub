@@ -102,12 +102,11 @@ export function createDiag({ getInfo, onToast, onReset }) {
       'Loại pointer: touch ' + st.types.touch + ' · pen ' + st.types.pen + ' · mouse ' + st.types.mouse,
       'Gần nhất: ' + st.last.type + ' · áp lực ' + f(st.last.p, 2) + ' · w ' + f(st.last.w, 1) + ' · h ' + f(st.last.h, 1),
       'Lọc lòng bàn tay: ' + (i.palm ? (i.palm.enabled ? 'bật' : 'tắt') + ' (lý do: ' + i.palm.reasonText + ') · w/h: ' + (i.palm.recent.length ? i.palm.recent.map((r) => f(r[0], 0) + '/' + f(r[1], 0)).join(' ') : '-') : '-'),
-      'Hồ sơ: ' + (i.profile || '-'),
+      'Nét: ' + (i.inkText || '-'),
       'Canvas: ' + (i.canvasInfo ? i.canvasInfo.desc + ' = ' + vn(i.canvasInfo.mp, 2) + ' MP' : '-') + ' · màn vật lý ' + i.physW + 'x' + i.physH + ' · DPR ' + i.dpr,
       'Khung khi vẽ: ' + i.perf.fps + ' fps · khoảng p95 ' + vn(i.perf.intervalP95, 1) + ' ms · nhàn rỗi (Đo 3 s): ' +
         (probing ? 'đang đo…' : idle ? Math.round(idle.fps) + ' fps p95 ' + vn(idle.p95, 0) + ' ms' : 'chưa đo'),
-      'JS vẽ/khung: avg ' + vn(i.perf.avgMs, 2) + ' ms · p95 ' + vn(i.perf.p95Ms, 2) + ' ms · getStroke ' +
-        vn(c.frames ? c.getStroke / c.frames : 0, 2) + '/khung (tổng ' + (c.getStroke || 0) + ') · điểm PF ' + vn(c.frames ? c.pfPts / c.frames : 0, 0) + '/khung',
+      'JS vẽ/khung: avg ' + vn(i.perf.avgMs, 2) + ' ms · p95 ' + vn(i.perf.p95Ms, 2) + ' ms',
       'pointermove: ' + (m ? vn(m.perSec, 0) + '/s · điểm gộp ' + vn(m.ptsPerSec, 0) + '/s · xử lý avg ' + vn(m.msAvg, 2) + ' ms · p95 ' + vn(m.msP95, 2) +
         ' ms · tuổi sự kiện avg ' + vn(m.ageAvg, 0) + ' · p95 ' + vn(m.ageP95, 0) + ' ms' : '(chưa có dữ liệu)'),
       'Trễ sự kiện→khung: avg ' + vn(c.latAvg || 0, 0) + ' ms · p95 ' + vn(c.latP95 || 0, 0) + ' ms · vẽ lại/khung ' + vn(mp, 2) + ' MP CSS (≈ ' + vn(mpPhys, 1) + ' MP vật lý)',
@@ -115,7 +114,6 @@ export function createDiag({ getInfo, onToast, onReset }) {
       'FPS ' + i.perf.fps + ' · vẽ avg ' + f(i.perf.avgMs, 2) + ' ms · p95 ' + f(i.perf.p95Ms, 2) + ' ms',
       'DPR ' + i.dpr + ' · k ' + f(i.k, 2) + ' · canvas ' + i.canvas[0] + 'x' + i.canvas[1],
       'maxTouchPoints ' + i.maxTouchPoints + ' · cửa sổ ' + i.W + 'x' + i.H + ' · s ' + f(i.s, 2),
-      i.glassText,
       'Tham số: ' + describeParams(i.search),
       'UA: ' + i.ua,
       '--- nhật ký ---',
@@ -129,7 +127,7 @@ export function createDiag({ getInfo, onToast, onReset }) {
     hudOpen = v;
     hud.hidden = !v;
     clearInterval(timer);
-    if (v) { refresh(); timer = setInterval(refresh, getInfo().calm ? 1000 : 250); }
+    if (v) { refresh(); timer = setInterval(refresh, 1000); }
   }
 
   // Đo nhịp khung lúc nhàn rỗi: vòng rAF riêng 3 s.
@@ -161,8 +159,8 @@ export function createDiag({ getInfo, onToast, onReset }) {
     const i = getInfo();
     const m = moveStats();
     const { c, mp } = summary(i);
-    return i.perfName + ' · ' + i.perf.fps + 'fps p95 ' + vn(i.perf.intervalP95, 0) + 'ms · mv ' + (m ? vn(m.perSec, 0) : '-') + '/s · trễ ' +
-      vn(c.latAvg || 0, 0) + '/' + vn(c.latP95 || 0, 0) + 'ms · JS ' + vn(i.perf.avgMs, 1) + 'ms · ' + vn(mp, 2) + 'MP/khung · k' + vn(i.k, 2);
+    return 'k' + vn(i.k, 2) + ' · ' + i.perf.fps + 'fps p95 ' + vn(i.perf.intervalP95, 0) + 'ms · mv ' + (m ? vn(m.perSec, 0) : '-') + '/s · trễ ' +
+      vn(c.latAvg || 0, 0) + '/' + vn(c.latP95 || 0, 0) + 'ms · JS ' + vn(i.perf.avgMs, 1) + 'ms · ' + vn(mp, 2) + 'MP/khung';
   }
   function setMini(v) {
     clearInterval(miniTimer);

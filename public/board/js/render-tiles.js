@@ -1,15 +1,28 @@
-// Vẽ gia tăng theo lát (C9/C10 của PLAN-PERF): không có #live; mỗi khung chỉ nối đoạn mới lên các lát canvas bị chạm.
-// perfect-freehand chỉ chạy 1 lần khi nét chốt (hoặc không chạy với final=line). Giao diện giống createRenderer.
+// Vẽ gia tăng theo lát (PLAN-PERF C9/C10 + PLAN-INK): không có canvas riêng cho nét đang vẽ; mỗi khung chỉ nối đoạn mới
+// lên các lát canvas bị chạm. Hình lúc vẽ và lúc chốt là CÙNG một hàm (drawInk) của CÙNG dữ liệu; chỉ khác thon cuối + closeTail.
+//
+// Khử răng cưa / ranh giới lát (PLAN-INK 2.4.5):
+//  (a) k = DPR (tối đa 3) => mỗi lát có bw = round(CSS x k) khớp đúng điểm ảnh vật lý, trình duyệt không phóng => không nhoè;
+//  (b) lát nằm ở toạ độ CSS nguyên, tc*k nguyên (vòng căn), gốc vùng nguyên => cùng một nét được raster y hệt ở 2 lát kề nhau;
+//  (c) không dùng imageSmoothing (chỉ vẽ path); không cần dịch nửa điểm ảnh (nét đầu tròn, cong);
+//  (d) màu bảng màu là đục (#RRGGBB) nên các lượt/đoạn chồng nhau không tạo vệt đậm - KHÔNG thêm màu có alpha nếu chưa sửa sang tô một path.
 import { zoneScale, smoothSegments } from './strokes.js';
-import { buildPath, BOARD_COLOR, BOARD_COLOR_RGB, p95 } from './render.js';
+import { INK, cumLengths, widthRuns, tailBox } from './ink.js';
+
+export const BOARD_COLOR = '#121212';
+export const BOARD_COLOR_RGB = [18, 18, 18];
+export const p95 = (arr) => {
+  if (!arr.length) return 0;
+  const s = arr.slice().sort((a, b) => a - b);
+  return s[Math.min(s.length - 1, Math.floor(s.length * 0.95))];
+};
 
 const TWO_PI = Math.PI * 2;
 const avg = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0);
 
-export function createTiledRenderer({ board, ink, live, stage, perf, onWindow }) {
-  const P = Object.assign({ kCap: 1, tile: 192, final: 'pf' }, perf || {});
-  // giải phóng 2 canvas cũ
-  for (const c of [ink, live]) { c.style.display = 'none'; c.width = 1; c.height = 1; }
+export function createTiledRenderer({ board, stage, ink }) {
+  const INKO = ink || {};
+  const RAW = !!INKO.raw;
   const host = document.createElement('div');
   host.id = 'tiles';
   stage.insertBefore(host, stage.firstChild);
@@ -17,29 +30,27 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
   let k = 1, origin = { x: 0, y: 0 }, cssW = 0, cssH = 0;
   let Tw = 0, Th = 0, cols = 0, rows = 0;
   let tiles = [];
-  const liveMap = new Map();     // pid -> { zone, stroke, drawn, pendT, rect (CSS stage), pred }
-  const wipe = [];               // hộp CSS cần vẽ lại do nét live bị bỏ
+  const liveMap = new Map();     // pid -> { zone, stroke, drawn, pendT, rect (CSS stage) }
+  const wipe = [];               // hộp CSS cần vẽ lại do nét live bị bỏ / tách
   const finishedQ = [];
+  const keptDrawn = new WeakMap();   // nét -> số điểm đã vẽ live lúc nhả tay (để vẽ nốt phần chưa kịp vẽ)
   const dirtyZones = new Set();
   const dirtyRects = [];
   const rings = new Map();       // pid -> { zone, x, y, r }
   const ringEls = new Map();     // pid -> { el, key }
   let raf = 0, lastT = 0, fakeExtra = 0, scheduled = false;
   let drawMs = [], intervals = [], fpsFrames = [], fps = 0;
-  let win = { start: 0, ints: [], last: 0 };
-  const newCnt = () => ({ getStroke: 0, pfPts: 0, frames: 0, dirtyCss: 0, lat: [], t0: performance.now(), tiles: 0 });
+  const newCnt = () => ({ frames: 0, dirtyCss: 0, lat: [], t0: performance.now(), tiles: 0, finalTiles: 0 });
   let cnt = newCnt();
 
   // ---------- bố cục lát ----------
   function resize(w, h, originXY, dpr) {
     cssW = w; cssH = h; origin = originXY;
-    k = Math.min(dpr || 1, P.kCap || 1);
-    if (w * h * k * k > 3840 * 2160) k = Math.sqrt((3840 * 2160) / (w * h));
-    if (P.tile > 0) {
-      let tc = Math.max(32, Math.round(P.tile));
-      for (let i = 0; i < 8 && Math.abs(tc * k - Math.round(tc * k)) > 1e-6; i++) tc++; // lát thẳng hàng điểm ảnh
-      Tw = Th = tc;
-    } else { Tw = Math.max(1, w); Th = Math.max(1, h); }
+    k = RAW ? (INKO.k || 1) : (INKO.k || Math.min(dpr || 1, INK.K_MAX));
+    if (w * h * k * k > INK.MAX_BACKING_PX) k = Math.sqrt(INK.MAX_BACKING_PX / (w * h));
+    let tc = INK.TILE;
+    for (let i = 0; i < 8 && Math.abs(tc * k - Math.round(tc * k)) > 1e-6; i++) tc++; // lát thẳng hàng điểm ảnh
+    Tw = Th = tc;
     cols = Math.max(1, Math.ceil(w / Tw)); rows = Math.max(1, Math.ceil(h / Th));
     while (host.firstChild) host.removeChild(host.firstChild);
     tiles = [];
@@ -99,47 +110,47 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
     ctx.clip();
     const sc = zoneScale(z);
     ctx.setTransform(k * sc, 0, 0, k * sc, k * (r.x - tile.x), k * (r.y - tile.y)); // đơn vị vùng -> px lát
-    fn(ctx);
+    fn(ctx, 1 / (sc * k * INK.WIDTH_QUANT));                                         // q: độ dày lượng tử (đv vùng)
     ctx.restore();
   }
 
-  function pathOf(s) {
-    if (!s.path) s.path = buildPath(s, true, cnt);
-    return s.path;
-  }
-
-  function linePath(s, n, closeTail) {
-    const seg = smoothSegments(s.pts, 1, n, closeTail);
-    return segPath(seg.segs);
-  }
   function segPath(segs) {
     const p = new Path2D();
     for (const g of segs) { p.moveTo(g[0], g[1]); p.quadraticCurveTo(g[2], g[3], g[4], g[5]); }
     return p;
   }
-  function dot(ctx, s) {
+  function dot(ctx, s, r) {
     ctx.beginPath();
-    ctx.arc(s.pts[0], s.pts[1], s.size / 2, 0, TWO_PI);
+    ctx.arc(s.pts[0], s.pts[1], r == null ? s.size / 2 : r, 0, TWO_PI);
     ctx.fillStyle = s.color;
     ctx.fill();
   }
-  function strokeLine(ctx, s, path) {
-    ctx.lineWidth = s.size; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = s.color;
-    ctx.stroke(path);
+  // chấm đầu nét đang vẽ: cùng độ dày với điểm đầu của đường (thon đầu), để lúc chốt không phình/hụt
+  function liveDotR(s) {
+    if (RAW) return s.size / 2;
+    const wf = s.pts[2] > 0 ? s.pts[2] : 1;
+    return s.size * wf * (s.contStart ? 1 : INK.TAPER.startMin) / 2;
   }
-  function drawFinal(ctx, s) {
-    if (s.shape === 'line') {
-      if (s.pts.length < 6) { dot(ctx, s); return; }
-      if (!s.lpath) s.lpath = linePath(s, s.pts.length / 3, true);
-      strokeLine(ctx, s, s.lpath);
-    } else {
-      ctx.fillStyle = s.color;
-      ctx.fill(pathOf(s));
-    }
+  // Các lượt cùng độ dày (đã tạo Path2D) cho điểm [from, to). q: độ dày lượng tử (đv vùng).
+  function inkRuns(s, from, to, closeTail, fin, q) {
+    s.cum = cumLengths(s.pts, s.cum);
+    const seg = smoothSegments(s.pts, from, to, closeTail);
+    if (RAW) return [{ w: s.size, path: segPath(seg.segs) }];
+    return widthRuns(s, seg.segs, from, fin, q).map((r) => ({ w: r.w, path: segPath(r.segs) }));
   }
-  function drawLiveFull(ctx, v) {
-    if (v.drawn < 2) { dot(ctx, v.stroke); return; }
-    strokeLine(ctx, v.stroke, linePath(v.stroke, v.drawn, false));
+  function paintRuns(ctx, s, runs) {
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = s.color;
+    for (const r of runs) { ctx.lineWidth = r.w; ctx.stroke(r.path); }
+  }
+  // Một hàm duy nhất cho nét đang vẽ, nét chốt và phần nối thêm.
+  function drawInk(ctx, s, from, to, closeTail, fin, q) {
+    if (s.pts.length < 6) { dot(ctx, s); return; }
+    paintRuns(ctx, s, inkRuns(s, from, to, closeTail, fin, q));
+  }
+  function drawFinal(ctx, s, q) { drawInk(ctx, s, 1, s.pts.length / 3, true, true, q); }
+  function drawLiveFull(ctx, v, q) {
+    if (v.drawn < 2) { dot(ctx, v.stroke, liveDotR(v.stroke)); return; }
+    drawInk(ctx, v.stroke, 1, v.drawn, false, false, q);
   }
 
   function redrawTile(tile) {
@@ -150,17 +161,38 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
     for (const z of board.zones) {
       const zr = zoneStageRect(z);
       if (zr.x >= tile.x + tile.w || zr.x + zr.w <= tile.x || zr.y >= tile.y + tile.h || zr.y + zr.h <= tile.y) continue;
-      withZoneOnTile(ctx, tile, z, (c) => {
+      withZoneOnTile(ctx, tile, z, (c, q) => {
         for (const s of z.strokes) {
           const r = strokeCssRect(z, s);
-          if (r && overlap(r, tile)) drawFinal(c, s);
+          if (r && overlap(r, tile)) drawFinal(c, s, q);
         }
         // phần nét đang vẽ của các ngón khác trong lát này (bắt buộc: lát vừa bị tô lại)
         for (const v of liveMap.values()) {
-          if (v.zone === z && v.drawn >= 1 && v.rect && overlap(v.rect, tile)) drawLiveFull(c, v);
+          if (v.zone === z && v.drawn >= 1 && v.rect && overlap(v.rect, tile)) drawLiveFull(c, v, q);
         }
       });
     }
+  }
+
+  // Hộp CSS của phần sẽ đổi khi chốt nét: đuôi (thon cuối + closeTail) + các điểm chưa kịp vẽ live. Nét <= 2 điểm: cả nét.
+  function boxCss(z, s, b) {
+    const sc = zoneScale(z), pad = 0.85 * s.size * sc + 2;
+    const ox = z.rect.x - origin.x, oy = z.rect.y - origin.y;
+    return { x0: ox + sc * b.minX - pad, y0: oy + sc * b.minY - pad, x1: ox + sc * b.maxX + pad, y1: oy + sc * b.maxY + pad };
+  }
+  function finalRect(f) {
+    const s = f.stroke, n = s.pts.length / 3;
+    if (n <= 2) return strokeCssRect(f.zone, s);
+    const tb = tailBox(s);
+    const d = keptDrawn.get(s);
+    keptDrawn.delete(s);
+    if (d != null && d < n) {                       // điểm chưa kịp vẽ live
+      for (let i = Math.max(0, d - 1); i < n; i++) {
+        const x = s.pts[i * 3], y = s.pts[i * 3 + 1];
+        if (x < tb.minX) tb.minX = x; if (y < tb.minY) tb.minY = y; if (x > tb.maxX) tb.maxX = x; if (y > tb.maxY) tb.maxY = y;
+      }
+    }
+    return boxCss(f.zone, s, tb);
   }
 
   // ---------- vòng khung ----------
@@ -176,8 +208,10 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
     dirtyRects.length = 0;
     for (const f of finishedQ.splice(0)) {
       if (f.zone.strokes.indexOf(f.stroke) < 0) continue; // đã bị tẩy/hoàn tác ngay
-      if (P.final !== 'line') pathOf(f.stroke);
-      addRectTiles(redrawSet, strokeCssRect(f.zone, f.stroke));
+      const own = new Set();
+      addRectTiles(own, finalRect(f));
+      cnt.finalTiles += own.size;
+      for (const tl of own) redrawSet.add(tl);
     }
     for (const r of wipe) addRectTiles(redrawSet, r);
     wipe.length = 0;
@@ -189,7 +223,8 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
       if (n < 1 || n <= v.drawn) continue;
       const z = v.zone, sc = zoneScale(z), s = v.stroke;
       const isDot = v.drawn === 0;
-      const seg = n >= 2 ? smoothSegments(pts, Math.max(1, v.drawn), n, false) : { segs: [] };
+      const from = Math.max(1, v.drawn);
+      const seg = n >= 2 ? smoothSegments(pts, from, n, false) : { segs: [] };
       let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
       if (isDot) { minX = maxX = pts[0]; minY = maxY = pts[1]; }
       if (seg.segs.length) {
@@ -200,11 +235,13 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
         const pad = s.size / 2 + 1.5 / sc;
         const ox = z.rect.x - origin.x, oy = z.rect.y - origin.y;
         const rect = { x0: ox + sc * (minX - pad), y0: oy + sc * (minY - pad), x1: ox + sc * (maxX + pad), y1: oy + sc * (maxY + pad) };
-        const path = seg.segs.length ? segPath(seg.segs) : null;
+        let runs = null;
+        if (seg.segs.length) runs = inkRuns(s, from, n, false, false, 1 / (sc * k * INK.WIDTH_QUANT));
+        const dr = isDot ? liveDotR(s) : 0;
         for (const tile of tilesFor(rect.x0, rect.y0, rect.x1, rect.y1)) {
           withZoneOnTile(tile.ctx, tile, z, (c) => {
-            if (isDot) dot(c, s);
-            if (path) strokeLine(c, s, path);
+            if (isDot) dot(c, s, dr);
+            if (runs) paintRuns(c, s, runs);
           });
           touched.add(tile);
         }
@@ -251,22 +288,10 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
       intervals.push(iv); if (intervals.length > 240) intervals.shift();
       fpsFrames.push(t); while (fpsFrames.length && t - fpsFrames[0] > 1000) fpsFrames.shift();
       fps = fakeExtra ? 1000 / Math.max(1, avg(intervals.slice(-20))) : fpsFrames.length;
-      if (liveMap.size > 0) windowSample(t, iv);
     }
     lastT = t;
     if (liveMap.size > 0 || rings.size > 0 || dirtyZones.size > 0 || dirtyRects.length > 0 || finishedQ.length > 0 || wipe.length > 0) requestFrame();
     else lastT = 0;
-  }
-
-  function windowSample(t, iv) {
-    if (win.last && t - win.last > 400) win = { start: t, ints: [], last: 0 };
-    if (!win.start) win.start = t;
-    win.ints.push(iv); win.last = t;
-    if (t - win.start >= 2000 && win.ints.length >= 20) {
-      const stats = { p95: p95(win.ints), fps: 1000 / avg(win.ints), n: win.ints.length };
-      win = { start: t, ints: [], last: t };
-      if (onWindow) onWindow(stats);
-    }
   }
 
   function requestFrame() {
@@ -302,10 +327,9 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
       let mp = 0;
       for (const t of tiles) mp += t.bw * t.bh;
       return { count: tiles.length, w: Math.round(cssW * k), h: Math.round(cssH * k), mp: mp / 1e6,
-        desc: P.tile > 0 ? tiles.length + ' lát ' + Tw + ' px (k ' + k + ')' : '1 canvas ' + Math.round(cssW * k) + 'x' + Math.round(cssH * k) };
+        desc: tiles.length + ' lát ' + Tw + ' px (k ' + String(Math.round(k * 100) / 100).replace('.', ',') + ')' };
     },
     strokeFinished(zone, stroke) {
-      if (P.final === 'line') stroke.shape = 'line';
       finishedQ.push({ zone, stroke });
       requestFrame();
     },
@@ -319,15 +343,17 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
         if (v.rect) wipe.push(v.rect);
         v.stroke = stroke; v.zone = zone; v.drawn = 0; v.rect = null;
       } else if (!v) {
-        v = { zone, stroke, drawn: 0, pendT: 0, rect: null, pred: null };
+        v = { zone, stroke, drawn: 0, pendT: 0, rect: null };
         liveMap.set(pid, v);
       }
       if (!v.pendT && evtT) v.pendT = evtT;
       requestFrame();
     },
-    clearLive(pid) {
+    // keep = nét sẽ được lưu (strokeFinished ngay sau): hình live đã đúng nên không xoá cả hộp, chỉ vẽ lại đuôi.
+    clearLive(pid, keep) {
       const v = liveMap.get(pid);
-      if (v && v.rect) wipe.push(v.rect);
+      if (v && keep) keptDrawn.set(v.stroke, v.drawn);
+      else if (v && v.rect) wipe.push(v.rect);
       liveMap.delete(pid);
       requestFrame();
     },
@@ -336,11 +362,11 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
     perf() {
       return { avgMs: avg(drawMs), p95Ms: p95(drawMs), fps: Math.round(fps), frames: drawMs.length, intervalP95: p95(intervals) };
     },
-    resetPerf() { drawMs = []; intervals = []; fpsFrames = []; fps = 0; win = { start: 0, ints: [], last: 0 }; cnt = newCnt(); },
+    resetPerf() { drawMs = []; intervals = []; fpsFrames = []; fps = 0; cnt = newCnt(); },
     counters() {
       const lat = cnt.lat;
       return {
-        getStroke: cnt.getStroke, pfPts: cnt.pfPts, frames: cnt.frames, sinceMs: performance.now() - cnt.t0,
+        frames: cnt.frames, finalTiles: cnt.finalTiles, sinceMs: performance.now() - cnt.t0,
         dirtyCssPerFrame: cnt.frames ? cnt.dirtyCss / cnt.frames : 0, dirtyCssTotal: cnt.dirtyCss,
         tilesPerFrame: cnt.frames ? cnt.tiles / cnt.frames : 0,
         latAvg: avg(lat), latP95: p95(lat), latN: lat.length,
@@ -373,6 +399,5 @@ export function createTiledRenderer({ board, ink, live, stage, perf, onWindow })
       const d = found.ctx.getImageData(px, py, 1, 1).data;
       return [d[0], d[1], d[2]];
     },
-    liveNonEmpty() { return false; },
   };
 }
