@@ -10,6 +10,10 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
+
+addStrings('games-duel', VI);
 
 // game: { id, title, howTo, setupHint, startLine, createSide(side, api) -> { start(), stop(), destroy() }, onRoundStart?(api), banner? }
 // side: { index, name, color, el (vùng chơi), addScore(n), score }
@@ -18,6 +22,7 @@ export function createDuelGame(root, pack, game) {
   let timer = null;
   let sides = [];
   let running = false;
+  let setupOpen = false;
   let extraTimers = [];
 
   const frame = createGameFrame(root, {
@@ -51,13 +56,14 @@ export function createDuelGame(root, pack, game) {
 
   function showSetup() {
     teardown();
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     if (isSmallScreen()) {
       setStage(h('div', { class: 'big-screen-only', 'data-testid': 'duel-big-screen' },
-        icon('alert', 64), h('h2', {}, 'Dùng trên màn hình lớn'),
-        h('p', {}, `${game.title} cần 2 học sinh cùng chạm trên bảng tương tác hoặc màn hình máy tính.`),
-        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, 'Về menu'))));
+        icon('alert', 64), h('h2', {}, t('duel.big.title')),
+        h('p', {}, t('duel.big.body', { title: game.title })),
+        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, t('duel.big.menu')))));
       return;
     }
     setStage(setupScreen({
@@ -65,8 +71,8 @@ export function createDuelGame(root, pack, game) {
       title: game.title,
       art: gameArt(game.id),
       rows: [
-        { label: 'Thời gian', control: segmented([45, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), `${game.id}-seconds`),
-          hint: `${game.setupHint} Hai bên: ${pack.teams[0]} (trái) và ${pack.teams[1]} (phải).` },
+        { label: t('duel.time'), control: segmented([45, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), `${game.id}-seconds`),
+          hint: t('duel.sidesHint', { hint: game.setupHint, left: pack.teams[0], right: pack.teams[1] }) },
       ],
       onStart: start,
     }));
@@ -74,6 +80,7 @@ export function createDuelGame(root, pack, game) {
 
   function start() {
     teardown();
+    setupOpen = false;
     timer = createCountdown({ seconds: opts.seconds, onEnd: finish, onTick: (s) => s <= 5 && s > 0 && playSound('tick') });
     const banner = h('div', { class: 'duel-banner en', 'data-testid': 'duel-banner', hidden: !game.banner });
     frame.extra.textContent = '';
@@ -145,10 +152,13 @@ export function createDuelGame(root, pack, game) {
     confetti({ particleCount: Math.round(170 * PERF.confetti), spread: 100, origin: { x: tie ? 0.5 : ranking[0].index ? 0.75 : 0.25, y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
 
   return {
     destroy() {
+      offLang();
       teardown();
       confetti.reset();
       frame.destroy();

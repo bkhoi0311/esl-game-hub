@@ -1,10 +1,12 @@
 // Router: menu chính (#/) -> tab Soạn bài (#/editor) -> từng game (#/game/<id>).
+import { i18nReady, i18nFailed } from './i18n/boot.js'; // PHẢI đứng đầu: chạy lõi song ngữ trước mọi module có chữ
 import './styles/fonts.css';
 import './styles/liquid-glass.css';
 import './styles/main.css';
 import './styles/kids.css';
 import './styles/motion.css';
 import './styles/liquid.css';
+import './styles/i18n.css';
 import './vendor/liquid-glass.js';
 import { PERF, applyPerfClasses } from './core/perf.js';
 import logoUrl from './assets/classin-logo-green.png';
@@ -15,7 +17,7 @@ import { mountCamCheck } from './core/camcheck.js';
 import { getSettings, updateSettings } from './core/settings.js';
 import { clipCount, getEnglishVoices, setVoiceGame, stopSpeaking, speak, ttsSupported, voiceFor, voiceLabel } from './core/audio.js';
 import { line } from './core/voice-lines.js';
-import { button, h, openModal, rangeWithSteps, segmented } from './core/ui.js';
+import { button, h, openModal, rangeWithSteps, segmented, toast } from './core/ui.js';
 import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
 import { gsap } from 'gsap';
@@ -23,6 +25,10 @@ import { mountWorld, setWorld } from './core/world.js';
 import { createMascot } from './core/mascot.js';
 import { reducedMotion } from './core/events.js';
 import { clearFx, setStreakEnabled } from './core/fx.js';
+import { t, bind, onLang, withUi, addStrings, mountLangSwitch } from './i18n/index.js';
+import MENU_VI from './i18n/strings/menu-settings.vi.js';
+
+addStrings('menu-settings', MENU_VI);
 
 // Game 2 học sinh bấm song song trên 2 nửa bảng.
 const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'sentence-race']);
@@ -30,7 +36,7 @@ const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'sentence
 const PHASER_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'word-ninja', 'statue-freeze']);
 
 // Mở từ "link bài học" (#L=...): dùng bài trong link, chế độ trình chiếu (ẩn Soạn bài).
-await initLinkedPack();
+await Promise.all([initLinkedPack(), i18nReady]); // chuỗi EN (nếu ?ui=en) sẵn sàng trước lần dựng đầu tiên: không nháy chữ Việt
 const PRESENT = isLinkedPack();
 document.body.classList.toggle('present', PRESENT);
 
@@ -51,8 +57,8 @@ let cleanup = null; // hàm dọn dẹp của màn hình đang mở
 
 const packChip = h('a', { class: 'pack-chip', 'data-testid': 'pack-chip', href: PRESENT ? null : '#/editor', onClick: (e) => PRESENT && (e.preventDefault(), openSettings()) });
 const navLinks = {
-  menu: h('a', { href: '#/', class: 'nav-link' }, icon('gamepad', 22), h('span', {}, 'Trò chơi')),
-  editor: h('a', { href: '#/editor', class: 'nav-link' }, icon('book-open', 22), h('span', {}, 'Soạn bài')),
+  menu: h('a', { href: '#/', class: 'nav-link' }, icon('gamepad', 22), bind(h('span'), 'hub.nav.games')),
+  editor: h('a', { href: '#/editor', class: 'nav-link' }, icon('book-open', 22), bind(h('span'), 'hub.nav.editor')),
 };
 // Viên trắng trượt dưới mục đang chọn (kiểu thanh chọn của Apple), chạy theo lò xo.
 const navGlider = h('span', { class: 'nav-glider', 'aria-hidden': 'true' });
@@ -67,9 +73,15 @@ function moveGlider() {
   navGlider.style.width = `${active.offsetWidth}px`;
 }
 // Nút về màn chọn 2 phần (trang tĩnh start/). Ẩn ở chế độ trình chiếu và bản offline 1 file.
-const toChooser = h('a', { href: './start/index.html', class: 'to-chooser', 'data-testid': 'to-chooser', 'aria-label': 'Về màn chọn', title: 'Về màn chọn' },
-  icon('grid', 22), h('span', {}, 'Màn chọn'));
+const toChooser = h('a', { href: withUi('./start/index.html'), class: 'to-chooser', 'data-testid': 'to-chooser' },
+  icon('grid', 22), bind(h('span'), 'hub.toChooser'));
+bind(toChooser, 'hub.toChooser.aria', null, 'aria-label');
+bind(toChooser, 'hub.toChooser.aria', null, 'title');
 if (PRESENT || __SINGLE_FILE__) toChooser.hidden = true;
+const loadFailToast = () => toast(t('hub.lang.loadFail'), 'error');
+const settingsBtn = button({ iconName: 'settings', variant: 'ghost', onClick: openSettings, attrs: { 'data-testid': 'open-settings' } });
+bind(settingsBtn, 'hub.settings', null, 'aria-label');
+bind(settingsBtn, 'hub.settings', null, 'title');
 const header = h(
   'header', { class: 'app-header' },
   toChooser,
@@ -80,8 +92,10 @@ const header = h(
   h('nav', { class: 'app-nav has-glider' }, navGlider, navLinks.menu, navLinks.editor),
   h('div', { class: 'header-mascot' }),
   packChip,
-  button({ iconName: 'settings', title: 'Cài đặt', variant: 'ghost', onClick: openSettings, attrs: { 'data-testid': 'open-settings' } }),
+  settingsBtn,
 );
+// Công tắc ngôn ngữ [cờ VN][cờ Mỹ]: ngay trước nút Cài đặt, chỉ hiện cờ (CSS), luôn có trên thanh trên.
+header.insertBefore(mountLangSwitch(header, { cls: 'lang-seg--hub', onFail: loadFailToast }), settingsBtn);
 const main = h('main', { class: 'app-main' });
 const stage = h('div', { class: 'stage' }, header, main);
 app.append(stage);
@@ -130,7 +144,7 @@ if (PERF.diag === '2') {
   try {
     const gl = document.createElement('canvas').getContext('webgl');
     const ext = gl && gl.getExtension('WEBGL_debug_renderer_info');
-    gpu = gl ? String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)) : 'không có WebGL';
+    gpu = gl ? String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)) : 'không có WebGL'; // i18n-keep: HUD chẩn đoán ?diag=2
     const lose = gl && gl.getExtension('WEBGL_lose_context');
     if (lose) lose.loseContext();
   } catch { /* giữ '?' */ }
@@ -161,8 +175,8 @@ if (PERF.diag === '2') {
     }
     lastT = now;
     const phaser = live ? `k=${(g.__k || 1).toFixed(2)} ${g.canvas.width}x${g.canvas.height}->${Math.round(g.canvas.getBoundingClientRect().width * devicePixelRatio)} ${draw}` : '-';
-    hud.textContent = `Hồ sơ: ${PERF.name}(${PERF.source}) kính:${PERF.glass ? 1 : 0} lặp:${PERF.idle ? 1 : 0}\n`
-      + `rAF: ${fps} fps p95 ${Math.round(p95)} ms\nAnim: ${anims} CSS\nPhaser: ${phaser}\nGL: ${gpuShort}${soft ? ' (PHẦN MỀM)' : ''}`;
+    hud.textContent = `Hồ sơ: ${PERF.name}(${PERF.source}) kính:${PERF.glass ? 1 : 0} lặp:${PERF.idle ? 1 : 0}\n` // i18n-keep: HUD chẩn đoán ?diag=2
+      + `rAF: ${fps} fps p95 ${Math.round(p95)} ms\nAnim: ${anims} CSS\nPhaser: ${phaser}\nGL: ${gpuShort}${soft ? ' (PHẦN MỀM)' : ''}`; // i18n-keep: HUD chẩn đoán ?diag=2
   }, 1000);
 }
 window.addEventListener('resize', () => {
@@ -172,8 +186,8 @@ window.addEventListener('resize', () => {
 
 function renderPackChip(pack) {
   packChip.textContent = '';
-  packChip.append(icon(PRESENT ? 'link' : 'book-open', 18), h('span', {}, `${pack.title || 'Bài chưa đặt tên'}${pack.level ? ' · ' + pack.level : ''}`), icon('chevron-right', 18));
-  packChip.title = PRESENT ? 'Bài học mở từ link' : hasEmbeddedPack() ? 'Nội dung nhúng trong file này' : 'Nội dung đang dùng. Bấm để soạn bài.';
+  packChip.append(icon(PRESENT ? 'link' : 'book-open', 18), h('span', {}, `${pack.title || t('hub.pack.untitled')}${pack.level ? ' · ' + pack.level : ''}`), icon('chevron-right', 18));
+  packChip.title = PRESENT ? t('hub.pack.fromLink') : hasEmbeddedPack() ? t('hub.pack.embedded') : t('hub.pack.current');
 }
 renderPackChip(getPack());
 onPackChange(renderPackChip);
@@ -219,7 +233,7 @@ function renderMenu(root) {
   const motion = !reducedMotion();
   const big = createMascot({ size: '10rem', react: false, bubble: false });
   const peek = createMascot({ size: '7rem', react: false, bubble: false });
-  const tabs = h('div', { class: 'group-tabs', role: 'group', 'aria-label': 'Nhóm trò chơi' });
+  const tabs = h('div', { class: 'group-tabs', role: 'group', 'aria-label': t('hub.menu.groups') });
   const heads = h('div', { class: 'menu-heads' }, h('div', { class: 'menu-peek' }, peek.el), tabs);
   const grid = h('div', { class: 'card-grid' });
 
@@ -299,9 +313,9 @@ function gameCard(game, pack, index) {
   const missing = game.ready ? missingForGame(game, pack) : [];
   const [c1, c2, ink, accent] = CARD_COLORS[game.id] || ['#bfe8b0', '#eefae8', '#14532d', '#22c55e'];
   const badges = h('div', { class: 'card-badges' },
-    game.needsCamera ? h('span', { class: 'badge badge-camera' }, icon('camera', 16), 'Cần camera') : null,
-    !game.ready ? h('span', { class: 'badge badge-soon' }, icon('clock', 16), 'Sắp có') : null,
-    game.ready && missing.length ? h('span', { class: 'badge badge-warn' }, icon('alert', 16), 'Thiếu nội dung') : null,
+    game.needsCamera ? h('span', { class: 'badge badge-camera' }, icon('camera', 16), t('hub.badge.camera')) : null,
+    !game.ready ? h('span', { class: 'badge badge-soon' }, icon('clock', 16), t('hub.badge.soon')) : null,
+    game.ready && missing.length ? h('span', { class: 'badge badge-warn' }, icon('alert', 16), t('hub.badge.missing')) : null,
   );
   const card = h(
     'a',
@@ -346,13 +360,13 @@ function renderGame(root, id) {
   root.append(host);
 
   if (!game || !game.ready) {
-    host.append(notice('Trò chơi này sắp có', game ? `"${game.title}" đang được xây dựng.` : 'Không tìm thấy trò chơi.'));
+    host.append(notice(t('hub.notice.soonTitle'), game ? t('hub.notice.soonBody', { title: game.title }) : t('hub.notice.notFound')));
     return () => host.remove();
   }
   const pack = getPack();
   const missing = missingForGame(game, pack);
   if (missing.length) {
-    host.append(notice(`${game.title}: cần thêm nội dung`, missing, true));
+    host.append(notice(t('hub.notice.needContent', { title: game.title }), missing, true));
     return () => host.remove();
   }
   try {
@@ -360,7 +374,7 @@ function renderGame(root, id) {
   } catch (err) {
     console.error(err);
     host.textContent = '';
-    host.append(notice('Có lỗi khi mở trò chơi', String(err.message || err)));
+    host.append(notice(t('hub.notice.error'), String(err.message || err)));
   }
   return () => {
     try {
@@ -378,8 +392,8 @@ function notice(title, lines, toEditor = false) {
     h('h2', {}, title),
     h('ul', {}, [].concat(lines).map((l) => h('li', {}, l))),
     h('div', { class: 'notice-actions' },
-      toEditor ? h('a', { href: '#/editor', class: 'btn btn-primary' }, icon('book-open', 22), h('span', {}, 'Mở Soạn bài')) : null,
-      h('a', { href: '#/', class: 'btn btn-ghost' }, icon('home', 22), h('span', {}, 'Về menu'))),
+      toEditor ? h('a', { href: '#/editor', class: 'btn btn-primary' }, icon('book-open', 22), h('span', {}, t('hub.notice.openEditor'))) : null,
+      h('a', { href: '#/', class: 'btn btn-ghost' }, icon('home', 22), h('span', {}, t('hub.notice.toMenu')))),
   );
 }
 
@@ -387,65 +401,72 @@ function notice(title, lines, toEditor = false) {
 
 async function openSettings() {
   const s = getSettings();
-  const voiceInfo = h('p', { class: 'muted' }, 'Đang kiểm tra giọng đọc...');
+  const voiceInfo = h('p', { class: 'muted' }, t('set.voice.checking'));
   const rateValue = h('output', {}, s.ttsRate.toFixed(1));
+  const langHost = h('div', { class: 'lang-host' });
+  mountLangSwitch(langHost, { cls: 'lang-seg--settings', onFail: loadFailToast });
 
   const linkBox = PRESENT
     ? h('div', { class: 'link-box' },
-      h('p', {}, h('strong', {}, 'Đang mở bài học từ link.'), ' Chế độ trình chiếu: ẩn Soạn bài để học sinh không sửa nhầm.'),
+      h('p', {}, h('strong', {}, t('set.link.title')), ' ' + t('set.link.body')),
       h('div', { class: 'link-box-actions' },
-        button({ label: 'Sửa bài này', iconName: 'pencil', variant: 'primary', onClick: () => leaveLinkedPack({ edit: true }), attrs: { 'data-testid': 'edit-linked' } }),
-        button({ label: 'Thoát chế độ trình chiếu', iconName: 'log-out', onClick: () => leaveLinkedPack() })))
+        button({ label: t('set.link.edit'), iconName: 'pencil', variant: 'primary', onClick: () => leaveLinkedPack({ edit: true }), attrs: { 'data-testid': 'edit-linked' } }),
+        button({ label: t('set.link.exit'), iconName: 'log-out', onClick: () => leaveLinkedPack() })))
     : null;
   const body = h(
     'div', { class: 'settings' },
     linkBox,
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-lang' },
+      h('span', { id: 'set-lang' }, t('set.lang')),
+      langHost),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-sound' },
-      h('span', { id: 'set-sound' }, 'Âm thanh hiệu ứng (đúng / sai / điểm / đếm ngược)'),
-      segmented([{ value: true, label: 'Bật' }, { value: false, label: 'Tắt' }], s.sound !== false, (v) => updateSettings({ sound: v }), 'sound')),
+      h('span', { id: 'set-sound' }, t('set.sound')),
+      segmented([{ value: true, label: t('ui.on') }, { value: false, label: t('ui.off') }], s.sound !== false, (v) => updateSettings({ sound: v }), 'sound')),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-read' },
-      h('span', { id: 'set-read' }, 'Đọc từ trong game thi đấu'),
-      segmented([{ value: 'off', label: 'Tắt' }, { value: 'on', label: 'Bật' }], s.readAloud === 'on' ? 'on' : 'off', (v) => updateSettings({ readAloud: v }), 'read-aloud'),
-      h('small', { class: 'muted' }, 'Tắt (khuyên dùng): game thi đấu chỉ còn âm hiệu và điểm, không đọc từ hay câu hỏi. Statue Freeze và Simon Says vẫn đọc lệnh vì đó là luật chơi. Nút loa trong game vẫn đọc khi bấm.')),
+      h('span', { id: 'set-read' }, t('set.readAloud')),
+      segmented([{ value: 'off', label: t('ui.off') }, { value: 'on', label: t('ui.on') }], s.readAloud === 'on' ? 'on' : 'off', (v) => updateSettings({ readAloud: v }), 'read-aloud'),
+      h('small', { class: 'muted' }, t('set.readAloud.hint'))),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-accent' },
-      h('span', { id: 'set-accent' }, 'Giọng đọc tiếng Anh'),
-      segmented([{ value: 'en-US', label: 'Anh-Mỹ (en-US)' }, { value: 'en-GB', label: 'Anh-Anh (en-GB)' }], s.accent, (v) => updateSettings({ accent: v }), 'accent')),
+      h('span', { id: 'set-accent' }, t('set.accent')),
+      segmented([{ value: 'en-US', label: t('set.accent.us') }, { value: 'en-GB', label: t('set.accent.gb') }], s.accent, (v) => updateSettings({ accent: v }), 'accent')),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-rate' },
-      h('span', { id: 'set-rate' }, 'Tốc độ đọc ', rateValue),
+      h('span', { id: 'set-rate' }, t('set.rate') + ' ', rateValue),
       rangeWithSteps(h('input', {
         type: 'range', min: 0.5, max: 1.5, step: 0.1, value: s.ttsRate, 'aria-labelledby': 'set-rate', 'data-testid': 'tts-rate',
         onInput: (e) => { rateValue.textContent = Number(e.target.value).toFixed(1); updateSettings({ ttsRate: Number(e.target.value) }); },
-      }), { step: 0.1, label: 'tốc độ đọc' })),
+      }), { step: 0.1, label: t('set.rate.lower') })),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-voice' },
-      h('span', { id: 'set-voice' }, 'Giọng đọc'),
+      h('span', { id: 'set-voice' }, t('set.voice')),
       segmented([
-        { value: 'omni', label: 'Giọng thu sẵn (OmniVoice)' },
-        { value: 'web', label: 'Giọng máy (Web Speech)' },
+        { value: 'omni', label: t('set.voice.omni') },
+        { value: 'web', label: t('set.voice.web') },
       ], s.voiceMode !== 'web' ? 'omni' : 'web', (v) => updateSettings({ voiceMode: v }), 'voice-mode'),
-      h('small', { class: 'muted' }, `Giọng thu sẵn: mỗi game 1 giọng dẫn (${clipCount()} câu).`)),
+      h('small', { class: 'muted' }, t('set.voice.omniHint', { n: clipCount() }))),
     h('div', { class: 'voice-list' },
       GAMES.filter((g) => g.ready).map((g) =>
         h('div', { class: 'voice-row' },
           h('span', { class: 'en' }, g.title),
           h('span', { class: 'muted' }, voiceLabel(voiceFor(g.id))),
-          button({ iconName: 'volume', title: `Nghe giọng ${g.title}`, variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id), manual: true }) })))),
-    h('p', { class: 'muted' }, 'Câu chưa thu sẵn (nội dung mới thêm) sẽ đọc bằng giọng máy. Anh-Mỹ/Anh-Anh và tốc độ bên dưới chỉ áp dụng cho giọng máy.'),
-    button({ label: 'Nghe thử giọng máy', iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true, manual: true }) }),
+          button({ iconName: 'volume', title: t('set.voice.preview', { title: g.title }), variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id), manual: true }) })))),
+    h('p', { class: 'muted' }, t('set.voice.fallback')),
+    button({ label: t('set.voice.testWeb'), iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true, manual: true }) }),
     voiceInfo,
-    h('p', { class: 'muted' }, 'Chọn camera sẽ có khi làm các game dùng camera.'),
+    h('p', { class: 'muted' }, t('set.cameraNote')),
   );
-  openModal({ title: 'Cài đặt', body, actions: [{ label: 'Xong', variant: 'primary' }] });
+  const modal = openModal({ title: t('hub.settings'), body, actions: [{ label: t('common.done'), variant: 'primary' }], onClose: () => off() });
+  // Đổi ngôn ngữ ngay trong hộp: dựng lại hộp bằng ngôn ngữ mới (không bao giờ có 2 hộp chồng).
+  const off = onLang((l, changed) => { if (changed) { modal.close(); setTimeout(openSettings, 0); } }); // hoãn: thêm listener ngay trong vòng phát sẽ lặp vô hạn
 
   if (!ttsSupported()) {
-    voiceInfo.textContent = 'Trình duyệt này không hỗ trợ đọc giọng nói. Nên dùng Chrome hoặc Edge.';
+    voiceInfo.textContent = t('set.tts.unsupported');
     voiceInfo.className = 'warn-text';
     return;
   }
   const voices = await getEnglishVoices();
   if (voices.length) {
-    voiceInfo.textContent = `Máy có ${voices.length} giọng tiếng Anh.`;
+    voiceInfo.textContent = t('set.tts.count', { n: voices.length });
   } else {
-    voiceInfo.textContent = 'Máy chưa có giọng đọc tiếng Anh. Windows: Settings > Time & Language > Speech > Add voices, chọn English (United States).';
+    voiceInfo.textContent = t('set.tts.none');
     voiceInfo.className = 'warn-text';
   }
 }
@@ -491,3 +512,22 @@ function route() {
 
 window.addEventListener('hashchange', route);
 route();
+if (i18nFailed) loadFailToast(); // EN không nạp được trong 4 s: đã tự quay về VI
+
+// Đổi ngôn ngữ: thanh trên tự dịch (bind); menu, Soạn bài, trang thông báo và màn cài đặt game không camera dựng lại;
+// game đang chơi / game camera giữ nguyên (không mất điểm, không tắt camera) và báo bằng toast.
+onLang((l, changed) => {
+  if (!changed) return;
+  toChooser.href = withUi('./start/index.html');
+  renderPackChip(getPack());
+  requestAnimationFrame(moveGlider);
+  const view = document.body.dataset.view;
+  const game = view === 'game' ? findGame(location.hash.split('/')[2]) : null;
+  const rebuild = view === 'menu' || view === 'editor' || view === 'camcheck'
+    || (game && (main.querySelector('.notice') || (!game.needsCamera && main.querySelector('.setup'))));
+  if (rebuild) {
+    const y = main.scrollTop;
+    route();
+    requestAnimationFrame(() => { main.scrollTop = y; });
+  } else if (view === 'game') toast(t('hub.lang.later'));
+});

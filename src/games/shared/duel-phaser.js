@@ -7,6 +7,10 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
+
+addStrings('games-duel', VI);
 import { celebrate } from '../../core/fx.js';
 import { mountPhaser } from './phaser-host.js';
 import { createTapGuard } from './tap-guard.js';
@@ -18,6 +22,7 @@ export function createPhaserDuel(root, pack, game) {
   let phaser = null;
   let scoreboard = null;
   let running = false;
+  let setupOpen = false;
   let timers = [];
   let token = 0;
 
@@ -54,13 +59,14 @@ export function createPhaserDuel(root, pack, game) {
 
   function showSetup() {
     teardown();
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     if (isSmallScreen()) {
       setStage(h('div', { class: 'big-screen-only', 'data-testid': 'duel-big-screen' },
-        icon('alert', 64), h('h2', {}, 'Dùng trên màn hình lớn'),
-        h('p', {}, `${game.title} cần 2 học sinh cùng chạm trên bảng tương tác hoặc màn hình máy tính.`),
-        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, 'Về menu'))));
+        icon('alert', 64), h('h2', {}, t('duel.big.title')),
+        h('p', {}, t('duel.big.body', { title: game.title })),
+        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, t('duel.big.menu')))));
       return;
     }
     setStage(setupScreen({
@@ -68,10 +74,10 @@ export function createPhaserDuel(root, pack, game) {
       title: game.title,
       art: gameArt(game.id),
       rows: [
-        { label: 'Thời gian', control: segmented([45, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), `${game.id}-seconds`),
-          hint: `${game.setupHint} Hai bên: ${pack.teams[0]} (trái) và ${pack.teams[1]} (phải).` },
-        { label: 'Chống bấm loạn', control: segmented([{ value: true, label: 'Bật (khuyên dùng)' }, { value: false, label: 'Tắt' }], opts.guard, (v) => (opts.guard = v), `${game.id}-guard`),
-          hint: 'Bấm sai: bên đó bị khoá 0,7 giây. Hai lần chạm sát nhau (dưới 0,12 giây) chỉ tính một.' },
+        { label: t('duel.time'), control: segmented([45, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), `${game.id}-seconds`),
+          hint: t('duel.sidesHint', { hint: game.setupHint, left: pack.teams[0], right: pack.teams[1] }) },
+        { label: t('duel.guard'), control: segmented([{ value: true, label: t('duel.guard.on') }, { value: false, label: t('ui.off') }], opts.guard, (v) => (opts.guard = v), `${game.id}-guard`),
+          hint: t('duel.guardHint') },
       ],
       onStart: start,
     }));
@@ -79,6 +85,7 @@ export function createPhaserDuel(root, pack, game) {
 
   async function start() {
     teardown();
+    setupOpen = false;
     const my = token;
     const teams = pack.teams.slice(0, 2);
     const scores = [0, 0];
@@ -171,10 +178,13 @@ export function createPhaserDuel(root, pack, game) {
     celebrate({ x: tie ? 0.5 : ranking[0].index ? 0.75 : 0.25, y: 0.6 });
   }
 
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
 
   return {
     destroy() {
+      offLang();
       teardown();
       frame.destroy();
     },

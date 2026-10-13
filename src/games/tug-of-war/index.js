@@ -12,9 +12,13 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import { burst } from '../../core/fx.js';
 import { mountPhaser } from '../shared/phaser-host.js';
 import { ROPE_SIZE, makeRopeScene } from './rope-scene.js';
+
+addStrings('games-duel', VI);
 
 const LOCK_MS = 2000;
 
@@ -28,6 +32,7 @@ function createGame(root, pack) {
   const questions = getQuestions(pack);
   const opts = { steps: 5 };
   let state = null;
+  let setupOpen = false;
   let timers = [];
 
   const frame = createGameFrame(root, {
@@ -53,14 +58,15 @@ function createGame(root, pack) {
     clearTimers();
     dropPhaser();
     state = null;
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     if (isSmallScreen()) {
       setStage(h('div', { class: 'big-screen-only', 'data-testid': 'tw-big-screen' },
         icon('alert', 64),
-        h('h2', {}, 'Dùng trên màn hình lớn'),
-        h('p', {}, 'Tug of War cần 2 học sinh cùng chạm trên bảng tương tác hoặc màn hình máy tính.'),
-        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, 'Về menu'))));
+        h('h2', {}, t('duel.big.title')),
+        h('p', {}, t('duel.big.body', { title: 'Tug of War' })),
+        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, t('duel.big.menu')))));
       return;
     }
     setStage(setupScreen({
@@ -68,8 +74,8 @@ function createGame(root, pack) {
       title: 'Tug of War',
       art: gameArt('tug-of-war'),
       rows: [
-        { label: 'Số nấc để thắng', control: segmented([3, 5, 7].map((n) => ({ value: n, label: String(n) })), opts.steps, (v) => (opts.steps = v), 'tw-steps'),
-          hint: `Hai bên: ${pack.teams[0]} (trái) và ${pack.teams[1]} (phải). Dùng ${questions.length} câu hỏi của bộ nội dung.` },
+        { label: t('game.tug.steps'), control: segmented([3, 5, 7].map((n) => ({ value: n, label: String(n) })), opts.steps, (v) => (opts.steps = v), 'tw-steps'),
+          hint: t('game.tug.hint', { left: pack.teams[0], right: pack.teams[1], n: questions.length }) },
       ],
       onStart: start,
     }));
@@ -77,6 +83,7 @@ function createGame(root, pack) {
 
   // ---------- Chơi ----------
   function start() {
+    setupOpen = false;
     state = {
       pos: 0, // âm = kéo về trái, dương = kéo về phải
       over: false,
@@ -232,10 +239,13 @@ function createGame(root, pack) {
     if (state) state.phaser = null;
   }
 
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
 
   return {
     destroy() {
+      offLang();
       clearTimers();
       if (state) state.over = true;
       dropPhaser();
@@ -255,7 +265,7 @@ export default {
   group: 'class',
   theme: 'field',
   icon: 'arrow-left-right',
-  description: '2 học sinh thi trả lời nhanh, kéo dây về phía mình.',
+  get description() { return t('game.tug.desc'); },
   ready: true,
 
   mount(rootEl, content) {

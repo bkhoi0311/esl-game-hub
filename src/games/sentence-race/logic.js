@@ -11,7 +11,7 @@ export function shuffle(list, rand = Math.random) {
 
 export const MIN_SENTENCES = 6;
 export const LENGTHS = { short: [3, 5], medium: [4, 7], long: [5, 9] };
-const VI = /[À-ỹđĐ]/; // có dấu tiếng Việt => không phải câu tiếng Anh
+const VI = /[À-ỹđĐ]/; // i18n-keep: có dấu tiếng Việt => không phải câu tiếng Anh (dữ liệu)
 
 // "I eat a banana every morning." -> { tokens: ['I','eat','a','banana','every','morning'], end: '.' } | null
 export function tokenize(sentence) {

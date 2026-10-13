@@ -2,15 +2,16 @@
 // File thuần JS (không DOM) để cả app và script Node (tools/voices/texts.mjs) cùng dùng.
 
 // 8 giọng giáo viên đã chọn (28/09/2026). instruct/seed: cách tạo giọng gốc bằng OmniVoice.
+// label = dữ liệu cho script tools/voices; giao diện hiển thị t('voice.' + id) (audio.js voiceLabel).
 export const VOICES = [
-  { id: 'v01', label: 'Bé gái (Mỹ)', sample: '01_girl_child_us' },
-  { id: 'v02', label: 'Bé trai (Mỹ)', sample: '02_boy_child_us' },
-  { id: 'v03', label: 'Nữ thiếu niên (Mỹ)', sample: '03_girl_teen_us' },
-  { id: 'v04', label: 'Nam thiếu niên (Anh)', sample: '04_boy_teen_uk' },
-  { id: 'v05', label: 'Nữ trẻ (Mỹ)', sample: '05_woman_young_us' },
-  { id: 'v06', label: 'Nam trẻ (Mỹ)', sample: '06_man_young_us' },
-  { id: 'v09', label: 'Nữ trung niên (Mỹ)', sample: '09_woman_middle_us' },
-  { id: 'v12', label: 'Ông lớn tuổi (Mỹ)', sample: '12_man_elder_us' },
+  { id: 'v01', label: 'Bé gái (Mỹ)', sample: '01_girl_child_us' }, // i18n-keep: dữ liệu
+  { id: 'v02', label: 'Bé trai (Mỹ)', sample: '02_boy_child_us' }, // i18n-keep: dữ liệu
+  { id: 'v03', label: 'Nữ thiếu niên (Mỹ)', sample: '03_girl_teen_us' }, // i18n-keep: dữ liệu
+  { id: 'v04', label: 'Nam thiếu niên (Anh)', sample: '04_boy_teen_uk' }, // i18n-keep: dữ liệu
+  { id: 'v05', label: 'Nữ trẻ (Mỹ)', sample: '05_woman_young_us' }, // i18n-keep: dữ liệu
+  { id: 'v06', label: 'Nam trẻ (Mỹ)', sample: '06_man_young_us' }, // i18n-keep: dữ liệu
+  { id: 'v09', label: 'Nữ trung niên (Mỹ)', sample: '09_woman_middle_us' }, // i18n-keep: dữ liệu
+  { id: 'v12', label: 'Ông lớn tuổi (Mỹ)', sample: '12_man_elder_us' }, // i18n-keep: dữ liệu
 ];
 
 // Giọng dẫn mặc định của từng game (giáo viên đổi được trong Cài đặt).

@@ -14,9 +14,13 @@ import {
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
 import { createTapGuard } from '../shared/tap-guard.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import {
   LENGTHS, MIN_SENTENCES, bestLength, countsByLength, isNext, makeRound, poolFor, sentencesFromPack, shuffle,
 } from './logic.js';
+
+addStrings('games-duel', VI);
 
 const COOL_MS = 800;
 const HINT_MS = 20000;
@@ -27,7 +31,7 @@ const HOW_TO = {
   steps: ['Build the sentence on your side.', 'Right word: it jumps up.', 'Wrong word: wait a moment.', 'Full sentence: +1 point.'],
 };
 
-const LENGTH_LABEL = { short: 'Ngắn (3–5 từ)', medium: 'Vừa (4–7 từ)', long: 'Dài (5–9 từ)' };
+const LENGTH_LABEL = { short: 'game.sr.len.short', medium: 'game.sr.len.medium', long: 'game.sr.len.long' }; // khoá, dịch lúc dùng
 
 function createGame(root, pack) {
   const sentences = sentencesFromPack(pack);
@@ -36,6 +40,7 @@ function createGame(root, pack) {
   const teams = [0, 1].map((i) => (pack.teams && pack.teams[i]) || ['Red', 'Blue'][i]);
   let state = null;
   let timers = [];
+  let setupOpen = false;
   let timer = null;
   let scoreboard = null;
   let guard = null;
@@ -66,28 +71,29 @@ function createGame(root, pack) {
     clearTimers();
     if (timer) timer.stop();
     state = null;
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     if (isSmallScreen()) {
       setStage(h('div', { class: 'big-screen-only', 'data-testid': 'duel-big-screen' },
-        icon('alert', 64), h('h2', {}, 'Dùng trên màn hình lớn'),
-        h('p', {}, 'Sentence Race cần 2 học sinh cùng chạm trên bảng tương tác hoặc màn hình máy tính.'),
-        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, 'Về menu'))));
+        icon('alert', 64), h('h2', {}, t('duel.big.title')),
+        h('p', {}, t('duel.big.body', { title: 'Sentence Race' })),
+        h('a', { href: '#/', class: 'btn btn-primary' }, icon('home', 22), h('span', {}, t('duel.big.menu')))));
       return;
     }
-    const lengthOpts = Object.keys(LENGTHS).map((k) => ({ value: k, label: `${LENGTH_LABEL[k]} · ${counts[k]} câu`, disabled: counts[k] < MIN_SENTENCES }));
+    const lengthOpts = Object.keys(LENGTHS).map((k) => ({ value: k, label: t('game.sr.lenOption', { label: t(LENGTH_LABEL[k]), n: counts[k] }), disabled: counts[k] < MIN_SENTENCES }));
     if (counts[opts.length] < MIN_SENTENCES) opts.length = bestLength(sentences);
     setStage(setupScreen({
       gameId: 'sentence-race',
       title: 'Sentence Race',
       art: gameArt('sentence-race'),
       rows: [
-        { label: 'Thời gian', control: segmented([60, 90, 120].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), 'sr-seconds'),
-          hint: `Hai bên: ${teams[0]} (trái) và ${teams[1]} (phải). Mỗi bên một câu khác nhau. Câu lấy từ câu ví dụ của từ vựng và câu hỏi điền chỗ trống.` },
-        { label: 'Độ dài câu', control: segmented(lengthOpts, opts.length, (v) => (opts.length = v), 'sr-length') },
-        { label: 'Chữ hoa đầu câu', control: segmented([{ value: 'keep', label: 'Giữ (dễ hơn)' }, { value: 'lower', label: 'Viết thường hết (khó hơn)' }], opts.caps, (v) => (opts.caps = v), 'sr-caps') },
-        { label: 'Chống bấm loạn', control: segmented([{ value: true, label: 'Bật (khuyên dùng)' }, { value: false, label: 'Tắt' }], opts.guard, (v) => (opts.guard = v), 'sr-guard'),
-          hint: 'Chạm sai: bên đó bị khoá 0,8 giây. Hai lần chạm sát nhau (dưới 0,12 giây) chỉ tính một.' },
+        { label: t('duel.time'), control: segmented([60, 90, 120].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), 'sr-seconds'),
+          hint: t('game.sr.hint', { left: teams[0], right: teams[1] }) },
+        { label: t('game.sr.length'), control: segmented(lengthOpts, opts.length, (v) => (opts.length = v), 'sr-length') },
+        { label: t('game.sr.caps'), control: segmented([{ value: 'keep', label: t('game.sr.caps.keep') }, { value: 'lower', label: t('game.sr.caps.lower') }], opts.caps, (v) => (opts.caps = v), 'sr-caps') },
+        { label: t('duel.guard'), control: segmented([{ value: true, label: t('duel.guard.on') }, { value: false, label: t('ui.off') }], opts.guard, (v) => (opts.guard = v), 'sr-guard'),
+          hint: t('game.sr.guardHint') },
       ],
       onStart: start,
     }));
@@ -95,6 +101,7 @@ function createGame(root, pack) {
 
   // ---------- Chơi ----------
   function start() {
+    setupOpen = false;
     clearTimers();
     const pool = poolFor(sentences, opts.length);
     guard = createTapGuard({ sides: 2, coolMs: COOL_MS, enabled: opts.guard });
@@ -245,10 +252,13 @@ function createGame(root, pack) {
     speak(tie ? line('tie') : `${ranking[0].name} wins!`);
   }
 
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
 
   return {
     destroy() {
+      offLang();
       if (state) state.running = false;
       clearTimers();
       if (timer) timer.stop();
@@ -270,11 +280,11 @@ export default {
   group: 'class',
   theme: 'meadow',
   icon: 'steps',
-  description: '2 học sinh thi xếp từ thành câu đúng.',
+  get description() { return t('game.sr.desc'); },
   ready: true,
   checkContent: (pack) => {
     const n = sentencesFromPack(pack).length;
-    return n >= MIN_SENTENCES ? [] : [`Cần ít nhất ${MIN_SENTENCES} câu: thêm câu ví dụ (cột example) cho từ vựng, hoặc câu hỏi điền chỗ trống có "___" (hiện có ${n}).`];
+    return n >= MIN_SENTENCES ? [] : [t('game.sr.need', { min: MIN_SENTENCES, n })];
   },
 
   mount(rootEl, content) {

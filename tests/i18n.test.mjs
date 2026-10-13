@@ -185,3 +185,19 @@ test('I10: không còn chuỗi giao diện tiếng Việt cứng trong public/bo
   }
   assert.deepEqual(bad, [], 'chuỗi tiếng Việt cứng:\n' + bad.join('\n'));
 });
+
+test('I-F1: setLang lặp trên bản sao listeners (listener tự gỡ không làm bỏ sót listener sau; listener bị gỡ giữa chừng không bị gọi)', () => {
+  const { I: L } = load();
+  const calls = [];
+  const offA = L.onLang(() => { calls.push('A'); offA(); });
+  L.onLang(() => calls.push('B'));
+  let offD;
+  L.onLang(() => { calls.push('C'); offD(); });
+  offD = L.onLang(() => calls.push('D'));
+  L.onLang(() => calls.push('E'));
+  L.setLang('en');
+  assert.deepEqual(calls, ['A', 'B', 'C', 'E']);
+  calls.length = 0;
+  L.setLang('vi');
+  assert.deepEqual(calls, ['B', 'C', 'E']);
+});

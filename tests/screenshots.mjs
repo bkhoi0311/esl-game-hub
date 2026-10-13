@@ -19,9 +19,10 @@ const SIZES = [
   { name: '390x844', width: 390, height: 844 },
 ];
 
-const server = await createServer({ server: { port: 5199, strictPort: true }, logLevel: 'error' });
+const PORT = Number(process.env.PORT || 5199); // PORT=... để chạy song song nhiều agent
+const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
-const BASE = 'http://localhost:5199/';
+const BASE = `http://localhost:${PORT}/`;
 const browser = await chromium.launch({ channel: 'chrome' });
 const results = [];
 const errors = [];

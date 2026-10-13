@@ -11,11 +11,12 @@ mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
 // PREVIEW=1: chạy trên bản build (dist/) thay vì dev server, để kiểm tra bản sẽ đưa lên web.
+const PORT = Number(process.env.PORT || 5196); // PORT=... để chạy song song nhiều agent
 const server = process.env.PREVIEW
-  ? await preview({ preview: { port: 5196, strictPort: true }, logLevel: 'error' })
-  : await createServer({ server: { port: 5196, strictPort: true }, logLevel: 'error' });
+  ? await preview({ preview: { port: PORT, strictPort: true }, logLevel: 'error' })
+  : await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 if (!process.env.PREVIEW) await server.listen();
-const BASE = 'http://localhost:5196/';
+const BASE = `http://localhost:${PORT}/`;
 const browser = await chromium.launch().catch(() => chromium.launch({ channel: 'chrome' })); // máy không có Chromium của Playwright thì dùng Chrome
 const results = [];
 const pageErrors = [];

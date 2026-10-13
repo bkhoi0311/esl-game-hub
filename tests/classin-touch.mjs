@@ -7,7 +7,7 @@ import { chromium } from 'playwright';
 import { createServer } from 'vite';
 import assert from 'node:assert/strict';
 
-const PORT = 5197;
+const PORT = Number(process.env.PORT || 5197); // PORT=... để chạy song song nhiều agent
 const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const BASE = `http://localhost:${PORT}/`;

@@ -11,9 +11,13 @@ import {
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import { burst, floatText } from '../../core/fx.js';
 import { line } from '../../core/voice-lines.js';
 import { CHESTS, applyChest, dealChests, defaultWeights, needsTarget, validTargets } from './logic.js';
+
+addStrings('games-duel', VI);
 
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
 
@@ -70,6 +74,7 @@ function createGame(root, pack) {
   function showSetup() {
     clearTimers();
     state = null;
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     const allowed = [10, 15, 20].filter((n) => n <= questionsAll.length);
@@ -78,10 +83,10 @@ function createGame(root, pack) {
 
     const weightInputs = h('div', { class: 'gh-weights' },
       Object.entries(CHESTS).map(([key, c]) =>
-        h('div', { class: 'gh-weight', role: 'group', 'aria-label': `Tỉ lệ ${c.label}` },
+        h('div', { class: 'gh-weight', role: 'group', 'aria-label': t('game.gold.ratioAria', { label: c.label }) },
           h('span', { class: 'en' }, c.label),
           stepper({
-            value: opts.weights[key], min: 0, max: 100, step: 5, label: `tỉ lệ ${c.label}`, testId: `gh-weight-${key}`,
+            value: opts.weights[key], min: 0, max: 100, step: 5, label: t('game.gold.ratioLabel', { label: c.label }), testId: `gh-weight-${key}`,
             onChange: (v) => { opts.weights[key] = v; },
           }))));
 
@@ -90,12 +95,12 @@ function createGame(root, pack) {
       title: 'Gold Heist',
       art: gameArt('gold-heist'),
       rows: [
-        { label: 'Số đội', control: segmented([2, 3, 4].map((n) => ({ value: n, label: String(n) })), opts.teams, (v) => (opts.teams = v), 'gh-teams'),
-          hint: `Tên đội lấy từ tab Soạn bài: ${names.slice(0, 4).join(', ')}.` },
-        { label: 'Số câu hỏi', control: segmented(counts, opts.count, (v) => (opts.count = v), 'gh-count'),
-          hint: `Bộ nội dung có ${questionsAll.length} câu.` },
-        { label: 'Tỉ lệ các loại rương (số càng lớn càng dễ ra)', control: weightInputs,
-          hint: '"Steal" (cướp 20 vàng) và "Swap" (đổi vàng) chỉ xuất hiện khi có đội khác phù hợp.' },
+        { label: t('game.gold.teams'), control: segmented([2, 3, 4].map((n) => ({ value: n, label: String(n) })), opts.teams, (v) => (opts.teams = v), 'gh-teams'),
+          hint: t('game.gold.teamsHint', { teams: names.slice(0, 4).join(', ') }) },
+        { label: t('game.gold.questions'), control: segmented(counts, opts.count, (v) => (opts.count = v), 'gh-count'),
+          hint: t('game.gold.questionsHint', { n: questionsAll.length }) },
+        { label: t('game.gold.chests'), control: weightInputs,
+          hint: t('game.gold.chestsHint') },
       ],
       onStart: start,
     }));
@@ -103,6 +108,7 @@ function createGame(root, pack) {
 
   // ---------- Chơi ----------
   function start() {
+    setupOpen = false;
     const teamNames = names.slice(0, opts.teams);
     state = {
       teamNames,
@@ -269,10 +275,14 @@ function createGame(root, pack) {
     confetti({ particleCount: Math.round(160 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
+  let setupOpen = false;
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
 
   return {
     destroy() {
+      offLang();
       clearTimers();
       confetti.reset();
       frame.destroy();
@@ -290,7 +300,7 @@ export default {
   group: 'class',
   theme: 'island',
   icon: 'coins',
-  description: 'Trắc nghiệm theo đội, trả lời đúng được mở rương vàng.',
+  get description() { return t('game.gold.desc'); },
   ready: true,
 
   mount(rootEl, content) {

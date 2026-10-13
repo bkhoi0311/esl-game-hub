@@ -131,8 +131,12 @@
       } catch (e) { /* bỏ qua */ }
     }
     apply();
-    for (var i = 0; i < listeners.length; i++) {
-      try { listeners[i](l, changed); } catch (e) { try { root.console.error(e); } catch (e2) { /* bỏ qua */ } }
+    // Lặp trên bản sao: listener tự gỡ / thêm listener khi đang phát không làm lệch chỉ số (bỏ sót hay gọi lại).
+    // Listener đã bị gỡ giữa chừng (bởi listener đứng trước) thì không gọi nữa.
+    var snap = listeners.slice();
+    for (var i = 0; i < snap.length; i++) {
+      if (listeners.indexOf(snap[i]) < 0) continue;
+      try { snap[i](l, changed); } catch (e) { try { root.console.error(e); } catch (e2) { /* bỏ qua */ } }
     }
     return true;
   }

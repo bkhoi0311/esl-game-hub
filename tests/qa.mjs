@@ -3,7 +3,8 @@ import { chromium } from 'playwright';
 import { createServer } from 'vite';
 import { readFileSync } from 'node:fs';
 const AUDIT = readFileSync(new URL('./qa-audit.js', import.meta.url), 'utf8'); // lấy từ scripts/qa.py của skill liquid-glass-design
-const server = await createServer({ server: { port: 5190, strictPort: true }, logLevel: 'error' });
+const PORT = Number(process.env.PORT || 5190); // PORT=... để chạy song song nhiều agent
+const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const browser = await chromium.launch();
 const pages = [['menu', '#/'], ['editor', '#/editor'], ['setup', '#/game/gold-heist'], ['camera', '#/game/simon-pose']];
@@ -15,7 +16,7 @@ for (const [name, hash] of pages) {
     const errors = [];
     pg.on('pageerror', (e) => errors.push(e.message));
     pg.on('console', (m) => m.type() === 'error' && !/getUserMedia|camera|NotFound|Permission/i.test(m.text()) && errors.push(m.text()));
-    await pg.goto('http://localhost:5190/' + hash);
+    await pg.goto(`http://localhost:${PORT}/` + hash);
     await pg.waitForTimeout(1800);
     await pg.evaluate(`window.__LG_W = ${vp.width}`);
     const r = await pg.evaluate(`(${AUDIT})()`);

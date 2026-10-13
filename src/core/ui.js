@@ -2,6 +2,10 @@
 // bảng điểm đội (2-4 đội), đồng hồ đếm ngược, khung game (Hướng dẫn / Tạm dừng / Chơi lại / Về menu).
 import { gsap } from 'gsap';
 import { icon } from './icons.js';
+import { addStrings, t } from '../i18n/index.js';
+import VI from '../i18n/strings/core.vi.js';
+
+addStrings('core', VI);
 
 // ---------- Tạo phần tử ----------
 
@@ -100,7 +104,7 @@ export function openModal({ title, body, actions = [], onClose, wide = false, di
       'div',
       { class: 'modal-head' },
       h('h2', {}, title),
-      dismissible ? button({ iconName: 'x', title: 'Đóng', variant: 'ghost', onClick: close }) : null,
+      dismissible ? button({ iconName: 'x', title: t('common.close'), variant: 'ghost', onClick: close }) : null,
     ),
     h('div', { class: 'modal-body' }, body),
     footer,
@@ -125,7 +129,7 @@ export function openModal({ title, body, actions = [], onClose, wide = false, di
   return { close, el: dialog };
 }
 
-export function confirmModal({ title, message, okLabel = 'Đồng ý', cancelLabel = 'Hủy', danger = false }) {
+export function confirmModal({ title, message, okLabel = t('ui.ok'), cancelLabel = t('ui.cancel'), danger = false }) {
   return new Promise((resolve) => {
     let result = false;
     openModal({
@@ -143,7 +147,7 @@ export function confirmModal({ title, message, okLabel = 'Đồng ý', cancelLab
 // Modal hướng dẫn chơi: 1 màn hình, dưới 40 chữ (hiển thị cho học sinh nên dùng tiếng Anh).
 export function showHowTo({ title, text, steps = [] }) {
   const words = [text, ...steps].join(' ').split(/\s+/).filter(Boolean).length;
-  if (words >= 40) console.warn(`[howTo] "${title}" có ${words} chữ, nên dưới 40.`);
+  if (words >= 40) console.warn(`[howTo] "${title}" có ${words} chữ, nên dưới 40.`); // i18n-keep: log nội bộ
   return openModal({
     title: title || 'How to play',
     body: h(
@@ -439,8 +443,8 @@ export function stepper({ value, min = 0, max = 100, step = 1, onChange, testId,
     el.dataset.value = String(value);
     onChange(value);
   };
-  const dec = button({ iconName: 'minus', title: `Giảm ${label}`.trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); set(value - step); } });
-  const inc = button({ iconName: 'plus', title: `Tăng ${label}`.trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); set(value + step); } });
+  const dec = button({ iconName: 'minus', title: t('ui.dec', { label }).trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); set(value - step); } });
+  const inc = button({ iconName: 'plus', title: t('ui.inc', { label }).trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); set(value + step); } });
   const el = h('div', { class: 'stepper', role: 'group', 'aria-label': label || null, 'data-testid': testId, dataset: { value: String(value) } }, dec, out, inc);
   return el;
 }
@@ -455,9 +459,9 @@ export function rangeWithSteps(input, { step = Number(input.step) || 1, label = 
     input.dispatchEvent(new Event('change', { bubbles: true }));
   };
   return h('div', { class: 'range-steps', 'data-testid': testId },
-    button({ iconName: 'minus', title: `Giảm ${label}`.trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); nudge(-step); } }),
+    button({ iconName: 'minus', title: t('ui.dec', { label }).trim(), attrs: { 'data-act': 'dec' }, onClick: (e) => { e.preventDefault(); nudge(-step); } }),
     input,
-    button({ iconName: 'plus', title: `Tăng ${label}`.trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); nudge(step); } }));
+    button({ iconName: 'plus', title: t('ui.inc', { label }).trim(), attrs: { 'data-act': 'inc' }, onClick: (e) => { e.preventDefault(); nudge(step); } }));
 }
 
 // Một dòng cài đặt. KHÔNG dùng <label>: label bao nút sẽ chuyển click về nút đầu tiên (xem segmented()).
@@ -467,7 +471,7 @@ export function setupRow(r, id) {
 }
 
 // Màn hình cài đặt trước khi chơi. rows: [{ label, hint, control }].
-export function setupScreen({ gameId, title, rows, startLabel = 'Bắt đầu chơi', onStart, art }) {
+export function setupScreen({ gameId, title, rows, startLabel = t('ui.startGame'), onStart, art }) {
   return h(
     'div', { class: 'setup' },
     h('div', { class: 'setup-card' },

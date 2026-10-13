@@ -3,9 +3,13 @@
 import { playSound, speak } from '../../core/audio.js';
 import { bus } from '../../core/events.js';
 import { balloonTarget } from '../../core/voice-lines.js';
+import { addStrings, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import { createPhaserDuel } from '../shared/duel-phaser.js';
 import { DESIGN, FONT_EN, INK, bake, makeFxTextures, textPool, toScreen } from '../shared/phaser-host.js';
 import { playableCategories } from '../word-ninja/logic.js';
+
+addStrings('games-duel', VI);
 
 const TARGET_MS = 20000;
 const COLORS = [0xfd3cc6, 0x04bc09, 0xffd23f, 0x00a2fd, 0xff9800, 0xa26bff, 0x00d9e8];
@@ -184,11 +188,11 @@ export default {
   group: 'class',
   theme: 'sky',
   icon: 'search',
-  description: '2 học sinh thi bấm nổ bóng bay có từ đúng nhóm.',
+  get description() { return t('game.balloon.desc'); },
   ready: true,
   checkContent(pack) {
     const n = Object.keys(playableCategories(pack.vocab)).length;
-    return n >= 2 ? [] : [`Cần ít nhất 2 nhóm từ, mỗi nhóm ít nhất 3 từ (hiện có ${n} nhóm đủ).`];
+    return n >= 2 ? [] : [t('game.balloon.need', { n })];
   },
 
   mount(rootEl, content) {
@@ -206,7 +210,7 @@ export default {
       title: 'Balloon Pop',
       howTo: HOW_TO,
       banner: true,
-      setupHint: `Nhóm mục tiêu đổi mỗi 20 giây. Nhóm dùng trong game: ${cats.join(', ')}.`,
+      get setupHint() { return t('game.balloon.hint', { groups: cats.join(', ') }); },
       makeScene: (Phaser) => makeBalloonScene(Phaser, shared),
       onRoundStart(api) {
         shared.cat = null;

@@ -7,6 +7,10 @@ import { getSettings } from './settings.js';
 import { bus } from './events.js';
 import { speechAllowed } from './voice-policy.js';
 import { DEFAULT_VOICE, GAME_VOICE, VOICES, clipKey, speakable } from './voice-lines.js';
+import { addStrings, t } from '../i18n/index.js';
+import VI from '../i18n/strings/core.vi.js';
+
+addStrings('core', VI);
 
 // ---------- Giọng OmniVoice thu sẵn ----------
 
@@ -28,7 +32,7 @@ export function voiceFor(gameId = currentGame) {
 
 export function voiceLabel(id) {
   const v = VOICES.find((x) => x.id === id);
-  return v ? v.label : id;
+  return v ? t('voice.' + v.id) : id;
 }
 
 // url file thu sẵn cho câu này (giọng của game, nếu thiếu thì giọng mặc định), hoặc null.

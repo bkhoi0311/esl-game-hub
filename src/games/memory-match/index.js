@@ -12,6 +12,10 @@ import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
 import { buildDeck, isMatch, maxPairs } from './logic.js';
 import { burst } from '../../core/fx.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
+
+addStrings('games-duel', VI);
 
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
 const HOW_TO = {
@@ -28,6 +32,7 @@ function createGame(root, pack) {
   let state = null;
   let scoreboard = null;
   let timers = [];
+  let setupOpen = false;
 
   const frame = createGameFrame(root, { title: 'Memory Match', howTo: HOW_TO, onRestart: () => showSetup() });
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
@@ -40,24 +45,26 @@ function createGame(root, pack) {
     timers.forEach(clearTimeout);
     timers = [];
     state = null;
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
-    const pairOpts = [6, 8, 10].map((n) => ({ value: n, label: `${n} cặp`, disabled: n > available }));
+    const pairOpts = [6, 8, 10].map((n) => ({ value: n, label: t('game.memory.pairs', { n }), disabled: n > available }));
     if (opts.pairs > available || ![6, 8, 10].includes(opts.pairs)) opts.pairs = [6, 8, 10].filter((n) => n <= available).pop() || available;
     setStage(setupScreen({
       gameId: 'memory-match',
       title: 'Memory Match',
       art: gameArt('memory-match'),
       rows: [
-        { label: 'Số cặp thẻ', control: segmented(pairOpts, opts.pairs, (v) => (opts.pairs = v), 'mm-pairs'), hint: `Bộ nội dung có ${available} từ có nghĩa tiếng Việt.` },
-        { label: 'Số đội', control: segmented([2, 3, 4].map((n) => ({ value: n, label: String(n) })), opts.teams, (v) => (opts.teams = v), 'mm-teams'),
-          hint: `2 học sinh (hoặc 2-4 đội) thay phiên lên lật thẻ: ${names.slice(0, 4).join(', ')}.` },
+        { label: t('game.memory.pairsLabel'), control: segmented(pairOpts, opts.pairs, (v) => (opts.pairs = v), 'mm-pairs'), hint: t('game.memory.pairsHint', { n: available }) },
+        { label: t('game.memory.teams'), control: segmented([2, 3, 4].map((n) => ({ value: n, label: String(n) })), opts.teams, (v) => (opts.teams = v), 'mm-teams'),
+          hint: t('game.memory.teamsHint', { teams: names.slice(0, 4).join(', ') }) },
       ],
       onStart: start,
     }));
   }
 
   function start() {
+    setupOpen = false;
     const deck = buildDeck(pack.vocab, opts.pairs);
     const teamNames = names.slice(0, opts.teams);
     state = { deck, teamNames, turn: 0, open: [], found: 0, busy: false };
@@ -138,9 +145,12 @@ function createGame(root, pack) {
     confetti({ particleCount: Math.round(160 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
   }
 
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen) showSetup(); });
   showSetup();
   return {
     destroy() {
+      offLang();
       timers.forEach(clearTimeout);
       confetti.reset();
       frame.destroy();
@@ -158,9 +168,9 @@ export default {
   group: 'class',
   theme: 'candy',
   icon: 'grid',
-  description: 'Lật thẻ tìm cặp từ tiếng Anh và nghĩa tiếng Việt.',
+  get description() { return t('game.memory.desc'); },
   ready: true,
-  checkContent: (pack) => (maxPairs(pack.vocab) >= 6 ? [] : [`Cần ít nhất 6 từ có nghĩa tiếng Việt khác nhau (hiện có ${maxPairs(pack.vocab)}).`]),
+  checkContent: (pack) => (maxPairs(pack.vocab) >= 6 ? [] : [t('game.memory.need', { n: maxPairs(pack.vocab) })]),
 
   mount(rootEl, content) {
     instance = createGame(rootEl, content);

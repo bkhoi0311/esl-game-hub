@@ -12,7 +12,8 @@ if (!existsSync(EXE)) { console.log('SKIP: chưa cài Chromium 109 ở', DIR); p
 const { chromium } = await import(`${DIR}/node_modules/playwright-core/index.mjs`);
 const OUT = resolve('screenshots/classin109'); mkdirSync(OUT, { recursive: true });
 const UA = 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.120 ClassIn X/6.0.9.1813 Safari/537.36';
-const server = await createServer({ server: { port: 5196, strictPort: true }, logLevel: 'error' });
+const PORT = Number(process.env.PORT || 5196); // PORT=... để chạy song song nhiều agent
+const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const browser = await chromium.launch({ executablePath: EXE });
 let fails = 0;
@@ -27,7 +28,7 @@ try {
       const ctx = await browser.newContext({ viewport: { width: w, height: hh }, deviceScaleFactor: 3, userAgent: UA, hasTouch: true });
       const page = await ctx.newPage();
       try {
-        await page.goto(`http://localhost:5196/${perf}#/game/tic-tac-toe`);
+        await page.goto(`http://localhost:${PORT}/${perf}#/game/tic-tac-toe`);
         await page.waitForSelector('.ttt-cell');
         for (let r = 0; r < 3; r++) {
           await page.click('.ttt-cell:not(.taken) >> nth=0', { timeout: 3000 }); // bị che thì timeout = FAIL

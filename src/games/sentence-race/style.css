@@ -27,3 +27,7 @@ html:not(.no-loop) .sr-tile.hint { animation: sr-hint 0.9s ease-in-out infinite 
 .sr-long .sr-tile.placed { font-size: 2.1rem; }
 .sr-cool { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; place-items: start end; padding: 1rem 2rem; background: rgba(28, 31, 37, 0.16); pointer-events: none; z-index: 3; color: var(--brand-ink); }
 .sr-half.cooling .sr-cool { display: grid; }
+
+/* Nhãn độ dài câu có thể xuống 2 dòng ("Short (3–5 words)" / "15 sentences" ở bản English). */
+[data-testid='sr-length'] .btn { height: auto; min-height: 56px; padding-top: 6px; padding-bottom: 6px; }
+[data-testid='sr-length'] .btn span { white-space: pre-line; text-align: center; line-height: 1.25; }

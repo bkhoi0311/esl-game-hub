@@ -1,0 +1,8 @@
+{
+  "_note": "Danh sách cho phép TOÀN TỆP (chuỗi Việt cố ý giữ, không dịch). Cùng nhóm với đánh dấu trong mã: dòng có '// i18n-keep: <lý do>' hoặc dòng đầu tệp '// i18n-keep-file: <lý do>'. Chuỗi trong console.* tự được bỏ qua (log). Dữ liệu bài nằm ở src/data (bị bỏ qua). Thêm tệp vào đây chỉ khi có lý do ghi rõ.",
+  "files": {
+    "src/core/camcheck.js": "trang chẩn đoán #/camcheck cho đội kỹ thuật (giữ tiếng Việt, PLAN-I18N-HUB mục 10)",
+    "src/core/soanbai/qrules.js": "luật ngôn ngữ so khớp nghĩa tiếng Việt (loại từ cái, quả, chiếc...), không phải giao diện",
+    "src/core/soanbai/categories.js": "dữ liệu tên nhóm từ (trường vi); tên EN thêm bằng trường en"
+  }
+}

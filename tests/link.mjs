@@ -9,9 +9,10 @@ import assert from 'node:assert/strict';
 
 const OUT = resolve('screenshots');
 mkdirSync(OUT, { recursive: true });
-const server = await createServer({ server: { port: 5195, strictPort: true }, logLevel: 'error' });
+const PORT = Number(process.env.PORT || 5195); // PORT=... để chạy song song nhiều agent
+const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
-const BASE = 'http://localhost:5195/';
+const BASE = `http://localhost:${PORT}/`;
 const browser = await chromium.launch();
 const errors = [];
 let failed = false;

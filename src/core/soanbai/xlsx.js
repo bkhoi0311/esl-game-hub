@@ -1,3 +1,8 @@
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/soanbai.vi.js';
+
+addStrings('soanbai', VI);
+
 // Đọc / ghi .xlsx không phụ thuộc thư viện (PLAN-SOANBAI E3, quyết định người dùng: không fflate).
 // ĐỌC: bộ phân tích thư mục trung tâm của zip tự viết + DecompressionStream('deflate-raw') của trình duyệt (Chromium 80+).
 // GHI: zip phương thức "stored" (không nén) với crc32 tự viết. Parse XML bằng regex (không DOMParser) để test được bằng node.
@@ -10,8 +15,6 @@ export class XlsxError extends Error {
   }
 }
 
-const MSG_BAD = 'Không mở được file Excel (có thể bị khoá mật khẩu hoặc hỏng).';
-const MSG_NO_DS = 'Trình duyệt này chưa đọc được file Excel. Hãy lưu file thành CSV UTF-8 rồi nhập lại.';
 
 // ---------- crc32 ----------
 
@@ -46,12 +49,12 @@ export function zipEntries(bytes) {
   for (let i = bytes.length - 22; i >= lo; i--) {
     if (bytes[i] === 0x50 && bytes[i + 1] === 0x4b && bytes[i + 2] === 0x05 && bytes[i + 3] === 0x06) { eocd = i; break; }
   }
-  if (eocd < 0) throw new XlsxError('bad', MSG_BAD);
+  if (eocd < 0) throw new XlsxError('bad', t('sb.xlsx.openFail'));
   const count = u16(bytes, eocd + 10);
   let p = u32(bytes, eocd + 16);
   const map = new Map();
   for (let n = 0; n < count; n++) {
-    if (p + 46 > bytes.length || u32(bytes, p) !== 0x02014b50) throw new XlsxError('bad', MSG_BAD);
+    if (p + 46 > bytes.length || u32(bytes, p) !== 0x02014b50) throw new XlsxError('bad', t('sb.xlsx.openFail'));
     const flags = u16(bytes, p + 8);
     const method = u16(bytes, p + 10);
     const compSize = u32(bytes, p + 20);
@@ -68,26 +71,26 @@ export function zipEntries(bytes) {
 }
 
 async function inflateRaw(data) {
-  if (typeof DecompressionStream === 'undefined') throw new XlsxError('nods', MSG_NO_DS);
+  if (typeof DecompressionStream === 'undefined') throw new XlsxError('nods', t('sb.xlsx.unsupported'));
   try {
     const stream = new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
     return new Uint8Array(await new Response(stream).arrayBuffer());
   } catch (err) {
-    throw new XlsxError('bad', MSG_BAD);
+    throw new XlsxError('bad', t('sb.xlsx.openFail'));
   }
 }
 
 async function zipRead(bytes, entries, name) {
   const e = entries.get(name);
   if (!e) return null;
-  if (e.flags & 1) throw new XlsxError('bad', MSG_BAD);
+  if (e.flags & 1) throw new XlsxError('bad', t('sb.xlsx.openFail'));
   const o = e.offset;
-  if (o + 30 > bytes.length || u32(bytes, o) !== 0x04034b50) throw new XlsxError('bad', MSG_BAD);
+  if (o + 30 > bytes.length || u32(bytes, o) !== 0x04034b50) throw new XlsxError('bad', t('sb.xlsx.openFail'));
   const start = o + 30 + u16(bytes, o + 26) + u16(bytes, o + 28);
   const raw = bytes.subarray(start, start + e.compSize);
   if (e.method === 0) return raw;
   if (e.method === 8) return inflateRaw(raw);
-  throw new XlsxError('bad', MSG_BAD);
+  throw new XlsxError('bad', t('sb.xlsx.openFail'));
 }
 
 // ---------- XML nhỏ ----------
@@ -182,7 +185,7 @@ export async function readXlsx(bytes, opts) {
   const maxRows = (opts && opts.maxRows) || 2000;
   const entries = zipEntries(bytes);
   const wb = await zipRead(bytes, entries, 'xl/workbook.xml');
-  if (!wb) throw new XlsxError('bad', MSG_BAD);
+  if (!wb) throw new XlsxError('bad', t('sb.xlsx.openFail'));
   const wbXml = utf8(wb);
   const relsBytes = await zipRead(bytes, entries, 'xl/_rels/workbook.xml.rels');
   const rels = {};
@@ -213,7 +216,7 @@ export async function readXlsx(bytes, opts) {
     const parsed = parseSheet(utf8(data), shared, maxRows);
     sheets.push({ name, rows: parsed.rows, truncated: parsed.truncated });
   }
-  if (!sheets.length) throw new XlsxError('bad', MSG_BAD);
+  if (!sheets.length) throw new XlsxError('bad', t('sb.xlsx.openFail'));
   return sheets;
 }
 

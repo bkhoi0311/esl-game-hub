@@ -2,6 +2,10 @@
 // Module thuần: không DOM, không import content.js. Là module DUY NHẤT của soanbai/ được nạp tĩnh vào bundle chính
 // (editor.js re-export), nên giữ nhỏ gọn.
 import { splitWordListEx } from './normalize.js';
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/sbmain.vi.js';
+
+addStrings('sbmain', VI);
 
 const VOCAB_KEYS = ['word', 'meaning', 'category', 'example'];
 
@@ -165,7 +169,7 @@ function vocabFromRows(rows, offset) {
     const line = i + 1 + (hasHeader ? 1 : 0) + (offset || 0);
     const word = r[cols.word] || '';
     if (!word) {
-      if (r.some(Boolean)) out.errors.push(`Dòng ${line}: thiếu từ`);
+      if (r.some(Boolean)) out.errors.push(t('sbm.row.noWord', { line }));
       return;
     }
     out.items.push({
@@ -212,7 +216,7 @@ function questionsFromRows(rows, offset, strict) {
     const line = i + 1 + (hasHeader ? 1 : 0) + (offset || 0);
     const prompt = r[cols.prompt] || '';
     if (!prompt) {
-      if (r.some(Boolean)) out.errors.push(`Dòng ${line}: thiếu câu hỏi`);
+      if (r.some(Boolean)) out.errors.push(t('sbm.row.noPrompt', { line }));
       return;
     }
     const options = cols.opts.map((c) => (c != null ? r[c] || '' : ''));
@@ -220,11 +224,11 @@ function questionsFromRows(rows, offset, strict) {
     if (strict) {
       const missing = options.findIndex((o) => !o);
       if (missing >= 0) {
-        out.errors.push(`Dòng ${line}: thiếu đáp án ${'ABC'[missing]}`);
+        out.errors.push(t('sbm.row.noOption', { line, letter: 'ABC'[missing] }));
         return;
       }
       if (answer < 0) {
-        out.errors.push(`Dòng ${line}: chưa rõ đáp án đúng (A, B hoặc C)`);
+        out.errors.push(t('sbm.row.noAnswer', { line }));
         return;
       }
     }

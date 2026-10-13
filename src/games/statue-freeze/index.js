@@ -12,6 +12,10 @@ import { shuffle } from '../../core/content.js';
 import { mountPhaser } from '../shared/phaser-host.js';
 import { makeStatueScene } from './statue-scene.js';
 import { SF, boxDown2, createDetector, createLegacyDetector, rgbaToGray } from './motion.js';
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/camera-guide.vi.js';
+
+addStrings('camera-guide', VI);
 
 const MODE = /[?&#]sf=v1\b/.test(location.href) ? 'v1' : 'v2';
 const MEASURE_V1_MS = 66; // bản cũ đo mỗi 66 ms trong rAF, không kiểm khung mới (giữ nguyên để A/B)
@@ -86,13 +90,13 @@ function createGame(root, pack) {
       session,
       title: 'Statue Freeze',
       art: gameArt('statue-freeze'),
-      hint: 'Đặt camera thấy cả lớp. Game KHÔNG nhận diện từng học sinh, chỉ tô đỏ vùng có chuyển động khi đèn đỏ. Giáo viên nhìn vùng đỏ để gọi tên. Ô vàng là vùng đang chuyển động: bảo cả lớp đứng yên rồi chỉnh độ nhạy bằng nút -/+ tới khi hết ô vàng.',
+      hint: t('game.statue.camHint'),
       extraRows: [
-        { label: 'Sau mỗi lượt đèn đỏ', control: segmented([{ value: false, label: 'Giáo viên bấm tiếp' }, { value: true, label: 'Tự chạy tiếp' }], opts.auto, (v) => (opts.auto = v), 'sf-auto') },
+        { label: t('game.statue.after'), control: segmented([{ value: false, label: t('game.statue.after.teacher') }, { value: true, label: t('game.statue.after.auto') }], opts.auto, (v) => (opts.auto = v), 'sf-auto') },
         {
-          label: 'Chia đội',
-          control: segmented([{ value: 1, label: 'Cả lớp' }, { value: 2, label: '2 đội (trái / phải)' }], opts.lanes, (v) => (opts.lanes = v), 'sf-lanes'),
-          hint: `2 đội: ${teams[0]} đứng nửa trái màn hình, ${teams[1]} nửa phải. Đội không có ô đỏ được +1 mỗi lượt.`,
+          label: t('game.statue.teams'),
+          control: segmented([{ value: 1, label: t('game.statue.teams.class') }, { value: 2, label: t('game.statue.teams.two') }], opts.lanes, (v) => (opts.lanes = v), 'sf-lanes'),
+          hint: t('game.statue.teamsHint', { left: teams[0], right: teams[1] }),
         },
       ],
       onReady: startGame,
@@ -117,10 +121,10 @@ function createGame(root, pack) {
     view = { overlay, light, banner, sub, count, controls, videoBox, hud };
 
     const sens = stepper({
-      value: opts.sensitivity, min: 1, max: 10, step: 1, testId: 'sf-sensitivity', label: 'độ nhạy',
+      value: opts.sensitivity, min: 1, max: 10, step: 1, testId: 'sf-sensitivity', label: t('game.statue.sens.lower'),
       onChange: (v) => { opts.sensitivity = v; detector.setSensitivity(v); },
     });
-    const camBtn = button({ label: 'Tắt camera', iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
+    const camBtn = button({ label: t('cam.off'), iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
     camBtn.addEventListener('click', async () => {
       if (session.active) {
         stopLoop();
@@ -128,11 +132,11 @@ function createGame(root, pack) {
         session.stop();
         phase = 'idle';
         phaseEnd = 0;
-        setBanner('Camera off', 'Bấm "Bật camera" để chơi tiếp.');
-        camBtn.querySelector('span').textContent = 'Bật camera';
+        setBanner('Camera off', t('game.statue.camOffHint'));
+        camBtn.querySelector('span').textContent = t('cam.on');
       } else {
-        await session.start().catch(() => toast('Không bật lại được camera.', 'error'));
-        camBtn.querySelector('span').textContent = 'Tắt camera';
+        await session.start().catch(() => toast(t('cam.reopenFail'), 'error'));
+        camBtn.querySelector('span').textContent = t('cam.off');
         startLoop();
         calibrate();
       }
@@ -144,7 +148,7 @@ function createGame(root, pack) {
       scoreboard.el.classList.add('sf-scores');
       [...scoreboard.el.querySelectorAll('.score-value')].forEach((el, i) => el.setAttribute('data-testid', `sf-score-${i}`));
     }
-    frame.extra.append(h('div', { class: 'sf-sens', role: 'group', 'aria-label': 'Độ nhạy' }, h('span', {}, 'Độ nhạy'), sens), camBtn);
+    frame.extra.append(h('div', { class: 'sf-sens', role: 'group', 'aria-label': t('game.statue.sens') }, h('span', {}, t('game.statue.sens')), sens), camBtn);
 
     setStage(h('div', { class: 'sf-play' },
       videoBox,
@@ -207,9 +211,9 @@ function createGame(root, pack) {
 
   function finishCalibration() {
     const q = detector.finishCalibration();
-    if (q.bigBlobs > 0) toast('Lúc đo có bạn còn cử động. Máy vẫn theo dõi bạn đó. Nếu báo sai nhiều, bấm "Check again (stand still)".');
-    else if (q.masked > 0) toast(`Có ${q.masked} vùng luôn nhấp nháy (màn hình, quạt, cửa sổ). Máy bỏ qua vùng xám.`);
-    else if (q.movingFrac > 0.25) toast('Lúc đo, nhiều bạn còn cử động. Nếu báo sai nhiều, bấm "Check again (stand still)".');
+    if (q.bigBlobs > 0) toast(t('game.statue.cal.someMoved'));
+    else if (q.masked > 0) toast(t('game.statue.cal.masked', { n: q.masked }));
+    else if (q.movingFrac > 0.25) toast(t('game.statue.cal.manyMoved'));
     nextGreen();
   }
 
@@ -365,8 +369,8 @@ function createGame(root, pack) {
       window.__sfStats = { ...st, src: srcName, grabMs, ...counters, mode: MODE };
       if (view.hud) {
         view.hud.textContent = `${MODE} · ${st.procHz.toFixed(1)} Hz · ${(st.ms + grabMs).toFixed(1)} ms · dup ${counters.dup} · ${srcName} · ${cvsMode}\n`
-          + `σ ${st.sigma.toFixed(1)} · τ ${st.tau} · nhiễu khối TB ${st.medNoise.toFixed(1)} · xám ${st.masked}\n`
-          + `live ${st.live} · global ${st.globalEvents} · gain ${st.gain.toFixed(2)} · mốc ${st.refReady ? '✓' : '·'}`;
+          + `σ ${st.sigma.toFixed(1)} · τ ${st.tau} · nhiễu khối TB ${st.medNoise.toFixed(1)} · xám ${st.masked}\n` // i18n-keep: HUD chẩn đoán
+          + `live ${st.live} · global ${st.globalEvents} · gain ${st.gain.toFixed(2)} · mốc ${st.refReady ? '✓' : '·'}`; // i18n-keep: HUD chẩn đoán
       }
     }
   }
@@ -405,7 +409,7 @@ export default {
   group: 'camera',
   theme: 'night',
   icon: 'person-standing',
-  description: 'Nghe lệnh hành động, đèn đỏ thì đứng im như tượng.',
+  get description() { return t('game.statue.desc'); },
   ready: true,
 
   mount(rootEl, content) {

@@ -10,9 +10,10 @@ const OUT = resolve('screenshots/games');
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
-const server = await createServer({ server: { port: 5198, strictPort: true }, logLevel: 'error' });
+const PORT = Number(process.env.PORT || 5198); // PORT=... để chạy song song nhiều agent
+const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
-const BASE = 'http://localhost:5198/';
+const BASE = `http://localhost:${PORT}/`;
 const browser = await chromium.launch().catch(() => chromium.launch({ channel: 'chrome' })); // máy không có bản Chromium của Playwright thì dùng Chrome
 const results = [];
 const pageErrors = [];

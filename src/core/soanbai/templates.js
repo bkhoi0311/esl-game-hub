@@ -1,26 +1,27 @@
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/soanbai.vi.js';
+
+addStrings('soanbai', VI);
+
 // File mẫu nhập bài (PLAN-SOANBAI E4). Sinh lúc chạy trong trình duyệt nên dùng được cả bản offline.
 export const TEMPLATE_VOCAB = [
   ['word', 'meaning', 'category', 'example'],
-  ['banana', 'quả chuối', 'fruit', 'I eat a banana every morning.'],
-  ['carrot', 'cà rốt', 'vegetable', 'Rabbits like carrots.'],
-  ['milk', 'sữa', 'drink', 'I drink milk at breakfast.'],
+  ['banana', 'quả chuối', 'fruit', 'I eat a banana every morning.'], // i18n-keep: dữ liệu mẫu (nghĩa Việt)
+  ['carrot', 'cà rốt', 'vegetable', 'Rabbits like carrots.'], // i18n-keep: dữ liệu mẫu (nghĩa Việt)
+  ['milk', 'sữa', 'drink', 'I drink milk at breakfast.'], // i18n-keep: dữ liệu mẫu (nghĩa Việt)
 ];
 
 export const TEMPLATE_QUESTIONS = [
   ['prompt', 'option A', 'option B', 'option C', 'answer (A/B/C)', 'type'],
   ['She ___ rice every day.', 'eats', 'eat', 'eating', 'A', 'grammar'],
-  ['What does "banana" mean?', 'quả chuối', 'quả táo', 'quả cam', 'A', 'vocab'],
+  ['What does "banana" mean?', 'quả chuối', 'quả táo', 'quả cam', 'A', 'vocab'], // i18n-keep: dữ liệu mẫu (nghĩa Việt)
   ['They ___ football on Sundays.', 'plays', 'play', 'playing', 'B', 'grammar'],
 ];
 
-export const TEMPLATE_GUIDE = [
-  ['Hướng dẫn dùng file mẫu'],
-  ['1. Trang "Từ vựng": mỗi dòng 1 từ. Cột word là bắt buộc; meaning, category, example có thể để trống (máy tự điền từ kho nếu bạn bật tuỳ chọn).'],
-  ['2. Trang "Câu hỏi": mỗi dòng 1 câu, đủ 3 đáp án A, B, C. Cột answer ghi A, B hoặc C. Dùng ___ cho chỗ trống.'],
-  ['3. Giữ nguyên dòng tiêu đề (dòng đầu) của mỗi trang. Tên trang không quan trọng.'],
-  ['4. Lưu file dạng .xlsx (hoặc CSV UTF-8) rồi kéo thả vào Soạn bài > Nhập file.'],
-  ['5. Chữ cho học sinh (word, prompt, đáp án) nên viết tiếng Anh; nghĩa viết tiếng Việt.'],
-];
+// Trang hướng dẫn theo ngôn ngữ lúc tải file (hàm, không phải hằng).
+export function templateGuide() {
+  return [t('sb.tplx.title'), t('sb.tplx.s1'), t('sb.tplx.s2'), t('sb.tplx.s3'), t('sb.tplx.s4'), t('sb.tplx.s5')].map((x) => [x]);
+}
 
 function csvCell(v) {
   const s = String(v == null ? '' : v);
@@ -42,8 +43,8 @@ export const TEMPLATE_NAMES = { xlsx: 'mau-soan-bai.xlsx', vocab: 'mau-tu-vung.c
 export async function templateXlsx() {
   const { writeXlsx } = await import('./xlsx.js');
   return writeXlsx([
-    { name: 'Từ vựng', rows: TEMPLATE_VOCAB, widths: [18, 22, 16, 44] },
-    { name: 'Câu hỏi', rows: TEMPLATE_QUESTIONS, widths: [34, 18, 18, 18, 16, 12] },
-    { name: 'Hướng dẫn', rows: TEMPLATE_GUIDE, widths: [120] },
+    { name: t('sb.tplx.sheetVocab'), rows: TEMPLATE_VOCAB, widths: [18, 22, 16, 44] },
+    { name: t('sb.tplx.sheetQuestions'), rows: TEMPLATE_QUESTIONS, widths: [34, 18, 18, 18, 16, 12] },
+    { name: t('sb.tplx.sheetGuide'), rows: templateGuide(), widths: [120] },
   ]);
 }

@@ -15,6 +15,10 @@ import { line, ninjaTarget } from '../../core/voice-lines.js';
 import { mountPhaser } from '../shared/phaser-host.js';
 import { makeNinjaScene } from './ninja-scene.js';
 import { playableCategories } from './logic.js';
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/camera-guide.vi.js';
+
+addStrings('camera-guide', VI);
 
 const GAME_SECONDS = 60;
 const LIVES = 3;
@@ -79,13 +83,13 @@ function createGame(root, pack) {
       title: 'Word Ninja',
       art: gameArt('word-ninja'),
       rows: [
-        { label: 'Cách chém', control: segmented([{ value: 'camera', label: 'Vung tay trước camera' }, { value: 'touch', label: 'Chuột / cảm ứng (không camera)' }], opts.mode, (v) => (opts.mode = v), 'wn-mode'),
-          hint: '1-2 học sinh đứng cách camera 1,5-2,5 mét, thấy từ hông trở lên. Nhóm từ dùng trong game: ' + cats.join(', ') + '.' },
+        { label: t('game.ninja.mode'), control: segmented([{ value: 'camera', label: t('game.ninja.mode.camera') }, { value: 'touch', label: t('game.ninja.mode.touch') }], opts.mode, (v) => (opts.mode = v), 'wn-mode'),
+          hint: t('game.ninja.camHint', { groups: cats.join(', ') }) + '.' },
       ],
-      startLabel: 'Tiếp tục',
+      startLabel: t('game.ninja.continue'),
       onStart: () => {
         if (opts.mode === 'touch') startGame();
-        else setStage(cameraSetupScreen({ session, title: 'Word Ninja', art: gameArt('word-ninja'), hint: 'Đứng lùi lại để camera thấy 2 tay. Vung tay thật nhanh qua thẻ để chém.', onReady: startGame }));
+        else setStage(cameraSetupScreen({ session, title: 'Word Ninja', art: gameArt('word-ninja'), hint: t('game.ninja.standBack'), onReady: startGame }));
       },
     }));
   }
@@ -101,14 +105,14 @@ function createGame(root, pack) {
     frame.extra.textContent = '';
     frame.extra.append(timer.el);
     if (opts.mode === 'camera') {
-      const camBtn = button({ label: 'Tắt camera', iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
+      const camBtn = button({ label: t('cam.off'), iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
       camBtn.addEventListener('click', async () => {
         if (session.active) {
           session.stop();
-          camBtn.querySelector('span').textContent = 'Bật camera';
+          camBtn.querySelector('span').textContent = t('cam.on');
         } else {
-          await session.start().catch(() => toast('Không bật lại được camera.', 'error'));
-          camBtn.querySelector('span').textContent = 'Tắt camera';
+          await session.start().catch(() => toast(t('cam.reopenFail'), 'error'));
+          camBtn.querySelector('span').textContent = t('cam.off');
         }
       });
       frame.extra.append(camBtn);
@@ -166,7 +170,7 @@ function createGame(root, pack) {
       } catch (err) {
         console.error(err);
         loading.textContent = '';
-        loading.append(icon('alert', 40), h('strong', {}, 'Không nạp được model AI'), h('span', {}, 'Game chuyển sang chém bằng chuột / cảm ứng.'));
+        loading.append(icon('alert', 40), h('strong', {}, t('cam.ai.fail')), h('span', {}, t('game.ninja.fallback')));
         loading.classList.add('error');
         await new Promise((r) => setTimeout(r, 3000));
       }
@@ -292,12 +296,12 @@ export default {
   group: 'camera',
   theme: 'night',
   icon: 'swords',
-  description: 'Vung tay chém thẻ từ đúng nhóm. Có chế độ chuột / cảm ứng.',
+  get description() { return t('game.ninja.desc'); },
   ready: true,
   checkContent(pack) {
     const groups = playableCategories(pack.vocab);
     const n = Object.keys(groups).length;
-    return n >= 2 ? [] : [`Cần ít nhất 2 nhóm từ, mỗi nhóm ít nhất 3 từ (hiện có ${n} nhóm đủ).`];
+    return n >= 2 ? [] : [t('game.ninja.need', { n })];
   },
 
   mount(rootEl, content) {

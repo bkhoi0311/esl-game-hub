@@ -716,6 +716,8 @@ test('thư viện thật đợt 4: audit cơ học 0 vi phạm, actionCommands s
 
 test('panel: mặc định chỉ chọn loại an toàn, fill/which có chú thích', () => {
   const src = fs.readFileSync(new URL('../src/core/soanbai/panel.js', import.meta.url), 'utf8');
-  assert.ok(src.includes('SAFE_QTYPES.indexOf(t) >= 0'));
-  assert.ok(src.includes('Nên xem lại các câu loại này'));
+  assert.ok(src.includes('SAFE_QTYPES.indexOf(ty) >= 0'));
+  assert.ok(src.includes("'sb.q.reviewType'")); // chú thích "Nên xem lại các câu loại này" nay nằm ở từ điển soanbai
+  const vi = fs.readFileSync(new URL('../src/i18n/strings/soanbai.vi.js', import.meta.url), 'utf8');
+  assert.ok(vi.includes('Nên xem lại các câu loại này'));
 });

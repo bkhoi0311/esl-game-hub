@@ -1,0 +1,55 @@
+{
+  "_note": "Khu vực từ điển. Mỗi khu vực = một cặp tệp src/i18n/strings/<name>.vi.js + <name>.en.js, do MỘT agent sở hữu. Khoá thuộc khu vực nào do 'prefixes' quyết định (khớp dài nhất thắng; tiền tố kết thúc bằng '.' là tiền tố, còn lại là khoá chính xác). 'chunk': main = VI trong bundle chính, EN gộp vào chunk en-main; lazy = VI nằm cùng chunk panel Soạn bài, EN là chunk soanbai.en. 'files' = tệp nguồn dùng khoá của khu vực (đánh dấu // i18n-todo ở dòng đầu tới khi chuyển xong).",
+  "core": {
+    "owner": "A1 (nền móng; sau A1 chỉ thêm khoá khi thật cần)",
+    "chunk": "main",
+    "prefixes": ["ui.", "content.", "voice.", "cnt.", "level.", "hub.group.", "hub.pack.untitled"],
+    "files": ["src/core/ui.js", "src/core/content.js", "src/core/voice-lines.js", "src/core/audio.js", "src/games/index.js"]
+  },
+  "menu-settings": {
+    "owner": "A2",
+    "chunk": "main",
+    "prefixes": ["hub.", "set."],
+    "files": ["src/main.js"]
+  },
+  "editor": {
+    "owner": "B",
+    "chunk": "main",
+    "prefixes": ["ed."],
+    "files": ["src/core/editor.js"]
+  },
+  "sbmain": {
+    "owner": "C",
+    "chunk": "main",
+    "prefixes": ["sbm."],
+    "files": ["src/core/soanbai/table.js"]
+  },
+  "soanbai": {
+    "owner": "C",
+    "chunk": "lazy",
+    "prefixes": ["sb."],
+    "files": [
+      "src/core/soanbai/panel.js", "src/core/soanbai/qgen.js", "src/core/soanbai/gsheet.js", "src/core/soanbai/xlsx.js",
+      "src/core/soanbai/templates.js", "src/core/soanbai/library.js", "src/core/soanbai/libfilter.js",
+      "src/core/soanbai/categories.js", "src/core/soanbai/qrules.js"
+    ]
+  },
+  "games-duel": {
+    "owner": "D",
+    "chunk": "main",
+    "prefixes": ["duel.", "game."],
+    "files": [
+      "src/games/gold-heist", "src/games/impostor", "src/games/tug-of-war", "src/games/whack-word", "src/games/balloon-pop",
+      "src/games/memory-match", "src/games/tic-tac-toe", "src/games/sentence-race", "src/games/shared"
+    ]
+  },
+  "camera-guide": {
+    "owner": "E",
+    "chunk": "main",
+    "prefixes": ["cam.", "game.statue.", "game.simon.", "game.ninja.", "guide."],
+    "files": [
+      "src/core/camera.js", "src/core/vision.js", "src/core/camcheck.js", "src/games/statue-freeze", "src/games/simon-pose",
+      "src/games/word-ninja", "src/core/guide.js"
+    ]
+  }
+}

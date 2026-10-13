@@ -51,7 +51,7 @@ async function createTask(kind, factory) {
       }
     }
   }
-  const e = new Error('Không nạp được model AI. ' + attempts.join(' | '));
+  const e = new Error('Không nạp được model AI. ' + attempts.join(' | ')); // i18n-keep: lỗi nội bộ, chỉ ghi console
   e.name = 'ModelLoadError';
   throw e;
 }

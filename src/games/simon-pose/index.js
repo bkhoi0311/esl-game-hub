@@ -13,6 +13,10 @@ import { icon } from '../../core/icons.js';
 import { line } from '../../core/voice-lines.js';
 import { POSES, commandText } from './poses.js';
 import { createPoseTracker } from '../../core/pose-tracker.js';
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/camera-guide.vi.js';
+
+addStrings('camera-guide', VI);
 
 // Vùng chơi theo màn hình gương: chỉ người đứng trong vùng mới được tính.
 const ZONES = { full: [0, 1], middle: [0.15, 0.85], narrow: [0.25, 0.75] };
@@ -80,18 +84,18 @@ function createGame(root) {
       session,
       title: 'Simon Says Pose',
       art: gameArt('simon-pose'),
-      hint: '1-3 học sinh đứng cách camera 2-3 mét, camera thấy toàn thân (cả bàn chân).',
+      hint: t('game.simon.camHint'),
       extraRows: [
-        { label: 'Tư thế dùng trong bài', control: poseBoxes },
-        { label: 'Số lượt', control: segmented([6, 10, 15].map((n) => ({ value: n, label: String(n) })), opts.rounds, (v) => (opts.rounds = v), 'sp-rounds') },
-        { label: 'Số học sinh chơi cùng lúc', control: segmented([1, 2, 3].map((n) => ({ value: n, label: String(n) })), opts.count, (v) => (opts.count = v), 'sp-count') },
-        { label: 'Vùng chơi (lớp đông nên chọn Giữa hoặc Hẹp)', control: segmented([{ value: 'full', label: 'Cả khung' }, { value: 'middle', label: 'Giữa' }, { value: 'narrow', label: 'Hẹp' }], opts.zone, (v) => (opts.zone = v), 'sp-zone'),
-          hint: 'Chỉ tính các bạn đứng trong vùng chơi và gần camera nhất. Các bạn phía sau hiện khung xương mờ, không bị tính điểm.' },
-        { label: 'Độ chính xác nhận diện', control: segmented([{ value: 'full', label: 'Chính xác (khuyên dùng)' }, { value: 'lite', label: 'Nhanh (máy yếu)' }], opts.model, (v) => (opts.model = v), 'sp-model') },
+        { label: t('game.simon.poses'), control: poseBoxes },
+        { label: t('game.simon.rounds'), control: segmented([6, 10, 15].map((n) => ({ value: n, label: String(n) })), opts.rounds, (v) => (opts.rounds = v), 'sp-rounds') },
+        { label: t('game.simon.players'), control: segmented([1, 2, 3].map((n) => ({ value: n, label: String(n) })), opts.count, (v) => (opts.count = v), 'sp-count') },
+        { label: t('game.simon.zone'), control: segmented([{ value: 'full', label: t('game.simon.zone.full') }, { value: 'middle', label: t('game.simon.zone.mid') }, { value: 'narrow', label: t('game.simon.zone.narrow') }], opts.zone, (v) => (opts.zone = v), 'sp-zone'),
+          hint: t('game.simon.zoneHint') },
+        { label: t('game.simon.accuracy'), control: segmented([{ value: 'full', label: t('game.simon.acc.high') }, { value: 'lite', label: t('game.simon.acc.fast') }], opts.model, (v) => (opts.model = v), 'sp-model') },
       ],
       onReady: () => {
         if (opts.poses.size < 2) {
-          toast('Chọn ít nhất 2 tư thế.', 'error');
+          toast(t('game.simon.needPoses'), 'error');
           return;
         }
         startGame();
@@ -116,7 +120,7 @@ function createGame(root) {
     const loading = h('div', { class: 'sp-loading', 'data-testid': 'sp-loading' }, 'Loading AI model…');
     videoBox.append(loading);
     view = { overlay, videoBox, command, bar, board, controls, loading, tip };
-    const camBtn = button({ label: 'Tắt camera', iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
+    const camBtn = button({ label: t('cam.off'), iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
     camBtn.addEventListener('click', async () => {
       if (session.active) {
         stopLoop();
@@ -124,10 +128,10 @@ function createGame(root) {
         session.stop();
         round = null;
         command.textContent = 'Camera off';
-        camBtn.querySelector('span').textContent = 'Bật camera';
+        camBtn.querySelector('span').textContent = t('cam.on');
       } else {
-        await session.start().catch(() => toast('Không bật lại được camera.', 'error'));
-        camBtn.querySelector('span').textContent = 'Tắt camera';
+        await session.start().catch(() => toast(t('cam.reopenFail'), 'error'));
+        camBtn.querySelector('span').textContent = t('cam.off');
         startLoop();
         nextRound();
       }
@@ -146,8 +150,8 @@ function createGame(root) {
       detectorModel = opts.model;
     } catch (err) {
       loading.textContent = '';
-      loading.append(icon('alert', 40), h('strong', {}, 'Không nạp được model AI'),
-        h('span', {}, 'Cần mạng Internet lần đầu, hoặc mở app qua server local (npm run dev / npm run preview) để dùng model lưu sẵn.'));
+      loading.append(icon('alert', 40), h('strong', {}, t('cam.ai.fail')),
+        h('span', {}, t('cam.ai.failHint')));
       loading.classList.add('error');
       console.error(err);
       return;
@@ -245,9 +249,9 @@ function createGame(root) {
         const res = detector.detect(v, now);
         if (!res) return;
         // Bộ theo dõi: chọn người chơi trong vùng, giữ đúng số Player, làm mịn toạ độ.
-        const t = tracker.update(res.landmarks || [], now);
-        players = t.players;
-        others = t.others;
+        const tr = tracker.update(res.landmarks || [], now);
+        players = tr.players;
+        others = tr.others;
         players.forEach((p, i) => p && seen.add(i));
         update(now);
       }
@@ -366,7 +370,7 @@ export default {
   group: 'camera',
   theme: 'meadow',
   icon: 'hand',
-  description: 'Nghe lệnh, làm đúng tư thế: bộ phận cơ thể, trái/phải.',
+  get description() { return t('game.simon.desc'); },
   ready: true,
 
   mount(rootEl, content) {

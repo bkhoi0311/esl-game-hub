@@ -1,0 +1,38 @@
+/* Công tắc ngôn ngữ [cờ VN][cờ Mỹ] (lõi public/i18n/i18n.js tạo .lang-seg > .lang-btn > .flag + .lang-code).
+   Thanh trên: chỉ cờ, vùng chạm >= 56 px. Hộp Cài đặt: cờ + VI/EN. Không dùng color-mix (Chromium 109). */
+.lang-seg { display: inline-flex; gap: 0.3rem; flex: 0 0 auto; }
+.lang-btn { font: inherit; cursor: pointer; touch-action: manipulation; }
+.lang-btn .flag { display: block; line-height: 0; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18); flex: none; }
+.lang-btn .flag svg { display: block; }
+.lang-btn:not(.is-selected) .flag { opacity: 0.55; }
+
+.app-header .lang-seg--hub { margin-left: 0.4rem; margin-right: 0.1rem; }
+.app-header .lang-seg--hub .lang-btn { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  width: max(4.4rem, 56px); height: max(3.6rem, 56px); padding: 0; border: 0; border-radius: 999px; background: transparent; }
+.app-header .lang-seg--hub .lang-btn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 100%; height: max(100%, 56px); transform: translate(-50%, -50%); }
+.app-header .lang-seg--hub .lang-code { display: none; }
+.app-header .lang-seg--hub .flag svg { width: max(2.6rem, 30px); height: auto; }
+.app-header .lang-seg--hub .lang-btn.is-selected { background: #fff; box-shadow: inset 0 0 0 2px #04bc09; }
+.app-header .lang-seg--hub .lang-btn.is-selected .flag { opacity: 1; }
+
+.settings .lang-seg--settings { gap: 0.6rem; }
+.settings .lang-seg--settings .lang-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: max(3.4rem, 56px); min-width: max(6.4rem, 88px); padding: 0 1.1rem; border: 2px solid transparent; border-radius: 999px;
+  background: rgba(4, 188, 9, 0.1); color: inherit; font-weight: 700; }
+.settings .lang-seg--settings .flag svg { width: 2.6rem; height: auto; }
+.settings .lang-seg--settings .lang-btn.is-selected { background: #fff; border-color: #04bc09; }
+.settings .lang-seg--settings .lang-btn.is-selected .flag { opacity: 1; }
+
+/* Thanh trên nổi trên vùng chính: vùng chạm 56 px của cờ (cao hơn thanh ở 960x540) không bị main che. */
+.stage > .app-header { z-index: 2; }
+
+/* Nhường chỗ cho cờ trên thanh trên: tên bài dài thì cắt bằng dấu ba chấm (tên đầy đủ ở title). */
+.pack-chip { max-width: 11rem; min-width: 0; }
+.pack-chip > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Cài đặt EN: nhãn dài (Recorded voices (OmniVoice)...) không được đẩy hộp rộng ra: cột lưới co được, nút phân đoạn chia đều và xuống dòng. */
+.settings { grid-template-columns: minmax(0, 1fr); }
+.settings .segmented { display: flex; width: 100%; max-width: 100%; }
+.settings .segmented .btn { flex: 1 1 0; min-width: 0; padding: 0 0.7rem; font-size: 1.05rem; line-height: 1.15; }
+.settings .segmented .btn span { white-space: normal; text-align: center; }
+.settings .lang-host .lang-seg { width: auto; }

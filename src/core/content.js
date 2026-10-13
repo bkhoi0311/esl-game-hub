@@ -1,5 +1,9 @@
 // Bộ nội dung (lesson pack): đọc, ghi, kiểm tra schema, link bài học, file .edu cho ClassIn.
 import samplePack from '../data/sample-food-a2.json';
+import { addStrings, t } from '../i18n/index.js';
+import VI from '../i18n/strings/core.vi.js';
+
+addStrings('core', VI);
 
 const STORAGE_PREFIX = 'eslhub.pack.';
 const EMBED_ID = 'embedded-lesson-pack';
@@ -62,37 +66,40 @@ export function normalizePack(raw) {
   };
 }
 
-// Kiểm tra nội dung. Trả về { errors, warnings } bằng tiếng Việt cho giáo viên.
+// Kiểm tra nội dung. Trả về { errors, warnings, errorRows } cho giáo viên, theo ngôn ngữ giao diện lúc gọi.
+// errorRows song song với errors: 'vocab' | 'question' | 'pack' (để giao diện lọc theo loại, KHÔNG dò chữ hiển thị).
 export function validatePack(pack) {
   const errors = [];
+  const errorRows = [];
   const warnings = [];
+  const err = (kind, msg) => { errors.push(msg); errorRows.push(kind); };
 
-  if (!pack.title) warnings.push('Chưa đặt tên bài.');
+  if (!pack.title) warnings.push(t('content.warn.noTitle'));
 
   const seen = new Set();
   pack.vocab.forEach((v, i) => {
-    const row = `Từ vựng dòng ${i + 1}`;
-    if (!v.word) errors.push(`${row}: thiếu từ (word).`);
-    if (v.word && !v.meaning) warnings.push(`${row} ("${v.word}"): thiếu nghĩa.`);
-    if (v.word && !v.category) warnings.push(`${row} ("${v.word}"): thiếu nhóm (category).`);
+    const row = t('content.vocabRow', { n: i + 1 });
+    if (!v.word) err('vocab', t('content.err.noWord', { row }));
+    if (v.word && !v.meaning) warnings.push(t('content.warn.noMeaning', { row, word: v.word }));
+    if (v.word && !v.category) warnings.push(t('content.warn.noCategory', { row, word: v.word }));
     const key = v.word.toLowerCase();
-    if (key && seen.has(key)) warnings.push(`${row}: từ "${v.word}" bị lặp.`);
+    if (key && seen.has(key)) warnings.push(t('content.warn.dupWord', { row, word: v.word }));
     seen.add(key);
   });
 
   pack.questions.forEach((q, i) => {
-    const row = `Câu hỏi ${i + 1}`;
-    if (!q.prompt) errors.push(`${row}: thiếu nội dung câu hỏi.`);
+    const row = t('content.qRow', { n: i + 1 });
+    if (!q.prompt) err('question', t('content.err.noPrompt', { row }));
     const filled = q.options.filter(Boolean).length;
-    if (filled < LIMITS.optionsPerQuestion) errors.push(`${row}: cần đủ ${LIMITS.optionsPerQuestion} đáp án.`);
-    if (!q.options[q.answer]) errors.push(`${row}: đáp án đúng đang trống.`);
+    if (filled < LIMITS.optionsPerQuestion) err('question', t('content.err.options', { row, n: LIMITS.optionsPerQuestion }));
+    if (!q.options[q.answer]) err('question', t('content.err.noAnswer', { row }));
     const uniq = new Set(q.options.filter(Boolean).map((o) => o.toLowerCase()));
-    if (uniq.size < filled) warnings.push(`${row}: có 2 đáp án giống nhau.`);
+    if (uniq.size < filled) warnings.push(t('content.warn.dupOptions', { row }));
   });
 
-  if (pack.teams.length < LIMITS.minTeams) errors.push(`Cần ít nhất ${LIMITS.minTeams} đội.`);
+  if (pack.teams.length < LIMITS.minTeams) err('pack', t('content.err.teams', { n: LIMITS.minTeams }));
 
-  return { errors, warnings };
+  return { errors, warnings, errorRows };
 }
 
 // ---------- Câu hỏi: dùng `questions`, nếu trống thì tự sinh từ vocab ----------
@@ -149,16 +156,16 @@ export function missingForGame(game, pack) {
   const missing = [];
   const words = pack.vocab.filter((v) => v.word).length;
   if (need.vocab && words < need.vocab) {
-    missing.push(`Cần ít nhất ${need.vocab} từ vựng (hiện có ${words}).`);
+    missing.push(t('content.need.vocab', { need: need.vocab, have: words }));
   }
   if (need.questions) {
     const count = getQuestions(pack).length;
     if (count < need.questions) {
-      missing.push(`Cần ít nhất ${need.questions} câu hỏi (hiện có ${count}). Có thể nhập câu hỏi, hoặc thêm từ vựng có nghĩa để tự sinh câu hỏi.`);
+      missing.push(t('content.need.questions', { need: need.questions, have: count }));
     }
   }
   if (need.actionCommands && pack.actionCommands.length < need.actionCommands) {
-    missing.push(`Cần ít nhất ${need.actionCommands} lệnh hành động (hiện có ${pack.actionCommands.length}).`);
+    missing.push(t('content.need.actions', { need: need.actionCommands, have: pack.actionCommands.length }));
   }
   if (typeof game.checkContent === 'function') missing.push(...game.checkContent(pack));
   return missing;
@@ -324,7 +331,7 @@ export async function initLinkedPack() {
     fromLink = true;
     current = clone(pack); // luôn bắt đầu đúng bài trong link
   } catch (err) {
-    console.error('Link bài học hỏng', err);
+    console.error('Link bài học hỏng', err); // i18n-keep: log nội bộ
     return false;
   }
   if (location.hash.startsWith('#L=')) history.replaceState(null, '', location.href.split('#')[0] + '#/');

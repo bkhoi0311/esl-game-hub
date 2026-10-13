@@ -9,6 +9,10 @@ import { TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, 
 import { line } from '../../core/voice-lines.js';
 import { outcome } from './logic.js';
 import { burst } from '../../core/fx.js';
+import { addStrings, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
+
+addStrings('games-duel', VI);
 
 const MARKS = ['X', 'O'];
 const HOW_TO = {
@@ -175,7 +179,7 @@ export default {
   group: 'class',
   theme: 'field',
   icon: 'grid',
-  description: 'Cờ ca-rô 3x3: trả lời đúng mới được chiếm ô.',
+  get description() { return t('game.ttt.desc'); },
   ready: true,
 
   mount(rootEl, content) {

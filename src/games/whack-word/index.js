@@ -3,9 +3,13 @@
 import { playSound, speak } from '../../core/audio.js';
 import { shuffle } from '../../core/content.js';
 import { line } from '../../core/voice-lines.js';
+import { addStrings, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import { createPhaserDuel } from '../shared/duel-phaser.js';
 import { DESIGN, FONT_EN, INK, bake, makeFxTextures, textPool, toScreen } from '../shared/phaser-host.js';
 import { nextTarget, pickMoleWord, usableWords } from './logic.js';
+
+addStrings('games-duel', VI);
 
 const COLS = 3;
 const ROWS = 2;
@@ -247,16 +251,16 @@ export default {
   group: 'class',
   theme: 'garden',
   icon: 'hand',
-  description: '2 học sinh thi đập chuột cầm từ tiếng Anh đúng nghĩa.',
+  get description() { return t('game.whack.desc'); },
   ready: true,
-  checkContent: (pack) => (usableWords(pack.vocab).length >= 6 ? [] : ['Cần ít nhất 6 từ có cả nghĩa tiếng Việt.']),
+  checkContent: (pack) => (usableWords(pack.vocab).length >= 6 ? [] : [t('game.whack.need')]),
 
   mount(rootEl, content) {
     instance = createPhaserDuel(rootEl, content, {
       id: 'whack-word',
       title: 'Whack-a-Word',
       howTo: HOW_TO,
-      setupHint: 'Mỗi bên có mục tiêu riêng (nghĩa tiếng Việt), đập chuột cầm từ tiếng Anh đúng.',
+      get setupHint() { return t('game.whack.hint'); },
       startLine: line('whackStart'),
       makeScene: makeWhackScene,
     });

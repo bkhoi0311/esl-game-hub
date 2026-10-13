@@ -8,31 +8,19 @@ import {
   isGenericWord, synClash, WHICH_CATS, noDistractorFill,
 } from './qrules.js';
 import { commonWords } from './commonwords.js';
+import { t, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/soanbai.vi.js';
+
+addStrings('soanbai', VI);
 
 export const QTYPES = ['fill', 'meaning', 'word', 'which', 'letter', 'spell'];
 // Loại an toàn (đã qua duyệt REVIEW-LIBRARY): bật sẵn trong panel và dùng cho gói thư viện. fill / which cần giáo viên xem lại.
 export const SAFE_QTYPES = ['letter', 'word', 'meaning', 'spell'];
 // Gói thư viện: loại không an toàn (fill, which) chỉ chiếm tối đa vài câu mỗi gói và đã qua mọi luật của bộ sinh + audit.mjs.
 export const LIBRARY_LIMITS = { fill: 2, which: 2 };
-export const QTYPE_LABELS = {
-  fill: 'Điền chỗ trống từ câu ví dụ',
-  meaning: 'Chọn nghĩa đúng (từ → nghĩa)',
-  word: 'Chọn từ đúng (nghĩa → từ)',
-  which: 'Which one is a …?',
-  letter: 'Chọn chữ cái còn thiếu',
-  spell: 'Chọn cách viết đúng',
-};
-export const QTYPE_SHORT = {
-  fill: 'điền chỗ trống', meaning: 'chọn nghĩa', word: 'chọn từ', which: 'Which one', letter: 'chữ còn thiếu', spell: 'chính tả',
-};
-const REASONS = {
-  fill: 'Cần câu ví dụ có chứa từ (đúng 1 lần)',
-  meaning: 'Cần ít nhất 3 từ có nghĩa khác nhau',
-  word: 'Cần ít nhất 3 từ có nghĩa khác nhau',
-  which: 'Cần từ thuộc nhóm tự nhiên (trái cây, con vật, nghề...) và ít nhất 2 nhóm khác loại',
-  letter: 'Cần từ đơn 3-10 chữ cái',
-  spell: 'Cần từ đơn từ 4 chữ cái trở lên',
-};
+// Nhãn loại câu hỏi theo ngôn ngữ giao diện (hàm, không phải hằng: đổi ngôn ngữ vẫn đúng).
+export function qtypeLabel(k) { return t('sb.qtype.' + k); }
+export function qtypeShort(k) { return t('sb.qshort.' + k); }
 
 // ---------- Số ngẫu nhiên tất định ----------
 
@@ -566,9 +554,9 @@ export function capacity(vocab, opts) {
   const ctx = makeCtx(vocab, makeRng(12345), o.bank || null, o.maxLevel || null);
   const cap = {};
   const reasons = {};
-  QTYPES.forEach((t) => {
-    cap[t] = ctx.items.length < 3 ? 0 : candidatesOf(t, ctx).length;
-    if (!cap[t]) reasons[t] = ctx.items.length < 3 ? 'Cần ít nhất 3 từ' : REASONS[t];
+  QTYPES.forEach((ty) => {
+    cap[ty] = ctx.items.length < 3 ? 0 : candidatesOf(ty, ctx).length;
+    if (!cap[ty]) reasons[ty] = ctx.items.length < 3 ? t('sb.qreason.min') : t('sb.qreason.' + ty);
   });
   cap.reasons = reasons;
   return cap;

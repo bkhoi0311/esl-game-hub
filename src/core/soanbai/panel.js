@@ -5,12 +5,17 @@ import { icon } from '../icons.js';
 import { downloadFile, normalizePack, validatePack } from '../content.js';
 import { normKey, splitWordListEx } from './normalize.js';
 import { loadBank, fillRows, lookup } from './wordbank.js';
-import { QTYPES, SAFE_QTYPES, QTYPE_LABELS, QTYPE_SHORT, capacity, generateQuestions } from './qgen.js';
+import { QTYPES, SAFE_QTYPES, qtypeLabel, qtypeShort, capacity, generateQuestions } from './qgen.js';
 import { detectTable, parseDelimited } from './table.js';
 import { decodeText } from './decode.js';
 import { fetchSheetCsv, GsheetError } from './gsheet.js';
 import { templateCsv, templateXlsx, TEMPLATE_NAMES } from './templates.js';
 import { loadIndex, loadPack, LIB_THEMES, countByLevel, visibleLevels, filterPacks, levelTag } from './library.js';
+import { catLabel } from './categories.js';
+import { t, bind, lang, ensureEn, addStrings } from '../../i18n/index.js';
+import VI from '../../i18n/strings/soanbai.vi.js';
+
+addStrings('soanbai', VI);
 
 const MAX_FILE = 5 * 1024 * 1024;
 const MAX_VOCAB = 300;
@@ -19,38 +24,78 @@ const MAX_FILL = 200;
 
 // ---------- Tiện ích ----------
 
-export function preload() {
-  return loadBank().catch(() => null);
+// Nạp chuỗi EN của khu vực Soạn bài (chunk lười soanbai.en) trước khi dựng bất kỳ hộp nào. VI: không làm gì.
+async function ready() {
+  try {
+    await ensureEn('soanbai');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+export function preload() {
+  return Promise.all([ready(), loadBank().catch(() => null)]).then((r) => r[1]);
+}
+
+// Gắn khoá vào hộp (tiêu đề, nút, nhãn đóng) để đổi ngôn ngữ khi hộp đang mở mà không dựng lại (không mất dữ liệu đang nhập).
+// titleKey: khoá tiêu đề; actionKeys: khoá nhãn các nút ở chân hộp theo thứ tự; refresh: hàm cập nhật phần động (chạy khi đổi ngôn ngữ).
+function live(modal, titleKey, actionKeys, refresh) {
+  if (titleKey) {
+    const h2 = modal.el.querySelector('.modal-head h2');
+    if (h2) bind(h2, titleKey);
+    bind(modal.el, titleKey, null, 'aria-label');
+  }
+  const x = modal.el.querySelector('.modal-head .btn');
+  if (x) { bind(x, 'common.close', null, 'title'); bind(x, 'common.close', null, 'aria-label'); }
+  modal.el.querySelectorAll('.modal-actions .btn').forEach((b, i) => {
+    const k = actionKeys[i];
+    if (!k) return;
+    bind(b, k, null, 'title');
+    bind(b, k, null, 'aria-label');
+    const sp = b.querySelector('span');
+    if (sp) bind(sp, k);
+  });
+  if (refresh) {
+    // Lắng nghe thẻ <html lang> (lõi đặt mỗi lần đổi ngôn ngữ) thay cho onLang: danh sách listener của lõi bị lặp trực tiếp
+    // nên một listener tự gỡ khi đang phát (editor/main dựng lại trang) làm bỏ sót listener đứng sau.
+    const mo = new MutationObserver(() => {
+      if (!modal.el.isConnected) { mo.disconnect(); return; }
+      refresh();
+    });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  }
+  return modal;
+}
+
+// Phần tử chữ gắn khoá (tự đổi khi đổi ngôn ngữ).
+const tx = (tag, attrs, key, params) => bind(h(tag, attrs), key, params);
 
 async function getBank() {
   try {
     return await loadBank();
   } catch (err) {
     console.error(err);
-    toast('Không tải được kho từ. Tải lại trang (F5) rồi thử lại.', 'error', 6000);
+    toast(t('sb.bank.loadFail'), 'error', 6000);
     return null;
   }
 }
-
-const plural = (n, one) => `${n} ${one}`;
 
 function note(text, cls) {
   return h('p', { class: `soan-note${cls ? ' ' + cls : ''}` }, text);
 }
 
-function check(label, checked, testId) {
+function check(labelKey, checked, testId) {
   const input = h('input', { type: 'checkbox', checked, 'data-testid': testId });
-  return { input, el: h('label', { class: 'soan-check' }, input, h('span', {}, label)) };
+  return { input, el: h('label', { class: 'soan-check' }, input, tx('span', {}, labelKey)) };
 }
 
 function modeSelect(testId, withSkip) {
   const opts = [
-    h('option', { value: 'append' }, 'Thêm vào cuối'),
-    h('option', { value: 'replace' }, 'Thay toàn bộ'),
+    tx('option', { value: 'append' }, 'sb.mode.append'),
+    tx('option', { value: 'replace' }, 'sb.mode.replace'),
   ];
-  if (withSkip) opts.push(h('option', { value: 'skip' }, 'Không nhập'));
-  return h('select', { 'data-testid': testId, 'aria-label': 'Cách thêm' }, opts);
+  if (withSkip) opts.push(tx('option', { value: 'skip' }, 'sb.mode.skip'));
+  return bind(h('select', { 'data-testid': testId }, opts), 'sb.mode.aria', null, 'aria-label');
 }
 
 function pinActions(modal) {
@@ -61,22 +106,23 @@ function pinActions(modal) {
 // ---------- (1) Điền từ danh sách ----------
 
 export async function openFill(api, initialText) {
+  await ready();
   const bank = await getBank();
   if (!bank) return;
   const area = h('textarea', {
-    rows: 8, 'data-testid': 'fill-text', 'aria-label': 'Danh sách từ',
-    placeholder: 'Mỗi dòng 1 từ, hoặc ngăn bằng dấu phẩy. Ví dụ:\napple, banana, orange\nice cream',
+    rows: 8, 'data-testid': 'fill-text', placeholder: t('sb.fill.placeholder'),
   });
+  bind(area, 'sb.fill.listAria', null, 'aria-label');
   if (initialText) area.value = initialText;
   const mode = modeSelect('fill-mode', false);
-  const only = check('Từ đã có trong bảng: chỉ điền ô còn trống (bỏ chọn = bỏ qua từ trùng)', true, 'fill-only-empty');
+  const only = check('sb.fill.onlyEmpty', true, 'fill-only-empty');
   const result = h('div', { class: 'soan-result', 'data-testid': 'fill-result', 'aria-live': 'polite' });
 
   const run = () => {
     const list = splitWordListEx(area.value, MAX_FILL);
     if (!list.words.length) {
       result.textContent = '';
-      result.append(note('Hãy gõ ít nhất 1 từ tiếng Anh.', 'warn'));
+      result.append(note(t('sb.fill.needWord'), 'warn'));
       return false;
     }
     const replaceAll = mode.value === 'replace';
@@ -113,38 +159,40 @@ export async function openFill(api, initialText) {
     api.markMissing(missingRows);
     const total = done.rows.length + dupRows.length;
     result.textContent = '';
-    result.append(note(`Đã điền ${found}/${total} từ.`, 'ok'));
+    result.append(note(t('sb.fill.done', { found, total }), 'ok'));
     if (missingWords.length) {
-      result.append(note(`${plural(missingWords.length, 'từ')} chưa có trong kho: ${missingWords.join(', ')}. Hãy tự điền nghĩa cho các dòng có viền cam.`, 'warn'));
+      result.append(note(t('sb.fill.missing', { n: missingWords.length, words: missingWords.join(', ') }), 'warn'));
     }
-    if (dupSkipped.length) result.append(note(`Bỏ qua ${plural(dupSkipped.length, 'từ trùng')}: ${dupSkipped.join(', ')}.`));
-    const viaPlural = done.viaPlural.map((w) => { const e = lookup(bank, w); return e && normKey(e.word) !== normKey(w) ? `${w} → dùng nghĩa của ${e.word}` : null; }).filter(Boolean);
+    if (dupSkipped.length) result.append(note(t('sb.fill.dupSkipped', { n: dupSkipped.length, words: dupSkipped.join(', ') })));
+    const viaPlural = done.viaPlural.map((w) => { const e = lookup(bank, w); return e && normKey(e.word) !== normKey(w) ? t('sb.fill.viaPlural', { w, word: e.word }) : null; }).filter(Boolean);
     if (viaPlural.length) result.append(note(viaPlural.join('; ') + '.'));
-    if (list.truncated) result.append(note(`Chỉ lấy ${MAX_FILL} từ đầu tiên (danh sách có ${list.total} từ).`, 'warn'));
+    if (list.truncated) result.append(note(t('sb.fill.truncated', { max: MAX_FILL, total: list.total }), 'warn'));
     return false;
   };
 
   const modal = openModal({
-    title: 'Điền từ danh sách',
+    title: t('sb.fill.title'),
     wide: true,
     body: h('div', { class: 'soan-form' },
-      h('p', { class: 'muted' }, 'Gõ từ tiếng Anh, máy tự điền nghĩa, nhóm và câu ví dụ từ kho có sẵn. Không cần mạng.'),
+      tx('p', { class: 'muted' }, 'sb.fill.lead'),
       area,
-      h('div', { class: 'soan-row' }, h('label', { class: 'field' }, h('span', {}, 'Cách thêm'), mode)),
+      h('div', { class: 'soan-row' }, h('label', { class: 'field' }, tx('span', {}, 'sb.mode.aria'), mode)),
       only.el,
       result),
     actions: [
-      { label: 'Điền từ kho', iconName: 'wand', variant: 'primary', attrs: { 'data-testid': 'fill-run' }, onClick: run },
-      { label: 'Xong', iconName: 'check', attrs: { 'data-testid': 'fill-done' }, onClick: () => { api.scrollToVocab(); } },
+      { label: t('sb.fill.run'), iconName: 'wand', variant: 'primary', attrs: { 'data-testid': 'fill-run' }, onClick: run },
+      { label: t('common.done'), iconName: 'check', attrs: { 'data-testid': 'fill-done' }, onClick: () => { api.scrollToVocab(); } },
     ],
   });
   pinActions(modal);
+  live(modal, 'sb.fill.title', ['sb.fill.run', 'common.done'], () => { area.placeholder = t('sb.fill.placeholder'); });
   area.focus();
 }
 
 // ---------- Tự điền ô trống (nút trong card Từ vựng) ----------
 
 export async function autofillEmpty(api) {
+  await ready();
   const bank = await getBank();
   if (!bank) return;
   let missingCount = 0;
@@ -155,30 +203,41 @@ export async function autofillEmpty(api) {
     api.setMissing(res.missingIdx.map((i) => vocab[i]));
     return res.filled;
   });
-  if (!filled && !missingCount) toast('Không có ô trống nào cần điền.', 'info');
-  else toast(`Đã điền ${plural(filled, 'dòng')}.${missingCount ? ` ${plural(missingCount, 'từ')} chưa có trong kho (viền cam).` : ''}`, filled ? 'success' : 'info', 4500);
+  if (!filled && !missingCount) toast(t('sb.autofill.none'), 'info');
+  else toast(`${t('sb.autofill.done', { n: filled })}${missingCount ? ' ' + t('sb.autofill.missing', { n: missingCount }) : ''}`, filled ? 'success' : 'info', 4500);
 }
 
 // ---------- (2) Tạo câu hỏi tự động ----------
 
 export async function openQuestions(api) {
+  await ready();
   const bank = await getBank();
   const vocab = api.getDraft().vocab;
   const meaningful = vocab.filter((v) => v.word && v.meaning).length;
   const cap = capacity(vocab, { bank, maxLevel: 'auto' });
   const checks = {};
   const list = h('div', { class: 'qtype-list', 'data-testid': 'qtype-list' });
-  QTYPES.forEach((t) => {
-    const off = !cap[t];
+  const rowRefs = [];
+  QTYPES.forEach((ty) => {
+    const off = !cap[ty];
     // Mặc định chỉ chọn loại an toàn (letter, word, meaning, spell); fill và which giáo viên tự tick và nên xem lại.
-    const safe = SAFE_QTYPES.indexOf(t) >= 0;
-    const input = h('input', { type: 'checkbox', checked: !off && safe, disabled: off, 'data-testid': `qtype-${t}` });
-    checks[t] = input;
-    list.append(h('label', { class: `qtype-row${off ? ' off' : ''}` }, input,
-      h('span', { class: 'qtype-name' }, QTYPE_LABELS[t],
-        !off && !safe ? h('small', { class: 'qtype-warn', 'data-testid': `qtype-warn-${t}` }, 'Nên xem lại các câu loại này') : null),
-      h('span', { class: 'qtype-cap' }, off ? cap.reasons[t] : `tối đa ${cap[t]}`)));
+    const safe = SAFE_QTYPES.indexOf(ty) >= 0;
+    const input = h('input', { type: 'checkbox', checked: !off && safe, disabled: off, 'data-testid': `qtype-${ty}` });
+    checks[ty] = input;
+    const name = h('span', { class: 'qtype-name' }, qtypeLabel(ty),
+      !off && !safe ? tx('small', { class: 'qtype-warn', 'data-testid': `qtype-warn-${ty}` }, 'sb.q.reviewType') : null);
+    const capEl = h('span', { class: 'qtype-cap' }, off ? cap.reasons[ty] : t('sb.q.max', { n: cap[ty] }));
+    rowRefs.push({ ty, off, name, capEl });
+    list.append(h('label', { class: `qtype-row${off ? ' off' : ''}` }, input, name, capEl));
   });
+  // Đổi ngôn ngữ khi hộp đang mở: chỉ thay chữ, giữ nguyên ô đã tick.
+  const refreshRows = () => {
+    const cap2 = capacity(vocab, { bank, maxLevel: 'auto' });
+    rowRefs.forEach((r) => {
+      r.name.firstChild.textContent = qtypeLabel(r.ty);
+      r.capEl.textContent = r.off ? cap2.reasons[r.ty] : t('sb.q.max', { n: cap2[r.ty] });
+    });
+  };
   let count = 15;
   const counts = segmented([5, 10, 15, 20, 30].map((n) => ({ value: n, label: String(n) })), count, (v) => { count = v; }, 'q-count');
   const mode = modeSelect('q-mode', false);
@@ -186,43 +245,44 @@ export async function openQuestions(api) {
   const locked = meaningful < 3;
 
   const run = () => {
-    const types = QTYPES.filter((t) => checks[t].checked && !checks[t].disabled);
+    const types = QTYPES.filter((ty) => checks[ty].checked && !checks[ty].disabled);
     result.textContent = '';
     if (!types.length) {
-      result.append(note('Hãy chọn ít nhất 1 loại câu hỏi.', 'warn'));
+      result.append(note(t('sb.q.needType'), 'warn'));
       return false;
     }
     const draft = api.getDraft();
     const existing = mode.value === 'append' ? draft.questions : [];
     const res = generateQuestions(draft.vocab, { types, count, seed: Date.now() & 0x7fffffff, existing, bank, maxLevel: 'auto', optionsPerQuestion: 3 });
     if (!res.questions.length) {
-      result.append(note('Không tạo được câu nào. Hãy thêm nghĩa, câu ví dụ hoặc nhóm cho các từ rồi thử lại.', 'warn'));
+      result.append(note(t('sb.q.none'), 'warn'));
       return false;
     }
     api.addQuestions(res.questions, mode.value);
-    const parts = QTYPES.filter((t) => res.byType[t]).map((t) => `${res.byType[t]} ${QTYPE_SHORT[t]}`);
-    result.append(note(`Đã tạo ${res.questions.length} câu: ${parts.join(', ')}.${res.skippedDup ? ` Bỏ ${res.skippedDup} câu trùng với câu đã có.` : ''}`, 'ok'));
-    if (res.questions.length < count) result.append(note(`Chỉ tạo được ${res.questions.length}/${count} câu vì bảng từ chưa đủ dữ liệu.`));
+    const parts = QTYPES.filter((ty) => res.byType[ty]).map((ty) => `${res.byType[ty]} ${qtypeShort(ty)}`);
+    result.append(note(`${t('sb.q.done', { n: res.questions.length, parts: parts.join(', ') })}${res.skippedDup ? ' ' + t('sb.q.dupSkipped', { n: res.skippedDup }) : ''}`, 'ok'));
+    if (res.questions.length < count) result.append(note(t('sb.q.partial', { made: res.questions.length, count })));
     return false;
   };
 
   const modal = openModal({
-    title: 'Tạo câu hỏi tự động',
+    title: t('sb.q.title'),
     wide: true,
     body: h('div', { class: 'soan-form' },
-      h('p', { class: 'muted' }, 'Máy sinh câu hỏi 3 đáp án từ bảng từ vựng. Bạn xem và sửa tay được ngay trong bảng câu hỏi.'),
-      locked ? note('Cần ít nhất 3 từ có nghĩa.', 'warn') : null,
+      tx('p', { class: 'muted' }, 'sb.q.lead'),
+      locked ? bind(note('', 'warn'), 'sb.q.needMeanings') : null,
       list,
       h('div', { class: 'soan-row' },
-        h('div', { class: 'field' }, h('span', {}, 'Số câu'), counts),
-        h('label', { class: 'field' }, h('span', {}, 'Cách thêm'), h('span', {}, mode))),
+        h('div', { class: 'field' }, tx('span', {}, 'sb.q.count'), counts),
+        h('label', { class: 'field' }, tx('span', {}, 'sb.mode.aria'), h('span', {}, mode))),
       result),
     actions: [
-      { label: 'Tạo câu hỏi', iconName: 'sparkles', variant: 'primary', attrs: { 'data-testid': 'q-run', disabled: locked }, onClick: run },
-      { label: 'Xong', iconName: 'check', attrs: { 'data-testid': 'q-done' }, onClick: () => { api.scrollToQuestions(); } },
+      { label: t('sb.q.run'), iconName: 'sparkles', variant: 'primary', attrs: { 'data-testid': 'q-run', disabled: locked }, onClick: run },
+      { label: t('common.done'), iconName: 'check', attrs: { 'data-testid': 'q-done' }, onClick: () => { api.scrollToQuestions(); } },
     ],
   });
   pinActions(modal);
+  live(modal, 'sb.q.title', ['sb.q.run', 'common.done'], refreshRows);
 }
 
 // ---------- (4) Nhập file ----------
@@ -231,38 +291,37 @@ function previewTable(headers, rows) {
   return h('div', { class: 'soan-table-wrap' },
     h('table', { class: 'soan-table' },
       h('thead', {}, h('tr', {}, headers.map((x) => h('th', {}, x)))),
-      h('tbody', {}, rows.map((r) => h('tr', {}, r.map((c) => h('td', {}, c)))))));
+      h('tbody', {}, rows.map((r) => h('tr', {}, r.map((c) => h('td', { 'data-i18n-data': '' }, c)))))));
 }
 
 export async function openTemplates() {
+  await ready();
   const get = async (kind) => {
     try {
       if (kind === 'xlsx') downloadFile(TEMPLATE_NAMES.xlsx, await templateXlsx(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
       else downloadFile(TEMPLATE_NAMES[kind], templateCsv(kind), 'text/csv;charset=utf-8');
     } catch (err) {
       console.error(err);
-      toast('Không tạo được file mẫu. Hãy thử file CSV.', 'error', 5000);
+      toast(t('sb.tpl.fail'), 'error', 5000);
     }
   };
-  const item = (kind, label, sub, testId) => h('button', { type: 'button', class: 'tpl-item', 'data-testid': testId, onClick: () => get(kind) },
-    icon('download', 22), h('span', {}, h('strong', {}, label), h('small', {}, sub)));
+  const item = (kind, labelKey, sub, testId) => h('button', { type: 'button', class: 'tpl-item', 'data-testid': testId, onClick: () => get(kind) },
+    icon('download', 22), h('span', {}, tx('strong', {}, labelKey), sub.key ? tx('small', {}, sub.key, sub.params) : h('small', {}, sub.text)));
+  const csvSub = (file) => ({ key: 'sb.tpl.csvDesc', params: { file } });
   const modal = openModal({
-    title: 'Tải file mẫu',
+    title: t('sb.tpl.title'),
     body: h('div', { class: 'tpl-list' },
-      item('xlsx', 'File mẫu Excel (.xlsx, 2 trang)', 'Trang Từ vựng + trang Câu hỏi + trang Hướng dẫn', 'tpl-xlsx'),
-      item('vocab', 'File mẫu CSV – từ vựng', 'mau-tu-vung.csv (UTF-8, mở được bằng Excel)', 'tpl-vocab'),
-      item('questions', 'File mẫu CSV – câu hỏi', 'mau-cau-hoi.csv (UTF-8, mở được bằng Excel)', 'tpl-questions')),
-    actions: [{ label: 'Đóng', variant: 'ghost' }],
+      item('xlsx', 'sb.tpl.xlsx', { key: 'sb.tpl.xlsxDesc' }, 'tpl-xlsx'),
+      item('vocab', 'sb.tpl.csvVocab', csvSub(TEMPLATE_NAMES.vocab), 'tpl-vocab'),
+      item('questions', 'sb.tpl.csvQ', csvSub(TEMPLATE_NAMES.questions), 'tpl-questions')),
+    actions: [{ label: t('common.close'), variant: 'ghost' }],
   });
   pinActions(modal);
+  live(modal, 'sb.tpl.title', ['common.close']);
 }
 
-const MSG_BIG = 'File lớn hơn 5 MB. Hãy xoá bớt dòng hoặc chia nhỏ.';
-const MSG_EXT = 'Chỉ nhận file .csv, .txt hoặc .xlsx. File .xls cũ: mở bằng Excel rồi Lưu thành .xlsx.';
-const MSG_EMPTY = 'Không tìm thấy dữ liệu. Dòng đầu nên là tiêu đề cột như file mẫu.';
-const MSG_LEGACY = "File không lưu dạng UTF-8, chữ Việt có thể lỗi. Trong Excel chọn Lưu thành 'CSV UTF-8'.";
-
 export async function openImport(api, file) {
+  await ready();
   // state: kết quả đọc được
   let data = null; // { vocab: {items, errors, from}, questions: {...}, words: {items, from}, notes: [] }
   let busy = false;
@@ -271,10 +330,13 @@ export async function openImport(api, file) {
   const input = h('input', { type: 'file', accept: '.csv,.tsv,.txt,.xlsx', hidden: true, 'data-testid': 'import-file' });
   const zone = h('div', { class: 'dropzone', role: 'button', tabindex: 0, 'data-testid': 'import-drop' },
     icon('upload', 32),
-    h('strong', {}, 'Kéo thả file vào đây hoặc bấm để chọn'),
-    h('span', {}, 'CSV, TXT hoặc Excel (.xlsx), tối đa 5 MB'));
-  const gsUrl = h('textarea', { rows: 2, 'data-testid': 'gs-url', 'aria-label': 'Link Google Sheet', placeholder: 'https://docs.google.com/spreadsheets/d/e/.../pubhtml' });
-  const gsBtn = button({ label: 'Đọc link', iconName: 'link', attrs: { 'data-testid': 'gs-read' }, onClick: () => readLinks() });
+    tx('strong', {}, 'sb.imp.drop'),
+    tx('span', {}, 'sb.imp.dropHint'));
+  const gsUrl = h('textarea', { rows: 2, 'data-testid': 'gs-url', 'aria-label': 'Link Google Sheet', placeholder: 'https://docs.google.com/spreadsheets/d/e/.../pubhtml' }); // i18n-keep: tên dịch vụ + mẫu URL
+  const gsBtn = button({ label: t('sb.imp.readLink'), iconName: 'link', attrs: { 'data-testid': 'gs-read' }, onClick: () => readLinks() });
+  bind(gsBtn.querySelector('span'), 'sb.imp.readLink');
+  bind(gsBtn, 'sb.imp.readLink', null, 'title');
+  bind(gsBtn, 'sb.imp.readLink', null, 'aria-label');
 
   const showError = (msg) => {
     err.hidden = !msg;
@@ -291,7 +353,8 @@ export async function openImport(api, file) {
     // parts: [{ name, table }] -> gộp vào out
     const single = parts.length === 1;
     parts.forEach(({ name, table }) => {
-      const tag = name ? `trang '${name}'` : from;
+      // tag là hàm: tên trang dịch lúc hiển thị (đổi ngôn ngữ khi hộp mở vẫn đúng)
+      const tag = () => (name ? t('sb.imp.sheetTag', { name }) : from);
       if (table.kind === 'vocab') {
         out.vocab = out.vocab || { items: [], errors: [], from: tag };
         out.vocab.items.push(...table.items);
@@ -303,7 +366,7 @@ export async function openImport(api, file) {
       } else if (table.kind === 'wordlist' && single) {
         out.words = { items: table.items, from: tag };
       } else {
-        out.notes.push(`Bỏ qua ${name ? `trang '${name}'` : from} (không nhận ra cột).`);
+        out.notes.push(() => t('sb.imp.skipSheet', { what: tag() }));
       }
     });
   };
@@ -312,7 +375,7 @@ export async function openImport(api, file) {
     if (!out.vocab && !out.questions && !out.words) {
       data = null;
       preview.textContent = '';
-      showError(MSG_EMPTY);
+      showError(t('sb.imp.noData'));
       return;
     }
     data = out;
@@ -328,9 +391,9 @@ export async function openImport(api, file) {
     updateApply();
     const lower = String(f.name || '').toLowerCase();
     const ext = lower.slice(lower.lastIndexOf('.'));
-    if (f.size > MAX_FILE) { showError(MSG_BIG); return; }
-    if (['.csv', '.tsv', '.txt', '.xlsx'].indexOf(ext) < 0) { showError(MSG_EXT); return; }
-    setBusy(true, 'Đang đọc file...');
+    if (f.size > MAX_FILE) { showError(t('sb.imp.tooBig')); return; }
+    if (['.csv', '.tsv', '.txt', '.xlsx'].indexOf(ext) < 0) { showError(t('sb.imp.badType')); return; }
+    setBusy(true, t('sb.imp.reading'));
     const out = { vocab: null, questions: null, words: null, notes: [] };
     try {
       const buf = await f.arrayBuffer();
@@ -338,20 +401,20 @@ export async function openImport(api, file) {
         const { readXlsx } = await import('./xlsx.js');
         const sheets = await readXlsx(new Uint8Array(buf), { maxRows: 2000 });
         const parts = sheets.map((s) => {
-          if (s.truncated) out.notes.push(`Trang '${s.name}' có hơn 2000 dòng, chỉ đọc 2000 dòng đầu.`);
+          if (s.truncated) out.notes.push(() => t('sb.imp.sheetTruncated', { name: s.name }));
           return { name: s.name, table: detectTable(s.rows) };
         });
         absorb(parts, f.name, out);
       } else {
         const dec = decodeText(buf);
-        if (dec.legacyEncoding) out.notes.push(MSG_LEGACY);
+        if (dec.legacyEncoding) out.notes.push(() => t('sb.imp.notUtf8'));
         absorb([{ name: '', table: detectTable(parseDelimited(dec.text)) }], f.name, out);
       }
     } catch (e) {
       if (!(e && e.code)) console.error(e);
       setBusy(false);
       preview.textContent = '';
-      showError(e && e.code ? e.message : 'Không mở được file Excel (có thể bị khoá mật khẩu hoặc hỏng).');
+      showError(e && e.code ? e.message : t('sb.xlsx.openFail'));
       return;
     }
     setBusy(false);
@@ -362,8 +425,8 @@ export async function openImport(api, file) {
     if (busy) return;
     const links = gsUrl.value.split(/\s+/).map((s) => s.trim()).filter(Boolean);
     showError('');
-    if (!links.length) { showError('Hãy dán link Google Sheet đã Xuất bản lên web.'); return; }
-    setBusy(true, 'Đang đọc Google Sheet...');
+    if (!links.length) { showError(t('sb.gs.needLink')); return; }
+    setBusy(true, t('sb.gs.reading'));
     gsBtn.disabled = true;
     const out = { vocab: null, questions: null, words: null, notes: [] };
     try {
@@ -372,12 +435,12 @@ export async function openImport(api, file) {
         const text = await fetchSheetCsv(links[i]);
         parts.push({ name: links.length > 1 ? `link ${i + 1}` : '', table: detectTable(parseDelimited(text)) });
       }
-      absorb(parts, 'Google Sheet', out);
+      absorb(parts, 'Google Sheet', out); // i18n-keep: tên dịch vụ
     } catch (e) {
       setBusy(false);
       gsBtn.disabled = false;
       preview.textContent = '';
-      showError(e instanceof GsheetError ? e.message : 'Không đọc được link. Thử lại hoặc tải trang tính về dạng CSV rồi kéo thả vào đây.');
+      showError(e instanceof GsheetError ? e.message : t('sb.gs.readFail'));
       return;
     }
     gsBtn.disabled = false;
@@ -397,37 +460,39 @@ export async function openImport(api, file) {
     if (d.vocab) vocabItems = d.vocab.items;
     else if (d.words) vocabItems = d.words.items.map((w) => ({ word: w, meaning: '', category: '', example: '', image: '' }));
     const msgs = [];
-    if (vocabItems) msgs.push(`${vocabItems.length} ${d.words && !d.vocab ? 'từ tiếng Anh (chỉ có từ)' : 'từ vựng'} (${(d.vocab || d.words).from})`);
-    if (d.questions) msgs.push(`${d.questions.items.length} câu hỏi (${d.questions.from})`);
-    frag.push(h('p', { class: 'soan-summary', 'data-testid': 'import-summary' }, 'Đọc được ' + msgs.join(' và ') + '.'));
+    if (vocabItems) msgs.push(t(d.words && !d.vocab ? 'sb.imp.sumWords' : 'sb.imp.sumVocab', { n: vocabItems.length, from: (d.vocab || d.words).from() }));
+    if (d.questions) msgs.push(t('sb.imp.sumQuestions', { n: d.questions.items.length, from: d.questions.from() }));
+    frag.push(h('p', { class: 'soan-summary', 'data-testid': 'import-summary' }, t('sb.imp.summary', { list: msgs.join(t('sb.and')) })));
     const errors = [];
     if (d.vocab) errors.push(...d.vocab.errors);
     if (d.questions) errors.push(...d.questions.errors);
     // Kiểm bằng validatePack của ứng dụng để báo thêm lỗi nội dung.
     const pack = normalizePack({ vocab: vocabItems || [], questions: d.questions ? d.questions.items : [], teams: ['x', 'y'] });
-    validatePack(pack).errors.forEach((e) => { if (errors.indexOf(e) < 0 && !/^Từ vựng dòng/.test(e)) errors.push(e); });
+    // Lỗi dòng từ vựng đã được bảng báo riêng: lọc theo loại (errorRows), không dò chữ hiển thị.
+    const vp = validatePack(pack);
+    vp.errors.forEach((e, i) => { if (errors.indexOf(e) < 0 && vp.errorRows[i] !== 'vocab') errors.push(e); });
     if (errors.length) {
       const shown = errors.slice(0, 6);
       frag.push(h('ul', { class: 'soan-errors' }, shown.map((e) => h('li', {}, e)),
-        errors.length > shown.length ? h('li', {}, `… và ${errors.length - shown.length} dòng khác`) : null));
+        errors.length > shown.length ? h('li', {}, t('sb.imp.moreRows', { n: errors.length - shown.length })) : null));
     }
-    d.notes.forEach((n) => frag.push(note(n, 'warn')));
+    d.notes.forEach((n) => frag.push(note(n(), 'warn')));
     if (vocabItems) {
-      if (vocabItems.length > MAX_VOCAB) frag.push(note(`Chỉ nhập ${MAX_VOCAB} từ đầu tiên (file có ${vocabItems.length} từ).`, 'warn'));
-      frag.push(h('h3', {}, 'Từ vựng'),
-        previewTable(['Từ', 'Nghĩa', 'Nhóm', 'Ví dụ'], vocabItems.slice(0, 5).map((v) => [v.word, v.meaning, v.category, v.example])));
+      if (vocabItems.length > MAX_VOCAB) frag.push(note(t('sb.imp.vocabTruncated', { max: MAX_VOCAB, n: vocabItems.length }), 'warn'));
+      frag.push(h('h3', {}, t('sb.imp.vocab')),
+        previewTable([t('sb.col.word'), t('sb.col.meaning'), t('sb.col.category'), t('sb.col.example')], vocabItems.slice(0, 5).map((v) => [v.word, v.meaning, v.category, v.example])));
       vMode = modeSelect('import-vocab-mode', true);
-      frag.push(h('label', { class: 'field soan-inline' }, h('span', {}, 'Từ vựng'), vMode));
+      frag.push(h('label', { class: 'field soan-inline' }, h('span', {}, t('sb.imp.vocab')), vMode));
     } else vMode = null;
     if (d.questions) {
-      if (d.questions.items.length > MAX_QUESTIONS) frag.push(note(`Chỉ nhập ${MAX_QUESTIONS} câu đầu tiên (file có ${d.questions.items.length} câu).`, 'warn'));
-      frag.push(h('h3', {}, 'Câu hỏi'),
-        previewTable(['Câu hỏi', 'A', 'B', 'C', 'Đúng'], d.questions.items.slice(0, 5).map((q) => [q.prompt, q.options[0], q.options[1], q.options[2], 'ABC'[q.answer]])));
+      if (d.questions.items.length > MAX_QUESTIONS) frag.push(note(t('sb.imp.qTruncated', { max: MAX_QUESTIONS, n: d.questions.items.length }), 'warn'));
+      frag.push(h('h3', {}, t('sb.imp.questions')),
+        previewTable([t('sb.col.prompt'), 'A', 'B', 'C', t('sb.col.correct')], d.questions.items.slice(0, 5).map((q) => [q.prompt, q.options[0], q.options[1], q.options[2], 'ABC'[q.answer]])));
       qMode = modeSelect('import-q-mode', true);
-      frag.push(h('label', { class: 'field soan-inline' }, h('span', {}, 'Câu hỏi'), qMode));
+      frag.push(h('label', { class: 'field soan-inline' }, h('span', {}, t('sb.imp.questions')), qMode));
     } else qMode = null;
     if (vocabItems) {
-      autofill = check('Điền nghĩa, nhóm, ví dụ còn trống từ kho', true, 'import-autofill');
+      autofill = check('sb.imp.autofill', true, 'import-autofill');
       frag.push(autofill.el);
     } else autofill = null;
     preview.append(...frag);
@@ -468,10 +533,10 @@ export async function openImport(api, file) {
       nq = items.length;
     }
     if (!nv && !nq) {
-      toast('Chưa nhập gì: cả hai phần đang để "Không nhập".', 'info');
+      toast(t('sb.imp.nothing'), 'info');
       return true;
     }
-    toast(`Đã nhập ${[nv ? plural(nv, 'từ') : '', nq ? plural(nq, 'câu hỏi') : ''].filter(Boolean).join(', ')}.`, 'success', 4000);
+    toast(t('sb.imp.done', { list: [nv ? t('cnt.words', { n: nv }) : '', nq ? t('cnt.questions', { n: nq }) : ''].filter(Boolean).join(', ') }), 'success', 4000);
     if (nv) api.scrollToVocab();
     return true;
   };
@@ -494,7 +559,7 @@ export async function openImport(api, file) {
   input.addEventListener('change', () => { const f = input.files && input.files[0]; if (f) handleFile(f); input.value = ''; });
 
   const modal = openModal({
-    title: 'Nhập file',
+    title: t('sb.imp.title'),
     wide: true,
     onClose: () => {
       document.removeEventListener('dragover', stop);
@@ -503,18 +568,27 @@ export async function openImport(api, file) {
     body: h('div', { class: 'soan-form' },
       zone, input,
       h('div', { class: 'soan-tpl-line' },
-        h('button', { type: 'button', class: 'qt-link', 'data-testid': 'import-template', onClick: () => openTemplates() }, 'Tải file mẫu')),
+        h('button', { type: 'button', class: 'qt-link', 'data-testid': 'import-template', onClick: () => openTemplates() }, t('sb.tpl.title'))),
       h('div', { class: 'soan-gs' },
-        h('label', { class: 'field' }, h('span', {}, 'Hoặc dán link Google Sheet (đã Xuất bản lên web)'), gsUrl),
+        h('label', { class: 'field' }, tx('span', {}, 'sb.gs.or'), gsUrl),
         gsBtn,
-        h('p', { class: 'muted' }, 'Cần mạng. Trong Google Sheet: Tệp > Chia sẻ > Xuất bản lên web > chọn trang tính > CSV > Xuất bản. Mỗi trang tính 1 link; dán nhiều link, mỗi dòng 1 link.')),
+        tx('p', { class: 'muted' }, 'sb.gs.help')),
       err, preview),
     actions: [
-      { label: 'Đưa vào bảng', iconName: 'check', variant: 'primary', attrs: { 'data-testid': 'import-apply', disabled: true }, onClick: () => { apply().then((ok) => { if (ok) modal.close(); }); return false; } },
-      { label: 'Đóng', variant: 'ghost' },
+      { label: t('sb.imp.run'), iconName: 'check', variant: 'primary', attrs: { 'data-testid': 'import-apply', disabled: true }, onClick: () => { apply().then((ok) => { if (ok) modal.close(); }); return false; } },
+      { label: t('common.close'), variant: 'ghost' },
     ],
   });
   pinActions(modal);
+  // Đổi ngôn ngữ khi hộp đang mở: dựng lại bản xem trước từ dữ liệu đã đọc, giữ lựa chọn "cách thêm" và ô tick.
+  live(modal, 'sb.imp.title', ['sb.imp.run', 'common.close'], () => {
+    if (!data) return;
+    const keep = { v: vMode && vMode.value, q: qMode && qMode.value, a: autofill && autofill.input.checked };
+    renderPreview();
+    if (vMode && keep.v) vMode.value = keep.v;
+    if (qMode && keep.q) qMode.value = keep.q;
+    if (autofill && keep.a != null) autofill.input.checked = keep.a;
+  });
   if (file) handleFile(file);
 }
 
@@ -544,21 +618,26 @@ function injectLibStyle() {
   document.head.appendChild(st);
 }
 
+// Tên cấp hiển thị: cấp "other" lưu 'Mở rộng' trong dữ liệu gói, giao diện lấy theo ngôn ngữ.
+const levelName = (x) => (x.level === 'other' ? t('level.other') : x.levelLabel);
+
 export async function openLibrary(api) {
+  await ready();
   let index;
   try {
     index = await loadIndex();
   } catch (e) {
     console.error(e);
-    toast('Không tải được thư viện bài. Tải lại trang (F5) rồi thử lại.', 'error', 6000);
+    toast(t('sb.lib.loadFail'), 'error', 6000);
     return;
   }
   // Tab theo cấp (chỉ hiện cấp có gói). Tab mở lần trước được nhớ (localStorage, có thể bị chặn); lần đầu là A1 Movers.
   const counts = countByLevel(index);
-  const tabs = visibleLevels(index).map((l) => Object.assign({}, l, { label: l.value === 'all' ? l.label : `${l.label} · ${counts[l.value]}` }));
+  const tabs = visibleLevels(index);
+  const tabLabel = (l) => (l.value === 'all' ? l.label : `${l.label} · ${counts[l.value]}`);
   let saved = null;
   try { saved = localStorage.getItem(LIB_LEVEL_KEY); } catch (e) { /* bỏ qua */ }
-  let level = tabs.some((t) => t.value === saved) ? saved : (tabs.some((t) => t.value === 'movers') ? 'movers' : 'all');
+  let level = tabs.some((tb) => tb.value === saved) ? saved : (tabs.some((tb) => tb.value === 'movers') ? 'movers' : 'all');
   let theme = '';
   let query = '';
   injectLibStyle();
@@ -570,45 +649,52 @@ export async function openLibrary(api) {
       pack = await loadPack(entry.id);
     } catch (e) {
       console.error(e);
-      toast('Không tải được bài này. Thử lại sau.', 'error', 5000);
+      toast(t('sb.lib.packFail'), 'error', 5000);
       return;
     }
     const ask = openModal({
-      title: `Dùng bài '${entry.title}'?`,
+      title: t('sb.lib.useTitle', { title: entry.title }),
       body: h('div', {},
-        h('p', {}, `${entry.words} từ, ${entry.questions} câu hỏi. Bạn chọn cách đưa vào:`),
-        h('p', { class: 'muted' }, 'Nếu chọn "Thay bài đang soạn", nội dung hiện tại sẽ bị thay. Nên Lưu file .edu trước nếu muốn giữ lại. Tên đội hiện tại được giữ nguyên.')),
+        tx('p', {}, 'sb.lib.useBody', { counts: `${t('cnt.words', { n: entry.words })}, ${t('cnt.questions', { n: entry.questions })}` }),
+        tx('p', { class: 'muted' }, 'sb.lib.useWarn')),
       actions: [
-        { label: 'Hủy', variant: 'ghost' },
-        { label: 'Chỉ thêm từ vựng và câu hỏi vào cuối', iconName: 'plus', attrs: { 'data-testid': 'lib-append' }, onClick: () => {
+        { label: t('ui.cancel'), variant: 'ghost' },
+        { label: t('sb.lib.append'), iconName: 'plus', attrs: { 'data-testid': 'lib-append' }, onClick: () => {
           api.addVocab(pack.vocab.map((v) => Object.assign({}, v)), 'append');
           api.addQuestions(pack.questions.map((q) => Object.assign({}, q, { options: q.options.slice() })), 'append');
-          toast(`Đã thêm từ vựng và câu hỏi của bài ${entry.title}.`, 'success', 4000);
+          toast(t('sb.lib.appended', { title: entry.title }), 'success', 4000);
           api.scrollToVocab();
           lib.close();
         } },
-        { label: 'Thay bài đang soạn', iconName: 'refresh', variant: 'primary', attrs: { 'data-testid': 'lib-replace' }, onClick: () => {
+        { label: t('sb.lib.replace'), iconName: 'refresh', variant: 'primary', attrs: { 'data-testid': 'lib-replace' }, onClick: () => {
           const teams = api.getDraft().teams.slice();
           api.replacePack(Object.assign({}, pack, { teams: teams.length >= 2 ? teams : pack.teams }));
-          toast(`Đã mở bài ${entry.title}. Bạn có thể sửa tuỳ ý.`, 'success', 4500);
+          toast(t('sb.lib.opened', { title: entry.title }), 'success', 4500);
           lib.close();
         } },
       ],
     });
     pinActions(ask);
+    live(ask, null, ['ui.cancel', 'sb.lib.append', 'sb.lib.replace']);
+    const askTitle = ask.el.querySelector('.modal-head h2');
+    if (askTitle) {
+      bind(askTitle, 'sb.lib.useTitle', { title: entry.title });
+      bind(ask.el, 'sb.lib.useTitle', { title: entry.title }, 'aria-label');
+    }
   };
 
   const card = (x) => h('button', { type: 'button', class: 'lib-card', 'data-testid': 'lib-card', 'data-id': x.id, onClick: () => choose(x) },
     h('strong', { class: 'lib-title' }, x.title),
-    h('span', { class: 'lib-vi' }, x.titleVi),
-    h('span', { class: 'lib-count' }, `${x.words} từ · ${x.questions} câu hỏi`, h('span', { class: 'lib-level-tag' }, ' · ' + levelTag(x))),
-    h('span', { class: 'lib-words' }, (x.preview || []).map((w) => h('em', {}, w))));
+    // Tên tiếng Việt chỉ hiện ở giao diện VI (EN: tên gói tiếng Anh là đủ).
+    lang() === 'en' ? null : h('span', { class: 'lib-vi' }, x.titleVi),
+    h('span', { class: 'lib-count' }, `${t('cnt.words', { n: x.words })} · ${t('cnt.questions', { n: x.questions })}`, h('span', { class: 'lib-level-tag' }, ' · ' + levelTag(x))),
+    h('span', { class: 'lib-words', 'data-i18n-data': '' }, (x.preview || []).map((w) => h('em', {}, w))));
 
   const renderGrid = () => {
     grid.textContent = '';
     const items = filterPacks(index, { level, theme, q: query });
     if (!items.length) {
-      grid.append(h('p', { class: 'soan-note lib-empty', 'data-testid': 'lib-empty' }, query.trim() ? `Không có bài khớp '${query.trim()}'.` : 'Chưa có bài cho lựa chọn này.'));
+      grid.append(h('p', { class: 'soan-note lib-empty', 'data-testid': 'lib-empty' }, query.trim() ? t('sb.lib.noMatch', { q: query.trim() }) : t('sb.lib.empty')));
       return;
     }
     if (level === 'all') {
@@ -617,7 +703,7 @@ export async function openLibrary(api) {
       items.forEach((x) => {
         const key = x.general ? 'general' : x.level;
         let g = groups.find((y) => y.key === key);
-        if (!g) { g = { key, label: x.general ? 'Chủ đề chung' : x.levelLabel, list: [] }; groups.push(g); }
+        if (!g) { g = { key, label: x.general ? t('sb.lib.general') : levelName(x), list: [] }; groups.push(g); }
         g.list.push(x);
       });
       groups.forEach((g) => {
@@ -628,26 +714,26 @@ export async function openLibrary(api) {
       items.forEach((x) => grid.append(card(x)));
     }
     const shown = grid.querySelectorAll('.lib-card').length;
-    countEl.textContent = `${shown} bài`;
+    countEl.textContent = t('sb.lib.count', { n: shown });
   };
   const countEl = h('span', { class: 'lib-found', 'aria-live': 'polite' }, '');
 
-  const tabEls = tabs.map((t) => h('button', {
-    type: 'button', class: 'btn lib-tab', 'data-value': t.value, 'data-testid': 'lib-tab', 'aria-pressed': String(t.value === level),
+  const tabEls = tabs.map((tb) => h('button', {
+    type: 'button', class: 'btn lib-tab', 'data-value': tb.value, 'data-testid': 'lib-tab', 'aria-pressed': String(tb.value === level),
     onClick: () => {
-      if (level === t.value) return;
-      level = t.value;
+      if (level === tb.value) return;
+      level = tb.value;
       tabEls.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === level)));
       try { localStorage.setItem(LIB_LEVEL_KEY, level); } catch (e) { /* bỏ qua */ }
       renderGrid();
       const mb = grid.closest('.modal-body');
       if (mb) mb.scrollTop = 0;
     },
-  }, t.label));
+  }, tabLabel(tb)));
   const tabRow = h('div', { class: 'lib-tabs', role: 'group', 'data-testid': 'lib-level' }, tabEls);
 
   // Chip chủ đề: cách tìm trên bảng cảm ứng (không cần bàn phím ảo).
-  const chipDefs = [{ value: '', label: 'Mọi chủ đề' }].concat(LIB_THEMES);
+  const chipDefs = [{ value: '', get label() { return t('sb.lib.anyTopic'); } }].concat(LIB_THEMES);
   const chipEls = chipDefs.map((c) => h('button', {
     type: 'button', class: 'btn lib-chip', 'data-value': c.value, 'data-testid': 'lib-chip', 'aria-pressed': String(c.value === theme),
     onClick: () => {
@@ -659,21 +745,29 @@ export async function openLibrary(api) {
   // Ô gõ chỉ dành cho laptop (màn Soạn bài). Trên bảng ClassIn dùng chip ở trên.
   const search = h('input', {
     type: 'text', class: 'lib-search', 'data-testid': 'lib-search', autocomplete: 'off', spellcheck: 'false',
-    'aria-label': 'Tìm bài', placeholder: 'Tìm bài: food, đồ ăn, animals… (gõ trên laptop)',
+    placeholder: t('sb.lib.searchPh'),
     onInput: (e) => { query = e.target.value; renderGrid(); },
   });
+  bind(search, 'sb.lib.search', null, 'aria-label');
   renderGrid();
   const lib = openModal({
-    title: 'Thư viện bài',
+    title: t('sb.lib.title'),
     wide: true,
     body: h('div', { class: 'soan-form lib-body' },
       h('div', { class: 'lib-bar' },
         tabRow,
         h('div', { class: 'lib-searchrow' }, search, countEl)),
       h('div', { class: 'lib-chips', 'data-testid': 'lib-chips' }, chipEls),
-      h('p', { class: 'muted lib-note' }, 'Chọn một bài theo chủ đề rồi sửa tuỳ ý. Cấp độ dựa trên danh sách từ vựng Cambridge English (Starters, Movers, Flyers 2025; A2 Key; B1 Preliminary). Ứng dụng không liên kết với Cambridge.'),
+      tx('p', { class: 'muted lib-note' }, 'sb.lib.note'),
       grid),
-    actions: [{ label: 'Đóng', variant: 'ghost' }],
+    actions: [{ label: t('common.close'), variant: 'ghost' }],
   });
   pinActions(lib);
+  // Đổi ngôn ngữ khi thư viện đang mở: đổi chữ tab, chip, ô tìm và dựng lại lưới; giữ cấp, chủ đề và từ đang tìm.
+  live(lib, 'sb.lib.title', ['common.close'], () => {
+    tabEls.forEach((b, i) => { b.textContent = tabLabel(tabs[i]); });
+    chipEls.forEach((b, i) => { b.textContent = chipDefs[i].label; });
+    search.placeholder = t('sb.lib.searchPh');
+    renderGrid();
+  });
 }

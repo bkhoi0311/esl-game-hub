@@ -7,9 +7,13 @@ import { playSound, speak } from '../../core/audio.js';
 import { button, createCountdown, createGameFrame, h, segmented, setupScreen } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
+import { addStrings, onLang, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
 import { burst } from '../../core/fx.js';
 import { line } from '../../core/voice-lines.js';
 import { checkContent, explain, makeRound } from './logic.js';
+
+addStrings('games-duel', VI);
 
 const HOW_TO = {
   title: 'How to play',
@@ -47,6 +51,7 @@ function createGame(root, pack) {
     round = null;
     roundNo = 0;
     score = 0;
+    setupOpen = true;
     frame.extra.textContent = '';
     frame.setPaused(false);
     setStage(setupScreen({
@@ -54,10 +59,11 @@ function createGame(root, pack) {
       title: 'Impostor Word',
       art: gameArt('impostor'),
       rows: [
-        { label: 'Thời gian thảo luận mỗi vòng', control: segmented([30, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), 'imp-seconds'),
-          hint: 'Hết giờ, giáo viên bấm vào thẻ mà cả lớp chọn. Mỗi phiên không lặp lại tổ hợp 5 từ.' },
+        { label: t('game.impostor.time'), control: segmented([30, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), 'imp-seconds'),
+          hint: t('game.impostor.timeHint') },
       ],
       onStart: () => {
+        setupOpen = false;
         timer = createCountdown({ seconds: opts.seconds, onEnd: timeUp, onTick: (s) => s <= 5 && s > 0 && playSound('tick') });
         frame.extra.textContent = '';
         frame.extra.append(status, timer.el);
@@ -161,17 +167,26 @@ function createGame(root, pack) {
     speak(line(correct ? 'correct' : 'tryAgain')).then(() => round && round.done && speak(why));
   }
 
-  const missing = checkContent(pack.vocab);
-  if (missing.length) {
-    setStage(h('div', { class: 'notice' }, icon('alert', 48), h('h2', {}, 'Cần thêm nội dung'),
+  let setupOpen = false;
+  const renderMissing = (missing) => {
+    setStage(h('div', { class: 'notice' }, icon('alert', 48), h('h2', {}, t('game.impostor.needTitle')),
       h('ul', {}, missing.map((m) => h('li', {}, m))),
-      h('div', { class: 'notice-actions' }, h('a', { href: '#/editor', class: 'btn btn-primary' }, icon('book-open', 22), h('span', {}, 'Mở Soạn bài')))));
-  } else {
-    showSetup();
-  }
+      h('div', { class: 'notice-actions' }, h('a', { href: '#/editor', class: 'btn btn-primary' }, icon('book-open', 22), h('span', {}, t('game.impostor.openEditor'))))));
+  };
+  let missingShown = false;
+  const show = () => {
+    const missing = checkContent(pack.vocab);
+    missingShown = missing.length > 0;
+    if (missingShown) renderMissing(missing);
+    else showSetup();
+  };
+  // Đổi ngôn ngữ: chỉ dựng lại màn cài đặt / thông báo thiếu nội dung khi đang mở; game đang chơi giữ nguyên.
+  const offLang = onLang(() => { if (setupOpen || missingShown) show(); });
+  show();
 
   return {
     destroy() {
+      offLang();
       if (timer) timer.stop();
       confetti.reset();
       frame.destroy();
@@ -189,7 +204,7 @@ export default {
   group: 'class',
   theme: 'candy',
   icon: 'search',
-  description: 'Tìm từ khác nhóm trong 5 thẻ và giải thích vì sao.',
+  get description() { return t('game.impostor.desc'); },
   ready: true,
   checkContent: (pack) => checkContent(pack.vocab),
 

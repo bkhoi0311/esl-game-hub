@@ -1,5 +1,10 @@
 // Luật Impostor Word (thuần logic): 4 từ cùng nhóm + 1 từ khác nhóm.
 
+import { addStrings, t } from '../../i18n/index.js';
+import VI from '../../i18n/strings/games-duel.vi.js';
+
+addStrings('games-duel', VI);
+
 export const GROUP_SIZE = 4;
 
 // Gom từ theo nhóm, bỏ từ trùng chữ.
@@ -22,18 +27,18 @@ export function usableGroups(vocab) {
   return Object.fromEntries(Object.entries(groups).filter(([, list]) => list.length >= GROUP_SIZE));
 }
 
-// Thông báo tiếng Việt nếu thiếu nội dung. Mảng rỗng = đủ để chơi.
+// Thông báo cho giáo viên (theo ngôn ngữ giao diện) nếu thiếu nội dung. Mảng rỗng = đủ để chơi.
 export function checkContent(vocab) {
   const groups = groupWords(vocab);
   const cats = Object.keys(groups);
   const full = cats.filter((c) => groups[c].length >= GROUP_SIZE);
   if (full.length >= 2) return [];
-  const missing = [`Cần ít nhất 2 nhóm từ (cột category), mỗi nhóm ít nhất ${GROUP_SIZE} từ. Hiện có ${full.length} nhóm đủ ${GROUP_SIZE} từ.`];
+  const missing = [t('game.impostor.need', { size: GROUP_SIZE, have: full.length })];
   const short = cats.filter((c) => groups[c].length < GROUP_SIZE);
   if (short.length) {
-    missing.push('Nhóm còn thiếu: ' + short.map((c) => `"${c}" cần thêm ${GROUP_SIZE - groups[c].length} từ`).join('; ') + '.');
+    missing.push(t('game.impostor.short', { list: short.map((c) => t('game.impostor.shortItem', { cat: c, n: GROUP_SIZE - groups[c].length })).join('; ') }) + '.');
   }
-  if (!cats.length) missing.push('Chưa có từ nào được gán nhóm.');
+  if (!cats.length) missing.push(t('game.impostor.noCats'));
   return missing;
 }
 

@@ -14,7 +14,7 @@ export function loadIndex() {
 
 export function loadPack(id) {
   const key = Object.keys(PACKS).find((k) => k.endsWith('/' + id + '.json'));
-  if (!key) return Promise.reject(new Error('Không tìm thấy gói ' + id));
+  if (!key) return Promise.reject(new Error('Pack not found: ' + id));
   return PACKS[key]();
 }
 
