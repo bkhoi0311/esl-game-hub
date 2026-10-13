@@ -194,6 +194,7 @@ export function createInput({ el, board, getScale, render, diag, hooks, ink, pal
 
   return {
     activeCount: () => active.size,
+    liveStrokes() { return Array.from(active.values()).filter((a) => a.kind === 'draw').map((a) => a.stroke); },
     cancelAll() { for (const id of Array.from(active.keys())) finish(id, 'drop'); },
     destroy() { clearInterval(guard); },
   };

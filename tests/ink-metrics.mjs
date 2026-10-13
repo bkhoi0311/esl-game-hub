@@ -16,8 +16,8 @@ function wavePts() {
   return { raw, cum, len: cum[cum.length - 1] };
 }
 const WV = wavePts();
-// v2: thanh lớp học (64·s) đẩy vùng viết xuống 64 px (s = 1): toạ độ mẫu dịch xuống YOFF; tiêu chí đo giữ nguyên.
-export const YOFF = 64;
+// v2.1: tắt Đề, thanh gộp 64·s (trước v2 là 56): toạ độ mẫu dịch xuống YOFF = 8 (s = 1); tiêu chí đo giữ nguyên.
+export const YOFF = 8;
 function at(shape, s) {
   if (shape === 'W') { let i = 0; while (i < WV.cum.length - 1 && WV.cum[i + 1] < s) i++; return [WV.raw[i][0], WV.raw[i][1] + YOFF]; }
   const p = SHAPES[shape].f(s);

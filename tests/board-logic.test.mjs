@@ -428,3 +428,92 @@ test('INK-M: hàm đo – dải sạch hf < 0,05, dải nhiễu ±1 px hf > 0,3;
   assert.equal(al[0], 1); assert.equal(al[1], 0);
   assert.ok(genSamples('H', 'N1', 5).length > 300);
 });
+
+// ================= v2.1 (PLAN-BOARD-V21) =================
+import { readFeatures, DEFAULTS } from '../public/board/js/features.js';
+import { chromeLayout } from '../public/board/js/layout.js';
+import { BOARDS, PALETTES, inkMap, remapInk, paperColors, parseTheme } from '../public/board/js/theme.js';
+import { paperSVG } from '../public/board/js/paper.js';
+
+test('F1: readFeatures (mặc định tắt Đề; deck=1 bật; deck=0 thắng src; src= và #L= bật)', () => {
+  assert.equal(DEFAULTS.deck, false);
+  assert.equal(readFeatures('', '').deck, false);
+  assert.equal(readFeatures('?zones=3', '').deck, false);
+  assert.equal(readFeatures('?deck=1', '').deck, true);
+  assert.equal(readFeatures('?deck=0&src=lib:x', '').deck, false);
+  assert.equal(readFeatures('?src=lib:food-and-drink&kind=write', '').deck, true);
+  assert.equal(readFeatures('', '#L=abc').deck, true);
+  assert.equal(readFeatures('', '#x=abc').deck, false);
+  assert.equal(readFeatures('?snip=0', '').snip, false);
+  assert.equal(readFeatures('', '').snip, true);
+});
+
+test('L1: chromeLayout (gộp thanh, hai hàng, Đề bật giữ bố cục cũ)', () => {
+  let c = chromeLayout(1280, 720, false);
+  assert.deepEqual([c.merged, c.barH, c.rowH, c.compact], [true, 64, 0, true]);
+  c = chromeLayout(1366, 768, false);
+  assert.ok(c.merged && c.compact && c.barH === Math.round(64 * c.s));
+  c = chromeLayout(1920, 1080, false);
+  assert.deepEqual([c.s, c.merged, c.barH, c.rowH, c.compact], [1.5, true, 96, 0, true]);
+  c = chromeLayout(2560, 1080, false);
+  assert.ok(c.merged && !c.compact && c.s === 1.5, 'W/s = 1707 không thu gọn');
+  c = chromeLayout(960, 540, false);
+  assert.deepEqual([c.merged, c.barH, c.rowH], [false, 52, 59]);
+  c = chromeLayout(1280, 720, false, true);
+  assert.deepEqual([c.merged, c.barH, c.rowH], [false, 56, 64], 'forceRows');
+  c = chromeLayout(1280, 720, true);
+  assert.deepEqual([c.merged, c.barH, c.rowH], [false, 56, 64]);
+  c = chromeLayout(1920, 1080, true);
+  assert.deepEqual([c.barH, c.rowH], [84, 96]);
+});
+
+test('TH1: inkMap song ánh, đổi hai lần trả mã cũ', () => {
+  const d2l = inkMap('dark', 'light'), l2d = inkMap('light', 'dark');
+  assert.equal(d2l.size, 6); assert.equal(l2d.size, 6);
+  assert.equal(new Set(d2l.values()).size, 6, 'ảnh của map không trùng');
+  for (const [from, to] of d2l) assert.equal(l2d.get(to.toUpperCase()), PALETTES.dark.find((c) => c.hex === from).hex);
+  assert.equal(d2l.get('#FFFFFF'), '#1C1C1E');
+  assert.equal(d2l.get('#FFD43B'), '#E67700');
+  assert.equal(PALETTES.dark.length, PALETTES.light.length);
+  assert.equal(BOARDS.dark.bg, '#121212'); assert.equal(BOARDS.light.bg, '#FFFFFF');
+  assert.equal(parseTheme('light'), 'light'); assert.equal(parseTheme('x'), 'dark'); assert.equal(parseTheme(null), 'dark');
+});
+
+test('TH2: remapInk đổi zone.color, nét, undo (add / erase / clear), nét đang vẽ; mỗi nét một lần; màu lạ giữ', () => {
+  const b = createBoard(2);
+  setZoneRects(b, [{ id: 1, x: 0, y: 64, w: 600, h: 600 }, { id: 2, x: 602, y: 64, w: 600, h: 600 }]);
+  const z = b.zones[0];
+  const mk = (color) => { const s = beginStroke(z, { color, size: 10 }); addPoint(s, 100, 100, 0.5, false, 0.5, 1); addPoint(s, 200, 220, 0.5, false, 0.5, 1); return s; };
+  const s1 = mk('#FFFFFF'), s2 = mk('#FFD43B'), s3 = mk('#123456');
+  [s1, s2, s3].forEach((s) => endStroke(z, s));
+  // erase: nét s2 bị xoá (nằm trong undo, không còn trong strokes)
+  const sess = newEraseSession();
+  z.strokes.splice(z.strokes.indexOf(s2), 1); sess.removed.push({ stroke: s2, index: 1 }); commitErase(z, sess);
+  clearZone(z);   // 'clear': removed là mảng nét
+  const live = mk('#4DABF7');
+  z.color = '#FF4D4F';
+  const n = remapInk(b, inkMap('dark', 'light'), [live]);
+  assert.equal(z.color, '#E03131');
+  assert.equal(s1.color, '#1C1C1E'); assert.equal(s2.color, '#E67700'); assert.equal(s3.color, '#123456');
+  assert.equal(live.color, '#1971C2');
+  assert.equal(n, 3, 'mỗi nét đổi đúng một lần (s1, s2, live; s3 màu lạ)');
+  // đổi lại
+  remapInk(b, inkMap('light', 'dark'), [live]);
+  assert.equal(s1.color, '#FFFFFF'); assert.equal(s2.color, '#FFD43B'); assert.equal(live.color, '#4DABF7'); assert.equal(z.color, '#FF4D4F');
+  // nét xuất hiện cả ở strokes và undo chỉ đổi một lần (nếu đổi hai lần sẽ trôi sang màu khác)
+  undo(z);
+  remapInk(b, inkMap('dark', 'light'));
+  assert.ok(z.strokes.every((s) => s.color !== '#FFFFFF'));
+  assert.equal(b.zones[1].color, '#1C1C1E');
+});
+
+test('TH3: paperSVG nền Trắng dùng rgba(28,28,30; nền Đen giữ chuỗi cũ', () => {
+  for (const k of ['lines4', 'oli', 'grid', 'axes']) {
+    const dk = paperSVG(k, 500, 400, 1), dk2 = paperSVG(k, 500, 400, 1, 'dark'), lt = paperSVG(k, 500, 400, 1, 'light');
+    assert.equal(dk, dk2, k + ': mặc định = dark');
+    assert.ok(dk.includes('rgba(255,255,255,0.14)'), k + ' dark');
+    assert.ok(lt.includes('rgba(28,28,30'), k + ' light');
+    assert.ok(!lt.includes('rgba(255,255,255'), k + ' light không còn trắng');
+  }
+  assert.equal(paperColors('light').margin, 'rgba(224,49,49,0.5)');
+});

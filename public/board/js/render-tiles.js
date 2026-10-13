@@ -27,6 +27,7 @@ export function createTiledRenderer({ board, stage, ink }) {
   host.id = 'tiles';
   stage.insertBefore(host, stage.firstChild);
 
+  let bg = BOARD_COLOR, bgRGB = BOARD_COLOR_RGB;   // màu nền hiện tại (Trắng / Đen), đổi bằng setBoardColor
   let k = 1, origin = { x: 0, y: 0 }, cssW = 0, cssH = 0;
   let Tw = 0, Th = 0, cols = 0, rows = 0;
   let tiles = [];
@@ -47,7 +48,7 @@ export function createTiledRenderer({ board, stage, ink }) {
   function resize(w, h, originXY, dpr) {
     cssW = w; cssH = h; origin = originXY;
     k = RAW ? (INKO.k || 1) : (INKO.k || Math.min(dpr || 1, INK.K_MAX));
-    if (w * h * k * k > INK.MAX_BACKING_PX) k = Math.sqrt(INK.MAX_BACKING_PX / (w * h));
+    if (w * h * k * k > INK.MAX_BACKING_PX) k = Math.sqrt(INK.MAX_BACKING_PX / (w * h)) * 0.9995;   // 0,9995: làm tròn từng lát không được vượt trần
     let tc = INK.TILE;
     for (let i = 0; i < 8 && Math.abs(tc * k - Math.round(tc * k)) > 1e-6; i++) tc++; // lát thẳng hàng điểm ảnh
     Tw = Th = tc;
@@ -156,7 +157,7 @@ export function createTiledRenderer({ board, stage, ink }) {
   function redrawTile(tile) {
     const ctx = tile.ctx;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.fillStyle = BOARD_COLOR;
+    ctx.fillStyle = bg;
     ctx.fillRect(0, 0, tile.bw, tile.bh);
     for (const z of board.zones) {
       const zr = zoneStageRect(z);
@@ -314,13 +315,24 @@ export function createTiledRenderer({ board, stage, ink }) {
     const d = tile.ctx.getImageData(x, y, w, h).data;
     let n = 0;
     for (let i = 0; i < d.length; i += 4) {
-      if (Math.abs(d[i] - BOARD_COLOR_RGB[0]) > 24 || Math.abs(d[i + 1] - BOARD_COLOR_RGB[1]) > 24 || Math.abs(d[i + 2] - BOARD_COLOR_RGB[2]) > 24) n++;
+      if (Math.abs(d[i] - bgRGB[0]) > 24 || Math.abs(d[i + 1] - bgRGB[1]) > 24 || Math.abs(d[i + 2] - bgRGB[2]) > 24) n++;
     }
     return n;
   }
 
+  // Đổi màu nền cả bảng: vẽ lại mọi lát đúng 1 lượt (lát vẫn alpha:false, chỉ đổi màu tô).
+  function setBoardColor(hex, rgb) {
+    if (hex === bg) return;
+    bg = hex; bgRGB = rgb;
+    markDirty();
+  }
+
   return {
-    resize, markDirty, requestFrame,
+    resize, markDirty, requestFrame, setBoardColor,
+    get bg() { return bg; },
+    // Chỉ đọc, cho Cắt màn hình: các lát giao với hộp CSS (toạ độ sân khấu)
+    tilesIn(x0, y0, x1, y1) { return tilesFor(x0, y0, x1, y1).map((tl) => ({ x: tl.x, y: tl.y, w: tl.w, h: tl.h, canvas: tl.c })); },
+    get origin() { return { x: origin.x, y: origin.y }; },
     get k() { return k; },
     canvasSize() { return [Math.round(cssW * k), Math.round(cssH * k)]; },
     canvasInfo() {

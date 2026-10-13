@@ -5,26 +5,24 @@ import { buildDeck } from './tasks.js';
 import { createCards } from './cards.js';
 import { createClassbar } from './classbar.js';
 import { createTimer } from './timer.js';
-import { createSheets, openTeamSheet, openPaperSheet, openScoreSheet, PAPERS } from './sheets.js';
+import { PAPERS } from './sheets.js';
+import { openTeamSheet, openScoreSheet } from './deck-sheets.js';
 import { openDeckDialog } from './deck-dialog.js';
-import { applyPaper } from './paper.js';
 import * as C from './classroom.js';
 
 const STORE = 'board.v2';
 const KINDS = ['write', 'missing', 'mc'];
 const TIMER_PARAM = { 0: ['off', 0], 30: ['down', 30], 60: ['down', 60], 90: ['down', 90], 120: ['down', 120], up: ['up', 0] };
 
-export function createV2({ board, ui, strokes, relayout, test, query }) {
+export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
   // strokes: { clearAll(), clearZone(zid) }  ·  relayout(): tính lại bố cục (dải đề xuất hiện / biến mất)
   const q = query || new URLSearchParams(location.search);
-  const overlay = document.getElementById('overlay');
   const stage = document.getElementById('stage');
   let cls = restore() || C.createClassroom(board.zones.length);
   let curG = null;
   let lesson = null;          // bài đang mở từ link #L= (đã giải mã), hoặc null
   let packTeams = null;
-  const sheets = createSheets();
-  let audio = null;
+  const sheets = tools.sheets;
   let lastLockToast = 0;
 
   /* ----- lưu tạm (sessionStorage, không lưu nét) ----- */
@@ -65,27 +63,16 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
       C.endTimer(cls);
       lastRun = false;
       ui.toast('Hết giờ', 3000);
-      beep();
+      tools.beep();
+      tools.timeup.show();
       refresh();
     },
   });
   const tstate = () => ({ mode: cls.timer.mode, total: cls.timer.total, left: cls.timer.left, running: cls.timer.running });
-  function ensureAudio() {
-    try { if (!audio) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) audio = new AC(); } if (audio && audio.state === 'suspended') audio.resume(); } catch (e) { audio = null; }
-  }
-  function beep() {
-    try {
-      if (!audio) return;
-      const o = audio.createOscillator(), g = audio.createGain();
-      o.frequency.value = 880; o.type = 'sine';
-      g.gain.setValueAtTime(0.25, audio.currentTime); g.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 0.3);
-      o.connect(g); g.connect(audio.destination); o.start(); o.stop(audio.currentTime + 0.3);
-    } catch (e) { /* im lặng khi lỗi */ }
-  }
 
   /* ----- thẻ đề, thanh lớp ----- */
   const cards = createCards({
-    overlay,
+    overlay: document.getElementById('overlay'),
     actions: {
       team: (zid) => teamSheet(zid),
       prev: (zid) => { if (C.prevForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toast('Đây là câu đầu của vùng ' + zid + '.'); },
@@ -93,23 +80,30 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
       verdict: (zid, v) => { C.setVerdict(cls, zid, v); refresh(); },
     },
   });
+  let lastTimer = cls.timer.mode !== 'off' ? { mode: cls.timer.mode, total: cls.timer.total } : { mode: 'down', total: 60 };
+  function timerSet(mode, sec) {
+    if (mode !== 'off') lastTimer = { mode, total: sec };
+    C.setTimerConfig(cls, mode, sec); timer.set(mode, sec); lastRun = false; tools.timeup.hide(); refresh();
+  }
   const bar = createClassbar({
+    tools,
     actions: {
       openDeck: () => openDeck(),
-      openPaper: () => paperSheet(),
       sharedPrev: () => { if (C.prevShared(cls)) refresh(); },
       sharedNext: () => { if (C.nextShared(cls)) refresh(); else ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.'); },
-      timerSet(mode, sec) { C.setTimerConfig(cls, mode, sec); timer.set(mode, sec); lastRun = false; refresh(); },
+      timerSet,
+      timerPower() { if (cls.timer.mode === 'off') timerSet(lastTimer.mode, lastTimer.total); else timerSet('off', 0); },
       timerToggle() {
         const st = timer.state();
         if (st.running) { timer.pause(); cls.timer.running = false; lastRun = false; refresh(); return; }
-        ensureAudio();
+        tools.ensureAudio();
         C.startTimer(cls);
+        tools.timeup.hide();
         timer.start();
         lastRun = true;
         refresh();
       },
-      timerReset() { timer.reset(); C.resetTimer(cls); lastRun = false; refresh(); },
+      timerReset() { timer.reset(); C.resetTimer(cls); lastRun = false; tools.timeup.hide(); refresh(); },
       toggleAnswers: () => { C.setRevealed(cls, !cls.revealed); refresh(); },
       newRound: () => doNewRound(),
       openScore: () => scoreSheet(),
@@ -119,6 +113,7 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
   timer.set(cls.timer.mode, cls.timer.total);
 
   function refresh() {
+    if (!cls.zones.some((z) => z.locked)) tools.timeup.hide();
     bar.update(cls, tstate());
     cards.render(cls);
     persist();
@@ -128,6 +123,7 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
     const r = C.newRound(cls);
     timer.reset();
     lastRun = false;
+    tools.timeup.hide();
     strokes.clearAll();
     if (r.end) ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.');
     refresh();
@@ -135,44 +131,13 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
 
   /* ----- tấm: đội, nền, điểm ----- */
   function teamSheet(zid) { openTeamSheet(sheets, { cls, zid, packTeams, onChange: refresh }); }
-  function paperSheet() {
-    openPaperSheet(sheets, {
-      cls,
-      onApply(target, kind) {
-        const ids = target === 'all' ? cls.zones.map((z) => z.id) : [target];
-        ids.forEach((id) => { cls.zones[id - 1].paper = kind; cls.zones[id - 1].paperManual = true; });
-        paintPapers();
-        persist();
-      },
-    });
-  }
   function scoreSheet() { openScoreSheet(sheets, { cls, ui, onReset() { C.resetScores(cls); refresh(); } }); }
 
-  /* ----- nền viết (lớp tĩnh trong #stage) ----- */
-  let paperEls = {};
-  function buildPapers(g) {
-    for (const k in paperEls) paperEls[k].remove();
-    paperEls = {};
-    g.writes.forEach((w) => {
-      const el = document.createElement('div');
-      el.className = 'paper'; el.dataset.testid = 'z' + w.id + '-paper'; el.setAttribute('data-testid', 'z' + w.id + '-paper');
-      el.style.left = w.x + 'px'; el.style.top = (w.y - g.top) + 'px'; el.style.width = w.w + 'px'; el.style.height = w.h + 'px';
-      stage.appendChild(el);
-      paperEls[w.id] = el;
-    });
-    paintPapers();
-  }
-  function paintPapers() {
-    if (!curG) return;
-    curG.writes.forEach((w) => {
-      const el = paperEls[w.id];
-      const z = cls.zones[w.id - 1];
-      if (el && z) applyPaper(el, z.paper, w, curG.s);
-    });
-  }
-  function autoPaper(paper) {
-    cls.zones.forEach((z) => { if (!z.paperManual) z.paper = paper; });
-  }
+  /* ----- nền viết: do tools.js giữ; v2 chỉ gắn trạng thái nền của từng vùng (cls.zones) vào đó ----- */
+  tools.setPaperStore(cls.zones, persist);
+  tools.onTimeupDismiss(() => { C.dismissTimeup(cls); refresh(); });
+  const autoPaper = (paper) => tools.autoPaper(paper);
+  const paintPapers = () => tools.paintPapers();
 
   /* ----- nạp đề ----- */
   async function loadPack(id) { return (await import('../packs/' + id + '.js')).default; }
@@ -290,7 +255,6 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
       document.documentElement.classList.toggle('cb-compact', g.W < 1400);
       document.documentElement.style.setProperty('--band-h', (g.bands[0] ? g.bands[0].h : 0) + 'px');   // toast / banner nằm dưới dải đề
       cards.layout({ bands: g.bands, writes: g.writes, top: g.top, s: g.s, fm: fontMax(n, g.s), n });
-      buildPapers(g);
       refresh();
     },
     hasDeck: () => C.hasDeck(cls),
@@ -300,7 +264,7 @@ export function createV2({ board, ui, strokes, relayout, test, query }) {
       if (cls.hidden && now - lastLockToast > 2500) { lastLockToast = now; ui.toast('Bấm Bắt đầu để mở đề.', 2000); }
     },
     // đổi số vùng (main đã dựng lại board.zones): đặt lại điểm, chia lại câu
-    zoneCount(n) { C.setZoneCount(cls, n); timer.reset(); lastRun = false; closeSheets(); cards.closeZoom(); },
+    zoneCount(n) { C.setZoneCount(cls, n); tools.setPaperStore(cls.zones, persist); timer.reset(); lastRun = false; tools.timeup.hide(); closeSheets(); cards.closeZoom(); },
     start,
     escape() { if (sheets.isOpen()) { sheets.close(); return true; } if (cards.closeZoom()) return true; return bar.closePop(); },
     closeSheets,

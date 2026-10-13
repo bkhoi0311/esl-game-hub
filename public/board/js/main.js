@@ -1,6 +1,6 @@
 // Khởi động: đọc tham số, nối các module.
 import { BRAND } from './brand.js';
-import { calcScale, topHeight, computeZones, parseZones, classbarHeight, splitBands } from './layout.js';
+import { calcScale, computeZones, parseZones, splitBands, chromeLayout } from './layout.js';
 import { createBoard, setZoneRects, clearZone, undo } from './strokes.js';
 import { createTiledRenderer } from './render-tiles.js';
 import { INK, parseInkOverrides, inkText } from './ink.js';
@@ -8,7 +8,9 @@ import { createInput } from './input.js';
 import { createPalmFilter, parsePalmMode } from './palm.js';
 import { createDiag } from './diag.js';
 import { createUI } from './ui.js';
-import { createV2 } from './v2.js';   // v2: bảng thi đua có đề
+import { FEATURES } from './features.js';
+import { createTools } from './tools.js';
+import { parseTheme } from './theme.js';
 
 const root = document.documentElement;
 const q = new URLSearchParams(location.search);
@@ -27,7 +29,10 @@ root.classList.add(!brand.wordmark ? 'brand-neutral' : brand.logo ? 'brand-logo'
 // 2. dữ liệu + module
 const board = createBoard(parseZones(q.get('zones')));
 let S = 1, TOPH = 56, lastKey = '';
-let v2;   // v2: khởi tạo sau ui
+const forceRows = {};   // W -> true: thanh gộp không đủ chỗ ở bề ngang này, dùng hai hàng
+// Phần Đề (v2.js) chỉ được tải khi FEATURES.deck bật: nạp động, không await ở mức tệp.
+const NO_DECK = { bandH: () => 0, layout() {}, hasDeck: () => false, isLocked: () => false, lockedTouch() {}, zoneCount() {}, start() {}, escape: () => false };
+let deck = NO_DECK;
 
 const renderer = createTiledRenderer({ board, stage: document.getElementById('stage'), ink: INKO });
 
@@ -56,14 +61,15 @@ const actions = {
   },
   async setZones(n) {
     if (n === board.zones.length) return;
-    const deckOn = v2.hasDeck();   // v2: có đề thì đặt lại điểm và chia lại câu
+    const deckOn = deck.hasDeck();   // có đề thì đặt lại điểm và chia lại câu
     if (deckOn || board.zones.some((z) => z.strokes.length)) {
       const ok = await ui.confirm({ title: 'Chia ' + n + ' vùng?', body: deckOn ? 'Đổi số vùng sẽ đặt lại điểm, chia lại câu và xoá toàn bộ nét hiện có.' : 'Đổi số vùng sẽ xoá toàn bộ nét hiện có.', ok: 'Đổi', cancel: 'Huỷ' });
       if (!ok) return;
     }
     input.cancelAll();
     board.zones = createBoard(n).zones;
-    v2.zoneCount(n);   // v2:
+    deck.zoneCount(n);
+    tools.zoneCount(n);
     lastKey = '';
     relayout();
     renderer.markDirty();
@@ -78,19 +84,14 @@ const actions = {
     for (const z of board.zones) if (z.lastUsed > 0 && (!best || z.lastUsed > best.lastUsed)) best = z;
     if (best) actions.undo(best.id);
   },
-  escape() { if (v2.escape()) return; if (diag.isOpen()) diag.setOpen(false); },   // v2: đóng tấm / phóng to / dãy giờ trước
+  escape() { if (deck.escape() || tools.escape()) return; if (diag.isOpen()) diag.setOpen(false); },   // v2: đóng tấm / phóng to / dãy giờ trước
 };
 
 ui = createUI({ board, brand, actions, getS: () => S });
 
-// v2: thanh lớp, thẻ đề, đồng hồ, chấm điểm
-v2 = createV2({
-  board, ui, test: TEST, query: q, relayout: () => relayout(),
-  strokes: {
-    clearAll() { input.cancelAll(); for (const z of board.zones) if (clearZone(z)) renderer.markDirty(z.id); ui.refreshAll(); },
-    clearZone(zid) { const z = board.zones[zid - 1]; if (z && clearZone(z)) { renderer.markDirty(zid); ui.refreshZone(z); } },
-  },
-});
+// Công cụ luôn có: màu nền bảng, nền kẻ, đồng hồ (khi tắt Đề), lớp Hết giờ, Cắt màn hình
+const tools = createTools({ board, ui, renderer, stage: document.getElementById('stage'), overlay: document.getElementById('overlay'), test: TEST, query: q, relayout: () => relayout(), liveStrokes: () => input.liveStrokes(),
+  onFit() { const W = innerWidth; if (!forceRows[W] && tools.overflowed()) { forceRows[W] = true; lastKey = ''; relayout(); } } });
 
 const diag = createDiag({
   onToast: (t) => ui.toast(t),
@@ -116,8 +117,8 @@ function evalWarn() {
   if (navigator.maxTouchPoints === 1 || diag.st.cancelsWithOthers >= 2) ui.showBanner(WARN);
 }
 const hooks = {
-  isLocked: (zid) => v2.isLocked(zid),          // v2: khoá vùng
-  lockedTouch: (zid) => v2.lockedTouch(zid),   // v2
+  isLocked: (zid) => deck.isLocked(zid) || tools.isLocked(zid),          // khoá vùng (Đề, Hết giờ)
+  lockedTouch: (zid) => deck.lockedTouch(zid),
   closeTray: (zid) => ui.closeTray(zid),
   toast: (t) => ui.toast(t),
   onSimul(m) {
@@ -136,25 +137,46 @@ const input = createInput({
 // 3. bố cục
 function relayout() {
   const W = innerWidth, H = innerHeight, dpr = window.devicePixelRatio || 1;
-  const sc = calcScale(W, H);
-  const barH = topHeight(sc), top = barH + classbarHeight(sc);        // v2: thanh trên + thanh lớp
-  const bandH = v2.bandH(sc, H - top);                                // v2: dải đề (0 khi chưa có đề)
-  const key = [W, H, board.zones.length, dpr, bandH].join('x');
+  const ch = chromeLayout(W, H, FEATURES.deck, !!forceRows[W]);
+  const sc = ch.s;
+  const barH = ch.barH, top = ch.barH + ch.rowH;                       // thanh trên (+ thanh lớp / hàng công cụ)
+  const bandH = deck.bandH(sc, H - top);                                // dải đề (0 khi chưa có đề)
+  const key = [W, H, board.zones.length, dpr, bandH, barH, top].join('x');
   if (key === lastKey) return;
   lastKey = key;
   S = sc;
   TOPH = top;
   const rects = computeZones(W, H, board.zones.length, TOPH);
-  const sp = splitBands(rects, bandH);                                // v2: tách dải đề / vùng viết
+  const sp = splitBands(rects, bandH);                                // tách dải đề / vùng viết
   setZoneRects(board, sp.writes);
   root.style.setProperty('--bar-h', barH + 'px');
+  root.classList.toggle('bar-merged', ch.merged);
+  root.classList.toggle('bar-compact', ch.compact && !FEATURES.deck);
   renderer.resize(W, H - TOPH, { x: 0, y: TOPH }, dpr);
   ui.layout(sp.writes, S, TOPH, W);
-  v2.layout({ bands: sp.bands, writes: sp.writes, top: TOPH, s: S, W });   // v2:
+  tools.mount(ch);
+  tools.layout({ writes: sp.writes, top: TOPH, s: S, W });
+  deck.layout({ bands: sp.bands, writes: sp.writes, top: TOPH, s: S, W });
+  // bộ đo tràn: thanh gộp không đủ chỗ thì quay về hai hàng (nhớ theo bề ngang)
+  if (ch.merged && !forceRows[W] && tools.overflowed()) { forceRows[W] = true; lastKey = ''; relayout(); }
 }
+if (parseTheme(q.get('bg')) === 'light') tools.setTheme('light', true);   // trước lần vẽ đầu
 relayout();
-v2.start();   // v2: nạp đề theo tham số URL / link bài (không chặn khởi động)
-window.addEventListener('resize', relayout);
+if (FEATURES.deck) {
+  import('./v2.js').then((m) => {
+    deck = m.createV2({
+      board, ui, tools, test: TEST, query: q, relayout: () => relayout(),
+      strokes: {
+        clearAll() { input.cancelAll(); for (const z of board.zones) if (clearZone(z)) renderer.markDirty(z.id); ui.refreshAll(); },
+        clearZone(zid) { const z = board.zones[zid - 1]; if (z && clearZone(z)) { renderer.markDirty(zid); ui.refreshZone(z); } },
+      },
+    });
+    lastKey = '';
+    relayout();
+    deck.start();   // nạp đề theo tham số URL / link bài (không chặn khởi động)
+  }).catch(() => ui.toast('Không tải được phần Đề.'));
+}
+window.addEventListener('resize', () => { for (const k in forceRows) if (Number(k) !== innerWidth) delete forceRows[k]; relayout(); });
 if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.getElementById('stage'));
 
 if (q.get('debug') === '1') diag.setOpen(true);
@@ -198,5 +220,8 @@ if (TEST) {
       for (let i = 0; i < n; i++) z.strokes.push({ id: -i - 1, zone: zid, color: '#FFFFFF', size: 2, pts: [10, 10, 0.5, 11, 11, 0.5], realPressure: false, bbox: { minX: 10, minY: 10, maxX: 11, maxY: 11 }, done: true, path: null });
     },
     zoneFullNow: (zid) => board.zones[zid - 1].strokes.length,
+    theme: () => tools.theme(),
+    setTheme: (t) => tools.setTheme(t),
+    clock: () => { const c = tools.clock(); return c ? c.timer.state() : null; },
   };
 }

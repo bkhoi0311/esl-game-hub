@@ -42,7 +42,7 @@ async function open({ zones = 3, w = 1280, h = 720, dpr = 1, query = '', hash = 
   page.on('dialog', async (d) => { await d.dismiss(); });
   await page.addInitScript(() => { Object.defineProperty(navigator, 'maxTouchPoints', { get: () => 10 }); });   // ClassIn X báo nhiều điểm chạm: tránh dải cảnh báo "chỉ 1 điểm"
   for (let i = 0; i < 6; i++) {   // python http.server đôi khi reset kết nối: thử lại
-    if (i === 0) await page.goto(`${BASE}?test=1&zones=${zones}${query ? '&' + query : ''}${hash}`); else await page.reload();   // goto cùng URL có hash không tải lại trang
+    if (i === 0) await page.goto(`${BASE}?test=1&deck=1&zones=${zones}${query ? '&' + query : ''}${hash}`); else await page.reload();   // goto cùng URL có hash không tải lại trang
     try { await page.waitForFunction(() => window.__board && window.__v2, null, { timeout: 3000 }); break; }
     catch (e) { if (i === 5) throw e; log.errors.length = 0; }
   }
@@ -101,6 +101,7 @@ t('V1', async () => {
     // mọi nút thanh lớp ≥ 56·s và không chồng nhau
     const boxes = await b.page.evaluate(() => [...document.querySelectorAll('#classbar button')].filter((e) => e.offsetParent && !e.closest('.cb-pop')).map((e) => { const r = e.getBoundingClientRect(); return { id: e.dataset.testid, x: r.x, y: r.y, w: r.width, h: r.height }; }));
     ok(boxes.length >= 3, 'ít nút: ' + boxes.length);
+    for (const need of ['snip-open', 'paper-open', 'timer-toggle', 'deck-open']) ok(boxes.some((x) => x.id === need), 'thanh lớp thiếu nút ' + need);   // v2.1: có nút Cắt và biểu tượng đồng hồ
     for (const x of boxes) ok(x.w >= 56 * s - 0.6 && x.h >= 56 * s - 0.6, `nút ${x.id} nhỏ ${x.w}x${x.h} (s ${s})`);
     for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
       const a = boxes[i], c = boxes[j];
@@ -371,8 +372,13 @@ t('V-timer', async () => {   // đồng hồ: chọn nhanh, đếm ngược, t�
   await b.tapId('timer-start'); await b.page.waitForTimeout(1300);
   ok((await b.timer()).left >= 10, 'đếm xuôi');
   await b.tapId('timer-display'); await b.tapId('timer-set-off');
-  ok((await b.id('timer-display').textContent()).indexOf('Tắt') >= 0, 'Đồng hồ tắt');
+  eq(await b.id('timer-toggle').getAttribute('aria-pressed'), 'false', 'v2.1: Tắt thì biểu tượng đồng hồ không được chọn');
+  ok(!(await b.id('timer-display').isVisible()), 'Tắt thì ẩn số giờ');
   ok(!(await b.id('timer-start').isVisible()), 'Tắt thì ẩn Bắt đầu');
+  await b.tapId('timer-toggle');   // v2.1: một chạm bật lại (giờ dùng gần nhất), mở khay
+  eq(await b.id('timer-toggle').getAttribute('aria-pressed'), 'true');
+  ok(await b.id('timer-pop').isVisible(), 'bật thì mở khay');
+  eq((await b.id('timer-display').textContent()).trim(), '00:00', 'bật lại bằng giờ dùng gần nhất (Bấm giờ)');
   eq(b.log.errors.length, 0, b.log.errors.join(' | '));
   await b.close();
 });
@@ -393,10 +399,22 @@ t('V5', async () => {
     await b.page.waitForFunction(() => window.__v2.cls().zones[0].locked, null, { timeout: 5000 });   // 60 giây / 30 = 2 giây
     await b.page.waitForTimeout(150);
     for (let z = 1; z <= 3; z++) ok(await b.id(`z${z}-lock`).isVisible(), 'lớp khoá vùng ' + z);
-    eq((await b.id('z1-lock').textContent()).trim(), 'Time’s up!');
+    ok((await b.id('z1-lock').textContent()).indexOf('Time’s up!') === 0, 'lớp Hết giờ: ' + (await b.id('z1-lock').textContent()));
     await b.shot(`V5-timeup-${w}`);
     await b.draw([zoneLine(st, 1, 60), zoneLine(st, 2, 60), zoneLine(st, 3, 60)]);
     eq(await strokes(), '1,1,1', 'hết giờ: chạm không ra nét');
+    // v2.1: sau ân hạn, chạm vào vùng viết bỏ lớp phủ và mở khoá; cú chạm đó không ra nét
+    await b.page.waitForTimeout(700);
+    await b.tap(st.zones[0].rect.x + 100, st.zones[0].rect.y + 200);
+    for (let z = 1; z <= 3; z++) ok(!(await b.id(`z${z}-lock`).isVisible()), 'chạm bỏ lớp khoá vùng ' + z);
+    eq(await strokes(), '1,1,1', 'cú chạm bỏ lớp không ra nét');
+    ok((await b.v2()).zones.every((z) => !z.locked), 'chạm mở khoá');
+    await b.page.waitForTimeout(350);
+    await b.draw([zoneLine(st, 1, 90)]);
+    eq(await strokes(), '2,1,1', 'sau khi chạm bỏ lớp viết tiếp được');
+    await b.draw([zoneLine(st, 2, 90), zoneLine(st, 3, 90)]);
+    eq(await strokes(), '2,2,2');
+    eq((await b.id('timer-display').textContent()).trim(), '00:00', 'đồng hồ vẫn 00:00');
     eq((await b.id('timer-display').textContent()).trim(), '00:00');
     await b.tapId('new-round');
     await b.page.waitForTimeout(200);

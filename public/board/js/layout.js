@@ -77,3 +77,12 @@ export function splitBands(rects, bandH) {
   }
   return { bands, writes };
 }
+
+// ---------- v2.1: thanh gộp khi tắt Đề (PLAN-BOARD-V21 mục 1.4) ----------
+// deckOn: bố cục cũ (thanh trên 56·s + thanh lớp 64·s). Tắt Đề: gộp một thanh 64·s nếu đủ rộng (W/s >= 1100), nếu không thì hai hàng.
+export function chromeLayout(W, H, deckOn, forceRows) {
+  const s = calcScale(W, H), base = W / s;
+  if (deckOn) return { s, barH: Math.round(56 * s), rowH: Math.round(64 * s), merged: false, compact: base < 1400 };
+  if (base >= 1100 && !forceRows) return { s, barH: Math.round(64 * s), rowH: 0, merged: true, compact: base < 1500 };
+  return { s, barH: Math.round(56 * s), rowH: Math.round(64 * s), merged: false, compact: true };
+}

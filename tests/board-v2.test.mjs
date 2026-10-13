@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
-import { buildPacks, MAX_MODULE } from '../tools/board/build-packs.mjs';
+import { buildPacks, MAX_MODULE, MAX_TOTAL } from '../tools/board/build-packs.mjs';
 import { buildDeck, maskWord, makeRng, shuffleOptions, deckCapacity } from '../public/board/js/tasks.js';
 import * as C from '../public/board/js/classroom.js';
 import { createTimer } from '../public/board/js/timer.js';
@@ -28,11 +28,11 @@ async function packs() {
   return { catalog, packs: out };
 }
 
-test('P1: build-packs ra 31 module + catalog, id khớp, ≤ 12 KB, import() được', async () => {
+test('P1: build-packs ra module + catalog (mọi gói trong index), id khớp, ≤ 12 KB, import() được', async () => {
   const { catalog, packs: ps } = await packs();
   const index = JSON.parse(fs.readFileSync(path.join(LIB, 'index.json'), 'utf8'));
-  assert.equal(catalog.length, 31);
-  assert.equal(ps.length, 31);
+  assert.equal(catalog.length, index.length);
+  assert.equal(ps.length, index.length);
   assert.deepEqual(catalog.map((c) => c.id), index.map((i) => i.id), 'giữ thứ tự index.json');
   ps.forEach((p, i) => {
     assert.equal(p.id, index[i].id);
@@ -43,7 +43,7 @@ test('P1: build-packs ra 31 module + catalog, id khớp, ≤ 12 KB, import() đ�
     assert.ok(size <= MAX_MODULE, p.id + ' ' + size);
   });
   const total = fs.readdirSync(packDir).reduce((a, f) => a + fs.statSync(path.join(packDir, f)).size, 0);
-  assert.ok(total <= 200 * 1024);
+  assert.ok(total <= MAX_TOTAL);
   assert.ok(fs.readFileSync(path.join(packDir, 'catalog.js'), 'utf8').startsWith('// TỰ SINH, KHÔNG SỬA TAY'));
 });
 
@@ -61,7 +61,7 @@ test('P1b: build-packs dừng khi dữ liệu sai (không ghi gì)', () => {
 /* ---------- P2: sinh câu từ gói ---------- */
 const txt = (runs) => runs.map((r) => r.v || '').join('');
 
-test('P2: buildDeck write / missing / mc trên 31 gói', async () => {
+test('P2: buildDeck write / missing / mc trên mọi gói thư viện', async () => {
   const { packs: ps } = await packs();
   for (const p of ps) {
     for (const kind of ['write', 'missing', 'mc']) {
@@ -512,4 +512,21 @@ test('L1: decodeLesson đọc mã do encodeLesson của content.js sinh; mã h�
   const n = normalizeLesson({ title: 'x'.repeat(200), vocab: [{ word: '' }, { word: 'ok', meaning: 'y' }], questions: [{ prompt: 'p', options: ['a', 'b'], answer: 0 }, { prompt: 'q', options: ['a', 'b', 'c'], answer: 5 }], teams: ['a', '', 'b'] });
   assert.equal(n.title.length, 60); assert.equal(n.vocab.length, 1); assert.equal(n.questions.length, 0); assert.deepEqual(n.teams, ['a', 'b']);
   assert.throws(() => normalizeLesson(null));
+});
+
+// ================= v2.1: chạm để bỏ màn Hết giờ =================
+test('D1: dismissTimeup mở khoá vùng, giữ hidden, giữ đồng hồ 00:00', () => {
+  const cls = C.createClassroom(3);
+  C.applyDeck(cls, { source: { type: 'lib', id: 'x', title: 'x' }, kind: 'write', tasks: [{ id: 't1', prompt: 'p', answer: 'a' }, { id: 't2', prompt: 'q', answer: 'b' }], mode: 'common', order: 'seq', seed: 1, lang: 'en' }, { timer: { mode: 'down', total: 30 } });
+  C.startTimer(cls);
+  C.endTimer(cls);
+  assert.ok(cls.zones.every((z) => z.locked), 'hết giờ khoá mọi vùng');
+  assert.equal(C.isLocked(cls, 1), true);
+  const hiddenBefore = cls.hidden;
+  C.dismissTimeup(cls);
+  assert.ok(cls.zones.every((z) => !z.locked), 'mở khoá');
+  assert.equal(C.isLocked(cls, 2), false);
+  assert.equal(cls.hidden, hiddenBefore, 'không đổi hidden');
+  assert.equal(cls.timer.left, 0, 'đồng hồ vẫn 00:00'); assert.equal(cls.timer.running, false);
+  assert.equal(cls.timer.mode, 'down'); assert.equal(cls.timer.total, 30);
 });

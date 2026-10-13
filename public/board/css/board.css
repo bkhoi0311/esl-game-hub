@@ -401,3 +401,76 @@ button { font-family: inherit; color: inherit; }
 .sheet--info .sheet-body, .sheet--info li { font-size: calc(14px * var(--s)); line-height: 1.4; }
 .sheet--info .sheet-actions { margin-top: calc(12px * var(--s)); }
 .cb-clock.is-off { font-size: calc(17px * var(--s)); font-weight: 600; color: var(--text-2); min-width: calc(150px * var(--s)); }
+
+/* ---------- v2.1: thanh gộp, nền Trắng/Đen, đồng hồ có biểu tượng, Hết giờ, Cắt màn hình ---------- */
+/* Không dùng animation / transition: lớp perf-calm đã tắt hết. Nhấp nháy bằng đổi class mỗi giây. */
+:root[data-board="light"] { --board: #FFFFFF; --sep: #D1D1D6; }
+
+/* thanh gộp (tắt Đề, đủ rộng): Nền + Cắt + Đồng hồ nằm giữa tiêu đề và cụm 1–4 */
+.tb-mid { display: none; flex: 1 1 auto; min-width: 0; align-items: center; }
+.bar-merged .tb-mid { display: flex; }
+.bar-merged .tb-left { flex: 0 1 auto; }
+.tools-grp { display: flex; align-items: center; gap: calc(8px * var(--s)); margin: 0 auto; flex: none; position: relative; }
+#toolrow {
+  position: fixed; top: var(--bar-h); left: 0; right: 0; height: calc(64px * var(--s)); z-index: 29;
+  display: flex; align-items: center; gap: calc(8px * var(--s));
+  padding: 0 calc(12px * var(--s)); border-radius: 0; touch-action: none;
+  box-shadow: var(--edge), 0 1px 0 rgba(255, 255, 255, .06);
+}
+.bar-compact .tt-btn { padding: 0; width: calc(56px * var(--s)); }
+.bar-compact .tt-btn .cb-text { display: none; }
+.bar-compact .clk-reset { display: none; }
+.bar-compact .tbtn--danger { padding: 0; }
+.bar-compact .tb-label { display: none; }
+.cb-compact #classbar [data-testid="snip-open"] .cb-text { display: inline; }
+
+/* đồng hồ */
+.clk { display: flex; align-items: center; gap: calc(8px * var(--s)); position: relative; flex: none; }
+.clk.is-off .clk-toggle .ic { opacity: .5; }
+.clk-toggle.is-on { background: var(--accent-soft); color: var(--accent-ink); box-shadow: inset 0 0 0 2px var(--accent); }
+.clk-display { font-size: calc(36px * var(--s)); font-weight: 700; min-width: calc(104px * var(--s)); }
+.clk-display.is-blink { opacity: .45; }
+.clk-tray { position: absolute; top: calc(100% + 6px * var(--s)); left: 0; display: flex; flex-direction: column; gap: calc(8px * var(--s)); padding: calc(10px * var(--s)); border-radius: calc(24px * var(--s)); margin: 0; z-index: 35; }
+.clk-row { display: flex; gap: calc(8px * var(--s)); }
+.clk-tray .cbtn--pop { min-width: calc(64px * var(--s)); }
+
+/* Hết giờ: lớp phủ 2 dòng, chạm bất kỳ đâu để viết tiếp */
+.locks { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+.zone-lock { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(10px * var(--s)); }
+.zone-lock .zl-s { font-family: var(--font); font-size: calc(16px * var(--s)); font-weight: 500; color: var(--text); padding: calc(6px * var(--s)) calc(16px * var(--s)); background: rgba(0, 0, 0, .5); }
+
+/* nền Trắng: phần điều khiển giữ kính tối; chỉ chỉnh những thứ nằm trên nền bảng */
+:root[data-board="light"] .zone-badge { background: rgba(0, 0, 0, .06); color: #636366; }   /* 5,3:1 trên nền #F0F0F0 (6E6E73 chỉ 4,4:1) */
+:root[data-board="light"] .erase-ring { background: rgba(0, 0, 0, .06); box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, .45); }
+.dbtn.ink-dark[data-testid$="-pen"] { box-shadow: 0 0 0 3px var(--ink), 0 0 0 4px rgba(255, 255, 255, .6); }
+.dbtn.ink-dark[data-testid$="-pen"].is-active { box-shadow: 0 0 0 3px var(--ink), 0 0 0 4px rgba(255, 255, 255, .6), 0 0 0 7px rgba(4, 188, 9, .22); }
+.dbtn.ink-dark .pen-dot { box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .75); }
+.cdot.ink-dark > span { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5); }
+.cdot.ink-dark.is-selected > span { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5), 0 0 0 3px #121212, 0 0 0 6px rgba(255, 255, 255, .85); }
+.sdot.is-selected { background: var(--accent-soft); }
+
+/* tấm Nền: hàng Màu bảng */
+.dopt--board { gap: calc(10px * var(--s)); }
+.cswatch--board { width: calc(30px * var(--s)); height: calc(30px * var(--s)); border-radius: calc(8px * var(--s)); }
+.dhint { font-size: calc(13px * var(--s)); color: var(--text-3); }
+
+/* Cắt màn hình */
+.snip-layer { position: fixed; top: var(--top-h); left: 0; right: 0; bottom: 0; z-index: 50; touch-action: none; background: rgba(0, 0, 0, .25); }
+.snip-hint {
+  position: absolute; top: calc(12px * var(--s)); left: 0; right: 0; margin: 0 auto; width: -webkit-fit-content; width: fit-content; z-index: 2;
+  display: flex; align-items: center; gap: calc(12px * var(--s)); padding: calc(8px * var(--s)) calc(10px * var(--s)) calc(8px * var(--s)) calc(22px * var(--s)); border-radius: 999px;
+}
+.snip-msg { font-size: calc(18px * var(--s)); font-weight: 600; color: var(--text); white-space: nowrap; }
+.snip-box { position: absolute; border: 3px solid var(--accent); box-shadow: 0 0 0 9999px rgba(0, 0, 0, .35); pointer-events: none; }
+.snip-confirm { position: absolute; display: flex; gap: calc(8px * var(--s)); padding: calc(10px * var(--s)); border-radius: 999px; z-index: 2; }
+.snip-dim { z-index: 65; }
+.snip-card { width: min(92%, calc(1100px * var(--s))); max-height: 96%; display: flex; flex-direction: column; gap: calc(10px * var(--s)); padding: calc(16px * var(--s)) calc(20px * var(--s)); }
+.snip-imgwrap { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, #26262A 0 10px, #202024 10px 20px); border-radius: calc(12px * var(--s)); padding: calc(6px * var(--s)); }
+.snip-img { display: block; max-width: 100%; max-height: 62vh; width: auto; height: auto; object-fit: contain; }
+.snip-status { margin: 0; min-height: calc(40px * var(--s)); font-size: calc(15px * var(--s)); line-height: 1.35; color: var(--text-2); }
+.snip-status.is-good { color: var(--accent-ink); }
+.snip-status.is-bad { color: var(--warning); }
+.snip-actions { display: flex; gap: calc(10px * var(--s)); justify-content: flex-end; flex-wrap: wrap; }
+.snip-full { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 70; background: #000; display: flex; align-items: center; justify-content: center; }
+.snip-fullimg { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.snip-fulltip { position: absolute; left: 0; right: 0; bottom: calc(8px * var(--s)); text-align: center; font-size: calc(14px * var(--s)); color: #fff; text-shadow: 0 0 4px #000, 0 0 8px #000; pointer-events: none; }

@@ -194,6 +194,8 @@ export function endTimer(cls) {
   cls.timer.left = 0; cls.timer.running = false;
   cls.zones.forEach((z) => { z.locked = true; });
 }
+// Chạm để bỏ màn Hết giờ: mở khoá các vùng. Không đổi `hidden`, không đổi đồng hồ (vẫn 00:00).
+export function dismissTimeup(cls) { cls.zones.forEach((z) => { z.locked = false; }); }
 export function isLocked(cls, zid) {
   const z = zoneOf(cls, zid);
   return !!z && (z.locked || (cls.hidden && !!cls.deck));

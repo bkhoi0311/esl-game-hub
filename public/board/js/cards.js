@@ -1,4 +1,4 @@
-// Thẻ đề: dải đầu mỗi vùng (không nhận nét), nút ‹ › ✓ ✗, phóng to đề, lớp khoá hết giờ. PLAN-V2 mục C.3.
+// Thẻ đề: dải đầu mỗi vùng (không nhận nét), nút ‹ › ✓ ✗, phóng to đề. (Lớp khoá hết giờ nay ở timeup.js.) PLAN-V2 mục C.3.
 // DOM nằm trong #overlay (do ui.layout dựng lại mỗi lần bố cục, nên layout() gắn lại gốc). Không đo theo khung hình:
 // chỉ đo (fitText) lúc đổi câu / đổi bố cục / bật tắt đáp án.
 import { h } from './dom.js';
@@ -85,11 +85,6 @@ export function createCards({ overlay, actions }) {
       Z[zid] = {};
       if (b.h > 0) buildBand(zid, b);
       const w = g.writes[i];
-      const lock = h('div', 'zone-lock', '<span>Time’s up!</span>', { 'data-testid': 'z' + zid + '-lock' });
-      posBox(lock, w, g.top);
-      lock.hidden = true;
-      root.appendChild(lock);
-      Z[zid].lock = lock;
       const full = { x: b.x, y: b.h > 0 ? b.y : w.y, w: b.w, h: (b.h > 0 ? b.h : 0) + w.h };
       const zl = h('div', 'zoomlayer', '<div class="zl-body"><div class="zl-prompt"></div><div class="zl-opts"></div><div class="zl-ans"></div></div>', { 'data-testid': 'z' + zid + '-zoomlayer' });
       posBox(zl, full, g.top);
@@ -165,8 +160,6 @@ export function createCards({ overlay, actions }) {
     cls.zones.forEach((zone) => {
       const e = Z[zone.id];
       if (!e) return;
-      // khoá hết giờ (có hay không có dải đề)
-      e.lock.hidden = !zone.locked;
       if (!e.band) return;
       e.bar.style.background = zone.color;
       e.dot.style.background = zone.color;

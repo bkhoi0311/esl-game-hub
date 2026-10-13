@@ -1,7 +1,9 @@
 // Giao diện: thanh trên, dock từng vùng, khay màu/cỡ, hộp thoại, toast, dải cảnh báo, bảng Thông tin.
 import { icon } from './icons.js';
 import { isHugePalm } from './palm.js';
+import { FEATURES } from './features.js';
 
+// Bảng màu bút hiện tại. Mảng này được sửa tại chỗ khi đổi nền bảng (setPalette), nên nơi khác cứ import COLORS.
 export const COLORS = [
   { key: 'white', name: 'Trắng', hex: '#FFFFFF' },
   { key: 'red', name: 'Đỏ', hex: '#FF4D4F' },
@@ -83,6 +85,7 @@ export function createUI({ board, brand, actions, getS }) {
       '<div class="tb-title" data-testid="brand-label">' +
       '<div class="tb-row"><span class="tb-name">Bảng nhiều người viết</span>' + second + '</div>' +
       '<div class="tb-disc" data-testid="brand-disclaimer">' + brand.disclaimer + '</div></div></div>' +
+      '<div class="tb-mid" data-testid="tb-mid"></div>' +
       '<div class="tb-right"><div class="seg" role="group" aria-label="Số vùng"></div>' +
       '<button type="button" class="tbtn tbtn--danger" data-testid="clear-all" aria-label="Xoá hết">' + icon('trash-2') + '<span class="tb-label">Xoá hết</span></button>' +
       '<button type="button" class="tbtn tbtn--icon" data-testid="fullscreen" aria-label="Toàn màn hình">' + icon('maximize') + '</button>' +
@@ -164,7 +167,8 @@ export function createUI({ board, brand, actions, getS }) {
     const colorBtn = (c) => {
       const b = h('button', 'cdot', '<span style="background:' + c.hex + '"></span>', { type: 'button', 'data-testid': 'z' + zid + '-color-' + c.key, 'aria-label': c.name });
       b.dataset.hex = c.hex;
-      pressable(b, () => pick(zid, { color: c.hex }));
+      b.dataset.idx = String(COLORS.indexOf(c));
+      pressable(b, () => pick(zid, { color: b.dataset.hex }));   // đọc từ dataset: bảng màu đổi theo nền bảng
       return b;
     };
     const sizeBtn = (s) => {
@@ -246,6 +250,7 @@ export function createUI({ board, brand, actions, getS }) {
     pen.classList.toggle('is-active', zone.tool === 'pen');
     er.classList.toggle('is-active', zone.tool === 'eraser');
     pen.style.setProperty('--ink', zone.color);
+    pen.classList.toggle('ink-dark', zone.color === '#1C1C1E');
     const dot = $('.pen-dot', pen);
     const sz = SIZES.find((x) => x.v === zone.size) || SIZES[1];
     dot.style.background = zone.color;
@@ -255,6 +260,7 @@ export function createUI({ board, brand, actions, getS }) {
     u.wrap.querySelectorAll('.cdot').forEach((b) => {
       const on = b.dataset.hex === zone.color;
       b.classList.toggle('is-selected', on);
+      b.classList.toggle('ink-dark', b.dataset.hex === '#1C1C1E');
       b.style.setProperty('--ink', b.dataset.hex);
     });
     u.wrap.querySelectorAll('.sdot').forEach((b) => {
@@ -291,6 +297,23 @@ export function createUI({ board, brand, actions, getS }) {
     return true;
   }
   function closeAllTrays() { let any = false; for (const id in zoneUI) any = closeTray(Number(id)) || any; return any; }
+
+  // Đổi bảng màu bút theo nền bảng: cập nhật nút màu tại chỗ (không dựng lại dock, giữ trạng thái khay).
+  function setPalette(list) {
+    COLORS.length = 0;
+    list.forEach((c) => COLORS.push({ key: c.key, name: c.name, hex: c.hex }));
+    for (const zid in zoneUI) {
+      zoneUI[zid].wrap.querySelectorAll('.cdot').forEach((b) => {
+        const c = COLORS[Number(b.dataset.idx)];
+        if (!c) return;
+        b.dataset.hex = c.hex;
+        b.setAttribute('data-testid', 'z' + zid + '-color-' + c.key);
+        b.setAttribute('aria-label', c.name);
+        b.firstChild.style.background = c.hex;
+      });
+    }
+    refreshAll();
+  }
 
   /* ---------- toast, dải cảnh báo ---------- */
   function toast(text, ms) {
@@ -353,19 +376,27 @@ export function createUI({ board, brand, actions, getS }) {
     const url = location.origin + location.pathname;
     const logo = brand.wordmark ? (brand.logo ? '<img class="logo-img info-logo" src="./assets/classin-logo.png" alt="ClassIn">' : '<span class="brand-word">ClassIn</span>') : '';
     const card = h('div', 'pane pane--sheet sheet sheet--info', null, { 'data-testid': 'info-panel', role: 'dialog', 'aria-modal': 'true' });
+    const D = FEATURES.deck;
+    const how = ['<li>Mỗi vùng có thanh công cụ riêng ở dưới. Nhiều người viết cùng lúc được. Bấm Bút lần nữa để chọn màu và cỡ nét.</li>'];
+    if (D) {
+      how.push('<li>Bấm Chọn đề để lấy câu hỏi từ thư viện, từ bài soạn trong Hub hoặc đề Toán lớp 1 đến 12. Đề hiện ở đầu mỗi vùng.</li>',
+        '<li>Đề chung: mọi vùng cùng một câu. Chia câu: mỗi vùng một câu, có nút ‹ › riêng.</li>',
+        '<li>Bấm Đáp án rồi chấm ✓ ✗ cho từng vùng. Điểm xem bảng điểm. Lượt mới xoá nét, giữ điểm và sang câu kế.</li>');
+    }
+    how.push('<li>Nền: chọn màu bảng Trắng hoặc Đen (cho cả bảng) và kiểu kẻ: 4 dòng, ô li, lưới, trục toạ độ.</li>',
+      '<li>Đồng hồ: bấm biểu tượng đồng hồ để bật, chạm số giờ để chọn 30, 60, 90 giây, 2 phút hoặc Bấm giờ. Hết giờ hiện Time’s up!, chạm bất kỳ đâu để viết tiếp.</li>',
+      '<li>Cắt: kéo chọn vùng cần lấy rồi xem ảnh, bấm Sao chép. Nếu cửa sổ không cho sao chép thì dùng nút Chụp màn hình của ClassIn.</li>');
+    const src = D ? '<h3>Nguồn đề</h3><ul><li>Gói thư viện là chủ đề tự soạn, không theo sách giáo khoa nào. Đề Toán do máy sinh theo luật, giáo viên nên xem lại trước giờ học.</li>' +
+      '<li>Đề tự soạn trong Hub là trách nhiệm của giáo viên. Muốn dùng đề riêng: soạn trên laptop rồi bấm Lưu .edu cho Bảng nhiều người viết.</li></ul>' : '';
+    const priv1 = D ? 'Trang không gửi dữ liệu đi đâu. Nét vẽ mất khi đóng cửa sổ. Đề, điểm, tên đội chỉ nằm trong cửa sổ này (bộ nhớ phiên).' : 'Trang không gửi dữ liệu đi đâu và không lưu gì. Nét vẽ mất khi đóng cửa sổ.';
+    const priv2 = D ? '<li>Link bài từ Hub chứa toàn bộ bài: không ghi tên học sinh vào bài.</li>' : '';
     card.innerHTML =
-      '<div class="info-head">' + logo + '<h2 class="sheet-title">Bảng nhiều người viết <span class="ver">v0.2</span></h2></div>' +
+      '<div class="info-head">' + logo + '<h2 class="sheet-title">Bảng nhiều người viết <span class="ver">v0.3</span></h2></div>' +
       '<p class="sheet-body">Dành cho ClassIn X. Công cụ bổ trợ do ClassIn Việt Nam thử nghiệm, không phải tính năng chính thức của ClassIn.</p>' +
-      '<div class="info-cols"><div><h3>Cách dùng</h3><ul><li>Mỗi vùng có thanh công cụ riêng ở dưới. Nhiều người viết cùng lúc được. Bấm Bút lần nữa để chọn màu và cỡ nét.</li>' +
-      '<li>Bấm Chọn đề để lấy câu hỏi từ thư viện, từ bài soạn trong Hub hoặc đề Toán lớp 1 đến 12. Đề hiện ở đầu mỗi vùng.</li>' +
-      '<li>Đề chung: mọi vùng cùng một câu. Chia câu: mỗi vùng một câu, có nút ‹ › riêng.</li>' +
-      '<li>Bấm Đáp án rồi chấm ✓ ✗ cho từng vùng. Điểm xem bảng điểm. Lượt mới xoá nét, giữ điểm và sang câu kế.</li>' +
-      '<li>Đồng hồ đếm ngược hoặc bấm giờ; hết giờ các vùng bị khoá. Nền viết: 4 dòng, ô li, lưới, trục toạ độ.</li></ul></div>' +
-      '<div><h3>Nguồn đề</h3><ul><li>Gói thư viện là chủ đề tự soạn, không theo sách giáo khoa nào. Đề Toán do máy sinh theo luật, giáo viên nên xem lại trước giờ học.</li>' +
-      '<li>Đề tự soạn trong Hub là trách nhiệm của giáo viên. Muốn dùng đề riêng: soạn trên laptop rồi bấm Lưu .edu cho Bảng nhiều người viết.</li></ul>' +
+      '<div class="info-cols"><div><h3>Cách dùng</h3><ul>' + how.join('') + '</ul></div>' +
+      '<div>' + src +
       '<h3>Nếu chỉ 1 người viết được</h3><p class="sheet-body">Mở địa chỉ dưới đây bằng Edge hoặc Chrome trên Windows của màn hình:</p><p class="info-url"></p>' +
-      '<h3>Quyền riêng tư</h3><ul><li>Trang không gửi dữ liệu đi đâu. Nét vẽ mất khi đóng cửa sổ. Đề, điểm, tên đội chỉ nằm trong cửa sổ này (bộ nhớ phiên).</li>' +
-      '<li>Link bài từ Hub chứa toàn bộ bài: không ghi tên học sinh vào bài.</li>' +
+      '<h3>Quyền riêng tư</h3><ul><li>' + priv1 + '</li>' + priv2 +
       '<li>ClassIn tự gắn mã trường, mã lớp vào địa chỉ trang. Máy chủ lưu trang (GitHub Pages) có thể ghi nhận địa chỉ này trong nhật ký truy cập. File .edu đã tắt gửi mã người dùng, tên và vai trò.</li></ul></div></div>' +
       '<div class="sheet-actions"></div>';
     $('.info-url', card).textContent = url;
@@ -400,7 +431,7 @@ export function createUI({ board, brand, actions, getS }) {
       renderOverlay(rects, s, topH);
       refreshTopbar();
     },
-    refreshZone, refreshAll, refreshTopbar,
+    refreshZone, refreshAll, refreshTopbar, setPalette,
     closeTray, closeAllTrays, toast,
     showBanner, hideBanner, bannerVisible,
     confirm: confirmDialog,
