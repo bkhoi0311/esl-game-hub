@@ -1,0 +1,289 @@
+{
+  "title": "Everyday Objects 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "alarm",
+      "meaning": "đồng hồ báo thức",
+      "category": "thing",
+      "example": "My alarm rings at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "basket",
+      "meaning": "cái giỏ",
+      "category": "thing",
+      "example": "The apples are in the basket.",
+      "image": ""
+    },
+    {
+      "word": "bucket",
+      "meaning": "cái xô",
+      "category": "thing",
+      "example": "Fill the bucket with water.",
+      "image": ""
+    },
+    {
+      "word": "coin",
+      "meaning": "đồng xu",
+      "category": "thing",
+      "example": "I find a coin on the floor.",
+      "image": ""
+    },
+    {
+      "word": "disc",
+      "meaning": "đĩa",
+      "category": "thing",
+      "example": "My brother keeps his old games on a disc.",
+      "image": ""
+    },
+    {
+      "word": "frame",
+      "meaning": "khung",
+      "category": "thing",
+      "example": "The photo is in a wooden frame.",
+      "image": ""
+    },
+    {
+      "word": "jar",
+      "meaning": "cái lọ, hũ",
+      "category": "thing",
+      "example": "There is a jar of honey on the kitchen shelf.",
+      "image": ""
+    },
+    {
+      "word": "ladder",
+      "meaning": "cái thang",
+      "category": "thing",
+      "example": "Dad climbs the ladder to the roof.",
+      "image": ""
+    },
+    {
+      "word": "lighter",
+      "meaning": "cái bật lửa",
+      "category": "thing",
+      "example": "Dad used a lighter to light the candles on the cake.",
+      "image": ""
+    },
+    {
+      "word": "lock",
+      "meaning": "cái khoá",
+      "category": "thing",
+      "example": "The lock on the door is broken.",
+      "image": ""
+    },
+    {
+      "word": "pin",
+      "meaning": "cái ghim, ghim",
+      "category": "thing",
+      "example": "She used a pin to fix the poster to the wall.",
+      "image": ""
+    },
+    {
+      "word": "rope",
+      "meaning": "sợi dây thừng",
+      "category": "thing",
+      "example": "The children pull the rope together.",
+      "image": ""
+    },
+    {
+      "word": "stick",
+      "meaning": "que, dán",
+      "category": "thing",
+      "example": "The boy threw a stick for the dog.",
+      "image": ""
+    },
+    {
+      "word": "switch",
+      "meaning": "công tắc, chuyển",
+      "category": "thing",
+      "example": "Press the switch to turn on the light.",
+      "image": ""
+    },
+    {
+      "word": "tin",
+      "meaning": "lon, hộp thiếc",
+      "category": "thing",
+      "example": "She opened a tin of tomatoes.",
+      "image": ""
+    },
+    {
+      "word": "tissue",
+      "meaning": "khăn giấy",
+      "category": "thing",
+      "example": "Can I have a tissue, please?",
+      "image": ""
+    },
+    {
+      "word": "tube",
+      "meaning": "ống, tuýp",
+      "category": "thing",
+      "example": "She squeezed toothpaste out of the tube.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"tin\" mean?",
+      "options": [
+        "quầy thanh toán",
+        "lon, hộp thiếc",
+        "bánh burger"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái khoá\"?",
+      "options": [
+        "lock",
+        "project",
+        "funfair"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pin\" mean?",
+      "options": [
+        "phương tiện, xe cộ",
+        "chính tả, cách đánh vần",
+        "cái ghim, ghim"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái thang\"?",
+      "options": [
+        "extreme sport",
+        "moon",
+        "ladder"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"alarm\" mean?",
+      "options": [
+        "phần cuối, kết thúc",
+        "đồng hồ báo thức",
+        "đau răng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (que, dán)",
+      "options": [
+        "stick",
+        "sticck",
+        "styck"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_r (cái lọ, hũ)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khung)",
+      "options": [
+        "fram",
+        "frame",
+        "frrame"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"công tắc, chuyển\"?",
+      "options": [
+        "people",
+        "night",
+        "switch"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ống, tuýp)",
+      "options": [
+        "tbue",
+        "tubbe",
+        "tube"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dad used a ___ to light the candles on the cake.",
+      "options": [
+        "lighter",
+        "cathedral",
+        "chemistry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_pe (sợi dây thừng)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I find a ___ on the floor.",
+      "options": [
+        "moon",
+        "visa",
+        "coin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ssue (khăn giấy)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disc\" mean?",
+      "options": [
+        "đĩa",
+        "cái ao",
+        "cát"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to carry a basket",
+    "Pretend to turn off an alarm",
+    "Pretend to flip a coin",
+    "Pretend to switch on a light",
+    "Pretend to open a jar",
+    "Pretend to lock a door with a key"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

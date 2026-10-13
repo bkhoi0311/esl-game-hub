@@ -1,0 +1,282 @@
+{
+  "title": "Big Numbers and Quantity",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "eighty",
+      "meaning": "số tám mươi",
+      "category": "number",
+      "example": "My grandfather is eighty years old.",
+      "image": ""
+    },
+    {
+      "word": "fifty",
+      "meaning": "số năm mươi",
+      "category": "number",
+      "example": "The book costs fifty dollars.",
+      "image": ""
+    },
+    {
+      "word": "forty",
+      "meaning": "số bốn mươi",
+      "category": "number",
+      "example": "There are forty students in my class.",
+      "image": ""
+    },
+    {
+      "word": "hundred",
+      "meaning": "một trăm",
+      "category": "number",
+      "example": "A hundred children are in the hall.",
+      "image": ""
+    },
+    {
+      "word": "ninety",
+      "meaning": "số chín mươi",
+      "category": "number",
+      "example": "My great-grandmother is ninety years old.",
+      "image": ""
+    },
+    {
+      "word": "seventy",
+      "meaning": "số bảy mươi",
+      "category": "number",
+      "example": "The bus has seventy seats.",
+      "image": ""
+    },
+    {
+      "word": "sixty",
+      "meaning": "số sáu mươi",
+      "category": "number",
+      "example": "One hour has sixty minutes.",
+      "image": ""
+    },
+    {
+      "word": "thirty",
+      "meaning": "số ba mươi",
+      "category": "number",
+      "example": "There are thirty children in my class.",
+      "image": ""
+    },
+    {
+      "word": "o'clock",
+      "meaning": "giờ",
+      "category": "time",
+      "example": "We eat dinner at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "pair",
+      "meaning": "đôi",
+      "category": "measure",
+      "example": "I need a new pair of shoes.",
+      "image": ""
+    },
+    {
+      "word": "ten",
+      "meaning": "mười",
+      "category": "number",
+      "example": "Count to ten with me.",
+      "image": ""
+    },
+    {
+      "word": "twenty",
+      "meaning": "số hai mươi",
+      "category": "number",
+      "example": "I have twenty stickers in my bag.",
+      "image": ""
+    },
+    {
+      "word": "twelve",
+      "meaning": "số mười hai",
+      "category": "number",
+      "example": "There are twelve eggs in the box.",
+      "image": ""
+    },
+    {
+      "word": "fifteen",
+      "meaning": "số mười lăm",
+      "category": "number",
+      "example": "I have fifteen red pencils.",
+      "image": ""
+    },
+    {
+      "word": "count",
+      "meaning": "đếm",
+      "category": "mind",
+      "example": "I can count to twenty.",
+      "image": ""
+    },
+    {
+      "word": "number",
+      "meaning": "con số",
+      "category": "number",
+      "example": "My favourite number is seven.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (số sáu mươi)",
+      "options": [
+        "sixty",
+        "sixtty",
+        "syxty"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"số ba mươi\"?",
+      "options": [
+        "twelve",
+        "sixty",
+        "thirty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (số mười lăm)",
+      "options": [
+        "fiften",
+        "fifteen",
+        "fiftein"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ten\" mean?",
+      "options": [
+        "một trăm",
+        "số chín mươi",
+        "mười"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đếm\"?",
+      "options": [
+        "count",
+        "forty",
+        "thirty"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"number\" mean?",
+      "options": [
+        "giờ",
+        "con số",
+        "đếm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_rty (số bốn mươi)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đôi)",
+      "options": [
+        "piar",
+        "payr",
+        "pair"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: e_ghty (số tám mươi)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"o'clock\" mean?",
+      "options": [
+        "giờ",
+        "con số",
+        "đôi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tw_nty (số hai mươi)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The book costs ___ dollars.",
+      "options": [
+        "count",
+        "fifty",
+        "o'clock"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"số mười hai\"?",
+      "options": [
+        "hundred",
+        "twelve",
+        "sixty"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The bus has ___ seats.",
+      "options": [
+        "seventy",
+        "count",
+        "answer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ninety\" mean?",
+      "options": [
+        "số ba mươi",
+        "số năm mươi",
+        "số chín mươi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me ten fingers",
+    "Count to ten with your fingers",
+    "Point to a pair of eyes",
+    "Clap thirty times slowly",
+    "Show me a big hundred with your arms",
+    "Pretend to look at a clock"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

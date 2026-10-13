@@ -1,0 +1,268 @@
+{
+  "title": "Jobs and Professions 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "lawyer",
+      "meaning": "luật sư",
+      "category": "job",
+      "example": "My aunt is a lawyer in a big office.",
+      "image": ""
+    },
+    {
+      "word": "lecturer",
+      "meaning": "giảng viên",
+      "category": "job",
+      "example": "The lecturer showed us some photos of old cities.",
+      "image": ""
+    },
+    {
+      "word": "librarian",
+      "meaning": "thủ thư",
+      "category": "job",
+      "example": "The librarian helped me find a book about birds.",
+      "image": ""
+    },
+    {
+      "word": "officer",
+      "meaning": "sĩ quan, nhân viên",
+      "category": "job",
+      "example": "The officer asked to see my passport at the airport.",
+      "image": ""
+    },
+    {
+      "word": "politician",
+      "meaning": "chính trị gia",
+      "category": "job",
+      "example": "The politician visited our school to meet the students.",
+      "image": ""
+    },
+    {
+      "word": "postman",
+      "meaning": "người đưa thư",
+      "category": "job",
+      "example": "The postman brings a letter to our house.",
+      "image": ""
+    },
+    {
+      "word": "professor",
+      "meaning": "giáo sư",
+      "category": "job",
+      "example": "My uncle is a professor at a large university.",
+      "image": ""
+    },
+    {
+      "word": "programmer",
+      "meaning": "lập trình viên",
+      "category": "job",
+      "example": "My sister wants to be a programmer.",
+      "image": ""
+    },
+    {
+      "word": "reporter",
+      "meaning": "phóng viên",
+      "category": "job",
+      "example": "The reporter asked the mayor three questions.",
+      "image": ""
+    },
+    {
+      "word": "sailor",
+      "meaning": "thủy thủ",
+      "category": "job",
+      "example": "The sailor sails across the sea.",
+      "image": ""
+    },
+    {
+      "word": "salesman",
+      "meaning": "người bán hàng",
+      "category": "job",
+      "example": "The salesman showed us a new laptop.",
+      "image": ""
+    },
+    {
+      "word": "soldier",
+      "meaning": "người lính",
+      "category": "job",
+      "example": "The soldier stands very still at the gate.",
+      "image": ""
+    },
+    {
+      "word": "travel agent",
+      "meaning": "nhân viên du lịch",
+      "category": "job",
+      "example": "My parents booked our trip with a travel agent.",
+      "image": ""
+    },
+    {
+      "word": "vet",
+      "meaning": "bác sĩ thú y",
+      "category": "job",
+      "example": "The vet looks at my sick dog.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"thủ thư\"?",
+      "options": [
+        "librarian",
+        "opening hours",
+        "drama"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rep_rter (phóng viên)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"vet\" mean?",
+      "options": [
+        "đường kẻ, hàng",
+        "lướt sóng",
+        "bác sĩ thú y"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thủy thủ\"?",
+      "options": [
+        "sailor",
+        "elbow",
+        "landscape"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: postm_n (người đưa thư)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister wants to be a ___.",
+      "options": [
+        "bookshop",
+        "tongue",
+        "programmer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giáo sư)",
+      "options": [
+        "profesor",
+        "profsesor",
+        "professor"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"salesman\" mean?",
+      "options": [
+        "người bán hàng",
+        "cái đầu",
+        "nước đá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người lính\"?",
+      "options": [
+        "lorry",
+        "soldier",
+        "initial"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sailor\" mean?",
+      "options": [
+        "quả dưa",
+        "bánh nướng",
+        "thủy thủ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chính trị gia)",
+      "options": [
+        "poiltician",
+        "politician",
+        "ploitician"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lecturer\" mean?",
+      "options": [
+        "giảng viên",
+        "con bò đực",
+        "cái đầu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My parents booked our trip with a ___.",
+      "options": [
+        "grocery store",
+        "changing room",
+        "travel agent"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"officer\" mean?",
+      "options": [
+        "điện thoại",
+        "sĩ quan, nhân viên",
+        "bằng tốt nghiệp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_wyer (luật sư)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a lecturer giving a talk",
+    "Pretend to be a librarian finding a book",
+    "Pretend to be a programmer typing code",
+    "Pretend to be a vet checking a cat",
+    "Pretend to be a postman giving a letter",
+    "Pretend to be a sailor looking at the sea"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

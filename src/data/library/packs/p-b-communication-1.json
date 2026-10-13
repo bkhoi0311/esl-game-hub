@@ -1,0 +1,282 @@
+{
+  "title": "Verbs of Communication 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "advise",
+      "meaning": "khuyên",
+      "category": "speech",
+      "example": "The doctor advised him to drink more water.",
+      "image": ""
+    },
+    {
+      "word": "announce",
+      "meaning": "thông báo",
+      "category": "speech",
+      "example": "The teacher will announce the test results tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "apologise",
+      "meaning": "xin lỗi",
+      "category": "speech",
+      "example": "You should apologise to your friend for being late.",
+      "image": ""
+    },
+    {
+      "word": "argue",
+      "meaning": "cãi nhau",
+      "category": "speech",
+      "example": "My brother and I often argue about the TV.",
+      "image": ""
+    },
+    {
+      "word": "call for",
+      "meaning": "đòi hỏi, kêu gọi",
+      "category": "speech",
+      "example": "The mayor will call for more trees in the city park.",
+      "image": ""
+    },
+    {
+      "word": "comment",
+      "meaning": "nhận xét, bình luận",
+      "category": "speech",
+      "example": "Please comment on my photo if you like it.",
+      "image": ""
+    },
+    {
+      "word": "communicate",
+      "meaning": "giao tiếp",
+      "category": "speech",
+      "example": "Phones help us communicate with friends far away.",
+      "image": ""
+    },
+    {
+      "word": "complain",
+      "meaning": "phàn nàn",
+      "category": "speech",
+      "example": "Customers often complain when the food is cold.",
+      "image": ""
+    },
+    {
+      "word": "confirm",
+      "meaning": "xác nhận",
+      "category": "speech",
+      "example": "Please confirm your seat by email.",
+      "image": ""
+    },
+    {
+      "word": "convince",
+      "meaning": "thuyết phục",
+      "category": "speech",
+      "example": "She convinced her parents to buy a dog.",
+      "image": ""
+    },
+    {
+      "word": "declare",
+      "meaning": "khai báo",
+      "category": "speech",
+      "example": "Do you have anything to declare at customs?",
+      "image": ""
+    },
+    {
+      "word": "disagree",
+      "meaning": "không đồng ý",
+      "category": "speech",
+      "example": "I disagree with you, but I understand your idea.",
+      "image": ""
+    },
+    {
+      "word": "encourage",
+      "meaning": "khuyến khích",
+      "category": "speech",
+      "example": "My teacher likes to encourage us to ask questions.",
+      "image": ""
+    },
+    {
+      "word": "enquire",
+      "meaning": "hỏi thông tin",
+      "category": "speech",
+      "example": "I will enquire about the price of the tickets.",
+      "image": ""
+    },
+    {
+      "word": "greet",
+      "meaning": "chào hỏi",
+      "category": "speech",
+      "example": "We greet our teacher with a smile.",
+      "image": ""
+    },
+    {
+      "word": "inform",
+      "meaning": "thông báo",
+      "category": "speech",
+      "example": "Please inform the teacher if you are going to be absent.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"enquire\" mean?",
+      "options": [
+        "dỡ đồ ra",
+        "sửa chữa, vá",
+        "hỏi thông tin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (không đồng ý)",
+      "options": [
+        "disagrie",
+        "disagree",
+        "disagere"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xác nhận\"?",
+      "options": [
+        "confirm",
+        "unpack",
+        "apply"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thông báo)",
+      "options": [
+        "inform",
+        "ifnorm",
+        "infurm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_clare (khai báo)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"advise\" mean?",
+      "options": [
+        "xuất hiện",
+        "khuyên",
+        "quay lại"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: enco_rage (khuyến khích)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"comment\" mean?",
+      "options": [
+        "ngồi xuống",
+        "nhường đường",
+        "nhận xét, bình luận"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cãi nhau\"?",
+      "options": [
+        "argue",
+        "look up",
+        "visit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "You should ___ to your friend for being late.",
+      "options": [
+        "deal with",
+        "borrow",
+        "apologise"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuyết phục)",
+      "options": [
+        "convnice",
+        "convince",
+        "convincce"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The teacher will ___ the test results tomorrow.",
+      "options": [
+        "announce",
+        "compete",
+        "fold"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_mplain (phàn nàn)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chào hỏi\"?",
+      "options": [
+        "greet",
+        "earn",
+        "hang up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"call for\" mean?",
+      "options": [
+        "bước lên phía trước",
+        "đòi hỏi, kêu gọi",
+        "ngồi xuống"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to give advice to a friend",
+    "Pretend to complain politely",
+    "Show me you disagree with your face",
+    "Pretend to encourage a team",
+    "Mime making an announcement",
+    "Pretend to ask an enquiry at a desk"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

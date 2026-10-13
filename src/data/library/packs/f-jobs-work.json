@@ -1,0 +1,275 @@
+{
+  "title": "Jobs",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "actor",
+      "meaning": "diễn viên",
+      "category": "job",
+      "example": "The actor is in a new film.",
+      "image": ""
+    },
+    {
+      "word": "artist",
+      "meaning": "hoạ sĩ",
+      "category": "job",
+      "example": "The artist paints a beautiful picture.",
+      "image": ""
+    },
+    {
+      "word": "astronaut",
+      "meaning": "phi hành gia",
+      "category": "job",
+      "example": "The astronaut flies to the moon.",
+      "image": ""
+    },
+    {
+      "word": "businessman",
+      "meaning": "doanh nhân",
+      "category": "job",
+      "example": "The businessman carries a black bag.",
+      "image": ""
+    },
+    {
+      "word": "designer",
+      "meaning": "nhà thiết kế",
+      "category": "job",
+      "example": "The designer made a blue dress.",
+      "image": ""
+    },
+    {
+      "word": "engineer",
+      "meaning": "kỹ sư",
+      "category": "job",
+      "example": "My aunt is an engineer at a big factory.",
+      "image": ""
+    },
+    {
+      "word": "fire fighter",
+      "meaning": "lính cứu hỏa",
+      "category": "job",
+      "example": "The fire fighter has a big red truck.",
+      "image": ""
+    },
+    {
+      "word": "journalist",
+      "meaning": "nhà báo",
+      "category": "job",
+      "example": "The journalist writes stories for a newspaper.",
+      "image": ""
+    },
+    {
+      "word": "manager",
+      "meaning": "người quản lý",
+      "category": "job",
+      "example": "The manager of the shop is very kind.",
+      "image": ""
+    },
+    {
+      "word": "mechanic",
+      "meaning": "thợ máy",
+      "category": "job",
+      "example": "The mechanic fixes our car.",
+      "image": ""
+    },
+    {
+      "word": "photographer",
+      "meaning": "nhiếp ảnh gia",
+      "category": "job",
+      "example": "The photographer takes pictures of the wedding.",
+      "image": ""
+    },
+    {
+      "word": "pilot",
+      "meaning": "phi công",
+      "category": "job",
+      "example": "The pilot flies the plane.",
+      "image": ""
+    },
+    {
+      "word": "police officer",
+      "meaning": "viên cảnh sát",
+      "category": "job",
+      "example": "The police officer helps us cross the road.",
+      "image": ""
+    },
+    {
+      "word": "singer",
+      "meaning": "ca sĩ",
+      "category": "job",
+      "example": "The singer has a lovely voice.",
+      "image": ""
+    },
+    {
+      "word": "waiter",
+      "meaning": "người phục vụ",
+      "category": "job",
+      "example": "The waiter brings us some water.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"photographer\" mean?",
+      "options": [
+        "thợ máy",
+        "người phục vụ",
+        "nhiếp ảnh gia"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: art_st (hoạ sĩ)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà báo)",
+      "options": [
+        "jouranlist",
+        "journalist",
+        "journlaist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ca sĩ\"?",
+      "options": [
+        "singer",
+        "designer",
+        "manager"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fire fighter\" mean?",
+      "options": [
+        "viên cảnh sát",
+        "phi hành gia",
+        "lính cứu hỏa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thợ máy\"?",
+      "options": [
+        "designer",
+        "mechanic",
+        "journalist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ made a blue dress.",
+      "options": [
+        "designer",
+        "seed",
+        "magnet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: manag_r (người quản lý)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phi công\"?",
+      "options": [
+        "mechanic",
+        "pilot",
+        "journalist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: engin_er (kỹ sư)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"astronaut\" mean?",
+      "options": [
+        "hoạ sĩ",
+        "phi hành gia",
+        "lính cứu hỏa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ helps us cross the road.",
+      "options": [
+        "police officer",
+        "living room",
+        "ping pong"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người phục vụ)",
+      "options": [
+        "waiter",
+        "waietr",
+        "watier"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"actor\" mean?",
+      "options": [
+        "doanh nhân",
+        "diễn viên",
+        "nhiếp ảnh gia"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (doanh nhân)",
+      "options": [
+        "businesmsan",
+        "busniessman",
+        "businessman"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a pilot",
+    "Pretend to take a photo",
+    "Pretend to carry a tray like a waiter",
+    "Pretend to repair an engine",
+    "Pretend to paint like an artist",
+    "Pretend to talk to a journalist"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

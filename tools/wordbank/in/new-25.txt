@@ -1,0 +1,99 @@
+tuna	n	pet					n
+tunnel	n	pet					n
+turn down	v	pet					phr v
+turn into	v	pet					phr v
+turn up	v	pet					phr v
+turning	n	pet					n
+typical	adj	pet					adj
+typically	adv	pet					adv
+unable	adj	pet					adj
+unbelievable	adj	pet					adj
+uncomfortable	adj	pet					adj
+underline	v	pet					v
+underneath	prep	pet					prep
+underpants	n	pet					n
+underwater	adj	pet					adj
+underwear	n	pet					n
+undress	v	pet					v
+unemployed	adj	pet					adj
+unemployment	n	pet					n
+unexpected	adj	pet					adj
+unfair	adj	pet					adj
+unfit	adj	pet					adj
+unforgettable	adj	pet					adj
+unhealthy	adj	pet					adj
+unimportant	adj	pet					adj
+uninterested	adj	pet					adj
+uninteresting	adj	pet					adj
+union	n	pet					n
+unit	n	pet					n
+universe	n	pet					n
+unknown	adj	pet					adj
+unless	other	pet					conj
+unlikely	adj	pet					adj
+unlucky	adj	pet					adj
+unnecessary	adj	pet					adj
+unpack	v	pet					v
+unpleasant	adj	pet					adj
+unsure	adj	pet					adj
+unwell	adj	pet					adj
+up to	phr	pet					prep phr
+up to date	phr	pet					prep phr
+update	n	pet					n+v
+upon	prep	pet					prep
+upper	adj	pet					adj
+urgent	adj	pet					adj
+urgently	adv	pet					adv
+used to	v	pet					v
+user	n	pet					n
+valley	n	pet					n
+valuable	adj	pet					adj
+value	n	pet					n
+vanilla	n	pet					n
+vegetarian	n	pet					n+adj
+vehicle	n	pet					n
+version	n	pet					n
+via	prep	pet					prep
+video clip	n	pet					n
+virus	n	pet					n
+visa	n	pet					n
+voice	n	pet					n
+volume	n	pet					n
+volunteer	n	pet					n+v
+vote	n	pet					n+v
+vowel	n	pet					n
+wage	n	pet		wages			n
+waiting room	n	pet					n
+war	n	pet					n
+warn	v	pet					v
+warning	n	pet					n
+waste	adj	pet					adj+v+n
+wear out	v	pet					phr v+adj
+weather forecast	n	pet					n
+webcam	n	pet					n
+weigh	v	pet					v
+weight	n	pet					n
+well made	adv	pet		well-made			adv+adj
+well-dressed	adj	pet					adj
+well-known	adj	pet					adj
+western	adj	pet					adj
+wetsuit	n	pet		wet suit			n
+whatever	pron	pet					pron+det
+whenever	other	pet					conj
+wherever	other	pet					conj
+whether	other	pet					conj
+willing	adj	pet					adj
+windscreen	n	pet					n
+wise	adj	pet					adj
+within	prep	pet					prep
+wonder	v	pet					v
+working	adj	pet					adj
+workout	n	pet					n
+worth	adj	pet					adj
+wrap	v	pet		wrap up			v+phr v
+written	adj	pet					adj
+yard	n	pet					n
+yeah	phr	pet					exclam
+you know	phr	pet					exclam
+youth	n	pet					n
+zone	n	pet					n

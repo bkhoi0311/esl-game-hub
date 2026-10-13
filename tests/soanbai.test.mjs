@@ -12,8 +12,8 @@ const bank = buildBank(mini);
 
 // ---------- categories ----------
 
-test('categories: bảng A3 đủ 37 nhãn, phrase/group hợp lệ', () => {
-  assert.equal(Object.keys(CATEGORIES).length, 37);
+test('categories: bộ nhãn đủ 58 nhãn (37 cũ + 21 cho KET/PET), phrase/group hợp lệ', () => {
+  assert.equal(Object.keys(CATEGORIES).length, 58);
   for (const [k, c] of Object.entries(CATEGORIES)) {
     assert.ok(c.phrase && c.group && c.vi, k);
     assert.equal(k, k.toLowerCase());
@@ -161,13 +161,13 @@ test('wordbank: fillRows viaPlural và onlyEmpty=false', () => {
 const wordsPath = new URL('../src/data/wordbank/words.json', import.meta.url);
 test('dữ liệu: words.json hợp lệ cột, mỗi ex chứa từ', { skip: !fs.existsSync(wordsPath) }, () => {
   const j = JSON.parse(fs.readFileSync(wordsPath, 'utf8'));
-  assert.deepEqual(j.cols, ['w', 'vi', 'pos', 'cat', 'lv', 'ex', 'alt', 'pl']);
+  assert.deepEqual(j.cols, ['w', 'vi', 'pos', 'cat', 'lv', 'ex', 'alt', 'pl', 'd']);
   const seen = new Set();
   for (const r of j.rows) {
     assert.equal(r.length, j.cols.length, r[0]);
     assert.ok(!seen.has(r[0]), 'trùng ' + r[0]);
     seen.add(r[0]);
-    assert.ok('smfko'.includes(r[4]) && r[4].length === 1, r[0] + ' lv');
+    assert.ok('smfkpo'.includes(r[4]) && r[4].length === 1, r[0] + ' lv');
     assert.equal(findWordInText(r[5], r[0], { pl: r[7], alt: r[6] }).length, 1, `${r[0]}: "${r[5]}"`);
   }
 });
@@ -616,11 +616,12 @@ test('thư viện thật: mọi gói hợp lệ, từ có trong kho, câu hỏi 
 test('thư viện thật: sinh lại bằng build.mjs cho cùng kết quả (seed cố định)', async () => {
   const { generateQuestions: gen, LIBRARY_LIMITS } = await import('../src/core/soanbai/qgen.js');
   const realBank = buildRealBank(JSON.parse(fs.readFileSync(REAL_WORDS, 'utf8')));
-  const meta = JSON.parse(fs.readFileSync(new URL('index.json', LIB_DIR), 'utf8'))[0];
+  // gói chung không qua qskip/lọc trùng câu của build, nên sinh lại thẳng bằng qgen phải ra y hệt
+  const meta = JSON.parse(fs.readFileSync(new URL('index.json', LIB_DIR), 'utf8')).find((x) => x.id === 'animals');
   const pack = JSON.parse(fs.readFileSync(new URL(`packs/${meta.id}.json`, LIB_DIR), 'utf8'));
   let h = 2166136261;
   for (let i = 0; i < meta.id.length; i++) { h ^= meta.id.charCodeAt(i); h = Math.imul(h, 16777619); }
-  const again = gen(pack.vocab, { count: 15, seed: h >>> 0, bank: realBank, limits: LIBRARY_LIMITS }).questions;
+  const again = gen(pack.vocab, { count: 15, seed: h >>> 0, bank: realBank, limits: LIBRARY_LIMITS, maxLevel: meta.level }).questions;
   assert.deepEqual(again, pack.questions);
 });
 
@@ -657,7 +658,8 @@ test('qrules: từ chỉ loại, khung chung, láng giềng, đồng nghĩa, ch�
 test('qgen đợt 4: 150 seed bảng trộn, mọi loại qua audit cơ học (0 vi phạm), không nhiễu không hợp trẻ', async () => {
   const realBank = buildRealBank(JSON.parse(fs.readFileSync(REAL_WORDS, 'utf8')));
   const env = makeAuditEnv(realBank);
-  const mixed = realBank.list.map((e) => ({ word: e.word, meaning: e.vi, category: e.cat, example: e.ex, image: '' }));
+  // khoá có hậu tố nghĩa (it (subject), may (month)) hiển thị trùng từ khác (IT, May): không dùng làm từ của bảng thử
+  const mixed = realBank.list.filter((e) => e.word.indexOf('(') < 0).map((e) => ({ word: e.word, meaning: e.vi, category: e.cat, example: e.ex, image: '' }));
   const kinds = {};
   for (let seed = 1; seed <= 150; seed++) {
     const rng = makeRng(seed * 977);
@@ -675,7 +677,8 @@ test('qgen đợt 4: 150 seed bảng trộn, mọi loại qua audit cơ học (0
 
 test('qgen đợt 4: which chỉ ở nhóm tự nhiên; spell/letter không ra từ có thật (beer, god, sung, paste, disk)', () => {
   const realBank = buildRealBank(JSON.parse(fs.readFileSync(REAL_WORDS, 'utf8')));
-  const mixed = realBank.list.map((e) => ({ word: e.word, meaning: e.vi, category: e.cat, example: e.ex, image: '' }));
+  // khoá có hậu tố nghĩa (it (subject), may (month)) hiển thị trùng từ khác (IT, May): không dùng làm từ của bảng thử
+  const mixed = realBank.list.filter((e) => e.word.indexOf('(') < 0).map((e) => ({ word: e.word, meaning: e.vi, category: e.cat, example: e.ex, image: '' }));
   const allowedPhrases = new Set([...WHICH_CATS].map((c) => phraseForCat(c)));
   for (let seed = 1; seed <= 60; seed++) {
     generateQuestions(mixed, { types: ['which'], count: 30, seed, bank: realBank }).questions.forEach((q) => {

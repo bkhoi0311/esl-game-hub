@@ -1,0 +1,282 @@
+{
+  "title": "Useful Adjectives 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "familiar",
+      "meaning": "quen thuộc",
+      "category": "describe",
+      "example": "This song sounds familiar to me.",
+      "image": ""
+    },
+    {
+      "word": "female",
+      "meaning": "nữ, giống cái",
+      "category": "describe",
+      "example": "A female lion hunts for the whole group.",
+      "image": ""
+    },
+    {
+      "word": "male",
+      "meaning": "nam, giống đực",
+      "category": "describe",
+      "example": "The male lion has a large mane.",
+      "image": ""
+    },
+    {
+      "word": "financial",
+      "meaning": "tài chính",
+      "category": "describe",
+      "example": "He asked the bank for some financial advice.",
+      "image": ""
+    },
+    {
+      "word": "folk",
+      "meaning": "dân gian",
+      "category": "describe",
+      "example": "My grandfather plays folk music on his guitar.",
+      "image": ""
+    },
+    {
+      "word": "following",
+      "meaning": "sau đây",
+      "category": "describe",
+      "example": "Please read the following instructions carefully.",
+      "image": ""
+    },
+    {
+      "word": "frequent",
+      "meaning": "thường xuyên",
+      "category": "describe",
+      "example": "The town has frequent buses to the beach.",
+      "image": ""
+    },
+    {
+      "word": "general",
+      "meaning": "chung, tổng quát",
+      "category": "describe",
+      "example": "She has a general idea of the plan.",
+      "image": ""
+    },
+    {
+      "word": "giant",
+      "meaning": "khổng lồ",
+      "category": "describe",
+      "example": "They saw a giant tree in the forest.",
+      "image": ""
+    },
+    {
+      "word": "guided",
+      "meaning": "có hướng dẫn viên",
+      "category": "describe",
+      "example": "We took a guided tour of the castle.",
+      "image": ""
+    },
+    {
+      "word": "hand-held",
+      "meaning": "cầm tay",
+      "category": "describe",
+      "example": "She filmed the show with a hand-held camera.",
+      "image": ""
+    },
+    {
+      "word": "human",
+      "meaning": "thuộc con người",
+      "category": "describe",
+      "example": "The human body needs water to stay healthy.",
+      "image": ""
+    },
+    {
+      "word": "incorrect",
+      "meaning": "không đúng, sai",
+      "category": "describe",
+      "example": "Two of my answers were incorrect.",
+      "image": ""
+    },
+    {
+      "word": "individual",
+      "meaning": "riêng lẻ, cá nhân",
+      "category": "describe",
+      "example": "Each student received an individual report from the teacher.",
+      "image": ""
+    },
+    {
+      "word": "inexpensive",
+      "meaning": "rẻ, không đắt",
+      "category": "describe",
+      "example": "We found an inexpensive hotel near the beach.",
+      "image": ""
+    },
+    {
+      "word": "intermediate",
+      "meaning": "trung cấp",
+      "category": "describe",
+      "example": "I joined an intermediate English class this year.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"thuộc con người\"?",
+      "options": [
+        "Indian",
+        "willing",
+        "human"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: financ_al (tài chính)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rẻ, không đắt\"?",
+      "options": [
+        "Spanish",
+        "inexpensive",
+        "electronic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: famili_r (quen thuộc)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nam, giống đực)",
+      "options": [
+        "male",
+        "malle",
+        "mlae"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has a ___ idea of the plan.",
+      "options": [
+        "loan",
+        "flute",
+        "general"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: individu_l (riêng lẻ, cá nhân)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thường xuyên)",
+      "options": [
+        "frequennt",
+        "frequent",
+        "freuqent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"giant\" mean?",
+      "options": [
+        "kiên nhẫn",
+        "độc ác, tàn nhẫn",
+        "khổng lồ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sau đây)",
+      "options": [
+        "folowing",
+        "following",
+        "fololwing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"incorrect\" mean?",
+      "options": [
+        "không tay",
+        "kỹ thuật số",
+        "không đúng, sai"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We took a ___ tour of the castle.",
+      "options": [
+        "guided",
+        "pop",
+        "bunch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hand-held\" mean?",
+      "options": [
+        "cầm tay",
+        "dịu dàng",
+        "có trách nhiệm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nữ, giống cái\"?",
+      "options": [
+        "careless",
+        "cruel",
+        "female"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"folk\" mean?",
+      "options": [
+        "người Ý, tiếng Ý",
+        "dân gian",
+        "tò mò"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to see a familiar face",
+    "Pretend to follow a guide slowly on the spot",
+    "Show me something incorrect with a gentle no",
+    "Pretend to use a hand-held camera",
+    "Pretend to read a general notice",
+    "Show me an inexpensive price tag"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

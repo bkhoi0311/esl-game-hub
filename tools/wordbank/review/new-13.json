@@ -1,0 +1,98 @@
+{
+  "sampled": [
+    "upload",
+    "tasty",
+    "themselves",
+    "yogurt",
+    "steal",
+    "till",
+    "wooden",
+    "site",
+    "sitting room",
+    "working hours",
+    "stuff",
+    "successful",
+    "trouble",
+    "variety",
+    "sort"
+  ],
+  "sampleErrors": [
+    "site"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "sightseeing",
+      "field": "vi",
+      "old": "việc tham quan",
+      "new": "tham quan, ngắm cảnh"
+    },
+    {
+      "word": "site",
+      "field": "vi",
+      "old": "địa điểm, trang web",
+      "new": "địa điểm"
+    },
+    {
+      "word": "site",
+      "field": "ex",
+      "old": "We visited a famous building site in the city.",
+      "new": "This flat field is a good site for our tents."
+    },
+    {
+      "word": "supper",
+      "field": "vi",
+      "old": "bữa tối",
+      "new": "bữa tối nhẹ"
+    },
+    {
+      "word": "title",
+      "field": "vi",
+      "old": "tiêu đề, tên sách",
+      "new": "tiêu đề, tên"
+    },
+    {
+      "word": "training",
+      "field": "vi",
+      "old": "việc huấn luyện, buổi tập",
+      "new": "buổi tập, việc tập luyện"
+    },
+    {
+      "word": "unfortunately",
+      "field": "ex",
+      "old": "I unfortunately missed the last bus home.",
+      "new": "We wanted to swim, but unfortunately the pool was closed."
+    },
+    {
+      "word": "unfortunately",
+      "field": "note",
+      "old": "",
+      "new": "kpos adj trong danh sách nhưng thực là adv; giữ pos theo in-file"
+    },
+    {
+      "word": "vocabulary",
+      "field": "ex",
+      "old": "I learn ten new words of vocabulary every week.",
+      "new": "We learn new vocabulary in every English lesson."
+    },
+    {
+      "word": "waitress",
+      "field": "vi",
+      "old": "cô phục vụ nữ",
+      "new": "nữ phục vụ"
+    },
+    {
+      "word": "tour guide",
+      "field": "ex",
+      "old": "The tour guide showed us the old castle.",
+      "new": "Our tour guide told us funny stories on the bus."
+    },
+    {
+      "word": "smart",
+      "field": "vi",
+      "old": "thông minh, bảnh bao",
+      "new": "bảnh bao, thông minh"
+    }
+  ],
+  "stillCheck": []
+}

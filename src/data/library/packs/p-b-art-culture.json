@@ -1,0 +1,261 @@
+{
+  "title": "Art and Culture",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "sculpture",
+      "meaning": "tác phẩm điêu khắc",
+      "category": "thing",
+      "example": "There is a big stone sculpture in the park.",
+      "image": ""
+    },
+    {
+      "word": "statue",
+      "meaning": "bức tượng",
+      "category": "thing",
+      "example": "There is a big statue in the park.",
+      "image": ""
+    },
+    {
+      "word": "poet",
+      "meaning": "nhà thơ",
+      "category": "job",
+      "example": "The poet read her new work to the students.",
+      "image": ""
+    },
+    {
+      "word": "poem",
+      "meaning": "bài thơ",
+      "category": "media",
+      "example": "We learned a short poem in class today.",
+      "image": ""
+    },
+    {
+      "word": "poetry",
+      "meaning": "thơ",
+      "category": "media",
+      "example": "Our teacher loves poetry and reads it aloud.",
+      "image": ""
+    },
+    {
+      "word": "novelist",
+      "meaning": "tiểu thuyết gia",
+      "category": "job",
+      "example": "My favourite novelist writes stories for teenagers.",
+      "image": ""
+    },
+    {
+      "word": "novel",
+      "meaning": "tiểu thuyết",
+      "category": "media",
+      "example": "I am reading a long novel about a young detective.",
+      "image": ""
+    },
+    {
+      "word": "architect",
+      "meaning": "kiến trúc sư",
+      "category": "job",
+      "example": "An architect designed our new school building.",
+      "image": ""
+    },
+    {
+      "word": "architecture",
+      "meaning": "kiến trúc",
+      "category": "study",
+      "example": "I love the architecture of the old buildings in this town.",
+      "image": ""
+    },
+    {
+      "word": "monument",
+      "meaning": "đài tưởng niệm",
+      "category": "place",
+      "example": "We visited an old monument in the city centre.",
+      "image": ""
+    },
+    {
+      "word": "cathedral",
+      "meaning": "nhà thờ lớn",
+      "category": "place",
+      "example": "We visited an old cathedral with beautiful windows.",
+      "image": ""
+    },
+    {
+      "word": "palace",
+      "meaning": "cung điện",
+      "category": "place",
+      "example": "We visited a beautiful palace on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "performer",
+      "meaning": "người biểu diễn",
+      "category": "job",
+      "example": "The street performer made everyone laugh.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"cung điện\"?",
+      "options": [
+        "policeman",
+        "palace",
+        "monster"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người biểu diễn)",
+      "options": [
+        "perfomrer",
+        "pefrormer",
+        "performer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"poetry\" mean?",
+      "options": [
+        "thơ",
+        "tiểu thuyết gia",
+        "người biểu diễn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sc_lpture (tác phẩm điêu khắc)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cathedral\" mean?",
+      "options": [
+        "kiến trúc",
+        "nhà thờ lớn",
+        "bài thơ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiểu thuyết\"?",
+      "options": [
+        "novel",
+        "Monday",
+        "leaf"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"statue\" mean?",
+      "options": [
+        "đài tưởng niệm",
+        "người biểu diễn",
+        "bức tượng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà thơ\"?",
+      "options": [
+        "poet",
+        "monument",
+        "recipe"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My favourite ___ writes stories for teenagers.",
+      "options": [
+        "cathedral",
+        "novelist",
+        "novel"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thơ\"?",
+      "options": [
+        "poetry",
+        "panda",
+        "noticeboard"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"monument\" mean?",
+      "options": [
+        "nhà thơ",
+        "kiến trúc",
+        "đài tưởng niệm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kiến trúc)",
+      "options": [
+        "architetcure",
+        "architecture",
+        "archietcture"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_em (bài thơ)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "An ___ designed our new school building.",
+      "options": [
+        "architect",
+        "architecture",
+        "afternoon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: stat_e (bức tượng)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a statue of a hero",
+    "Pretend to read a poem aloud",
+    "Mime making a clay pot",
+    "Pretend to conduct an orchestra",
+    "Pretend to dance ballet on the spot slowly",
+    "Pretend to draw a plan as an architect"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

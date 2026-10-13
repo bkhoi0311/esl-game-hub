@@ -1,0 +1,95 @@
+come back	v	ket					v
+comedy	n	ket					n
+comfortable	adj	ket					adj
+company	n	ket					n
+contact	n	ket					n+v
+continue	v	ket					v
+copy	v	ket					v
+cost	n	ket					n+v
+course	n	ket					n
+court	n	ket					n
+cover	v	ket					v+n
+cream	adj	ket					adj+n
+crossing	n	ket					n
+crowd	n	ket					n
+crowded	adj	ket					adj
+curtain	n	ket					n
+customer	n	ket					n
+daily	adj	ket					adj+adv
+dead	adj	ket					adj
+degree	n	ket					n
+delay	n	ket					n+v
+delayed	adj	ket					adj
+deliver	v	ket					v
+department	n	ket					n
+department store	n	ket					n
+describe	v	ket					v
+dessert	n	ket					n
+details	n	ket					n
+die	v	ket					v
+digital	adj	ket					adj
+digital camera	n	ket					n
+diploma	n	ket					n
+directions	n	ket					n
+disco	n	ket		discotheque			n
+discount	n	ket					n
+discover	v	ket					v
+discuss	v	ket					v
+dish	n	ket					n
+diving	adj	ket					adj
+document	n	ket					n
+dollar	n	ket					n
+dot	n	ket					n
+download	n	ket					n+v
+dr	n	ket				Dr	n
+drawer	n	ket					n
+dressed	adj	ket					adj
+driving licence	n	ket		driver's licence|driving license|driver's license			n
+drugstore	n	ket					n
+dvd player	n	ket				DVD player	n
+each other	pron	ket					pron
+earn	v	ket					v
+earring	n	ket					n
+easily	adv	ket					adv
+electric	adj	ket					adj
+electricity	n	ket					n
+equipment	n	ket					n
+especially	adv	ket					adv
+euro	n	ket					n
+even	adv	ket					adv
+event	n	ket					n
+everybody	pron	ket					pron
+exactly	adv	ket					adv
+except	other	ket					conj+prep
+excuse	v	ket					v
+exhibition	n	ket					n
+experience	n	ket					n
+experiment	n	ket					n
+explorer	n	ket					n
+extra	adj	ket					adj
+fact	n	ket					n
+fail	v	ket					v
+fan	n	ket					n
+fashion	n	ket					n
+fast food	n	ket					n
+feelings	n	ket					n
+fill	v	ket					v
+fill in	v	ket					phr v
+final	adj	ket					adj
+finally	adv	ket					adv
+first name	n	ket					n
+first of all	adv	ket					adv
+fit	adj	ket					adj
+flight	n	ket					n
+folder	n	ket					n
+football player	n	ket					n
+for sale	n	ket					n
+foreign	adj	ket					adj
+form	n	ket					n
+free	adj	ket					adj+adv
+french fries	n	ket				French fries	n
+fresh	adj	ket					adj
+fried	adj	ket					adj
+furniture	n	ket					n
+further	adj	ket					adj
+gallery	n	ket					n

@@ -1,0 +1,109 @@
+banking	n	pet					n
+bar	n	pet					n
+bargain	n	pet					n
+base on	v	pet					phr v
+basic	adj	pet					adj
+basin	n	pet					n
+battle	n	pet					n
+bay	n	pet					n
+be over	v	pet					phr v
+beat	v	pet					v
+beauty	n	pet					n
+beef	n	pet					n
+behave	v	pet					v
+behaviour	n	pet					n
+beneath	prep	pet					prep
+benefit	n	pet					n+v
+besides	prep	pet					prep
+bestseller	n	pet					n
+beyond	prep	pet					prep+adv
+biography	n	pet					n
+bite	v	pet					v
+bitter	adj	pet					adj
+blame	v	pet					v
+blank	adj	pet					adj
+bleed	v	pet					v
+blind	adj	pet					adj
+blogger	n	pet					n
+blow	v	pet					v
+boarding pass	n	pet					n
+bold	adj	pet					adj
+booking	n	pet					n
+booking office	n	pet					n
+border	n	pet					n
+bossy	adj	pet					adj
+bottle bank	n	pet					n
+brake	n	pet					n+v
+branch	n	pet					n
+brand new	adj	pet					adj
+break in	v	pet					phr v
+break up	v	pet					phr v
+breath	n	pet					n
+breathe	v	pet					v
+breeze	n	pet					n
+bride	n	pet					n
+brief	adj	pet					adj
+bring up	v	pet					phr v
+broad	adj	pet					adj
+broccoli	n	pet					n
+brochure	n	pet					n
+bug	n	pet					n
+bulb	n	pet					n
+bull	n	pet					n
+bunch	n	pet					n
+burning	adj	pet					adj
+bury	v	pet					v
+bush	n	pet					n
+buyer	n	pet					n
+by hand	phr	pet					prep phr
+by mistake	phr	pet					prep phr
+by name	phr	pet					prep phr
+cab	n	pet					n
+cabbage	n	pet					n
+cabin	n	pet					n
+cable	n	pet					n
+calf	n	pet					n
+call for	v	pet					phr v
+call in	v	pet					phr v
+calm	adj	pet					adj
+canal	n	pet					n
+cancel	v	pet					v
+candidate	n	pet					n
+canteen	n	pet					n
+captain	n	pet					n
+cardboard	adj	pet					adj+n
+care	n	pet					n+v
+careless	adj	pet					adj
+carry on	v	pet					phr v
+carry out	v	pet					phr v
+cash machine	n	pet					n
+cashpoint	n	pet					n
+casual	adj	pet					adj
+cathedral	n	pet					n
+cattle	n	pet					n
+central	adj	pet					adj
+central heating	n	pet					n
+ceremony	n	pet					n
+certain	adj	pet					adj
+certificate	n	pet					n
+challenge	n	pet					n+v
+challenging	adj	pet					adj
+championship	n	pet					n
+chance	n	pet					n
+changing room	n	pet					n
+chapter	n	pet					n
+charge	n	pet					n+v
+charity	n	pet					n
+charming	adj	pet					adj
+chat show	n	pet					n
+cheat	v	pet					v
+check in	v	pet					phr v
+check out	v	pet					phr v
+check-in	n	pet					n
+checkout	n	pet					n
+cheek	n	pet					n
+cheerful	adj	pet					adj
+chest of drawers	n	pet					n
+childhood	n	pet					n
+chill out	v	pet					phr v
+chin	n	pet					n

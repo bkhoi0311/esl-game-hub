@@ -1,0 +1,282 @@
+{
+  "title": "Time Phrases",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "at first",
+      "meaning": "lúc đầu",
+      "category": "time",
+      "example": "I was shy at first, but I made friends.",
+      "image": ""
+    },
+    {
+      "word": "at last",
+      "meaning": "cuối cùng",
+      "category": "time",
+      "example": "We reached the top of the hill at last.",
+      "image": ""
+    },
+    {
+      "word": "at once",
+      "meaning": "ngay lập tức",
+      "category": "time",
+      "example": "Please come here at once, children.",
+      "image": ""
+    },
+    {
+      "word": "at present",
+      "meaning": "hiện nay",
+      "category": "time",
+      "example": "My sister lives with our aunt at present.",
+      "image": ""
+    },
+    {
+      "word": "at the same time",
+      "meaning": "cùng lúc",
+      "category": "time",
+      "example": "Two students spoke at the same time in class.",
+      "image": ""
+    },
+    {
+      "word": "in advance",
+      "meaning": "trước, từ trước",
+      "category": "time",
+      "example": "You should book the tickets in advance to get a cheaper price.",
+      "image": ""
+    },
+    {
+      "word": "in the end",
+      "meaning": "cuối cùng",
+      "category": "time",
+      "example": "We lost our way, but in the end we found the hotel.",
+      "image": ""
+    },
+    {
+      "word": "in time",
+      "meaning": "kịp giờ",
+      "category": "time",
+      "example": "We ran fast and arrived at the station in time for the train.",
+      "image": ""
+    },
+    {
+      "word": "on time",
+      "meaning": "đúng giờ",
+      "category": "time",
+      "example": "The train arrived on time this morning.",
+      "image": ""
+    },
+    {
+      "word": "shortly",
+      "meaning": "ngay sau đây",
+      "category": "time",
+      "example": "The film will start shortly, so please sit down.",
+      "image": ""
+    },
+    {
+      "word": "typically",
+      "meaning": "thường là, điển hình",
+      "category": "time",
+      "example": "Teenagers typically spend a lot of time on their phones.",
+      "image": ""
+    },
+    {
+      "word": "normally",
+      "meaning": "thông thường",
+      "category": "time",
+      "example": "I normally walk to school with my cousin.",
+      "image": ""
+    },
+    {
+      "word": "part time",
+      "meaning": "bán thời gian",
+      "category": "time",
+      "example": "My sister works part time at a bookshop.",
+      "image": ""
+    },
+    {
+      "word": "full time",
+      "meaning": "toàn thời gian",
+      "category": "manner",
+      "example": "She works full time at a bakery.",
+      "image": ""
+    },
+    {
+      "word": "used to",
+      "meaning": "đã từng, từng",
+      "category": "time",
+      "example": "I used to be afraid of dogs when I was little.",
+      "image": ""
+    },
+    {
+      "word": "be over",
+      "meaning": "kết thúc",
+      "category": "time",
+      "example": "The lesson will be over at ten, then we can go outside.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"at first\" mean?",
+      "options": [
+        "dậy, ngồi dậy",
+        "bằng cách đi bộ",
+        "lúc đầu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Two students spoke ___ in class.",
+      "options": [
+        "on board",
+        "at the same time",
+        "lie down"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on time\" mean?",
+      "options": [
+        "đúng giờ",
+        "dậy, ngồi dậy",
+        "bằng cách đi bộ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I ___ be afraid of dogs when I was little.",
+      "options": [
+        "ring back",
+        "put out",
+        "used to"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kết thúc\"?",
+      "options": [
+        "used to",
+        "be over",
+        "at first"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thường là, điển hình)",
+      "options": [
+        "typically",
+        "typicelly",
+        "typiaclly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"at last\" mean?",
+      "options": [
+        "nằm xuống",
+        "cuối cùng",
+        "thức dậy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hiện nay\"?",
+      "options": [
+        "in advance",
+        "at last",
+        "at present"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"full time\" mean?",
+      "options": [
+        "toàn thời gian",
+        "ở tầng trên",
+        "ở tầng dưới"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngay lập tức\"?",
+      "options": [
+        "at once",
+        "at last",
+        "in advance"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_rtly (ngay sau đây)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kịp giờ\"?",
+      "options": [
+        "at first",
+        "in time",
+        "at present"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: norm_lly (thông thường)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in the end\" mean?",
+      "options": [
+        "đi ngủ",
+        "cảm ơn",
+        "cuối cùng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bán thời gian\"?",
+      "options": [
+        "part time",
+        "full time",
+        "at once"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to arrive on time and wave",
+    "Pretend to rush and arrive in time",
+    "Show me you are happy at last",
+    "Pretend to do two things at the same time",
+    "Pretend to check a watch and say it is time",
+    "Mime closing a book because it is over"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

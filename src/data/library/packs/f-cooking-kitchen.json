@@ -1,0 +1,272 @@
+{
+  "title": "Cooking and the Kitchen",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "cooker",
+      "meaning": "cái bếp nấu",
+      "category": "house",
+      "example": "The soup is on the cooker.",
+      "image": ""
+    },
+    {
+      "word": "oven",
+      "meaning": "cái lò nướng",
+      "category": "house",
+      "example": "Mum bakes bread in the oven.",
+      "image": ""
+    },
+    {
+      "word": "fridge",
+      "meaning": "tủ lạnh",
+      "category": "house",
+      "example": "The milk is in the fridge.",
+      "image": ""
+    },
+    {
+      "word": "fork",
+      "meaning": "cái dĩa",
+      "category": "thing",
+      "example": "I use a fork to eat noodles.",
+      "image": ""
+    },
+    {
+      "word": "spoon",
+      "meaning": "cái thìa",
+      "category": "thing",
+      "example": "The baby eats with a small spoon.",
+      "image": ""
+    },
+    {
+      "word": "chopsticks",
+      "meaning": "đôi đũa",
+      "category": "thing",
+      "example": "He can use chopsticks very well.",
+      "image": ""
+    },
+    {
+      "word": "mix",
+      "meaning": "trộn",
+      "category": "action",
+      "example": "Mum and I mix the eggs and milk.",
+      "image": ""
+    },
+    {
+      "word": "cut",
+      "meaning": "cắt",
+      "category": "action",
+      "example": "I cut the paper with scissors.",
+      "image": ""
+    },
+    {
+      "word": "flour",
+      "meaning": "bột mì",
+      "category": "food",
+      "example": "We need flour to make bread.",
+      "image": ""
+    },
+    {
+      "word": "sugar",
+      "meaning": "đường",
+      "category": "food",
+      "example": "He puts some sugar in his tea.",
+      "image": ""
+    },
+    {
+      "word": "salt",
+      "meaning": "muối",
+      "category": "food",
+      "example": "Please pass the salt.",
+      "image": ""
+    },
+    {
+      "word": "burn",
+      "meaning": "làm cháy, đốt",
+      "category": "action",
+      "example": "Dad burned the toast this morning.",
+      "image": ""
+    },
+    {
+      "word": "prepare",
+      "meaning": "chuẩn bị",
+      "category": "daily",
+      "example": "We prepare lunch for the picnic.",
+      "image": ""
+    },
+    {
+      "word": "meal",
+      "meaning": "bữa ăn",
+      "category": "meal",
+      "example": "Dinner is my favourite meal of the day.",
+      "image": ""
+    },
+    {
+      "word": "cook",
+      "meaning": "người nấu ăn",
+      "category": "job",
+      "example": "My uncle is a good cook.",
+      "image": ""
+    },
+    {
+      "word": "bin",
+      "meaning": "thùng rác",
+      "category": "house",
+      "example": "Put the paper in the bin.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (cái lò nướng)",
+      "options": [
+        "oven",
+        "ovven",
+        "oevn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"prepare\" mean?",
+      "options": [
+        "làm cháy, đốt",
+        "trộn",
+        "chuẩn bị"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_lt (muối)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cooker\" mean?",
+      "options": [
+        "cái bếp nấu",
+        "tủ lạnh",
+        "cái lò nướng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_al (bữa ăn)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bột mì\"?",
+      "options": [
+        "prepare",
+        "flour",
+        "sausage"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fork\" mean?",
+      "options": [
+        "cái thìa",
+        "cái dĩa",
+        "đôi đũa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đôi đũa)",
+      "options": [
+        "choptsicks",
+        "chopstikcs",
+        "chopsticks"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The baby eats with a small ___.",
+      "options": [
+        "spoon",
+        "sugar",
+        "cook"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thùng rác\"?",
+      "options": [
+        "chopsticks",
+        "meal",
+        "bin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đường)",
+      "options": [
+        "sguar",
+        "sugar",
+        "suggar"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mix\" mean?",
+      "options": [
+        "cắt",
+        "làm cháy, đốt",
+        "trộn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tủ lạnh\"?",
+      "options": [
+        "fridge",
+        "prepare",
+        "painting"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: co_k (người nấu ăn)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to mix a cake",
+    "Pretend to cut a carrot carefully",
+    "Pretend to open the fridge",
+    "Pretend to eat with chopsticks",
+    "Pretend to stir soup with a spoon",
+    "Pretend to put a cake in the oven"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

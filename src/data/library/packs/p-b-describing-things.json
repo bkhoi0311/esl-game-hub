@@ -1,0 +1,282 @@
+{
+  "title": "Describing Places and Things",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bitter",
+      "meaning": "đắng",
+      "category": "describe",
+      "example": "This coffee tastes too bitter without any sugar.",
+      "image": ""
+    },
+    {
+      "word": "cosy",
+      "meaning": "ấm cúng",
+      "category": "describe",
+      "example": "We spent a cosy evening by the fire.",
+      "image": ""
+    },
+    {
+      "word": "damaged",
+      "meaning": "bị hư hỏng",
+      "category": "describe",
+      "example": "The damaged phone was sent to the repair shop.",
+      "image": ""
+    },
+    {
+      "word": "dusty",
+      "meaning": "đầy bụi",
+      "category": "describe",
+      "example": "The attic was dark and dusty.",
+      "image": ""
+    },
+    {
+      "word": "main",
+      "meaning": "chính",
+      "category": "describe",
+      "example": "The main road is closed because of the festival.",
+      "image": ""
+    },
+    {
+      "word": "messy",
+      "meaning": "lộn xộn, bừa bộn",
+      "category": "describe",
+      "example": "His desk is always messy.",
+      "image": ""
+    },
+    {
+      "word": "neat",
+      "meaning": "gọn gàng",
+      "category": "describe",
+      "example": "Her handwriting is very neat.",
+      "image": ""
+    },
+    {
+      "word": "silent",
+      "meaning": "im lặng",
+      "category": "describe",
+      "example": "The library was silent in the afternoon.",
+      "image": ""
+    },
+    {
+      "word": "urgent",
+      "meaning": "khẩn cấp",
+      "category": "describe",
+      "example": "I got an urgent message from my teacher this morning.",
+      "image": ""
+    },
+    {
+      "word": "face-to-face",
+      "meaning": "trực tiếp",
+      "category": "describe",
+      "example": "We had a face-to-face meeting with our new teacher.",
+      "image": ""
+    },
+    {
+      "word": "duty-free",
+      "meaning": "miễn thuế",
+      "category": "describe",
+      "example": "We bought a duty-free gift at the airport.",
+      "image": ""
+    },
+    {
+      "word": "engaged",
+      "meaning": "đang bận, đã đính hôn",
+      "category": "describe",
+      "example": "The phone line is engaged, so I will call back later.",
+      "image": ""
+    },
+    {
+      "word": "humid",
+      "meaning": "ẩm ướt",
+      "category": "weather",
+      "example": "It is hot and humid in the south in summer.",
+      "image": ""
+    },
+    {
+      "word": "icy",
+      "meaning": "đóng băng, lạnh buốt",
+      "category": "weather",
+      "example": "The road was icy, so the bus drove slowly.",
+      "image": ""
+    },
+    {
+      "word": "mild",
+      "meaning": "ôn hoà, nhẹ",
+      "category": "weather",
+      "example": "The weather is mild in spring.",
+      "image": ""
+    },
+    {
+      "word": "quiet",
+      "meaning": "yên tĩnh",
+      "category": "describe",
+      "example": "Please be quiet in the library.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: urg_nt (khẩn cấp)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is hot and ___ in the south in summer.",
+      "options": [
+        "humid",
+        "olives",
+        "pillow"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị hư hỏng)",
+      "options": [
+        "daamged",
+        "damagged",
+        "damaged"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"engaged\" mean?",
+      "options": [
+        "thuộc Thế vận hội",
+        "khôn ngoan, thông thái",
+        "đang bận, đã đính hôn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _cy (đóng băng, lạnh buốt)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bitter\" mean?",
+      "options": [
+        "lười",
+        "đắng",
+        "sẵn lòng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đầy bụi)",
+      "options": [
+        "dussty",
+        "dusty",
+        "dsuty"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mild\" mean?",
+      "options": [
+        "ôn hoà, nhẹ",
+        "tuyệt đẹp",
+        "điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chính)",
+      "options": [
+        "mayn",
+        "mian",
+        "main"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lộn xộn, bừa bộn\"?",
+      "options": [
+        "active",
+        "racing",
+        "messy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We bought a ___ gift at the airport.",
+      "options": [
+        "duty-free",
+        "celebrity",
+        "library"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gọn gàng\"?",
+      "options": [
+        "honest",
+        "neat",
+        "sensible"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"face-to-face\" mean?",
+      "options": [
+        "hòa đồng",
+        "trực tiếp",
+        "độc lập"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"yên tĩnh\"?",
+      "options": [
+        "quiet",
+        "friendly",
+        "curious"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sil_nt (im lặng)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to taste something bitter",
+    "Pretend to sit in a cosy chair",
+    "Show me a messy desk then a neat desk",
+    "Be silent for three seconds",
+    "Pretend to wipe a dusty shelf",
+    "Show me you are very busy and in a hurry"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

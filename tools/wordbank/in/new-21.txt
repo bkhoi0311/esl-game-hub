@@ -1,0 +1,110 @@
+occasion	n	pet					n
+occasionally	adv	pet					adv
+officer	n	pet					n
+okay	adj	pet					adj+exclam
+old-fashioned	adj	pet					adj
+on board	phr	pet					prep phr
+on business	phr	pet					prep phr
+on fire	phr	pet					prep phr
+on foot	phr	pet					prep phr
+on holiday	phr	pet					prep phr
+on purpose	phr	pet					prep phr
+on request	phr	pet					prep phr
+on sale	phr	pet					prep phr
+on time	phr	pet					prep phr
+on vacation	phr	pet					prep phr
+onto	prep	pet					prep
+opening hours	n	pet					n pl
+operate	v	pet					v
+operation	n	pet					n
+operator	n	pet					n
+opportunity	n	pet					n
+option	n	pet					n
+orchestra	n	pet					n
+ordinary	adj	pet					adj
+organisation	n	pet					n
+organise	v	pet					v
+original	adj	pet					adj
+otherwise	adv	pet					adv
+ought	other	pet					mv
+out of date	phr	pet					prep phr
+out of order	phr	pet					prep phr
+out of work	phr	pet					prep phr
+overnight	adj	pet					adj+adv
+owe	v	pet					v
+owner	n	pet					n
+packet	n	pet					n
+painful	adj	pet					adj
+palace	n	pet					n
+pan	n	pet					n
+parking	n	pet					n
+part time	adv	pet					adv
+part-time	adj	pet					adj
+particular	adj	pet					adj
+particularly	adv	pet					adv
+partly	adv	pet					adv
+pass on	v	pet					phr v
+patient	adj	pet					adj+n
+pattern	n	pet					n
+pause	v	pet					v
+pavement	n	pet					n
+peace	n	pet					n
+peaceful	adj	pet					adj
+peak	n	pet					n
+pedestrian	n	pet					n
+peel	v	pet					v
+percent	adv	pet					adv
+perfectly	adv	pet					adv
+performer	n	pet					n
+period	n	pet					n
+permanent	adj	pet					adj
+permission	n	pet					n
+permit	v	pet					v
+permitted	adj	pet					adj
+personal	adj	pet					adj
+personally	adv	pet					adv
+persuade	v	pet					v
+photocopy	n	pet					n
+photograph	n	pet					n+v
+phrase	n	pet					n
+pick	v	pet					v
+pile	n	pet					n
+pin	n	pet					n+v
+pipe	n	pet					n
+pitch	n	pet					n
+plain	adj	pet					adj
+pleasure	n	pet					n
+plenty	pron	pet					pron
+plot	n	pet					n
+pocket money	n	pet					n
+podcast	n	pet					n
+poem	n	pet					n
+poet	n	pet					n
+poetry	n	pet					n
+policewoman	n	pet					n
+political	adj	pet					adj
+politician	n	pet					n
+politics	n	pet					n
+population	n	pet					n
+position	n	pet					n
+positive	adj	pet					adj
+possibility	n	pet					n
+postpone	v	pet					v
+pot	n	pet					n
+pottery	n	pet					n
+pour	v	pet					v
+powder	n	pet					n
+power	n	pet					n
+powerful	adj	pet					adj
+prayer	n	pet					n
+predict	v	pet					v
+pregnant	adj	pet					adj
+preparation	n	pet					n
+prepared	adj	pet					adj
+prescription	n	pet					n
+presentation	n	pet					n
+presenter	n	pet					n
+president	n	pet					n
+press	v	pet					v
+prevent	v	pet					v
+previous	adj	pet					adj

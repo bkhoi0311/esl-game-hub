@@ -1,0 +1,268 @@
+{
+  "title": "Hobbies and Free Time",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "hobby",
+      "meaning": "sở thích",
+      "category": "hobby",
+      "example": "Painting is my hobby.",
+      "image": ""
+    },
+    {
+      "word": "collection",
+      "meaning": "bộ sưu tập",
+      "category": "hobby",
+      "example": "He has a large collection of old coins.",
+      "image": ""
+    },
+    {
+      "word": "interest",
+      "meaning": "sự quan tâm, sở thích",
+      "category": "hobby",
+      "example": "She has a strong interest in music and art.",
+      "image": ""
+    },
+    {
+      "word": "leisure",
+      "meaning": "thời gian rảnh",
+      "category": "hobby",
+      "example": "What do you do in your leisure time?",
+      "image": ""
+    },
+    {
+      "word": "pottery",
+      "meaning": "đồ gốm",
+      "category": "hobby",
+      "example": "I am taking a pottery class on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "ballet",
+      "meaning": "múa ba lê",
+      "category": "hobby",
+      "example": "My sister takes ballet lessons on Tuesday.",
+      "image": ""
+    },
+    {
+      "word": "contest",
+      "meaning": "cuộc thi",
+      "category": "hobby",
+      "example": "She won a drawing contest at school.",
+      "image": ""
+    },
+    {
+      "word": "entry",
+      "meaning": "bài dự thi, lối vào",
+      "category": "hobby",
+      "example": "Please send your entry for the photo competition by Friday.",
+      "image": ""
+    },
+    {
+      "word": "knit",
+      "meaning": "đan len",
+      "category": "daily",
+      "example": "My grandmother taught me how to knit a scarf.",
+      "image": ""
+    },
+    {
+      "word": "sew",
+      "meaning": "may",
+      "category": "daily",
+      "example": "My grandmother taught me how to sew a button.",
+      "image": ""
+    },
+    {
+      "word": "hang out",
+      "meaning": "đi chơi cùng",
+      "category": "daily",
+      "example": "My friends and I hang out at the mall on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "chill out",
+      "meaning": "thư giãn",
+      "category": "daily",
+      "example": "After the exam, we like to chill out at the park.",
+      "image": ""
+    },
+    {
+      "word": "sunbathe",
+      "meaning": "tắm nắng",
+      "category": "daily",
+      "example": "Tourists sunbathe on the beach all afternoon.",
+      "image": ""
+    },
+    {
+      "word": "entertain",
+      "meaning": "làm vui, giải trí cho",
+      "category": "daily",
+      "example": "The clown tried to entertain the children at the party.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (đan len)",
+      "options": [
+        "kint",
+        "knnit",
+        "knit"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"leisure\" mean?",
+      "options": [
+        "thời gian rảnh",
+        "tốt nghiệp, người tốt nghiệp",
+        "máy bay"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (làm vui, giải trí cho)",
+      "options": [
+        "entetrain",
+        "entertain",
+        "etnertain"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sunbathe\" mean?",
+      "options": [
+        "tắm nắng",
+        "nhường đường",
+        "muốn có"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: collect_on (bộ sưu tập)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sew\" mean?",
+      "options": [
+        "có thể",
+        "may",
+        "muốn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: inter_st (sự quan tâm, sở thích)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thư giãn\"?",
+      "options": [
+        "get off",
+        "get married",
+        "chill out"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_bby (sở thích)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Tourists ___ on the beach all afternoon.",
+      "options": [
+        "hobby",
+        "entry",
+        "sunbathe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bài dự thi, lối vào)",
+      "options": [
+        "entrry",
+        "entry",
+        "enttry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hang out\" mean?",
+      "options": [
+        "đi chơi cùng",
+        "tập trung vào",
+        "giải ra, tìm ra"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister takes ___ lessons on Tuesday.",
+      "options": [
+        "ballet",
+        "chill out",
+        "entertain"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồ gốm\"?",
+      "options": [
+        "runner",
+        "pottery",
+        "chilli"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộc thi\"?",
+      "options": [
+        "rock",
+        "helmet",
+        "contest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to knit a scarf",
+    "Pretend to sew a button",
+    "Pretend to make a pot from clay",
+    "Pretend to dance ballet",
+    "Pretend to look at your collection",
+    "Pretend to chill out on a sofa"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

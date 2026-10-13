@@ -119,9 +119,9 @@
     {
       "prompt": "I have an ___ for breakfast.",
       "options": [
-        "eat",
+        "open",
         "egg",
-        "excited"
+        "old"
       ],
       "answer": 1,
       "type": "vocab"
@@ -190,8 +190,8 @@
       "prompt": "My cat likes to eat ___.",
       "options": [
         "meat",
-        "buy",
-        "write"
+        "nice",
+        "closed"
       ],
       "answer": 0,
       "type": "vocab"

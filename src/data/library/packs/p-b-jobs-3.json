@@ -1,0 +1,275 @@
+{
+  "title": "Jobs and Workplaces",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "babysitter",
+      "meaning": "người trông trẻ",
+      "category": "job",
+      "example": "The babysitter read a story to the children.",
+      "image": ""
+    },
+    {
+      "word": "baker",
+      "meaning": "thợ làm bánh",
+      "category": "job",
+      "example": "The baker gets up early to make bread.",
+      "image": ""
+    },
+    {
+      "word": "diver",
+      "meaning": "thợ lặn",
+      "category": "job",
+      "example": "The diver swam down to look at the coral.",
+      "image": ""
+    },
+    {
+      "word": "employee",
+      "meaning": "nhân viên",
+      "category": "job",
+      "example": "Every employee at the shop wears a green uniform.",
+      "image": ""
+    },
+    {
+      "word": "employer",
+      "meaning": "chủ lao động",
+      "category": "job",
+      "example": "My employer gave me a day off for my exams.",
+      "image": ""
+    },
+    {
+      "word": "examiner",
+      "meaning": "giám khảo",
+      "category": "job",
+      "example": "The examiner asked me some questions about my hobbies.",
+      "image": ""
+    },
+    {
+      "word": "film maker",
+      "meaning": "nhà làm phim",
+      "category": "job",
+      "example": "My uncle is a film maker in the city.",
+      "image": ""
+    },
+    {
+      "word": "guard",
+      "meaning": "người bảo vệ",
+      "category": "job",
+      "example": "The guard opens the gate.",
+      "image": ""
+    },
+    {
+      "word": "keeper",
+      "meaning": "người trông coi",
+      "category": "job",
+      "example": "The zoo keeper feeds the lions at noon.",
+      "image": ""
+    },
+    {
+      "word": "profession",
+      "meaning": "nghề nghiệp",
+      "category": "job",
+      "example": "Teaching is a hard but rewarding profession.",
+      "image": ""
+    },
+    {
+      "word": "crew",
+      "meaning": "đội ngũ, thuỷ thủ đoàn",
+      "category": "work",
+      "example": "The crew on the plane gave us some water.",
+      "image": ""
+    },
+    {
+      "word": "firm",
+      "meaning": "công ty",
+      "category": "work",
+      "example": "She works for a small firm near the station.",
+      "image": ""
+    },
+    {
+      "word": "organisation",
+      "meaning": "tổ chức",
+      "category": "work",
+      "example": "She works for an organisation that helps animals.",
+      "image": ""
+    },
+    {
+      "word": "operator",
+      "meaning": "tổng đài viên",
+      "category": "work",
+      "example": "The operator connected me to the right department.",
+      "image": ""
+    },
+    {
+      "word": "volunteer",
+      "meaning": "tình nguyện viên",
+      "category": "work",
+      "example": "My brother is a volunteer at the animal shelter.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: b_bysitter (người trông trẻ)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"baker\" mean?",
+      "options": [
+        "thợ làm bánh",
+        "vải bông",
+        "hệ thống sưởi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_ard (người bảo vệ)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tổng đài viên\"?",
+      "options": [
+        "octopus",
+        "operator",
+        "bottle bank"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giám khảo)",
+      "options": [
+        "examiner",
+        "eaxminer",
+        "exmainer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"organisation\" mean?",
+      "options": [
+        "bánh burger",
+        "cục tẩy",
+        "tổ chức"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tình nguyện viên)",
+      "options": [
+        "volunteir",
+        "voluneter",
+        "volunteer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"diver\" mean?",
+      "options": [
+        "đôi găng tay",
+        "thợ lặn",
+        "bông tai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: employ_e (nhân viên)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người trông coi)",
+      "options": [
+        "keeper",
+        "keper",
+        "kieper"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đội ngũ, thuỷ thủ đoàn\"?",
+      "options": [
+        "roof",
+        "crew",
+        "south"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle is a ___ in the city.",
+      "options": [
+        "fire station",
+        "police car",
+        "film maker"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"profession\" mean?",
+      "options": [
+        "nghề nghiệp",
+        "cái cổng",
+        "kỹ năng viết, bài viết"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ gave me a day off for my exams.",
+      "options": [
+        "table",
+        "list",
+        "employer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"công ty\"?",
+      "options": [
+        "costume",
+        "firm",
+        "sea"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a baker making bread",
+    "Pretend to be a diver swimming slowly",
+    "Pretend to be a film maker holding a camera",
+    "Pretend to be an examiner checking a paper",
+    "Pretend to be a babysitter singing softly",
+    "Pretend to be an employee shaking hands with an employer"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

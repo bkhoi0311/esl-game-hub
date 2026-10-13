@@ -1,0 +1,289 @@
+{
+  "title": "Opposites 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "positive",
+      "meaning": "tích cực",
+      "category": "opinion",
+      "example": "Try to stay positive before your big exam.",
+      "image": ""
+    },
+    {
+      "word": "negative",
+      "meaning": "tiêu cực",
+      "category": "opinion",
+      "example": "Try not to have negative thoughts before an exam.",
+      "image": ""
+    },
+    {
+      "word": "accept",
+      "meaning": "chấp nhận",
+      "category": "mind",
+      "example": "He accepted the invitation to my birthday party.",
+      "image": ""
+    },
+    {
+      "word": "refuse",
+      "meaning": "từ chối",
+      "category": "speech",
+      "example": "She refused to leave without her little brother.",
+      "image": ""
+    },
+    {
+      "word": "increase",
+      "meaning": "tăng",
+      "category": "daily",
+      "example": "The price of tickets will increase next month.",
+      "image": ""
+    },
+    {
+      "word": "reduce",
+      "meaning": "giảm",
+      "category": "daily",
+      "example": "We can reduce waste by using fewer plastic bags.",
+      "image": ""
+    },
+    {
+      "word": "private",
+      "meaning": "riêng tư, tư nhân",
+      "category": "describe",
+      "example": "This is a private room, so please knock first.",
+      "image": ""
+    },
+    {
+      "word": "close",
+      "meaning": "đóng",
+      "category": "action",
+      "example": "Please close the door.",
+      "image": ""
+    },
+    {
+      "word": "male",
+      "meaning": "nam, giống đực",
+      "category": "describe",
+      "example": "The male lion has a large mane.",
+      "image": ""
+    },
+    {
+      "word": "female",
+      "meaning": "nữ, giống cái",
+      "category": "describe",
+      "example": "A female lion hunts for the whole group.",
+      "image": ""
+    },
+    {
+      "word": "permitted",
+      "meaning": "được phép",
+      "category": "describe",
+      "example": "Photos are not permitted inside the museum.",
+      "image": ""
+    },
+    {
+      "word": "prohibited",
+      "meaning": "bị nghiêm cấm",
+      "category": "describe",
+      "example": "Eating is prohibited in the school library.",
+      "image": ""
+    },
+    {
+      "word": "likely",
+      "meaning": "có thể xảy ra",
+      "category": "describe",
+      "example": "It is likely to rain this afternoon.",
+      "image": ""
+    },
+    {
+      "word": "unlikely",
+      "meaning": "không chắc xảy ra",
+      "category": "describe",
+      "example": "It is unlikely that we will win the match.",
+      "image": ""
+    },
+    {
+      "word": "necessary",
+      "meaning": "cần thiết",
+      "category": "describe",
+      "example": "It is necessary to wear a helmet on a bike.",
+      "image": ""
+    },
+    {
+      "word": "unnecessary",
+      "meaning": "không cần thiết",
+      "category": "describe",
+      "example": "Buying a new bag is unnecessary because mine is fine.",
+      "image": ""
+    },
+    {
+      "word": "dull",
+      "meaning": "buồn tẻ",
+      "category": "opinion",
+      "example": "The lesson was so dull that I almost fell asleep.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"likely\" mean?",
+      "options": [
+        "kiên nhẫn",
+        "có thể xảy ra",
+        "người Ấn Độ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_le (nam, giống đực)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"negative\" mean?",
+      "options": [
+        "người Ireland",
+        "người Ý, tiếng Ý",
+        "tiêu cực"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_male (nữ, giống cái)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giảm\"?",
+      "options": [
+        "inspire",
+        "intend",
+        "reduce"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"positive\" mean?",
+      "options": [
+        "màu tím",
+        "tích cực",
+        "có trách nhiệm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tăng\"?",
+      "options": [
+        "allow",
+        "stay behind",
+        "increase"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She ___ to leave without her little brother.",
+      "options": [
+        "refused",
+        "increased",
+        "closed"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đóng\"?",
+      "options": [
+        "mention",
+        "close",
+        "fancy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: acc_pt (chấp nhận)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (được phép)",
+      "options": [
+        "pemritted",
+        "premitted",
+        "permitted"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unnecessary\" mean?",
+      "options": [
+        "khôn ngoan, hợp lý",
+        "không cần thiết",
+        "độc ác, tàn nhẫn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (riêng tư, tư nhân)",
+      "options": [
+        "private",
+        "priavte",
+        "privatte"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is ___ to wear a helmet on a bike.",
+      "options": [
+        "increase",
+        "reduce",
+        "necessary"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị nghiêm cấm)",
+      "options": [
+        "proihbited",
+        "prohibited",
+        "prhoibited"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me positive with a thumbs up and negative with a thumbs down",
+    "Show me increase with your hands going up",
+    "Show me reduce with your hands going down",
+    "Show me accept with a nod",
+    "Show me refuse with a shake of your head",
+    "Show me public and private with your hands"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

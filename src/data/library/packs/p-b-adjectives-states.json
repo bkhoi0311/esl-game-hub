@@ -1,0 +1,282 @@
+{
+  "title": "Body and Condition",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "absent",
+      "meaning": "vắng mặt",
+      "category": "describe",
+      "example": "Three students were absent from class today.",
+      "image": ""
+    },
+    {
+      "word": "alive",
+      "meaning": "còn sống",
+      "category": "describe",
+      "example": "The fish is still alive in the bowl.",
+      "image": ""
+    },
+    {
+      "word": "bald",
+      "meaning": "hói",
+      "category": "describe",
+      "example": "My grandfather is bald, but he looks friendly.",
+      "image": ""
+    },
+    {
+      "word": "blind",
+      "meaning": "mù",
+      "category": "describe",
+      "example": "Many blind people use a special stick to walk safely.",
+      "image": ""
+    },
+    {
+      "word": "deaf",
+      "meaning": "điếc",
+      "category": "describe",
+      "example": "My grandfather is deaf, so we use sign language.",
+      "image": ""
+    },
+    {
+      "word": "disabled",
+      "meaning": "khuyết tật",
+      "category": "describe",
+      "example": "The new library has a lift for disabled visitors.",
+      "image": ""
+    },
+    {
+      "word": "pregnant",
+      "meaning": "mang thai",
+      "category": "describe",
+      "example": "My aunt is pregnant and will have a baby soon.",
+      "image": ""
+    },
+    {
+      "word": "unfit",
+      "meaning": "thể lực kém",
+      "category": "describe",
+      "example": "I felt unfit after a long holiday without any sport.",
+      "image": ""
+    },
+    {
+      "word": "unhealthy",
+      "meaning": "có hại cho sức khoẻ",
+      "category": "describe",
+      "example": "Eating too many sweets is unhealthy for your teeth.",
+      "image": ""
+    },
+    {
+      "word": "unwell",
+      "meaning": "không khoẻ, ốm",
+      "category": "describe",
+      "example": "My sister felt unwell and stayed home from school.",
+      "image": ""
+    },
+    {
+      "word": "painful",
+      "meaning": "đau đớn",
+      "category": "describe",
+      "example": "My knee is still painful after the football match.",
+      "image": ""
+    },
+    {
+      "word": "hurt",
+      "meaning": "làm đau",
+      "category": "action",
+      "example": "Be careful, don't hurt your finger!",
+      "image": ""
+    },
+    {
+      "word": "frozen",
+      "meaning": "đông lạnh",
+      "category": "describe",
+      "example": "We bought some frozen pizza for dinner.",
+      "image": ""
+    },
+    {
+      "word": "freezing",
+      "meaning": "lạnh cóng",
+      "category": "describe",
+      "example": "It was freezing outside, so I wore a coat.",
+      "image": ""
+    },
+    {
+      "word": "burning",
+      "meaning": "đang cháy",
+      "category": "describe",
+      "example": "The firefighters ran into the burning building to help.",
+      "image": ""
+    },
+    {
+      "word": "hidden",
+      "meaning": "bị giấu, ẩn",
+      "category": "describe",
+      "example": "They found a hidden door behind the old bookcase.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (làm đau)",
+      "options": [
+        "hurrt",
+        "hurt",
+        "hrut"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unhealthy\" mean?",
+      "options": [
+        "kỹ thuật số",
+        "nghịch ngợm",
+        "có hại cho sức khoẻ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I felt ___ after a long holiday without any sport.",
+      "options": [
+        "unfit",
+        "hurt",
+        "degree"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"absent\" mean?",
+      "options": [
+        "táo bạo, in đậm",
+        "có tài",
+        "vắng mặt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"còn sống\"?",
+      "options": [
+        "sleeveless",
+        "alive",
+        "rude"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dis_bled (khuyết tật)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My grandfather is ___, but he looks friendly.",
+      "options": [
+        "hurt",
+        "bald",
+        "get on"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: unw_ll (không khoẻ, ốm)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đang cháy)",
+      "options": [
+        "burning",
+        "burninng",
+        "burnnig"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: de_f (điếc)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đau đớn\"?",
+      "options": [
+        "painful",
+        "responsible",
+        "selfish"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hidden\" mean?",
+      "options": [
+        "người Ý, tiếng Ý",
+        "thứ hai",
+        "bị giấu, ẩn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lạnh cóng\"?",
+      "options": [
+        "freezing",
+        "French",
+        "Indian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mang thai)",
+      "options": [
+        "prregnant",
+        "pregnant",
+        "pregnannt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"blind\" mean?",
+      "options": [
+        "đua",
+        "lặn",
+        "mù"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to feel unwell",
+    "Show me you are freezing",
+    "Mime hiding something behind your back",
+    "Pretend to have a painful finger",
+    "Show me you feel unfit after a walk",
+    "Pretend to be absent and wave goodbye"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

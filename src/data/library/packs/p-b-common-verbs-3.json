@@ -1,0 +1,272 @@
+{
+  "title": "Common Verbs 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "quit",
+      "meaning": "bỏ, từ bỏ",
+      "category": "daily",
+      "example": "He wants to quit the football team.",
+      "image": ""
+    },
+    {
+      "word": "raise",
+      "meaning": "nâng lên, giơ lên",
+      "category": "daily",
+      "example": "Please raise your hand if you know the answer.",
+      "image": ""
+    },
+    {
+      "word": "recover",
+      "meaning": "hồi phục",
+      "category": "daily",
+      "example": "It took two weeks to recover from the flu.",
+      "image": ""
+    },
+    {
+      "word": "register",
+      "meaning": "đăng ký",
+      "category": "daily",
+      "example": "You must register before joining the swimming club.",
+      "image": ""
+    },
+    {
+      "word": "remove",
+      "meaning": "gỡ bỏ, loại bỏ",
+      "category": "daily",
+      "example": "Please remove your shoes before entering the house.",
+      "image": ""
+    },
+    {
+      "word": "replace",
+      "meaning": "thay thế",
+      "category": "daily",
+      "example": "We need to replace the old batteries.",
+      "image": ""
+    },
+    {
+      "word": "require",
+      "meaning": "đòi hỏi, cần",
+      "category": "daily",
+      "example": "This game requires a fast internet connection.",
+      "image": ""
+    },
+    {
+      "word": "retire",
+      "meaning": "nghỉ hưu",
+      "category": "daily",
+      "example": "My uncle will retire when he is sixty-five.",
+      "image": ""
+    },
+    {
+      "word": "succeed",
+      "meaning": "thành công",
+      "category": "daily",
+      "example": "If you work hard, you will succeed.",
+      "image": ""
+    },
+    {
+      "word": "suffer",
+      "meaning": "chịu đựng",
+      "category": "daily",
+      "example": "Many people suffer from headaches in summer.",
+      "image": ""
+    },
+    {
+      "word": "supply",
+      "meaning": "cung ứng, cung cấp",
+      "category": "daily",
+      "example": "The farm supplies fresh milk to the shop.",
+      "image": ""
+    },
+    {
+      "word": "surround",
+      "meaning": "bao quanh",
+      "category": "daily",
+      "example": "Tall mountains surround the small village.",
+      "image": ""
+    },
+    {
+      "word": "transfer",
+      "meaning": "chuyển",
+      "category": "daily",
+      "example": "I want to transfer to another class.",
+      "image": ""
+    },
+    {
+      "word": "delete",
+      "meaning": "xoá",
+      "category": "tech",
+      "example": "Please delete the old photos from your phone.",
+      "image": ""
+    },
+    {
+      "word": "increase",
+      "meaning": "tăng",
+      "category": "daily",
+      "example": "The price of tickets will increase next month.",
+      "image": ""
+    },
+    {
+      "word": "reduce",
+      "meaning": "giảm",
+      "category": "daily",
+      "example": "We can reduce waste by using fewer plastic bags.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"increase\" mean?",
+      "options": [
+        "kết hôn",
+        "cảm thấy",
+        "tăng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Many people ___ from headaches in summer.",
+      "options": [
+        "hope",
+        "suffer",
+        "persuade"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giảm)",
+      "options": [
+        "reduce",
+        "reducce",
+        "redcue"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nghỉ hưu\"?",
+      "options": [
+        "retire",
+        "translate",
+        "show up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bao quanh)",
+      "options": [
+        "suround",
+        "surround",
+        "surronud"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thay thế\"?",
+      "options": [
+        "admit",
+        "apologise",
+        "replace"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rec_ver (hồi phục)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chuyển\"?",
+      "options": [
+        "mind",
+        "imagine",
+        "transfer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_pply (cung ứng, cung cấp)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"require\" mean?",
+      "options": [
+        "xoá",
+        "quảng cáo",
+        "đòi hỏi, cần"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"remove\" mean?",
+      "options": [
+        "gỡ bỏ, loại bỏ",
+        "lo lắng",
+        "khám phá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_gister (đăng ký)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"delete\" mean?",
+      "options": [
+        "xoá",
+        "chuyển",
+        "đăng ký"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thành công)",
+      "options": [
+        "succed",
+        "scuceed",
+        "succeed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to raise your hand",
+    "Pretend to register on a website",
+    "Pretend to remove a sticker",
+    "Pretend to replace a battery",
+    "Show me you succeed with a smile",
+    "Pretend to transfer a file"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

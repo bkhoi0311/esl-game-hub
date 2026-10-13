@@ -1,0 +1,282 @@
+{
+  "title": "Places for Fun and Shopping",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "café",
+      "meaning": "quán cà phê",
+      "category": "place",
+      "example": "We drink hot chocolate in a small café.",
+      "image": ""
+    },
+    {
+      "word": "cinema",
+      "meaning": "rạp chiếu phim",
+      "category": "place",
+      "example": "We go to the cinema today.",
+      "image": ""
+    },
+    {
+      "word": "library",
+      "meaning": "thư viện",
+      "category": "place",
+      "example": "We read books in the library.",
+      "image": ""
+    },
+    {
+      "word": "market",
+      "meaning": "chợ",
+      "category": "place",
+      "example": "We buy fish at the market.",
+      "image": ""
+    },
+    {
+      "word": "supermarket",
+      "meaning": "siêu thị",
+      "category": "place",
+      "example": "Mum buys milk at the supermarket.",
+      "image": ""
+    },
+    {
+      "word": "shopping centre",
+      "meaning": "trung tâm mua sắm",
+      "category": "place",
+      "example": "The shopping centre is big and busy.",
+      "image": ""
+    },
+    {
+      "word": "sports centre",
+      "meaning": "trung tâm thể thao",
+      "category": "place",
+      "example": "I swim at the sports centre.",
+      "image": ""
+    },
+    {
+      "word": "swimming pool",
+      "meaning": "hồ bơi",
+      "category": "place",
+      "example": "The swimming pool is cool and clean.",
+      "image": ""
+    },
+    {
+      "word": "pool",
+      "meaning": "bể bơi",
+      "category": "place",
+      "example": "We swim in the pool every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "funfair",
+      "meaning": "hội chợ vui chơi",
+      "category": "place",
+      "example": "We ride the big wheel at the funfair.",
+      "image": ""
+    },
+    {
+      "word": "circus",
+      "meaning": "rạp xiếc",
+      "category": "place",
+      "example": "We see clowns at the circus.",
+      "image": ""
+    },
+    {
+      "word": "hospital",
+      "meaning": "bệnh viện",
+      "category": "place",
+      "example": "The doctor works in the hospital.",
+      "image": ""
+    },
+    {
+      "word": "shop",
+      "meaning": "cửa hàng",
+      "category": "place",
+      "example": "The shop opens at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "park",
+      "meaning": "công viên",
+      "category": "place",
+      "example": "I play football in the park.",
+      "image": ""
+    },
+    {
+      "word": "zoo",
+      "meaning": "sở thú",
+      "category": "place",
+      "example": "We see lions at the zoo.",
+      "image": ""
+    },
+    {
+      "word": "bookshop",
+      "meaning": "hiệu sách",
+      "category": "place",
+      "example": "We buy comics at the bookshop.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"quán cà phê\"?",
+      "options": [
+        "café",
+        "circus",
+        "park"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_p (cửa hàng)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We read books in the ___.",
+      "options": [
+        "draw",
+        "find",
+        "library"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: circ_s (rạp xiếc)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sở thú\"?",
+      "options": [
+        "café",
+        "zoo",
+        "cinema"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bệnh viện)",
+      "options": [
+        "hospital",
+        "hospittal",
+        "hsopital"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"funfair\" mean?",
+      "options": [
+        "hội chợ vui chơi",
+        "rạp xiếc",
+        "bệnh viện"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (siêu thị)",
+      "options": [
+        "supermarkket",
+        "suppermarket",
+        "supermarket"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"park\" mean?",
+      "options": [
+        "thư viện",
+        "công viên",
+        "hội chợ vui chơi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trung tâm mua sắm\"?",
+      "options": [
+        "swimming pool",
+        "library",
+        "shopping centre"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"swimming pool\" mean?",
+      "options": [
+        "hồ bơi",
+        "trung tâm thể thao",
+        "rạp xiếc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We buy comics at the ___.",
+      "options": [
+        "have",
+        "bookshop",
+        "climb"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_nema (rạp chiếu phim)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sports centre\" mean?",
+      "options": [
+        "trung tâm mua sắm",
+        "hiệu sách",
+        "trung tâm thể thao"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chợ\"?",
+      "options": [
+        "market",
+        "sports centre",
+        "zoo"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to push a shopping trolley",
+    "Pretend to swim in the pool",
+    "Pretend to watch a film",
+    "Pretend to read a book quietly",
+    "Pretend to ride a funfair wheel slowly",
+    "Pretend to buy an ice cream"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

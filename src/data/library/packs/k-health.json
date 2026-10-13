@@ -1,0 +1,282 @@
+{
+  "title": "Health and Exercise",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "accident",
+      "meaning": "tai nạn",
+      "category": "health",
+      "example": "There was an accident near our school.",
+      "image": ""
+    },
+    {
+      "word": "health",
+      "meaning": "sức khoẻ",
+      "category": "health",
+      "example": "Sport is good for your health.",
+      "image": ""
+    },
+    {
+      "word": "pain",
+      "meaning": "cơn đau",
+      "category": "health",
+      "example": "He has a bad pain in his back.",
+      "image": ""
+    },
+    {
+      "word": "stomach ache",
+      "meaning": "đau bụng",
+      "category": "health",
+      "example": "I had a stomach ache after the big lunch.",
+      "image": ""
+    },
+    {
+      "word": "brain",
+      "meaning": "bộ não",
+      "category": "body",
+      "example": "Your brain helps you think.",
+      "image": ""
+    },
+    {
+      "word": "heart",
+      "meaning": "trái tim",
+      "category": "body",
+      "example": "My heart beats fast when I run.",
+      "image": ""
+    },
+    {
+      "word": "fit",
+      "meaning": "khoẻ mạnh",
+      "category": "describe",
+      "example": "He plays football every day to stay fit.",
+      "image": ""
+    },
+    {
+      "word": "get fit",
+      "meaning": "tập luyện cho khoẻ",
+      "category": "daily",
+      "example": "He wants to get fit before the summer.",
+      "image": ""
+    },
+    {
+      "word": "healthy",
+      "meaning": "khoẻ mạnh, lành mạnh",
+      "category": "describe",
+      "example": "Fruit is healthy food for children.",
+      "image": ""
+    },
+    {
+      "word": "exercise",
+      "meaning": "tập thể dục",
+      "category": "action",
+      "example": "I exercise in the park every day.",
+      "image": ""
+    },
+    {
+      "word": "rest",
+      "meaning": "nghỉ ngơi",
+      "category": "action",
+      "example": "Let's rest under the big tree.",
+      "image": ""
+    },
+    {
+      "word": "relax",
+      "meaning": "thư giãn",
+      "category": "action",
+      "example": "I relax with a good book.",
+      "image": ""
+    },
+    {
+      "word": "relaxing",
+      "meaning": "thư giãn",
+      "category": "opinion",
+      "example": "A hot bath is very relaxing.",
+      "image": ""
+    },
+    {
+      "word": "lie down",
+      "meaning": "nằm xuống",
+      "category": "action",
+      "example": "I lie down on the soft bed.",
+      "image": ""
+    },
+    {
+      "word": "appointment",
+      "meaning": "cuộc hẹn",
+      "category": "time",
+      "example": "I have a doctor's appointment at three.",
+      "image": ""
+    },
+    {
+      "word": "by accident",
+      "meaning": "vô tình",
+      "category": "manner",
+      "example": "I broke the cup by accident.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: p_in (cơn đau)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fit\" mean?",
+      "options": [
+        "thân thiện",
+        "khoẻ mạnh",
+        "người Ý, tiếng Ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_art (trái tim)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cuộc hẹn)",
+      "options": [
+        "appuintment",
+        "appointment",
+        "appoyntment"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_lax (thư giãn)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"exercise\" mean?",
+      "options": [
+        "miêu tả",
+        "quyết định",
+        "tập thể dục"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nằm xuống\"?",
+      "options": [
+        "lie down",
+        "by post",
+        "in a minute"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sức khoẻ)",
+      "options": [
+        "haelth",
+        "heelth",
+        "health"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bộ não\"?",
+      "options": [
+        "snow",
+        "brain",
+        "grandpa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There was an ___ near our school.",
+      "options": [
+        "appointment",
+        "exercise",
+        "accident"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoẻ mạnh, lành mạnh\"?",
+      "options": [
+        "healthy",
+        "musical",
+        "Italian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He wants to ___ before the summer.",
+      "options": [
+        "stomach ache",
+        "get fit",
+        "by accident"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stomach ache\" mean?",
+      "options": [
+        "cuộc hẹn",
+        "để bán",
+        "đau bụng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nghỉ ngơi)",
+      "options": [
+        "resst",
+        "rest",
+        "rset"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"relaxing\" mean?",
+      "options": [
+        "thư giãn",
+        "người Canada",
+        "màu đỏ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend you have a stomach ache",
+    "Stretch your arms slowly",
+    "Pretend to take a deep breath and relax",
+    "Pretend to call and make an appointment",
+    "Put your hand on your heart",
+    "Pretend to do five slow sit-ups on the spot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

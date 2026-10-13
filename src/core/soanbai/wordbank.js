@@ -1,7 +1,7 @@
 // Kho từ vựng (PLAN-SOANBAI mục A2, D5). Thuần trừ loadBank (nạp lười JSON bằng import()).
 import { normKey, candidates } from './normalize.js';
 
-const LV_FULL = { s: 'starters', m: 'movers', f: 'flyers', k: 'ket', o: 'other' };
+const LV_FULL = { s: 'starters', m: 'movers', f: 'flyers', k: 'ket', p: 'pet', o: 'other' };
 
 // json: { v, cols, rows } dạng cột (xem A2). Trả về kho: Map khoá chuẩn hoá -> entry + index phụ cho pl/alt.
 export function buildBank(json) {
@@ -28,6 +28,7 @@ export function buildBank(json) {
       ex: String(r[idx.ex] || ''),
       alt: split(r[idx.alt]),
       pl: split(r[idx.pl]),
+      display: idx.d === undefined ? '' : String(r[idx.d] || ''),
     };
     map.set(key, entry);
     list.push(entry);

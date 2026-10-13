@@ -1,0 +1,80 @@
+into	prep	movers					prep
+invite	v	movers					v
+last	adj	movers					adj+adv
+little	adj	movers		a little			adj
+look for	v	movers					v
+loudly	adv	movers					adv
+machine	n	movers					n
+matter	n	movers					n
+mean	v	movers					v
+mistake	n	movers					n
+model	n	movers					n
+monday	n	movers				Monday	n
+more	adv	movers					adv+det+pron
+most	adv	movers					adv+det+pron
+move	v	movers					v
+must	v	movers					v
+naughty	adj	movers					adj
+near	adv	movers					adv+prep
+neck	n	movers					n
+need	v	movers					v
+net	n	movers					n
+never	adv	movers					adv
+noise	n	movers					n
+nothing	pron	movers					pron
+o'clock	adv	movers					adv
+off	adv	movers					adv+prep
+often	adv	movers					adv
+only	adv	movers					adv
+opposite	prep	movers					prep
+out	adv	movers					adv
+out of	prep	movers					prep
+outside	adv	movers					adv+n+prep
+pair	n	movers					n
+place	n	movers					n
+player	n	movers					n
+pop star	n	movers					n
+practice	n	movers					n
+practise	v	movers					v
+put on	v	movers					v
+quickly	adv	movers					adv
+quietly	adv	movers					adv
+roller skates	n	movers					n
+roller skating	n	movers					n
+round	adj	movers					adj+adv+prep
+saturday	n	movers				Saturday	n
+sauce	n	movers					n
+score	v	movers					v
+seat	n	movers					n
+second	adj	movers					adj+adv
+shall	v	movers					v
+shape	n	movers					n
+shoulder	n	movers					n
+skip	v	movers					v
+slowly	adv	movers					adv
+someone	pron	movers					pron
+something	pron	movers					pron
+sometimes	adv	movers					adv
+stair	n	movers					n
+stomach	n	movers					n
+stomach-ache	n	movers					n
+straight	adj	movers					adj
+sunday	n	movers				Sunday	n
+sweater	n	movers					n
+take off	v	movers	i.e. get undressed				v
+terrible	adj	movers					adj
+than	other	movers					conj+prep
+third	adj	movers					adj+adv
+thursday	n	movers				Thursday	n
+toothache	n	movers					n
+top	adj	movers					adj+n
+tuesday	n	movers				Tuesday	n
+up	adv	movers					adv+prep
+upstairs	adv	movers					adv+n
+wednesday	n	movers				Wednesday	n
+weekend	n	movers					n
+when	adv	movers					adv+conj+int
+why	other	movers					int
+worse	adj	movers					adj+adv
+worst	adj	movers					adj+adv
+would	v	movers					v

@@ -137,11 +137,11 @@
       "type": "vocab"
     },
     {
-      "prompt": "Which word means \"cậu bé\"?",
+      "prompt": "Which word means \"người phụ nữ\"?",
       "options": [
+        "girl",
         "friend",
-        "man",
-        "boy"
+        "woman"
       ],
       "answer": 2,
       "type": "vocab"
@@ -167,21 +167,21 @@
       "type": "vocab"
     },
     {
-      "prompt": "Her ___ likes to draw.",
+      "prompt": "The ___ is sleeping now.",
       "options": [
-        "eat",
-        "sister",
-        "dry"
+        "funny",
+        "baby",
+        "wave"
       ],
       "answer": 1,
       "type": "vocab"
     },
     {
-      "prompt": "Which word means \"người phụ nữ\"?",
+      "prompt": "Which word means \"chị gái, em gái\"?",
       "options": [
-        "girl",
-        "friend",
-        "woman"
+        "grandma",
+        "mum",
+        "sister"
       ],
       "answer": 2,
       "type": "vocab"
@@ -207,21 +207,21 @@
       "type": "vocab"
     },
     {
-      "prompt": "Find the missing letter: g_rl (cô bé)",
+      "prompt": "Find the missing letter: b_y (cậu bé)",
       "options": [
-        "e",
         "i",
-        "a"
+        "o",
+        "e"
       ],
       "answer": 1,
       "type": "vocab"
     },
     {
-      "prompt": "What does \"baby\" mean?",
+      "prompt": "What does \"dad\" mean?",
       "options": [
-        "đứa trẻ",
-        "người bạn",
-        "em bé"
+        "mẹ",
+        "ông",
+        "bố"
       ],
       "answer": 2,
       "type": "vocab"
@@ -230,18 +230,18 @@
       "prompt": "My ___ is eight years old.",
       "options": [
         "brother",
-        "lucky",
-        "take"
+        "angry",
+        "bounce"
       ],
       "answer": 0,
       "type": "vocab"
     },
     {
-      "prompt": "What does \"dad\" mean?",
+      "prompt": "What does \"girl\" mean?",
       "options": [
-        "bố",
-        "mẹ",
-        "ông"
+        "cô bé",
+        "người bạn",
+        "cậu bé"
       ],
       "answer": 0,
       "type": "vocab"

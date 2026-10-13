@@ -1,0 +1,81 @@
+{
+  "sampled": [
+    "historic",
+    "honeymoon",
+    "hunt",
+    "identify",
+    "illness",
+    "improvement",
+    "in case",
+    "in half",
+    "in order to",
+    "influence",
+    "ink",
+    "insist",
+    "interrupt",
+    "item",
+    "jealous"
+  ],
+  "sampleErrors": [
+    "in order to"
+  ],
+  "sampleErrorRate": "1/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "hopefully",
+      "field": "ex",
+      "old": "I hope the weather is sunny, and hopefully it will not rain.",
+      "new": "The bus is late, but hopefully it will come soon."
+    },
+    {
+      "word": "immigration",
+      "field": "vi",
+      "old": "sự nhập cư",
+      "new": "nhập cảnh, nhập cư"
+    },
+    {
+      "word": "in love",
+      "field": "vi",
+      "old": "đang yêu",
+      "new": "say mê, đang yêu"
+    },
+    {
+      "word": "in love",
+      "field": "ex",
+      "old": "The characters in this film are in love, but they live far apart.",
+      "new": "My little sister is in love with her new puppy."
+    },
+    {
+      "word": "in order to",
+      "field": "vi",
+      "old": "để mà",
+      "new": "để"
+    },
+    {
+      "word": "initial",
+      "field": "ex",
+      "old": "Write your initial at the top of the page.",
+      "new": "Write your initials at the top of the page."
+    },
+    {
+      "word": "instance",
+      "field": "ex",
+      "old": "This is a good instance of how teamwork can help.",
+      "new": "Some sports, for instance tennis, need a lot of practice."
+    },
+    {
+      "word": "joke",
+      "field": "vi",
+      "old": "câu chuyện đùa",
+      "new": "câu đùa, nói đùa"
+    },
+    {
+      "word": "keep in",
+      "field": "vi",
+      "old": "giữ lại, nhốt lại",
+      "new": "giữ lại, bắt ở lại"
+    }
+  ],
+  "stillCheck": []
+}

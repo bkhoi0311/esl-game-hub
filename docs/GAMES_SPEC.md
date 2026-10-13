@@ -68,7 +68,7 @@ Chung cho nhóm A: màn hình chọn camera trước khi vào game; hình gươn
 - **Luyện:** nghe lệnh hành động.
 - **Chế độ:** Cả lớp, camera góc rộng.
 - **Cách chơi:** Máy đọc 1 lệnh trong `actionCommands` bằng TTS, đèn xanh 3-8 giây (ngẫu nhiên), cả lớp làm theo. Đèn đỏ: đứng im 3 giây. Vùng có chuyển động khi đèn đỏ được tô đỏ trên màn hình. Giáo viên nhìn vùng đỏ để gọi tên học sinh bị loại.
-- **Kỹ thuật:** so sánh khung hình (frame differencing), chia lưới 16x9 ô, **không dùng AI**. Có bước hiệu chỉnh 3 giây lúc bắt đầu (lớp đứng yên) để đặt ngưỡng nhiễu. Thanh trượt độ nhạy cho giáo viên.
+- **Kỹ thuật (v2, 13/10/2026):** so sánh khung hình, **không dùng AI**. Ảnh 256x144 (vẽ 512x288 rồi trung bình 2x2), khối 8x8 (576 khối, ô hiển thị 16x9 = 2x2 khối). Mỗi khối ĐẾM số điểm ảnh đổi (không lấy trung bình), ngưỡng điểm ảnh theo nhiễu cảm biến thật (sigma từ trung vị |chênh|), ngưỡng khối theo nhiễu riêng từng khối (trung vị + MAD, có trần) cộng sàn theo đuôi nhiễu gộp. Hai tín hiệu: so khung cách ~200 ms (cử động nhanh) và so ảnh mốc chụp sau 0,7 s ân hạn (cử động chậm). Bù sáng toàn khung (trung vị tỉ số), bỏ khung đổi toàn cục (> 60 % khối), bằng chứng có suy giảm thay cho reset. Chỉ xử lý khung camera mới (requestVideoFrameCallback). Hiệu chỉnh 3 giây lúc bắt đầu (lớp đứng yên) cho nhiễu từng khối, khối luôn nhấp nháy tô xám. Nút -/+ độ nhạy, ô vàng đang chuyển động, chia 2 đội. Mã: `src/games/statue-freeze/motion.js`; test: `tests/statue-motion.test.mjs`.
 - **Lưu ý:** game KHÔNG nhận diện từng học sinh, chỉ chỉ ra vùng có chuyển động. Ghi rõ điều này trong phần hướng dẫn.
 - **Nghiệm thu:** chạy được ở bản offline; tay người vẫy trước webcam khi đèn đỏ thì ô tương ứng đỏ; đứng yên thì không báo nhầm quá 1 ô.
 
@@ -80,12 +80,12 @@ Chung cho nhóm A: màn hình chọn camera trước khi vào game; hình gươn
 - **Kỹ thuật:** MediaPipe Pose Landmarker, `numPoses` = 3; kiểm tra tư thế bằng vị trí tương đối các điểm (cổ tay so với vai, cổ tay so với mũi...), giữ đúng liên tục 0.5 giây mới tính.
 - **Nghiệm thu:** vẽ khung xương lên hình; trái/phải đúng theo học sinh khi hình đã lật gương.
 
-### 3. Head Tilt Quiz (kiểu filter trắc nghiệm trên TikTok)
-- **Luyện:** từ vựng/ngữ pháp chọn 1 trong 2.
-- **Chế độ:** 1-2 học sinh đứng gần camera (dưới 1.5 mét).
-- **Cách chơi:** Câu hỏi hiện trên đầu, 2 đáp án ở 2 bên khuôn mặt. Nghiêng đầu quá 15 độ và giữ 0.4 giây để chọn. 10 câu, mỗi câu 6 giây.
-- **Kỹ thuật:** MediaPipe Face Landmarker, tính góc nghiêng từ 2 khóe mắt. Câu có 3 đáp án thì chỉ lấy đáp án đúng + 1 đáp án sai.
-- **Nghiệm thu:** góc nghiêng hiển thị dạng thanh chỉ báo; không chọn nhầm khi đầu thẳng.
+### 3. ~~Head Tilt Quiz~~ (đã thay bằng Sentence Race, 13/10/2026)
+Head Tilt Quiz đã gỡ (model mặt 3,7 MB, ít dùng). Thay bằng **Sentence Race** (nhóm "Thi đấu cả lớp", không camera), mã ở `src/games/sentence-race/`:
+- **Luyện:** thứ tự từ, ngữ pháp. **Chế độ:** 2 học sinh đứng 2 bên bảng, mỗi bên một câu khác nhau.
+- **Cách chơi:** câu bị xáo thành thẻ từ (thẻ cao >= 56 px ở 1280x647). Chạm thẻ theo đúng thứ tự: đúng thì thẻ nhảy lên dòng câu, sai thì rung và khoá bên đó 0,8 giây (có thể tắt "Chống bấm loạn"). Đủ câu: +1 điểm, sang câu mới. Hết giờ (60/90/120 giây) nhiều câu hơn thì thắng. 20 giây không chạm đúng: thẻ kế tiếp viền vàng nhấp nháy.
+- **Dữ liệu:** `vocab[].example` và câu hỏi có đúng một chỗ "___" (ghép đáp án đúng vào). Mức độ dài: Ngắn 3–5 từ, Vừa 4–7, Dài 5–9; cài đặt chọn giữ hoặc bỏ chữ hoa đầu câu. Thiếu (dưới 6 câu) thì báo cần thêm câu ví dụ.
+- **Kỹ thuật:** DOM thuần, `pointerdown` từng nửa bảng (không kéo thả); `logic.js` thuần (tokenize, makeRound, isNext) có test; thẻ trùng chữ ("the" hai lần) so theo chữ, không theo thẻ.
 
 ### 4. Word Ninja (lối chơi kiểu Fruit Ninja)
 - **Luyện:** phân loại từ vựng.

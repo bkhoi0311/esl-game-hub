@@ -1,0 +1,282 @@
+{
+  "title": "Transport",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "ambulance",
+      "meaning": "xe cứu thương",
+      "category": "transport",
+      "example": "The ambulance is coming very fast.",
+      "image": ""
+    },
+    {
+      "word": "bicycle",
+      "meaning": "xe đạp",
+      "category": "transport",
+      "example": "She has a red bicycle.",
+      "image": ""
+    },
+    {
+      "word": "fire engine",
+      "meaning": "xe cứu hỏa",
+      "category": "transport",
+      "example": "The fire engine is red and loud.",
+      "image": ""
+    },
+    {
+      "word": "fire truck",
+      "meaning": "xe cứu hỏa",
+      "category": "transport",
+      "example": "A fire truck stops near the school.",
+      "image": ""
+    },
+    {
+      "word": "motorway",
+      "meaning": "đường cao tốc",
+      "category": "transport",
+      "example": "We drove on the motorway to the airport.",
+      "image": ""
+    },
+    {
+      "word": "platform",
+      "meaning": "sân ga",
+      "category": "transport",
+      "example": "The train is at platform two.",
+      "image": ""
+    },
+    {
+      "word": "rocket",
+      "meaning": "tên lửa",
+      "category": "transport",
+      "example": "The rocket flies up to the moon.",
+      "image": ""
+    },
+    {
+      "word": "sledge",
+      "meaning": "xe trượt tuyết",
+      "category": "transport",
+      "example": "The children ride a sledge down the hill.",
+      "image": ""
+    },
+    {
+      "word": "spaceship",
+      "meaning": "tàu vũ trụ",
+      "category": "transport",
+      "example": "The spaceship lands on a new planet.",
+      "image": ""
+    },
+    {
+      "word": "taxi",
+      "meaning": "xe taxi",
+      "category": "transport",
+      "example": "We take a taxi to the station.",
+      "image": ""
+    },
+    {
+      "word": "traffic",
+      "meaning": "giao thông",
+      "category": "transport",
+      "example": "There is a lot of traffic today.",
+      "image": ""
+    },
+    {
+      "word": "tyre",
+      "meaning": "lốp xe",
+      "category": "transport",
+      "example": "My bike has a flat tyre.",
+      "image": ""
+    },
+    {
+      "word": "engine",
+      "meaning": "động cơ",
+      "category": "tech",
+      "example": "The engine of the car is very loud.",
+      "image": ""
+    },
+    {
+      "word": "wheel",
+      "meaning": "bánh xe",
+      "category": "thing",
+      "example": "My bike has a new front wheel.",
+      "image": ""
+    },
+    {
+      "word": "pilot",
+      "meaning": "phi công",
+      "category": "job",
+      "example": "The pilot flies the plane.",
+      "image": ""
+    },
+    {
+      "word": "railway",
+      "meaning": "đường sắt",
+      "category": "place",
+      "example": "The railway goes through the forest.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "We take a ___ to the station.",
+      "options": [
+        "wheel",
+        "pilot",
+        "taxi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phi công)",
+      "options": [
+        "pylot",
+        "pilot",
+        "pillot"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đường cao tốc\"?",
+      "options": [
+        "motorway",
+        "tyre",
+        "platform"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The children ride a ___ down the hill.",
+      "options": [
+        "pilot",
+        "wheel",
+        "sledge"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_ffic (giao thông)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tàu vũ trụ)",
+      "options": [
+        "spaceship",
+        "spaciship",
+        "spacsehip"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fire truck\" mean?",
+      "options": [
+        "lốp xe",
+        "xe cứu hỏa",
+        "xe đạp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: railw_y (đường sắt)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tên lửa\"?",
+      "options": [
+        "rocket",
+        "taxi",
+        "tyre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: amb_lance (xe cứu thương)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sân ga\"?",
+      "options": [
+        "spaceship",
+        "sledge",
+        "platform"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tyre\" mean?",
+      "options": [
+        "lốp xe",
+        "xe taxi",
+        "giao thông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bánh xe)",
+      "options": [
+        "wheel",
+        "whel",
+        "whiel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bicycle\" mean?",
+      "options": [
+        "xe cứu thương",
+        "đường cao tốc",
+        "xe đạp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"engine\" mean?",
+      "options": [
+        "bánh xe",
+        "động cơ",
+        "sân ga"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ride a bicycle",
+    "Pretend to steer a taxi",
+    "Pretend to pull a sledge",
+    "Pretend to pump up a tyre",
+    "Pretend to wait on a platform",
+    "Pretend to fly a rocket"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

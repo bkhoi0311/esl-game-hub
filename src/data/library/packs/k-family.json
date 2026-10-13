@@ -1,0 +1,296 @@
+{
+  "title": "Family and Friends",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "adult",
+      "meaning": "người lớn",
+      "category": "people",
+      "example": "Children must swim with an adult.",
+      "image": ""
+    },
+    {
+      "word": "boyfriend",
+      "meaning": "bạn trai",
+      "category": "people",
+      "example": "My cousin's boyfriend is a doctor.",
+      "image": ""
+    },
+    {
+      "word": "girlfriend",
+      "meaning": "bạn gái",
+      "category": "people",
+      "example": "My uncle and his girlfriend visited us on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "penfriend",
+      "meaning": "bạn qua thư",
+      "category": "people",
+      "example": "My penfriend lives in another country.",
+      "image": ""
+    },
+    {
+      "word": "neighbour",
+      "meaning": "hàng xóm",
+      "category": "people",
+      "example": "Our neighbour has a very friendly dog.",
+      "image": ""
+    },
+    {
+      "word": "partner",
+      "meaning": "bạn cùng cặp, đối tác",
+      "category": "people",
+      "example": "Work with a partner and ask these questions.",
+      "image": ""
+    },
+    {
+      "word": "grandad",
+      "meaning": "ông",
+      "category": "family",
+      "example": "My grandad tells great stories.",
+      "image": ""
+    },
+    {
+      "word": "granny",
+      "meaning": "bà",
+      "category": "family",
+      "example": "My granny makes the best soup.",
+      "image": ""
+    },
+    {
+      "word": "grandchild",
+      "meaning": "cháu",
+      "category": "family",
+      "example": "Their grandchild visits them every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "mom",
+      "meaning": "mẹ",
+      "category": "family",
+      "example": "My mom works at a bank.",
+      "image": ""
+    },
+    {
+      "word": "get married",
+      "meaning": "kết hôn",
+      "category": "family",
+      "example": "My cousin will get married next year.",
+      "image": ""
+    },
+    {
+      "word": "teenager",
+      "meaning": "thiếu niên",
+      "category": "people",
+      "example": "My cousin is a teenager now.",
+      "image": ""
+    },
+    {
+      "word": "guy",
+      "meaning": "anh chàng",
+      "category": "people",
+      "example": "That guy is my brother's friend.",
+      "image": ""
+    },
+    {
+      "word": "first name",
+      "meaning": "tên",
+      "category": "people",
+      "example": "Please write your first name in the box.",
+      "image": ""
+    },
+    {
+      "word": "ms",
+      "meaning": "cô, bà",
+      "category": "people",
+      "example": "Please give your homework to Ms Green.",
+      "image": ""
+    },
+    {
+      "word": "born",
+      "meaning": "được sinh ra",
+      "category": "daily",
+      "example": "My cousin was born in March.",
+      "image": ""
+    },
+    {
+      "word": "grow up",
+      "meaning": "lớn lên",
+      "category": "daily",
+      "example": "I want to be a doctor when I grow up.",
+      "image": ""
+    },
+    {
+      "word": "become",
+      "meaning": "trở thành",
+      "category": "daily",
+      "example": "She wants to become a doctor.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: b_yfriend (bạn trai)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thiếu niên\"?",
+      "options": [
+        "teenager",
+        "experience",
+        "glue"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trở thành)",
+      "options": [
+        "bicome",
+        "become",
+        "becomme"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"born\" mean?",
+      "options": [
+        "kết hôn",
+        "được sinh ra",
+        "đề nghị, gợi ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bạn qua thư)",
+      "options": [
+        "penfriend",
+        "penfreind",
+        "penfryend"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ works at a bank.",
+      "options": [
+        "grow up",
+        "become",
+        "mom"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bà\"?",
+      "options": [
+        "granny",
+        "return",
+        "tennis racket"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_ndad (ông)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grandchild\" mean?",
+      "options": [
+        "cái đuôi",
+        "áo len",
+        "cháu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lớn lên\"?",
+      "options": [
+        "grow up",
+        "be called",
+        "make sure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_y (anh chàng)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Ms\" mean?",
+      "options": [
+        "thứ Bảy",
+        "cô, bà",
+        "dầu gội đầu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please write your ___ in the box.",
+      "options": [
+        "first name",
+        "grow up",
+        "become"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"girlfriend\" mean?",
+      "options": [
+        "nhân viên",
+        "hiệu sách",
+        "bạn gái"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hàng xóm)",
+      "options": [
+        "niighbour",
+        "neighbour",
+        "nieghbour"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wave to your neighbour",
+    "Pretend to hug your grandad gently",
+    "Pretend to write a letter to a penfriend",
+    "Show me a happy family photo pose",
+    "Pretend to blow out birthday candles",
+    "Pretend to give a gift to a friend"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

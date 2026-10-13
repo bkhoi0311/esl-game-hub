@@ -1,0 +1,296 @@
+{
+  "title": "Colours and Drawing",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "black",
+      "meaning": "màu đen",
+      "category": "color",
+      "example": "My cat is black.",
+      "image": ""
+    },
+    {
+      "word": "blue",
+      "meaning": "màu xanh dương",
+      "category": "color",
+      "example": "The sky is blue today.",
+      "image": ""
+    },
+    {
+      "word": "brown",
+      "meaning": "màu nâu",
+      "category": "color",
+      "example": "The bear is brown.",
+      "image": ""
+    },
+    {
+      "word": "color",
+      "meaning": "màu sắc",
+      "category": "color",
+      "example": "My favourite color is blue.",
+      "image": ""
+    },
+    {
+      "word": "colour",
+      "meaning": "màu sắc",
+      "category": "color",
+      "example": "What colour is your bag?",
+      "image": ""
+    },
+    {
+      "word": "gray",
+      "meaning": "màu xám",
+      "category": "color",
+      "example": "The clouds are gray today.",
+      "image": ""
+    },
+    {
+      "word": "green",
+      "meaning": "màu xanh lá",
+      "category": "color",
+      "example": "The grass is green.",
+      "image": ""
+    },
+    {
+      "word": "grey",
+      "meaning": "màu xám",
+      "category": "color",
+      "example": "The elephant is grey.",
+      "image": ""
+    },
+    {
+      "word": "orange",
+      "meaning": "màu cam",
+      "category": "color",
+      "example": "The sun looks orange at sunset.",
+      "image": ""
+    },
+    {
+      "word": "pink",
+      "meaning": "màu hồng",
+      "category": "color",
+      "example": "Her dress is pink.",
+      "image": ""
+    },
+    {
+      "word": "purple",
+      "meaning": "màu tím",
+      "category": "color",
+      "example": "She has a purple bag.",
+      "image": ""
+    },
+    {
+      "word": "red",
+      "meaning": "màu đỏ",
+      "category": "color",
+      "example": "The apple is red.",
+      "image": ""
+    },
+    {
+      "word": "white",
+      "meaning": "màu trắng",
+      "category": "color",
+      "example": "Snow is white and cold.",
+      "image": ""
+    },
+    {
+      "word": "yellow",
+      "meaning": "màu vàng",
+      "category": "color",
+      "example": "The sun is yellow.",
+      "image": ""
+    },
+    {
+      "word": "crayon",
+      "meaning": "bút sáp màu",
+      "category": "school",
+      "example": "She colours the sun with a yellow crayon.",
+      "image": ""
+    },
+    {
+      "word": "paint",
+      "meaning": "tô màu, sơn",
+      "category": "action",
+      "example": "We paint pictures in art class.",
+      "image": ""
+    },
+    {
+      "word": "draw",
+      "meaning": "vẽ",
+      "category": "action",
+      "example": "She likes to draw cats.",
+      "image": ""
+    },
+    {
+      "word": "picture",
+      "meaning": "bức tranh",
+      "category": "house",
+      "example": "He draws a picture of a cat.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "The clouds are ___ today.",
+      "options": [
+        "gray",
+        "crayon",
+        "picture"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (màu sắc)",
+      "options": [
+        "culor",
+        "collor",
+        "color"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wh_te (màu trắng)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"purple\" mean?",
+      "options": [
+        "màu hồng",
+        "màu tím",
+        "màu nâu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vẽ\"?",
+      "options": [
+        "draw",
+        "gray",
+        "green"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_en (màu xanh lá)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"red\" mean?",
+      "options": [
+        "màu nâu",
+        "màu xám",
+        "màu đỏ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"màu vàng\"?",
+      "options": [
+        "yellow",
+        "orange",
+        "brown"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"colour\" mean?",
+      "options": [
+        "bút sáp màu",
+        "màu sắc",
+        "bức tranh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ pictures in art class.",
+      "options": [
+        "paint",
+        "black",
+        "brown"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bút sáp màu)",
+      "options": [
+        "cryaon",
+        "crayun",
+        "crayon"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"picture\" mean?",
+      "options": [
+        "màu sắc",
+        "bức tranh",
+        "màu xám"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bl_ck (màu đen)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"màu hồng\"?",
+      "options": [
+        "grey",
+        "white",
+        "pink"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (màu xám)",
+      "options": [
+        "grey",
+        "grrey",
+        "gery"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to paint a picture",
+    "Draw a circle in the air",
+    "Point to something red",
+    "Point to something blue",
+    "Pretend to draw a sun",
+    "Show me a rainbow with your arms"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

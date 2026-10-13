@@ -1,0 +1,282 @@
+{
+  "title": "Work and Business",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "business",
+      "meaning": "việc kinh doanh",
+      "category": "work",
+      "example": "My uncle has a small business in town.",
+      "image": ""
+    },
+    {
+      "word": "job",
+      "meaning": "công việc",
+      "category": "work",
+      "example": "My mother has a new job.",
+      "image": ""
+    },
+    {
+      "word": "meeting",
+      "meaning": "cuộc họp",
+      "category": "work",
+      "example": "Dad has a meeting at ten.",
+      "image": ""
+    },
+    {
+      "word": "office",
+      "meaning": "văn phòng",
+      "category": "place",
+      "example": "My mum works in an office.",
+      "image": ""
+    },
+    {
+      "word": "factory",
+      "meaning": "nhà máy",
+      "category": "place",
+      "example": "My uncle works in a toy factory.",
+      "image": ""
+    },
+    {
+      "word": "manager",
+      "meaning": "người quản lý",
+      "category": "job",
+      "example": "The manager of the shop is very kind.",
+      "image": ""
+    },
+    {
+      "word": "businessman",
+      "meaning": "doanh nhân",
+      "category": "job",
+      "example": "The businessman carries a black bag.",
+      "image": ""
+    },
+    {
+      "word": "engineer",
+      "meaning": "kỹ sư",
+      "category": "job",
+      "example": "My aunt is an engineer at a big factory.",
+      "image": ""
+    },
+    {
+      "word": "designer",
+      "meaning": "nhà thiết kế",
+      "category": "job",
+      "example": "The designer made a blue dress.",
+      "image": ""
+    },
+    {
+      "word": "mechanic",
+      "meaning": "thợ máy",
+      "category": "job",
+      "example": "The mechanic fixes our car.",
+      "image": ""
+    },
+    {
+      "word": "telephone",
+      "meaning": "điện thoại bàn",
+      "category": "tech",
+      "example": "The telephone is ringing.",
+      "image": ""
+    },
+    {
+      "word": "money",
+      "meaning": "tiền",
+      "category": "thing",
+      "example": "He has a lot of money in his bank.",
+      "image": ""
+    },
+    {
+      "word": "cheap",
+      "meaning": "rẻ",
+      "category": "describe",
+      "example": "These shoes are cheap, so I will buy them.",
+      "image": ""
+    },
+    {
+      "word": "expensive",
+      "meaning": "đắt",
+      "category": "describe",
+      "example": "That watch is too expensive for me.",
+      "image": ""
+    },
+    {
+      "word": "rich",
+      "meaning": "giàu",
+      "category": "describe",
+      "example": "The rich king has a big castle.",
+      "image": ""
+    },
+    {
+      "word": "poor",
+      "meaning": "nghèo",
+      "category": "describe",
+      "example": "The poor boy has no shoes.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"telephone\" mean?",
+      "options": [
+        "thợ máy",
+        "cuộc họp",
+        "điện thoại bàn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"công việc\"?",
+      "options": [
+        "job",
+        "news",
+        "desert"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"manager\" mean?",
+      "options": [
+        "nhà thiết kế",
+        "người quản lý",
+        "điện thoại bàn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đắt)",
+      "options": [
+        "expennsive",
+        "expensive",
+        "expnesive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "These shoes are ___, so I will buy them.",
+      "options": [
+        "cheap",
+        "engineer",
+        "telephone"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kỹ sư\"?",
+      "options": [
+        "manager",
+        "florist",
+        "engineer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"business\" mean?",
+      "options": [
+        "cuộc họp",
+        "điện thoại bàn",
+        "việc kinh doanh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My mum works in an ___.",
+      "options": [
+        "engineer",
+        "office",
+        "expensive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: des_gner (nhà thiết kế)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (doanh nhân)",
+      "options": [
+        "businessamn",
+        "businessman",
+        "businesmsan"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: meet_ng (cuộc họp)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thợ máy)",
+      "options": [
+        "mechanic",
+        "mecahnic",
+        "mechainc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_or (nghèo)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà máy\"?",
+      "options": [
+        "factory",
+        "businessman",
+        "designer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rich\" mean?",
+      "options": [
+        "đắt",
+        "giàu",
+        "nghèo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to answer the telephone",
+    "Pretend to sit in a meeting",
+    "Pretend to sell something",
+    "Pretend to count money",
+    "Pretend to sign a paper",
+    "Pretend to type on a computer"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

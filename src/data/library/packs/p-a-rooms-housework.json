@@ -1,0 +1,265 @@
+{
+  "title": "Rooms and Housework",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "housework",
+      "meaning": "việc nhà",
+      "category": "work",
+      "example": "I help my parents with the housework every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "ironing",
+      "meaning": "việc ủi quần áo",
+      "category": "work",
+      "example": "I do the ironing while my dad cooks dinner.",
+      "image": ""
+    },
+    {
+      "word": "laundry",
+      "meaning": "việc giặt giũ, đồ giặt",
+      "category": "house",
+      "example": "I do the laundry every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "dust",
+      "meaning": "bụi",
+      "category": "house",
+      "example": "There was a lot of dust on the old books.",
+      "image": ""
+    },
+    {
+      "word": "dustbin",
+      "meaning": "thùng rác",
+      "category": "house",
+      "example": "Put the empty bottle in the dustbin, please.",
+      "image": ""
+    },
+    {
+      "word": "trash can",
+      "meaning": "thùng rác",
+      "category": "house",
+      "example": "Put the empty bottle in the trash can.",
+      "image": ""
+    },
+    {
+      "word": "decorate",
+      "meaning": "trang trí",
+      "category": "daily",
+      "example": "We decorate the classroom before every party.",
+      "image": ""
+    },
+    {
+      "word": "mend",
+      "meaning": "sửa chữa, vá",
+      "category": "daily",
+      "example": "Dad can mend my broken bike.",
+      "image": ""
+    },
+    {
+      "word": "unpack",
+      "meaning": "dỡ đồ ra",
+      "category": "daily",
+      "example": "We unpacked our bags as soon as we arrived at the hotel.",
+      "image": ""
+    },
+    {
+      "word": "fold",
+      "meaning": "gấp",
+      "category": "daily",
+      "example": "Please fold the paper in half.",
+      "image": ""
+    },
+    {
+      "word": "wrap",
+      "meaning": "gói, bọc",
+      "category": "daily",
+      "example": "She wrapped the present in blue paper.",
+      "image": ""
+    },
+    {
+      "word": "wash",
+      "meaning": "rửa",
+      "category": "action",
+      "example": "Please wash your hands.",
+      "image": ""
+    },
+    {
+      "word": "hang",
+      "meaning": "treo, móc",
+      "category": "daily",
+      "example": "She will hang her coat on the hook.",
+      "image": ""
+    },
+    {
+      "word": "tidy",
+      "meaning": "gọn gàng, dọn dẹp",
+      "category": "describe",
+      "example": "Her room is always tidy.",
+      "image": ""
+    },
+    {
+      "word": "cleaner",
+      "meaning": "người dọn vệ sinh",
+      "category": "job",
+      "example": "The cleaner washes the floor every evening.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"trash can\" mean?",
+      "options": [
+        "thùng rác",
+        "việc ủi quần áo",
+        "việc nhà"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người dọn vệ sinh\"?",
+      "options": [
+        "backpacker",
+        "wedding",
+        "cleaner"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wash\" mean?",
+      "options": [
+        "lặp lại",
+        "rửa",
+        "chia sẻ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wr_p (gói, bọc)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"việc ủi quần áo\"?",
+      "options": [
+        "opening hours",
+        "ironing",
+        "pop music"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gấp)",
+      "options": [
+        "fold",
+        "folld",
+        "flod"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She will ___ her coat on the hook.",
+      "options": [
+        "ironing",
+        "hang",
+        "cleaner"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"việc nhà\"?",
+      "options": [
+        "housework",
+        "spinach",
+        "achievement"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sửa chữa, vá)",
+      "options": [
+        "mennd",
+        "mned",
+        "mend"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dustb_n (thùng rác)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unpack\" mean?",
+      "options": [
+        "dỡ đồ ra",
+        "nhắc nhở",
+        "thảo luận"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bụi)",
+      "options": [
+        "dusst",
+        "dust",
+        "dsut"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_dy (gọn gàng, dọn dẹp)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"laundry\" mean?",
+      "options": [
+        "người dọn vệ sinh",
+        "việc giặt giũ, đồ giặt",
+        "việc ủi quần áo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to iron a shirt",
+    "Pretend to fold the laundry",
+    "Pretend to dust a shelf",
+    "Pretend to take out the trash can",
+    "Pretend to unpack a bag",
+    "Pretend to mend a sock"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

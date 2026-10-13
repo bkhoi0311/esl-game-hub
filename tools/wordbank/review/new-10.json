@@ -1,0 +1,153 @@
+{
+  "sampled": [
+    "crowd",
+    "fit",
+    "comedy",
+    "extra",
+    "euro",
+    "dressed",
+    "describe",
+    "exhibition",
+    "dvd player",
+    "especially",
+    "first of all",
+    "die",
+    "contact",
+    "drawer",
+    "fashion"
+  ],
+  "sampleErrors": [
+    "first of all",
+    "contact"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "contact",
+      "field": "vi",
+      "old": "sự liên lạc",
+      "new": "liên lạc"
+    },
+    {
+      "word": "contact",
+      "field": "ex",
+      "old": "Please keep in contact with us while you travel.",
+      "new": "Please stay in contact with us while you travel."
+    },
+    {
+      "word": "court",
+      "field": "vi",
+      "old": "sân",
+      "new": "sân thi đấu"
+    },
+    {
+      "word": "court",
+      "field": "cat",
+      "old": "place",
+      "new": "sport"
+    },
+    {
+      "word": "cover",
+      "field": "vi",
+      "old": "che phủ, phủ",
+      "new": "che, đậy"
+    },
+    {
+      "word": "degree",
+      "field": "vi",
+      "old": "bằng đại học",
+      "new": "độ"
+    },
+    {
+      "word": "degree",
+      "field": "cat",
+      "old": "study",
+      "new": "measure"
+    },
+    {
+      "word": "degree",
+      "field": "ex",
+      "old": "My cousin has a degree in science.",
+      "new": "It is thirty degrees today, so take some water."
+    },
+    {
+      "word": "details",
+      "field": "vi",
+      "old": "chi tiết",
+      "new": "thông tin chi tiết"
+    },
+    {
+      "word": "directions",
+      "field": "vi",
+      "old": "chỉ dẫn đường đi",
+      "new": "lời chỉ đường"
+    },
+    {
+      "word": "disco",
+      "field": "vi",
+      "old": "vũ trường, buổi khiêu vũ",
+      "new": "buổi tiệc nhảy"
+    },
+    {
+      "word": "disco",
+      "field": "cat",
+      "old": "place",
+      "new": "celebration"
+    },
+    {
+      "word": "easily",
+      "field": "vi",
+      "old": "một cách dễ dàng",
+      "new": "dễ dàng"
+    },
+    {
+      "word": "excuse",
+      "field": "vi",
+      "old": "tha lỗi, bào chữa",
+      "new": "thứ lỗi, bỏ qua"
+    },
+    {
+      "word": "feelings",
+      "field": "cat",
+      "old": "abstract",
+      "new": "feeling"
+    },
+    {
+      "word": "fill",
+      "field": "vi",
+      "old": "làm đầy",
+      "new": "đổ đầy, làm đầy"
+    },
+    {
+      "word": "first name",
+      "field": "vi",
+      "old": "tên riêng",
+      "new": "tên"
+    },
+    {
+      "word": "first name",
+      "field": "cat",
+      "old": "study",
+      "new": "people"
+    },
+    {
+      "word": "first of all",
+      "field": "ex",
+      "old": "We should, first of all, open our books to page ten.",
+      "new": "What should we do first of all?"
+    },
+    {
+      "word": "dead",
+      "field": "note",
+      "old": "từ nhạy cảm nhẹ; câu nói về cây/hoa, trung tính",
+      "new": "Opus giữ: câu trung tính về cây"
+    },
+    {
+      "word": "die",
+      "field": "note",
+      "old": "từ nhạy cảm nhẹ; câu nói về cây/hoa, trung tính",
+      "new": "Opus giữ: câu trung tính về hoa"
+    }
+  ],
+  "stillCheck": []
+}

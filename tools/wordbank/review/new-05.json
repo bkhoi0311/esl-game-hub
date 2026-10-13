@@ -1,0 +1,82 @@
+{
+  "sampled": [
+    "ninth",
+    "sixteen",
+    "south america",
+    "fourth",
+    "canada",
+    "fourteen",
+    "seventeenth",
+    "eighty",
+    "thirty-first",
+    "spain",
+    "sixteenth",
+    "seventh",
+    "nineteenth",
+    "africa",
+    "chinese"
+  ],
+  "sampleErrors": [
+    "south america",
+    "nineteenth",
+    "chinese"
+  ],
+  "fullReview": true,
+  "alsoReviewed": [
+    "vietnam",
+    "brazilian",
+    "canadian",
+    "french",
+    "indian",
+    "irish",
+    "italian",
+    "spanish",
+    "vietnamese",
+    "eighteenth",
+    "eighth",
+    "eleventh",
+    "fifteenth",
+    "fifth",
+    "fourteenth",
+    "sixth",
+    "tenth",
+    "thirteenth",
+    "thirtieth",
+    "twelfth",
+    "twentieth",
+    "twenty-first"
+  ],
+  "fixed": [
+    {
+      "word": "north america",
+      "field": "vi",
+      "old": "châu Mỹ Bắc",
+      "new": "Bắc Mỹ"
+    },
+    {
+      "word": "south america",
+      "field": "vi",
+      "old": "châu Mỹ Nam",
+      "new": "Nam Mỹ"
+    },
+    {
+      "word": "chinese",
+      "field": "vi",
+      "old": "người Trung Quốc",
+      "new": "người Trung Quốc, tiếng Trung"
+    },
+    {
+      "word": "spanish",
+      "field": "vi",
+      "old": "tiếng Tây Ban Nha",
+      "new": "người Tây Ban Nha, tiếng Tây Ban Nha"
+    },
+    {
+      "word": "nineteenth",
+      "field": "ex",
+      "old": "Our class is in the nineteenth room.",
+      "new": "Today is the nineteenth of April."
+    }
+  ],
+  "stillCheck": []
+}

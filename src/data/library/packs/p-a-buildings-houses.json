@@ -1,0 +1,254 @@
+{
+  "title": "Buildings and Houses",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "cottage",
+      "meaning": "ngôi nhà nhỏ ở quê",
+      "category": "house",
+      "example": "They rent a cottage in the countryside every summer.",
+      "image": ""
+    },
+    {
+      "word": "hut",
+      "meaning": "túp lều",
+      "category": "place",
+      "example": "They built a small wooden hut by the river.",
+      "image": ""
+    },
+    {
+      "word": "ruin",
+      "meaning": "tàn tích",
+      "category": "place",
+      "example": "We visited an old castle ruin on the hill.",
+      "image": ""
+    },
+    {
+      "word": "studio",
+      "meaning": "phòng thu",
+      "category": "place",
+      "example": "She records songs in a small studio.",
+      "image": ""
+    },
+    {
+      "word": "yard",
+      "meaning": "khoảng sân",
+      "category": "place",
+      "example": "The children are playing football in the school yard.",
+      "image": ""
+    },
+    {
+      "word": "air conditioning",
+      "meaning": "máy điều hòa",
+      "category": "house",
+      "example": "The air conditioning in our classroom is too cold.",
+      "image": ""
+    },
+    {
+      "word": "central heating",
+      "meaning": "hệ thống sưởi",
+      "category": "house",
+      "example": "The central heating keeps our house warm in winter.",
+      "image": ""
+    },
+    {
+      "word": "heater",
+      "meaning": "máy sưởi",
+      "category": "house",
+      "example": "Please turn on the heater because the room is very cold.",
+      "image": ""
+    },
+    {
+      "word": "pipe",
+      "meaning": "ống nước",
+      "category": "house",
+      "example": "A broken pipe flooded the kitchen floor.",
+      "image": ""
+    },
+    {
+      "word": "tap",
+      "meaning": "vòi nước",
+      "category": "house",
+      "example": "Turn off the tap, please.",
+      "image": ""
+    },
+    {
+      "word": "lock",
+      "meaning": "cái khoá",
+      "category": "thing",
+      "example": "The lock on the door is broken.",
+      "image": ""
+    },
+    {
+      "word": "frame",
+      "meaning": "khung",
+      "category": "thing",
+      "example": "The photo is in a wooden frame.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"hệ thống sưởi\"?",
+      "options": [
+        "central heating",
+        "air conditioning",
+        "security guard"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lo_k (cái khoá)",
+      "options": [
+        "k",
+        "c",
+        "s"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hut\" mean?",
+      "options": [
+        "khung",
+        "cái khoá",
+        "túp lều"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vòi nước\"?",
+      "options": [
+        "tap",
+        "charge",
+        "section"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ in our classroom is too cold.",
+      "options": [
+        "tennis racket",
+        "air conditioning",
+        "chat show"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"central heating\" mean?",
+      "options": [
+        "thẻ lên máy bay",
+        "ngôi sao điện ảnh",
+        "hệ thống sưởi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: y_rd (khoảng sân)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"heater\" mean?",
+      "options": [
+        "con rùa cạn",
+        "đô la",
+        "máy sưởi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She records songs in a small ___.",
+      "options": [
+        "studio",
+        "frame",
+        "lock"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"yard\" mean?",
+      "options": [
+        "khung",
+        "cái khoá",
+        "khoảng sân"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_pe (ống nước)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy điều hòa\"?",
+      "options": [
+        "central heating",
+        "air conditioning",
+        "talk show"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngôi nhà nhỏ ở quê)",
+      "options": [
+        "cottage",
+        "ctotage",
+        "cotatge"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khung\"?",
+      "options": [
+        "hut",
+        "yard",
+        "frame"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tàn tích)",
+      "options": [
+        "ruyn",
+        "ruin",
+        "riun"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to turn on the heater",
+    "Pretend to lock the door",
+    "Pretend to turn on the air conditioning",
+    "Pretend to turn off a tap",
+    "Pretend to knock on a door",
+    "Pretend to look at a house through a frame"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "title": "Landscape and Nature",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bay",
+      "meaning": "vịnh",
+      "category": "nature",
+      "example": "We sailed across the bay on a sunny afternoon.",
+      "image": ""
+    },
+    {
+      "word": "canal",
+      "meaning": "kênh đào",
+      "category": "nature",
+      "example": "We rode our bikes along the canal on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "cliff",
+      "meaning": "vách đá",
+      "category": "nature",
+      "example": "We took photos at the top of the cliff.",
+      "image": ""
+    },
+    {
+      "word": "dirt",
+      "meaning": "bụi bẩn, đất",
+      "category": "nature",
+      "example": "There was dirt all over his football boots.",
+      "image": ""
+    },
+    {
+      "word": "farmland",
+      "meaning": "đất nông nghiệp",
+      "category": "nature",
+      "example": "There is a lot of farmland near our village.",
+      "image": ""
+    },
+    {
+      "word": "flood",
+      "meaning": "lũ lụt",
+      "category": "nature",
+      "example": "The flood covers the village.",
+      "image": ""
+    },
+    {
+      "word": "landscape",
+      "meaning": "cảnh quan",
+      "category": "nature",
+      "example": "The mountain landscape looked beautiful in the morning.",
+      "image": ""
+    },
+    {
+      "word": "peak",
+      "meaning": "đỉnh núi",
+      "category": "nature",
+      "example": "We reached the peak of the mountain at noon.",
+      "image": ""
+    },
+    {
+      "word": "pollution",
+      "meaning": "ô nhiễm",
+      "category": "nature",
+      "example": "The air is dirty because of pollution.",
+      "image": ""
+    },
+    {
+      "word": "scenery",
+      "meaning": "phong cảnh",
+      "category": "nature",
+      "example": "The mountain scenery was beautiful on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "shade",
+      "meaning": "bóng râm",
+      "category": "nature",
+      "example": "We sat in the shade of a big tree.",
+      "image": ""
+    },
+    {
+      "word": "shadow",
+      "meaning": "cái bóng",
+      "category": "nature",
+      "example": "My shadow was very long in the evening sun.",
+      "image": ""
+    },
+    {
+      "word": "shore",
+      "meaning": "bờ",
+      "category": "nature",
+      "example": "The boat slowly came back to the shore.",
+      "image": ""
+    },
+    {
+      "word": "sunrise",
+      "meaning": "bình minh",
+      "category": "nature",
+      "example": "We watch the sunrise from the hill.",
+      "image": ""
+    },
+    {
+      "word": "sunset",
+      "meaning": "hoàng hôn",
+      "category": "nature",
+      "example": "The sunset is orange and pink.",
+      "image": ""
+    },
+    {
+      "word": "valley",
+      "meaning": "thung lũng",
+      "category": "nature",
+      "example": "A small river runs through the green valley.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (bụi bẩn, đất)",
+      "options": [
+        "dirrt",
+        "dirt",
+        "drit"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kênh đào\"?",
+      "options": [
+        "canal",
+        "achievement",
+        "method"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ covers the village.",
+      "options": [
+        "wheelchair",
+        "excitement",
+        "flood"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bình minh\"?",
+      "options": [
+        "envelope",
+        "penguin",
+        "sunrise"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phong cảnh)",
+      "options": [
+        "scenery",
+        "scenerry",
+        "sceenry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shade\" mean?",
+      "options": [
+        "cái khoá",
+        "bóng râm",
+        "thể dục dụng cụ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_ff (vách đá)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thung lũng\"?",
+      "options": [
+        "progress",
+        "currency",
+        "valley"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shore\" mean?",
+      "options": [
+        "gam",
+        "bờ",
+        "da"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: shad_w (cái bóng)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"peak\" mean?",
+      "options": [
+        "áo khoác",
+        "kết quả",
+        "đỉnh núi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_y (vịnh)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The mountain ___ looked beautiful in the morning.",
+      "options": [
+        "crocodile",
+        "first name",
+        "landscape"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ô nhiễm)",
+      "options": [
+        "pollution",
+        "pollutoin",
+        "polluiton"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sunset\" mean?",
+      "options": [
+        "nhân viên bán hàng",
+        "hoàng hôn",
+        "bánh xe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to watch the sunrise",
+    "Pretend to take a photo of the scenery",
+    "Pretend to sit in the shade",
+    "Pretend to look at a valley from a peak",
+    "Pretend to walk along the shore slowly",
+    "Pretend to make a shadow with your hands"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

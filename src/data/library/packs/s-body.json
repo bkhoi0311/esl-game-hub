@@ -1,0 +1,296 @@
+{
+  "title": "Body and Face",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "arm",
+      "meaning": "cánh tay",
+      "category": "body",
+      "example": "He raises his arm to say hello.",
+      "image": ""
+    },
+    {
+      "word": "body",
+      "meaning": "cơ thể",
+      "category": "body",
+      "example": "Exercise is good for the body.",
+      "image": ""
+    },
+    {
+      "word": "ear",
+      "meaning": "cái tai",
+      "category": "body",
+      "example": "A rabbit has two long ears.",
+      "image": ""
+    },
+    {
+      "word": "eye",
+      "meaning": "mắt",
+      "category": "body",
+      "example": "Close one eye and look at the star.",
+      "image": ""
+    },
+    {
+      "word": "eyes",
+      "meaning": "đôi mắt",
+      "category": "body",
+      "example": "Open your eyes and look!",
+      "image": ""
+    },
+    {
+      "word": "face",
+      "meaning": "khuôn mặt",
+      "category": "body",
+      "example": "He has a happy face today.",
+      "image": ""
+    },
+    {
+      "word": "feet",
+      "meaning": "đôi bàn chân",
+      "category": "body",
+      "example": "Wash your feet before bed.",
+      "image": ""
+    },
+    {
+      "word": "foot",
+      "meaning": "bàn chân",
+      "category": "body",
+      "example": "My left foot hurts a little.",
+      "image": ""
+    },
+    {
+      "word": "hair",
+      "meaning": "tóc",
+      "category": "body",
+      "example": "She brushes her hair every morning.",
+      "image": ""
+    },
+    {
+      "word": "hand",
+      "meaning": "bàn tay",
+      "category": "body",
+      "example": "Raise your hand to answer.",
+      "image": ""
+    },
+    {
+      "word": "head",
+      "meaning": "cái đầu",
+      "category": "body",
+      "example": "Put the hat on your head.",
+      "image": ""
+    },
+    {
+      "word": "leg",
+      "meaning": "cái chân",
+      "category": "body",
+      "example": "A spider has eight legs.",
+      "image": ""
+    },
+    {
+      "word": "mouth",
+      "meaning": "cái miệng",
+      "category": "body",
+      "example": "Open your mouth wide, please.",
+      "image": ""
+    },
+    {
+      "word": "nose",
+      "meaning": "cái mũi",
+      "category": "body",
+      "example": "A clown has a red nose.",
+      "image": ""
+    },
+    {
+      "word": "clap",
+      "meaning": "vỗ tay",
+      "category": "action",
+      "example": "We clap our hands to the music.",
+      "image": ""
+    },
+    {
+      "word": "point",
+      "meaning": "chỉ",
+      "category": "action",
+      "example": "Please point to the big tree.",
+      "image": ""
+    },
+    {
+      "word": "smile",
+      "meaning": "mỉm cười",
+      "category": "action",
+      "example": "Please smile for the photo.",
+      "image": ""
+    },
+    {
+      "word": "wave",
+      "meaning": "vẫy tay",
+      "category": "action",
+      "example": "I wave to my friend at the gate.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"hand\" mean?",
+      "options": [
+        "bàn tay",
+        "cái chân",
+        "đôi mắt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Open your ___ wide, please.",
+      "options": [
+        "wave",
+        "mouth",
+        "smile"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tóc)",
+      "options": [
+        "hiar",
+        "hayr",
+        "hair"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ear\" mean?",
+      "options": [
+        "cái đầu",
+        "bàn tay",
+        "cái tai"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_p (vỗ tay)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ for the photo.",
+      "options": [
+        "face",
+        "smile",
+        "feet"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái chân\"?",
+      "options": [
+        "mouth",
+        "arm",
+        "leg"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vẫy tay)",
+      "options": [
+        "wave",
+        "wvae",
+        "wavve"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_ce (khuôn mặt)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đôi bàn chân\"?",
+      "options": [
+        "body",
+        "feet",
+        "eyes"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"head\" mean?",
+      "options": [
+        "bàn tay",
+        "đôi mắt",
+        "cái đầu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _rm (cánh tay)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"foot\" mean?",
+      "options": [
+        "cái mũi",
+        "cái miệng",
+        "bàn chân"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái mũi)",
+      "options": [
+        "nose",
+        "nosse",
+        "nsoe"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chỉ\"?",
+      "options": [
+        "eye",
+        "point",
+        "hair"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Clap your hands",
+    "Point to your nose",
+    "Show me a big smile",
+    "Wave your hand",
+    "Touch your head with your own hand",
+    "Show me your two feet"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

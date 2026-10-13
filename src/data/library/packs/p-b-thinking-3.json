@@ -1,0 +1,272 @@
+{
+  "title": "Verbs of Thinking 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "look forward to",
+      "meaning": "mong chờ",
+      "category": "mind",
+      "example": "I am looking forward to the school trip.",
+      "image": ""
+    },
+    {
+      "word": "manage",
+      "meaning": "xoay xở, quản lý",
+      "category": "mind",
+      "example": "I managed to finish my homework before dinner.",
+      "image": ""
+    },
+    {
+      "word": "predict",
+      "meaning": "dự đoán",
+      "category": "mind",
+      "example": "Scientists can predict the weather for next week.",
+      "image": ""
+    },
+    {
+      "word": "prove",
+      "meaning": "chứng minh",
+      "category": "mind",
+      "example": "Can you prove that your answer is correct?",
+      "image": ""
+    },
+    {
+      "word": "react",
+      "meaning": "phản ứng",
+      "category": "mind",
+      "example": "How did your friends react to the news?",
+      "image": ""
+    },
+    {
+      "word": "realise",
+      "meaning": "nhận ra, nhận thấy",
+      "category": "mind",
+      "example": "I realised I had left my bag on the bus.",
+      "image": ""
+    },
+    {
+      "word": "recognise",
+      "meaning": "nhận ra, nhận diện",
+      "category": "mind",
+      "example": "I did not recognise him with his new haircut.",
+      "image": ""
+    },
+    {
+      "word": "rely",
+      "meaning": "dựa vào, tin cậy",
+      "category": "mind",
+      "example": "You can rely on me to help you.",
+      "image": ""
+    },
+    {
+      "word": "revise",
+      "meaning": "ôn tập",
+      "category": "mind",
+      "example": "I need to revise for the history exam tonight.",
+      "image": ""
+    },
+    {
+      "word": "select",
+      "meaning": "lựa chọn",
+      "category": "mind",
+      "example": "Please select one answer for each question.",
+      "image": ""
+    },
+    {
+      "word": "trust",
+      "meaning": "tin tưởng",
+      "category": "mind",
+      "example": "I trust my best friend with my secrets.",
+      "image": ""
+    },
+    {
+      "word": "wonder",
+      "meaning": "tự hỏi, băn khoăn",
+      "category": "mind",
+      "example": "I wonder why the sky turns red in the evening.",
+      "image": ""
+    },
+    {
+      "word": "think",
+      "meaning": "nghĩ",
+      "category": "action",
+      "example": "I think the answer is yes.",
+      "image": ""
+    },
+    {
+      "word": "believe",
+      "meaning": "tin",
+      "category": "mind",
+      "example": "I believe you can win the race.",
+      "image": ""
+    },
+    {
+      "word": "know",
+      "meaning": "biết",
+      "category": "mind",
+      "example": "I know your brother.",
+      "image": ""
+    },
+    {
+      "word": "understand",
+      "meaning": "hiểu",
+      "category": "mind",
+      "example": "I understand the question.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nhận ra, nhận thấy\"?",
+      "options": [
+        "realise",
+        "bake",
+        "teach"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rely\" mean?",
+      "options": [
+        "biểu diễn",
+        "cởi quần áo",
+        "dựa vào, tin cậy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_lieve (tin)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"think\" mean?",
+      "options": [
+        "nghĩ",
+        "lựa chọn",
+        "mong chờ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhận ra, nhận diện)",
+      "options": [
+        "recongise",
+        "recognise",
+        "recgonise"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: underst_nd (hiểu)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"predict\" mean?",
+      "options": [
+        "nghĩ",
+        "chôn",
+        "dự đoán"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phản ứng\"?",
+      "options": [
+        "skip",
+        "react",
+        "wear out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I am ___ the school trip.",
+      "options": [
+        "thinking",
+        "taking a photo",
+        "looking forward to"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_lect (lựa chọn)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (biết)",
+      "options": [
+        "know",
+        "knnow",
+        "konw"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wonder\" mean?",
+      "options": [
+        "tự hỏi, băn khoăn",
+        "di chuyển",
+        "tổ chức, sắp xếp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ôn tập\"?",
+      "options": [
+        "smile",
+        "revise",
+        "add"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xoay xở, quản lý)",
+      "options": [
+        "manag",
+        "mangae",
+        "manage"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to predict the weather",
+    "Show me you suddenly realise something",
+    "Pretend to recognise a friend in a photo",
+    "Pretend to revise for a test",
+    "Show me you wonder about something",
+    "Pretend to select one thing from many"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "title": "School and Learning",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "break",
+      "meaning": "giờ ra chơi",
+      "category": "school",
+      "example": "We eat fruit at break every day.",
+      "image": ""
+    },
+    {
+      "word": "homework",
+      "meaning": "bài tập về nhà",
+      "category": "school",
+      "example": "I do my homework after dinner.",
+      "image": ""
+    },
+    {
+      "word": "mistake",
+      "meaning": "lỗi sai",
+      "category": "study",
+      "example": "I often make mistakes in my homework.",
+      "image": ""
+    },
+    {
+      "word": "practice",
+      "meaning": "buổi luyện tập",
+      "category": "study",
+      "example": "We have football practice on Friday.",
+      "image": ""
+    },
+    {
+      "word": "practise",
+      "meaning": "luyện tập",
+      "category": "daily",
+      "example": "I practise the piano every day.",
+      "image": ""
+    },
+    {
+      "word": "teach",
+      "meaning": "dạy",
+      "category": "action",
+      "example": "My mum can teach me to cook.",
+      "image": ""
+    },
+    {
+      "word": "think",
+      "meaning": "nghĩ",
+      "category": "action",
+      "example": "I think the answer is yes.",
+      "image": ""
+    },
+    {
+      "word": "circle",
+      "meaning": "hình tròn",
+      "category": "shape",
+      "example": "Draw a big circle on the paper.",
+      "image": ""
+    },
+    {
+      "word": "square",
+      "meaning": "hình vuông",
+      "category": "shape",
+      "example": "This box is a square.",
+      "image": ""
+    },
+    {
+      "word": "shape",
+      "meaning": "hình dạng",
+      "category": "shape",
+      "example": "A star is my favourite shape.",
+      "image": ""
+    },
+    {
+      "word": "difficult",
+      "meaning": "khó",
+      "category": "describe",
+      "example": "This maths homework is very difficult.",
+      "image": ""
+    },
+    {
+      "word": "easy",
+      "meaning": "dễ",
+      "category": "describe",
+      "example": "The English test was easy.",
+      "image": ""
+    },
+    {
+      "word": "lesson",
+      "meaning": "bài học",
+      "category": "school",
+      "example": "Our English lesson is fun.",
+      "image": ""
+    },
+    {
+      "word": "class",
+      "meaning": "lớp học",
+      "category": "school",
+      "example": "Our class starts at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "book",
+      "meaning": "quyển sách",
+      "category": "school",
+      "example": "This book has many pictures.",
+      "image": ""
+    },
+    {
+      "word": "answer",
+      "meaning": "câu trả lời",
+      "category": "school",
+      "example": "Do you know the answer?",
+      "image": ""
+    },
+    {
+      "word": "question",
+      "meaning": "câu hỏi",
+      "category": "school",
+      "example": "Can I ask a question?",
+      "image": ""
+    },
+    {
+      "word": "word",
+      "meaning": "từ",
+      "category": "school",
+      "example": "I know this word.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"giờ ra chơi\"?",
+      "options": [
+        "class",
+        "break",
+        "lesson"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"circle\" mean?",
+      "options": [
+        "hình tròn",
+        "hình vuông",
+        "khó"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: te_ch (dạy)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lỗi sai)",
+      "options": [
+        "mystake",
+        "mistake",
+        "mistakke"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: answ_r (câu trả lời)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lớp học)",
+      "options": [
+        "class",
+        "cless",
+        "clsas"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The English test was ___.",
+      "options": [
+        "break",
+        "easy",
+        "question"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"practice\" mean?",
+      "options": [
+        "lỗi sai",
+        "câu hỏi",
+        "buổi luyện tập"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bo_k (quyển sách)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khó\"?",
+      "options": [
+        "mistake",
+        "great",
+        "difficult"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (luyện tập)",
+      "options": [
+        "prectise",
+        "practise",
+        "pratcise"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"câu hỏi\"?",
+      "options": [
+        "book",
+        "answer",
+        "question"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"homework\" mean?",
+      "options": [
+        "lớp học",
+        "bài tập về nhà",
+        "bài học"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shape\" mean?",
+      "options": [
+        "hình dạng",
+        "giờ ra chơi",
+        "câu hỏi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Draw a circle in the air",
+    "Draw a square in the air",
+    "Pretend to do your homework",
+    "Pretend to think hard",
+    "Put up your hand to answer a question",
+    "Pretend to write a word on the board"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

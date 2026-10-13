@@ -1,0 +1,261 @@
+{
+  "title": "Books and Reading",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "novel",
+      "meaning": "tiểu thuyết",
+      "category": "media",
+      "example": "I am reading a long novel about a young detective.",
+      "image": ""
+    },
+    {
+      "word": "fiction",
+      "meaning": "truyện hư cấu",
+      "category": "media",
+      "example": "My sister reads a lot of fiction in the evening.",
+      "image": ""
+    },
+    {
+      "word": "biography",
+      "meaning": "tiểu sử",
+      "category": "media",
+      "example": "I read a biography of a famous scientist for homework.",
+      "image": ""
+    },
+    {
+      "word": "chapter",
+      "meaning": "chương",
+      "category": "media",
+      "example": "I read the first chapter of the book last night.",
+      "image": ""
+    },
+    {
+      "word": "bestseller",
+      "meaning": "sách bán chạy",
+      "category": "media",
+      "example": "Her new book became a bestseller in just two weeks.",
+      "image": ""
+    },
+    {
+      "word": "poem",
+      "meaning": "bài thơ",
+      "category": "media",
+      "example": "We learned a short poem in class today.",
+      "image": ""
+    },
+    {
+      "word": "poetry",
+      "meaning": "thơ",
+      "category": "media",
+      "example": "Our teacher loves poetry and reads it aloud.",
+      "image": ""
+    },
+    {
+      "word": "poet",
+      "meaning": "nhà thơ",
+      "category": "job",
+      "example": "The poet read her new work to the students.",
+      "image": ""
+    },
+    {
+      "word": "novelist",
+      "meaning": "tiểu thuyết gia",
+      "category": "job",
+      "example": "My favourite novelist writes stories for teenagers.",
+      "image": ""
+    },
+    {
+      "word": "publisher",
+      "meaning": "nhà xuất bản",
+      "category": "job",
+      "example": "The publisher sent us ten copies of the book.",
+      "image": ""
+    },
+    {
+      "word": "reader",
+      "meaning": "độc giả, người đọc",
+      "category": "people",
+      "example": "She is a fast reader and loves adventure stories.",
+      "image": ""
+    },
+    {
+      "word": "headline",
+      "meaning": "tiêu đề báo",
+      "category": "media",
+      "example": "The headline in the newspaper was about a school competition.",
+      "image": ""
+    },
+    {
+      "word": "joke",
+      "meaning": "câu đùa, nói đùa",
+      "category": "media",
+      "example": "My brother told a funny joke at dinner.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"fiction\" mean?",
+      "options": [
+        "truyện hư cấu",
+        "nhà thơ",
+        "độc giả, người đọc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chương\"?",
+      "options": [
+        "mother",
+        "handlebars",
+        "chapter"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"biography\" mean?",
+      "options": [
+        "tiểu thuyết gia",
+        "tiểu sử",
+        "nhà xuất bản"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thơ)",
+      "options": [
+        "poetry",
+        "poetrry",
+        "peotry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Her new book became a ___ in just two weeks.",
+      "options": [
+        "reader",
+        "novelist",
+        "bestseller"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: read_r (độc giả, người đọc)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiêu đề báo\"?",
+      "options": [
+        "headline",
+        "rice",
+        "party"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: publ_sher (nhà xuất bản)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"novel\" mean?",
+      "options": [
+        "nhà thơ",
+        "tiểu thuyết",
+        "trạm cứu hỏa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: novel_st (tiểu thuyết gia)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiểu sử\"?",
+      "options": [
+        "biography",
+        "waitress",
+        "climate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bestseller\" mean?",
+      "options": [
+        "nhà xuất bản",
+        "sách bán chạy",
+        "độc giả, người đọc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (câu đùa, nói đùa)",
+      "options": [
+        "jokke",
+        "jkoe",
+        "joke"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We learned a short ___ in class today.",
+      "options": [
+        "reader",
+        "poem",
+        "publisher"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà thơ\"?",
+      "options": [
+        "poet",
+        "poem",
+        "chapter"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open a novel",
+    "Pretend to read a poem aloud",
+    "Pretend to turn the page",
+    "Pretend to write a book as an author",
+    "Pretend to look for a book in a library",
+    "Pretend to laugh at a joke"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

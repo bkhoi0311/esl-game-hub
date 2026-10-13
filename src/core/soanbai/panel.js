@@ -10,7 +10,7 @@ import { detectTable, parseDelimited } from './table.js';
 import { decodeText } from './decode.js';
 import { fetchSheetCsv, GsheetError } from './gsheet.js';
 import { templateCsv, templateXlsx, TEMPLATE_NAMES } from './templates.js';
-import { loadIndex, loadPack } from './library.js';
+import { loadIndex, loadPack, LIB_THEMES, countByLevel, visibleLevels, filterPacks, levelTag } from './library.js';
 
 const MAX_FILE = 5 * 1024 * 1024;
 const MAX_VOCAB = 300;
@@ -165,7 +165,7 @@ export async function openQuestions(api) {
   const bank = await getBank();
   const vocab = api.getDraft().vocab;
   const meaningful = vocab.filter((v) => v.word && v.meaning).length;
-  const cap = capacity(vocab, { bank });
+  const cap = capacity(vocab, { bank, maxLevel: 'auto' });
   const checks = {};
   const list = h('div', { class: 'qtype-list', 'data-testid': 'qtype-list' });
   QTYPES.forEach((t) => {
@@ -194,7 +194,7 @@ export async function openQuestions(api) {
     }
     const draft = api.getDraft();
     const existing = mode.value === 'append' ? draft.questions : [];
-    const res = generateQuestions(draft.vocab, { types, count, seed: Date.now() & 0x7fffffff, existing, bank, optionsPerQuestion: 3 });
+    const res = generateQuestions(draft.vocab, { types, count, seed: Date.now() & 0x7fffffff, existing, bank, maxLevel: 'auto', optionsPerQuestion: 3 });
     if (!res.questions.length) {
       result.append(note('Không tạo được câu nào. Hãy thêm nghĩa, câu ví dụ hoặc nhóm cho các từ rồi thử lại.', 'warn'));
       return false;
@@ -520,12 +520,29 @@ export async function openImport(api, file) {
 
 // ---------- (5) Thư viện bài ----------
 
-const LEVELS = [
-  { value: 'all', label: 'Tất cả chủ đề' },
-  { value: 'starters', label: 'Starters' },
-  { value: 'movers', label: 'Movers' },
-  { value: 'flyers', label: 'Flyers' },
-];
+const LIB_LEVEL_KEY = 'esl.soanbai.libLevel';
+
+// CSS riêng của Thư viện bài, nạp một lần (tương thích Chromium 109: flex/grid cố định, không color-mix, không aspect-ratio).
+function injectLibStyle() {
+  if (document.getElementById('lib-style')) return;
+  const st = document.createElement('style');
+  st.id = 'lib-style';
+  st.textContent = `
+.lib-bar { position: sticky; top: 0; z-index: 2; display: grid; gap: 0.6rem; padding: 0.3rem 0 0.6rem; background: rgba(246, 246, 248, 0.97); border-radius: 0 0 1rem 1rem; }
+.lib-tabs, .lib-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.lib-tab { min-height: 48px; padding: 0 0.8rem; border-radius: 999px; font-size: 0.95rem; }
+.lib-chip { min-height: 46px; padding: 0 0.85rem; border-radius: 999px; font-size: 0.92rem; }
+.lib-tab[aria-pressed='true'], .lib-chip[aria-pressed='true'] { background: var(--green, #2f9e44); border-color: var(--green-dark, #237a34); color: #fff; }
+.lib-searchrow { display: flex; align-items: center; gap: 0.8rem; }
+.lib-search { flex: 1 1 auto; min-height: 56px; padding: 0 1rem; font-size: 1.05rem; min-width: 0; }
+.lib-found { flex: none; color: var(--ink-muted, #667); font-weight: 700; }
+.lib-chips { margin-top: 0.2rem; }
+.lib-note { margin: 0 0 0.6rem; font-size: 0.9rem; }
+.lib-group { grid-column: 1 / -1; margin: 0.4rem 0 0; font-size: 1.05rem; }
+.lib-empty { grid-column: 1 / -1; }
+`;
+  document.head.appendChild(st);
+}
 
 export async function openLibrary(api) {
   let index;
@@ -536,9 +553,15 @@ export async function openLibrary(api) {
     toast('Không tải được thư viện bài. Tải lại trang (F5) rồi thử lại.', 'error', 6000);
     return;
   }
-  // Gom theo chủ đề: mặc định hiện tất cả; cấp độ chỉ là nhãn gợi ý (cấp trong kho do AI gán). Ẩn tab cấp không có bài.
-  const tabs = LEVELS.filter((l) => l.value === 'all' || index.some((x) => x.level === l.value));
-  let level = 'all';
+  // Tab theo cấp (chỉ hiện cấp có gói). Tab mở lần trước được nhớ (localStorage, có thể bị chặn); lần đầu là A1 Movers.
+  const counts = countByLevel(index);
+  const tabs = visibleLevels(index).map((l) => Object.assign({}, l, { label: l.value === 'all' ? l.label : `${l.label} · ${counts[l.value]}` }));
+  let saved = null;
+  try { saved = localStorage.getItem(LIB_LEVEL_KEY); } catch (e) { /* bỏ qua */ }
+  let level = tabs.some((t) => t.value === saved) ? saved : (tabs.some((t) => t.value === 'movers') ? 'movers' : 'all');
+  let theme = '';
+  let query = '';
+  injectLibStyle();
   const grid = h('div', { class: 'lib-grid', 'data-testid': 'lib-grid' });
 
   const choose = async (entry) => {
@@ -575,31 +598,81 @@ export async function openLibrary(api) {
     pinActions(ask);
   };
 
+  const card = (x) => h('button', { type: 'button', class: 'lib-card', 'data-testid': 'lib-card', 'data-id': x.id, onClick: () => choose(x) },
+    h('strong', { class: 'lib-title' }, x.title),
+    h('span', { class: 'lib-vi' }, x.titleVi),
+    h('span', { class: 'lib-count' }, `${x.words} từ · ${x.questions} câu hỏi`, h('span', { class: 'lib-level-tag' }, ' · ' + levelTag(x))),
+    h('span', { class: 'lib-words' }, (x.preview || []).map((w) => h('em', {}, w))));
+
   const renderGrid = () => {
     grid.textContent = '';
-    const items = index.filter((x) => level === 'all' || x.level === level);
+    const items = filterPacks(index, { level, theme, q: query });
     if (!items.length) {
-      grid.append(note('Chưa có bài cho cấp này.'));
+      grid.append(h('p', { class: 'soan-note lib-empty', 'data-testid': 'lib-empty' }, query.trim() ? `Không có bài khớp '${query.trim()}'.` : 'Chưa có bài cho lựa chọn này.'));
       return;
     }
-    items.forEach((x) => {
-      grid.append(h('button', { type: 'button', class: 'lib-card', 'data-testid': 'lib-card', 'data-id': x.id, onClick: () => choose(x) },
-        h('strong', { class: 'lib-title' }, x.title),
-        h('span', { class: 'lib-vi' }, x.titleVi),
-        h('span', { class: 'lib-count' }, `${x.words} từ · ${x.questions} câu hỏi`, h('span', { class: 'lib-level-tag' }, ' · gợi ý ' + (LEVELS.find((l) => l.value === x.level) || { label: '' }).label)),
-        h('span', { class: 'lib-words' }, (x.preview || []).map((w) => h('em', {}, w)))));
-    });
+    if (level === 'all') {
+      // Tất cả chủ đề: nhóm theo cấp, gói chung ở cuối
+      const groups = [];
+      items.forEach((x) => {
+        const key = x.general ? 'general' : x.level;
+        let g = groups.find((y) => y.key === key);
+        if (!g) { g = { key, label: x.general ? 'Chủ đề chung' : x.levelLabel, list: [] }; groups.push(g); }
+        g.list.push(x);
+      });
+      groups.forEach((g) => {
+        grid.append(h('h3', { class: 'lib-group' }, `${g.label} · ${g.list.length}`));
+        g.list.forEach((x) => grid.append(card(x)));
+      });
+    } else {
+      items.forEach((x) => grid.append(card(x)));
+    }
+    const shown = grid.querySelectorAll('.lib-card').length;
+    countEl.textContent = `${shown} bài`;
   };
+  const countEl = h('span', { class: 'lib-found', 'aria-live': 'polite' }, '');
 
-  const seg = segmented(tabs, level, (v) => { level = v; renderGrid(); }, 'lib-level');
+  const tabEls = tabs.map((t) => h('button', {
+    type: 'button', class: 'btn lib-tab', 'data-value': t.value, 'data-testid': 'lib-tab', 'aria-pressed': String(t.value === level),
+    onClick: () => {
+      if (level === t.value) return;
+      level = t.value;
+      tabEls.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === level)));
+      try { localStorage.setItem(LIB_LEVEL_KEY, level); } catch (e) { /* bỏ qua */ }
+      renderGrid();
+      const mb = grid.closest('.modal-body');
+      if (mb) mb.scrollTop = 0;
+    },
+  }, t.label));
+  const tabRow = h('div', { class: 'lib-tabs', role: 'group', 'data-testid': 'lib-level' }, tabEls);
+
+  // Chip chủ đề: cách tìm trên bảng cảm ứng (không cần bàn phím ảo).
+  const chipDefs = [{ value: '', label: 'Mọi chủ đề' }].concat(LIB_THEMES);
+  const chipEls = chipDefs.map((c) => h('button', {
+    type: 'button', class: 'btn lib-chip', 'data-value': c.value, 'data-testid': 'lib-chip', 'aria-pressed': String(c.value === theme),
+    onClick: () => {
+      theme = c.value;
+      chipEls.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === theme)));
+      renderGrid();
+    },
+  }, c.label));
+  // Ô gõ chỉ dành cho laptop (màn Soạn bài). Trên bảng ClassIn dùng chip ở trên.
+  const search = h('input', {
+    type: 'text', class: 'lib-search', 'data-testid': 'lib-search', autocomplete: 'off', spellcheck: 'false',
+    'aria-label': 'Tìm bài', placeholder: 'Tìm bài: food, đồ ăn, animals… (gõ trên laptop)',
+    onInput: (e) => { query = e.target.value; renderGrid(); },
+  });
   renderGrid();
   const lib = openModal({
     title: 'Thư viện bài',
     wide: true,
-    body: h('div', { class: 'soan-form' },
-      h('p', { class: 'muted' }, 'Chọn một bài theo chủ đề rồi sửa tuỳ ý. Nhãn Starters / Movers / Flyers chỉ là gợi ý mức độ, không phải chuẩn Cambridge.'),
-      seg, grid,
-      h('p', { class: 'muted lib-foot' }, 'Gói theo sách giáo khoa (Global Success, Family and Friends…) sẽ bổ sung sau khi kiểm chứng nguồn.')),
+    body: h('div', { class: 'soan-form lib-body' },
+      h('div', { class: 'lib-bar' },
+        tabRow,
+        h('div', { class: 'lib-searchrow' }, search, countEl)),
+      h('div', { class: 'lib-chips', 'data-testid': 'lib-chips' }, chipEls),
+      h('p', { class: 'muted lib-note' }, 'Chọn một bài theo chủ đề rồi sửa tuỳ ý. Cấp độ dựa trên danh sách từ vựng Cambridge English (Starters, Movers, Flyers 2025; A2 Key; B1 Preliminary). Ứng dụng không liên kết với Cambridge.'),
+      grid),
     actions: [{ label: 'Đóng', variant: 'ghost' }],
   });
   pinActions(lib);

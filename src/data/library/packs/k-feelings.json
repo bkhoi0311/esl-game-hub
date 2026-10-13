@@ -1,0 +1,275 @@
+{
+  "title": "Feelings",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "alright",
+      "meaning": "ổn",
+      "category": "feeling",
+      "example": "Are you alright? You look very tired.",
+      "image": ""
+    },
+    {
+      "word": "amazed",
+      "meaning": "kinh ngạc",
+      "category": "feeling",
+      "example": "She was amazed by the big show.",
+      "image": ""
+    },
+    {
+      "word": "feelings",
+      "meaning": "cảm xúc",
+      "category": "feeling",
+      "example": "It is good to talk about your feelings with friends.",
+      "image": ""
+    },
+    {
+      "word": "glad",
+      "meaning": "vui mừng",
+      "category": "feeling",
+      "example": "I am glad you can come.",
+      "image": ""
+    },
+    {
+      "word": "mad",
+      "meaning": "giận dữ",
+      "category": "feeling",
+      "example": "He was mad because I broke his toy.",
+      "image": ""
+    },
+    {
+      "word": "nervous",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "I feel nervous before every English test.",
+      "image": ""
+    },
+    {
+      "word": "scared",
+      "meaning": "sợ hãi",
+      "category": "feeling",
+      "example": "The little boy is scared of thunder.",
+      "image": ""
+    },
+    {
+      "word": "shame",
+      "meaning": "thật đáng tiếc",
+      "category": "feeling",
+      "example": "It is a shame that it is raining.",
+      "image": ""
+    },
+    {
+      "word": "shy",
+      "meaning": "nhút nhát",
+      "category": "feeling",
+      "example": "The shy girl smiles quietly.",
+      "image": ""
+    },
+    {
+      "word": "upset",
+      "meaning": "buồn bực, khó chịu",
+      "category": "feeling",
+      "example": "He was upset because he lost his phone.",
+      "image": ""
+    },
+    {
+      "word": "worry",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "Don't worry, we have plenty of time.",
+      "image": ""
+    },
+    {
+      "word": "helpful",
+      "meaning": "hữu ích, hay giúp đỡ",
+      "category": "character",
+      "example": "The shop assistant was very helpful.",
+      "image": ""
+    },
+    {
+      "word": "polite",
+      "meaning": "lịch sự",
+      "category": "character",
+      "example": "It is polite to say thank you.",
+      "image": ""
+    },
+    {
+      "word": "pleasant",
+      "meaning": "dễ chịu",
+      "category": "opinion",
+      "example": "We had a pleasant walk by the lake.",
+      "image": ""
+    },
+    {
+      "word": "seem",
+      "meaning": "dường như",
+      "category": "mind",
+      "example": "You seem very happy today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: alr_ght (ổn)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"nervous\" mean?",
+      "options": [
+        "lo lắng",
+        "thứ hai",
+        "người Ireland"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: helpf_l (hữu ích, hay giúp đỡ)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pleasant\" mean?",
+      "options": [
+        "dễ chịu",
+        "lịch sự",
+        "hữu ích, hay giúp đỡ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rry (lo lắng)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kinh ngạc)",
+      "options": [
+        "amazid",
+        "amezed",
+        "amazed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lịch sự\"?",
+      "options": [
+        "pleasant",
+        "poor thing",
+        "polite"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shame\" mean?",
+      "options": [
+        "người phụ nữ",
+        "thật đáng tiếc",
+        "khoai tây chiên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buồn bực, khó chịu)",
+      "options": [
+        "upset",
+        "upsset",
+        "upsit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dường như\"?",
+      "options": [
+        "worry",
+        "seem",
+        "whistle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vui mừng)",
+      "options": [
+        "glad",
+        "gllad",
+        "gald"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is good to talk about your ___ with friends.",
+      "options": [
+        "seem",
+        "main course",
+        "feelings"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shy\" mean?",
+      "options": [
+        "thứ hai",
+        "người Brazil",
+        "nhút nhát"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giận dữ\"?",
+      "options": [
+        "mad",
+        "racing",
+        "Indian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The little boy is ___ of thunder.",
+      "options": [
+        "seem",
+        "scared",
+        "sausage"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are amazed",
+    "Show me you are nervous",
+    "Show me you are shy",
+    "Show me you are glad",
+    "Pretend to be upset and then smile",
+    "Show me a worried face"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

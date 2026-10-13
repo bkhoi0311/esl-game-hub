@@ -12,7 +12,11 @@ export function normKey(s) {
   let t = String(s == null ? '' : s).normalize('NFC').toLowerCase();
   t = t.replace(/[’‘]/g, "'");
   t = t.replace(/\s+/g, ' ').trim();
-  t = t.replace(/^[.,;:!?"()\s]+|[.,;:!?"()\s]+$/g, '');
+  t = t.replace(/^[.,;:!?"\s]+|[.,;:!?"\s]+$/g, '');
+  // ngoặc: "(word)" bỏ ngoặc bao; ngoặc lẻ bỏ; hậu tố nghĩa "may (month)" giữ nguyên
+  if (/^\([^()]*\)$/.test(t)) t = t.slice(1, -1).trim();
+  if (t.indexOf('(') < 0) t = t.replace(/^\)+|\)+$/g, '').trim();
+  if (t.indexOf(')') < 0) t = t.replace(/^\(+|\(+$/g, '').trim();
   for (let i = 0; i < PREFIXES.length; i++) {
     if (t.indexOf(PREFIXES[i]) === 0 && t.length > PREFIXES[i].length) {
       t = t.slice(PREFIXES[i].length).trim();
@@ -82,7 +86,8 @@ function inflectToken(w) {
 
 // Tất cả dạng chấp nhận được của từ/cụm từ + pl/alt (mảng hoặc chuỗi "a|b").
 export function wordForms(word, extras) {
-  const w = String(word || '').trim().toLowerCase();
+  // Hậu tố phân biệt nghĩa trong ngoặc ("may (month)") chỉ là khoá, không xuất hiện trong câu.
+  const w = String(word || '').trim().toLowerCase().replace(/\s*\([^)]*\)\s*$/, '');
   const set = [];
   const add = (x) => { if (x && set.indexOf(x) < 0) set.push(x); };
   if (!w) return set;
@@ -99,11 +104,21 @@ export function wordForms(word, extras) {
   return set;
 }
 
+// Chỗ trống của cụm: "as ... as" khớp "as fast as"; "give somebody a call" khớp "give her a call" / "give the teacher a call".
+const GAP = /(\.\.\.|…|\bsomebody\b|\bsomeone\b|\bsomething\b|\bsb\b|\bsth\b)/;
+const GAP_RE = "[A-Za-z']+(?:\\s+[A-Za-z']+){0,2}";
+function formToRegex(f) {
+  const esc1 = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+  // Chỉ coi là chỗ trống khi nằm TRONG cụm; chính từ 'something' / 'someone' / 'somebody' là từ thường.
+  if (!GAP.test(f) || f.split(' ').length < 2) return esc1(f);
+  return f.split(GAP).map((piece, i) => (i % 2 === 1 ? GAP_RE : esc1(piece))).join('');
+}
+
 // Tìm các lần từ xuất hiện trong câu (biên từ, không phân biệt hoa thường). Trả [{ index, token }].
 export function findWordInText(text, word, extras) {
   const forms = wordForms(word, extras).sort((a, b) => b.length - a.length);
   if (!forms.length) return [];
-  const esc = forms.map((f) => f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+'));
+  const esc = forms.map(formToRegex);
   const re = new RegExp("(^|[^A-Za-z'])(" + esc.join('|') + ")(?![A-Za-z])", 'gi');
   const s = String(text || '');
   const hits = [];

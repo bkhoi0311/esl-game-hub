@@ -229,11 +229,74 @@ TESTS['whack-word'] = async () => {
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     await page.waitForTimeout(200);
     assert.equal((await scores())[0], before - 1, 'đập sai phải bị trừ 1 điểm');
+    // Chống bấm loạn: sai thì bên 0 bị khoá ~0,7 s (hiện khoá), chạm đúng ngay sau đó không tính.
+    await page.waitForSelector('[data-testid=pd-cool-0]', { state: 'visible', timeout: 1500 });
+    const afterWrong = (await scores())[0];
+    let good = null;
+    for (let k = 0; k < 8 && !good; k++) {
+      good = await page.evaluate(() => window.__duelScene.targets(0).find((t) => t.target) || null);
+      if (!good) await page.waitForTimeout(40);
+    }
+    if (good) {
+      const coolShown = () => page.$eval('[data-testid=pd-cool-0]', (el) => el.style.display !== 'none');
+      const before = await coolShown();
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: good.x, y: good.y, id: 11 }] });
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      const during = await coolShown();
+      // Chỉ khẳng định khi khoá còn hiện suốt cả lúc chạm (máy chậm có thể hết 0,7 s trước khi chạm tới).
+      if (before && during) assert.equal((await scores())[0], afterWrong, 'đang bị khoá thì chạm đúng không được tính');
+    }
+    await page.waitForSelector('[data-testid=pd-cool-0]', { state: 'hidden', timeout: 2500 });
   }
   await context.close();
+  // Màn cài đặt: công tắc chống bấm loạn mặc định Bật, bấm Tắt đổi được.
+  {
+    const g = await open('#/game/whack-word', BIG, { hasTouch: true });
+    await g.page.waitForSelector('[data-testid=whack-word-guard]');
+    assert.equal(await g.page.getAttribute('[data-testid=whack-word-guard] [aria-pressed=true]', 'data-value'), 'true');
+    await g.page.click('[data-testid=whack-word-guard] [data-value="false"]');
+    assert.equal(await g.page.getAttribute('[data-testid=whack-word-guard] [aria-pressed=true]', 'data-value'), 'false');
+    await g.context.close();
+  }
   const ph = await open('#/game/whack-word', PHONE);
   await ph.page.waitForSelector('[data-testid=duel-big-screen]');
   await ph.context.close();
+};
+
+// ---------- Cổng giọng đọc: game thi đấu im lặng mặc định ----------
+TESTS['read-aloud'] = async () => {
+  const run = async (settings) => {
+    const context = await browser.newContext({ viewport: BIG, hasTouch: true });
+    await context.addInitScript((st) => {
+      window.__speakCalls = 0;
+      try { if (st) localStorage.setItem('eslhub.settings', st); } catch { /* bỏ qua */ }
+      const synth = window.speechSynthesis;
+      if (synth) { const orig = synth.speak.bind(synth); synth.speak = (u) => { window.__speakCalls++; return orig(u); }; }
+      const play = HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play = function () { window.__speakCalls++; return play.apply(this, arguments); };
+    }, settings);
+    const page = await context.newPage();
+    page.on('pageerror', (e) => pageErrors.push(`read-aloud: ${e.message}`));
+    await page.goto(BASE + '#/game/balloon-pop');
+    await page.click('[data-testid=balloon-pop-seconds] [data-value="45"]');
+    await page.click('[data-testid=balloon-pop-start]');
+    await page.waitForFunction(() => window.__duelScene, null, { timeout: 15000 });
+    const cdp = await context.newCDPSession(page);
+    const end = Date.now() + 6000;
+    while (Date.now() < end) {
+      const pts = await page.evaluate(() => [0, 1].map((i) => window.__duelScene.targets(i)[0] || null).filter(Boolean));
+      if (pts.length) {
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: pts.map((p, k) => ({ x: p.x, y: p.y, id: k + 1 })) });
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      }
+      await page.waitForTimeout(250);
+    }
+    const n = await page.evaluate(() => window.__speakCalls);
+    await context.close();
+    return n;
+  };
+  assert.equal(await run(null), 0, 'mặc định Tắt: game thi đấu không được đọc gì');
+  assert.ok((await run('{"readAloud":"on"}')) > 0, 'bật "Đọc từ" thì phải có tiếng đọc');
 };
 
 TESTS['balloon-pop'] = async () => {
@@ -332,6 +395,111 @@ TESTS['tic-tac-toe'] = async () => {
   await context.close();
 };
 
+// ---------- Sentence Race: 2 học sinh xếp từ thành câu ----------
+TESTS['sentence-race'] = async () => {
+  const { context, page } = await open('#/game/sentence-race', BIG, { hasTouch: true });
+  await page.waitForSelector('[data-testid=sentence-race-start]');
+  await shot(page, 'sentence-race-1-setup');
+  await page.click('[data-testid=sr-seconds] [data-value="60"]');
+  assert.equal(await page.getAttribute('[data-testid=sr-seconds] [aria-pressed=true]', 'data-value'), '60');
+  assert.equal(await page.getAttribute('[data-testid=sr-guard] [aria-pressed=true]', 'data-value'), 'true', 'chống bấm loạn mặc định Bật');
+  await page.click('[data-testid=sentence-race-start]');
+  await page.waitForSelector('[data-testid=sr-half-0] .sr-tile');
+  const cdp = await context.newCDPSession(page);
+  const answers = () => page.evaluate(() => [0, 1].map((i) => JSON.parse(document.querySelector(`[data-testid=sr-half-${i}]`).dataset.answer)));
+  const centerOf = (i, text) => page.evaluate(([side, t]) => {
+    const el = [...document.querySelectorAll(`[data-testid=sr-pool-${side}] .sr-tile:not(.used)`)].find((x) => x.dataset.text === t);
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  }, [i, text]);
+  const progress = (i) => page.getAttribute(`[data-testid=sr-half-${i}]`, 'data-progress').then(Number);
+  const touch = async (pts) => {
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: pts.map((p, k) => ({ x: p.x, y: p.y, id: p.id || k + 1, radiusX: 25, radiusY: 25 })) });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  };
+
+  // 2 ngón chạm CÙNG LÚC, mỗi ngón một bên, dựng xong câu của mình.
+  const ans = await answers();
+  const len = [ans[0].length, ans[1].length];
+  let shotMid = false;
+  for (let k = 0; k < Math.max(len[0], len[1]); k++) {
+    const pts = [];
+    for (const i of [0, 1]) {
+      if (k >= len[i]) continue;
+      const c = await centerOf(i, ans[i][k]);
+      assert.ok(c, `không thấy thẻ "${ans[i][k]}" bên ${i}`);
+      pts.push({ ...c, id: i + 1 });
+    }
+    await touch(pts);
+    await page.waitForTimeout(160); // lớn hơn minGap 120 ms của chống bấm loạn
+    if (!shotMid && k === 1) { await shot(page, 'sentence-race-2-play'); shotMid = true; }
+  }
+  await page.waitForFunction(() => ['sr-score-0', 'sr-score-1'].every((t) => document.querySelector(`[data-testid=${t}]`).textContent.trim() === '1'), null, { timeout: 4000 });
+  await shot(page, 'sentence-race-3-done');
+
+  // Câu mới: chạm sai bên 0 => khoá; chạm đúng ngay sau đó không tính; hết khoá thì tính.
+  await page.waitForFunction(() => document.querySelector('[data-testid=sr-half-0]').dataset.progress === '0' && !document.querySelector('[data-testid=sr-line-0]').classList.contains('done'), null, { timeout: 4000 });
+  const a2 = (await answers())[0];
+  const wrongText = await page.evaluate(() => {
+    const half = JSON.parse(document.querySelector('[data-testid=sr-half-0]').dataset.answer);
+    const t = [...document.querySelectorAll('[data-testid=sr-pool-0] .sr-tile')].find((x) => x.dataset.text.toLowerCase() !== half[0].toLowerCase());
+    return t.dataset.text;
+  });
+  await touch([await centerOf(0, wrongText)]);
+  await page.waitForSelector('[data-testid=sr-half-0].cooling', { timeout: 1000 });
+  const during = await centerOf(0, a2[0]);
+  const isCooling = () => page.$eval('[data-testid=sr-half-0]', (el) => el.classList.contains('cooling'));
+  const coolBefore = await isCooling();
+  await touch([during]);
+  const coolAfter = await isCooling();
+  await page.waitForTimeout(100);
+  // Chỉ khẳng định khi khoá còn hiện suốt lúc chạm (Chromium 109 headless chậm có thể quá 0,8 s trước khi chạm tới).
+  if (coolBefore && coolAfter) assert.equal(await progress(0), 0, 'đang bị khoá thì chạm đúng không được tính');
+  await page.waitForFunction(() => !document.querySelector('[data-testid=sr-half-0]').classList.contains('cooling'), null, { timeout: 2000 });
+  if ((await progress(0)) === 0) {
+    await touch([await centerOf(0, a2[0])]);
+    await page.waitForTimeout(100);
+    assert.equal(await progress(0), 1, 'hết khoá thì chạm đúng phải được tính');
+  }
+  await context.close();
+
+  // Bố cục 1280x720 (màn ClassIn): thẻ cao >= 56 px, nằm trọn trong nửa của mình, 2 nửa không chồng nhau.
+  const small = await open('#/game/sentence-race', { width: 1280, height: 647 }, { hasTouch: true });
+  await small.page.click('[data-testid=sentence-race-start]');
+  await small.page.waitForSelector('[data-testid=sr-half-0] .sr-tile');
+  const geo = await small.page.evaluate(() => {
+    const rect = (el) => el.getBoundingClientRect();
+    const halves = [0, 1].map((i) => rect(document.querySelector(`[data-testid=sr-half-${i}]`)));
+    const bad = [];
+    [0, 1].forEach((i) => document.querySelectorAll(`[data-testid=sr-pool-${i}] .sr-tile`).forEach((t) => {
+      const r = rect(t);
+      const hh = halves[i];
+      if (r.height < 56) bad.push(`${t.dataset.text}: cao ${r.height.toFixed(1)}`);
+      if (r.left < hh.left - 0.5 || r.right > hh.right + 0.5 || r.top < hh.top - 0.5 || r.bottom > hh.bottom + 0.5) bad.push(`${t.dataset.text}: tràn khỏi nửa ${i}`);
+    }));
+    return { bad, overlap: halves[0].right > halves[1].left + 0.5 };
+  });
+  assert.deepEqual(geo.bad, [], `thẻ sai kích thước/vị trí: ${geo.bad.join('; ')}`);
+  assert.equal(geo.overlap, false, 'hai nửa chồng nhau');
+  await shot(small.page, 'sentence-race-1280');
+  await small.context.close();
+
+  // Điện thoại: báo dùng màn hình lớn.
+  const ph = await open('#/game/sentence-race', PHONE);
+  await ph.page.waitForSelector('[data-testid=duel-big-screen]');
+  await ph.context.close();
+
+  // Thiếu nội dung: gói chỉ 3 từ, không có câu ví dụ.
+  const ctx = await browser.newContext({ viewport: BIG });
+  await ctx.addInitScript(() => localStorage.setItem('eslhub.pack.default', JSON.stringify({ title: 'T', level: 'A1', vocab: [{ word: 'cat', meaning: 'mèo' }, { word: 'dog', meaning: 'chó' }, { word: 'pig', meaning: 'heo' }], questions: [], actionCommands: [], teams: ['Red', 'Blue'] })));
+  const pg = await ctx.newPage();
+  pg.on('pageerror', (e) => pageErrors.push(`sentence-race thiếu nội dung: ${e.message}`));
+  await pg.goto(BASE + '#/game/sentence-race');
+  await pg.waitForFunction(() => /Cần ít nhất 6 câu/.test(document.body.textContent), null, { timeout: 5000 });
+  await ctx.close();
+};
+
 // ---------- Vào/ra game 5 lần (kiểm tra dọn dẹp) ----------
 async function enterExit(id) {
   const { context, page } = await open('#/');
@@ -349,7 +517,9 @@ async function enterExit(id) {
 try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
-    for (const [label, run] of [[name, fn], [`${name} vào/ra 5 lần`, () => enterExit(name)]]) {
+    const runs = [[name, fn]];
+    if (name !== 'read-aloud') runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]); // read-aloud không phải id game
+    for (const [label, run] of runs) {
       try {
         await run();
         results.push(`PASS ${label}`);

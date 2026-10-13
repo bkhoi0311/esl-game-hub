@@ -1,0 +1,310 @@
+{
+  "title": "Nature and Landscape",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "countryside",
+      "meaning": "vùng quê",
+      "category": "nature",
+      "example": "We walk in the countryside on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "field",
+      "meaning": "cánh đồng",
+      "category": "nature",
+      "example": "The sheep eat grass in the field.",
+      "image": ""
+    },
+    {
+      "word": "forest",
+      "meaning": "khu rừng",
+      "category": "nature",
+      "example": "A fox lives in the forest.",
+      "image": ""
+    },
+    {
+      "word": "ground",
+      "meaning": "mặt đất",
+      "category": "nature",
+      "example": "The apples fell on the ground.",
+      "image": ""
+    },
+    {
+      "word": "island",
+      "meaning": "hòn đảo",
+      "category": "nature",
+      "example": "The island has white sand.",
+      "image": ""
+    },
+    {
+      "word": "jungle",
+      "meaning": "rừng rậm",
+      "category": "nature",
+      "example": "Monkeys play in the jungle.",
+      "image": ""
+    },
+    {
+      "word": "lake",
+      "meaning": "cái hồ",
+      "category": "nature",
+      "example": "Ducks swim on the lake.",
+      "image": ""
+    },
+    {
+      "word": "mountain",
+      "meaning": "ngọn núi",
+      "category": "nature",
+      "example": "The mountain is covered with snow.",
+      "image": ""
+    },
+    {
+      "word": "river",
+      "meaning": "con sông",
+      "category": "nature",
+      "example": "The river is wide and blue.",
+      "image": ""
+    },
+    {
+      "word": "rock",
+      "meaning": "tảng đá",
+      "category": "nature",
+      "example": "A big rock is in the river.",
+      "image": ""
+    },
+    {
+      "word": "waterfall",
+      "meaning": "thác nước",
+      "category": "nature",
+      "example": "The waterfall is very high.",
+      "image": ""
+    },
+    {
+      "word": "world",
+      "meaning": "thế giới",
+      "category": "nature",
+      "example": "I want to travel around the world.",
+      "image": ""
+    },
+    {
+      "word": "grass",
+      "meaning": "cỏ",
+      "category": "plant",
+      "example": "The sheep eat the grass.",
+      "image": ""
+    },
+    {
+      "word": "leaf",
+      "meaning": "chiếc lá",
+      "category": "plant",
+      "example": "A green leaf falls from the branch.",
+      "image": ""
+    },
+    {
+      "word": "plant",
+      "meaning": "cây trồng",
+      "category": "plant",
+      "example": "Water the plant every day.",
+      "image": ""
+    },
+    {
+      "word": "tree",
+      "meaning": "cái cây",
+      "category": "plant",
+      "example": "A bird sits in the tree.",
+      "image": ""
+    },
+    {
+      "word": "flower",
+      "meaning": "bông hoa",
+      "category": "plant",
+      "example": "The flower smells nice.",
+      "image": ""
+    },
+    {
+      "word": "beach",
+      "meaning": "bãi biển",
+      "category": "nature",
+      "example": "We play on the beach.",
+      "image": ""
+    },
+    {
+      "word": "sea",
+      "meaning": "biển",
+      "category": "nature",
+      "example": "The sea is warm today.",
+      "image": ""
+    },
+    {
+      "word": "sand",
+      "meaning": "cát",
+      "category": "nature",
+      "example": "We build a castle in the sand.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"flower\" mean?",
+      "options": [
+        "bông hoa",
+        "tiếng Anh",
+        "cái tủ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cánh đồng)",
+      "options": [
+        "feild",
+        "fiild",
+        "field"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sand\" mean?",
+      "options": [
+        "hòn đảo",
+        "cát",
+        "biển"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vùng quê)",
+      "options": [
+        "countrysside",
+        "countryside",
+        "counrtyside"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ro_k (tảng đá)",
+      "options": [
+        "s",
+        "k",
+        "c"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cây trồng\"?",
+      "options": [
+        "plant",
+        "holiday",
+        "Sunday"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I want to travel around the ___.",
+      "options": [
+        "cross",
+        "fairy",
+        "world"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (rừng rậm)",
+      "options": [
+        "jnugle",
+        "jungle",
+        "junlge"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The sheep eat the ___.",
+      "options": [
+        "grass",
+        "royal guard",
+        "treasure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngọn núi\"?",
+      "options": [
+        "mountain",
+        "sand",
+        "rock"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"forest\" mean?",
+      "options": [
+        "tảng đá",
+        "khu rừng",
+        "cái hồ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_e (cái cây)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lake\" mean?",
+      "options": [
+        "cát",
+        "cái hồ",
+        "thác nước"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: riv_r (con sông)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mặt đất\"?",
+      "options": [
+        "ground",
+        "beach",
+        "field"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to pick a flower",
+    "Show me a big mountain with your arms",
+    "Pretend to swim in a river",
+    "Pretend to plant a tree",
+    "Pretend to walk slowly in the forest",
+    "Pretend to look at the sea"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

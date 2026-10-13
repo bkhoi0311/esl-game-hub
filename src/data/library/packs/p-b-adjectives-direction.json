@@ -1,0 +1,282 @@
+{
+  "title": "Places and Directions",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "central",
+      "meaning": "ở giữa, trung tâm",
+      "category": "describe",
+      "example": "Our hotel is in a central part of the city.",
+      "image": ""
+    },
+    {
+      "word": "eastern",
+      "meaning": "phía đông",
+      "category": "describe",
+      "example": "The eastern side of the island has beautiful beaches.",
+      "image": ""
+    },
+    {
+      "word": "western",
+      "meaning": "phía tây",
+      "category": "describe",
+      "example": "Many tourists visit the western coast in summer.",
+      "image": ""
+    },
+    {
+      "word": "northern",
+      "meaning": "phía bắc",
+      "category": "describe",
+      "example": "My uncle lives in a northern town.",
+      "image": ""
+    },
+    {
+      "word": "southern",
+      "meaning": "phía nam",
+      "category": "describe",
+      "example": "Rice grows well in the southern part of the country.",
+      "image": ""
+    },
+    {
+      "word": "northeast",
+      "meaning": "đông bắc",
+      "category": "describe",
+      "example": "The northeast wind brought cold weather.",
+      "image": ""
+    },
+    {
+      "word": "northwest",
+      "meaning": "tây bắc",
+      "category": "describe",
+      "example": "The northwest part of the country has many hills.",
+      "image": ""
+    },
+    {
+      "word": "southeast",
+      "meaning": "đông nam",
+      "category": "describe",
+      "example": "The storm is moving toward the southeast coast.",
+      "image": ""
+    },
+    {
+      "word": "southwest",
+      "meaning": "tây nam",
+      "category": "describe",
+      "example": "We drove through the southwest of the country.",
+      "image": ""
+    },
+    {
+      "word": "nearby",
+      "meaning": "gần đó",
+      "category": "describe",
+      "example": "There is a nearby shop where we buy snacks.",
+      "image": ""
+    },
+    {
+      "word": "furthest",
+      "meaning": "xa nhất",
+      "category": "describe",
+      "example": "Which student lives the furthest from school?",
+      "image": ""
+    },
+    {
+      "word": "upper",
+      "meaning": "phía trên, ở trên",
+      "category": "describe",
+      "example": "My bedroom is on the upper floor of the house.",
+      "image": ""
+    },
+    {
+      "word": "middle",
+      "meaning": "giữa, chính giữa",
+      "category": "place",
+      "example": "The cat sat in the middle of the road.",
+      "image": ""
+    },
+    {
+      "word": "right-hand",
+      "meaning": "bên phải",
+      "category": "describe",
+      "example": "The post office is on the right-hand side of the street.",
+      "image": ""
+    },
+    {
+      "word": "underwater",
+      "meaning": "dưới nước",
+      "category": "describe",
+      "example": "We saw colourful fish in an underwater cave.",
+      "image": ""
+    },
+    {
+      "word": "situated",
+      "meaning": "nằm ở",
+      "category": "describe",
+      "example": "The hotel is situated near the beach.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"underwater\" mean?",
+      "options": [
+        "điện tử",
+        "dịu dàng",
+        "dưới nước"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tây bắc\"?",
+      "options": [
+        "electronic",
+        "northwest",
+        "intelligent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"middle\" mean?",
+      "options": [
+        "giữa, chính giữa",
+        "cướp biển",
+        "nhân viên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ side of the island has beautiful beaches.",
+      "options": [
+        "eastern",
+        "middle",
+        "high jump"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phía bắc)",
+      "options": [
+        "notrhern",
+        "northern",
+        "norrthern"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phía tây\"?",
+      "options": [
+        "Chinese",
+        "diving",
+        "western"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: so_theast (đông nam)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nằm ở\"?",
+      "options": [
+        "diving",
+        "honest",
+        "situated"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"northeast\" mean?",
+      "options": [
+        "đông bắc",
+        "độc lập",
+        "đáng tin cậy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: southw_st (tây nam)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"upper\" mean?",
+      "options": [
+        "phía trên, ở trên",
+        "người Ireland",
+        "hữu ích, hay giúp đỡ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Rice grows well in the ___ part of the country.",
+      "options": [
+        "middle",
+        "fall over",
+        "southern"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gần đó)",
+      "options": [
+        "neraby",
+        "nearby",
+        "nearrby"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_ntral (ở giữa, trung tâm)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xa nhất)",
+      "options": [
+        "fruthest",
+        "furrthest",
+        "furthest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Point to the north",
+    "Point to the west",
+    "Point to something nearby",
+    "Show me the right-hand side",
+    "Point to the upper part of the screen",
+    "Pretend to swim underwater slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

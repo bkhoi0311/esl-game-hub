@@ -1,0 +1,261 @@
+{
+  "title": "Meals and Drinks",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "breakfast",
+      "meaning": "bữa sáng",
+      "category": "meal",
+      "example": "I have breakfast at seven o'clock.",
+      "image": ""
+    },
+    {
+      "word": "burger",
+      "meaning": "bánh burger",
+      "category": "meal",
+      "example": "He wants a big burger for lunch.",
+      "image": ""
+    },
+    {
+      "word": "dinner",
+      "meaning": "bữa tối",
+      "category": "meal",
+      "example": "We have dinner at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "lunch",
+      "meaning": "bữa trưa",
+      "category": "meal",
+      "example": "We have lunch at school.",
+      "image": ""
+    },
+    {
+      "word": "rice",
+      "meaning": "cơm",
+      "category": "meal",
+      "example": "We eat rice every day.",
+      "image": ""
+    },
+    {
+      "word": "drink",
+      "meaning": "đồ uống",
+      "category": "drink",
+      "example": "Would you like a cold drink?",
+      "image": ""
+    },
+    {
+      "word": "juice",
+      "meaning": "nước ép",
+      "category": "drink",
+      "example": "I drink orange juice at breakfast.",
+      "image": ""
+    },
+    {
+      "word": "lemonade",
+      "meaning": "nước chanh",
+      "category": "drink",
+      "example": "We sell cold lemonade in the garden.",
+      "image": ""
+    },
+    {
+      "word": "milk",
+      "meaning": "sữa",
+      "category": "drink",
+      "example": "He drinks milk before bed.",
+      "image": ""
+    },
+    {
+      "word": "water",
+      "meaning": "nước",
+      "category": "drink",
+      "example": "I drink water after the game.",
+      "image": ""
+    },
+    {
+      "word": "eat",
+      "meaning": "ăn",
+      "category": "action",
+      "example": "We eat lunch at noon.",
+      "image": ""
+    },
+    {
+      "word": "want",
+      "meaning": "muốn",
+      "category": "mind",
+      "example": "I want a drink of water.",
+      "image": ""
+    },
+    {
+      "word": "would like",
+      "meaning": "muốn có",
+      "category": "mind",
+      "example": "I would like some water, please.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"lunch\" mean?",
+      "options": [
+        "bữa tối",
+        "bữa trưa",
+        "bữa sáng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I drink ___ after the game.",
+      "options": [
+        "would like",
+        "want",
+        "water"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cơm\"?",
+      "options": [
+        "rice",
+        "burger",
+        "breakfast"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dinner\" mean?",
+      "options": [
+        "bữa trưa",
+        "bữa tối",
+        "bữa sáng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Would you like a cold ___?",
+      "options": [
+        "drink",
+        "want",
+        "eat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"breakfast\" mean?",
+      "options": [
+        "bữa trưa",
+        "bánh burger",
+        "bữa sáng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồ uống\"?",
+      "options": [
+        "drink",
+        "rug",
+        "playground"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"water\" mean?",
+      "options": [
+        "sữa",
+        "bữa tối",
+        "nước"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_rger (bánh burger)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước chanh)",
+      "options": [
+        "lemoande",
+        "lemonade",
+        "lemonad"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"muốn\"?",
+      "options": [
+        "drink",
+        "juice",
+        "want"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước ép)",
+      "options": [
+        "juice",
+        "juici",
+        "jucie"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"muốn có\"?",
+      "options": [
+        "would like",
+        "lemonade",
+        "drink"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_lk (sữa)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: e_t (ăn)",
+      "options": [
+        "u",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat breakfast",
+    "Pretend to drink milk",
+    "Pretend to eat rice with chopsticks",
+    "Pretend to drink water",
+    "Pretend to eat a burger",
+    "Rub your tummy and say yummy"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

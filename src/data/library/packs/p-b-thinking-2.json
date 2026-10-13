@@ -1,0 +1,282 @@
+{
+  "title": "Verbs of Thinking 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "expect",
+      "meaning": "mong đợi, dự đoán",
+      "category": "mind",
+      "example": "I expect the test to be quite difficult.",
+      "image": ""
+    },
+    {
+      "word": "fancy",
+      "meaning": "thích, muốn",
+      "category": "mind",
+      "example": "Do you fancy a pizza for dinner tonight?",
+      "image": ""
+    },
+    {
+      "word": "feel like",
+      "meaning": "muốn",
+      "category": "mind",
+      "example": "Do you feel like going to the cinema tonight?",
+      "image": ""
+    },
+    {
+      "word": "focus on",
+      "meaning": "tập trung vào",
+      "category": "mind",
+      "example": "Try to focus on your homework tonight.",
+      "image": ""
+    },
+    {
+      "word": "forgive",
+      "meaning": "tha thứ",
+      "category": "mind",
+      "example": "Please forgive me for being late.",
+      "image": ""
+    },
+    {
+      "word": "frighten",
+      "meaning": "làm sợ hãi",
+      "category": "mind",
+      "example": "Loud noises can frighten small dogs.",
+      "image": ""
+    },
+    {
+      "word": "give in",
+      "meaning": "chịu thua",
+      "category": "mind",
+      "example": "Don't give in when the work gets hard.",
+      "image": ""
+    },
+    {
+      "word": "give up",
+      "meaning": "bỏ cuộc",
+      "category": "mind",
+      "example": "Never give up on your dreams.",
+      "image": ""
+    },
+    {
+      "word": "go for",
+      "meaning": "chọn",
+      "category": "mind",
+      "example": "I think I will go for the blue jacket.",
+      "image": ""
+    },
+    {
+      "word": "identify",
+      "meaning": "nhận ra, xác định",
+      "category": "mind",
+      "example": "Can you identify the bird in this photo?",
+      "image": ""
+    },
+    {
+      "word": "ignore",
+      "meaning": "phớt lờ",
+      "category": "mind",
+      "example": "Don't ignore your teacher when she is speaking to you.",
+      "image": ""
+    },
+    {
+      "word": "imagine",
+      "meaning": "tưởng tượng",
+      "category": "mind",
+      "example": "Can you imagine living on another planet?",
+      "image": ""
+    },
+    {
+      "word": "inspire",
+      "meaning": "truyền cảm hứng",
+      "category": "mind",
+      "example": "Her story inspired many young people to learn new skills.",
+      "image": ""
+    },
+    {
+      "word": "intend",
+      "meaning": "định, có ý định",
+      "category": "mind",
+      "example": "I intend to study medicine when I am older.",
+      "image": ""
+    },
+    {
+      "word": "involve",
+      "meaning": "liên quan, bao gồm",
+      "category": "mind",
+      "example": "The project involves working with students from other schools.",
+      "image": ""
+    },
+    {
+      "word": "locate",
+      "meaning": "xác định vị trí",
+      "category": "mind",
+      "example": "Can you locate our village on this map?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: fr_ghten (làm sợ hãi)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fancy\" mean?",
+      "options": [
+        "ghi âm",
+        "giữ lại, bắt ở lại",
+        "thích, muốn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phớt lờ)",
+      "options": [
+        "ignroe",
+        "ignore",
+        "ignorre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"give up\" mean?",
+      "options": [
+        "rửa bát",
+        "bỏ cuộc",
+        "reo, bị ôi thiu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mong đợi, dự đoán)",
+      "options": [
+        "expect",
+        "exppect",
+        "expecct"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"forgive\" mean?",
+      "options": [
+        "kiểm tra",
+        "thư giãn",
+        "tha thứ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Try to ___ your homework tonight.",
+      "options": [
+        "focus on",
+        "break up",
+        "used to"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"truyền cảm hứng\"?",
+      "options": [
+        "multiply",
+        "weigh",
+        "inspire"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Can you ___ the bird in this photo?",
+      "options": [
+        "grab",
+        "identify",
+        "bounce"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"muốn\"?",
+      "options": [
+        "give up",
+        "feel like",
+        "give in"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: loc_te (xác định vị trí)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"give in\" mean?",
+      "options": [
+        "chịu thua",
+        "đi xuống",
+        "tham gia"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (liên quan, bao gồm)",
+      "options": [
+        "innvolve",
+        "invovle",
+        "involve"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"định, có ý định\"?",
+      "options": [
+        "give",
+        "intend",
+        "wear out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: imag_ne (tưởng tượng)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to imagine a big castle",
+    "Pretend to look for a place on a map",
+    "Show me you expect a surprise",
+    "Show me you give up and then try again",
+    "Pretend to focus on a book",
+    "Show me you are inspired"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "title": "Fruit and Vegetables",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "apple",
@@ -164,8 +164,8 @@
       "prompt": "A ___ tastes very sour.",
       "options": [
         "lemon",
-        "doll",
-        "bridge"
+        "telescope",
+        "sock"
       ],
       "answer": 0,
       "type": "vocab"
@@ -204,8 +204,8 @@
       "prompt": "The ___ on the table is juicy.",
       "options": [
         "pear",
-        "timer",
-        "funfair"
+        "tape",
+        "kitchen"
       ],
       "answer": 0,
       "type": "vocab"

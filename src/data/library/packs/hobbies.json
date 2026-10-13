@@ -1,6 +1,6 @@
 {
   "title": "Hobbies",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "dancing",
@@ -181,8 +181,8 @@
       "prompt": "What does \"horse riding\" mean?",
       "options": [
         "cưỡi ngựa",
-        "cờ vua",
-        "buổi dã ngoại"
+        "trò chơi điện tử",
+        "cờ vua"
       ],
       "answer": 0,
       "type": "vocab"
@@ -200,8 +200,8 @@
     {
       "prompt": "We go ___ in the hills.",
       "options": [
-        "spaghetti",
-        "rock",
+        "computer room",
+        "train",
         "walking"
       ],
       "answer": 2,
@@ -240,9 +240,9 @@
     {
       "prompt": "What does \"shopping\" mean?",
       "options": [
-        "đọc sách",
+        "ca hát",
         "mua sắm",
-        "bộ phim"
+        "cờ vua"
       ],
       "answer": 1,
       "type": "vocab"
@@ -270,9 +270,9 @@
     {
       "prompt": "Grandpa goes ___ at the lake.",
       "options": [
-        "lizard",
+        "vampire",
         "fishing",
-        "jungle"
+        "wolf"
       ],
       "answer": 1,
       "type": "vocab"

@@ -1,0 +1,289 @@
+{
+  "title": "Body and Health",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "elbow",
+      "meaning": "khuỷu tay",
+      "category": "body",
+      "example": "I hurt my elbow when I fell.",
+      "image": ""
+    },
+    {
+      "word": "finger",
+      "meaning": "ngón tay",
+      "category": "body",
+      "example": "I have five fingers on each hand.",
+      "image": ""
+    },
+    {
+      "word": "knee",
+      "meaning": "đầu gối",
+      "category": "body",
+      "example": "She has a small cut on her knee.",
+      "image": ""
+    },
+    {
+      "word": "toe",
+      "meaning": "ngón chân",
+      "category": "body",
+      "example": "I hurt my big toe.",
+      "image": ""
+    },
+    {
+      "word": "wing",
+      "meaning": "cánh",
+      "category": "body",
+      "example": "The bird has a hurt wing.",
+      "image": ""
+    },
+    {
+      "word": "sore",
+      "meaning": "đau, nhức",
+      "category": "describe",
+      "example": "My legs are sore after the game.",
+      "image": ""
+    },
+    {
+      "word": "bandage",
+      "meaning": "băng gạc",
+      "category": "thing",
+      "example": "The nurse puts a bandage on my arm.",
+      "image": ""
+    },
+    {
+      "word": "medicine",
+      "meaning": "thuốc",
+      "category": "thing",
+      "example": "The doctor gives me some medicine.",
+      "image": ""
+    },
+    {
+      "word": "x-ray",
+      "meaning": "ảnh chụp X-quang",
+      "category": "thing",
+      "example": "The doctor looks at the x-ray.",
+      "image": ""
+    },
+    {
+      "word": "chemist",
+      "meaning": "hiệu thuốc",
+      "category": "place",
+      "example": "She buys medicine at the chemist.",
+      "image": ""
+    },
+    {
+      "word": "ambulance",
+      "meaning": "xe cứu thương",
+      "category": "transport",
+      "example": "The ambulance is coming very fast.",
+      "image": ""
+    },
+    {
+      "word": "ill",
+      "meaning": "bị bệnh",
+      "category": "feeling",
+      "example": "My sister is ill today.",
+      "image": ""
+    },
+    {
+      "word": "cold",
+      "meaning": "lạnh",
+      "category": "describe",
+      "example": "The water is very cold.",
+      "image": ""
+    },
+    {
+      "word": "headache",
+      "meaning": "đau đầu",
+      "category": "health",
+      "example": "I have a headache, so I need to rest.",
+      "image": ""
+    },
+    {
+      "word": "tooth",
+      "meaning": "cái răng",
+      "category": "body",
+      "example": "The baby has one small tooth.",
+      "image": ""
+    },
+    {
+      "word": "doctor",
+      "meaning": "bác sĩ",
+      "category": "job",
+      "example": "The doctor helps sick people.",
+      "image": ""
+    },
+    {
+      "word": "hurt",
+      "meaning": "làm đau",
+      "category": "action",
+      "example": "Be careful, don't hurt your finger!",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (đau đầu)",
+      "options": [
+        "headache",
+        "headach",
+        "headdache"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cánh\"?",
+      "options": [
+        "finger",
+        "wing",
+        "face"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _ll (bị bệnh)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngón tay)",
+      "options": [
+        "finger",
+        "figner",
+        "fniger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"medicine\" mean?",
+      "options": [
+        "băng gạc",
+        "thuốc",
+        "ảnh chụp X-quang"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is a vehicle?",
+      "options": [
+        "wing",
+        "doctor",
+        "ambulance"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bác sĩ\"?",
+      "options": [
+        "ambulance",
+        "doctor",
+        "headache"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is a part of the body?",
+      "options": [
+        "ambulance",
+        "doctor",
+        "toe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"knee\" mean?",
+      "options": [
+        "đầu gối",
+        "cái răng",
+        "khuỷu tay"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The baby has one small ___.",
+      "options": [
+        "tooth",
+        "cold",
+        "hurt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khuỷu tay\"?",
+      "options": [
+        "finger",
+        "elbow",
+        "toe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_rt (làm đau)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The water is very ___.",
+      "options": [
+        "elbow",
+        "cold",
+        "headache"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: band_ge (băng gạc)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chemist\" mean?",
+      "options": [
+        "khuỷu tay",
+        "ngón chân",
+        "hiệu thuốc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Touch your elbow with your other hand",
+    "Point to your knee",
+    "Wiggle your toes",
+    "Pretend to take some medicine",
+    "Pretend you have a sore throat",
+    "Pretend to put on a bandage"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

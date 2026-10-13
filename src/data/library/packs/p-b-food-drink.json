@@ -1,0 +1,282 @@
+{
+  "title": "Food and Drink",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "beef",
+      "meaning": "thịt bò",
+      "category": "food",
+      "example": "We had beef and rice for dinner last night.",
+      "image": ""
+    },
+    {
+      "word": "cod",
+      "meaning": "cá tuyết",
+      "category": "food",
+      "example": "We had fried cod with potatoes for dinner.",
+      "image": ""
+    },
+    {
+      "word": "flavour",
+      "meaning": "hương vị",
+      "category": "food",
+      "example": "I love the flavour of fresh mango.",
+      "image": ""
+    },
+    {
+      "word": "gum",
+      "meaning": "kẹo cao su",
+      "category": "food",
+      "example": "Please do not chew gum in class.",
+      "image": ""
+    },
+    {
+      "word": "peanut",
+      "meaning": "lạc, đậu phộng",
+      "category": "food",
+      "example": "He gives the monkey a peanut.",
+      "image": ""
+    },
+    {
+      "word": "salmon",
+      "meaning": "cá hồi",
+      "category": "food",
+      "example": "We had grilled salmon with rice for dinner.",
+      "image": ""
+    },
+    {
+      "word": "spice",
+      "meaning": "gia vị",
+      "category": "food",
+      "example": "Add a little spice to the soup.",
+      "image": ""
+    },
+    {
+      "word": "takeaway",
+      "meaning": "đồ ăn mang đi",
+      "category": "food",
+      "example": "We ate a takeaway at home after the match.",
+      "image": ""
+    },
+    {
+      "word": "tuna",
+      "meaning": "cá ngừ",
+      "category": "food",
+      "example": "My dad made a tuna sandwich for lunch.",
+      "image": ""
+    },
+    {
+      "word": "vanilla",
+      "meaning": "hương va-ni",
+      "category": "food",
+      "example": "My favourite ice cream flavour is vanilla.",
+      "image": ""
+    },
+    {
+      "word": "peach",
+      "meaning": "quả đào",
+      "category": "fruit",
+      "example": "The peach is soft and sweet.",
+      "image": ""
+    },
+    {
+      "word": "broccoli",
+      "meaning": "súp lơ xanh",
+      "category": "vegetable",
+      "example": "I don't like broccoli, but my brother eats it every day.",
+      "image": ""
+    },
+    {
+      "word": "cabbage",
+      "meaning": "bắp cải",
+      "category": "vegetable",
+      "example": "My grandmother made a soup with cabbage and carrots.",
+      "image": ""
+    },
+    {
+      "word": "cucumber",
+      "meaning": "dưa chuột",
+      "category": "vegetable",
+      "example": "This cucumber is fresh and green.",
+      "image": ""
+    },
+    {
+      "word": "lettuce",
+      "meaning": "rau xà lách",
+      "category": "vegetable",
+      "example": "Put some lettuce and tomato in the sandwich.",
+      "image": ""
+    },
+    {
+      "word": "spinach",
+      "meaning": "rau chân vịt",
+      "category": "vegetable",
+      "example": "My mother cooks spinach with garlic for dinner.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"thịt bò\"?",
+      "options": [
+        "prize",
+        "beef",
+        "illness"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ate a ___ at home after the match.",
+      "options": [
+        "takeaway",
+        "pattern",
+        "field"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hương vị\"?",
+      "options": [
+        "balloons",
+        "ball",
+        "flavour"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"spice\" mean?",
+      "options": [
+        "gia vị",
+        "vỉa hè",
+        "trạm xăng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_bbage (bắp cải)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tuna\" mean?",
+      "options": [
+        "chỗ rẽ",
+        "cái xương",
+        "cá ngừ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: spin_ch (rau chân vịt)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cá hồi\"?",
+      "options": [
+        "mirror",
+        "salmon",
+        "season"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is soft and sweet.",
+      "options": [
+        "peach",
+        "expensive",
+        "begin"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dưa chuột)",
+      "options": [
+        "cuucmber",
+        "cucumbber",
+        "cucumber"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_m (kẹo cao su)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (súp lơ xanh)",
+      "options": [
+        "broccloi",
+        "broccoli",
+        "brococli"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lettuce\" mean?",
+      "options": [
+        "chiếc váy",
+        "rau xà lách",
+        "nửa đêm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hương va-ni)",
+      "options": [
+        "vanilla",
+        "vainlla",
+        "vanille"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cod\" mean?",
+      "options": [
+        "tác giả",
+        "trang web",
+        "cá tuyết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat spicy food",
+    "Pretend to chew gum",
+    "Pretend to taste vanilla ice cream",
+    "Pretend to cut a cucumber",
+    "Pretend to order a takeaway",
+    "Show me you dislike broccoli"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

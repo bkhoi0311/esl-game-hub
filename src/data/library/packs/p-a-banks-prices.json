@@ -1,0 +1,282 @@
+{
+  "title": "Banks and Prices",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "account",
+      "meaning": "tài khoản",
+      "category": "money",
+      "example": "She has a new account on this shopping website.",
+      "image": ""
+    },
+    {
+      "word": "bank account",
+      "meaning": "tài khoản ngân hàng",
+      "category": "money",
+      "example": "He saves money in his bank account every month.",
+      "image": ""
+    },
+    {
+      "word": "banking",
+      "meaning": "ngành ngân hàng",
+      "category": "money",
+      "example": "My uncle works in banking and knows a lot about money.",
+      "image": ""
+    },
+    {
+      "word": "deposit",
+      "meaning": "tiền đặt cọc",
+      "category": "money",
+      "example": "You must pay a deposit when you book the room.",
+      "image": ""
+    },
+    {
+      "word": "loan",
+      "meaning": "khoản vay",
+      "category": "money",
+      "example": "My parents took a loan to buy the house.",
+      "image": ""
+    },
+    {
+      "word": "salary",
+      "meaning": "lương",
+      "category": "money",
+      "example": "Her salary is paid on the last day of the month.",
+      "image": ""
+    },
+    {
+      "word": "wage",
+      "meaning": "tiền lương",
+      "category": "money",
+      "example": "He spent his first wages on a new bike.",
+      "image": ""
+    },
+    {
+      "word": "tax",
+      "meaning": "thuế",
+      "category": "money",
+      "example": "Shops add tax to the price of goods.",
+      "image": ""
+    },
+    {
+      "word": "fee",
+      "meaning": "phí",
+      "category": "money",
+      "example": "There is a small fee to enter the museum.",
+      "image": ""
+    },
+    {
+      "word": "fare",
+      "meaning": "tiền vé",
+      "category": "money",
+      "example": "The bus fare to the city is two dollars.",
+      "image": ""
+    },
+    {
+      "word": "charge",
+      "meaning": "phí, sạc điện",
+      "category": "money",
+      "example": "There is no charge for children under five.",
+      "image": ""
+    },
+    {
+      "word": "credit",
+      "meaning": "tín dụng, tiền nạp",
+      "category": "money",
+      "example": "My phone has no credit left, so I can't call you.",
+      "image": ""
+    },
+    {
+      "word": "grant",
+      "meaning": "học bổng",
+      "category": "money",
+      "example": "She got a grant to study abroad.",
+      "image": ""
+    },
+    {
+      "word": "lottery",
+      "meaning": "xổ số",
+      "category": "money",
+      "example": "Someone in my town won the lottery last week.",
+      "image": ""
+    },
+    {
+      "word": "exchange rate",
+      "meaning": "tỷ giá hối đoái",
+      "category": "money",
+      "example": "The exchange rate changes almost every day.",
+      "image": ""
+    },
+    {
+      "word": "currency",
+      "meaning": "tiền tệ",
+      "category": "money",
+      "example": "The currency in Japan is the yen.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"khoản vay\"?",
+      "options": [
+        "midnight",
+        "London",
+        "loan"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has a new ___ on this shopping website.",
+      "options": [
+        "account",
+        "reservation",
+        "honeymoon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phí, sạc điện\"?",
+      "options": [
+        "grandpa",
+        "charge",
+        "rider"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fee\" mean?",
+      "options": [
+        "phí",
+        "áo mưa",
+        "góc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiền lương\"?",
+      "options": [
+        "building",
+        "whale",
+        "wage"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tiền tệ)",
+      "options": [
+        "currecny",
+        "currency",
+        "currnecy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grant\" mean?",
+      "options": [
+        "bài hát",
+        "phòng chờ",
+        "học bổng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tiền đặt cọc)",
+      "options": [
+        "deposit",
+        "deopsit",
+        "dpeosit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Someone in my town won the ___ last week.",
+      "options": [
+        "stomach ache",
+        "lottery",
+        "bell"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tài khoản ngân hàng\"?",
+      "options": [
+        "exchange rate",
+        "bank account",
+        "iced tea"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tax\" mean?",
+      "options": [
+        "thông báo",
+        "bóng đá",
+        "thuế"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sal_ry (lương)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"banking\" mean?",
+      "options": [
+        "ngành ngân hàng",
+        "ống, tuýp",
+        "bộ đồ bơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_re (tiền vé)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cr_dit (tín dụng, tiền nạp)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to fill in a bank form",
+    "Pretend to count your salary",
+    "Pretend to type a number on a cash machine",
+    "Pretend to pay a bill",
+    "Pretend to check your bank account on a phone",
+    "Pretend to win the lottery"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -7,7 +7,7 @@ import { confettiLite } from '../../core/fx.js';
 import { getQuestions, shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
-  TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen, stepper,
+  TEAM_COLORS, teamVars, answerButtons, button, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen, stepper,
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
@@ -140,7 +140,7 @@ function createGame(root, pack) {
     const order = shuffle([0, 1, 2]);
     const texts = order.map((k) => q.options[k]);
     const correctPos = order.indexOf(q.answer);
-    const listen = button({ iconName: 'volume', title: 'Listen', variant: 'ghost', onClick: () => speak(q.prompt.replace(/_{2,}/g, 'blank')) });
+    const listen = button({ iconName: 'volume', title: 'Listen', variant: 'ghost', onClick: () => speak(q.prompt.replace(/_{2,}/g, 'blank'), { manual: true }) });
 
     const { el: answersEl, buttons } = answerButtons(texts, (pos, btn) => {
       if (frame.paused) return;
@@ -227,7 +227,7 @@ function createGame(root, pack) {
       turnBanner(verb),
       h('div', { class: 'gh-targets', 'data-testid': 'gh-targets' },
         targets.map((t) =>
-          h('button', { type: 'button', class: 'gh-target', style: { '--team': TEAM_COLORS[t] }, onClick: () => finishChest(kind, t) },
+          h('button', { type: 'button', class: 'gh-target', style: teamVars(TEAM_COLORS[t]), onClick: () => finishChest(kind, t) },
             h('span', {}, state.teamNames[t]),
             h('span', { class: 'gh-target-gold' }, icon('coins', 36), String(state.gold[t])))))));
   }

@@ -1,0 +1,265 @@
+{
+  "title": "Pets and Farm Animals",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "kitten",
+      "meaning": "mèo con",
+      "category": "animal",
+      "example": "The kitten plays with a ball.",
+      "image": ""
+    },
+    {
+      "word": "puppy",
+      "meaning": "chó con",
+      "category": "animal",
+      "example": "The puppy is very small and cute.",
+      "image": ""
+    },
+    {
+      "word": "rabbit",
+      "meaning": "con thỏ",
+      "category": "animal",
+      "example": "The rabbit has long ears.",
+      "image": ""
+    },
+    {
+      "word": "parrot",
+      "meaning": "con vẹt",
+      "category": "bird",
+      "example": "The parrot can say hello.",
+      "image": ""
+    },
+    {
+      "word": "cage",
+      "meaning": "cái lồng",
+      "category": "thing",
+      "example": "The bird is in a big cage.",
+      "image": ""
+    },
+    {
+      "word": "feed",
+      "meaning": "cho ăn",
+      "category": "daily",
+      "example": "I feed the fish every morning.",
+      "image": ""
+    },
+    {
+      "word": "farm",
+      "meaning": "nông trại",
+      "category": "place",
+      "example": "There are cows on the farm.",
+      "image": ""
+    },
+    {
+      "word": "farmer",
+      "meaning": "nông dân",
+      "category": "job",
+      "example": "The farmer has many cows.",
+      "image": ""
+    },
+    {
+      "word": "tractor",
+      "meaning": "máy kéo",
+      "category": "transport",
+      "example": "The farmer drives a green tractor.",
+      "image": ""
+    },
+    {
+      "word": "cat",
+      "meaning": "con mèo",
+      "category": "animal",
+      "example": "My cat sleeps on the sofa.",
+      "image": ""
+    },
+    {
+      "word": "dog",
+      "meaning": "con chó",
+      "category": "animal",
+      "example": "My dog runs in the park.",
+      "image": ""
+    },
+    {
+      "word": "cow",
+      "meaning": "con bò",
+      "category": "animal",
+      "example": "The cow gives us milk.",
+      "image": ""
+    },
+    {
+      "word": "horse",
+      "meaning": "con ngựa",
+      "category": "animal",
+      "example": "The horse runs very fast.",
+      "image": ""
+    },
+    {
+      "word": "duck",
+      "meaning": "con vịt",
+      "category": "bird",
+      "example": "The duck swims on the lake.",
+      "image": ""
+    },
+    {
+      "word": "sheep",
+      "meaning": "con cừu",
+      "category": "animal",
+      "example": "The sheep has soft white wool.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"dog\" mean?",
+      "options": [
+        "con mèo",
+        "con chó",
+        "con thỏ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ sleeps on the sofa.",
+      "options": [
+        "cat",
+        "tractor",
+        "cage"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái lồng\"?",
+      "options": [
+        "cow",
+        "horse",
+        "cage"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ plays with a ball.",
+      "options": [
+        "tractor",
+        "kitten",
+        "farm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is an animal?",
+      "options": [
+        "tractor",
+        "farmer",
+        "cow"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chó con\"?",
+      "options": [
+        "puppy",
+        "sheep",
+        "kitten"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_rm (nông trại)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (máy kéo)",
+      "options": [
+        "tractor",
+        "tracttor",
+        "tracotr"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: she_p (con cừu)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con vịt)",
+      "options": [
+        "ducck",
+        "duck",
+        "dcuk"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fe_d (cho ăn)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"parrot\" mean?",
+      "options": [
+        "con vịt",
+        "con vẹt",
+        "con bò"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nông dân\"?",
+      "options": [
+        "farmer",
+        "duck",
+        "parrot"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"horse\" mean?",
+      "options": [
+        "con bò",
+        "mèo con",
+        "con ngựa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to feed a kitten",
+    "Hop like a rabbit",
+    "Moo like a cow",
+    "Quack like a duck",
+    "Pretend to drive a tractor",
+    "Pretend to pat a puppy gently"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

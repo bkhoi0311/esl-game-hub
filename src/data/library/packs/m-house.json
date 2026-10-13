@@ -1,0 +1,296 @@
+{
+  "title": "Parts of the House",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "balcony",
+      "meaning": "ban công",
+      "category": "house",
+      "example": "We have breakfast on the balcony.",
+      "image": ""
+    },
+    {
+      "word": "basement",
+      "meaning": "tầng hầm",
+      "category": "house",
+      "example": "We keep our old toys in the basement.",
+      "image": ""
+    },
+    {
+      "word": "roof",
+      "meaning": "mái nhà",
+      "category": "house",
+      "example": "A bird sits on the roof.",
+      "image": ""
+    },
+    {
+      "word": "stair",
+      "meaning": "bậc thang",
+      "category": "house",
+      "example": "She sits on the bottom stair.",
+      "image": ""
+    },
+    {
+      "word": "upstairs",
+      "meaning": "ở tầng trên",
+      "category": "house",
+      "example": "My room is upstairs.",
+      "image": ""
+    },
+    {
+      "word": "downstairs",
+      "meaning": "ở tầng dưới",
+      "category": "house",
+      "example": "The kitchen is downstairs.",
+      "image": ""
+    },
+    {
+      "word": "elevator",
+      "meaning": "thang máy",
+      "category": "house",
+      "example": "The elevator is broken today.",
+      "image": ""
+    },
+    {
+      "word": "lift",
+      "meaning": "thang máy",
+      "category": "house",
+      "example": "We take the lift to the tenth floor.",
+      "image": ""
+    },
+    {
+      "word": "blanket",
+      "meaning": "cái chăn",
+      "category": "house",
+      "example": "She puts a warm blanket on the bed.",
+      "image": ""
+    },
+    {
+      "word": "seat",
+      "meaning": "chỗ ngồi",
+      "category": "thing",
+      "example": "Is this seat free?",
+      "image": ""
+    },
+    {
+      "word": "shower",
+      "meaning": "vòi hoa sen",
+      "category": "house",
+      "example": "I take a shower every morning.",
+      "image": ""
+    },
+    {
+      "word": "towel",
+      "meaning": "cái khăn tắm",
+      "category": "house",
+      "example": "Dad gives me a clean towel.",
+      "image": ""
+    },
+    {
+      "word": "bedroom",
+      "meaning": "phòng ngủ",
+      "category": "house",
+      "example": "My bedroom is quiet at night.",
+      "image": ""
+    },
+    {
+      "word": "bathroom",
+      "meaning": "phòng tắm",
+      "category": "house",
+      "example": "Wash your hands in the bathroom.",
+      "image": ""
+    },
+    {
+      "word": "kitchen",
+      "meaning": "nhà bếp",
+      "category": "house",
+      "example": "Dad is cooking in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "garden",
+      "meaning": "khu vườn",
+      "category": "house",
+      "example": "We have flowers in the garden.",
+      "image": ""
+    },
+    {
+      "word": "door",
+      "meaning": "cánh cửa",
+      "category": "house",
+      "example": "Please close the door.",
+      "image": ""
+    },
+    {
+      "word": "window",
+      "meaning": "cửa sổ",
+      "category": "house",
+      "example": "She looks out of the window.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (khu vườn)",
+      "options": [
+        "gerden",
+        "garden",
+        "garedn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"window\" mean?",
+      "options": [
+        "vòi hoa sen",
+        "tầng hầm",
+        "cửa sổ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: elev_tor (thang máy)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dad is cooking in the ___.",
+      "options": [
+        "brilliant",
+        "kitchen",
+        "bounce"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tầng hầm\"?",
+      "options": [
+        "shower",
+        "garden",
+        "basement"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"balcony\" mean?",
+      "options": [
+        "ban công",
+        "bậc thang",
+        "vòi hoa sen"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bathr_om (phòng tắm)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phòng ngủ\"?",
+      "options": [
+        "blanket",
+        "window",
+        "bedroom"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thang máy)",
+      "options": [
+        "lift",
+        "lyft",
+        "lfit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cánh cửa\"?",
+      "options": [
+        "bedroom",
+        "door",
+        "blanket"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: blank_t (cái chăn)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"roof\" mean?",
+      "options": [
+        "bậc thang",
+        "phòng ngủ",
+        "mái nhà"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My room is ___.",
+      "options": [
+        "walk",
+        "upstairs",
+        "giraffe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"seat\" mean?",
+      "options": [
+        "khu vườn",
+        "mái nhà",
+        "chỗ ngồi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bậc thang)",
+      "options": [
+        "stair",
+        "stiar",
+        "stayr"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to go up the stairs slowly",
+    "Pretend to knock on a door",
+    "Pretend to look out of a window",
+    "Pretend to sweep the floor",
+    "Pretend to water the garden",
+    "Pretend to press the lift button"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

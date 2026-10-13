@@ -1,0 +1,300 @@
+{
+  "title": "Talking and Thinking",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "ask",
+      "meaning": "hỏi",
+      "category": "speech",
+      "example": "You can ask your teacher.",
+      "image": ""
+    },
+    {
+      "word": "say",
+      "meaning": "nói, bảo",
+      "category": "action",
+      "example": "I say hello to my friend.",
+      "image": ""
+    },
+    {
+      "word": "tell",
+      "meaning": "kể, nói",
+      "category": "speech",
+      "example": "Please tell me about your pet.",
+      "image": ""
+    },
+    {
+      "word": "talk",
+      "meaning": "nói chuyện",
+      "category": "action",
+      "example": "The children talk in the garden.",
+      "image": ""
+    },
+    {
+      "word": "look",
+      "meaning": "nhìn",
+      "category": "action",
+      "example": "Please look at the red bird!",
+      "image": ""
+    },
+    {
+      "word": "look at",
+      "meaning": "nhìn",
+      "category": "action",
+      "example": "Please look at the big tree.",
+      "image": ""
+    },
+    {
+      "word": "see",
+      "meaning": "thấy",
+      "category": "action",
+      "example": "I see a rainbow in the sky.",
+      "image": ""
+    },
+    {
+      "word": "listen",
+      "meaning": "nghe",
+      "category": "action",
+      "example": "We listen to music in the car.",
+      "image": ""
+    },
+    {
+      "word": "know",
+      "meaning": "biết",
+      "category": "mind",
+      "example": "I know your brother.",
+      "image": ""
+    },
+    {
+      "word": "understand",
+      "meaning": "hiểu",
+      "category": "mind",
+      "example": "I understand the question.",
+      "image": ""
+    },
+    {
+      "word": "choose",
+      "meaning": "chọn",
+      "category": "mind",
+      "example": "You can choose a book today.",
+      "image": ""
+    },
+    {
+      "word": "count",
+      "meaning": "đếm",
+      "category": "mind",
+      "example": "I can count to twenty.",
+      "image": ""
+    },
+    {
+      "word": "enjoy",
+      "meaning": "thích, tận hưởng",
+      "category": "mind",
+      "example": "Children enjoy the park.",
+      "image": ""
+    },
+    {
+      "word": "make",
+      "meaning": "làm, tạo ra",
+      "category": "daily",
+      "example": "Let's make a cake.",
+      "image": ""
+    },
+    {
+      "word": "do",
+      "meaning": "làm",
+      "category": "daily",
+      "example": "I do my homework every day.",
+      "image": ""
+    },
+    {
+      "word": "have",
+      "meaning": "có",
+      "category": "daily",
+      "example": "They have a big garden.",
+      "image": ""
+    },
+    {
+      "word": "get",
+      "meaning": "nhận, lấy",
+      "category": "daily",
+      "example": "I get a letter from my aunt.",
+      "image": ""
+    },
+    {
+      "word": "live",
+      "meaning": "sống",
+      "category": "daily",
+      "example": "We live in a small house.",
+      "image": ""
+    },
+    {
+      "word": "be",
+      "meaning": "là, ở",
+      "category": "daily",
+      "example": "Can you be quiet, please?",
+      "image": ""
+    },
+    {
+      "word": "can",
+      "meaning": "có thể",
+      "category": "daily",
+      "example": "I can swim very well.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"choose\" mean?",
+      "options": [
+        "đếm",
+        "hiểu",
+        "chọn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nghe\"?",
+      "options": [
+        "listen",
+        "talk",
+        "look"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"make\" mean?",
+      "options": [
+        "nhận, lấy",
+        "làm, tạo ra",
+        "có"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"biết\"?",
+      "options": [
+        "know",
+        "listen",
+        "make"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sống)",
+      "options": [
+        "lvie",
+        "livve",
+        "live"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhận, lấy\"?",
+      "options": [
+        "make",
+        "get",
+        "pick up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"look at\" mean?",
+      "options": [
+        "thấy",
+        "nghe",
+        "nhìn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nói chuyện)",
+      "options": [
+        "tlak",
+        "talk",
+        "tallk"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tell\" mean?",
+      "options": [
+        "kể, nói",
+        "hỏi",
+        "biết"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_ve (có)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đếm)",
+      "options": [
+        "conut",
+        "cuont",
+        "count"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: enj_y (thích, tận hưởng)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ at the red bird!",
+      "options": [
+        "look",
+        "count",
+        "tell"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: underst_nd (hiểu)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to talk on the phone",
+    "Pretend to look at a picture",
+    "Pretend to listen carefully",
+    "Pretend to think hard",
+    "Show me you know the answer",
+    "Pretend to make a cake"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

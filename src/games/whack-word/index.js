@@ -191,6 +191,7 @@ function makeWhackScene(Phaser) {
 
     whack(i, slot) {
       if (!this.api.running || this.api.paused || !slot.item || slot.hit) return;
+      if (!this.api.tapAllowed(i)) return; // chống bấm loạn
       const side = this.sides[i];
       const item = slot.item;
       slot.hit = true;
@@ -205,6 +206,7 @@ function makeWhackScene(Phaser) {
         this.setTarget(side, nextTarget(this.words, side.target));
       } else {
         playSound('wrong');
+        this.api.penalize(i);
         this.drawSign(slot, 'wh-sign-r');
         slot.body.setTint(0xffb0a0);
       }

@@ -1,0 +1,261 @@
+{
+  "title": "Countryside and City",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "district",
+      "meaning": "quận, khu vực",
+      "category": "place",
+      "example": "My aunt lives in a quiet district near the river.",
+      "image": ""
+    },
+    {
+      "word": "neighbourhood",
+      "meaning": "khu phố",
+      "category": "place",
+      "example": "I know everyone in my neighbourhood.",
+      "image": ""
+    },
+    {
+      "word": "region",
+      "meaning": "vùng, khu vực",
+      "category": "place",
+      "example": "This region is famous for its beautiful beaches.",
+      "image": ""
+    },
+    {
+      "word": "location",
+      "meaning": "vị trí, địa điểm",
+      "category": "place",
+      "example": "The hotel is in a great location near the beach.",
+      "image": ""
+    },
+    {
+      "word": "pavement",
+      "meaning": "vỉa hè",
+      "category": "place",
+      "example": "Please walk on the pavement, not on the road.",
+      "image": ""
+    },
+    {
+      "word": "fountain",
+      "meaning": "đài phun nước",
+      "category": "place",
+      "example": "Children play near the fountain.",
+      "image": ""
+    },
+    {
+      "word": "monument",
+      "meaning": "đài tưởng niệm",
+      "category": "place",
+      "example": "We visited an old monument in the city centre.",
+      "image": ""
+    },
+    {
+      "word": "palace",
+      "meaning": "cung điện",
+      "category": "place",
+      "example": "We visited a beautiful palace on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "tower",
+      "meaning": "tòa tháp",
+      "category": "place",
+      "example": "We can see the tower from here.",
+      "image": ""
+    },
+    {
+      "word": "statue",
+      "meaning": "bức tượng",
+      "category": "thing",
+      "example": "There is a big statue in the park.",
+      "image": ""
+    },
+    {
+      "word": "sculpture",
+      "meaning": "tác phẩm điêu khắc",
+      "category": "thing",
+      "example": "There is a big stone sculpture in the park.",
+      "image": ""
+    },
+    {
+      "word": "embassy",
+      "meaning": "đại sứ quán",
+      "category": "place",
+      "example": "We went to the embassy to get a new passport.",
+      "image": ""
+    },
+    {
+      "word": "mall",
+      "meaning": "trung tâm thương mại",
+      "category": "place",
+      "example": "We eat ice cream in the mall.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: d_strict (quận, khu vực)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vỉa hè\"?",
+      "options": [
+        "department",
+        "pavement",
+        "vegetarian"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cung điện)",
+      "options": [
+        "palece",
+        "palacce",
+        "palace"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"embassy\" mean?",
+      "options": [
+        "đại sứ quán",
+        "buổi biểu diễn",
+        "nhà vô địch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bức tượng)",
+      "options": [
+        "statui",
+        "statue",
+        "staute"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vị trí, địa điểm\"?",
+      "options": [
+        "running",
+        "guard",
+        "location"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: mon_ment (đài tưởng niệm)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ is famous for its beautiful beaches.",
+      "options": [
+        "relax",
+        "lucky",
+        "region"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sculpture\" mean?",
+      "options": [
+        "cung điện",
+        "tác phẩm điêu khắc",
+        "đại sứ quán"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quận, khu vực\"?",
+      "options": [
+        "climbing",
+        "district",
+        "earring"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tower\" mean?",
+      "options": [
+        "bánh quy giòn",
+        "hiệu trưởng",
+        "tòa tháp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is a big stone ___ in the park.",
+      "options": [
+        "sculpture",
+        "district",
+        "neighbourhood"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fo_ntain (đài phun nước)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"neighbourhood\" mean?",
+      "options": [
+        "khu phố",
+        "bức tượng",
+        "tác phẩm điêu khắc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trung tâm thương mại\"?",
+      "options": [
+        "product",
+        "mall",
+        "skill"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to walk on the pavement",
+    "Pretend to take a photo of a monument",
+    "Pretend to look up at a tall tower",
+    "Pretend to drink at a fountain",
+    "Pretend to walk across a crossroads carefully",
+    "Pretend to look at a statue"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

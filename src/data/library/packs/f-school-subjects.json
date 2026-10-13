@@ -1,0 +1,296 @@
+{
+  "title": "School Subjects",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "art",
+      "meaning": "môn mỹ thuật",
+      "category": "school",
+      "example": "We paint pictures in art.",
+      "image": ""
+    },
+    {
+      "word": "geography",
+      "meaning": "môn địa lý",
+      "category": "school",
+      "example": "We study maps in geography.",
+      "image": ""
+    },
+    {
+      "word": "history",
+      "meaning": "môn lịch sử",
+      "category": "school",
+      "example": "We learn about kings in history.",
+      "image": ""
+    },
+    {
+      "word": "language",
+      "meaning": "ngôn ngữ",
+      "category": "school",
+      "example": "English is a popular language.",
+      "image": ""
+    },
+    {
+      "word": "math",
+      "meaning": "môn toán",
+      "category": "school",
+      "example": "My brother is good at math.",
+      "image": ""
+    },
+    {
+      "word": "maths",
+      "meaning": "môn toán",
+      "category": "school",
+      "example": "I like maths because it is fun.",
+      "image": ""
+    },
+    {
+      "word": "science",
+      "meaning": "môn khoa học",
+      "category": "school",
+      "example": "We do an experiment in science class.",
+      "image": ""
+    },
+    {
+      "word": "subject",
+      "meaning": "môn học",
+      "category": "subject",
+      "example": "Maths is my favourite subject.",
+      "image": ""
+    },
+    {
+      "word": "timetable",
+      "meaning": "thời khoá biểu",
+      "category": "school",
+      "example": "Check the timetable for today's lessons.",
+      "image": ""
+    },
+    {
+      "word": "project",
+      "meaning": "dự án",
+      "category": "study",
+      "example": "We did a project about birds.",
+      "image": ""
+    },
+    {
+      "word": "quiz",
+      "meaning": "đố vui",
+      "category": "study",
+      "example": "We had a quiz in class today.",
+      "image": ""
+    },
+    {
+      "word": "dictionary",
+      "meaning": "từ điển",
+      "category": "school",
+      "example": "I look up new words in my dictionary.",
+      "image": ""
+    },
+    {
+      "word": "college",
+      "meaning": "trường cao đẳng",
+      "category": "school",
+      "example": "He goes to college in the city.",
+      "image": ""
+    },
+    {
+      "word": "university",
+      "meaning": "trường đại học",
+      "category": "school",
+      "example": "My sister studies at a university.",
+      "image": ""
+    },
+    {
+      "word": "student",
+      "meaning": "học sinh, sinh viên",
+      "category": "school",
+      "example": "Each student has a new book.",
+      "image": ""
+    },
+    {
+      "word": "glue",
+      "meaning": "keo dán",
+      "category": "school",
+      "example": "Put some glue on the paper.",
+      "image": ""
+    },
+    {
+      "word": "scissors",
+      "meaning": "cái kéo",
+      "category": "school",
+      "example": "Use the scissors to cut the paper.",
+      "image": ""
+    },
+    {
+      "word": "backpack",
+      "meaning": "ba lô",
+      "category": "school",
+      "example": "My backpack is full of books.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: qu_z (đố vui)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môn khoa học)",
+      "options": [
+        "scienci",
+        "science",
+        "sciecne"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: langu_ge (ngôn ngữ)",
+      "options": [
+        "u",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"geography\" mean?",
+      "options": [
+        "môn địa lý",
+        "keo dán",
+        "trường đại học"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _rt (môn mỹ thuật)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Each ___ has a new book.",
+      "options": [
+        "bring",
+        "have to",
+        "student"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thời khoá biểu)",
+      "options": [
+        "timetable",
+        "tiemtable",
+        "tmietable"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"college\" mean?",
+      "options": [
+        "môn mỹ thuật",
+        "trường cao đẳng",
+        "môn địa lý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"keo dán\"?",
+      "options": [
+        "timetable",
+        "math",
+        "glue"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"math\" mean?",
+      "options": [
+        "môn địa lý",
+        "ba lô",
+        "môn toán"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"môn học\"?",
+      "options": [
+        "ambulance",
+        "subject",
+        "castle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ba lô)",
+      "options": [
+        "backpack",
+        "backppack",
+        "bcakpack"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"maths\" mean?",
+      "options": [
+        "thời khoá biểu",
+        "môn toán",
+        "môn khoa học"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister studies at a ___.",
+      "options": [
+        "university",
+        "moose",
+        "sweet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dự án\"?",
+      "options": [
+        "quiz",
+        "history",
+        "project"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look up a word in a dictionary",
+    "Pretend to draw a picture",
+    "Pretend to cut paper with scissors",
+    "Pretend to stick paper with glue",
+    "Pretend to pack your backpack",
+    "Pretend to do a quiz"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

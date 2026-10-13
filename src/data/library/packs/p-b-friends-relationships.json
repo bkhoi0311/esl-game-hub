@@ -1,0 +1,275 @@
+{
+  "title": "Friends and Relationships",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "get along",
+      "meaning": "hòa thuận",
+      "category": "daily",
+      "example": "I get along well with my cousins.",
+      "image": ""
+    },
+    {
+      "word": "hang out",
+      "meaning": "đi chơi cùng",
+      "category": "daily",
+      "example": "My friends and I hang out at the mall on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "split up",
+      "meaning": "tách ra, chia tay",
+      "category": "daily",
+      "example": "The group will split up to find the lost dog.",
+      "image": ""
+    },
+    {
+      "word": "marry",
+      "meaning": "cưới, kết hôn với",
+      "category": "daily",
+      "example": "My cousin is going to marry a doctor next summer.",
+      "image": ""
+    },
+    {
+      "word": "in love",
+      "meaning": "say mê, đang yêu",
+      "category": "feeling",
+      "example": "My little sister is in love with her new puppy.",
+      "image": ""
+    },
+    {
+      "word": "babysit",
+      "meaning": "trông trẻ",
+      "category": "daily",
+      "example": "I babysit my neighbour's son on Saturday evenings.",
+      "image": ""
+    },
+    {
+      "word": "bring up",
+      "meaning": "nuôi dạy",
+      "category": "daily",
+      "example": "Her grandparents helped to bring up the children.",
+      "image": ""
+    },
+    {
+      "word": "mate",
+      "meaning": "bạn bè",
+      "category": "people",
+      "example": "I went to the cinema with my mates.",
+      "image": ""
+    },
+    {
+      "word": "roommate",
+      "meaning": "bạn cùng phòng",
+      "category": "people",
+      "example": "My roommate at the camp likes playing the guitar.",
+      "image": ""
+    },
+    {
+      "word": "enemy",
+      "meaning": "kẻ thù",
+      "category": "people",
+      "example": "In the story, the two animals were once enemies.",
+      "image": ""
+    },
+    {
+      "word": "supporter",
+      "meaning": "người ủng hộ",
+      "category": "people",
+      "example": "He is a big supporter of our school team.",
+      "image": ""
+    },
+    {
+      "word": "hug",
+      "meaning": "ôm",
+      "category": "action",
+      "example": "I hug my mum every morning.",
+      "image": ""
+    },
+    {
+      "word": "introduce",
+      "meaning": "giới thiệu",
+      "category": "speech",
+      "example": "Let me introduce my friend to you.",
+      "image": ""
+    },
+    {
+      "word": "bride",
+      "meaning": "cô dâu",
+      "category": "people",
+      "example": "The bride wore a long white dress at the ceremony.",
+      "image": ""
+    },
+    {
+      "word": "groom",
+      "meaning": "chú rể",
+      "category": "people",
+      "example": "The groom wore a dark blue suit.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"trông trẻ\"?",
+      "options": [
+        "recognise",
+        "babysit",
+        "come back"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hang out\" mean?",
+      "options": [
+        "kết hôn",
+        "đảm bảo",
+        "đi chơi cùng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bạn bè)",
+      "options": [
+        "mate",
+        "matte",
+        "mtae"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"introduce\" mean?",
+      "options": [
+        "đi chơi cùng",
+        "tách ra, chia tay",
+        "giới thiệu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ at the camp likes playing the guitar.",
+      "options": [
+        "roommate",
+        "split up",
+        "introduce"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: en_my (kẻ thù)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"groom\" mean?",
+      "options": [
+        "chú rể",
+        "áo sơ mi",
+        "hàng hoá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ôm\"?",
+      "options": [
+        "shine",
+        "forget",
+        "hug"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: br_de (cô dâu)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"say mê, đang yêu\"?",
+      "options": [
+        "get up",
+        "in love",
+        "by mistake"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The group will ___ to find the lost dog.",
+      "options": [
+        "introduce",
+        "in love",
+        "split up"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cưới, kết hôn với\"?",
+      "options": [
+        "marry",
+        "accept",
+        "suggest"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get along\" mean?",
+      "options": [
+        "đòi hỏi, kêu gọi",
+        "ra ngoài",
+        "hòa thuận"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người ủng hộ)",
+      "options": [
+        "supportir",
+        "supporter",
+        "supporetr"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bring up\" mean?",
+      "options": [
+        "nuôi dạy",
+        "giới thiệu",
+        "gọi lại"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to greet a new roommate",
+    "Show me how you introduce two friends",
+    "Mime a friendly wave",
+    "Pretend to hug a pillow",
+    "Pretend to chat with a mate on the phone",
+    "Show me you are happy to be with friends"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

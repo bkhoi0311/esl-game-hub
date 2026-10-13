@@ -1,0 +1,282 @@
+{
+  "title": "Time and Days",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "afternoon",
+      "meaning": "buổi chiều",
+      "category": "time",
+      "example": "We play games in the afternoon.",
+      "image": ""
+    },
+    {
+      "word": "again",
+      "meaning": "lại, một lần nữa",
+      "category": "time",
+      "example": "Please say it again.",
+      "image": ""
+    },
+    {
+      "word": "day",
+      "meaning": "ngày",
+      "category": "time",
+      "example": "We have a long day at school.",
+      "image": ""
+    },
+    {
+      "word": "end",
+      "meaning": "phần cuối, kết thúc",
+      "category": "time",
+      "example": "This is the end of the story.",
+      "image": ""
+    },
+    {
+      "word": "evening",
+      "meaning": "buổi tối",
+      "category": "time",
+      "example": "We eat dinner in the evening.",
+      "image": ""
+    },
+    {
+      "word": "morning",
+      "meaning": "buổi sáng",
+      "category": "time",
+      "example": "I brush my teeth in the morning.",
+      "image": ""
+    },
+    {
+      "word": "night",
+      "meaning": "ban đêm",
+      "category": "time",
+      "example": "The stars shine at night.",
+      "image": ""
+    },
+    {
+      "word": "now",
+      "meaning": "bây giờ",
+      "category": "time",
+      "example": "We are in class now.",
+      "image": ""
+    },
+    {
+      "word": "then",
+      "meaning": "sau đó",
+      "category": "time",
+      "example": "We eat lunch, then we play.",
+      "image": ""
+    },
+    {
+      "word": "today",
+      "meaning": "hôm nay",
+      "category": "time",
+      "example": "I feel happy today.",
+      "image": ""
+    },
+    {
+      "word": "year",
+      "meaning": "năm",
+      "category": "time",
+      "example": "There are twelve months in a year.",
+      "image": ""
+    },
+    {
+      "word": "birthday",
+      "meaning": "sinh nhật",
+      "category": "celebration",
+      "example": "Today is my birthday.",
+      "image": ""
+    },
+    {
+      "word": "go to bed",
+      "meaning": "đi ngủ",
+      "category": "action",
+      "example": "I go to bed at nine.",
+      "image": ""
+    },
+    {
+      "word": "go to sleep",
+      "meaning": "đi ngủ",
+      "category": "daily",
+      "example": "The baby goes to sleep at eight.",
+      "image": ""
+    },
+    {
+      "word": "sleep",
+      "meaning": "ngủ",
+      "category": "action",
+      "example": "Babies sleep a lot.",
+      "image": ""
+    },
+    {
+      "word": "try",
+      "meaning": "lần thử, thử",
+      "category": "action",
+      "example": "Let's try this game again.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "This is the ___ of the story.",
+      "options": [
+        "try",
+        "end",
+        "birthday"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"go to sleep\" mean?",
+      "options": [
+        "đi ngủ",
+        "bây giờ",
+        "buổi chiều"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_w (bây giờ)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lần thử, thử\"?",
+      "options": [
+        "day",
+        "morning",
+        "try"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lại, một lần nữa)",
+      "options": [
+        "again",
+        "agian",
+        "agayn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_y (ngày)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngủ\"?",
+      "options": [
+        "day",
+        "end",
+        "sleep"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"today\" mean?",
+      "options": [
+        "hôm nay",
+        "bây giờ",
+        "lại, một lần nữa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi chiều)",
+      "options": [
+        "atfernoon",
+        "afternoon",
+        "afetrnoon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We eat lunch, ___ we play.",
+      "options": [
+        "sleep",
+        "go to bed",
+        "then"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sinh nhật)",
+      "options": [
+        "birthday",
+        "bitrhday",
+        "birtthday"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"night\" mean?",
+      "options": [
+        "ngày",
+        "ban đêm",
+        "năm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"buổi tối\"?",
+      "options": [
+        "afternoon",
+        "year",
+        "evening"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"year\" mean?",
+      "options": [
+        "ngày",
+        "năm",
+        "ban đêm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_rning (buổi sáng)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wake up and stretch",
+    "Pretend to go to bed",
+    "Pretend to sleep",
+    "Pretend to yawn",
+    "Say good morning and wave",
+    "Pretend to blow out candles on a birthday cake"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

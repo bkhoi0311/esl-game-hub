@@ -1,0 +1,283 @@
+{
+  "title": "Feelings and Emotions 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "annoyed",
+      "meaning": "bực mình",
+      "category": "feeling",
+      "example": "She felt annoyed when her sister broke the toy.",
+      "image": ""
+    },
+    {
+      "word": "anxious",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "I feel anxious before every big exam.",
+      "image": ""
+    },
+    {
+      "word": "ashamed",
+      "meaning": "xấu hổ",
+      "category": "feeling",
+      "example": "He felt ashamed of his dirty shoes.",
+      "image": ""
+    },
+    {
+      "word": "calm",
+      "meaning": "bình tĩnh",
+      "category": "feeling",
+      "example": "Stay calm and walk slowly to the exit.",
+      "image": ""
+    },
+    {
+      "word": "cheerful",
+      "meaning": "vui vẻ",
+      "category": "feeling",
+      "example": "My teacher is always cheerful on Monday mornings.",
+      "image": ""
+    },
+    {
+      "word": "confident",
+      "meaning": "tự tin",
+      "category": "feeling",
+      "example": "I feel confident before the speaking test.",
+      "image": ""
+    },
+    {
+      "word": "confused",
+      "meaning": "bối rối",
+      "category": "feeling",
+      "example": "I was confused by the map in the station.",
+      "image": ""
+    },
+    {
+      "word": "delighted",
+      "meaning": "rất vui mừng",
+      "category": "feeling",
+      "example": "She was delighted with her birthday present.",
+      "image": ""
+    },
+    {
+      "word": "depressed",
+      "meaning": "buồn chán, suy sụp",
+      "category": "feeling",
+      "example": "He felt depressed after losing the match.",
+      "image": ""
+    },
+    {
+      "word": "disappointed",
+      "meaning": "thất vọng",
+      "category": "feeling",
+      "example": "Mia was disappointed because the concert was cancelled.",
+      "image": ""
+    },
+    {
+      "word": "embarrassed",
+      "meaning": "xấu hổ",
+      "category": "feeling",
+      "example": "I felt embarrassed when I forgot my words in the play.",
+      "image": ""
+    },
+    {
+      "word": "exhausted",
+      "meaning": "kiệt sức",
+      "category": "feeling",
+      "example": "We were exhausted after the long walk up the mountain.",
+      "image": ""
+    },
+    {
+      "word": "grateful",
+      "meaning": "biết ơn",
+      "category": "feeling",
+      "example": "I am grateful for your help.",
+      "image": ""
+    },
+    {
+      "word": "guilty",
+      "meaning": "cảm thấy có lỗi",
+      "category": "feeling",
+      "example": "He felt guilty about breaking the window.",
+      "image": ""
+    },
+    {
+      "word": "hopeful",
+      "meaning": "đầy hy vọng",
+      "category": "feeling",
+      "example": "I feel hopeful that I will pass the exam.",
+      "image": ""
+    },
+    {
+      "word": "impressed",
+      "meaning": "ấn tượng, cảm phục",
+      "category": "feeling",
+      "example": "The teacher was impressed by my science project.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"confident\" mean?",
+      "options": [
+        "người Canada",
+        "người Brazil",
+        "tự tin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xấu hổ)",
+      "options": [
+        "ashamed",
+        "ashemed",
+        "ashamid"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The teacher was ___ by my science project.",
+      "options": [
+        "sheet",
+        "impressed",
+        "trainers"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thất vọng)",
+      "options": [
+        "disappointed",
+        "dysappointed",
+        "disapointed"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gu_lty (cảm thấy có lỗi)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"depressed\" mean?",
+      "options": [
+        "người Trung Quốc, tiếng Trung",
+        "người Pháp, tiếng Pháp",
+        "buồn chán, suy sụp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kiệt sức\"?",
+      "options": [
+        "exhausted",
+        "French",
+        "racing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"calm\" mean?",
+      "options": [
+        "người Ireland",
+        "bình tĩnh",
+        "kỹ thuật số"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bối rối\"?",
+      "options": [
+        "second",
+        "sleeveless",
+        "confused"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: annoy_d (bực mình)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I am ___ for your help.",
+      "options": [
+        "throw",
+        "crash",
+        "grateful"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"anxious\" mean?",
+      "options": [
+        "lo lắng",
+        "không tay",
+        "điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đầy hy vọng\"?",
+      "options": [
+        "hopeful",
+        "Spanish",
+        "Italian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vui vẻ)",
+      "options": [
+        "chierful",
+        "cheerful",
+        "cherful"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_lighted (rất vui mừng)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are annoyed",
+    "Show me you are very calm",
+    "Show me you are delighted",
+    "Show me you are confused",
+    "Show me you are exhausted",
+    "Show me you are confident",
+    "Show me you are disappointed"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

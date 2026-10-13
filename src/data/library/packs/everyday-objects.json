@@ -1,6 +1,6 @@
 {
   "title": "Everyday Objects",
-  "level": "A1 Movers",
+  "level": "A2 Flyers",
   "vocab": [
     {
       "word": "bag",
@@ -207,9 +207,9 @@
     {
       "prompt": "Put the food on the ___.",
       "options": [
-        "carry",
+        "fun",
         "plate",
-        "beautiful"
+        "pretty"
       ],
       "answer": 1,
       "type": "vocab"
@@ -238,8 +238,8 @@
       "prompt": "I have a ___ for the show.",
       "options": [
         "ticket",
-        "rooster",
-        "cave"
+        "panda",
+        "west"
       ],
       "answer": 0,
       "type": "vocab"

@@ -1,0 +1,282 @@
+{
+  "title": "Shapes and Sizes",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "giant",
+      "meaning": "khổng lồ",
+      "category": "describe",
+      "example": "They saw a giant tree in the forest.",
+      "image": ""
+    },
+    {
+      "word": "tiny",
+      "meaning": "bé xíu",
+      "category": "describe",
+      "example": "A tiny ant walked across the table.",
+      "image": ""
+    },
+    {
+      "word": "narrow",
+      "meaning": "hẹp",
+      "category": "describe",
+      "example": "The street was too narrow for the big bus.",
+      "image": ""
+    },
+    {
+      "word": "broad",
+      "meaning": "rộng",
+      "category": "describe",
+      "example": "The river is broad and slow near the town.",
+      "image": ""
+    },
+    {
+      "word": "thick",
+      "meaning": "dày",
+      "category": "describe",
+      "example": "She wore a thick coat in winter.",
+      "image": ""
+    },
+    {
+      "word": "steep",
+      "meaning": "dốc",
+      "category": "describe",
+      "example": "The path up the hill is very steep.",
+      "image": ""
+    },
+    {
+      "word": "sharp",
+      "meaning": "sắc",
+      "category": "describe",
+      "example": "Be careful with that knife because it is very sharp.",
+      "image": ""
+    },
+    {
+      "word": "tight",
+      "meaning": "chật",
+      "category": "describe",
+      "example": "These shoes are too tight for me.",
+      "image": ""
+    },
+    {
+      "word": "loose",
+      "meaning": "lỏng, rộng",
+      "category": "describe",
+      "example": "These trousers are too loose, so I need a belt.",
+      "image": ""
+    },
+    {
+      "word": "medium",
+      "meaning": "vừa, cỡ vừa",
+      "category": "describe",
+      "example": "I would like a medium T-shirt, please.",
+      "image": ""
+    },
+    {
+      "word": "rough",
+      "meaning": "gồ ghề",
+      "category": "describe",
+      "example": "The road to the farm was rough and full of stones.",
+      "image": ""
+    },
+    {
+      "word": "smooth",
+      "meaning": "mịn",
+      "category": "describe",
+      "example": "The stone was smooth after years in the river.",
+      "image": ""
+    },
+    {
+      "word": "round",
+      "meaning": "tròn",
+      "category": "describe",
+      "example": "The moon looks big and round.",
+      "image": ""
+    },
+    {
+      "word": "flat",
+      "meaning": "căn hộ",
+      "category": "house",
+      "example": "They live in a small flat.",
+      "image": ""
+    },
+    {
+      "word": "wide",
+      "meaning": "rộng",
+      "category": "describe",
+      "example": "The river is very wide here.",
+      "image": ""
+    },
+    {
+      "word": "thin",
+      "meaning": "gầy",
+      "category": "describe",
+      "example": "The thin boy runs very fast.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"tiny\" mean?",
+      "options": [
+        "bé xíu",
+        "sáng tạo",
+        "sôi nổi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: br_ad (rộng)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I would like a ___ T-shirt, please.",
+      "options": [
+        "flat",
+        "set off",
+        "medium"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hẹp)",
+      "options": [
+        "narruw",
+        "narow",
+        "narrow"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gồ ghề\"?",
+      "options": [
+        "rough",
+        "rude",
+        "reliable"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"steep\" mean?",
+      "options": [
+        "ích kỷ",
+        "dốc",
+        "lịch sự"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dày)",
+      "options": [
+        "thick",
+        "thyck",
+        "tihck"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"smooth\" mean?",
+      "options": [
+        "thứ ba",
+        "mịn",
+        "lặn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ boy runs very fast.",
+      "options": [
+        "flat",
+        "plane",
+        "thin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (rộng)",
+      "options": [
+        "wide",
+        "wdie",
+        "wyde"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fl_t (căn hộ)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sắc\"?",
+      "options": [
+        "naughty",
+        "strict",
+        "sharp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"loose\" mean?",
+      "options": [
+        "lỏng, rộng",
+        "thông minh",
+        "lịch sự"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ght (chật)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khổng lồ\"?",
+      "options": [
+        "musical",
+        "giant",
+        "reliable"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a giant box with your arms",
+    "Show me a tiny thing with your fingers",
+    "Pretend to feel a rough wall",
+    "Pretend to touch a smooth stone",
+    "Show me a narrow path with your hands",
+    "Show me a thick book"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

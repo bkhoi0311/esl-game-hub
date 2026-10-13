@@ -1,0 +1,300 @@
+{
+  "title": "Action Verbs",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "appear",
+      "meaning": "xuất hiện",
+      "category": "action",
+      "example": "A rainbow will appear after the rain.",
+      "image": ""
+    },
+    {
+      "word": "burn",
+      "meaning": "làm cháy, đốt",
+      "category": "action",
+      "example": "Dad burned the toast this morning.",
+      "image": ""
+    },
+    {
+      "word": "camp",
+      "meaning": "cắm trại",
+      "category": "action",
+      "example": "We camp by the lake in summer.",
+      "image": ""
+    },
+    {
+      "word": "chat",
+      "meaning": "trò chuyện",
+      "category": "action",
+      "example": "We chat after school every day.",
+      "image": ""
+    },
+    {
+      "word": "collect",
+      "meaning": "sưu tầm",
+      "category": "action",
+      "example": "I collect stamps from many countries.",
+      "image": ""
+    },
+    {
+      "word": "cut",
+      "meaning": "cắt",
+      "category": "action",
+      "example": "I cut the paper with scissors.",
+      "image": ""
+    },
+    {
+      "word": "disappear",
+      "meaning": "biến mất",
+      "category": "action",
+      "example": "The sun will disappear behind the clouds.",
+      "image": ""
+    },
+    {
+      "word": "fall over",
+      "meaning": "té ngã",
+      "category": "action",
+      "example": "Be careful or you will fall over.",
+      "image": ""
+    },
+    {
+      "word": "lie",
+      "meaning": "nằm",
+      "category": "action",
+      "example": "I want to lie on the sofa.",
+      "image": ""
+    },
+    {
+      "word": "meet",
+      "meaning": "gặp",
+      "category": "action",
+      "example": "Nice to meet you!",
+      "image": ""
+    },
+    {
+      "word": "pull",
+      "meaning": "kéo",
+      "category": "action",
+      "example": "We pull the rope very hard.",
+      "image": ""
+    },
+    {
+      "word": "push",
+      "meaning": "đẩy",
+      "category": "action",
+      "example": "Please push the door to open it.",
+      "image": ""
+    },
+    {
+      "word": "search",
+      "meaning": "tìm kiếm",
+      "category": "action",
+      "example": "I search the web for pictures.",
+      "image": ""
+    },
+    {
+      "word": "sell",
+      "meaning": "bán",
+      "category": "action",
+      "example": "They sell fresh fruit here.",
+      "image": ""
+    },
+    {
+      "word": "speak",
+      "meaning": "nói",
+      "category": "action",
+      "example": "Can you speak English?",
+      "image": ""
+    },
+    {
+      "word": "step",
+      "meaning": "bước",
+      "category": "action",
+      "example": "Take one step forward, please.",
+      "image": ""
+    },
+    {
+      "word": "touch",
+      "meaning": "chạm",
+      "category": "action",
+      "example": "Don't touch the hot pan.",
+      "image": ""
+    },
+    {
+      "word": "visit",
+      "meaning": "thăm",
+      "category": "action",
+      "example": "We visit our grandparents in summer.",
+      "image": ""
+    },
+    {
+      "word": "whisper",
+      "meaning": "thì thầm",
+      "category": "action",
+      "example": "We whisper in the library.",
+      "image": ""
+    },
+    {
+      "word": "win",
+      "meaning": "thắng",
+      "category": "action",
+      "example": "Our team can win the game.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"fall over\" mean?",
+      "options": [
+        "thắng",
+        "té ngã",
+        "xuất hiện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bán)",
+      "options": [
+        "sell",
+        "sel",
+        "slel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pull\" mean?",
+      "options": [
+        "nói",
+        "đẩy",
+        "kéo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (biến mất)",
+      "options": [
+        "disappeer",
+        "dispapear",
+        "disappear"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"step\" mean?",
+      "options": [
+        "bước",
+        "biến mất",
+        "nằm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_llect (sưu tầm)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_rn (làm cháy, đốt)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tìm kiếm\"?",
+      "options": [
+        "touch",
+        "push",
+        "search"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chạm)",
+      "options": [
+        "toucch",
+        "tocuh",
+        "touch"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ our grandparents in summer.",
+      "options": [
+        "visit",
+        "find out",
+        "repeat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nằm\"?",
+      "options": [
+        "appear",
+        "lie",
+        "win"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sp_ak (nói)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trò chuyện\"?",
+      "options": [
+        "chat",
+        "camp",
+        "meet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"win\" mean?",
+      "options": [
+        "té ngã",
+        "thắng",
+        "sưu tầm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to push a heavy door",
+    "Pretend to pull a rope",
+    "Pretend to search for a lost key",
+    "Pretend to whisper to a friend",
+    "Take one big step on the spot",
+    "Pretend to wave hello to a visitor"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

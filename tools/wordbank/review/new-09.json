@@ -1,0 +1,165 @@
+{
+  "sampled": [
+    "break down",
+    "at all",
+    "allow",
+    "business person",
+    "because of",
+    "anyway",
+    "bright",
+    "advertisement",
+    "character",
+    "all the time",
+    "check",
+    "able",
+    "appointment",
+    "centimetre",
+    "almost"
+  ],
+  "sampleErrors": [
+    "appointment",
+    "almost"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "action",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "action",
+      "field": "note",
+      "old": "tính từ action film; chưa chắc nghĩa",
+      "new": ""
+    },
+    {
+      "word": "activity",
+      "field": "cat",
+      "old": "study",
+      "new": "hobby"
+    },
+    {
+      "word": "against",
+      "field": "vi",
+      "old": "chống lại",
+      "new": "đấu với, chống lại"
+    },
+    {
+      "word": "album",
+      "field": "ex",
+      "old": "I bought my friend's new album yesterday.",
+      "new": "I bought the band's new album yesterday."
+    },
+    {
+      "word": "almost",
+      "field": "vi",
+      "old": "hầu như",
+      "new": "gần như"
+    },
+    {
+      "word": "alright",
+      "field": "cat",
+      "old": "opinion",
+      "new": "feeling"
+    },
+    {
+      "word": "alright",
+      "field": "ex",
+      "old": "Are you alright after the fall?",
+      "new": "Are you alright? You look very tired."
+    },
+    {
+      "word": "among",
+      "field": "ex",
+      "old": "He is the tallest among my friends.",
+      "new": "There is a small house among the trees."
+    },
+    {
+      "word": "appointment",
+      "field": "cat",
+      "old": "work",
+      "new": "time"
+    },
+    {
+      "word": "assistant",
+      "field": "ex",
+      "old": "The shop assistant helped me find shoes.",
+      "new": "The doctor's assistant called my name."
+    },
+    {
+      "word": "belong",
+      "field": "cat",
+      "old": "mind",
+      "new": "daily"
+    },
+    {
+      "word": "block",
+      "field": "vi",
+      "old": "dãy nhà",
+      "new": "tòa nhà, khu nhà"
+    },
+    {
+      "word": "block",
+      "field": "ex",
+      "old": "My school is two blocks from here.",
+      "new": "My aunt lives in a tall block of flats."
+    },
+    {
+      "word": "block",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "block",
+      "field": "note",
+      "old": "có thể là tòa nhà hoặc khu phố",
+      "new": ""
+    },
+    {
+      "word": "blog",
+      "field": "vi",
+      "old": "nhật ký mạng",
+      "new": "blog cá nhân"
+    },
+    {
+      "word": "boyfriend",
+      "field": "ex",
+      "old": "Her boyfriend plays in the school band.",
+      "new": "My cousin's boyfriend is a doctor."
+    },
+    {
+      "word": "by accident",
+      "field": "vi",
+      "old": "tình cờ",
+      "new": "vô tình"
+    },
+    {
+      "word": "case",
+      "field": "vi",
+      "old": "trường hợp",
+      "new": "hộp đựng, va li"
+    },
+    {
+      "word": "case",
+      "field": "cat",
+      "old": "abstract",
+      "new": "thing"
+    },
+    {
+      "word": "case",
+      "field": "ex",
+      "old": "In this case, we need more time.",
+      "new": "My new glasses came in a small black case."
+    },
+    {
+      "word": "chatroom",
+      "field": "ex",
+      "old": "He met a new friend in a chatroom.",
+      "new": "Our class has a chatroom for homework questions."
+    }
+  ],
+  "stillCheck": []
+}

@@ -1,0 +1,293 @@
+{
+  "title": "Money and Prices",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bill",
+      "meaning": "hóa đơn",
+      "category": "money",
+      "example": "Dad paid the bill after dinner.",
+      "image": ""
+    },
+    {
+      "word": "cent",
+      "meaning": "xu",
+      "category": "money",
+      "example": "This pencil costs fifty cents.",
+      "image": ""
+    },
+    {
+      "word": "cheque",
+      "meaning": "séc",
+      "category": "money",
+      "example": "He paid for the bike with a cheque.",
+      "image": ""
+    },
+    {
+      "word": "cost",
+      "meaning": "giá tiền",
+      "category": "money",
+      "example": "The cost of the ticket is ten dollars.",
+      "image": ""
+    },
+    {
+      "word": "dollar",
+      "meaning": "đô la",
+      "category": "money",
+      "example": "This notebook costs only two dollars.",
+      "image": ""
+    },
+    {
+      "word": "euro",
+      "meaning": "đồng euro",
+      "category": "money",
+      "example": "The lunch cost five euros.",
+      "image": ""
+    },
+    {
+      "word": "pence",
+      "meaning": "xu Anh",
+      "category": "money",
+      "example": "The sweets cost fifty pence in total.",
+      "image": ""
+    },
+    {
+      "word": "penny",
+      "meaning": "đồng xu Anh",
+      "category": "money",
+      "example": "I found a penny on the floor.",
+      "image": ""
+    },
+    {
+      "word": "pound",
+      "meaning": "bảng Anh",
+      "category": "money",
+      "example": "This sandwich costs three pounds.",
+      "image": ""
+    },
+    {
+      "word": "price",
+      "meaning": "giá",
+      "category": "money",
+      "example": "What is the price of this bag?",
+      "image": ""
+    },
+    {
+      "word": "receipt",
+      "meaning": "biên lai",
+      "category": "money",
+      "example": "Keep the receipt if you want to change the shirt later.",
+      "image": ""
+    },
+    {
+      "word": "cash",
+      "meaning": "tiền mặt",
+      "category": "thing",
+      "example": "I pay with cash at the shop.",
+      "image": ""
+    },
+    {
+      "word": "purse",
+      "meaning": "ví nhỏ",
+      "category": "thing",
+      "example": "She keeps coins in her purse.",
+      "image": ""
+    },
+    {
+      "word": "wallet",
+      "meaning": "ví tiền",
+      "category": "thing",
+      "example": "He has money in his wallet.",
+      "image": ""
+    },
+    {
+      "word": "earn",
+      "meaning": "kiếm được",
+      "category": "daily",
+      "example": "He earns some money by washing cars on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "pay",
+      "meaning": "trả tiền",
+      "category": "action",
+      "example": "We pay for the food at the shop.",
+      "image": ""
+    },
+    {
+      "word": "rent",
+      "meaning": "thuê",
+      "category": "daily",
+      "example": "We rent a small flat near school.",
+      "image": ""
+    },
+    {
+      "word": "lend",
+      "meaning": "cho mượn",
+      "category": "daily",
+      "example": "Can you lend me a pen?",
+      "image": ""
+    },
+    {
+      "word": "credit card",
+      "meaning": "thẻ tín dụng",
+      "category": "thing",
+      "example": "Mum pays with a credit card.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (đô la)",
+      "options": [
+        "dlolar",
+        "dollar",
+        "dolalr"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"biên lai\"?",
+      "options": [
+        "receipt",
+        "bank",
+        "crowd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"credit card\" mean?",
+      "options": [
+        "giá tiền",
+        "đồng xu Anh",
+        "thẻ tín dụng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thuê\"?",
+      "options": [
+        "rent",
+        "go out",
+        "explore"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồng euro)",
+      "options": [
+        "eruo",
+        "eurro",
+        "euro"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xu Anh\"?",
+      "options": [
+        "polar bear",
+        "apartment",
+        "pence"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lend\" mean?",
+      "options": [
+        "cho mượn",
+        "quên",
+        "đóng vai, diễn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_nt (xu)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"earn\" mean?",
+      "options": [
+        "kiếm được",
+        "đóng vai, diễn",
+        "di chuyển"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_y (trả tiền)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ví nhỏ)",
+      "options": [
+        "pruse",
+        "pursse",
+        "purse"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_sh (tiền mặt)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What is the ___ of this bag?",
+      "options": [
+        "purse",
+        "price",
+        "cash"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cheque\" mean?",
+      "options": [
+        "séc",
+        "ví tiền",
+        "ví nhỏ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to count your cash",
+    "Pretend to open your wallet",
+    "Pretend to sign a cheque",
+    "Pretend to read a receipt",
+    "Pretend to lend a pen to a friend",
+    "Pretend to pay a bill"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

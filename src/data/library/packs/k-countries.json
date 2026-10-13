@@ -1,0 +1,275 @@
+{
+  "title": "Countries and Continents",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "africa",
+      "meaning": "châu Phi",
+      "category": "country",
+      "example": "Many wild animals live in Africa.",
+      "image": ""
+    },
+    {
+      "word": "antarctica",
+      "meaning": "châu Nam Cực",
+      "category": "country",
+      "example": "It is very cold in Antarctica.",
+      "image": ""
+    },
+    {
+      "word": "asia",
+      "meaning": "châu Á",
+      "category": "country",
+      "example": "Vietnam is a country in Asia.",
+      "image": ""
+    },
+    {
+      "word": "australia",
+      "meaning": "nước Úc",
+      "category": "country",
+      "example": "Many kangaroos live in Australia.",
+      "image": ""
+    },
+    {
+      "word": "brazil",
+      "meaning": "nước Brazil",
+      "category": "country",
+      "example": "My uncle visited Brazil last year.",
+      "image": ""
+    },
+    {
+      "word": "canada",
+      "meaning": "nước Canada",
+      "category": "country",
+      "example": "We want to visit Canada in winter.",
+      "image": ""
+    },
+    {
+      "word": "china",
+      "meaning": "nước Trung Quốc",
+      "category": "country",
+      "example": "The Great Wall is in China.",
+      "image": ""
+    },
+    {
+      "word": "europe",
+      "meaning": "châu Âu",
+      "category": "country",
+      "example": "We travelled around Europe by train last summer.",
+      "image": ""
+    },
+    {
+      "word": "france",
+      "meaning": "nước Pháp",
+      "category": "country",
+      "example": "She went to France with her family.",
+      "image": ""
+    },
+    {
+      "word": "india",
+      "meaning": "nước Ấn Độ",
+      "category": "country",
+      "example": "There are many big cities in India.",
+      "image": ""
+    },
+    {
+      "word": "ireland",
+      "meaning": "nước Ireland",
+      "category": "country",
+      "example": "It often rains in Ireland.",
+      "image": ""
+    },
+    {
+      "word": "italy",
+      "meaning": "nước Ý",
+      "category": "country",
+      "example": "I love eating pizza when we visit Italy.",
+      "image": ""
+    },
+    {
+      "word": "north america",
+      "meaning": "Bắc Mỹ",
+      "category": "country",
+      "example": "Canada is a big country in North America.",
+      "image": ""
+    },
+    {
+      "word": "south america",
+      "meaning": "Nam Mỹ",
+      "category": "country",
+      "example": "The Amazon river is in South America.",
+      "image": ""
+    },
+    {
+      "word": "spain",
+      "meaning": "nước Tây Ban Nha",
+      "category": "country",
+      "example": "We saw many beautiful beaches in Spain.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: it_ly (nước Ý)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"Bắc Mỹ\"?",
+      "options": [
+        "North America",
+        "South America",
+        "pop music"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: e_rope (châu Âu)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"India\" mean?",
+      "options": [
+        "nước Ấn Độ",
+        "câu cá",
+        "đố vui"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước Ireland)",
+      "options": [
+        "Irelannd",
+        "Ireland",
+        "Ierland"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước Canada\"?",
+      "options": [
+        "art",
+        "garden",
+        "Canada"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước Pháp)",
+      "options": [
+        "Fracne",
+        "Frnace",
+        "France"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"Nam Mỹ\"?",
+      "options": [
+        "South America",
+        "North America",
+        "shop assistant"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Antarctica\" mean?",
+      "options": [
+        "mũ bóng chày",
+        "châu Nam Cực",
+        "cái túi áo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước Úc\"?",
+      "options": [
+        "answer",
+        "fruit",
+        "Australia"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước Trung Quốc)",
+      "options": [
+        "China",
+        "Chyna",
+        "Chnia"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: spa_n (nước Tây Ban Nha)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Brazil\" mean?",
+      "options": [
+        "đọc sách",
+        "nước Brazil",
+        "môn hóa học"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: afr_ca (châu Phi)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Asia\" mean?",
+      "options": [
+        "quả nho",
+        "buổi chiều",
+        "châu Á"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Point to a country on an imaginary map",
+    "Wave hello like a tourist",
+    "Pretend to pull a suitcase",
+    "Show me a big map with your arms",
+    "Pretend to look at a globe",
+    "Say hello and wave to the camera"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

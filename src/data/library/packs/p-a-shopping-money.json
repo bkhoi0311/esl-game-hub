@@ -1,0 +1,275 @@
+{
+  "title": "Shopping and Money",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bargain",
+      "meaning": "món hời",
+      "category": "money",
+      "example": "This jacket was a real bargain because it was half price.",
+      "image": ""
+    },
+    {
+      "word": "refund",
+      "meaning": "tiền hoàn lại",
+      "category": "money",
+      "example": "I asked the shop for a refund.",
+      "image": ""
+    },
+    {
+      "word": "checkout",
+      "meaning": "quầy thanh toán",
+      "category": "money",
+      "example": "There was a long queue at the checkout in the supermarket.",
+      "image": ""
+    },
+    {
+      "word": "goods",
+      "meaning": "hàng hoá",
+      "category": "money",
+      "example": "The shop sells goods from many countries.",
+      "image": ""
+    },
+    {
+      "word": "product",
+      "meaning": "sản phẩm",
+      "category": "thing",
+      "example": "This new product is popular with teenagers.",
+      "image": ""
+    },
+    {
+      "word": "label",
+      "meaning": "nhãn",
+      "category": "thing",
+      "example": "Read the label before you eat the food.",
+      "image": ""
+    },
+    {
+      "word": "cash machine",
+      "meaning": "máy rút tiền",
+      "category": "money",
+      "example": "I got some money from the cash machine near the shop.",
+      "image": ""
+    },
+    {
+      "word": "cashpoint",
+      "meaning": "cây ATM",
+      "category": "money",
+      "example": "There is a cashpoint outside the supermarket.",
+      "image": ""
+    },
+    {
+      "word": "pocket money",
+      "meaning": "tiền tiêu vặt",
+      "category": "money",
+      "example": "I save some of my pocket money every week.",
+      "image": ""
+    },
+    {
+      "word": "coin",
+      "meaning": "đồng xu",
+      "category": "thing",
+      "example": "I find a coin on the floor.",
+      "image": ""
+    },
+    {
+      "word": "currency",
+      "meaning": "tiền tệ",
+      "category": "money",
+      "example": "The currency in Japan is the yen.",
+      "image": ""
+    },
+    {
+      "word": "exchange rate",
+      "meaning": "tỷ giá hối đoái",
+      "category": "money",
+      "example": "The exchange rate changes almost every day.",
+      "image": ""
+    },
+    {
+      "word": "afford",
+      "meaning": "đủ tiền mua",
+      "category": "daily",
+      "example": "I can't afford a new phone this month.",
+      "image": ""
+    },
+    {
+      "word": "owe",
+      "meaning": "nợ",
+      "category": "daily",
+      "example": "I owe my friend five euros for lunch.",
+      "image": ""
+    },
+    {
+      "word": "stall",
+      "meaning": "quầy hàng",
+      "category": "place",
+      "example": "She sells fresh fruit at a market stall.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (món hời)",
+      "options": [
+        "bargain",
+        "bargian",
+        "bragain"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"currency\" mean?",
+      "options": [
+        "sản phẩm",
+        "nhãn",
+        "tiền tệ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_ods (hàng hoá)",
+      "options": [
+        "u",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"owe\" mean?",
+      "options": [
+        "xoá",
+        "nợ",
+        "ở lại"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: co_n (đồng xu)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiền tiêu vặt\"?",
+      "options": [
+        "cash machine",
+        "exchange rate",
+        "pocket money"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is a ___ outside the supermarket.",
+      "options": [
+        "cashpoint",
+        "disabled",
+        "miserable"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy rút tiền\"?",
+      "options": [
+        "pocket money",
+        "cash machine",
+        "ice hockey"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She sells fresh fruit at a market ___.",
+      "options": [
+        "cashpoint",
+        "currency",
+        "stall"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"exchange rate\" mean?",
+      "options": [
+        "phòng khách",
+        "tỷ giá hối đoái",
+        "máy điều hòa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lab_l (nhãn)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"afford\" mean?",
+      "options": [
+        "gọi điện cho ai",
+        "đi theo",
+        "đủ tiền mua"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quầy thanh toán)",
+      "options": [
+        "chekcout",
+        "cehckout",
+        "checkout"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sản phẩm\"?",
+      "options": [
+        "product",
+        "cash machine",
+        "checkout"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tiền hoàn lại)",
+      "options": [
+        "rifund",
+        "refund",
+        "rfeund"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to push a shopping trolley",
+    "Pretend to look for a bargain",
+    "Pretend to pay at the checkout",
+    "Pretend to count your coins",
+    "Pretend to ask for a refund",
+    "Pretend to take money from a cash machine"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

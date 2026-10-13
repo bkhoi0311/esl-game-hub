@@ -75,7 +75,12 @@ function createGame(root, pack) {
     turnEl.textContent = `${teams[turn]} team (${MARKS[turn]}), your turn`;
     turnEl.style.setProperty('--team', TEAM_COLORS[turn]);
     scoreboard.highlight(turn);
-    cells.forEach((c) => c.style.setProperty('--team', TEAM_COLORS[turn]));
+    // Màu nhạt bằng hex 8 chữ số (#rrggbbaa), không dùng color-mix() (Chromium 109 của ClassIn X không có).
+    cells.forEach((c) => {
+      c.style.setProperty('--team', TEAM_COLORS[turn]);
+      c.style.setProperty('--team-tint', `${TEAM_COLORS[turn]}40`); // ~25%
+      c.style.setProperty('--team-soft', `${TEAM_COLORS[turn]}24`); // ~14%
+    });
   }
 
   function idlePanel() {

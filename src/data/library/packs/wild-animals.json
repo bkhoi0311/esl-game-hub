@@ -173,8 +173,8 @@
     {
       "prompt": "The ___ is big and strong.",
       "options": [
-        "work",
-        "excited",
+        "sing",
+        "short",
         "gorilla"
       ],
       "answer": 2,
@@ -203,8 +203,8 @@
     {
       "prompt": "The ___ has big sharp teeth.",
       "options": [
-        "recycle",
-        "search",
+        "listen",
+        "learn",
         "crocodile"
       ],
       "answer": 2,

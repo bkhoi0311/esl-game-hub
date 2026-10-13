@@ -1,0 +1,139 @@
+{
+  "sampled": [
+    "translate",
+    "tracksuit",
+    "travel agent",
+    "step over",
+    "terrified",
+    "swimmer",
+    "step forward",
+    "supporter",
+    "specially",
+    "trunk",
+    "stall",
+    "spectacular",
+    "stir",
+    "steep",
+    "trade"
+  ],
+  "sampleErrors": [
+    "trunk"
+  ],
+  "fullPartReviewed": true,
+  "errorsTotal": [
+    "trunk",
+    "tip",
+    "spoil",
+    "teaching",
+    "therefore",
+    "tiring",
+    "tourism"
+  ],
+  "fixed": [
+    {
+      "word": "trunk",
+      "field": "ex",
+      "old": "The elephant picked up food with its trunk.",
+      "new": "The trunk of this old tree is very thick."
+    },
+    {
+      "word": "trunk",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "trunk",
+      "field": "note",
+      "old": "trunk nhiều nghĩa (thân cây, vòi, cốp xe); ex dùng vòi voi",
+      "new": "nhiều nghĩa: chọn thân cây, câu khớp cat plant"
+    },
+    {
+      "word": "tip",
+      "field": "vi",
+      "old": "lời khuyên",
+      "new": "mẹo, lời khuyên"
+    },
+    {
+      "word": "spoil",
+      "field": "ex",
+      "old": "Too much candy can spoil your dinner.",
+      "new": "The heavy rain spoiled our picnic at the beach."
+    },
+    {
+      "word": "teaching",
+      "field": "vi",
+      "old": "nghề dạy học",
+      "new": "việc dạy học"
+    },
+    {
+      "word": "therefore",
+      "field": "ex",
+      "old": "He was ill, therefore he stayed at home.",
+      "new": "He was ill and therefore stayed at home."
+    },
+    {
+      "word": "therefore",
+      "field": "vi",
+      "old": "vì vậy",
+      "new": "do đó, vì vậy"
+    },
+    {
+      "word": "tiring",
+      "field": "vi",
+      "old": "mệt",
+      "new": "gây mệt mỏi"
+    },
+    {
+      "word": "tourism",
+      "field": "vi",
+      "old": "du lịch",
+      "new": "ngành du lịch"
+    },
+    {
+      "word": "thief",
+      "field": "ex",
+      "old": "The police caught the thief near the station.",
+      "new": "The police are looking for the thief who took the bikes."
+    },
+    {
+      "word": "spite",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "squash",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "trick",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "terrific",
+      "field": "vi",
+      "old": "tuyệt vời",
+      "new": "rất tuyệt"
+    },
+    {
+      "word": "terribly",
+      "field": "vi",
+      "old": "cực kỳ",
+      "new": "vô cùng"
+    },
+    {
+      "word": "supply",
+      "field": "vi",
+      "old": "cung cấp",
+      "new": "cung ứng, cung cấp"
+    }
+  ],
+  "stillCheck": [
+    "suprising"
+  ]
+}

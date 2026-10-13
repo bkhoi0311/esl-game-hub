@@ -1,0 +1,282 @@
+{
+  "title": "School Things",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "board",
+      "meaning": "cái bảng",
+      "category": "school",
+      "example": "The teacher writes on the board.",
+      "image": ""
+    },
+    {
+      "word": "book",
+      "meaning": "quyển sách",
+      "category": "school",
+      "example": "This book has many pictures.",
+      "image": ""
+    },
+    {
+      "word": "books",
+      "meaning": "những quyển sách",
+      "category": "school",
+      "example": "I have three books in my bag.",
+      "image": ""
+    },
+    {
+      "word": "crayon",
+      "meaning": "bút sáp màu",
+      "category": "school",
+      "example": "She colours the sun with a yellow crayon.",
+      "image": ""
+    },
+    {
+      "word": "desk",
+      "meaning": "bàn học",
+      "category": "school",
+      "example": "My pencil case is on the desk.",
+      "image": ""
+    },
+    {
+      "word": "eraser",
+      "meaning": "cục tẩy",
+      "category": "school",
+      "example": "Use the eraser to clean the mistake.",
+      "image": ""
+    },
+    {
+      "word": "rubber",
+      "meaning": "cục tẩy",
+      "category": "school",
+      "example": "Can I use your rubber, please?",
+      "image": ""
+    },
+    {
+      "word": "pen",
+      "meaning": "cái bút mực",
+      "category": "school",
+      "example": "Can I borrow your pen?",
+      "image": ""
+    },
+    {
+      "word": "pencil",
+      "meaning": "bút chì",
+      "category": "school",
+      "example": "I draw a cat with my pencil.",
+      "image": ""
+    },
+    {
+      "word": "paper",
+      "meaning": "giấy",
+      "category": "school",
+      "example": "I draw on a piece of paper.",
+      "image": ""
+    },
+    {
+      "word": "ruler",
+      "meaning": "cái thước kẻ",
+      "category": "school",
+      "example": "He draws a line with a ruler.",
+      "image": ""
+    },
+    {
+      "word": "page",
+      "meaning": "trang",
+      "category": "school",
+      "example": "Open your book at page five.",
+      "image": ""
+    },
+    {
+      "word": "school",
+      "meaning": "trường học",
+      "category": "school",
+      "example": "I go to school by bike.",
+      "image": ""
+    },
+    {
+      "word": "classroom",
+      "meaning": "phòng học",
+      "category": "school",
+      "example": "The classroom is big and bright.",
+      "image": ""
+    },
+    {
+      "word": "tick",
+      "meaning": "dấu tích, đánh dấu tích",
+      "category": "school",
+      "example": "Put a tick next to the right answer.",
+      "image": ""
+    },
+    {
+      "word": "cross",
+      "meaning": "dấu chéo, đánh dấu x",
+      "category": "thing",
+      "example": "Put a cross in the box.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"ruler\" mean?",
+      "options": [
+        "dấu tích, đánh dấu tích",
+        "cục tẩy",
+        "cái thước kẻ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trường học\"?",
+      "options": [
+        "board",
+        "school",
+        "ruler"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dấu chéo, đánh dấu x)",
+      "options": [
+        "cross",
+        "corss",
+        "cruss"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái bút mực\"?",
+      "options": [
+        "pen",
+        "tick",
+        "desk"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cr_yon (bút sáp màu)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"books\" mean?",
+      "options": [
+        "cái bảng",
+        "những quyển sách",
+        "cái thước kẻ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: classr_om (phòng học)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giấy\"?",
+      "options": [
+        "ruler",
+        "paper",
+        "book"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Use the ___ to clean the mistake.",
+      "options": [
+        "skateboarding",
+        "lunch",
+        "eraser"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái bảng)",
+      "options": [
+        "baord",
+        "board",
+        "borad"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pencil\" mean?",
+      "options": [
+        "bút sáp màu",
+        "trường học",
+        "bút chì"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ has many pictures.",
+      "options": [
+        "book",
+        "start",
+        "gray"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rubber\" mean?",
+      "options": [
+        "cái thước kẻ",
+        "phòng học",
+        "cục tẩy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trang)",
+      "options": [
+        "page",
+        "pagge",
+        "pgae"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ck (dấu tích, đánh dấu tích)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write with a pen",
+    "Pretend to rub out with an eraser",
+    "Pretend to open a book",
+    "Pretend to draw a line with a ruler",
+    "Pretend to turn a page",
+    "Make a tick with your finger"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

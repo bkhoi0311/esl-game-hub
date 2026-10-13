@@ -1,0 +1,275 @@
+{
+  "title": "Jobs",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "clown",
+      "meaning": "chú hề",
+      "category": "job",
+      "example": "The clown makes everyone laugh.",
+      "image": ""
+    },
+    {
+      "word": "cook",
+      "meaning": "người nấu ăn",
+      "category": "job",
+      "example": "My uncle is a good cook.",
+      "image": ""
+    },
+    {
+      "word": "dentist",
+      "meaning": "nha sĩ",
+      "category": "job",
+      "example": "The dentist looks at my teeth.",
+      "image": ""
+    },
+    {
+      "word": "doctor",
+      "meaning": "bác sĩ",
+      "category": "job",
+      "example": "The doctor helps sick people.",
+      "image": ""
+    },
+    {
+      "word": "driver",
+      "meaning": "tài xế",
+      "category": "job",
+      "example": "The driver stops at the red light.",
+      "image": ""
+    },
+    {
+      "word": "farmer",
+      "meaning": "nông dân",
+      "category": "job",
+      "example": "The farmer has many cows.",
+      "image": ""
+    },
+    {
+      "word": "film star",
+      "meaning": "ngôi sao điện ảnh",
+      "category": "job",
+      "example": "My aunt likes that famous film star.",
+      "image": ""
+    },
+    {
+      "word": "nurse",
+      "meaning": "y tá",
+      "category": "job",
+      "example": "The nurse works at the hospital.",
+      "image": ""
+    },
+    {
+      "word": "pop star",
+      "meaning": "ngôi sao nhạc pop",
+      "category": "job",
+      "example": "My sister loves that pop star.",
+      "image": ""
+    },
+    {
+      "word": "pirate",
+      "meaning": "cướp biển",
+      "category": "fantasy",
+      "example": "The pirate has a map of an island.",
+      "image": ""
+    },
+    {
+      "word": "player",
+      "meaning": "người chơi, cầu thủ",
+      "category": "people",
+      "example": "He is a good football player.",
+      "image": ""
+    },
+    {
+      "word": "work",
+      "meaning": "làm việc",
+      "category": "action",
+      "example": "My father works in an office.",
+      "image": ""
+    },
+    {
+      "word": "help",
+      "meaning": "giúp đỡ",
+      "category": "action",
+      "example": "I help my mum in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "teach",
+      "meaning": "dạy",
+      "category": "action",
+      "example": "My mum can teach me to cook.",
+      "image": ""
+    },
+    {
+      "word": "teacher",
+      "meaning": "giáo viên",
+      "category": "job",
+      "example": "Our teacher reads us a story.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: h_lp (giúp đỡ)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"film star\" mean?",
+      "options": [
+        "dạy",
+        "ngôi sao điện ảnh",
+        "làm việc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ach (dạy)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle is a good ___.",
+      "options": [
+        "teach",
+        "cook",
+        "help"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rk (làm việc)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người chơi, cầu thủ)",
+      "options": [
+        "playir",
+        "pllayer",
+        "player"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngôi sao nhạc pop\"?",
+      "options": [
+        "film star",
+        "pop star",
+        "driver"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"doctor\" mean?",
+      "options": [
+        "bác sĩ",
+        "người nấu ăn",
+        "giáo viên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nha sĩ\"?",
+      "options": [
+        "teacher",
+        "nurse",
+        "dentist"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"teacher\" mean?",
+      "options": [
+        "bác sĩ",
+        "chú hề",
+        "giáo viên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cướp biển\"?",
+      "options": [
+        "cook",
+        "pirate",
+        "teacher"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tài xế)",
+      "options": [
+        "driver",
+        "drievr",
+        "dirver"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ works at the hospital.",
+      "options": [
+        "nurse",
+        "teach",
+        "work"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chú hề)",
+      "options": [
+        "clwon",
+        "cluwn",
+        "clown"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"farmer\" mean?",
+      "options": [
+        "tài xế",
+        "nông dân",
+        "y tá"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a doctor",
+    "Pretend to cook dinner",
+    "Pretend to drive a bus",
+    "Pretend to be a pop star and sing",
+    "Pretend to be a funny clown",
+    "Pretend to teach a class"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

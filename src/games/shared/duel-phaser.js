@@ -9,10 +9,11 @@ import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
 import { celebrate } from '../../core/fx.js';
 import { mountPhaser } from './phaser-host.js';
+import { createTapGuard } from './tap-guard.js';
 
 // game: { id, title, howTo, setupHint, startLine, makeScene(Phaser), banner, onRoundStart(api) }
 export function createPhaserDuel(root, pack, game) {
-  const opts = { seconds: 60 };
+  const opts = { seconds: 60, guard: true };
   let timer = null;
   let phaser = null;
   let scoreboard = null;
@@ -69,6 +70,8 @@ export function createPhaserDuel(root, pack, game) {
       rows: [
         { label: 'Thời gian', control: segmented([45, 60, 90].map((n) => ({ value: n, label: `${n}s` })), opts.seconds, (v) => (opts.seconds = v), `${game.id}-seconds`),
           hint: `${game.setupHint} Hai bên: ${pack.teams[0]} (trái) và ${pack.teams[1]} (phải).` },
+        { label: 'Chống bấm loạn', control: segmented([{ value: true, label: 'Bật (khuyên dùng)' }, { value: false, label: 'Tắt' }], opts.guard, (v) => (opts.guard = v), `${game.id}-guard`),
+          hint: 'Bấm sai: bên đó bị khoá 0,7 giây. Hai lần chạm sát nhau (dưới 0,12 giây) chỉ tính một.' },
       ],
       onStart: start,
     }));
@@ -89,7 +92,17 @@ export function createPhaserDuel(root, pack, game) {
     const banner = h('div', { class: 'duel-banner pd-banner en', 'data-testid': 'duel-banner', hidden: !game.banner });
     const host = h('div', { class: 'pd-host', 'data-testid': 'pd-host' });
     const loading = h('div', { class: 'sp-loading' }, 'Loading…');
-    setStage(h('div', { class: 'pd-play' }, host, banner, loading));
+    const guard = createTapGuard({ enabled: opts.guard });
+    // Lớp phủ khoá (style viết thẳng để không phụ thuộc duel.css). Ẩn/hiện bằng display, không dùng hidden.
+    const cools = [0, 1].map((i) => h('div', {
+      class: 'pd-cool',
+      'data-testid': `pd-cool-${i}`,
+      style: {
+        position: 'absolute', top: '0', bottom: '0', left: i ? '50%' : '0', width: '50%', display: 'none', placeItems: 'center',
+        background: 'rgba(28, 31, 37, 0.16)', pointerEvents: 'none', zIndex: '2', color: '#1c1f25',
+      },
+    }, icon('lock', 72)));
+    setStage(h('div', { class: 'pd-play' }, host, ...cools, banner, loading));
 
     const api = {
       pack,
@@ -112,6 +125,18 @@ export function createPhaserDuel(root, pack, game) {
       },
       later(fn, ms) {
         timers.push(setTimeout(fn, ms));
+      },
+      // Chống bấm loạn: gọi trước khi tính một chạm; penalize khi chạm sai.
+      tapAllowed(side) {
+        return guard.allow(side, performance.now());
+      },
+      penalize(side) {
+        if (!guard.enabled) return;
+        const until = guard.wrong(side, performance.now());
+        cools[side].style.display = 'grid';
+        timers.push(setTimeout(() => {
+          if (performance.now() >= guard.coolingUntil(side) - 5) cools[side].style.display = 'none';
+        }, Math.max(0, until - performance.now())));
       },
     };
     phaser = await mountPhaser(host, game.makeScene, { api });

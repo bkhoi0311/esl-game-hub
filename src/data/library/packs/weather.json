@@ -1,6 +1,6 @@
 {
   "title": "Weather and Seasons",
-  "level": "Pre A1 Starters",
+  "level": "A1 Movers",
   "vocab": [
     {
       "word": "weather",
@@ -136,8 +136,8 @@
     {
       "prompt": "I hear ___ in the night.",
       "options": [
-        "lunch",
-        "soda",
+        "parrot",
+        "canoe",
         "thunder"
       ],
       "answer": 2,
@@ -157,8 +157,8 @@
       "prompt": "It snows a lot in ___.",
       "options": [
         "winter",
-        "frog",
-        "prize"
+        "donkey",
+        "duck"
       ],
       "answer": 0,
       "type": "vocab"

@@ -1,0 +1,254 @@
+{
+  "title": "More Sports",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "boxing",
+      "meaning": "môn quyền anh",
+      "category": "sport",
+      "example": "My uncle likes boxing.",
+      "image": ""
+    },
+    {
+      "word": "gymnastics",
+      "meaning": "thể dục dụng cụ",
+      "category": "sport",
+      "example": "My sister does gymnastics after school.",
+      "image": ""
+    },
+    {
+      "word": "squash",
+      "meaning": "môn bóng quần",
+      "category": "sport",
+      "example": "My brother plays squash after school on Mondays.",
+      "image": ""
+    },
+    {
+      "word": "ice hockey",
+      "meaning": "môn khúc côn cầu trên băng",
+      "category": "sport",
+      "example": "My cousin plays ice hockey in a team every winter.",
+      "image": ""
+    },
+    {
+      "word": "horse-riding",
+      "meaning": "môn cưỡi ngựa",
+      "category": "sport",
+      "example": "Her favourite hobby at the weekend is horse-riding.",
+      "image": ""
+    },
+    {
+      "word": "motor-racing",
+      "meaning": "đua xe",
+      "category": "sport",
+      "example": "My uncle loves watching motor-racing on TV.",
+      "image": ""
+    },
+    {
+      "word": "extreme sport",
+      "meaning": "môn thể thao mạo hiểm",
+      "category": "sport",
+      "example": "Climbing is an extreme sport that needs special training.",
+      "image": ""
+    },
+    {
+      "word": "cyclist",
+      "meaning": "người đi xe đạp",
+      "category": "people",
+      "example": "A cyclist stopped at the red light.",
+      "image": ""
+    },
+    {
+      "word": "swimmer",
+      "meaning": "người bơi",
+      "category": "people",
+      "example": "She is a fast swimmer in our team.",
+      "image": ""
+    },
+    {
+      "word": "rider",
+      "meaning": "người đi xe",
+      "category": "people",
+      "example": "Every rider on the road should wear a helmet.",
+      "image": ""
+    },
+    {
+      "word": "jog",
+      "meaning": "chạy bộ",
+      "category": "action",
+      "example": "I like to jog in the park before school.",
+      "image": ""
+    },
+    {
+      "word": "row",
+      "meaning": "chèo thuyền",
+      "category": "action",
+      "example": "We row the boat to the island.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"chạy bộ\"?",
+      "options": [
+        "accept",
+        "be over",
+        "jog"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"row\" mean?",
+      "options": [
+        "chèo thuyền",
+        "đòi hỏi, kêu gọi",
+        "thích, muốn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"môn cưỡi ngựa\"?",
+      "options": [
+        "office",
+        "horse-riding",
+        "lesson"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"motor-racing\" mean?",
+      "options": [
+        "chú, bác",
+        "đua xe",
+        "kỹ năng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người đi xe đạp\"?",
+      "options": [
+        "extreme sport",
+        "gymnastics",
+        "cyclist"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ice hockey\" mean?",
+      "options": [
+        "môn khúc côn cầu trên băng",
+        "người đi xe đạp",
+        "người đi xe"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"môn khúc côn cầu trên băng\"?",
+      "options": [
+        "ice hockey",
+        "extreme sport",
+        "city centre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She is a fast ___ in our team.",
+      "options": [
+        "gymnastics",
+        "swimmer",
+        "boxing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người đi xe)",
+      "options": [
+        "riedr",
+        "ridir",
+        "rider"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gymnastics\" mean?",
+      "options": [
+        "người bơi",
+        "thể dục dụng cụ",
+        "người đi xe đạp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người bơi\"?",
+      "options": [
+        "swimmer",
+        "horse-riding",
+        "ice hockey"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle likes ___.",
+      "options": [
+        "shiny",
+        "warn",
+        "boxing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"extreme sport\" mean?",
+      "options": [
+        "cửa hàng bách hoá",
+        "môn thể thao mạo hiểm",
+        "mạng xã hội"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sq_ash (môn bóng quần)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_w (chèo thuyền)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to row a boat",
+    "Pretend to ride a horse",
+    "Pretend to swing a squash racket",
+    "Pretend to be a cyclist",
+    "Pretend to swim like a champion",
+    "Pretend to stretch like a gymnast"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

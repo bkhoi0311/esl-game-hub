@@ -1,0 +1,282 @@
+{
+  "title": "Common Verbs 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "affect",
+      "meaning": "ảnh hưởng đến",
+      "category": "daily",
+      "example": "Lack of sleep can affect your school results.",
+      "image": ""
+    },
+    {
+      "word": "afford",
+      "meaning": "đủ tiền mua",
+      "category": "daily",
+      "example": "I can't afford a new phone this month.",
+      "image": ""
+    },
+    {
+      "word": "apply",
+      "meaning": "nộp đơn",
+      "category": "daily",
+      "example": "He wants to apply for a job at the cinema.",
+      "image": ""
+    },
+    {
+      "word": "arrange",
+      "meaning": "sắp xếp",
+      "category": "daily",
+      "example": "Can you arrange a meeting with the teacher?",
+      "image": ""
+    },
+    {
+      "word": "assist",
+      "meaning": "giúp đỡ",
+      "category": "daily",
+      "example": "Students assist the teacher in the science lab.",
+      "image": ""
+    },
+    {
+      "word": "attach",
+      "meaning": "đính kèm",
+      "category": "daily",
+      "example": "Please attach your photo to the email.",
+      "image": ""
+    },
+    {
+      "word": "attend",
+      "meaning": "tham dự",
+      "category": "daily",
+      "example": "Over two hundred students attend this school.",
+      "image": ""
+    },
+    {
+      "word": "attract",
+      "meaning": "thu hút",
+      "category": "daily",
+      "example": "Bright colours attract the bees to the flowers.",
+      "image": ""
+    },
+    {
+      "word": "avoid",
+      "meaning": "tránh",
+      "category": "daily",
+      "example": "Try to avoid sweets before dinner.",
+      "image": ""
+    },
+    {
+      "word": "cancel",
+      "meaning": "huỷ",
+      "category": "daily",
+      "example": "They had to cancel the match because of the storm.",
+      "image": ""
+    },
+    {
+      "word": "carry out",
+      "meaning": "thực hiện",
+      "category": "daily",
+      "example": "The students will carry out a science experiment today.",
+      "image": ""
+    },
+    {
+      "word": "connect",
+      "meaning": "kết nối",
+      "category": "daily",
+      "example": "You can connect your phone to the speaker.",
+      "image": ""
+    },
+    {
+      "word": "contain",
+      "meaning": "chứa, bao gồm",
+      "category": "daily",
+      "example": "This box contains twenty pencils.",
+      "image": ""
+    },
+    {
+      "word": "create",
+      "meaning": "tạo ra",
+      "category": "daily",
+      "example": "We can create a poster with this free app.",
+      "image": ""
+    },
+    {
+      "word": "deal with",
+      "meaning": "xử lý",
+      "category": "daily",
+      "example": "Our teacher knows how to deal with noisy students.",
+      "image": ""
+    },
+    {
+      "word": "develop",
+      "meaning": "phát triển",
+      "category": "daily",
+      "example": "Children develop quickly in their first years.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (tạo ra)",
+      "options": [
+        "create",
+        "creati",
+        "cerate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đính kèm\"?",
+      "options": [
+        "persuade",
+        "complain",
+        "attach"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"assist\" mean?",
+      "options": [
+        "so sánh",
+        "giúp đỡ",
+        "cảnh báo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This box ___ twenty pencils.",
+      "options": [
+        "forgets",
+        "contains",
+        "allows"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"attract\" mean?",
+      "options": [
+        "giao tiếp",
+        "lo lắng",
+        "thu hút"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phát triển)",
+      "options": [
+        "develop",
+        "devleop",
+        "devellop"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: att_nd (tham dự)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ảnh hưởng đến)",
+      "options": [
+        "affict",
+        "affect",
+        "afect"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tránh\"?",
+      "options": [
+        "avoid",
+        "step over",
+        "follow"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_ncel (huỷ)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kết nối\"?",
+      "options": [
+        "connect",
+        "excuse",
+        "hitchhike"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: aff_rd (đủ tiền mua)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Can you ___ a meeting with the teacher?",
+      "options": [
+        "arrange",
+        "give up",
+        "compare"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"apply\" mean?",
+      "options": [
+        "thích hơn",
+        "quên",
+        "nộp đơn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"carry out\" mean?",
+      "options": [
+        "quay lại",
+        "thực hiện",
+        "đến được"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to attach a file to an email",
+    "Pretend to arrange books on a shelf",
+    "Pretend to cancel a plan and shake your head",
+    "Pretend to connect a cable",
+    "Pretend to apply for a job with a form",
+    "Pretend to attend a class online"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

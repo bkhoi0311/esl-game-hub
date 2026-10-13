@@ -1,0 +1,286 @@
+{
+  "title": "Sports and Games",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "goal",
+      "meaning": "khung thành",
+      "category": "sport",
+      "example": "The ball goes into the goal.",
+      "image": ""
+    },
+    {
+      "word": "score",
+      "meaning": "ghi bàn",
+      "category": "action",
+      "example": "He can score a goal.",
+      "image": ""
+    },
+    {
+      "word": "skates",
+      "meaning": "giày trượt patin",
+      "category": "sport",
+      "example": "I put on my skates and go.",
+      "image": ""
+    },
+    {
+      "word": "ice skates",
+      "meaning": "giày trượt băng",
+      "category": "clothes",
+      "example": "She wants new ice skates for her birthday.",
+      "image": ""
+    },
+    {
+      "word": "roller skates",
+      "meaning": "giày trượt patin",
+      "category": "clothes",
+      "example": "She has new roller skates today.",
+      "image": ""
+    },
+    {
+      "word": "ice skating",
+      "meaning": "trượt băng",
+      "category": "sport",
+      "example": "We go ice skating in December.",
+      "image": ""
+    },
+    {
+      "word": "roller skating",
+      "meaning": "trượt patin",
+      "category": "sport",
+      "example": "We love roller skating in the park.",
+      "image": ""
+    },
+    {
+      "word": "skate",
+      "meaning": "trượt patin",
+      "category": "action",
+      "example": "I skate with my sister in the park.",
+      "image": ""
+    },
+    {
+      "word": "skip",
+      "meaning": "nhảy dây",
+      "category": "action",
+      "example": "We skip with a rope in the playground.",
+      "image": ""
+    },
+    {
+      "word": "hop",
+      "meaning": "nhảy lò cò, nhảy",
+      "category": "action",
+      "example": "The rabbit can hop over the fence.",
+      "image": ""
+    },
+    {
+      "word": "net",
+      "meaning": "lưới",
+      "category": "thing",
+      "example": "The ball hit the net.",
+      "image": ""
+    },
+    {
+      "word": "player",
+      "meaning": "người chơi, cầu thủ",
+      "category": "people",
+      "example": "He is a good football player.",
+      "image": ""
+    },
+    {
+      "word": "football",
+      "meaning": "bóng đá",
+      "category": "sport",
+      "example": "We play football after school.",
+      "image": ""
+    },
+    {
+      "word": "basketball",
+      "meaning": "bóng rổ",
+      "category": "sport",
+      "example": "They play basketball after school.",
+      "image": ""
+    },
+    {
+      "word": "hockey",
+      "meaning": "khúc côn cầu",
+      "category": "sport",
+      "example": "He plays hockey in winter.",
+      "image": ""
+    },
+    {
+      "word": "tennis",
+      "meaning": "quần vợt",
+      "category": "sport",
+      "example": "She plays tennis every Friday.",
+      "image": ""
+    },
+    {
+      "word": "ball",
+      "meaning": "quả bóng",
+      "category": "toy",
+      "example": "He kicks the ball to me.",
+      "image": ""
+    },
+    {
+      "word": "swim",
+      "meaning": "bơi",
+      "category": "action",
+      "example": "Fish swim in the river.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"player\" mean?",
+      "options": [
+        "khung thành",
+        "người chơi, cầu thủ",
+        "giày trượt băng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lưới\"?",
+      "options": [
+        "skates",
+        "hockey",
+        "net"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"basketball\" mean?",
+      "options": [
+        "bóng rổ",
+        "khung thành",
+        "khúc côn cầu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bóng đá\"?",
+      "options": [
+        "football",
+        "basketball",
+        "tennis"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"skates\" mean?",
+      "options": [
+        "khúc côn cầu",
+        "giày trượt patin",
+        "quần vợt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_p (nhảy lò cò, nhảy)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quần vợt)",
+      "options": [
+        "tenis",
+        "tennis",
+        "tenins"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: go_l (khung thành)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khúc côn cầu)",
+      "options": [
+        "hockkey",
+        "hokcey",
+        "hockey"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sc_re (ghi bàn)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quả bóng\"?",
+      "options": [
+        "goal",
+        "ball",
+        "tennis"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trượt patin)",
+      "options": [
+        "skatte",
+        "skat",
+        "skate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Fish ___ in the river.",
+      "options": [
+        "swim",
+        "player",
+        "net"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"roller skating\" mean?",
+      "options": [
+        "trượt băng",
+        "trượt patin",
+        "quần vợt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to score a goal",
+    "Pretend to skate slowly",
+    "Pretend to skip with a rope",
+    "Pretend to swim",
+    "Pretend to hit a tennis ball",
+    "Pretend to throw a basketball"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

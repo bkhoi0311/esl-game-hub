@@ -12,7 +12,7 @@ const argv = process.argv.slice(2);
 const opt = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const flag = (n) => argv.includes(n);
 const file = opt('--file') || path.join(here, '../../src/data/wordbank/words.json');
-const ORDER = ['starters', 'movers', 'flyers', 'ket', 'other'];
+const ORDER = ['starters', 'movers', 'flyers', 'ket', 'pet', 'other'];
 
 const bank = buildBank(JSON.parse(fs.readFileSync(file, 'utf8')));
 let list = bank.list.slice();

@@ -1,0 +1,282 @@
+{
+  "title": "Character and Personality 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "active",
+      "meaning": "năng động",
+      "category": "character",
+      "example": "My little brother is very active and never sits still.",
+      "image": ""
+    },
+    {
+      "word": "bold",
+      "meaning": "táo bạo, in đậm",
+      "category": "character",
+      "example": "It was a bold decision to speak in front of everyone.",
+      "image": ""
+    },
+    {
+      "word": "bossy",
+      "meaning": "hay ra lệnh",
+      "category": "character",
+      "example": "My older sister is bossy and always tells me what to do.",
+      "image": ""
+    },
+    {
+      "word": "careless",
+      "meaning": "bất cẩn",
+      "category": "character",
+      "example": "A careless driver can cause a serious accident.",
+      "image": ""
+    },
+    {
+      "word": "creative",
+      "meaning": "sáng tạo",
+      "category": "character",
+      "example": "She is a creative girl who loves drawing.",
+      "image": ""
+    },
+    {
+      "word": "cruel",
+      "meaning": "độc ác, tàn nhẫn",
+      "category": "character",
+      "example": "It is cruel to leave a pet alone for days.",
+      "image": ""
+    },
+    {
+      "word": "curious",
+      "meaning": "tò mò",
+      "category": "character",
+      "example": "Kids are curious about everything around them.",
+      "image": ""
+    },
+    {
+      "word": "easygoing",
+      "meaning": "dễ tính",
+      "category": "character",
+      "example": "My cousin is easygoing and never gets angry about small things.",
+      "image": ""
+    },
+    {
+      "word": "generous",
+      "meaning": "hào phóng",
+      "category": "character",
+      "example": "He is generous and shares his lunch with friends.",
+      "image": ""
+    },
+    {
+      "word": "gentle",
+      "meaning": "dịu dàng",
+      "category": "character",
+      "example": "The nurse has a gentle voice.",
+      "image": ""
+    },
+    {
+      "word": "honest",
+      "meaning": "trung thực",
+      "category": "character",
+      "example": "An honest person always tells the truth.",
+      "image": ""
+    },
+    {
+      "word": "independent",
+      "meaning": "độc lập",
+      "category": "character",
+      "example": "My sister is independent and likes to do things by herself.",
+      "image": ""
+    },
+    {
+      "word": "intelligent",
+      "meaning": "thông minh",
+      "category": "character",
+      "example": "Dolphins are intelligent animals that can learn many tricks.",
+      "image": ""
+    },
+    {
+      "word": "shy",
+      "meaning": "nhút nhát",
+      "category": "feeling",
+      "example": "The shy girl smiles quietly.",
+      "image": ""
+    },
+    {
+      "word": "friendly",
+      "meaning": "thân thiện",
+      "category": "character",
+      "example": "Our new teacher is very friendly.",
+      "image": ""
+    },
+    {
+      "word": "brave",
+      "meaning": "dũng cảm",
+      "category": "describe",
+      "example": "The brave boy helps the cat.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"easygoing\" mean?",
+      "options": [
+        "thấp, ngắn",
+        "bị nghiêm cấm",
+        "dễ tính"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_ld (táo bạo, in đậm)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gentle\" mean?",
+      "options": [
+        "dũng cảm",
+        "dịu dàng",
+        "phù hợp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is ___ to leave a pet alone for days.",
+      "options": [
+        "pullover",
+        "cruel",
+        "recycling"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"friendly\" mean?",
+      "options": [
+        "thân thiện",
+        "khuyết tật",
+        "quốc tế"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"năng động\"?",
+      "options": [
+        "brave",
+        "busy",
+        "active"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My older sister is ___ and always tells me what to do.",
+      "options": [
+        "improvement",
+        "million",
+        "bossy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thông minh)",
+      "options": [
+        "intelligent",
+        "intellignet",
+        "intleligent"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhút nhát\"?",
+      "options": [
+        "musical",
+        "shy",
+        "Chinese"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: car_less (bất cẩn)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sáng tạo\"?",
+      "options": [
+        "creative",
+        "confusing",
+        "central"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (độc lập)",
+      "options": [
+        "indipendent",
+        "indepednent",
+        "independent"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"generous\" mean?",
+      "options": [
+        "hào phóng",
+        "lỗi thời",
+        "phổ biến"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_nest (trung thực)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tò mò)",
+      "options": [
+        "curiuus",
+        "curious",
+        "curiuos"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a bossy manager",
+    "Show me how a curious person looks around",
+    "Pretend to give a gift to a friend in a generous way",
+    "Pretend to stroke a cat in a gentle way",
+    "Show me how a shy person waves",
+    "Pretend to be a creative artist"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

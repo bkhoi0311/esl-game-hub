@@ -1,0 +1,109 @@
+{
+  "sampled": [
+    "clinic",
+    "clothing",
+    "conclusion",
+    "confirm",
+    "confused",
+    "contain",
+    "cotton",
+    "courage",
+    "curious",
+    "cute",
+    "cv",
+    "decrease",
+    "defeat",
+    "delighted",
+    "depend"
+  ],
+  "sampleErrors": [],
+  "sampleErrorRate": "0/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "cod",
+      "field": "cat",
+      "old": "animal",
+      "new": "food"
+    },
+    {
+      "word": "couple",
+      "field": "vi",
+      "old": "cặp đôi, đôi",
+      "new": "đôi, một vài"
+    },
+    {
+      "word": "couple",
+      "field": "cat",
+      "old": "people",
+      "new": "measure"
+    },
+    {
+      "word": "couple",
+      "field": "ex",
+      "old": "A young couple were waiting at the bus stop.",
+      "new": "I'll be ready in a couple of minutes."
+    },
+    {
+      "word": "crash",
+      "field": "note",
+      "old": "",
+      "new": "PET nhạy cảm"
+    },
+    {
+      "word": "credit",
+      "field": "vi",
+      "old": "tín dụng, điểm",
+      "new": "tín dụng, tiền nạp"
+    },
+    {
+      "word": "credit",
+      "field": "ex",
+      "old": "You get extra credit for doing the project.",
+      "new": "My phone has no credit left, so I can't call you."
+    },
+    {
+      "word": "criminal",
+      "field": "vi",
+      "old": "tội phạm",
+      "new": "kẻ phạm tội"
+    },
+    {
+      "word": "criminal",
+      "field": "ex",
+      "old": "The police caught the criminal near the station.",
+      "new": "Police are still looking for the criminal who stole the painting."
+    },
+    {
+      "word": "cure",
+      "field": "vi",
+      "old": "phương thuốc, cách chữa",
+      "new": "cách chữa, chữa khỏi"
+    },
+    {
+      "word": "damage",
+      "field": "cat",
+      "old": "environment",
+      "new": "abstract"
+    },
+    {
+      "word": "deal",
+      "field": "vi",
+      "old": "xử lý, giải quyết",
+      "new": "chia bài"
+    },
+    {
+      "word": "deal",
+      "field": "ex",
+      "old": "The shop assistant will deal with your problem.",
+      "new": "It's your turn to deal the cards."
+    },
+    {
+      "word": "destroy",
+      "field": "cat",
+      "old": "daily",
+      "new": "action"
+    }
+  ],
+  "stillCheck": []
+}

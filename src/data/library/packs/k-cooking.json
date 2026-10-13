@@ -1,0 +1,289 @@
+{
+  "title": "Food and Cooking",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bake",
+      "meaning": "nướng bánh",
+      "category": "action",
+      "example": "We bake a cake on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "boil",
+      "meaning": "đun sôi",
+      "category": "action",
+      "example": "Dad boils water for the tea.",
+      "image": ""
+    },
+    {
+      "word": "roast",
+      "meaning": "nướng",
+      "category": "daily",
+      "example": "Mum will roast a chicken for dinner.",
+      "image": ""
+    },
+    {
+      "word": "boiled",
+      "meaning": "luộc",
+      "category": "describe",
+      "example": "I eat a boiled egg for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "fried",
+      "meaning": "chiên, rán",
+      "category": "describe",
+      "example": "I had fried rice for lunch today.",
+      "image": ""
+    },
+    {
+      "word": "grilled",
+      "meaning": "nướng",
+      "category": "describe",
+      "example": "We had grilled fish for dinner.",
+      "image": ""
+    },
+    {
+      "word": "ingredient",
+      "meaning": "nguyên liệu",
+      "category": "food",
+      "example": "Flour is the main ingredient in bread.",
+      "image": ""
+    },
+    {
+      "word": "recipe",
+      "meaning": "công thức nấu ăn",
+      "category": "food",
+      "example": "This recipe needs only four ingredients.",
+      "image": ""
+    },
+    {
+      "word": "oil",
+      "meaning": "dầu ăn",
+      "category": "food",
+      "example": "Add a little oil to the pan.",
+      "image": ""
+    },
+    {
+      "word": "slice",
+      "meaning": "lát, miếng",
+      "category": "food",
+      "example": "He ate a slice of bread with jam.",
+      "image": ""
+    },
+    {
+      "word": "dish",
+      "meaning": "món ăn, đĩa",
+      "category": "food",
+      "example": "My grandmother cooked a delicious dish for us.",
+      "image": ""
+    },
+    {
+      "word": "chilli",
+      "meaning": "ớt",
+      "category": "vegetable",
+      "example": "This soup has a lot of chilli.",
+      "image": ""
+    },
+    {
+      "word": "garlic",
+      "meaning": "tỏi",
+      "category": "vegetable",
+      "example": "My dad puts garlic in the soup.",
+      "image": ""
+    },
+    {
+      "word": "mushroom",
+      "meaning": "nấm",
+      "category": "vegetable",
+      "example": "We find mushrooms in the wet forest.",
+      "image": ""
+    },
+    {
+      "word": "melon",
+      "meaning": "quả dưa",
+      "category": "fruit",
+      "example": "We share a big melon in summer.",
+      "image": ""
+    },
+    {
+      "word": "serve",
+      "meaning": "phục vụ",
+      "category": "daily",
+      "example": "The café serves hot soup every day.",
+      "image": ""
+    },
+    {
+      "word": "cooking",
+      "meaning": "nấu ăn",
+      "category": "hobby",
+      "example": "My dad loves cooking on Sundays.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nấu ăn\"?",
+      "options": [
+        "dish",
+        "cooking",
+        "ingredient"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chiên, rán)",
+      "options": [
+        "fried",
+        "frried",
+        "friid"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Mum will ___ a chicken for dinner.",
+      "options": [
+        "cooking",
+        "melon",
+        "roast"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ch_lli (ớt)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nấm\"?",
+      "options": [
+        "newspaper",
+        "mushroom",
+        "color"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"oil\" mean?",
+      "options": [
+        "dầu ăn",
+        "nấu ăn",
+        "lửa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_ke (nướng bánh)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"serve\" mean?",
+      "options": [
+        "trông giống",
+        "quyết định",
+        "phục vụ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My grandmother cooked a delicious ___ for us.",
+      "options": [
+        "cooking",
+        "dish",
+        "bake"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lát, miếng\"?",
+      "options": [
+        "download",
+        "slice",
+        "air"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"garlic\" mean?",
+      "options": [
+        "tỏi",
+        "nấu ăn",
+        "vỏ sò"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả dưa)",
+      "options": [
+        "mleon",
+        "melun",
+        "melon"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ingredient\" mean?",
+      "options": [
+        "hòn đá",
+        "nguyên liệu",
+        "ngôi làng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rec_pe (công thức nấu ăn)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đun sôi)",
+      "options": [
+        "boil",
+        "biol",
+        "boyl"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to stir a pot",
+    "Pretend to slice a melon",
+    "Pretend to read a recipe",
+    "Pretend to bake a cake",
+    "Pretend to taste the soup carefully",
+    "Pretend to serve a dish"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

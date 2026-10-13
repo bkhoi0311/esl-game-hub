@@ -1,0 +1,299 @@
+{
+  "title": "When and How Often",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "a.m.",
+      "meaning": "giờ sáng",
+      "category": "time",
+      "example": "The bus leaves at seven a.m. every day.",
+      "image": ""
+    },
+    {
+      "word": "p.m.",
+      "meaning": "giờ chiều, tối",
+      "category": "time",
+      "example": "The film starts at 7 p.m. today.",
+      "image": ""
+    },
+    {
+      "word": "ago",
+      "meaning": "cách đây, trước",
+      "category": "time",
+      "example": "I met my best friend two years ago.",
+      "image": ""
+    },
+    {
+      "word": "already",
+      "meaning": "đã",
+      "category": "time",
+      "example": "I have already finished my homework.",
+      "image": ""
+    },
+    {
+      "word": "at the moment",
+      "meaning": "lúc này",
+      "category": "time",
+      "example": "My mum is cooking dinner at the moment.",
+      "image": ""
+    },
+    {
+      "word": "ever",
+      "meaning": "từng",
+      "category": "time",
+      "example": "Have you ever seen a real elephant?",
+      "image": ""
+    },
+    {
+      "word": "future",
+      "meaning": "tương lai",
+      "category": "time",
+      "example": "I want to be a doctor in the future.",
+      "image": ""
+    },
+    {
+      "word": "hour",
+      "meaning": "giờ đồng hồ",
+      "category": "time",
+      "example": "The lesson is one hour long.",
+      "image": ""
+    },
+    {
+      "word": "just",
+      "meaning": "vừa mới",
+      "category": "time",
+      "example": "I have just finished my homework.",
+      "image": ""
+    },
+    {
+      "word": "later",
+      "meaning": "sau đó, lát nữa",
+      "category": "time",
+      "example": "I will call you later.",
+      "image": ""
+    },
+    {
+      "word": "midday",
+      "meaning": "giữa trưa",
+      "category": "time",
+      "example": "We eat lunch at midday.",
+      "image": ""
+    },
+    {
+      "word": "midnight",
+      "meaning": "nửa đêm",
+      "category": "time",
+      "example": "We stayed up until midnight on New Year's Eve.",
+      "image": ""
+    },
+    {
+      "word": "minute",
+      "meaning": "phút",
+      "category": "time",
+      "example": "Wait a minute, please.",
+      "image": ""
+    },
+    {
+      "word": "once",
+      "meaning": "một lần",
+      "category": "time",
+      "example": "I visit my grandma once a week.",
+      "image": ""
+    },
+    {
+      "word": "soon",
+      "meaning": "sớm, chẳng bao lâu",
+      "category": "time",
+      "example": "The bus will come soon.",
+      "image": ""
+    },
+    {
+      "word": "still",
+      "meaning": "vẫn",
+      "category": "time",
+      "example": "It is still raining outside.",
+      "image": ""
+    },
+    {
+      "word": "tomorrow",
+      "meaning": "ngày mai",
+      "category": "time",
+      "example": "We visit Grandma tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "tonight",
+      "meaning": "tối nay",
+      "category": "time",
+      "example": "We are going to watch a film tonight.",
+      "image": ""
+    },
+    {
+      "word": "twice",
+      "meaning": "hai lần",
+      "category": "time",
+      "example": "I brush my teeth twice a day.",
+      "image": ""
+    },
+    {
+      "word": "usually",
+      "meaning": "thường",
+      "category": "time",
+      "example": "I usually walk to school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: lat_r (sau đó, lát nữa)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tối nay\"?",
+      "options": [
+        "tonight",
+        "usually",
+        "ever"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"twice\" mean?",
+      "options": [
+        "cách đây, trước",
+        "hai lần",
+        "vừa mới"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngày mai)",
+      "options": [
+        "tomorow",
+        "tumorrow",
+        "tomorrow"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ever\" mean?",
+      "options": [
+        "từng",
+        "lúc này",
+        "đã"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nửa đêm)",
+      "options": [
+        "midnihgt",
+        "midnight",
+        "midnyght"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đã\"?",
+      "options": [
+        "still",
+        "already",
+        "soon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (một lần)",
+      "options": [
+        "oncce",
+        "ocne",
+        "once"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We eat lunch at ___.",
+      "options": [
+        "computer room",
+        "milkshake",
+        "midday"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lúc này\"?",
+      "options": [
+        "tomorrow",
+        "at the moment",
+        "usually"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hour\" mean?",
+      "options": [
+        "giờ đồng hồ",
+        "nửa đêm",
+        "tương lai"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_ll (vẫn)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ago\" mean?",
+      "options": [
+        "giờ chiều, tối",
+        "giờ sáng",
+        "cách đây, trước"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_st (vừa mới)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to check the time",
+    "Pretend to wait for a long time",
+    "Pretend to wait patiently for a long time",
+    "Pretend to yawn at midnight",
+    "Point to your wrist like a watch"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

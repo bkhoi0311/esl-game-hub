@@ -165,7 +165,7 @@ export function auditQuestion(q, env, info) {
   return v;
 }
 
-const ACTION_BAN = /\b(crawl|hold hands|shake hands|run to|walk to)\b/i;
+const ACTION_BAN = /\b(crawl|hold hands|shake hands|run to|walk to|run around|touch (your|a|each) (friend|other|classmate|partner)|touch each other|jump on|spin fast|spin around fast)\b/i;
 const ACTION_PROP = /^(throw|kick|ride|row|open|put on|hold|read|play the|pull on|stir|peel|rock|carry|swing a|brush|roll|fly a|blow out|look at|look through|wave a|cut|pick|type|lock)\b/i;
 export function auditActions(list) {
   const v = [];

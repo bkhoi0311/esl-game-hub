@@ -1,0 +1,274 @@
+{
+  "title": "Work and Careers",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "career",
+      "meaning": "sự nghiệp",
+      "category": "work",
+      "example": "She wants a career in science.",
+      "image": ""
+    },
+    {
+      "word": "company",
+      "meaning": "công ty",
+      "category": "work",
+      "example": "My uncle works for a small computer company.",
+      "image": ""
+    },
+    {
+      "word": "department",
+      "meaning": "phòng ban, khoa",
+      "category": "work",
+      "example": "She works in the sales department of a big shop.",
+      "image": ""
+    },
+    {
+      "word": "experience",
+      "meaning": "kinh nghiệm",
+      "category": "work",
+      "example": "She has two years of experience as a cook.",
+      "image": ""
+    },
+    {
+      "word": "staff",
+      "meaning": "nhân viên",
+      "category": "work",
+      "example": "The staff at the hotel were very kind.",
+      "image": ""
+    },
+    {
+      "word": "working hours",
+      "meaning": "giờ làm việc",
+      "category": "work",
+      "example": "My mum's working hours are from nine to five.",
+      "image": ""
+    },
+    {
+      "word": "painter",
+      "meaning": "người vẽ tranh",
+      "category": "job",
+      "example": "The painter is painting a river with bright colours.",
+      "image": ""
+    },
+    {
+      "word": "musician",
+      "meaning": "nhạc công",
+      "category": "job",
+      "example": "The musician plays the guitar very well.",
+      "image": ""
+    },
+    {
+      "word": "deliver",
+      "meaning": "giao hàng",
+      "category": "daily",
+      "example": "The shop will deliver the box to your house tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "include",
+      "meaning": "bao gồm",
+      "category": "daily",
+      "example": "The price of the room includes breakfast.",
+      "image": ""
+    },
+    {
+      "word": "continue",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "Please continue reading after you finish this page.",
+      "image": ""
+    },
+    {
+      "word": "earn",
+      "meaning": "kiếm được",
+      "category": "daily",
+      "example": "He earns some money by washing cars on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "record",
+      "meaning": "ghi âm",
+      "category": "daily",
+      "example": "We want to record a song together.",
+      "image": ""
+    },
+    {
+      "word": "guide",
+      "meaning": "hướng dẫn viên",
+      "category": "job",
+      "example": "The guide showed us the old castle.",
+      "image": ""
+    },
+    {
+      "word": "coach",
+      "meaning": "huấn luyện viên",
+      "category": "job",
+      "example": "Our football coach is very kind.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (người vẽ tranh)",
+      "options": [
+        "paitner",
+        "painter",
+        "painnter"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"working hours\" mean?",
+      "options": [
+        "giờ làm việc",
+        "nhạc rock",
+        "trò chơi điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tiếp tục)",
+      "options": [
+        "continnue",
+        "contynue",
+        "continue"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has two years of ___ as a cook.",
+      "options": [
+        "experience",
+        "include",
+        "record"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bao gồm)",
+      "options": [
+        "includ",
+        "innclude",
+        "include"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"career\" mean?",
+      "options": [
+        "quả chanh vàng",
+        "sự nghiệp",
+        "cửa tiệm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle works for a small computer ___.",
+      "options": [
+        "continue",
+        "record",
+        "company"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_partment (phòng ban, khoa)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"huấn luyện viên\"?",
+      "options": [
+        "fork",
+        "coach",
+        "rubber"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"guide\" mean?",
+      "options": [
+        "hướng dẫn viên",
+        "chỗ qua đường",
+        "con tàu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhân viên\"?",
+      "options": [
+        "exit",
+        "staff",
+        "lesson"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: e_rn (kiếm được)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhạc công\"?",
+      "options": [
+        "kiwi",
+        "hockey",
+        "musician"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"record\" mean?",
+      "options": [
+        "yêu",
+        "ghi âm",
+        "hy vọng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: del_ver (giao hàng)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to type at a computer",
+    "Pretend to answer an interview question",
+    "Pretend to give a short presentation",
+    "Pretend to paint a wall slowly",
+    "Pretend to deliver a parcel"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

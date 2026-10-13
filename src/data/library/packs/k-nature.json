@@ -1,0 +1,268 @@
+{
+  "title": "Weather and Nature",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "thunderstorm",
+      "meaning": "cơn giông",
+      "category": "weather",
+      "example": "We stayed inside during the thunderstorm.",
+      "image": ""
+    },
+    {
+      "word": "coast",
+      "meaning": "bờ biển",
+      "category": "nature",
+      "example": "We drove along the coast last summer.",
+      "image": ""
+    },
+    {
+      "word": "nature",
+      "meaning": "thiên nhiên",
+      "category": "nature",
+      "example": "I love walking in nature.",
+      "image": ""
+    },
+    {
+      "word": "rainforest",
+      "meaning": "rừng nhiệt đới",
+      "category": "nature",
+      "example": "Many rare animals live in the rainforest.",
+      "image": ""
+    },
+    {
+      "word": "smoke",
+      "meaning": "khói",
+      "category": "nature",
+      "example": "We see grey smoke from the fire.",
+      "image": ""
+    },
+    {
+      "word": "wildlife",
+      "meaning": "động vật hoang dã",
+      "category": "nature",
+      "example": "We watched the wildlife in the national park.",
+      "image": ""
+    },
+    {
+      "word": "electricity",
+      "meaning": "điện",
+      "category": "environment",
+      "example": "The storm cut the electricity in our street.",
+      "image": ""
+    },
+    {
+      "word": "natural",
+      "meaning": "tự nhiên",
+      "category": "describe",
+      "example": "This juice is made from natural ingredients.",
+      "image": ""
+    },
+    {
+      "word": "season",
+      "meaning": "mùa",
+      "category": "time",
+      "example": "Summer is my favourite season.",
+      "image": ""
+    },
+    {
+      "word": "weather",
+      "meaning": "thời tiết",
+      "category": "weather",
+      "example": "What is the weather like today?",
+      "image": ""
+    },
+    {
+      "word": "rain",
+      "meaning": "mưa",
+      "category": "weather",
+      "example": "I like the sound of rain.",
+      "image": ""
+    },
+    {
+      "word": "storm",
+      "meaning": "cơn bão",
+      "category": "weather",
+      "example": "A big storm is coming.",
+      "image": ""
+    },
+    {
+      "word": "wind",
+      "meaning": "gió",
+      "category": "weather",
+      "example": "The wind is strong today.",
+      "image": ""
+    },
+    {
+      "word": "cloudy",
+      "meaning": "nhiều mây",
+      "category": "weather",
+      "example": "It is cloudy today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"rainforest\" mean?",
+      "options": [
+        "rừng nhiệt đới",
+        "bánh nướng",
+        "ki-lô-mét"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sm_ke (khói)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rain\" mean?",
+      "options": [
+        "bố",
+        "mưa",
+        "cái hộp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is strong today.",
+      "options": [
+        "wind",
+        "fun",
+        "cycle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhiều mây)",
+      "options": [
+        "clouddy",
+        "cloduy",
+        "cloudy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wildl_fe (động vật hoang dã)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wind\" mean?",
+      "options": [
+        "gió",
+        "môn học",
+        "triệu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This juice is made from ___ ingredients.",
+      "options": [
+        "rainforest",
+        "nature",
+        "natural"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thời tiết\"?",
+      "options": [
+        "internet",
+        "weather",
+        "neck"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: nat_re (thiên nhiên)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"điện\"?",
+      "options": [
+        "season",
+        "screen",
+        "electricity"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cơn bão)",
+      "options": [
+        "sotrm",
+        "storm",
+        "sttorm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"thunderstorm\" mean?",
+      "options": [
+        "một chút",
+        "cơn giông",
+        "tàu điện ngầm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bờ biển)",
+      "options": [
+        "cosat",
+        "caost",
+        "coast"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mùa\"?",
+      "options": [
+        "season",
+        "electricity",
+        "man"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open an umbrella",
+    "Shiver like it is snowing",
+    "Pretend to look at wildlife through binoculars",
+    "Wave your arms gently like wind",
+    "Pretend to cover your ears for thunder",
+    "Pretend to walk along the coast"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

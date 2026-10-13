@@ -1,0 +1,310 @@
+{
+  "title": "Numbers 1 to 20",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "one",
+      "meaning": "một",
+      "category": "number",
+      "example": "I have one red balloon.",
+      "image": ""
+    },
+    {
+      "word": "two",
+      "meaning": "hai",
+      "category": "number",
+      "example": "I see two birds in the tree.",
+      "image": ""
+    },
+    {
+      "word": "three",
+      "meaning": "ba",
+      "category": "number",
+      "example": "She has three cats.",
+      "image": ""
+    },
+    {
+      "word": "four",
+      "meaning": "bốn",
+      "category": "number",
+      "example": "A table has four legs.",
+      "image": ""
+    },
+    {
+      "word": "five",
+      "meaning": "năm",
+      "category": "number",
+      "example": "I am five years old.",
+      "image": ""
+    },
+    {
+      "word": "six",
+      "meaning": "sáu",
+      "category": "number",
+      "example": "We play for six minutes.",
+      "image": ""
+    },
+    {
+      "word": "seven",
+      "meaning": "bảy",
+      "category": "number",
+      "example": "My brother is seven years old.",
+      "image": ""
+    },
+    {
+      "word": "eight",
+      "meaning": "tám",
+      "category": "number",
+      "example": "The bus comes at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "nine",
+      "meaning": "chín",
+      "category": "number",
+      "example": "There are nine eggs in the box.",
+      "image": ""
+    },
+    {
+      "word": "ten",
+      "meaning": "mười",
+      "category": "number",
+      "example": "Count to ten with me.",
+      "image": ""
+    },
+    {
+      "word": "eleven",
+      "meaning": "số mười một",
+      "category": "number",
+      "example": "There are eleven players in a football team.",
+      "image": ""
+    },
+    {
+      "word": "twelve",
+      "meaning": "số mười hai",
+      "category": "number",
+      "example": "There are twelve eggs in the box.",
+      "image": ""
+    },
+    {
+      "word": "thirteen",
+      "meaning": "số mười ba",
+      "category": "number",
+      "example": "My brother is thirteen years old.",
+      "image": ""
+    },
+    {
+      "word": "fourteen",
+      "meaning": "số mười bốn",
+      "category": "number",
+      "example": "My cousin is fourteen years old.",
+      "image": ""
+    },
+    {
+      "word": "fifteen",
+      "meaning": "số mười lăm",
+      "category": "number",
+      "example": "I have fifteen red pencils.",
+      "image": ""
+    },
+    {
+      "word": "sixteen",
+      "meaning": "số mười sáu",
+      "category": "number",
+      "example": "There are sixteen children in the park.",
+      "image": ""
+    },
+    {
+      "word": "seventeen",
+      "meaning": "số mười bảy",
+      "category": "number",
+      "example": "My sister is seventeen years old.",
+      "image": ""
+    },
+    {
+      "word": "eighteen",
+      "meaning": "số mười tám",
+      "category": "number",
+      "example": "My brother is eighteen years old.",
+      "image": ""
+    },
+    {
+      "word": "nineteen",
+      "meaning": "số mười chín",
+      "category": "number",
+      "example": "There are nineteen books on the shelf.",
+      "image": ""
+    },
+    {
+      "word": "twenty",
+      "meaning": "số hai mươi",
+      "category": "number",
+      "example": "I have twenty stickers in my bag.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: t_n (mười)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ba)",
+      "options": [
+        "three",
+        "thrie",
+        "thre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bảy\"?",
+      "options": [
+        "eighteen",
+        "seven",
+        "five"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I have ___ red pencils.",
+      "options": [
+        "good",
+        "fifteen",
+        "smile"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chín\"?",
+      "options": [
+        "four",
+        "sixteen",
+        "nine"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"eight\" mean?",
+      "options": [
+        "tám",
+        "năm",
+        "mười"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (số mười ba)",
+      "options": [
+        "thirten",
+        "thirteen",
+        "thriteen"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"four\" mean?",
+      "options": [
+        "bốn",
+        "sáu",
+        "hai"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (số mười bốn)",
+      "options": [
+        "fourtein",
+        "fuurteen",
+        "fourteen"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"eleven\" mean?",
+      "options": [
+        "số mười hai",
+        "số mười một",
+        "số mười lăm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We play for ___ minutes.",
+      "options": [
+        "timer",
+        "egg",
+        "six"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sev_nteen (số mười bảy)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"two\" mean?",
+      "options": [
+        "mười",
+        "hai",
+        "bảy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"số mười chín\"?",
+      "options": [
+        "thirteen",
+        "sixteen",
+        "nineteen"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tw_lve (số mười hai)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me five fingers",
+    "Show me ten fingers",
+    "Clap three times",
+    "Clap five times",
+    "Stamp your feet two times on the spot",
+    "Count to ten with your fingers"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

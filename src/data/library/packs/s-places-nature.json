@@ -1,0 +1,275 @@
+{
+  "title": "Places and Nature",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bookshop",
+      "meaning": "hiệu sách",
+      "category": "place",
+      "example": "We buy comics at the bookshop.",
+      "image": ""
+    },
+    {
+      "word": "park",
+      "meaning": "công viên",
+      "category": "place",
+      "example": "I play football in the park.",
+      "image": ""
+    },
+    {
+      "word": "playground",
+      "meaning": "sân chơi",
+      "category": "place",
+      "example": "The children play in the playground.",
+      "image": ""
+    },
+    {
+      "word": "shop",
+      "meaning": "cửa hàng",
+      "category": "place",
+      "example": "The shop opens at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "store",
+      "meaning": "cửa tiệm",
+      "category": "place",
+      "example": "This store sells nice shoes.",
+      "image": ""
+    },
+    {
+      "word": "zoo",
+      "meaning": "sở thú",
+      "category": "place",
+      "example": "We see lions at the zoo.",
+      "image": ""
+    },
+    {
+      "word": "beach",
+      "meaning": "bãi biển",
+      "category": "nature",
+      "example": "We play on the beach.",
+      "image": ""
+    },
+    {
+      "word": "sand",
+      "meaning": "cát",
+      "category": "nature",
+      "example": "We build a castle in the sand.",
+      "image": ""
+    },
+    {
+      "word": "sea",
+      "meaning": "biển",
+      "category": "nature",
+      "example": "The sea is warm today.",
+      "image": ""
+    },
+    {
+      "word": "shell",
+      "meaning": "vỏ sò",
+      "category": "nature",
+      "example": "I find a shell on the beach.",
+      "image": ""
+    },
+    {
+      "word": "sun",
+      "meaning": "mặt trời",
+      "category": "space",
+      "example": "The sun is hot today.",
+      "image": ""
+    },
+    {
+      "word": "tree",
+      "meaning": "cái cây",
+      "category": "plant",
+      "example": "A bird sits in the tree.",
+      "image": ""
+    },
+    {
+      "word": "flower",
+      "meaning": "bông hoa",
+      "category": "plant",
+      "example": "The flower smells nice.",
+      "image": ""
+    },
+    {
+      "word": "garden",
+      "meaning": "khu vườn",
+      "category": "house",
+      "example": "We have flowers in the garden.",
+      "image": ""
+    },
+    {
+      "word": "street",
+      "meaning": "đường phố",
+      "category": "place",
+      "example": "Our house is on a quiet street.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"park\" mean?",
+      "options": [
+        "đường phố",
+        "sở thú",
+        "công viên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bãi biển\"?",
+      "options": [
+        "beach",
+        "sand",
+        "shell"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A bird sits in the ___.",
+      "options": [
+        "wave",
+        "tree",
+        "paint"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sở thú\"?",
+      "options": [
+        "street",
+        "zoo",
+        "park"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ sells nice shoes.",
+      "options": [
+        "tree",
+        "flower",
+        "store"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gard_n (khu vườn)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đường phố)",
+      "options": [
+        "srteet",
+        "stret",
+        "street"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sun\" mean?",
+      "options": [
+        "mặt trời",
+        "biển",
+        "bãi biển"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_p (cửa hàng)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sea\" mean?",
+      "options": [
+        "biển",
+        "mặt trời",
+        "khu vườn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vỏ sò)",
+      "options": [
+        "shel",
+        "shlel",
+        "shell"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sand\" mean?",
+      "options": [
+        "biển",
+        "cát",
+        "vỏ sò"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bông hoa\"?",
+      "options": [
+        "store",
+        "bookshop",
+        "flower"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bo_kshop (hiệu sách)",
+      "options": [
+        "u",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sân chơi\"?",
+      "options": [
+        "playground",
+        "bookshop",
+        "store"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play on the beach",
+    "Pretend to smell a flower",
+    "Make a big sun with your arms",
+    "Pretend to swim in the sea",
+    "Pretend to look at animals at the zoo",
+    "Stand like a tree"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

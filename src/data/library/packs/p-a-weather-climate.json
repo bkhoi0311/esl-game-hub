@@ -1,0 +1,275 @@
+{
+  "title": "Weather and Climate",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "breeze",
+      "meaning": "làn gió nhẹ",
+      "category": "weather",
+      "example": "A cool breeze came through the open window.",
+      "image": ""
+    },
+    {
+      "word": "forecast",
+      "meaning": "dự báo",
+      "category": "weather",
+      "example": "The forecast says it will rain tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "gale",
+      "meaning": "gió mạnh",
+      "category": "weather",
+      "example": "A strong gale blew down the old tree.",
+      "image": ""
+    },
+    {
+      "word": "heat",
+      "meaning": "sức nóng",
+      "category": "weather",
+      "example": "The heat was so strong that we stayed inside.",
+      "image": ""
+    },
+    {
+      "word": "humid",
+      "meaning": "ẩm ướt",
+      "category": "weather",
+      "example": "It is hot and humid in the south in summer.",
+      "image": ""
+    },
+    {
+      "word": "icy",
+      "meaning": "đóng băng, lạnh buốt",
+      "category": "weather",
+      "example": "The road was icy, so the bus drove slowly.",
+      "image": ""
+    },
+    {
+      "word": "lightning",
+      "meaning": "tia chớp",
+      "category": "weather",
+      "example": "We see lightning in the sky.",
+      "image": ""
+    },
+    {
+      "word": "mild",
+      "meaning": "ôn hoà, nhẹ",
+      "category": "weather",
+      "example": "The weather is mild in spring.",
+      "image": ""
+    },
+    {
+      "word": "snowfall",
+      "meaning": "tuyết rơi",
+      "category": "weather",
+      "example": "Heavy snowfall closed our school for two days.",
+      "image": ""
+    },
+    {
+      "word": "sunshine",
+      "meaning": "ánh nắng",
+      "category": "weather",
+      "example": "We enjoyed the warm sunshine in the park.",
+      "image": ""
+    },
+    {
+      "word": "thunder",
+      "meaning": "sấm",
+      "category": "weather",
+      "example": "I hear thunder in the night.",
+      "image": ""
+    },
+    {
+      "word": "weather forecast",
+      "meaning": "dự báo thời tiết",
+      "category": "weather",
+      "example": "The weather forecast says it will snow tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "climate",
+      "meaning": "khí hậu",
+      "category": "environment",
+      "example": "The climate in this region is warm and dry.",
+      "image": ""
+    },
+    {
+      "word": "climate change",
+      "meaning": "biến đổi khí hậu",
+      "category": "environment",
+      "example": "Many students want to learn about climate change.",
+      "image": ""
+    },
+    {
+      "word": "freezing",
+      "meaning": "lạnh cóng",
+      "category": "describe",
+      "example": "It was freezing outside, so I wore a coat.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"tuyết rơi\"?",
+      "options": [
+        "pasta",
+        "snowfall",
+        "progress"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tia chớp)",
+      "options": [
+        "lightnning",
+        "lightnyng",
+        "lightning"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fre_zing (lạnh cóng)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Many students want to learn about ___.",
+      "options": [
+        "freezing",
+        "opening hours",
+        "climate change"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_mate (khí hậu)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ was so strong that we stayed inside.",
+      "options": [
+        "heat",
+        "car park",
+        "fashion"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"breeze\" mean?",
+      "options": [
+        "làn gió nhẹ",
+        "pháo hoa",
+        "khoa học viễn tưởng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_recast (dự báo)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"icy\" mean?",
+      "options": [
+        "được rồi, ổn",
+        "đóng băng, lạnh buốt",
+        "có năng khiếu âm nhạc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ẩm ướt\"?",
+      "options": [
+        "humid",
+        "wise",
+        "spectacular"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"weather forecast\" mean?",
+      "options": [
+        "bộ đồ bơi",
+        "phương tiện công cộng",
+        "dự báo thời tiết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ôn hoà, nhẹ\"?",
+      "options": [
+        "reliable",
+        "mild",
+        "horrible"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sấm)",
+      "options": [
+        "thunder",
+        "thunedr",
+        "thudner"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sunshine\" mean?",
+      "options": [
+        "người thắng cuộc",
+        "ánh nắng",
+        "sân ga"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gió mạnh)",
+      "options": [
+        "galle",
+        "glae",
+        "gale"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to feel a cool breeze",
+    "Pretend to hide from a gale",
+    "Pretend to shiver in the freezing cold",
+    "Pretend to read a weather forecast",
+    "Pretend to wipe sweat in the heat",
+    "Pretend to watch lightning"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

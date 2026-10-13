@@ -1,0 +1,282 @@
+{
+  "title": "Time and Periods",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ages",
+      "meaning": "rất lâu",
+      "category": "time",
+      "example": "I have waited for ages at the bus stop.",
+      "image": ""
+    },
+    {
+      "word": "childhood",
+      "meaning": "thời thơ ấu",
+      "category": "time",
+      "example": "She had a happy childhood in a small village.",
+      "image": ""
+    },
+    {
+      "word": "fortnight",
+      "meaning": "hai tuần",
+      "category": "time",
+      "example": "We are going on holiday for a fortnight.",
+      "image": ""
+    },
+    {
+      "word": "interval",
+      "meaning": "giờ nghỉ giữa buổi",
+      "category": "time",
+      "example": "There is a twenty-minute interval in the middle of the play.",
+      "image": ""
+    },
+    {
+      "word": "period",
+      "meaning": "giai đoạn, tiết học",
+      "category": "time",
+      "example": "We had a long period of rain last month.",
+      "image": ""
+    },
+    {
+      "word": "overnight",
+      "meaning": "qua đêm",
+      "category": "time",
+      "example": "We stayed overnight at a small hotel near the lake.",
+      "image": ""
+    },
+    {
+      "word": "previous",
+      "meaning": "trước đó",
+      "category": "time",
+      "example": "I forgot my homework from the previous lesson.",
+      "image": ""
+    },
+    {
+      "word": "forever",
+      "meaning": "mãi mãi",
+      "category": "time",
+      "example": "I will remember this trip forever.",
+      "image": ""
+    },
+    {
+      "word": "frequently",
+      "meaning": "thường xuyên",
+      "category": "time",
+      "example": "He frequently visits his grandparents at weekends.",
+      "image": ""
+    },
+    {
+      "word": "lately",
+      "meaning": "dạo này",
+      "category": "time",
+      "example": "I have been very busy lately.",
+      "image": ""
+    },
+    {
+      "word": "meanwhile",
+      "meaning": "trong khi đó",
+      "category": "time",
+      "example": "I cooked dinner. Meanwhile, my brother set the table.",
+      "image": ""
+    },
+    {
+      "word": "nowadays",
+      "meaning": "ngày nay",
+      "category": "time",
+      "example": "Most teenagers have a mobile phone nowadays.",
+      "image": ""
+    },
+    {
+      "word": "occasionally",
+      "meaning": "thỉnh thoảng",
+      "category": "time",
+      "example": "We occasionally go to the cinema after school.",
+      "image": ""
+    },
+    {
+      "word": "previously",
+      "meaning": "trước kia",
+      "category": "time",
+      "example": "I previously lived in a small town near the sea.",
+      "image": ""
+    },
+    {
+      "word": "rarely",
+      "meaning": "hiếm khi",
+      "category": "time",
+      "example": "My brother rarely eats vegetables.",
+      "image": ""
+    },
+    {
+      "word": "regularly",
+      "meaning": "đều đặn",
+      "category": "time",
+      "example": "I visit my grandparents regularly.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "He ___ visits his grandparents at weekends.",
+      "options": [
+        "downstairs",
+        "please",
+        "frequently"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"overnight\" mean?",
+      "options": [
+        "qua đêm",
+        "lười",
+        "thứ ba"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rất lâu\"?",
+      "options": [
+        "offer",
+        "ages",
+        "vanilla"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"regularly\" mean?",
+      "options": [
+        "đều đặn",
+        "to tiếng, ồn ào",
+        "chắc chắn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dạo này)",
+      "options": [
+        "letely",
+        "lately",
+        "ltaely"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: meanwh_le (trong khi đó)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"forever\" mean?",
+      "options": [
+        "mãi mãi",
+        "làm ơn",
+        "ở tầng dưới"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thỉnh thoảng\"?",
+      "options": [
+        "together",
+        "approximately",
+        "occasionally"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"period\" mean?",
+      "options": [
+        "quyền truy cập",
+        "giai đoạn, tiết học",
+        "một phần tư"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngày nay\"?",
+      "options": [
+        "nowadays",
+        "aloud",
+        "partly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hiếm khi)",
+      "options": [
+        "rraely",
+        "raerly",
+        "rarely"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: int_rval (giờ nghỉ giữa buổi)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I forgot my homework from the ___ lesson.",
+      "options": [
+        "previous",
+        "fish",
+        "animal"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fortn_ght (hai tuần)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trước kia)",
+      "options": [
+        "prevviously",
+        "previoussly",
+        "previously"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wait for ages and look at your watch",
+    "Show me how you looked as a child",
+    "Mime checking a calendar",
+    "Pretend to stay up late and yawn",
+    "Pretend to ask what time it is",
+    "Show me you do something regularly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

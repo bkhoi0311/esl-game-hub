@@ -1,0 +1,282 @@
+{
+  "title": "Places in Town",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "booking office",
+      "meaning": "phòng bán vé",
+      "category": "place",
+      "example": "You can buy tickets at the booking office near the entrance.",
+      "image": ""
+    },
+    {
+      "word": "cathedral",
+      "meaning": "nhà thờ lớn",
+      "category": "place",
+      "example": "We visited an old cathedral with beautiful windows.",
+      "image": ""
+    },
+    {
+      "word": "changing room",
+      "meaning": "phòng thay đồ",
+      "category": "place",
+      "example": "Leave your bag in the changing room before you swim.",
+      "image": ""
+    },
+    {
+      "word": "crossroads",
+      "meaning": "ngã tư",
+      "category": "place",
+      "example": "Turn left at the crossroads and walk to the library.",
+      "image": ""
+    },
+    {
+      "word": "district",
+      "meaning": "quận, khu vực",
+      "category": "place",
+      "example": "My aunt lives in a quiet district near the river.",
+      "image": ""
+    },
+    {
+      "word": "embassy",
+      "meaning": "đại sứ quán",
+      "category": "place",
+      "example": "We went to the embassy to get a new passport.",
+      "image": ""
+    },
+    {
+      "word": "facilities",
+      "meaning": "cơ sở vật chất",
+      "category": "place",
+      "example": "The new sports centre has excellent facilities for young players.",
+      "image": ""
+    },
+    {
+      "word": "fountain",
+      "meaning": "đài phun nước",
+      "category": "place",
+      "example": "Children play near the fountain.",
+      "image": ""
+    },
+    {
+      "word": "mall",
+      "meaning": "trung tâm thương mại",
+      "category": "place",
+      "example": "We eat ice cream in the mall.",
+      "image": ""
+    },
+    {
+      "word": "neighbourhood",
+      "meaning": "khu phố",
+      "category": "place",
+      "example": "I know everyone in my neighbourhood.",
+      "image": ""
+    },
+    {
+      "word": "nightclub",
+      "meaning": "hộp đêm",
+      "category": "place",
+      "example": "The nightclub is on a busy street in the city centre.",
+      "image": ""
+    },
+    {
+      "word": "pavement",
+      "meaning": "vỉa hè",
+      "category": "place",
+      "example": "Please walk on the pavement, not on the road.",
+      "image": ""
+    },
+    {
+      "word": "reception",
+      "meaning": "quầy lễ tân",
+      "category": "place",
+      "example": "Please leave your key at reception.",
+      "image": ""
+    },
+    {
+      "word": "stall",
+      "meaning": "quầy hàng",
+      "category": "place",
+      "example": "She sells fresh fruit at a market stall.",
+      "image": ""
+    },
+    {
+      "word": "tunnel",
+      "meaning": "đường hầm",
+      "category": "place",
+      "example": "The train goes through a long tunnel under the mountain.",
+      "image": ""
+    },
+    {
+      "word": "studio",
+      "meaning": "phòng thu",
+      "category": "place",
+      "example": "She records songs in a small studio.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: d_strict (quận, khu vực)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vỉa hè\"?",
+      "options": [
+        "pavement",
+        "guest",
+        "announcement"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fac_lities (cơ sở vật chất)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She records songs in a small ___.",
+      "options": [
+        "shame",
+        "studio",
+        "expert"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: nightcl_b (hộp đêm)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tunnel\" mean?",
+      "options": [
+        "bạn cùng phòng",
+        "vũ công",
+        "đường hầm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Turn left at the ___ and walk to the library.",
+      "options": [
+        "crossroads",
+        "questionnaire",
+        "torch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đài phun nước)",
+      "options": [
+        "fuontain",
+        "fonutain",
+        "fountain"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khu phố\"?",
+      "options": [
+        "experience",
+        "neighbourhood",
+        "improvement"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quầy lễ tân)",
+      "options": [
+        "reception",
+        "receptiun",
+        "recepption"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà thờ lớn\"?",
+      "options": [
+        "barbecue",
+        "cathedral",
+        "passport"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stall\" mean?",
+      "options": [
+        "cảm xúc",
+        "quả bóng",
+        "quầy hàng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trung tâm thương mại)",
+      "options": [
+        "mlal",
+        "mal",
+        "mall"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"booking office\" mean?",
+      "options": [
+        "phòng bán vé",
+        "bộ đồ bơi",
+        "giày trượt băng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"embassy\" mean?",
+      "options": [
+        "mũ bảo hiểm",
+        "đại sứ quán",
+        "hình tròn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to walk on the pavement slowly",
+    "Pretend to look at a fountain",
+    "Pretend to buy something at a stall",
+    "Pretend to wait at a reception desk",
+    "Pretend to walk through a tunnel slowly",
+    "Pretend to ask for directions at a crossroads"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

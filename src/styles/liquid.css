@@ -12,6 +12,8 @@
   --lg-tint: #067a12;
   --lg-tint-fill: #07801a;
   --lg-tint-soft: rgba(7, 128, 26, 0.1);
+  --lg-tint-a45: #067a1273; /* thay color-mix(): Chromium 109 không có */
+  --lg-tint-a60: #067a1299;
   --lg-tint-ink: #056a10;
   --accent-grad: linear-gradient(180deg, #18b22d, #07801a);
   --font: var(--lg-font);
@@ -92,8 +94,8 @@ a.btn-primary { color: #fff; }
 
 /* Ô nhập */
 input[type='text'], select, textarea { border: 0; border-radius: 0.9rem; background: var(--lg-fill); box-shadow: none; font-family: var(--lg-font); transition: box-shadow var(--lg-dur) var(--ease), background var(--lg-dur) var(--ease); }
-input[type='text']:focus, select:focus, textarea:focus { background: #fff; box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--lg-tint) 45%, transparent); outline: none; }
-:where(a, button, input, select, textarea, .game-card, .answer-btn):focus-visible { outline: 0.2rem solid color-mix(in srgb, var(--lg-tint) 60%, transparent); outline-offset: 0.15rem; }
+input[type='text']:focus, select:focus, textarea:focus { background: #fff; box-shadow: 0 0 0 0.2rem var(--lg-tint-a45); outline: none; }
+:where(a, button, input, select, textarea, .game-card, .answer-btn):focus-visible { outline: 0.2rem solid var(--lg-tint-a60); outline-offset: 0.15rem; }
 
 /* ---------- Menu ---------- */
 .menu-heads { gap: 1rem; }
@@ -101,7 +103,7 @@ input[type='text']:focus, select:focus, textarea:focus { background: #fff; box-s
 .group-tab { min-height: 5.2rem; padding: 0.5rem 1.2rem 0.5rem 0.55rem; border-radius: 2rem; background: transparent; box-shadow: none; transition: background var(--lg-dur) var(--ease), transform var(--lg-dur-fast) var(--spring); }
 .group-tab:hover { background: rgba(255, 255, 255, 0.55); transform: none; }
 .group-tab:active { transform: scale(0.97); }
-.group-icon { width: 3.9rem; height: 3.9rem; border-radius: 1.2rem; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 80%, #fff), var(--accent)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0.3rem 0.8rem color-mix(in srgb, var(--accent) 35%, transparent); }
+.group-icon { width: 3.9rem; height: 3.9rem; border-radius: 1.2rem; background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)) var(--accent); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0.3rem 0.8rem rgba(0, 0, 0, 0.18); }
 .group-tab { --accent: #0a72e8; }
 .group-tab.group-class { --accent: #07801a; }
 .group-text strong { font-family: var(--ui-display); font-weight: 700; font-size: 1.65rem; letter-spacing: -0.025em; color: var(--lg-text); }
@@ -288,7 +290,7 @@ body.perf-cam .cam-video, body.perf-cam .sp-overlay, body.perf-cam .sf-overlay {
 .cam-pick { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .cam-pick[hidden] { display: none; }
 .cam-pick .btn { min-height: max(3.4rem, 52px); padding: 0 1.2rem; }
-.cam-pick .btn[aria-pressed='true'] { background: #fff; border-color: var(--lg-tint); box-shadow: 0 0 0 0.18rem color-mix(in srgb, var(--lg-tint) 45%, transparent), var(--edge); color: var(--lg-text); }
+.cam-pick .btn[aria-pressed='true'] { background: #fff; border-color: var(--lg-tint); box-shadow: 0 0 0 0.18rem var(--lg-tint-a45), var(--edge); color: var(--lg-text); }
 
 /* ---------- Hồ sơ nhẹ (html.no-glass / html.perf-lite, src/core/perf.js) ----------
    Kính (backdrop-filter, khúc xạ SVG) tính lại mỗi khung khi nền phía sau chuyển động: nền đặc thay kính. */

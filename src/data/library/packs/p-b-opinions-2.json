@@ -1,0 +1,282 @@
+{
+  "title": "Opinions and Attitudes 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "handsome",
+      "meaning": "đẹp trai",
+      "category": "opinion",
+      "example": "The actor looked very handsome in the film.",
+      "image": ""
+    },
+    {
+      "word": "hopeless",
+      "meaning": "vô vọng, tồi tệ",
+      "category": "opinion",
+      "example": "I am hopeless at maths, but I try my best.",
+      "image": ""
+    },
+    {
+      "word": "incredible",
+      "meaning": "khó tin, tuyệt vời",
+      "category": "opinion",
+      "example": "The view from the top of the mountain was incredible.",
+      "image": ""
+    },
+    {
+      "word": "magnificent",
+      "meaning": "tráng lệ",
+      "category": "opinion",
+      "example": "We saw a magnificent castle on the hill.",
+      "image": ""
+    },
+    {
+      "word": "marvellous",
+      "meaning": "tuyệt diệu",
+      "category": "opinion",
+      "example": "We had a marvellous day at the zoo.",
+      "image": ""
+    },
+    {
+      "word": "nasty",
+      "meaning": "khó chịu, tồi tệ",
+      "category": "opinion",
+      "example": "There was a nasty smell in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "negative",
+      "meaning": "tiêu cực",
+      "category": "opinion",
+      "example": "Try not to have negative thoughts before an exam.",
+      "image": ""
+    },
+    {
+      "word": "obvious",
+      "meaning": "rõ ràng",
+      "category": "opinion",
+      "example": "It was obvious that he was nervous.",
+      "image": ""
+    },
+    {
+      "word": "okay",
+      "meaning": "được rồi, ổn",
+      "category": "opinion",
+      "example": "Is it okay if I sit here?",
+      "image": ""
+    },
+    {
+      "word": "peaceful",
+      "meaning": "yên bình",
+      "category": "opinion",
+      "example": "The lake is a peaceful place to relax.",
+      "image": ""
+    },
+    {
+      "word": "positive",
+      "meaning": "tích cực",
+      "category": "opinion",
+      "example": "Try to stay positive before your big exam.",
+      "image": ""
+    },
+    {
+      "word": "reasonable",
+      "meaning": "hợp lý",
+      "category": "opinion",
+      "example": "The price of this jacket is reasonable.",
+      "image": ""
+    },
+    {
+      "word": "romantic",
+      "meaning": "lãng mạn",
+      "category": "opinion",
+      "example": "They watched a romantic film about two travellers.",
+      "image": ""
+    },
+    {
+      "word": "satisfactory",
+      "meaning": "đạt yêu cầu",
+      "category": "opinion",
+      "example": "Your work is satisfactory, but you can still improve it.",
+      "image": ""
+    },
+    {
+      "word": "shocking",
+      "meaning": "gây sốc",
+      "category": "opinion",
+      "example": "The ending of the film was really shocking.",
+      "image": ""
+    },
+    {
+      "word": "so-so",
+      "meaning": "tạm được",
+      "category": "opinion",
+      "example": "The food at the café was only so-so.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"positive\" mean?",
+      "options": [
+        "màu xám",
+        "thông minh",
+        "tích cực"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đẹp trai\"?",
+      "options": [
+        "handsome",
+        "bold",
+        "active"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tráng lệ)",
+      "options": [
+        "magnyficent",
+        "magnificent",
+        "magniifcent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"incredible\" mean?",
+      "options": [
+        "hữu ích, hay giúp đỡ",
+        "khó tin, tuyệt vời",
+        "người Brazil"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (yên bình)",
+      "options": [
+        "peaceful",
+        "peeceful",
+        "peaceufl"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Your work is ___, but you can still improve it.",
+      "options": [
+        "waterfall",
+        "traffic",
+        "satisfactory"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"so-so\" mean?",
+      "options": [
+        "ích kỷ",
+        "sôi nổi",
+        "tạm được"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It was ___ that he was nervous.",
+      "options": [
+        "obvious",
+        "crash",
+        "kiwi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khó chịu, tồi tệ\"?",
+      "options": [
+        "yellow",
+        "nasty",
+        "grey"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"okay\" mean?",
+      "options": [
+        "được rồi, ổn",
+        "sôi nổi",
+        "người Brazil"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_gative (tiêu cực)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lãng mạn)",
+      "options": [
+        "romatnic",
+        "romantic",
+        "romantyc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: marvell_us (tuyệt diệu)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vô vọng, tồi tệ\"?",
+      "options": [
+        "hopeless",
+        "third",
+        "weekly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: reas_nable (hợp lý)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a positive thumbs up",
+    "Show me a negative thumbs down",
+    "Show me a so-so hand wave",
+    "Pretend to taste something nasty",
+    "Show me a peaceful face",
+    "Pretend to say that a show was incredible"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

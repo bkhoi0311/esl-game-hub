@@ -1,0 +1,96 @@
+gas	n	ket					n
+gas station	n	ket					n
+get back	v	ket					v
+get fit	v	ket					v
+get married	v	ket					v
+girlfriend	n	ket					n
+give back	v	ket					v
+give somebody a call	v	ket		give somebody a ring			v
+glad	adj	ket					adj
+golden	adj	ket					adj
+good afternoon	phr	ket					exclam
+good evening	phr	ket					exclam
+good morning	phr	ket					exclam
+good night	phr	ket					exclam
+good-looking	adj	ket					adj
+grade	n	ket					n
+gram	n	ket		gramme			n
+grandad	n	ket		granddad			n
+grandchild	n	ket					n
+granny	n	ket					n
+grilled	adj	ket					adj
+grocery store	n	ket					n
+grow up	v	ket					phr v
+guest	n	ket					n
+guest-house	n	ket					n
+guide	n	ket					n
+guidebook	n	ket					n
+guy	n	ket					n
+half-price	adj	ket					adj
+have got to	other	ket					mv
+headteacher	n	ket					n
+health	n	ket					n
+healthy	adj	ket					adj
+heating	n	ket					n
+helpful	adj	ket					adj
+herself	pron	ket					pron
+hey	phr	ket					exclam
+himself	pron	ket					pron
+hip hop	n	ket					n
+hoodie	n	ket					n
+horror	adj	ket					adj
+housewife	n	ket					n
+however	adv	ket					adv
+id	n	ket				ID	n
+id card	n	ket				ID card	n
+identification	n	ket					n
+immediately	adv	ket					adv
+impossible	adj	ket					adj
+include	v	ket					v
+including	prep	ket					prep
+indoor	adj	ket					adj
+indoors	adv	ket					adv
+iced tea	n	ket					n
+ingredient	n	ket					n
+instead of	prep	ket					prep
+instructions	n	ket					n pl
+international	adj	ket					adj
+invention	n	ket					n
+itself	pron	ket					pron
+jazz	n	ket					n
+jewellery	n	ket		jewelry			n
+jumper	n	ket					n
+kilogramme	n	ket		kg			n
+kit	n	ket					n
+latest	adj	ket					adj
+least	adv	ket					adv
+leather	n	ket					n+adj
+left-hand	adj	ket					adj
+lend	v	ket					v
+length	n	ket					n
+less	adj	ket					adj+det+pron
+level	n	ket					n
+licence	n	ket					n
+life	n	ket					n
+link	n	ket	technology				n
+litre	n	ket		liter			n
+local	adj	ket					adj
+look out	v	ket					phr v
+lost	adj	ket					adj
+luck	n	ket					n
+luckily	adv	ket					adv
+lunchtime	n	ket					n
+mad	adj	ket					adj
+mail	n	ket					n
+main course	n	ket					n
+make-up	n	ket					n
+mark	n	ket					n
+maybe	adv	ket					adv
+memory	n	ket					n
+metre	n	ket		meter			n
+mile	n	ket					n
+mineral water	n	ket					n
+minus	prep	ket					prep
+mobile	n	ket	phone				n
+modern	adj	ket					adj
+mom	n	ket					n

@@ -1,0 +1,282 @@
+{
+  "title": "Jobs and Occupations",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "assistant",
+      "meaning": "trợ lý",
+      "category": "job",
+      "example": "The doctor's assistant called my name.",
+      "image": ""
+    },
+    {
+      "word": "boss",
+      "meaning": "sếp",
+      "category": "job",
+      "example": "My mum's boss is very kind.",
+      "image": ""
+    },
+    {
+      "word": "business person",
+      "meaning": "doanh nhân",
+      "category": "job",
+      "example": "The business person travels to many countries.",
+      "image": ""
+    },
+    {
+      "word": "businesswoman",
+      "meaning": "nữ doanh nhân",
+      "category": "job",
+      "example": "The businesswoman works in a tall office.",
+      "image": ""
+    },
+    {
+      "word": "chef",
+      "meaning": "đầu bếp",
+      "category": "job",
+      "example": "The chef makes tasty pasta.",
+      "image": ""
+    },
+    {
+      "word": "cleaner",
+      "meaning": "người dọn vệ sinh",
+      "category": "job",
+      "example": "The cleaner washes the floor every evening.",
+      "image": ""
+    },
+    {
+      "word": "dr",
+      "meaning": "bác sĩ",
+      "category": "job",
+      "example": "My mother is talking to Dr Brown about my cough.",
+      "image": ""
+    },
+    {
+      "word": "police",
+      "meaning": "cảnh sát",
+      "category": "job",
+      "example": "The police help lost children.",
+      "image": ""
+    },
+    {
+      "word": "receptionist",
+      "meaning": "nhân viên lễ tân",
+      "category": "job",
+      "example": "The receptionist gave us our room keys.",
+      "image": ""
+    },
+    {
+      "word": "scientist",
+      "meaning": "nhà khoa học",
+      "category": "job",
+      "example": "The scientist studies small insects.",
+      "image": ""
+    },
+    {
+      "word": "secretary",
+      "meaning": "thư ký",
+      "category": "job",
+      "example": "The secretary answers the phone at work.",
+      "image": ""
+    },
+    {
+      "word": "waitress",
+      "meaning": "nữ phục vụ",
+      "category": "job",
+      "example": "The waitress brought us two glasses of water.",
+      "image": ""
+    },
+    {
+      "word": "worker",
+      "meaning": "công nhân",
+      "category": "job",
+      "example": "The worker wears a yellow helmet.",
+      "image": ""
+    },
+    {
+      "word": "writer",
+      "meaning": "nhà văn",
+      "category": "job",
+      "example": "My favourite writer writes funny books.",
+      "image": ""
+    },
+    {
+      "word": "occupation",
+      "meaning": "nghề nghiệp",
+      "category": "job",
+      "example": "Please write your name and occupation here.",
+      "image": ""
+    },
+    {
+      "word": "explorer",
+      "meaning": "nhà thám hiểm",
+      "category": "job",
+      "example": "The explorer walked through the jungle for days.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "The ___ makes tasty pasta.",
+      "options": [
+        "chef",
+        "school",
+        "omelette"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhân viên lễ tân)",
+      "options": [
+        "receptinoist",
+        "receptionist",
+        "recetpionist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bác sĩ\"?",
+      "options": [
+        "topic",
+        "neck",
+        "Dr"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sếp)",
+      "options": [
+        "bsos",
+        "bos",
+        "boss"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_lice (cảnh sát)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"business person\" mean?",
+      "options": [
+        "doanh nhân",
+        "cửa hàng tạp hoá",
+        "phòng khách"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trợ lý\"?",
+      "options": [
+        "assistant",
+        "helicopter",
+        "chemistry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"waitress\" mean?",
+      "options": [
+        "xe tải",
+        "nữ phục vụ",
+        "bữa tối"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà văn)",
+      "options": [
+        "writter",
+        "wirter",
+        "writer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_aner (người dọn vệ sinh)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"explorer\" mean?",
+      "options": [
+        "xe cảnh sát",
+        "trường đại học",
+        "nhà thám hiểm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ wears a yellow helmet.",
+      "options": [
+        "snowboard",
+        "worker",
+        "fur"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"occupation\" mean?",
+      "options": [
+        "nghề nghiệp",
+        "túi xách",
+        "cái mũi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: secr_tary (thư ký)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà khoa học\"?",
+      "options": [
+        "robot",
+        "forest",
+        "scientist"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a chef and stir a pot",
+    "Pretend to answer the phone like a receptionist",
+    "Pretend to write a story",
+    "Pretend to look through a telescope like an explorer",
+    "Pretend to carry plates like a waitress",
+    "Pretend to look at a test tube like a scientist"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

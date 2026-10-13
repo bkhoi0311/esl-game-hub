@@ -1,0 +1,310 @@
+{
+  "title": "Work and Office",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "agency",
+      "meaning": "đại lý, công ty dịch vụ",
+      "category": "work",
+      "example": "My parents booked the trip through a travel agency.",
+      "image": ""
+    },
+    {
+      "word": "conference",
+      "meaning": "hội nghị",
+      "category": "work",
+      "example": "My father is going to a conference in Hanoi.",
+      "image": ""
+    },
+    {
+      "word": "contract",
+      "meaning": "hợp đồng",
+      "category": "work",
+      "example": "He signed a contract for his first job.",
+      "image": ""
+    },
+    {
+      "word": "crew",
+      "meaning": "đội ngũ, thuỷ thủ đoàn",
+      "category": "work",
+      "example": "The crew on the plane gave us some water.",
+      "image": ""
+    },
+    {
+      "word": "duty",
+      "meaning": "nhiệm vụ",
+      "category": "work",
+      "example": "Looking after the class pet is my duty this week.",
+      "image": ""
+    },
+    {
+      "word": "employment",
+      "meaning": "việc làm",
+      "category": "work",
+      "example": "Many students look for part-time employment in the summer.",
+      "image": ""
+    },
+    {
+      "word": "firm",
+      "meaning": "công ty",
+      "category": "work",
+      "example": "She works for a small firm near the station.",
+      "image": ""
+    },
+    {
+      "word": "industry",
+      "meaning": "ngành công nghiệp",
+      "category": "work",
+      "example": "The tourist industry gives jobs to many people in our town.",
+      "image": ""
+    },
+    {
+      "word": "operator",
+      "meaning": "tổng đài viên",
+      "category": "work",
+      "example": "The operator connected me to the right department.",
+      "image": ""
+    },
+    {
+      "word": "organisation",
+      "meaning": "tổ chức",
+      "category": "work",
+      "example": "She works for an organisation that helps animals.",
+      "image": ""
+    },
+    {
+      "word": "production",
+      "meaning": "việc sản xuất",
+      "category": "work",
+      "example": "The production of the film took about six months.",
+      "image": ""
+    },
+    {
+      "word": "professional",
+      "meaning": "chuyên gia, chuyên nghiệp",
+      "category": "work",
+      "example": "The doctor is a true professional and always stays calm.",
+      "image": ""
+    },
+    {
+      "word": "retirement",
+      "meaning": "cuộc sống hưu trí",
+      "category": "work",
+      "example": "My grandfather enjoys his retirement by growing vegetables.",
+      "image": ""
+    },
+    {
+      "word": "security",
+      "meaning": "an ninh",
+      "category": "work",
+      "example": "The security at the airport is very strict.",
+      "image": ""
+    },
+    {
+      "word": "service",
+      "meaning": "dịch vụ",
+      "category": "work",
+      "example": "The hotel offers a free bus service to the beach.",
+      "image": ""
+    },
+    {
+      "word": "strike",
+      "meaning": "cuộc đình công",
+      "category": "work",
+      "example": "The bus drivers went on strike last week.",
+      "image": ""
+    },
+    {
+      "word": "teaching",
+      "meaning": "việc dạy học",
+      "category": "work",
+      "example": "My aunt loves teaching young children.",
+      "image": ""
+    },
+    {
+      "word": "unemployment",
+      "meaning": "tình trạng thất nghiệp",
+      "category": "work",
+      "example": "The town has a problem with unemployment among young people.",
+      "image": ""
+    },
+    {
+      "word": "volunteer",
+      "meaning": "tình nguyện viên",
+      "category": "work",
+      "example": "My brother is a volunteer at the animal shelter.",
+      "image": ""
+    },
+    {
+      "word": "photocopy",
+      "meaning": "bản photo",
+      "category": "thing",
+      "example": "Can I make a photocopy of this page?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"việc sản xuất\"?",
+      "options": [
+        "chemistry",
+        "production",
+        "continent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: employm_nt (việc làm)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộc đình công\"?",
+      "options": [
+        "shelf",
+        "colour",
+        "strike"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ connected me to the right department.",
+      "options": [
+        "operator",
+        "photocopy",
+        "achievement"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cr_w (đội ngũ, thuỷ thủ đoàn)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"an ninh\"?",
+      "options": [
+        "group",
+        "security",
+        "liquid"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (công ty)",
+      "options": [
+        "firm",
+        "firrm",
+        "frim"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"volunteer\" mean?",
+      "options": [
+        "người bơi",
+        "tình nguyện viên",
+        "con gà tây"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhiệm vụ)",
+      "options": [
+        "dutty",
+        "dtuy",
+        "duty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Can I make a ___ of this page?",
+      "options": [
+        "photocopy",
+        "service",
+        "security"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ag_ncy (đại lý, công ty dịch vụ)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngành công nghiệp)",
+      "options": [
+        "inndustry",
+        "industry",
+        "indusrty"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"contract\" mean?",
+      "options": [
+        "hợp đồng",
+        "đầu gối",
+        "giải vô địch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unemployment\" mean?",
+      "options": [
+        "bản photo",
+        "xe cảnh sát",
+        "tình trạng thất nghiệp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"conference\" mean?",
+      "options": [
+        "con cá mập",
+        "hội nghị",
+        "đàn vi-ô-lông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to use a photocopier",
+    "Pretend to sign a contract",
+    "Pretend to answer an office phone",
+    "Pretend to go to a conference",
+    "Pretend to work as a volunteer",
+    "Pretend to type an email at your desk"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

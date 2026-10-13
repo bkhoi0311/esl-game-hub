@@ -1,0 +1,133 @@
+{
+  "sampled": [
+    "result",
+    "smooth",
+    "selfish",
+    "scene",
+    "rob",
+    "retirement",
+    "select",
+    "roommate",
+    "self-service",
+    "safely",
+    "snowfall",
+    "seaside",
+    "shake",
+    "roll",
+    "sir"
+  ],
+  "sampleErrors": [
+    "retirement"
+  ],
+  "fullPartReviewed": true,
+  "errorsTotal": [
+    "retirement",
+    "reward",
+    "saucepan",
+    "scream",
+    "sensible",
+    "shoot",
+    "shortly"
+  ],
+  "fixed": [
+    {
+      "word": "retirement",
+      "field": "vi",
+      "old": "kỳ nghỉ hưu",
+      "new": "cuộc sống hưu trí"
+    },
+    {
+      "word": "reward",
+      "field": "cat",
+      "old": "money",
+      "new": "abstract"
+    },
+    {
+      "word": "saucepan",
+      "field": "vi",
+      "old": "cái nồi",
+      "new": "cái xoong"
+    },
+    {
+      "word": "scream",
+      "field": "vi",
+      "old": "tiếng hét",
+      "new": "tiếng hét, hét lên"
+    },
+    {
+      "word": "scream",
+      "field": "cat",
+      "old": "media",
+      "new": "abstract"
+    },
+    {
+      "word": "sensible",
+      "field": "vi",
+      "old": "biết điều",
+      "new": "khôn ngoan, hợp lý"
+    },
+    {
+      "word": "shoot",
+      "field": "vi",
+      "old": "bắn",
+      "new": "sút bóng, bắn"
+    },
+    {
+      "word": "shoot",
+      "field": "note",
+      "old": "",
+      "new": "PET nhạy cảm: câu dùng nghĩa sút bóng"
+    },
+    {
+      "word": "shortly",
+      "field": "vi",
+      "old": "sắp",
+      "new": "ngay sau đây"
+    },
+    {
+      "word": "solve",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "solve",
+      "field": "note",
+      "old": "kpos n nhưng solve là động từ; dùng nghĩa động từ",
+      "new": "danh sách ghi n nhưng solve là động từ: giữ nghĩa động từ, cat abstract vì pos n (pipeline nên sửa kpos thành v)"
+    },
+    {
+      "word": "something efficient",
+      "field": "note",
+      "old": "dòng danh sách lạ; chọn nghĩa efficient",
+      "new": "MỤC LẠ của danh sách: nên đổi word thành efficient hoặc loại ở pipeline; vi/ex theo efficient"
+    },
+    {
+      "word": "salesman",
+      "field": "vi",
+      "old": "nhân viên bán hàng",
+      "new": "người bán hàng"
+    },
+    {
+      "word": "select",
+      "field": "vi",
+      "old": "chọn",
+      "new": "lựa chọn"
+    },
+    {
+      "word": "sign up",
+      "field": "vi",
+      "old": "đăng ký",
+      "new": "đăng ký tham gia"
+    },
+    {
+      "word": "silent",
+      "field": "vi",
+      "old": "yên tĩnh",
+      "new": "im lặng"
+    }
+  ],
+  "stillCheck": [
+    "something efficient"
+  ]
+}

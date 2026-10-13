@@ -1,0 +1,289 @@
+{
+  "title": "Useful Adjectives 4",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "pure",
+      "meaning": "tinh khiết",
+      "category": "describe",
+      "example": "This bottle contains pure water from a mountain spring.",
+      "image": ""
+    },
+    {
+      "word": "rare",
+      "meaning": "hiếm",
+      "category": "describe",
+      "example": "This rare bird lives only on one island.",
+      "image": ""
+    },
+    {
+      "word": "raw",
+      "meaning": "sống, thô",
+      "category": "describe",
+      "example": "Do not eat raw meat.",
+      "image": ""
+    },
+    {
+      "word": "realistic",
+      "meaning": "thực tế",
+      "category": "describe",
+      "example": "Your plan is realistic and easy to follow.",
+      "image": ""
+    },
+    {
+      "word": "reduced",
+      "meaning": "được giảm giá, giảm",
+      "category": "describe",
+      "example": "Students can buy tickets at a reduced price.",
+      "image": ""
+    },
+    {
+      "word": "regular",
+      "meaning": "đều đặn, thường xuyên",
+      "category": "describe",
+      "example": "Teenagers need regular exercise to stay healthy.",
+      "image": ""
+    },
+    {
+      "word": "rough",
+      "meaning": "gồ ghề",
+      "category": "describe",
+      "example": "The road to the farm was rough and full of stones.",
+      "image": ""
+    },
+    {
+      "word": "scientific",
+      "meaning": "khoa học",
+      "category": "describe",
+      "example": "The class did a scientific experiment with water.",
+      "image": ""
+    },
+    {
+      "word": "secondary",
+      "meaning": "trung học",
+      "category": "describe",
+      "example": "My sister starts secondary school in September.",
+      "image": ""
+    },
+    {
+      "word": "self-service",
+      "meaning": "tự phục vụ",
+      "category": "describe",
+      "example": "We ate lunch at a self-service restaurant.",
+      "image": ""
+    },
+    {
+      "word": "separate",
+      "meaning": "riêng biệt",
+      "category": "describe",
+      "example": "Please put the plastic in a separate bin.",
+      "image": ""
+    },
+    {
+      "word": "sharp",
+      "meaning": "sắc",
+      "category": "describe",
+      "example": "Be careful with that knife because it is very sharp.",
+      "image": ""
+    },
+    {
+      "word": "shiny",
+      "meaning": "sáng bóng",
+      "category": "describe",
+      "example": "She wore shiny shoes to the party.",
+      "image": ""
+    },
+    {
+      "word": "smooth",
+      "meaning": "mịn",
+      "category": "describe",
+      "example": "The stone was smooth after years in the river.",
+      "image": ""
+    },
+    {
+      "word": "sour",
+      "meaning": "chua",
+      "category": "describe",
+      "example": "These lemons taste very sour.",
+      "image": ""
+    },
+    {
+      "word": "spicy",
+      "meaning": "cay",
+      "category": "describe",
+      "example": "I cannot eat this soup because it is too spicy.",
+      "image": ""
+    },
+    {
+      "word": "sparkling",
+      "meaning": "lấp lánh",
+      "category": "describe",
+      "example": "She wore a sparkling necklace to the party.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: sh_rp (sắc)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sour\" mean?",
+      "options": [
+        "sáng tạo",
+        "độc lập",
+        "chua"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoa học\"?",
+      "options": [
+        "patient",
+        "scientific",
+        "selfish"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"secondary\" mean?",
+      "options": [
+        "khôn ngoan, hợp lý",
+        "trung học",
+        "có trách nhiệm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ro_gh (gồ ghề)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Students can buy tickets at a ___ price.",
+      "options": [
+        "reduced",
+        "roommate",
+        "communicate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sp_cy (cay)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thực tế)",
+      "options": [
+        "rialistic",
+        "realistic",
+        "relaistic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tinh khiết\"?",
+      "options": [
+        "rude",
+        "Chinese",
+        "pure"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hiếm)",
+      "options": [
+        "rrae",
+        "rarre",
+        "rare"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"smooth\" mean?",
+      "options": [
+        "tò mò",
+        "mịn",
+        "lặn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sống, thô\"?",
+      "options": [
+        "raw",
+        "unkind",
+        "naughty"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She wore ___ shoes to the party.",
+      "options": [
+        "university",
+        "shiny",
+        "motorway"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (riêng biệt)",
+      "options": [
+        "sepparate",
+        "sepraate",
+        "separate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"self-service\" mean?",
+      "options": [
+        "tự phục vụ",
+        "độc ác, tàn nhẫn",
+        "không tay"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to taste something sour",
+    "Pretend to taste something spicy",
+    "Pretend to hold a sparkling glass",
+    "Show me something shiny",
+    "Pretend to separate two piles",
+    "Show me a rare thing with a surprised face"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

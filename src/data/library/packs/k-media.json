@@ -1,0 +1,289 @@
+{
+  "title": "Entertainment and Media",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "ad",
+      "meaning": "mẩu quảng cáo",
+      "category": "media",
+      "example": "I saw an ad for a new phone.",
+      "image": ""
+    },
+    {
+      "word": "advert",
+      "meaning": "tin quảng cáo",
+      "category": "media",
+      "example": "The advert on TV was very funny.",
+      "image": ""
+    },
+    {
+      "word": "advertisement",
+      "meaning": "quảng cáo",
+      "category": "media",
+      "example": "I read an advertisement about a new bike shop.",
+      "image": ""
+    },
+    {
+      "word": "article",
+      "meaning": "bài báo",
+      "category": "media",
+      "example": "I read an article about space today.",
+      "image": ""
+    },
+    {
+      "word": "comedy",
+      "meaning": "phim hài",
+      "category": "media",
+      "example": "We watched a funny comedy on Saturday night.",
+      "image": ""
+    },
+    {
+      "word": "performance",
+      "meaning": "buổi biểu diễn",
+      "category": "media",
+      "example": "We enjoyed the dance performance very much.",
+      "image": ""
+    },
+    {
+      "word": "program",
+      "meaning": "chương trình",
+      "category": "media",
+      "example": "I watched a cooking program on TV.",
+      "image": ""
+    },
+    {
+      "word": "review",
+      "meaning": "bài đánh giá",
+      "category": "media",
+      "example": "I read a review before buying this game.",
+      "image": ""
+    },
+    {
+      "word": "title",
+      "meaning": "tiêu đề, tên",
+      "category": "media",
+      "example": "What is the title of your favourite book?",
+      "image": ""
+    },
+    {
+      "word": "character",
+      "meaning": "nhân vật",
+      "category": "media",
+      "example": "My favourite character in the book is brave.",
+      "image": ""
+    },
+    {
+      "word": "horror",
+      "meaning": "kinh dị",
+      "category": "describe",
+      "example": "We watched a horror film last night.",
+      "image": ""
+    },
+    {
+      "word": "movie star",
+      "meaning": "ngôi sao điện ảnh",
+      "category": "people",
+      "example": "My sister wants to meet a movie star.",
+      "image": ""
+    },
+    {
+      "word": "celebrity",
+      "meaning": "người nổi tiếng",
+      "category": "people",
+      "example": "The celebrity visited our city last week.",
+      "image": ""
+    },
+    {
+      "word": "fan",
+      "meaning": "người hâm mộ",
+      "category": "people",
+      "example": "My brother is a big fan of this football team.",
+      "image": ""
+    },
+    {
+      "word": "exhibition",
+      "meaning": "buổi triển lãm",
+      "category": "place",
+      "example": "We saw a photo exhibition at the museum.",
+      "image": ""
+    },
+    {
+      "word": "gallery",
+      "meaning": "phòng trưng bày",
+      "category": "place",
+      "example": "The art gallery opens at ten o'clock.",
+      "image": ""
+    },
+    {
+      "word": "movie theater",
+      "meaning": "rạp chiếu phim",
+      "category": "place",
+      "example": "We watched the new film at the movie theater.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (bài đánh giá)",
+      "options": [
+        "revview",
+        "review",
+        "revyew"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister wants to meet a ___.",
+      "options": [
+        "movie theater",
+        "review",
+        "movie star"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rạp chiếu phim\"?",
+      "options": [
+        "movie theater",
+        "character",
+        "advertisement"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_medy (phim hài)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ on TV was very funny.",
+      "options": [
+        "exhibition",
+        "advert",
+        "movie star"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người hâm mộ\"?",
+      "options": [
+        "monkey",
+        "bottle",
+        "fan"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_rror (kinh dị)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mẩu quảng cáo\"?",
+      "options": [
+        "brain",
+        "grass",
+        "ad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi triển lãm)",
+      "options": [
+        "exihbition",
+        "exhibition",
+        "exhibittion"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"advertisement\" mean?",
+      "options": [
+        "phòng trưng bày",
+        "quảng cáo",
+        "người nổi tiếng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhân vật)",
+      "options": [
+        "charactir",
+        "charecter",
+        "character"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"performance\" mean?",
+      "options": [
+        "buổi biểu diễn",
+        "rạp chiếu phim",
+        "người hâm mộ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: art_cle (bài báo)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gallery\" mean?",
+      "options": [
+        "buổi biểu diễn",
+        "nhân vật",
+        "phòng trưng bày"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"program\" mean?",
+      "options": [
+        "buổi triển lãm",
+        "chương trình",
+        "người nổi tiếng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read a magazine article",
+    "Laugh like you are watching a comedy",
+    "Pretend to take a photo of a movie star",
+    "Pretend to clap for a performance",
+    "Pretend to look at a painting in a gallery",
+    "Pretend to be a scared viewer at a horror film"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

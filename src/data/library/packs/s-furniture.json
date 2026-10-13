@@ -1,0 +1,296 @@
+{
+  "title": "Furniture and Things",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "armchair",
+      "meaning": "ghế bành",
+      "category": "house",
+      "example": "Grandpa reads in his armchair.",
+      "image": ""
+    },
+    {
+      "word": "bed",
+      "meaning": "cái giường",
+      "category": "house",
+      "example": "My cat sleeps on my bed.",
+      "image": ""
+    },
+    {
+      "word": "bookcase",
+      "meaning": "tủ sách",
+      "category": "house",
+      "example": "The bookcase is full of stories.",
+      "image": ""
+    },
+    {
+      "word": "chair",
+      "meaning": "cái ghế",
+      "category": "house",
+      "example": "Sit on the chair, please.",
+      "image": ""
+    },
+    {
+      "word": "clock",
+      "meaning": "đồng hồ",
+      "category": "house",
+      "example": "The clock says six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "cupboard",
+      "meaning": "cái tủ",
+      "category": "house",
+      "example": "The plates are in the cupboard.",
+      "image": ""
+    },
+    {
+      "word": "lamp",
+      "meaning": "cái đèn",
+      "category": "house",
+      "example": "Turn on the lamp, please.",
+      "image": ""
+    },
+    {
+      "word": "mat",
+      "meaning": "tấm thảm nhỏ",
+      "category": "house",
+      "example": "The cat sleeps on the mat.",
+      "image": ""
+    },
+    {
+      "word": "mirror",
+      "meaning": "cái gương",
+      "category": "house",
+      "example": "I look in the mirror.",
+      "image": ""
+    },
+    {
+      "word": "painting",
+      "meaning": "bức hoạ",
+      "category": "house",
+      "example": "The painting is on the wall.",
+      "image": ""
+    },
+    {
+      "word": "picture",
+      "meaning": "bức tranh",
+      "category": "house",
+      "example": "He draws a picture of a cat.",
+      "image": ""
+    },
+    {
+      "word": "rug",
+      "meaning": "tấm thảm",
+      "category": "house",
+      "example": "The dog sleeps on the rug.",
+      "image": ""
+    },
+    {
+      "word": "sofa",
+      "meaning": "ghế sofa",
+      "category": "house",
+      "example": "The cat is sleeping on the sofa.",
+      "image": ""
+    },
+    {
+      "word": "table",
+      "meaning": "cái bàn",
+      "category": "house",
+      "example": "The books are on the table.",
+      "image": ""
+    },
+    {
+      "word": "bag",
+      "meaning": "cái túi",
+      "category": "thing",
+      "example": "My bag is under the desk.",
+      "image": ""
+    },
+    {
+      "word": "box",
+      "meaning": "cái hộp",
+      "category": "thing",
+      "example": "There is a toy in the box.",
+      "image": ""
+    },
+    {
+      "word": "handbag",
+      "meaning": "túi xách",
+      "category": "thing",
+      "example": "Mum puts her keys in her handbag.",
+      "image": ""
+    },
+    {
+      "word": "poster",
+      "meaning": "tấm áp phích",
+      "category": "thing",
+      "example": "There is a poster on my wall.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"túi xách\"?",
+      "options": [
+        "poster",
+        "box",
+        "handbag"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cupb_ard (cái tủ)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồng hồ)",
+      "options": [
+        "clocck",
+        "clock",
+        "clcok"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"painting\" mean?",
+      "options": [
+        "cái gương",
+        "cái đèn",
+        "bức hoạ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cha_r (cái ghế)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tủ sách\"?",
+      "options": [
+        "bookcase",
+        "chair",
+        "lamp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lamp\" mean?",
+      "options": [
+        "cái đèn",
+        "cái gương",
+        "cái ghế"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tấm áp phích)",
+      "options": [
+        "postir",
+        "postter",
+        "poster"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Grandpa reads in his ___.",
+      "options": [
+        "taxi driver",
+        "armchair",
+        "mango"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái bàn)",
+      "options": [
+        "tablle",
+        "table",
+        "tabble"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái túi\"?",
+      "options": [
+        "box",
+        "poster",
+        "bag"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"box\" mean?",
+      "options": [
+        "cái hộp",
+        "túi xách",
+        "cái túi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The cat is sleeping on the ___.",
+      "options": [
+        "snowy",
+        "drive",
+        "sofa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mirror\" mean?",
+      "options": [
+        "tấm thảm nhỏ",
+        "cái gương",
+        "tấm thảm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_cture (bức tranh)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to sit on a sofa",
+    "Pretend to look in a mirror",
+    "Pretend to turn on a lamp",
+    "Pretend to open a box",
+    "Pretend to carry a bag",
+    "Point to the clock"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

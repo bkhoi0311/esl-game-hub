@@ -1,0 +1,275 @@
+{
+  "title": "Food",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bread",
+      "meaning": "bánh mì",
+      "category": "food",
+      "example": "We buy fresh bread from the shop.",
+      "image": ""
+    },
+    {
+      "word": "cake",
+      "meaning": "bánh ngọt",
+      "category": "food",
+      "example": "My mum makes a chocolate cake on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "candy",
+      "meaning": "kẹo ngọt",
+      "category": "food",
+      "example": "The little boy loves candy.",
+      "image": ""
+    },
+    {
+      "word": "chips",
+      "meaning": "khoai tây chiên",
+      "category": "food",
+      "example": "We eat fish and chips on Friday.",
+      "image": ""
+    },
+    {
+      "word": "chocolate",
+      "meaning": "sô cô la",
+      "category": "food",
+      "example": "This chocolate is sweet and soft.",
+      "image": ""
+    },
+    {
+      "word": "egg",
+      "meaning": "quả trứng",
+      "category": "food",
+      "example": "I have an egg for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "food",
+      "meaning": "đồ ăn",
+      "category": "food",
+      "example": "We have lots of food today.",
+      "image": ""
+    },
+    {
+      "word": "fries",
+      "meaning": "khoai tây chiên",
+      "category": "food",
+      "example": "He orders fries with his burger.",
+      "image": ""
+    },
+    {
+      "word": "ice cream",
+      "meaning": "kem",
+      "category": "food",
+      "example": "We eat ice cream on a hot day.",
+      "image": ""
+    },
+    {
+      "word": "meat",
+      "meaning": "thịt",
+      "category": "food",
+      "example": "My cat likes to eat meat.",
+      "image": ""
+    },
+    {
+      "word": "meatballs",
+      "meaning": "thịt viên",
+      "category": "food",
+      "example": "We eat meatballs with rice.",
+      "image": ""
+    },
+    {
+      "word": "pie",
+      "meaning": "bánh nướng",
+      "category": "food",
+      "example": "Grandma bakes a big apple pie.",
+      "image": ""
+    },
+    {
+      "word": "sausage",
+      "meaning": "xúc xích",
+      "category": "food",
+      "example": "I have a sausage for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "sweet",
+      "meaning": "viên kẹo",
+      "category": "food",
+      "example": "She gives me a sweet after dinner.",
+      "image": ""
+    },
+    {
+      "word": "sweets",
+      "meaning": "kẹo",
+      "category": "food",
+      "example": "We give sweets to the children.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"kẹo ngọt\"?",
+      "options": [
+        "meat",
+        "chocolate",
+        "candy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"meat\" mean?",
+      "options": [
+        "kẹo ngọt",
+        "thịt",
+        "viên kẹo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: choc_late (sô cô la)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ice cream\" mean?",
+      "options": [
+        "thịt",
+        "bánh mì",
+        "kem"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have lots of ___ today.",
+      "options": [
+        "food",
+        "have got",
+        "closed"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bánh nướng\"?",
+      "options": [
+        "sausage",
+        "pie",
+        "cake"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We buy fresh ___ from the shop.",
+      "options": [
+        "bread",
+        "sister",
+        "grandmother"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quả trứng\"?",
+      "options": [
+        "candy",
+        "pie",
+        "egg"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sweet\" mean?",
+      "options": [
+        "xúc xích",
+        "viên kẹo",
+        "khoai tây chiên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khoai tây chiên)",
+      "options": [
+        "chipps",
+        "chips",
+        "chpis"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fries\" mean?",
+      "options": [
+        "khoai tây chiên",
+        "bánh nướng",
+        "sô cô la"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kẹo)",
+      "options": [
+        "swiets",
+        "sweits",
+        "sweets"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_ke (bánh ngọt)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thịt viên)",
+      "options": [
+        "metaballs",
+        "meatbals",
+        "meatballs"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sa_sage (xúc xích)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat an ice cream",
+    "Pretend to cut a cake",
+    "Pretend to eat bread",
+    "Pretend to eat a sweet",
+    "Rub your tummy and say yum",
+    "Pretend to crack an egg"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

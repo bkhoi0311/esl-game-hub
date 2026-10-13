@@ -1,0 +1,262 @@
+{
+  "title": "Food and Cooking",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "beef",
+      "meaning": "thịt bò",
+      "category": "food",
+      "example": "We had beef and rice for dinner last night.",
+      "image": ""
+    },
+    {
+      "word": "cod",
+      "meaning": "cá tuyết",
+      "category": "food",
+      "example": "We had fried cod with potatoes for dinner.",
+      "image": ""
+    },
+    {
+      "word": "salmon",
+      "meaning": "cá hồi",
+      "category": "food",
+      "example": "We had grilled salmon with rice for dinner.",
+      "image": ""
+    },
+    {
+      "word": "tuna",
+      "meaning": "cá ngừ",
+      "category": "food",
+      "example": "My dad made a tuna sandwich for lunch.",
+      "image": ""
+    },
+    {
+      "word": "peanut",
+      "meaning": "lạc, đậu phộng",
+      "category": "food",
+      "example": "He gives the monkey a peanut.",
+      "image": ""
+    },
+    {
+      "word": "spice",
+      "meaning": "gia vị",
+      "category": "food",
+      "example": "Add a little spice to the soup.",
+      "image": ""
+    },
+    {
+      "word": "vanilla",
+      "meaning": "hương va-ni",
+      "category": "food",
+      "example": "My favourite ice cream flavour is vanilla.",
+      "image": ""
+    },
+    {
+      "word": "flavour",
+      "meaning": "hương vị",
+      "category": "food",
+      "example": "I love the flavour of fresh mango.",
+      "image": ""
+    },
+    {
+      "word": "fry",
+      "meaning": "chiên",
+      "category": "action",
+      "example": "Mum fries eggs for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "pour",
+      "meaning": "rót",
+      "category": "daily",
+      "example": "Can you pour some water into my glass?",
+      "image": ""
+    },
+    {
+      "word": "cookery",
+      "meaning": "nấu ăn",
+      "category": "subject",
+      "example": "My sister loves cookery classes on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "frying pan",
+      "meaning": "chảo rán",
+      "category": "house",
+      "example": "Mum cooks eggs in a frying pan.",
+      "image": ""
+    },
+    {
+      "word": "saucepan",
+      "meaning": "cái xoong",
+      "category": "house",
+      "example": "He heated the soup in a small saucepan.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "My sister loves ___ classes on Saturdays.",
+      "options": [
+        "cookery",
+        "tuna",
+        "saucepan"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_na (cá ngừ)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hương vị)",
+      "options": [
+        "flvaour",
+        "flavuor",
+        "flavour"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chiên\"?",
+      "options": [
+        "mean",
+        "fry",
+        "inspire"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pour\" mean?",
+      "options": [
+        "chọn",
+        "ghét",
+        "rót"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chảo rán\"?",
+      "options": [
+        "frying pan",
+        "peanut",
+        "vanilla"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cod\" mean?",
+      "options": [
+        "cá tuyết",
+        "cái xoong",
+        "nấu ăn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thịt bò\"?",
+      "options": [
+        "notebook",
+        "flute",
+        "beef"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Can you ___ some water into my glass?",
+      "options": [
+        "cod",
+        "pour",
+        "salmon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: v_nilla (hương va-ni)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"spice\" mean?",
+      "options": [
+        "gia vị",
+        "chảo rán",
+        "nấu ăn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cá tuyết\"?",
+      "options": [
+        "winner",
+        "cod",
+        "board"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: salm_n (cá hồi)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái xoong)",
+      "options": [
+        "sauceapn",
+        "saucepan",
+        "saucpean"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"peanut\" mean?",
+      "options": [
+        "chảo rán",
+        "cái xoong",
+        "lạc, đậu phộng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to stir soup in a saucepan",
+    "Pretend to fry an egg in a frying pan",
+    "Pretend to peel a potato",
+    "Pretend to pour water into a jug",
+    "Pretend to taste a new flavour",
+    "Pretend to add some spice to a dish",
+    "Pretend to cut up vegetables safely"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

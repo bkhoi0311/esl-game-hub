@@ -1,0 +1,279 @@
+{
+  "title": "Music and Performing",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "concert",
+      "meaning": "buổi hòa nhạc",
+      "category": "music",
+      "example": "We go to a concert tonight.",
+      "image": ""
+    },
+    {
+      "word": "drum",
+      "meaning": "cái trống",
+      "category": "music",
+      "example": "The boy hits the drum.",
+      "image": ""
+    },
+    {
+      "word": "drums",
+      "meaning": "bộ trống",
+      "category": "music",
+      "example": "My brother plays the drums.",
+      "image": ""
+    },
+    {
+      "word": "instrument",
+      "meaning": "nhạc cụ",
+      "category": "music",
+      "example": "She can play a musical instrument.",
+      "image": ""
+    },
+    {
+      "word": "pop music",
+      "meaning": "nhạc pop",
+      "category": "music",
+      "example": "My sister loves pop music.",
+      "image": ""
+    },
+    {
+      "word": "rock music",
+      "meaning": "nhạc rock",
+      "category": "music",
+      "example": "My brother plays rock music very loudly.",
+      "image": ""
+    },
+    {
+      "word": "tune",
+      "meaning": "giai điệu",
+      "category": "music",
+      "example": "She hums a happy tune.",
+      "image": ""
+    },
+    {
+      "word": "violin",
+      "meaning": "đàn vi-ô-lông",
+      "category": "music",
+      "example": "She practises the violin every day.",
+      "image": ""
+    },
+    {
+      "word": "singer",
+      "meaning": "ca sĩ",
+      "category": "job",
+      "example": "The singer has a lovely voice.",
+      "image": ""
+    },
+    {
+      "word": "actor",
+      "meaning": "diễn viên",
+      "category": "job",
+      "example": "The actor is in a new film.",
+      "image": ""
+    },
+    {
+      "word": "stage",
+      "meaning": "sân khấu",
+      "category": "place",
+      "example": "The singer walked onto the stage.",
+      "image": ""
+    },
+    {
+      "word": "theatre",
+      "meaning": "nhà hát",
+      "category": "place",
+      "example": "The theatre is in the city.",
+      "image": ""
+    },
+    {
+      "word": "artist",
+      "meaning": "hoạ sĩ",
+      "category": "job",
+      "example": "The artist paints a beautiful picture.",
+      "image": ""
+    },
+    {
+      "word": "whistle",
+      "meaning": "huýt sáo",
+      "category": "action",
+      "example": "He can whistle a happy song.",
+      "image": ""
+    },
+    {
+      "word": "act",
+      "meaning": "đóng vai, diễn",
+      "category": "hobby",
+      "example": "My sister will act in the school play.",
+      "image": ""
+    },
+    {
+      "word": "costume",
+      "meaning": "trang phục",
+      "category": "clothes",
+      "example": "I wore a dragon costume to the party.",
+      "image": ""
+    },
+    {
+      "word": "sing",
+      "meaning": "hát",
+      "category": "action",
+      "example": "We sing songs in class.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (ca sĩ)",
+      "options": [
+        "singer",
+        "synger",
+        "singger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _ct (đóng vai, diễn)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pop music\" mean?",
+      "options": [
+        "nhạc rock",
+        "nhạc pop",
+        "đàn vi-ô-lông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà hát\"?",
+      "options": [
+        "concert",
+        "theatre",
+        "drum"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái trống)",
+      "options": [
+        "drrum",
+        "durm",
+        "drum"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"artist\" mean?",
+      "options": [
+        "hoạ sĩ",
+        "diễn viên",
+        "ca sĩ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_ge (sân khấu)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giai điệu\"?",
+      "options": [
+        "drum",
+        "pop music",
+        "tune"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is in a new film.",
+      "options": [
+        "act",
+        "actor",
+        "sing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rock music\" mean?",
+      "options": [
+        "nhạc rock",
+        "nhạc pop",
+        "đàn vi-ô-lông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hát)",
+      "options": [
+        "snig",
+        "sinng",
+        "sing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"violin\" mean?",
+      "options": [
+        "nhạc cụ",
+        "cái trống",
+        "đàn vi-ô-lông"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"huýt sáo\"?",
+      "options": [
+        "instrument",
+        "whistle",
+        "drums"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: instrum_nt (nhạc cụ)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the drums",
+    "Pretend to play the violin",
+    "Whistle a tune",
+    "Pretend to sing on a stage",
+    "Clap to the beat",
+    "Pretend to act on a stage"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

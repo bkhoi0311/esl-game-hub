@@ -6,3 +6,9 @@ playwright-report/
 screenshots/
 .DS_Store
 public/models/wasm/
+
+# Tài liệu Cambridge (có bản quyền): chỉ dùng cục bộ, KHÔNG đưa lên GitHub
+tools/wordbank/src/
+tools/wordbank/ambiguous.json
+tools/wordbank/levels-lock.json
+tools/wordbank/review/sense-review.tsv

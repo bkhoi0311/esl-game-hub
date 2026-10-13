@@ -1,0 +1,296 @@
+{
+  "title": "Animals and Insects",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "camel",
+      "meaning": "con lạc đà",
+      "category": "animal",
+      "example": "The camel lives in the desert.",
+      "image": ""
+    },
+    {
+      "word": "tortoise",
+      "meaning": "con rùa cạn",
+      "category": "animal",
+      "example": "The tortoise walks very slowly.",
+      "image": ""
+    },
+    {
+      "word": "dinosaur",
+      "meaning": "con khủng long",
+      "category": "animal",
+      "example": "The dinosaur is very big.",
+      "image": ""
+    },
+    {
+      "word": "creature",
+      "meaning": "sinh vật",
+      "category": "animal",
+      "example": "This strange creature lives under the sea.",
+      "image": ""
+    },
+    {
+      "word": "fur",
+      "meaning": "bộ lông",
+      "category": "animal",
+      "example": "The rabbit has soft white fur.",
+      "image": ""
+    },
+    {
+      "word": "furry",
+      "meaning": "nhiều lông",
+      "category": "describe",
+      "example": "My cat is small, grey and furry.",
+      "image": ""
+    },
+    {
+      "word": "beetle",
+      "meaning": "con bọ cánh cứng",
+      "category": "insect",
+      "example": "The beetle is walking on a leaf.",
+      "image": ""
+    },
+    {
+      "word": "butterfly",
+      "meaning": "con bướm",
+      "category": "insect",
+      "example": "A butterfly is sitting on my hand.",
+      "image": ""
+    },
+    {
+      "word": "insect",
+      "meaning": "côn trùng",
+      "category": "insect",
+      "example": "Every insect has six legs.",
+      "image": ""
+    },
+    {
+      "word": "octopus",
+      "meaning": "con bạch tuộc",
+      "category": "sea-animal",
+      "example": "The octopus has eight arms.",
+      "image": ""
+    },
+    {
+      "word": "eagle",
+      "meaning": "con đại bàng",
+      "category": "bird",
+      "example": "An eagle flies high in the sky.",
+      "image": ""
+    },
+    {
+      "word": "swan",
+      "meaning": "con thiên nga",
+      "category": "bird",
+      "example": "The swan is white and beautiful.",
+      "image": ""
+    },
+    {
+      "word": "wing",
+      "meaning": "cánh",
+      "category": "body",
+      "example": "The bird has a hurt wing.",
+      "image": ""
+    },
+    {
+      "word": "nest",
+      "meaning": "cái tổ chim",
+      "category": "nature",
+      "example": "The bird made a nest in the tree.",
+      "image": ""
+    },
+    {
+      "word": "wild",
+      "meaning": "hoang dã",
+      "category": "describe",
+      "example": "Many wild animals live in the forest.",
+      "image": ""
+    },
+    {
+      "word": "spotted",
+      "meaning": "có đốm",
+      "category": "describe",
+      "example": "The spotted dog ran across the park.",
+      "image": ""
+    },
+    {
+      "word": "striped",
+      "meaning": "có sọc",
+      "category": "describe",
+      "example": "He wears a striped shirt.",
+      "image": ""
+    },
+    {
+      "word": "extinct",
+      "meaning": "tuyệt chủng",
+      "category": "describe",
+      "example": "Dinosaurs are extinct, so we can't see them.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which one is a part of the body?",
+      "options": [
+        "wing",
+        "insect",
+        "swan"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bộ lông\"?",
+      "options": [
+        "tortoise",
+        "swan",
+        "fur"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is very big.",
+      "options": [
+        "spotted",
+        "dinosaur",
+        "extinct"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sinh vật\"?",
+      "options": [
+        "dinosaur",
+        "creature",
+        "tortoise"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sw_n (con thiên nga)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tuyệt chủng)",
+      "options": [
+        "exticnt",
+        "extynct",
+        "extinct"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"eagle\" mean?",
+      "options": [
+        "con thiên nga",
+        "con khủng long",
+        "con đại bàng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con rùa cạn\"?",
+      "options": [
+        "fur",
+        "tortoise",
+        "eagle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"butterfly\" mean?",
+      "options": [
+        "con bướm",
+        "con bọ cánh cứng",
+        "con lạc đà"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ lives in the desert.",
+      "options": [
+        "nest",
+        "camel",
+        "wing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"octopus\" mean?",
+      "options": [
+        "con bạch tuộc",
+        "con khủng long",
+        "con rùa cạn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái tổ chim)",
+      "options": [
+        "nset",
+        "nesst",
+        "nest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_ped (có sọc)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (côn trùng)",
+      "options": [
+        "inscet",
+        "insect",
+        "insecct"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_ld (hoang dã)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Flap your arms slowly like an eagle",
+    "Walk slowly like a tortoise on the spot",
+    "Pretend to be a butterfly with your hands",
+    "Pretend to stroke a furry animal",
+    "Stomp like a dinosaur on the spot",
+    "Wave your arms slowly like an octopus"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

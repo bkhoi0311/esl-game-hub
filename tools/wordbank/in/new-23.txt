@@ -1,0 +1,110 @@
+responsible	adj	pet					adj
+result	n	pet					n
+retire	v	pet					v
+retirement	n	pet					n
+revise	v	pet					v
+revision	n	pet					n
+reward	n	pet					n
+rider	n	pet					n
+right-hand	adj	pet					adj
+ring back	v	pet					phr v
+ring up	v	pet					phr v
+rise	v	pet					v
+rob	v	pet					v
+role	n	pet					n
+roll	n	pet					n
+romance	n	pet					n
+romantic	adj	pet					adj
+roommate	n	pet					n
+rough	adj	pet					adj
+route	n	pet					n
+routine	n	pet					n
+rude	adj	pet					adj
+ruin	n	pet					n
+rule	n	pet					n+v
+run out	v	pet					phr v
+safely	adv	pet					adv
+salary	n	pet					n
+salesman	n	pet		saleswoman			n
+salmon	n	pet					n
+satisfactory	adj	pet					adj
+satisfied	adj	pet					adj
+saucepan	n	pet					n
+saucer	n	pet					n
+scene	n	pet					n
+scenery	n	pet					n
+science fiction	n	pet					n
+scientific	adj	pet					adj
+scream	n	pet					n+v
+sculpture	n	pet					n
+seaside	n	pet					n
+seat belt	n	pet					n
+second-hand	adj	pet					adj+adv
+secondary	adj	pet					adj
+section	n	pet					n
+security	n	pet					n
+security guard	n	pet					n
+select	v	pet					v
+self-service	adj	pet					adj
+selfish	adj	pet					adj
+sense	n	pet					n
+sensible	adj	pet					adj
+separate	adj	pet					adj
+series	n	pet					n
+seriously	adv	pet					adv
+server	n	pet					n
+service	n	pet					n
+session	n	pet					n
+set off	v	pet					phr v
+set out	v	pet					phr v
+set up	v	pet					phr v
+sew	v	pet					v
+sex	n	pet					n
+shade	n	pet					n
+shadow	n	pet					n
+shake	v	pet					v
+sharp	adj	pet					adj
+shave	v	pet					v
+shine	v	pet					v
+shiny	adj	pet					adj
+shock	n	pet					n
+shocked	adj	pet					adj
+shocking	adj	pet					adj
+shoot	v	pet					v
+shore	n	pet					n
+shortly	adv	pet					adv
+show up	v	pet					phr v
+sight	n	pet					n
+sign up	v	pet					v
+signal	n	pet					n+v
+signature	n	pet					n
+signpost	n	pet					n
+silence	n	pet					n
+silent	adj	pet					adj
+silk	adj	pet					adj+n
+sincerely	adv	pet					adv
+sir	n	pet					n
+situated	adj	pet					adj
+situation	n	pet					n
+skill	n	pet					n
+skin	n	pet					n
+sleeve	n	pet					n
+sleeveless	adj	pet					adj
+slide	n	pet					n
+slightly	adv	pet					adv
+slip	v	pet					v
+smartphone	n	pet					n
+smooth	adj	pet					adj
+snowfall	n	pet					n
+so-so	adj	pet					adj
+soap opera	n	pet					n
+sociable	adj	pet					adj
+social	adj	pet					adj
+society	n	pet					n
+solution	n	pet					n
+solve	n	pet					n
+somehow	adv	pet					adv
+efficient	adj	pet					adj
+soul	n	pet					n
+soundtrack	n	pet					n
+sour	adj	pet					adj

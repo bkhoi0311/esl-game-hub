@@ -1,0 +1,310 @@
+{
+  "title": "Fruit and Vegetables",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "apple",
+      "meaning": "quả táo",
+      "category": "fruit",
+      "example": "She has an apple in her bag.",
+      "image": ""
+    },
+    {
+      "word": "banana",
+      "meaning": "quả chuối",
+      "category": "fruit",
+      "example": "I eat a banana every morning.",
+      "image": ""
+    },
+    {
+      "word": "coconut",
+      "meaning": "quả dừa",
+      "category": "fruit",
+      "example": "A coconut grows on a tall palm tree.",
+      "image": ""
+    },
+    {
+      "word": "fruit",
+      "meaning": "trái cây",
+      "category": "fruit",
+      "example": "We eat fresh fruit after lunch.",
+      "image": ""
+    },
+    {
+      "word": "grape",
+      "meaning": "quả nho",
+      "category": "fruit",
+      "example": "She puts one grape in her mouth.",
+      "image": ""
+    },
+    {
+      "word": "grapes",
+      "meaning": "chùm nho",
+      "category": "fruit",
+      "example": "These grapes are small and sweet.",
+      "image": ""
+    },
+    {
+      "word": "kiwi",
+      "meaning": "quả kiwi",
+      "category": "fruit",
+      "example": "A kiwi is green inside.",
+      "image": ""
+    },
+    {
+      "word": "lemon",
+      "meaning": "quả chanh vàng",
+      "category": "fruit",
+      "example": "A lemon tastes very sour.",
+      "image": ""
+    },
+    {
+      "word": "lime",
+      "meaning": "quả chanh xanh",
+      "category": "fruit",
+      "example": "The cook puts a lime in the water.",
+      "image": ""
+    },
+    {
+      "word": "mango",
+      "meaning": "quả xoài",
+      "category": "fruit",
+      "example": "A ripe mango is yellow and sweet.",
+      "image": ""
+    },
+    {
+      "word": "pear",
+      "meaning": "quả lê",
+      "category": "fruit",
+      "example": "The pear on the table is juicy.",
+      "image": ""
+    },
+    {
+      "word": "pineapple",
+      "meaning": "quả dứa",
+      "category": "fruit",
+      "example": "A pineapple has a rough skin.",
+      "image": ""
+    },
+    {
+      "word": "watermelon",
+      "meaning": "quả dưa hấu",
+      "category": "fruit",
+      "example": "We eat watermelon in the summer.",
+      "image": ""
+    },
+    {
+      "word": "bean",
+      "meaning": "hạt đậu",
+      "category": "vegetable",
+      "example": "There is one green bean on my plate.",
+      "image": ""
+    },
+    {
+      "word": "beans",
+      "meaning": "đậu",
+      "category": "vegetable",
+      "example": "We cook beans with rice for dinner.",
+      "image": ""
+    },
+    {
+      "word": "carrot",
+      "meaning": "cà rốt",
+      "category": "vegetable",
+      "example": "Rabbits like to eat carrots.",
+      "image": ""
+    },
+    {
+      "word": "onion",
+      "meaning": "củ hành tây",
+      "category": "vegetable",
+      "example": "Cutting an onion makes me cry.",
+      "image": ""
+    },
+    {
+      "word": "pea",
+      "meaning": "hạt đậu Hà Lan",
+      "category": "vegetable",
+      "example": "A small green pea rolls off my plate.",
+      "image": ""
+    },
+    {
+      "word": "tomato",
+      "meaning": "quả cà chua",
+      "category": "vegetable",
+      "example": "A tomato is red and round.",
+      "image": ""
+    },
+    {
+      "word": "potato",
+      "meaning": "khoai tây",
+      "category": "vegetable",
+      "example": "We need two potatoes for the soup.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"coconut\" mean?",
+      "options": [
+        "quả dưa hấu",
+        "quả dừa",
+        "quả lê"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả chanh vàng)",
+      "options": [
+        "limon",
+        "lmeon",
+        "lemon"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I eat a ___ every morning.",
+      "options": [
+        "banana",
+        "magnet",
+        "zip"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_pes (chùm nho)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ is green inside.",
+      "options": [
+        "kiwi",
+        "favourite",
+        "kick"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pineapple\" mean?",
+      "options": [
+        "quả nho",
+        "quả dứa",
+        "quả dưa hấu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_an (hạt đậu)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoai tây\"?",
+      "options": [
+        "potato",
+        "tomato",
+        "bean"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pea\" mean?",
+      "options": [
+        "củ hành tây",
+        "hạt đậu Hà Lan",
+        "khoai tây"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cà rốt\"?",
+      "options": [
+        "carrot",
+        "bean",
+        "onion"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_mato (quả cà chua)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quả xoài\"?",
+      "options": [
+        "pear",
+        "watermelon",
+        "mango"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lime\" mean?",
+      "options": [
+        "quả chanh xanh",
+        "quả nho",
+        "quả dứa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả táo)",
+      "options": [
+        "appli",
+        "apple",
+        "appl"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đậu)",
+      "options": [
+        "benas",
+        "bians",
+        "beans"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat an apple",
+    "Pretend to peel a banana",
+    "Pretend to cut a watermelon",
+    "Show me a sour face like you eat a lemon",
+    "Pretend to pick a tomato",
+    "Pretend to eat a carrot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

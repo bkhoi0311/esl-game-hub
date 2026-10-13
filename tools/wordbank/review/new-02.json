@@ -1,0 +1,130 @@
+{
+  "sampled": [
+    "stomach-ache",
+    "often",
+    "nothing",
+    "round",
+    "town centre",
+    "shoulder",
+    "quietly",
+    "opposite",
+    "take off",
+    "mistake",
+    "naughty",
+    "player",
+    "thursday",
+    "seat",
+    "monday"
+  ],
+  "sampleErrors": [
+    "mistake"
+  ],
+  "fullReview": true,
+  "alsoReviewed": [
+    "into",
+    "last",
+    "matter",
+    "mean",
+    "noise",
+    "off",
+    "out",
+    "out of",
+    "outside",
+    "pair",
+    "place",
+    "score",
+    "second",
+    "shall",
+    "someone",
+    "something",
+    "terrible",
+    "than",
+    "top",
+    "up",
+    "upstairs",
+    "when",
+    "why",
+    "would"
+  ],
+  "fixed": [
+    {
+      "word": "look for",
+      "field": "vi",
+      "old": "tìm kiếm",
+      "new": "tìm"
+    },
+    {
+      "word": "machine",
+      "field": "vi",
+      "old": "máy móc",
+      "new": "cái máy"
+    },
+    {
+      "word": "mistake",
+      "field": "ex",
+      "old": "I often make a mistake in my homework.",
+      "new": "I often make mistakes in my homework."
+    },
+    {
+      "word": "near",
+      "field": "cat",
+      "old": "manner",
+      "new": "function"
+    },
+    {
+      "word": "near",
+      "field": "ex",
+      "old": "Please come near and look at this.",
+      "new": "The bus stop is near my house."
+    },
+    {
+      "word": "roller skates",
+      "field": "cat",
+      "old": "thing",
+      "new": "clothes"
+    },
+    {
+      "word": "shall",
+      "field": "vi",
+      "old": "sẽ, nên",
+      "new": "nhé, có nên"
+    },
+    {
+      "word": "shall",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "shall",
+      "field": "note",
+      "old": "nghĩa 'sẽ' hay 'có nên' cần duyệt",
+      "new": ""
+    },
+    {
+      "word": "skip",
+      "field": "ex",
+      "old": "Girls skip in the playground.",
+      "new": "We skip with a rope in the playground."
+    },
+    {
+      "word": "stair",
+      "field": "ex",
+      "old": "She sits on the last stair.",
+      "new": "She sits on the bottom stair."
+    },
+    {
+      "word": "upstairs",
+      "field": "cat",
+      "old": "function",
+      "new": "house"
+    },
+    {
+      "word": "would",
+      "field": "vi",
+      "old": "sẽ, muốn",
+      "new": "muốn, sẽ"
+    }
+  ],
+  "stillCheck": []
+}

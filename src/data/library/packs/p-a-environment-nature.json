@@ -1,0 +1,296 @@
+{
+  "title": "Environment and Nature",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "environment",
+      "meaning": "môi trường",
+      "category": "nature",
+      "example": "We must protect the environment.",
+      "image": ""
+    },
+    {
+      "word": "environmental",
+      "meaning": "thuộc môi trường",
+      "category": "describe",
+      "example": "Our class started an environmental project to save energy.",
+      "image": ""
+    },
+    {
+      "word": "pollution",
+      "meaning": "ô nhiễm",
+      "category": "nature",
+      "example": "The air is dirty because of pollution.",
+      "image": ""
+    },
+    {
+      "word": "litter",
+      "meaning": "rác",
+      "category": "environment",
+      "example": "Please do not leave litter in the park.",
+      "image": ""
+    },
+    {
+      "word": "recycling",
+      "meaning": "việc tái chế",
+      "category": "environment",
+      "example": "Our school is serious about recycling plastic bottles.",
+      "image": ""
+    },
+    {
+      "word": "recycle",
+      "meaning": "tái chế",
+      "category": "action",
+      "example": "We recycle paper at school.",
+      "image": ""
+    },
+    {
+      "word": "energy",
+      "meaning": "năng lượng",
+      "category": "environment",
+      "example": "Solar panels turn sunlight into energy for our school.",
+      "image": ""
+    },
+    {
+      "word": "global warming",
+      "meaning": "sự nóng lên toàn cầu",
+      "category": "environment",
+      "example": "Many teenagers worry about global warming.",
+      "image": ""
+    },
+    {
+      "word": "species",
+      "meaning": "loài",
+      "category": "nature",
+      "example": "Many species of birds live in this forest.",
+      "image": ""
+    },
+    {
+      "word": "bay",
+      "meaning": "vịnh",
+      "category": "nature",
+      "example": "We sailed across the bay on a sunny afternoon.",
+      "image": ""
+    },
+    {
+      "word": "cliff",
+      "meaning": "vách đá",
+      "category": "nature",
+      "example": "We took photos at the top of the cliff.",
+      "image": ""
+    },
+    {
+      "word": "shore",
+      "meaning": "bờ",
+      "category": "nature",
+      "example": "The boat slowly came back to the shore.",
+      "image": ""
+    },
+    {
+      "word": "valley",
+      "meaning": "thung lũng",
+      "category": "nature",
+      "example": "A small river runs through the green valley.",
+      "image": ""
+    },
+    {
+      "word": "peak",
+      "meaning": "đỉnh núi",
+      "category": "nature",
+      "example": "We reached the peak of the mountain at noon.",
+      "image": ""
+    },
+    {
+      "word": "sunrise",
+      "meaning": "bình minh",
+      "category": "nature",
+      "example": "We watch the sunrise from the hill.",
+      "image": ""
+    },
+    {
+      "word": "sunset",
+      "meaning": "hoàng hôn",
+      "category": "nature",
+      "example": "The sunset is orange and pink.",
+      "image": ""
+    },
+    {
+      "word": "shade",
+      "meaning": "bóng râm",
+      "category": "nature",
+      "example": "We sat in the shade of a big tree.",
+      "image": ""
+    },
+    {
+      "word": "shadow",
+      "meaning": "cái bóng",
+      "category": "nature",
+      "example": "My shadow was very long in the evening sun.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: b_y (vịnh)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shadow\" mean?",
+      "options": [
+        "bước",
+        "cái bóng",
+        "con bướm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuộc môi trường)",
+      "options": [
+        "environmenttal",
+        "envrionmental",
+        "environmental"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"species\" mean?",
+      "options": [
+        "loài",
+        "sân ga",
+        "áo len"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please do not leave ___ in the park.",
+      "options": [
+        "environmental",
+        "recycle",
+        "litter"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shade\" mean?",
+      "options": [
+        "mắt cá chân",
+        "bóng râm",
+        "kẻ ngốc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đỉnh núi\"?",
+      "options": [
+        "logo",
+        "peak",
+        "rice"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: suns_t (hoàng hôn)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"năng lượng\"?",
+      "options": [
+        "June",
+        "soundtrack",
+        "energy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our school is serious about ___ plastic bottles.",
+      "options": [
+        "recycle",
+        "environmental",
+        "recycling"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thung lũng\"?",
+      "options": [
+        "valley",
+        "boxing",
+        "bone"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môi trường)",
+      "options": [
+        "environmint",
+        "environment",
+        "ennvironment"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_re (bờ)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vách đá)",
+      "options": [
+        "cliff",
+        "clyff",
+        "clfif"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pollution\" mean?",
+      "options": [
+        "việc nhà",
+        "đĩa CD",
+        "ô nhiễm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to pick up litter",
+    "Pretend to recycle a bottle",
+    "Pretend to save energy by turning off a light",
+    "Pretend to watch a sunrise",
+    "Pretend to climb a mountain peak on the spot",
+    "Pretend to look at a valley"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

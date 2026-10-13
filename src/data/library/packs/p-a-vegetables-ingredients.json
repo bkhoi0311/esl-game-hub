@@ -1,0 +1,261 @@
+{
+  "title": "Vegetables and Ingredients",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "broccoli",
+      "meaning": "súp lơ xanh",
+      "category": "vegetable",
+      "example": "I don't like broccoli, but my brother eats it every day.",
+      "image": ""
+    },
+    {
+      "word": "cabbage",
+      "meaning": "bắp cải",
+      "category": "vegetable",
+      "example": "My grandmother made a soup with cabbage and carrots.",
+      "image": ""
+    },
+    {
+      "word": "corn",
+      "meaning": "ngô",
+      "category": "vegetable",
+      "example": "We eat corn at the picnic.",
+      "image": ""
+    },
+    {
+      "word": "cucumber",
+      "meaning": "dưa chuột",
+      "category": "vegetable",
+      "example": "This cucumber is fresh and green.",
+      "image": ""
+    },
+    {
+      "word": "lettuce",
+      "meaning": "rau xà lách",
+      "category": "vegetable",
+      "example": "Put some lettuce and tomato in the sandwich.",
+      "image": ""
+    },
+    {
+      "word": "spinach",
+      "meaning": "rau chân vịt",
+      "category": "vegetable",
+      "example": "My mother cooks spinach with garlic for dinner.",
+      "image": ""
+    },
+    {
+      "word": "peach",
+      "meaning": "quả đào",
+      "category": "fruit",
+      "example": "The peach is soft and sweet.",
+      "image": ""
+    },
+    {
+      "word": "turkey",
+      "meaning": "con gà tây",
+      "category": "bird",
+      "example": "The turkey is a big bird.",
+      "image": ""
+    },
+    {
+      "word": "refreshments",
+      "meaning": "đồ ăn thức uống nhẹ",
+      "category": "food",
+      "example": "We will serve refreshments after the school concert.",
+      "image": ""
+    },
+    {
+      "word": "bar",
+      "meaning": "thanh, quầy",
+      "category": "food",
+      "example": "The students bought a chocolate bar from the school shop.",
+      "image": ""
+    },
+    {
+      "word": "gum",
+      "meaning": "kẹo cao su",
+      "category": "food",
+      "example": "Please do not chew gum in class.",
+      "image": ""
+    },
+    {
+      "word": "peel",
+      "meaning": "gọt vỏ",
+      "category": "daily",
+      "example": "Can you peel the potatoes for dinner?",
+      "image": ""
+    },
+    {
+      "word": "stir",
+      "meaning": "khuấy",
+      "category": "daily",
+      "example": "Please stir the soup so it does not burn.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"gum\" mean?",
+      "options": [
+        "thứ Sáu",
+        "trang trình chiếu",
+        "kẹo cao su"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rau xà lách\"?",
+      "options": [
+        "dream",
+        "lettuce",
+        "cheek"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_r (khuấy)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"peach\" mean?",
+      "options": [
+        "dịch vụ",
+        "quả đào",
+        "sơ đồ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_el (gọt vỏ)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thanh, quầy\"?",
+      "options": [
+        "TV",
+        "centre",
+        "bar"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dưa chuột)",
+      "options": [
+        "cucumber",
+        "cucubmer",
+        "cucumbber"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cabbage\" mean?",
+      "options": [
+        "xe đạp",
+        "bắp cải",
+        "bể bơi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồ ăn thức uống nhẹ\"?",
+      "options": [
+        "cashpoint",
+        "biology",
+        "refreshments"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"corn\" mean?",
+      "options": [
+        "cái bàn",
+        "mẹ",
+        "ngô"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I don't like ___, but my brother eats it every day.",
+      "options": [
+        "peel",
+        "broccoli",
+        "stir"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ach (quả đào)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bắp cải\"?",
+      "options": [
+        "mark",
+        "tick",
+        "cabbage"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (rau chân vịt)",
+      "options": [
+        "sppinach",
+        "spinach",
+        "spianch"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is a big bird.",
+      "options": [
+        "turkey",
+        "loose",
+        "suppose"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wash some lettuce",
+    "Pretend to chop a cucumber",
+    "Pretend to eat broccoli and make a face",
+    "Pretend to open a takeaway box",
+    "Pretend to wrap a sandwich",
+    "Pretend to cook corn"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

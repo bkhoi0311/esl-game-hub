@@ -1,0 +1,303 @@
+{
+  "title": "Around the House",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "bin",
+      "meaning": "thùng rác",
+      "category": "house",
+      "example": "Put the paper in the bin.",
+      "image": ""
+    },
+    {
+      "word": "cooker",
+      "meaning": "cái bếp nấu",
+      "category": "house",
+      "example": "The soup is on the cooker.",
+      "image": ""
+    },
+    {
+      "word": "cushion",
+      "meaning": "cái gối tựa",
+      "category": "house",
+      "example": "The cat sleeps on a soft cushion.",
+      "image": ""
+    },
+    {
+      "word": "fridge",
+      "meaning": "tủ lạnh",
+      "category": "house",
+      "example": "The milk is in the fridge.",
+      "image": ""
+    },
+    {
+      "word": "gate",
+      "meaning": "cái cổng",
+      "category": "house",
+      "example": "Please close the gate behind you.",
+      "image": ""
+    },
+    {
+      "word": "light",
+      "meaning": "đèn, ánh sáng",
+      "category": "house",
+      "example": "Turn off the light before bed.",
+      "image": ""
+    },
+    {
+      "word": "oven",
+      "meaning": "cái lò nướng",
+      "category": "house",
+      "example": "Mum bakes bread in the oven.",
+      "image": ""
+    },
+    {
+      "word": "shelf",
+      "meaning": "cái kệ",
+      "category": "house",
+      "example": "The book is on the shelf.",
+      "image": ""
+    },
+    {
+      "word": "key",
+      "meaning": "chìa khoá",
+      "category": "thing",
+      "example": "I cannot find my key.",
+      "image": ""
+    },
+    {
+      "word": "hole",
+      "meaning": "cái lỗ",
+      "category": "thing",
+      "example": "The dog made a hole in the garden.",
+      "image": ""
+    },
+    {
+      "word": "brush",
+      "meaning": "cái bàn chải",
+      "category": "thing",
+      "example": "She uses a brush to paint.",
+      "image": ""
+    },
+    {
+      "word": "comb",
+      "meaning": "cái lược",
+      "category": "thing",
+      "example": "He has a small comb in his bag.",
+      "image": ""
+    },
+    {
+      "word": "soap",
+      "meaning": "xà phòng",
+      "category": "thing",
+      "example": "Wash your hands with soap.",
+      "image": ""
+    },
+    {
+      "word": "shampoo",
+      "meaning": "dầu gội đầu",
+      "category": "thing",
+      "example": "This shampoo smells like apples.",
+      "image": ""
+    },
+    {
+      "word": "flashlight",
+      "meaning": "đèn pin",
+      "category": "thing",
+      "example": "My flashlight is under the bed.",
+      "image": ""
+    },
+    {
+      "word": "torch",
+      "meaning": "đèn pin",
+      "category": "thing",
+      "example": "Take a torch to the dark cave.",
+      "image": ""
+    },
+    {
+      "word": "calendar",
+      "meaning": "cuốn lịch",
+      "category": "thing",
+      "example": "The calendar is on the wall.",
+      "image": ""
+    },
+    {
+      "word": "tidy",
+      "meaning": "gọn gàng, dọn dẹp",
+      "category": "describe",
+      "example": "Her room is always tidy.",
+      "image": ""
+    },
+    {
+      "word": "untidy",
+      "meaning": "bừa bộn",
+      "category": "describe",
+      "example": "His bedroom is very untidy.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"comb\" mean?",
+      "options": [
+        "cái lược",
+        "đèn pin",
+        "chìa khoá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ smells like apples.",
+      "options": [
+        "untidy",
+        "shampoo",
+        "tidy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"oven\" mean?",
+      "options": [
+        "cái cổng",
+        "đèn, ánh sáng",
+        "cái lò nướng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bừa bộn)",
+      "options": [
+        "utnidy",
+        "untydy",
+        "untidy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thùng rác\"?",
+      "options": [
+        "oven",
+        "bin",
+        "cushion"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đèn pin)",
+      "options": [
+        "torch",
+        "torcch",
+        "turch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"light\" mean?",
+      "options": [
+        "cái gối tựa",
+        "đèn, ánh sáng",
+        "thùng rác"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cook_r (cái bếp nấu)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flashlight\" mean?",
+      "options": [
+        "chìa khoá",
+        "cái lược",
+        "đèn pin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_lf (cái kệ)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuốn lịch\"?",
+      "options": [
+        "soap",
+        "flashlight",
+        "calendar"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_ap (xà phòng)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She uses a ___ to paint.",
+      "options": [
+        "tidy",
+        "brush",
+        "river"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái cổng\"?",
+      "options": [
+        "gate",
+        "bin",
+        "light"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gọn gàng, dọn dẹp)",
+      "options": [
+        "tydy",
+        "tdiy",
+        "tidy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open a gate",
+    "Pretend to turn on the light",
+    "Pretend to brush your hair",
+    "Pretend to wash your hands with soap",
+    "Pretend to put a book on a shelf",
+    "Pretend to use a flashlight"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

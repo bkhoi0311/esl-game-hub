@@ -1,0 +1,254 @@
+{
+  "title": "Phrasal Verbs 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "put away",
+      "meaning": "cất đi",
+      "category": "daily",
+      "example": "Please put away your toys before dinner.",
+      "image": ""
+    },
+    {
+      "word": "put down",
+      "meaning": "đặt xuống",
+      "category": "daily",
+      "example": "Please put down your pens when the test is over.",
+      "image": ""
+    },
+    {
+      "word": "put off",
+      "meaning": "hoãn lại",
+      "category": "daily",
+      "example": "We had to put off the picnic because of the rain.",
+      "image": ""
+    },
+    {
+      "word": "put out",
+      "meaning": "dập tắt",
+      "category": "daily",
+      "example": "The firefighters quickly put out the small fire.",
+      "image": ""
+    },
+    {
+      "word": "put through",
+      "meaning": "nối máy",
+      "category": "daily",
+      "example": "The receptionist will put through your call now.",
+      "image": ""
+    },
+    {
+      "word": "put up",
+      "meaning": "dựng lên",
+      "category": "daily",
+      "example": "We put up a tent near the lake.",
+      "image": ""
+    },
+    {
+      "word": "ring back",
+      "meaning": "gọi lại",
+      "category": "speech",
+      "example": "I will ring back after my piano lesson.",
+      "image": ""
+    },
+    {
+      "word": "ring up",
+      "meaning": "gọi điện",
+      "category": "speech",
+      "example": "You can ring up the cinema to ask about the time.",
+      "image": ""
+    },
+    {
+      "word": "run out",
+      "meaning": "hết",
+      "category": "daily",
+      "example": "The batteries in this camera may run out soon.",
+      "image": ""
+    },
+    {
+      "word": "set up",
+      "meaning": "thiết lập",
+      "category": "daily",
+      "example": "Can you help me set up the new tablet?",
+      "image": ""
+    },
+    {
+      "word": "sign up",
+      "meaning": "đăng ký tham gia",
+      "category": "daily",
+      "example": "I want to sign up for the swimming club.",
+      "image": ""
+    },
+    {
+      "word": "split up",
+      "meaning": "tách ra, chia tay",
+      "category": "daily",
+      "example": "The group will split up to find the lost dog.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"đăng ký tham gia\"?",
+      "options": [
+        "put out",
+        "sign up",
+        "run out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"put down\" mean?",
+      "options": [
+        "đặt xuống",
+        "bước qua",
+        "kết thúc, nghỉ học"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hoãn lại\"?",
+      "options": [
+        "sign up",
+        "set up",
+        "put off"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"put through\" mean?",
+      "options": [
+        "nối máy",
+        "muốn có",
+        "giải ra, tìm ra"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dựng lên\"?",
+      "options": [
+        "sign up",
+        "split up",
+        "put up"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"run out\" mean?",
+      "options": [
+        "gọi lại",
+        "hết",
+        "gọi điện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The receptionist will ___ your call now.",
+      "options": [
+        "put through",
+        "ring back",
+        "ring up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gọi điện\"?",
+      "options": [
+        "put off",
+        "ring up",
+        "run out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"split up\" mean?",
+      "options": [
+        "mang trả lại",
+        "chịu thua",
+        "tách ra, chia tay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thiết lập\"?",
+      "options": [
+        "set up",
+        "put up",
+        "put through"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"put out\" mean?",
+      "options": [
+        "đến, xuất hiện",
+        "ở lại",
+        "dập tắt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The batteries in this camera may ___ soon.",
+      "options": [
+        "ring back",
+        "run out",
+        "ring up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ring back\" mean?",
+      "options": [
+        "gọi lại",
+        "cất đi",
+        "thiết lập"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cất đi\"?",
+      "options": [
+        "focus on",
+        "put away",
+        "get down"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"put up\" mean?",
+      "options": [
+        "gọi điện",
+        "gọi lại",
+        "dựng lên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put away your books",
+    "Pretend to put up a poster",
+    "Pretend to sign up on a website",
+    "Pretend to set up a camera",
+    "Pretend to put down a heavy bag",
+    "Show me you run out of paper"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

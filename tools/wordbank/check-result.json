@@ -1,89 +1,263 @@
 {
   "target": "all",
-  "at": "2026-10-10T05:14:46.126Z",
+  "at": "2026-10-13T04:27:33.988Z",
   "errors": 0,
-  "notes": 32,
+  "notes": 83,
   "stats": {
+    "new-01": {
+      "entries": 82,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-02": {
+      "entries": 80,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-03": {
+      "entries": 75,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-04": {
+      "entries": 74,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-05": {
+      "entries": 63,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-06": {
+      "entries": 93,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-07": {
+      "entries": 93,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-08": {
+      "entries": 94,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-09": {
+      "entries": 97,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-10": {
+      "entries": 95,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-11": {
+      "entries": 96,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-12": {
+      "entries": 96,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-13": {
+      "entries": 89,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-14": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-15": {
+      "entries": 109,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-16": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-17": {
+      "entries": 109,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-18": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-19": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-20": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-21": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-22": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-23": {
+      "entries": 110,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-24": {
+      "entries": 109,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
+    "new-25": {
+      "entries": 99,
+      "check": 0,
+      "levelCheck": 0,
+      "skip": 0
+    },
     "part-01": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 56,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-02": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 51,
+      "levelCheck": 0,
       "skip": 1
     },
     "part-03": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 49,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-04": {
-      "entries": 97,
+      "entries": 96,
       "check": 0,
-      "levelCheck": 76,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-05": {
-      "entries": 97,
+      "entries": 95,
       "check": 0,
-      "levelCheck": 67,
+      "levelCheck": 0,
       "skip": 2
     },
     "part-06": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 44,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-07": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 18,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-08": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 28,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-09": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 73,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-10": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 22,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-11": {
       "entries": 97,
       "check": 0,
-      "levelCheck": 22,
+      "levelCheck": 0,
       "skip": 0
     },
     "part-12": {
       "entries": 94,
       "check": 0,
-      "levelCheck": 75,
+      "levelCheck": 0,
       "skip": 8
     }
   },
   "errorList": [],
   "noteList": [
+    "new-03 | an: cùng vi \"một\" với \"a\" trong cùng cat (hại câu hỏi nghĩa)",
+    "new-03 | how: ex bắt đầu bằng chính từ (hại câu điền chỗ trống): \"How do you spell your name?\"",
+    "new-03 | how many: ex bắt đầu bằng chính từ (hại câu điền chỗ trống): \"How many pens do you have?\"",
+    "new-03 | how old: ex bắt đầu bằng chính từ (hại câu điền chỗ trống): \"How old is your sister?\"",
+    "new-05 | chinese: vi dài (29 ký tự)",
+    "new-05 | spanish: vi dài (36 ký tự)",
+    "new-10 | dead: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "new-10 | die: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "new-11 | kit: vi dài (26 ký tự)",
+    "new-13 | tourist information centre: vi dài (27 ký tự)",
+    "new-18 | graduate: vi dài (28 ký tự)",
+    "new-19 | ice hockey: vi dài (26 ký tự)",
+    "new-20 | kill: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "part-02 | foot: ex cấp starters có động từ quá khứ bất quy tắc: \"My left foot hurts a little.\"",
     "part-02 | skull: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
     "part-02 | blood: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
+    "part-02 | blood: ex (4 từ, 17 ký tự) ngoài giới hạn cấp ket (5-12 từ, ≤75 ký tự)",
+    "part-02 | pants: ex (4 từ, 17 ký tự) ngoài giới hạn cấp pet (5-14 từ, ≤90 ký tự)",
+    "part-02 | shoe: ex cấp starters có động từ quá khứ bất quy tắc: \"I cannot find my left shoe.\"",
     "part-02 | gray: cùng vi \"màu xám\" với \"grey\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-02 | feet: khoá \"feet\" (word/alt/pl) trùng với \"foot\" ở part-02 (mục cũ, chờ gộp)",
+    "part-02 | teeth: khoá \"teeth\" (word/alt/pl) trùng với \"tooth\" ở part-02 (mục cũ, chờ gộp)",
+    "part-02 | gray: khoá \"gray\" (word/alt/pl) trùng với \"grey\" ở part-02 (mục cũ, chờ gộp)",
+    "part-02 | gray: khoá \"grey\" (word/alt/pl) trùng với \"grey\" ở part-02 (mục cũ, chờ gộp)",
     "part-03 | father christmas: cùng vi \"ông già Noel\" với \"santa\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-03 | fireman: cùng vi \"lính cứu hoả\" với \"firefighter\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-03 | color: khoá \"color\" (word/alt/pl) trùng với \"colour\" ở part-02 (mục cũ, chờ gộp)",
+    "part-03 | children: khoá \"children\" (word/alt/pl) trùng với \"child\" ở part-03 (mục cũ, chờ gộp)",
+    "part-03 | elves: khoá \"elves\" (word/alt/pl) trùng với \"elf\" ở part-03 (mục cũ, chờ gộp)",
     "part-04 | fries: cùng vi \"khoai tây chiên\" với \"chips\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-04 | pancakes: cùng vi \"bánh kếp\" với \"pancake\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-05 | cherries: cùng vi \"quả anh đào\" với \"cherry\" trong cùng cat (hại câu hỏi nghĩa)",
@@ -91,15 +265,21 @@
     "part-05 | knife: từ nhạy cảm, cân nhắc skip hoặc để Opus quyết",
     "part-05 | apartment: cùng vi \"căn hộ\" với \"flat\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-05 | tv: cùng vi \"cái tivi\" với \"television\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-05 | donut: khoá \"donut\" (word/alt/pl) trùng với \"doughnut\" ở part-05 (mục cũ, chờ gộp)",
+    "part-05 | donut: khoá \"doughnut\" (word/alt/pl) trùng với \"doughnut\" ở part-05 (mục cũ, chờ gộp)",
+    "part-05 | tv: khoá \"tv\" (word/alt/pl) trùng với \"television\" ở part-05 (mục cũ, chờ gộp)",
     "part-06 | elevator: cùng vi \"thang máy\" với \"lift\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | blackboard: ex (4 từ, 28 ký tự) ngoài giới hạn cấp ket (5-12 từ, ≤75 ký tự)",
     "part-06 | rubber: cùng vi \"cục tẩy\" với \"eraser\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-06 | math: cùng vi \"môn toán\" với \"maths\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-06 | bicycle: cùng vi \"xe đạp\" với \"bike\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-06 | boxing: ex (4 từ, 22 ký tự) ngoài giới hạn cấp pet (5-14 từ, ≤90 ký tự)",
     "part-07 | soccer: cùng vi \"bóng đá\" với \"football\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-07 | ping pong: cùng vi \"bóng bàn\" với \"table tennis\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-07 | jumping: cùng vi \"nhảy\" với \"jump\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-07 | riding: cùng vi \"cưỡi ngựa\" với \"horse riding\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-07 | balloons: cùng vi \"quả bóng bay\" với \"balloon\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-07 | photography: ex (4 từ, 25 ký tự) ngoài giới hạn cấp ket (5-12 từ, ≤75 ký tự)",
     "part-07 | movie: cùng vi \"bộ phim\" với \"film\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-08 | airplane: cùng vi \"máy bay\" với \"aeroplane\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-08 | plane: cùng vi \"máy bay\" với \"aeroplane\" trong cùng cat (hại câu hỏi nghĩa)",
@@ -107,9 +287,30 @@
     "part-08 | truck: cùng vi \"xe tải\" với \"lorry\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-08 | metro: cùng vi \"tàu điện ngầm\" với \"underground\" trong cùng cat (hại câu hỏi nghĩa)",
     "part-08 | sled: cùng vi \"xe trượt tuyết\" với \"sledge\" trong cùng cat (hại câu hỏi nghĩa)",
-    "part-09 | earth: vi viết hoa đầu (chỉ đúng với tên riêng)",
-    "part-09 | fall: cùng vi \"mùa thu\" với \"autumn\" trong cùng cat (hại câu hỏi nghĩa)",
+    "part-09 | leaves: khoá \"leaves\" (word/alt/pl) trùng với \"leaf\" ở part-09 (mục cũ, chờ gộp)",
+    "part-10 | sad: ex cấp starters có động từ quá khứ bất quy tắc: \"She is sad about her lost toy.\"",
+    "part-10 | danger: ex (4 từ, 22 ký tự) ngoài giới hạn cấp ket (5-12 từ, ≤75 ký tự)",
+    "part-11 | fight: ex (4 từ, 26 ký tự) ngoài giới hạn cấp pet (5-14 từ, ≤90 ký tự)",
     "part-12 | flashlight: cùng vi \"đèn pin\" với \"torch\" trong cùng cat (hại câu hỏi nghĩa)",
-    "part-12 | dna: vi viết hoa đầu (chỉ đúng với tên riêng)"
+    "eyes: cùng dạng gốc, loại từ và nghĩa với \"eye\" (mắt | đôi mắt): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "boot: cùng dạng gốc, loại từ và nghĩa với \"boots\" (đôi ủng | chiếc ủng): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "gloves: cùng dạng gốc, loại từ và nghĩa với \"glove\" (chiếc găng tay | đôi găng tay): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "shoes: cùng dạng gốc, loại từ và nghĩa với \"shoe\" (chiếc giày | đôi giày): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "socks: cùng dạng gốc, loại từ và nghĩa với \"sock\" (chiếc tất | đôi tất): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "sandals: cùng dạng gốc, loại từ và nghĩa với \"sandal\" (chiếc dép quai hậu | đôi dép quai hậu): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "friends: cùng dạng gốc, loại từ và nghĩa với \"friend\" (người bạn | những người bạn): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "beans: cùng dạng gốc, loại từ và nghĩa với \"bean\" (hạt đậu | đậu): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "grapes: cùng dạng gốc, loại từ và nghĩa với \"grape\" (quả nho | chùm nho): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "pancakes: cùng dạng gốc, loại từ và nghĩa với \"pancake\" (bánh kếp | bánh kếp): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "peas: cùng dạng gốc, loại từ và nghĩa với \"pea\" (hạt đậu Hà Lan | đậu Hà Lan): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "sweet: cùng dạng gốc, loại từ và nghĩa với \"sweets\" (kẹo | viên kẹo): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "vegetables: cùng dạng gốc, loại từ và nghĩa với \"vegetable\" (rau củ | các loại rau củ): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "nuts: cùng dạng gốc, loại từ và nghĩa với \"nut\" (hạt | các loại hạt): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "books: cùng dạng gốc, loại từ và nghĩa với \"book\" (quyển sách | những quyển sách): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "math: cùng dạng gốc, loại từ và nghĩa với \"maths\" (môn toán | môn toán): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "balloons: cùng dạng gốc, loại từ và nghĩa với \"balloon\" (quả bóng bay | quả bóng bay): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "drums: cùng dạng gốc, loại từ và nghĩa với \"drum\" (cái trống | bộ trống): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "mountains: cùng dạng gốc, loại từ và nghĩa với \"mountain\" (ngọn núi | những ngọn núi): gộp thành 1 mục + alt/pl (mục cũ, giữ)",
+    "150 cặp/nhóm trùng vi+cat trên toàn kho (xem review/syn-candidates.tsv): above=upon; because=because of; everyone=everybody; get undressed=undress; granddaughter=niece; ..."
   ]
 }

@@ -1,0 +1,82 @@
+above	prep	movers					prep
+after	prep	movers					prep
+age	n	movers					n
+all	adj	movers					adj+adv+det+pron
+all right	adj	movers					adj+adv
+along	prep	movers					prep
+always	adv	movers					adv
+another	other	movers					det+pron
+any	other	movers					det+pron
+around	prep	movers					prep
+asleep	adj	movers					adj
+awake	adj	movers					adj
+back	adj	movers					adj+adv+n
+badly	adv	movers					adv
+basement	n	movers					n
+be called	v	movers					v
+because	other	movers					conj
+before	prep	movers					prep
+below	prep	movers					prep
+best	adj	movers					adj+adv
+better	adj	movers					adj+adv
+blond	adj	movers		blonde			adj
+boring	adj	movers					adj
+both	other	movers					det+pron
+bottom	adj	movers					adj+n
+break	n	movers					n
+brilliant	adj	movers					adj+excl
+bring	v	movers					v
+building	n	movers					n
+bus station	n	movers					n
+busy	adj	movers					adj
+by	prep	movers					prep
+café	n	movers		cafe			n
+cage	n	movers					n
+carefully	adv	movers					adv
+centre	n	movers		center			n
+change	v	movers					v
+city centre	n	movers		town centre|city center|town center			n
+come on	phr	movers					excl
+comic book	n	movers					n
+cough	n	movers					n
+could	v	movers	as in past of can for ability				v
+curly	adj	movers					adj
+difference	n	movers					n
+different	adj	movers					adj
+difficult	adj	movers					adj
+down	adv	movers					adv+prep
+downstairs	adv	movers					adv+n
+dress up	v	movers					v
+e-book	n	movers					n
+earache	n	movers					n
+easy	adj	movers					adj
+every	other	movers					det
+everyone	pron	movers					pron
+everything	pron	movers					pron
+exciting	adj	movers					adj
+excuse me	other	movers					dis
+fair	adj	movers					adj
+feed	v	movers					v
+film star	n	movers					n
+fine	adj	movers					adj+excl
+first	adj	movers					adj+adv
+friday	n	movers				Friday	n
+get dressed	v	movers					v
+get off	v	movers					v
+get on	v	movers					v
+get undressed	v	movers					v
+go shopping	v	movers					v
+granddaughter	n	movers					n
+grandparent	n	movers					n
+grandson	n	movers					n
+ground	n	movers					n
+grown-up	n	movers					n
+have to	v	movers					v
+headache	n	movers					n
+hop	v	movers					v
+how much	adv	movers					adv+int
+how often	adv	movers					adv+int
+huge	adj	movers					adj
+hurt	v	movers					v
+ice skates	n	movers					n
+inside	adv	movers					adv+n+prep

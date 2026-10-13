@@ -1,0 +1,275 @@
+{
+  "title": "Jobs and Professions 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "accountant",
+      "meaning": "kế toán",
+      "category": "job",
+      "example": "My aunt works as an accountant in a big office.",
+      "image": ""
+    },
+    {
+      "word": "actress",
+      "meaning": "nữ diễn viên",
+      "category": "job",
+      "example": "The actress in this film is only fifteen.",
+      "image": ""
+    },
+    {
+      "word": "architect",
+      "meaning": "kiến trúc sư",
+      "category": "job",
+      "example": "An architect designed our new school building.",
+      "image": ""
+    },
+    {
+      "word": "athlete",
+      "meaning": "vận động viên",
+      "category": "job",
+      "example": "The young athlete trains every morning before school.",
+      "image": ""
+    },
+    {
+      "word": "author",
+      "meaning": "tác giả",
+      "category": "job",
+      "example": "My favourite author writes funny stories for teenagers.",
+      "image": ""
+    },
+    {
+      "word": "banker",
+      "meaning": "nhân viên ngân hàng",
+      "category": "job",
+      "example": "Her father is a banker in the city.",
+      "image": ""
+    },
+    {
+      "word": "barber",
+      "meaning": "thợ cắt tóc",
+      "category": "job",
+      "example": "The barber gives my dad a short haircut.",
+      "image": ""
+    },
+    {
+      "word": "butcher",
+      "meaning": "người bán thịt",
+      "category": "job",
+      "example": "The butcher cuts the meat.",
+      "image": ""
+    },
+    {
+      "word": "detective",
+      "meaning": "thám tử",
+      "category": "job",
+      "example": "The detective looks for small clues.",
+      "image": ""
+    },
+    {
+      "word": "director",
+      "meaning": "giám đốc, đạo diễn",
+      "category": "job",
+      "example": "The director of our school film club is very kind.",
+      "image": ""
+    },
+    {
+      "word": "disc jockey",
+      "meaning": "người chơi nhạc",
+      "category": "job",
+      "example": "The disc jockey played all our favourite songs at the party.",
+      "image": ""
+    },
+    {
+      "word": "firefighter",
+      "meaning": "lính cứu hoả",
+      "category": "job",
+      "example": "The firefighter drives a red truck.",
+      "image": ""
+    },
+    {
+      "word": "hairdresser",
+      "meaning": "thợ làm tóc",
+      "category": "job",
+      "example": "The hairdresser cuts my hair every month.",
+      "image": ""
+    },
+    {
+      "word": "instructor",
+      "meaning": "người hướng dẫn",
+      "category": "job",
+      "example": "The swimming instructor taught us how to float.",
+      "image": ""
+    },
+    {
+      "word": "inventor",
+      "meaning": "nhà phát minh",
+      "category": "job",
+      "example": "The inventor spent years building his first flying machine.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (lính cứu hoả)",
+      "options": [
+        "fireffighter",
+        "firefighter",
+        "firefightir"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"barber\" mean?",
+      "options": [
+        "tiêu đề báo",
+        "áo len",
+        "thợ cắt tóc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nữ diễn viên)",
+      "options": [
+        "actress",
+        "acrtess",
+        "atcress"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: auth_r (tác giả)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disc jockey\" mean?",
+      "options": [
+        "gấu bông",
+        "người chơi nhạc",
+        "trạm cứu hỏa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: arch_tect (kiến trúc sư)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thám tử\"?",
+      "options": [
+        "cheese",
+        "detective",
+        "identity card"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người hướng dẫn)",
+      "options": [
+        "innstructor",
+        "insrtuctor",
+        "instructor"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"athlete\" mean?",
+      "options": [
+        "vận động viên",
+        "câu hỏi",
+        "bến xe buýt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_nker (nhân viên ngân hàng)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"accountant\" mean?",
+      "options": [
+        "khoảng cách",
+        "cánh",
+        "kế toán"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người bán thịt\"?",
+      "options": [
+        "butcher",
+        "chemist",
+        "crayon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of our school film club is very kind.",
+      "options": [
+        "mountain",
+        "director",
+        "trainers"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thợ làm tóc\"?",
+      "options": [
+        "hairdresser",
+        "hairdryer",
+        "economics"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ spent years building his first flying machine.",
+      "options": [
+        "million",
+        "camera",
+        "inventor"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a hairdresser cutting hair",
+    "Pretend to be a firefighter holding a hose",
+    "Pretend to be a DJ with headphones",
+    "Pretend to be a banker counting money",
+    "Pretend to be an author typing a story",
+    "Pretend to be a director shouting action"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

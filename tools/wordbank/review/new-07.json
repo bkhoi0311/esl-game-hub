@@ -1,0 +1,98 @@
+{
+  "sampled": [
+    "group",
+    "hard",
+    "pleased",
+    "motorway",
+    "low",
+    "late",
+    "let",
+    "instead",
+    "married",
+    "next",
+    "interested",
+    "hurry",
+    "noisy",
+    "lovely",
+    "important"
+  ],
+  "sampleErrors": [
+    "motorway"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "guess",
+      "field": "vi",
+      "old": "lời đoán",
+      "new": "lời đoán, đoán"
+    },
+    {
+      "word": "just",
+      "field": "ex",
+      "old": "I just finished my homework.",
+      "new": "I have just finished my homework."
+    },
+    {
+      "word": "midday",
+      "field": "vi",
+      "old": "buổi trưa",
+      "new": "giữa trưa"
+    },
+    {
+      "word": "midnight",
+      "field": "ex",
+      "old": "The clock strikes twelve at midnight.",
+      "new": "We stayed up until midnight on New Year's Eve."
+    },
+    {
+      "word": "motorway",
+      "field": "ex",
+      "old": "Our car drove fast on the motorway.",
+      "new": "We drove on the motorway to the airport."
+    },
+    {
+      "word": "no problem",
+      "field": "vi",
+      "old": "không có gì",
+      "new": "không sao đâu"
+    },
+    {
+      "word": "no problem",
+      "field": "ex",
+      "old": "It's fine, no problem at all.",
+      "new": "Can you help me? Yes, no problem!"
+    },
+    {
+      "word": "nowhere",
+      "field": "vi",
+      "old": "không nơi nào, chẳng đâu",
+      "new": "không nơi nào"
+    },
+    {
+      "word": "nowhere",
+      "field": "cat",
+      "old": "manner",
+      "new": "function"
+    },
+    {
+      "word": "p.m.",
+      "field": "vi",
+      "old": "buổi chiều, tối",
+      "new": "giờ chiều, tối"
+    },
+    {
+      "word": "past",
+      "field": "ex",
+      "old": "Dinosaurs lived in the distant past.",
+      "new": "People in the past did not have phones."
+    },
+    {
+      "word": "perhaps",
+      "field": "ex",
+      "old": "We can play outside later, perhaps.",
+      "new": "Ask Mum, perhaps she knows."
+    }
+  ],
+  "stillCheck": []
+}

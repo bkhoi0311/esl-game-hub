@@ -1,0 +1,275 @@
+{
+  "title": "Moods and Feelings",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "disappointment",
+      "meaning": "nỗi thất vọng",
+      "category": "feeling",
+      "example": "He could not hide his disappointment when he lost the match.",
+      "image": ""
+    },
+    {
+      "word": "excitement",
+      "meaning": "sự phấn khích",
+      "category": "feeling",
+      "example": "There was great excitement in the hall before the show.",
+      "image": ""
+    },
+    {
+      "word": "happiness",
+      "meaning": "niềm hạnh phúc",
+      "category": "feeling",
+      "example": "Good friends bring a lot of happiness to our lives.",
+      "image": ""
+    },
+    {
+      "word": "mood",
+      "meaning": "tâm trạng",
+      "category": "feeling",
+      "example": "She is in a good mood today.",
+      "image": ""
+    },
+    {
+      "word": "pleasure",
+      "meaning": "niềm vui",
+      "category": "feeling",
+      "example": "Reading gives me a lot of pleasure.",
+      "image": ""
+    },
+    {
+      "word": "shock",
+      "meaning": "cú sốc",
+      "category": "feeling",
+      "example": "The news about the exam was a big shock.",
+      "image": ""
+    },
+    {
+      "word": "tear",
+      "meaning": "nước mắt, xé",
+      "category": "body",
+      "example": "A tear ran down her cheek.",
+      "image": ""
+    },
+    {
+      "word": "sense",
+      "meaning": "giác quan",
+      "category": "body",
+      "example": "Dogs have a very strong sense of smell.",
+      "image": ""
+    },
+    {
+      "word": "worry",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "Don't worry, we have plenty of time.",
+      "image": ""
+    },
+    {
+      "word": "pray",
+      "meaning": "cầu nguyện",
+      "category": "action",
+      "example": "Some people pray before dinner.",
+      "image": ""
+    },
+    {
+      "word": "admire",
+      "meaning": "ngưỡng mộ",
+      "category": "mind",
+      "example": "I admire my teacher because she is kind and patient.",
+      "image": ""
+    },
+    {
+      "word": "smile",
+      "meaning": "mỉm cười",
+      "category": "action",
+      "example": "Please smile for the photo.",
+      "image": ""
+    },
+    {
+      "word": "laugh",
+      "meaning": "cười",
+      "category": "action",
+      "example": "We laugh at the clown.",
+      "image": ""
+    },
+    {
+      "word": "cry",
+      "meaning": "khóc",
+      "category": "action",
+      "example": "The baby cries at night.",
+      "image": ""
+    },
+    {
+      "word": "afraid",
+      "meaning": "sợ",
+      "category": "feeling",
+      "example": "I am afraid of big dogs.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (nỗi thất vọng)",
+      "options": [
+        "disappointemnt",
+        "diseppointment",
+        "disappointment"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Don't ___, we have plenty of time.",
+      "options": [
+        "worry",
+        "smile",
+        "laugh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sm_le (mỉm cười)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The news about the exam was a big ___.",
+      "options": [
+        "tear",
+        "sense",
+        "shock"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: excitem_nt (sự phấn khích)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pleasure\" mean?",
+      "options": [
+        "nước mắt, xé",
+        "niềm vui",
+        "giác quan"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tâm trạng\"?",
+      "options": [
+        "grammar",
+        "biscuit",
+        "mood"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tear\" mean?",
+      "options": [
+        "nước mắt, xé",
+        "tâm trạng",
+        "cú sốc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giác quan)",
+      "options": [
+        "sensi",
+        "sense",
+        "sesne"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngưỡng mộ\"?",
+      "options": [
+        "admire",
+        "step over",
+        "upload"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cầu nguyện)",
+      "options": [
+        "pary",
+        "pray",
+        "prray"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"laugh\" mean?",
+      "options": [
+        "cố gắng",
+        "đồng ý",
+        "cười"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"niềm hạnh phúc\"?",
+      "options": [
+        "sandals",
+        "happiness",
+        "laundry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cry\" mean?",
+      "options": [
+        "ngưỡng mộ",
+        "lo lắng",
+        "khóc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: afra_d (sợ)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me excitement on your face",
+    "Show me a happy mood",
+    "Pretend to wipe away a tear",
+    "Show me a shocked face",
+    "Mime a big happy laugh",
+    "Use your voice to say hello in a sad way"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

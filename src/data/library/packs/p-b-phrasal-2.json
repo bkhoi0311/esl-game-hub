@@ -1,0 +1,251 @@
+{
+  "title": "Phrasal Verbs 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "get rid of",
+      "meaning": "loại bỏ",
+      "category": "daily",
+      "example": "We need to get rid of these old boxes.",
+      "image": ""
+    },
+    {
+      "word": "give in",
+      "meaning": "chịu thua",
+      "category": "mind",
+      "example": "Don't give in when the work gets hard.",
+      "image": ""
+    },
+    {
+      "word": "give out",
+      "meaning": "phát",
+      "category": "daily",
+      "example": "The teacher will give out the tests now.",
+      "image": ""
+    },
+    {
+      "word": "give up",
+      "meaning": "bỏ cuộc",
+      "category": "mind",
+      "example": "Never give up on your dreams.",
+      "image": ""
+    },
+    {
+      "word": "go off",
+      "meaning": "reo, bị ôi thiu",
+      "category": "daily",
+      "example": "My alarm clock goes off at six every day.",
+      "image": ""
+    },
+    {
+      "word": "hand in",
+      "meaning": "nộp",
+      "category": "daily",
+      "example": "You must hand in your essay on Monday.",
+      "image": ""
+    },
+    {
+      "word": "hand out",
+      "meaning": "phân phát",
+      "category": "daily",
+      "example": "She helps to hand out books to the class.",
+      "image": ""
+    },
+    {
+      "word": "hang up",
+      "meaning": "cúp máy",
+      "category": "daily",
+      "example": "He was angry and decided to hang up the phone.",
+      "image": ""
+    },
+    {
+      "word": "hold up",
+      "meaning": "làm chậm trễ, cản trở",
+      "category": "daily",
+      "example": "A traffic jam will hold up the bus, so we may arrive late.",
+      "image": ""
+    },
+    {
+      "word": "keep in",
+      "meaning": "giữ lại, bắt ở lại",
+      "category": "daily",
+      "example": "Our teacher may keep in any student who forgets homework.",
+      "image": ""
+    },
+    {
+      "word": "keep on",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "You will get better if you keep on practising.",
+      "image": ""
+    },
+    {
+      "word": "knock down",
+      "meaning": "làm đổ, phá bỏ",
+      "category": "daily",
+      "example": "The old building will be knocked down next year.",
+      "image": ""
+    },
+    {
+      "word": "look up",
+      "meaning": "tra cứu",
+      "category": "daily",
+      "example": "You can look up new words in a dictionary.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nộp\"?",
+      "options": [
+        "knock down",
+        "keep in",
+        "hand in"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keep in\" mean?",
+      "options": [
+        "giữ lại, bắt ở lại",
+        "chịu thua",
+        "bỏ cuộc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hand out\" mean?",
+      "options": [
+        "phân phát",
+        "tìm ra",
+        "lên xe"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chịu thua\"?",
+      "options": [
+        "look up",
+        "give in",
+        "keep on"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hang up\" mean?",
+      "options": [
+        "gọi điện",
+        "khởi hành",
+        "cúp máy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tra cứu\"?",
+      "options": [
+        "hang up",
+        "look up",
+        "give out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"give out\" mean?",
+      "options": [
+        "phát",
+        "bỏ cuộc",
+        "chịu thua"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phát\"?",
+      "options": [
+        "go off",
+        "hand in",
+        "give out"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keep on\" mean?",
+      "options": [
+        "tiếp tục",
+        "trông giống",
+        "khởi hành"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"reo, bị ôi thiu\"?",
+      "options": [
+        "look up",
+        "keep on",
+        "go off"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A traffic jam will ___ the bus, so we may arrive late.",
+      "options": [
+        "give up",
+        "hold up",
+        "give in"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"give up\" mean?",
+      "options": [
+        "phân phát",
+        "phát",
+        "bỏ cuộc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bỏ cuộc\"?",
+      "options": [
+        "give out",
+        "give up",
+        "hand out"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get rid of\" mean?",
+      "options": [
+        "loại bỏ",
+        "mong chờ",
+        "đánh bại"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to hand in your homework",
+    "Pretend to hand out papers",
+    "Pretend to look up a word in a dictionary",
+    "Pretend to hang up the phone",
+    "Mime an alarm going off",
+    "Pretend to keep on trying"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

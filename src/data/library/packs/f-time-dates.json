@@ -1,0 +1,296 @@
+{
+  "title": "Time and Dates",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "january",
+      "meaning": "tháng Một",
+      "category": "time",
+      "example": "My birthday is in January.",
+      "image": ""
+    },
+    {
+      "word": "february",
+      "meaning": "tháng Hai",
+      "category": "time",
+      "example": "The shortest month of the year is February.",
+      "image": ""
+    },
+    {
+      "word": "march",
+      "meaning": "tháng Ba",
+      "category": "time",
+      "example": "We have a school trip in March.",
+      "image": ""
+    },
+    {
+      "word": "april",
+      "meaning": "tháng Tư",
+      "category": "time",
+      "example": "My birthday is in April.",
+      "image": ""
+    },
+    {
+      "word": "may (month)",
+      "meaning": "tháng Năm",
+      "category": "time",
+      "example": "The flowers come out in May.",
+      "image": ""
+    },
+    {
+      "word": "june",
+      "meaning": "tháng Sáu",
+      "category": "time",
+      "example": "School finishes in June.",
+      "image": ""
+    },
+    {
+      "word": "july",
+      "meaning": "tháng Bảy",
+      "category": "time",
+      "example": "We go to the beach in July.",
+      "image": ""
+    },
+    {
+      "word": "august",
+      "meaning": "tháng Tám",
+      "category": "time",
+      "example": "We go to the sea in August.",
+      "image": ""
+    },
+    {
+      "word": "september",
+      "meaning": "tháng Chín",
+      "category": "time",
+      "example": "My birthday is in September.",
+      "image": ""
+    },
+    {
+      "word": "october",
+      "meaning": "tháng Mười",
+      "category": "time",
+      "example": "We start a new project in October.",
+      "image": ""
+    },
+    {
+      "word": "november",
+      "meaning": "tháng Mười Một",
+      "category": "time",
+      "example": "It gets cold in November.",
+      "image": ""
+    },
+    {
+      "word": "december",
+      "meaning": "tháng Mười Hai",
+      "category": "time",
+      "example": "It is cold in December.",
+      "image": ""
+    },
+    {
+      "word": "twenty-first",
+      "meaning": "thứ hai mươi mốt",
+      "category": "number",
+      "example": "The twenty-first of March is a school holiday.",
+      "image": ""
+    },
+    {
+      "word": "thirtieth",
+      "meaning": "thứ ba mươi",
+      "category": "number",
+      "example": "Her birthday is on the thirtieth of June.",
+      "image": ""
+    },
+    {
+      "word": "thirty-first",
+      "meaning": "thứ ba mươi mốt",
+      "category": "number",
+      "example": "We will have a party on the thirty-first of December.",
+      "image": ""
+    },
+    {
+      "word": "date",
+      "meaning": "ngày tháng",
+      "category": "time",
+      "example": "What is today's date?",
+      "image": ""
+    },
+    {
+      "word": "century",
+      "meaning": "thế kỷ",
+      "category": "time",
+      "example": "A century is one hundred years.",
+      "image": ""
+    },
+    {
+      "word": "month",
+      "meaning": "tháng",
+      "category": "time",
+      "example": "My birthday is next month.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (tháng Mười Một)",
+      "options": [
+        "Noevmber",
+        "Nvoember",
+        "November"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tháng Tám\"?",
+      "options": [
+        "August",
+        "July",
+        "January"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: janu_ry (tháng Một)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thế kỷ)",
+      "options": [
+        "cnetury",
+        "century",
+        "centruy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tháng Tư\"?",
+      "options": [
+        "June",
+        "September",
+        "April"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"twenty-first\" mean?",
+      "options": [
+        "thứ hai mươi mốt",
+        "thứ ba mươi mốt",
+        "thứ ba mươi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tháng Mười\"?",
+      "options": [
+        "January",
+        "October",
+        "February"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Her birthday is on the ___ of June.",
+      "options": [
+        "thirtieth",
+        "century",
+        "month"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_cember (tháng Mười Hai)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What is today's ___?",
+      "options": [
+        "thirtieth",
+        "thirty-first",
+        "date"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_ne (tháng Sáu)",
+      "options": [
+        "u",
+        "e",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tháng Ba)",
+      "options": [
+        "Marrch",
+        "March",
+        "Mrach"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"month\" mean?",
+      "options": [
+        "tháng",
+        "thế kỷ",
+        "thứ ba mươi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"May\" mean?",
+      "options": [
+        "tháng Tư",
+        "tháng Mười",
+        "tháng Năm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"September\" mean?",
+      "options": [
+        "tháng Ba",
+        "tháng Chín",
+        "tháng Mười Một"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at a calendar",
+    "Point to your watch",
+    "Show me thirty with your fingers",
+    "Show me thirty with your fingers",
+    "Yawn and stretch slowly",
+    "Pretend to set an alarm clock"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

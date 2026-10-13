@@ -1,0 +1,275 @@
+{
+  "title": "Wild and Sea Animals",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "kangaroo",
+      "meaning": "chuột túi",
+      "category": "animal",
+      "example": "The kangaroo jumps with her baby.",
+      "image": ""
+    },
+    {
+      "word": "lion",
+      "meaning": "con sư tử",
+      "category": "animal",
+      "example": "The lion is the king of animals.",
+      "image": ""
+    },
+    {
+      "word": "panda",
+      "meaning": "con gấu trúc",
+      "category": "animal",
+      "example": "The panda is eating bamboo.",
+      "image": ""
+    },
+    {
+      "word": "penguin",
+      "meaning": "chim cánh cụt",
+      "category": "bird",
+      "example": "The penguin walks on the ice.",
+      "image": ""
+    },
+    {
+      "word": "dolphin",
+      "meaning": "con cá heo",
+      "category": "sea-animal",
+      "example": "A dolphin jumps out of the water.",
+      "image": ""
+    },
+    {
+      "word": "shark",
+      "meaning": "con cá mập",
+      "category": "sea-animal",
+      "example": "The shark swims very fast.",
+      "image": ""
+    },
+    {
+      "word": "whale",
+      "meaning": "con cá voi",
+      "category": "sea-animal",
+      "example": "The whale is the biggest animal in the sea.",
+      "image": ""
+    },
+    {
+      "word": "jungle",
+      "meaning": "rừng rậm",
+      "category": "nature",
+      "example": "Monkeys play in the jungle.",
+      "image": ""
+    },
+    {
+      "word": "snail",
+      "meaning": "con ốc sên",
+      "category": "insect",
+      "example": "The snail moves very slowly.",
+      "image": ""
+    },
+    {
+      "word": "tiger",
+      "meaning": "con hổ",
+      "category": "animal",
+      "example": "The tiger has orange and black stripes.",
+      "image": ""
+    },
+    {
+      "word": "elephant",
+      "meaning": "con voi",
+      "category": "animal",
+      "example": "The elephant has a long nose.",
+      "image": ""
+    },
+    {
+      "word": "monkey",
+      "meaning": "con khỉ",
+      "category": "animal",
+      "example": "The monkey likes to eat bananas.",
+      "image": ""
+    },
+    {
+      "word": "bear",
+      "meaning": "con gấu",
+      "category": "animal",
+      "example": "The bear is eating honey.",
+      "image": ""
+    },
+    {
+      "word": "fish",
+      "meaning": "con cá",
+      "category": "sea-animal",
+      "example": "There is a fish in the bowl.",
+      "image": ""
+    },
+    {
+      "word": "crocodile",
+      "meaning": "con cá sấu",
+      "category": "animal",
+      "example": "The crocodile has big sharp teeth.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"penguin\" mean?",
+      "options": [
+        "con cá heo",
+        "chim cánh cụt",
+        "con sư tử"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wh_le (con cá voi)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lion\" mean?",
+      "options": [
+        "con sư tử",
+        "chim cánh cụt",
+        "rừng rậm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con cá sấu\"?",
+      "options": [
+        "monkey",
+        "panda",
+        "crocodile"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has a long nose.",
+      "options": [
+        "elephant",
+        "go to sleep",
+        "fine"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bear\" mean?",
+      "options": [
+        "chuột túi",
+        "con gấu",
+        "con hổ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: kangar_o (chuột túi)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rừng rậm\"?",
+      "options": [
+        "jungle",
+        "kangaroo",
+        "tiger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"monkey\" mean?",
+      "options": [
+        "chuột túi",
+        "con hổ",
+        "con khỉ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con cá\"?",
+      "options": [
+        "fish",
+        "lamp",
+        "word"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_nda (con gấu trúc)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ swims very fast.",
+      "options": [
+        "jungle",
+        "trip",
+        "shark"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con cá heo)",
+      "options": [
+        "dolpphin",
+        "dolphin",
+        "doplhin"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con ốc sên)",
+      "options": [
+        "snail",
+        "sneil",
+        "snnail"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con hổ)",
+      "options": [
+        "tyger",
+        "tgier",
+        "tiger"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Roar like a lion",
+    "Walk like a penguin on the spot",
+    "Hop like a kangaroo",
+    "Show me a big shark fin with your hand",
+    "Swim like a dolphin with your arms",
+    "Move slowly like a snail"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

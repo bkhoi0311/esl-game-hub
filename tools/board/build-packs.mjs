@@ -1,4 +1,4 @@
-// Đóng gói 31 gói thư viện thành module .js tĩnh cho Bảng nhiều người viết (PLAN-V2 mục B.i).
+// Đóng gói các gói thư viện (31 gói chung + gói theo cấp) thành module .js tĩnh cho Bảng nhiều người viết (PLAN-V2 mục B.i).
 // Bảng có CSP connect-src 'none' nên không fetch được JSON: nạp bằng import() cùng origin.
 // Dùng: node tools/board/build-packs.mjs [--src <thư mục library>] [--out <thư mục ra>]
 // Kiểm tra sai thì DỪNG (exit 1), không ghi gì.
@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 export const MAX_MODULE = 12 * 1024;
-export const MAX_TOTAL = 200 * 1024;
+export const MAX_TOTAL = 900 * 1024;
 const HEADER = '// TỰ SINH, KHÔNG SỬA TAY (tools/board/build-packs.mjs)\n';
 
 export function buildPacks({ srcDir, outDir, write = true }) {
@@ -32,11 +32,11 @@ export function buildPacks({ srcDir, outDir, write = true }) {
     const bytes = Buffer.byteLength(text, 'utf8');
     if (bytes > MAX_MODULE) errors.push(it.id + ': module ' + bytes + ' B > 12 KB');
     files[it.id + '.js'] = text;
-    catalog.push({ id: it.id, title: it.title, titleVi: it.titleVi, level: it.level, words: vocab.length, questions: questions.length });
+    catalog.push({ id: it.id, title: it.title, titleVi: it.titleVi, level: it.level, general: !!it.general, kw: it.kw || '', words: vocab.length, questions: questions.length });
   }
   files['catalog.js'] = HEADER + 'export default ' + JSON.stringify(catalog) + ';\n';
   const total = Object.values(files).reduce((a, t) => a + Buffer.byteLength(t, 'utf8'), 0);
-  if (total > MAX_TOTAL) errors.push('tổng ' + total + ' B > 200 KB');
+  if (total > MAX_TOTAL) errors.push('tổng ' + total + ' B > 900 KB');
   if (!errors.length && write) {
     fs.mkdirSync(outDir, { recursive: true });
     for (const k of Object.keys(files)) fs.writeFileSync(path.join(outDir, k), files[k]);

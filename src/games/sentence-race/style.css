@@ -1,0 +1,29 @@
+/* Sentence Race. Chromium 109 (ClassIn X): không color-mix, không nesting, không aspect-ratio trong track auto. */
+.sr-scores { width: 100%; max-width: 34rem; }
+.sr-play { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; padding: 0.8rem 1.4rem 1.2rem; }
+.sr-half { position: relative; display: flex; flex-direction: column; gap: 1rem; min-width: 0; min-height: 0; padding: 1.2rem 1.4rem;
+  border: 0.35rem solid var(--team); border-radius: 2rem; background: #fff linear-gradient(var(--team-7), var(--team-7));
+  touch-action: none; overflow: hidden; -webkit-user-select: none; user-select: none; }
+.sr-head { display: flex; align-items: center; justify-content: space-between; min-height: 3rem; }
+.sr-name { font-size: 2.2rem; font-weight: 800; color: var(--team); }
+.sr-done { font-size: 1.8rem; font-weight: 800; color: var(--brand-ink); }
+.sr-line { min-height: 13rem; display: flex; flex-wrap: wrap; align-content: flex-start; align-items: flex-end; gap: 0.8rem;
+  padding: 1rem; border: 0.25rem dashed var(--team-25); border-radius: 1.4rem; background: #fff; }
+.sr-line.done { border-style: solid; border-color: #04bc09; background: #eafbe9; }
+.sr-slot { width: 5rem; height: 5.2rem; border-bottom: 0.4rem solid var(--team); border-radius: 0.4rem; }
+.sr-line.done .sr-slot { display: none; }
+.sr-end { display: none; font-family: var(--font-en); font-size: 3rem; font-weight: 800; line-height: 5.2rem; }
+.sr-line.done .sr-end { display: inline; }
+.sr-pool { flex: 1 1 auto; min-height: 0; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 1.1rem; }
+.sr-tile { display: inline-flex; align-items: center; justify-content: center; min-width: 6rem; min-height: 6rem; padding: 0 1.4rem; border: 0.25rem solid var(--brand-ink); border-radius: 1.2rem;
+  background: #fff; box-shadow: 0 0.35rem 0 var(--brand-ink); font-family: var(--font-en); font-size: 2.8rem; font-weight: 800;
+  color: var(--brand-ink); cursor: pointer; touch-action: none; }
+.sr-tile.used { visibility: hidden; }
+.sr-tile.placed { min-height: 5.2rem; font-size: 2.4rem; box-shadow: none; border-color: var(--team); background: #fff linear-gradient(var(--team-12), var(--team-12)); cursor: default; }
+.sr-tile.hint { outline: 0.4rem solid #ffd23f; outline-offset: 0.2rem; }
+html:not(.no-loop) .sr-tile.hint { animation: sr-hint 0.9s ease-in-out infinite alternate; }
+@keyframes sr-hint { to { outline-color: #ff9800; } }
+.sr-long .sr-tile { font-size: 2.4rem; padding: 0 1.1rem; } /* tổng ký tự câu > 40: chữ nhỏ lại, chiều cao thẻ GIỮ 6rem */
+.sr-long .sr-tile.placed { font-size: 2.1rem; }
+.sr-cool { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; place-items: start end; padding: 1rem 2rem; background: rgba(28, 31, 37, 0.16); pointer-events: none; z-index: 3; color: var(--brand-ink); }
+.sr-half.cooling .sr-cool { display: grid; }

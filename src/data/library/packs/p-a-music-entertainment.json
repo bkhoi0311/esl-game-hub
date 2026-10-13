@@ -1,0 +1,261 @@
+{
+  "title": "Music and Entertainment",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "flute",
+      "meaning": "cây sáo",
+      "category": "music",
+      "example": "She plays the flute at school.",
+      "image": ""
+    },
+    {
+      "word": "guitarist",
+      "meaning": "người chơi guitar",
+      "category": "music",
+      "example": "The guitarist in our school band is very good.",
+      "image": ""
+    },
+    {
+      "word": "orchestra",
+      "meaning": "dàn nhạc",
+      "category": "music",
+      "example": "The school orchestra will play at the concert tonight.",
+      "image": ""
+    },
+    {
+      "word": "soundtrack",
+      "meaning": "nhạc phim",
+      "category": "music",
+      "example": "The soundtrack of the film is really exciting.",
+      "image": ""
+    },
+    {
+      "word": "trumpet",
+      "meaning": "kèn trumpet",
+      "category": "music",
+      "example": "He plays the trumpet at school.",
+      "image": ""
+    },
+    {
+      "word": "performer",
+      "meaning": "người biểu diễn",
+      "category": "job",
+      "example": "The street performer made everyone laugh.",
+      "image": ""
+    },
+    {
+      "word": "disc jockey",
+      "meaning": "người chơi nhạc",
+      "category": "job",
+      "example": "The disc jockey played all our favourite songs at the party.",
+      "image": ""
+    },
+    {
+      "word": "nightclub",
+      "meaning": "hộp đêm",
+      "category": "place",
+      "example": "The nightclub is on a busy street in the city centre.",
+      "image": ""
+    },
+    {
+      "word": "audience",
+      "meaning": "khán giả",
+      "category": "people",
+      "example": "The audience clapped loudly at the end of the show.",
+      "image": ""
+    },
+    {
+      "word": "ceremony",
+      "meaning": "buổi lễ",
+      "category": "celebration",
+      "example": "The prize ceremony starts at six o'clock tonight.",
+      "image": ""
+    },
+    {
+      "word": "entertainment",
+      "meaning": "giải trí",
+      "category": "media",
+      "example": "There is plenty of entertainment for teenagers in this city.",
+      "image": ""
+    },
+    {
+      "word": "recording",
+      "meaning": "bản ghi âm",
+      "category": "media",
+      "example": "Listen to the recording and answer the questions.",
+      "image": ""
+    },
+    {
+      "word": "fireworks",
+      "meaning": "pháo hoa",
+      "category": "celebration",
+      "example": "The fireworks are bright in the sky.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nhạc phim\"?",
+      "options": [
+        "nightclub",
+        "coast",
+        "soundtrack"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: firew_rks (pháo hoa)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hộp đêm\"?",
+      "options": [
+        "surfboarding",
+        "nightclub",
+        "scene"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of the film is really exciting.",
+      "options": [
+        "audience",
+        "soundtrack",
+        "disc jockey"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người chơi nhạc\"?",
+      "options": [
+        "disc jockey",
+        "soundtrack",
+        "trumpet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: guitar_st (người chơi guitar)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"entertainment\" mean?",
+      "options": [
+        "giải trí",
+        "khán giả",
+        "pháo hoa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: trump_t (kèn trumpet)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She plays the ___ at school.",
+      "options": [
+        "national",
+        "discuss",
+        "flute"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flute\" mean?",
+      "options": [
+        "người chơi nhạc",
+        "hộp đêm",
+        "cây sáo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bản ghi âm)",
+      "options": [
+        "recording",
+        "recorrding",
+        "recordnig"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người biểu diễn\"?",
+      "options": [
+        "flute",
+        "performer",
+        "trumpet"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dàn nhạc)",
+      "options": [
+        "orchestre",
+        "orchestra",
+        "orcehstra"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ceremony\" mean?",
+      "options": [
+        "buổi lễ",
+        "người biểu diễn",
+        "bản ghi âm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"audience\" mean?",
+      "options": [
+        "kèn trumpet",
+        "hộp đêm",
+        "khán giả"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the flute",
+    "Pretend to play the guitar",
+    "Pretend to blow a trumpet",
+    "Pretend to conduct an orchestra",
+    "Pretend to clap for a performer",
+    "Pretend to be a disc jockey"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

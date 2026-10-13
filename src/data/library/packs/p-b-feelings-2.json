@@ -1,0 +1,283 @@
+{
+  "title": "Feelings and Emotions 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "jealous",
+      "meaning": "ghen tị",
+      "category": "feeling",
+      "example": "He felt jealous when his friend got a new phone.",
+      "image": ""
+    },
+    {
+      "word": "keen",
+      "meaning": "ham mê, thích thú",
+      "category": "feeling",
+      "example": "My sister is keen on tennis and plays every day.",
+      "image": ""
+    },
+    {
+      "word": "lonely",
+      "meaning": "cô đơn",
+      "category": "feeling",
+      "example": "He felt lonely after his best friend moved away.",
+      "image": ""
+    },
+    {
+      "word": "miserable",
+      "meaning": "khổ sở",
+      "category": "feeling",
+      "example": "I felt miserable when I lost my phone.",
+      "image": ""
+    },
+    {
+      "word": "proud",
+      "meaning": "tự hào",
+      "category": "feeling",
+      "example": "Her parents were proud of her exam results.",
+      "image": ""
+    },
+    {
+      "word": "relaxed",
+      "meaning": "thoải mái, thư thái",
+      "category": "feeling",
+      "example": "I feel relaxed after a warm bath.",
+      "image": ""
+    },
+    {
+      "word": "relieved",
+      "meaning": "nhẹ nhõm",
+      "category": "feeling",
+      "example": "We were relieved when the exam finished.",
+      "image": ""
+    },
+    {
+      "word": "satisfied",
+      "meaning": "hài lòng",
+      "category": "feeling",
+      "example": "The customer was satisfied with the quick service.",
+      "image": ""
+    },
+    {
+      "word": "shocked",
+      "meaning": "bị sốc",
+      "category": "feeling",
+      "example": "Everyone was shocked by the sudden noise.",
+      "image": ""
+    },
+    {
+      "word": "sleepy",
+      "meaning": "buồn ngủ",
+      "category": "feeling",
+      "example": "The baby is sleepy now.",
+      "image": ""
+    },
+    {
+      "word": "stressed",
+      "meaning": "căng thẳng",
+      "category": "feeling",
+      "example": "I feel stressed before big exams.",
+      "image": ""
+    },
+    {
+      "word": "terrified",
+      "meaning": "rất sợ hãi",
+      "category": "feeling",
+      "example": "She was terrified of the dark.",
+      "image": ""
+    },
+    {
+      "word": "uncomfortable",
+      "meaning": "khó chịu, không thoải mái",
+      "category": "feeling",
+      "example": "These shoes are really uncomfortable when I walk far.",
+      "image": ""
+    },
+    {
+      "word": "uninterested",
+      "meaning": "không hứng thú",
+      "category": "feeling",
+      "example": "He looked uninterested during the history lesson.",
+      "image": ""
+    },
+    {
+      "word": "unsure",
+      "meaning": "không chắc chắn",
+      "category": "feeling",
+      "example": "I am unsure about the answer to question four.",
+      "image": ""
+    },
+    {
+      "word": "fond",
+      "meaning": "yêu mến",
+      "category": "feeling",
+      "example": "She is very fond of her little cousin.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"uncomfortable\" mean?",
+      "options": [
+        "khó chịu, không thoải mái",
+        "người Pháp, tiếng Pháp",
+        "người Tây Ban Nha, tiếng Tây Ban Nha"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She is very ___ of her little cousin.",
+      "options": [
+        "disappear",
+        "go out",
+        "fond"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keen\" mean?",
+      "options": [
+        "có năng khiếu âm nhạc",
+        "ham mê, thích thú",
+        "thuộc Thế vận hội"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"buồn ngủ\"?",
+      "options": [
+        "electronic",
+        "sleepy",
+        "Spanish"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (căng thẳng)",
+      "options": [
+        "stressed",
+        "stresed",
+        "stresesd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"terrified\" mean?",
+      "options": [
+        "người Brazil",
+        "thứ hai",
+        "rất sợ hãi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ghen tị\"?",
+      "options": [
+        "jealous",
+        "third",
+        "electronic"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: uns_re (không chắc chắn)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I felt ___ when I lost my phone.",
+      "options": [
+        "kilogramme",
+        "spaceship",
+        "miserable"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_laxed (thoải mái, thư thái)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"satisfied\" mean?",
+      "options": [
+        "người Ý, tiếng Ý",
+        "không tay",
+        "hài lòng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_nely (cô đơn)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhẹ nhõm\"?",
+      "options": [
+        "relieved",
+        "digital",
+        "Indian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị sốc)",
+      "options": [
+        "shockid",
+        "shocekd",
+        "shocked"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tự hào)",
+      "options": [
+        "pruod",
+        "proud",
+        "pruud"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are proud",
+    "Show me you are relieved",
+    "Show me you are shocked",
+    "Show me you are bored and uninterested",
+    "Show me you are stressed about a test",
+    "Show me you are relaxed",
+    "Pretend to look sleepy"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

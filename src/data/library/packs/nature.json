@@ -157,9 +157,9 @@
     {
       "prompt": "Ducks swim on the ___.",
       "options": [
-        "white",
+        "shout",
         "lake",
-        "celebrate"
+        "write"
       ],
       "answer": 1,
       "type": "vocab"
@@ -178,8 +178,8 @@
       "prompt": "Monkeys play in the ___.",
       "options": [
         "jungle",
-        "hungry",
-        "warm"
+        "black",
+        "catch"
       ],
       "answer": 0,
       "type": "vocab"
@@ -197,8 +197,8 @@
     {
       "prompt": "Which word means \"bông hoa\"?",
       "options": [
-        "toy",
-        "hair",
+        "apartment",
+        "teddy",
         "flower"
       ],
       "answer": 2,
@@ -217,9 +217,9 @@
     {
       "prompt": "Which word means \"cái cây\"?",
       "options": [
-        "bottle",
+        "chair",
         "tree",
-        "board"
+        "painting"
       ],
       "answer": 1,
       "type": "vocab"
@@ -235,11 +235,21 @@
       "type": "vocab"
     },
     {
+      "prompt": "Find the missing letter: h_ll (ngọn đồi)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
       "prompt": "Which word means \"bầu trời\"?",
       "options": [
-        "sea",
+        "desert",
         "sky",
-        "jungle"
+        "sea"
       ],
       "answer": 1,
       "type": "vocab"

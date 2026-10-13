@@ -1,0 +1,310 @@
+{
+  "title": "Food and Drink",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "cheese",
+      "meaning": "phô mai",
+      "category": "food",
+      "example": "I like cheese on my pizza.",
+      "image": ""
+    },
+    {
+      "word": "pancake",
+      "meaning": "bánh kếp",
+      "category": "food",
+      "example": "Dad flips a pancake in the pan.",
+      "image": ""
+    },
+    {
+      "word": "sauce",
+      "meaning": "nước sốt",
+      "category": "food",
+      "example": "I like tomato sauce on my pasta.",
+      "image": ""
+    },
+    {
+      "word": "coffee",
+      "meaning": "cà phê",
+      "category": "drink",
+      "example": "My dad drinks hot coffee in the morning.",
+      "image": ""
+    },
+    {
+      "word": "tea",
+      "meaning": "trà",
+      "category": "drink",
+      "example": "My grandpa drinks green tea every day.",
+      "image": ""
+    },
+    {
+      "word": "milkshake",
+      "meaning": "sữa lắc",
+      "category": "drink",
+      "example": "I want a strawberry milkshake, please.",
+      "image": ""
+    },
+    {
+      "word": "noodles",
+      "meaning": "mì sợi",
+      "category": "meal",
+      "example": "We eat noodles with chopsticks.",
+      "image": ""
+    },
+    {
+      "word": "pasta",
+      "meaning": "mì ống",
+      "category": "meal",
+      "example": "My brother loves pasta with tomato sauce.",
+      "image": ""
+    },
+    {
+      "word": "salad",
+      "meaning": "món salad",
+      "category": "meal",
+      "example": "Mum makes a fresh salad for lunch.",
+      "image": ""
+    },
+    {
+      "word": "sandwich",
+      "meaning": "bánh mì kẹp",
+      "category": "meal",
+      "example": "I eat a cheese sandwich at school.",
+      "image": ""
+    },
+    {
+      "word": "soup",
+      "meaning": "món súp",
+      "category": "meal",
+      "example": "Hot soup is great on a cold day.",
+      "image": ""
+    },
+    {
+      "word": "vegetable",
+      "meaning": "rau củ",
+      "category": "vegetable",
+      "example": "Broccoli is my favourite vegetable.",
+      "image": ""
+    },
+    {
+      "word": "cup",
+      "meaning": "cái tách",
+      "category": "thing",
+      "example": "He drinks tea from a cup.",
+      "image": ""
+    },
+    {
+      "word": "glass",
+      "meaning": "cái cốc thuỷ tinh",
+      "category": "thing",
+      "example": "Please give me a glass of water.",
+      "image": ""
+    },
+    {
+      "word": "bottle",
+      "meaning": "cái chai",
+      "category": "thing",
+      "example": "The bottle is full of juice.",
+      "image": ""
+    },
+    {
+      "word": "ice",
+      "meaning": "nước đá",
+      "category": "thing",
+      "example": "Put some ice in my drink.",
+      "image": ""
+    },
+    {
+      "word": "bowl",
+      "meaning": "cái bát",
+      "category": "thing",
+      "example": "There is a bowl of soup on the table.",
+      "image": ""
+    },
+    {
+      "word": "plate",
+      "meaning": "cái đĩa",
+      "category": "thing",
+      "example": "Put the food on the plate.",
+      "image": ""
+    },
+    {
+      "word": "milk",
+      "meaning": "sữa",
+      "category": "drink",
+      "example": "He drinks milk before bed.",
+      "image": ""
+    },
+    {
+      "word": "juice",
+      "meaning": "nước ép",
+      "category": "drink",
+      "example": "I drink orange juice at breakfast.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (rau củ)",
+      "options": [
+        "vegetable",
+        "vegitable",
+        "vegetabl"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: milksh_ke (sữa lắc)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nước ép)",
+      "options": [
+        "juyce",
+        "juice",
+        "juicce"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"milk\" mean?",
+      "options": [
+        "sữa",
+        "cà phê",
+        "nước ép"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I like ___ on my pizza.",
+      "options": [
+        "get on",
+        "cheese",
+        "sing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"noodles\" mean?",
+      "options": [
+        "món salad",
+        "mì ống",
+        "mì sợi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước sốt\"?",
+      "options": [
+        "cheese",
+        "pancake",
+        "sauce"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cup\" mean?",
+      "options": [
+        "cái tách",
+        "cái chai",
+        "cái bát"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gl_ss (cái cốc thuỷ tinh)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái chai\"?",
+      "options": [
+        "bottle",
+        "tea",
+        "sauce"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"salad\" mean?",
+      "options": [
+        "món súp",
+        "bánh mì kẹp",
+        "món salad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is a ___ of soup on the table.",
+      "options": [
+        "weak",
+        "bowl",
+        "curly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _ce (nước đá)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cà phê\"?",
+      "options": [
+        "coffee",
+        "milkshake",
+        "tea"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bánh kếp)",
+      "options": [
+        "pancakke",
+        "pancake",
+        "pancaki"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat noodles",
+    "Pretend to drink a milkshake",
+    "Pretend to stir hot soup",
+    "Pretend to make a sandwich",
+    "Pretend to pour tea into a cup",
+    "Rub your tummy and say yum"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

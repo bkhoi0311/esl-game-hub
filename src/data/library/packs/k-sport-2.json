@@ -1,0 +1,289 @@
+{
+  "title": "Outdoor Activities",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "diving",
+      "meaning": "lặn",
+      "category": "sport",
+      "example": "She is taking a diving lesson at the beach.",
+      "image": ""
+    },
+    {
+      "word": "dive",
+      "meaning": "lặn",
+      "category": "action",
+      "example": "The boy can dive into the pool.",
+      "image": ""
+    },
+    {
+      "word": "sailing",
+      "meaning": "đi thuyền buồm",
+      "category": "sport",
+      "example": "We enjoy sailing on a sunny day.",
+      "image": ""
+    },
+    {
+      "word": "skiing",
+      "meaning": "trượt tuyết",
+      "category": "sport",
+      "example": "We go skiing in the mountains.",
+      "image": ""
+    },
+    {
+      "word": "surfboarding",
+      "meaning": "môn lướt ván",
+      "category": "sport",
+      "example": "My brother says surfboarding is popular on this coast.",
+      "image": ""
+    },
+    {
+      "word": "surfing",
+      "meaning": "lướt sóng",
+      "category": "sport",
+      "example": "We try surfing at the beach.",
+      "image": ""
+    },
+    {
+      "word": "surf",
+      "meaning": "lướt sóng",
+      "category": "action",
+      "example": "He likes to surf at the beach in summer.",
+      "image": ""
+    },
+    {
+      "word": "windsurfing",
+      "meaning": "môn lướt ván buồm",
+      "category": "sport",
+      "example": "My aunt thinks windsurfing is easier with a strong wind.",
+      "image": ""
+    },
+    {
+      "word": "surfboard",
+      "meaning": "ván lướt sóng",
+      "category": "thing",
+      "example": "She carried her surfboard down to the sea.",
+      "image": ""
+    },
+    {
+      "word": "riding",
+      "meaning": "cưỡi ngựa",
+      "category": "hobby",
+      "example": "She enjoys riding on her farm.",
+      "image": ""
+    },
+    {
+      "word": "walking",
+      "meaning": "đi bộ",
+      "category": "hobby",
+      "example": "We go walking in the hills.",
+      "image": ""
+    },
+    {
+      "word": "camping",
+      "meaning": "cắm trại",
+      "category": "hobby",
+      "example": "We go camping in summer.",
+      "image": ""
+    },
+    {
+      "word": "indoor",
+      "meaning": "trong nhà",
+      "category": "describe",
+      "example": "We play indoor games when it rains.",
+      "image": ""
+    },
+    {
+      "word": "outdoor",
+      "meaning": "ngoài trời",
+      "category": "describe",
+      "example": "We have an outdoor pool at our hotel.",
+      "image": ""
+    },
+    {
+      "word": "indoors",
+      "meaning": "ở trong nhà",
+      "category": "manner",
+      "example": "We stay indoors because it is raining.",
+      "image": ""
+    },
+    {
+      "word": "outdoors",
+      "meaning": "ở ngoài trời",
+      "category": "manner",
+      "example": "The children love to play outdoors.",
+      "image": ""
+    },
+    {
+      "word": "kit",
+      "meaning": "bộ đồ thể thao, bộ dụng cụ",
+      "category": "thing",
+      "example": "He packed his football kit in a bag.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (lặn)",
+      "options": [
+        "diving",
+        "divnig",
+        "divyng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We go ___ in the hills.",
+      "options": [
+        "outdoor",
+        "indoors",
+        "walking"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bộ đồ thể thao, bộ dụng cụ\"?",
+      "options": [
+        "surfing",
+        "kit",
+        "sailing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ind_or (trong nhà)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môn lướt ván)",
+      "options": [
+        "surffboarding",
+        "surfobarding",
+        "surfboarding"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_ve (lặn)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môn lướt ván buồm)",
+      "options": [
+        "windsurfing",
+        "windsufring",
+        "windsurffing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"riding\" mean?",
+      "options": [
+        "nước Tây Ban Nha",
+        "thác nước",
+        "cưỡi ngựa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ở ngoài trời\"?",
+      "options": [
+        "downstairs",
+        "outdoors",
+        "please"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: surf_ng (lướt sóng)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sailing\" mean?",
+      "options": [
+        "ván lướt sóng",
+        "đi thuyền buồm",
+        "bộ đồ thể thao, bộ dụng cụ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have an ___ pool at our hotel.",
+      "options": [
+        "outdoor",
+        "excuse",
+        "adventure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ván lướt sóng\"?",
+      "options": [
+        "surfboarding",
+        "surfboard",
+        "windsurfing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"skiing\" mean?",
+      "options": [
+        "áo sơ mi",
+        "sở thú",
+        "trượt tuyết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"indoors\" mean?",
+      "options": [
+        "ở trong nhà",
+        "ở tầng trên",
+        "làm ơn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ski down a hill",
+    "Pretend to sail a boat",
+    "Pretend to ride a surfboard",
+    "Pretend to pack your sports kit",
+    "Pretend to walk in a forest",
+    "Pretend to put on diving goggles"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

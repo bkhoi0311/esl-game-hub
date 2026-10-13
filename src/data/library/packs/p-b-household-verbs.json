@@ -1,0 +1,296 @@
+{
+  "title": "Everyday Action Verbs",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "decorate",
+      "meaning": "trang trí",
+      "category": "daily",
+      "example": "We decorate the classroom before every party.",
+      "image": ""
+    },
+    {
+      "word": "fasten",
+      "meaning": "thắt, cài",
+      "category": "daily",
+      "example": "Please fasten your seat belt now.",
+      "image": ""
+    },
+    {
+      "word": "fill up",
+      "meaning": "đổ đầy",
+      "category": "daily",
+      "example": "Dad stopped to fill up the car with petrol.",
+      "image": ""
+    },
+    {
+      "word": "fold",
+      "meaning": "gấp",
+      "category": "daily",
+      "example": "Please fold the paper in half.",
+      "image": ""
+    },
+    {
+      "word": "hang",
+      "meaning": "treo, móc",
+      "category": "daily",
+      "example": "She will hang her coat on the hook.",
+      "image": ""
+    },
+    {
+      "word": "knit",
+      "meaning": "đan len",
+      "category": "daily",
+      "example": "My grandmother taught me how to knit a scarf.",
+      "image": ""
+    },
+    {
+      "word": "mend",
+      "meaning": "sửa chữa, vá",
+      "category": "daily",
+      "example": "Dad can mend my broken bike.",
+      "image": ""
+    },
+    {
+      "word": "peel",
+      "meaning": "gọt vỏ",
+      "category": "daily",
+      "example": "Can you peel the potatoes for dinner?",
+      "image": ""
+    },
+    {
+      "word": "pour",
+      "meaning": "rót",
+      "category": "daily",
+      "example": "Can you pour some water into my glass?",
+      "image": ""
+    },
+    {
+      "word": "press",
+      "meaning": "nhấn",
+      "category": "daily",
+      "example": "You must press the green button to start.",
+      "image": ""
+    },
+    {
+      "word": "sew",
+      "meaning": "may",
+      "category": "daily",
+      "example": "My grandmother taught me how to sew a button.",
+      "image": ""
+    },
+    {
+      "word": "shave",
+      "meaning": "cạo râu",
+      "category": "daily",
+      "example": "My father likes to shave before breakfast.",
+      "image": ""
+    },
+    {
+      "word": "spill",
+      "meaning": "làm đổ",
+      "category": "daily",
+      "example": "Be careful not to spill your juice.",
+      "image": ""
+    },
+    {
+      "word": "stir",
+      "meaning": "khuấy",
+      "category": "daily",
+      "example": "Please stir the soup so it does not burn.",
+      "image": ""
+    },
+    {
+      "word": "sunbathe",
+      "meaning": "tắm nắng",
+      "category": "daily",
+      "example": "Tourists sunbathe on the beach all afternoon.",
+      "image": ""
+    },
+    {
+      "word": "unpack",
+      "meaning": "dỡ đồ ra",
+      "category": "daily",
+      "example": "We unpacked our bags as soon as we arrived at the hotel.",
+      "image": ""
+    },
+    {
+      "word": "undress",
+      "meaning": "cởi quần áo",
+      "category": "daily",
+      "example": "Students undress in the changing room before swimming lessons.",
+      "image": ""
+    },
+    {
+      "word": "wrap",
+      "meaning": "gói, bọc",
+      "category": "daily",
+      "example": "She wrapped the present in blue paper.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: m_nd (sửa chữa, vá)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hang\" mean?",
+      "options": [
+        "treo, móc",
+        "coi chừng, cẩn thận",
+        "làm sợ hãi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tắm nắng\"?",
+      "options": [
+        "flow",
+        "hike",
+        "sunbathe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_el (gọt vỏ)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dad stopped to ___ the car with petrol.",
+      "options": [
+        "base on",
+        "fill up",
+        "get in"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wr_p (gói, bọc)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fold\" mean?",
+      "options": [
+        "biết",
+        "xoá",
+        "gấp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trang trí)",
+      "options": [
+        "decorate",
+        "decoarte",
+        "decorati"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Students ___ in the changing room before swimming lessons.",
+      "options": [
+        "make sure",
+        "undress",
+        "approach"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cạo râu)",
+      "options": [
+        "shvae",
+        "shavi",
+        "shave"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fasten\" mean?",
+      "options": [
+        "thắt, cài",
+        "tưởng tượng",
+        "đến được"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhấn\"?",
+      "options": [
+        "used to",
+        "press",
+        "forgive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stir\" mean?",
+      "options": [
+        "khuấy",
+        "chia sẻ",
+        "dường như"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (làm đổ)",
+      "options": [
+        "spyll",
+        "spill",
+        "splil"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dỡ đồ ra\"?",
+      "options": [
+        "leave",
+        "declare",
+        "unpack"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to fold a shirt",
+    "Pretend to peel an apple",
+    "Pretend to knit a scarf",
+    "Pretend to stir a pot slowly",
+    "Pretend to wrap a present",
+    "Pretend to unpack a bag"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

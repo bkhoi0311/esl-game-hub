@@ -1,0 +1,126 @@
+{
+  "sampled": [
+    "yard",
+    "version",
+    "used to",
+    "vegetarian",
+    "war",
+    "volume",
+    "tuna",
+    "whatever",
+    "unit",
+    "user",
+    "unfair",
+    "unpleasant",
+    "underpants",
+    "unemployment",
+    "video clip"
+  ],
+  "sampleErrors": [
+    "used to"
+  ],
+  "fullPartReviewed": true,
+  "errorsTotal": [
+    "typically",
+    "undress",
+    "unfit",
+    "used to",
+    "wage",
+    "webcam",
+    "within",
+    "up to date"
+  ],
+  "fixed": [
+    {
+      "word": "typically",
+      "field": "vi",
+      "old": "thường thường",
+      "new": "thường là, điển hình"
+    },
+    {
+      "word": "undress",
+      "field": "ex",
+      "old": "The children undressed quickly and jumped into the pool.",
+      "new": "Students undress in the changing room before swimming lessons."
+    },
+    {
+      "word": "unfit",
+      "field": "vi",
+      "old": "không khoẻ mạnh",
+      "new": "thể lực kém"
+    },
+    {
+      "word": "used to",
+      "field": "cat",
+      "old": "daily",
+      "new": "time"
+    },
+    {
+      "word": "wage",
+      "field": "ex",
+      "old": "He spends his first wages on a new bike.",
+      "new": "He spent his first wages on a new bike."
+    },
+    {
+      "word": "webcam",
+      "field": "vi",
+      "old": "máy quay web",
+      "new": "camera máy tính"
+    },
+    {
+      "word": "within",
+      "field": "ex",
+      "old": "The film starts within ten minutes, so hurry up.",
+      "new": "Please reply to the email within two days."
+    },
+    {
+      "word": "up to date",
+      "field": "cat",
+      "old": "function",
+      "new": "describe"
+    },
+    {
+      "word": "war",
+      "field": "note",
+      "old": "",
+      "new": "PET nhạy cảm"
+    },
+    {
+      "word": "underneath",
+      "field": "vi",
+      "old": "bên dưới",
+      "new": "ở bên dưới"
+    },
+    {
+      "word": "upon",
+      "field": "vi",
+      "old": "trên",
+      "new": "ở trên"
+    },
+    {
+      "word": "zone",
+      "field": "vi",
+      "old": "khu vực",
+      "new": "vùng"
+    },
+    {
+      "word": "yard",
+      "field": "vi",
+      "old": "sân",
+      "new": "khoảng sân"
+    },
+    {
+      "word": "well-known",
+      "field": "vi",
+      "old": "nổi tiếng",
+      "new": "được nhiều người biết"
+    },
+    {
+      "word": "wetsuit suit",
+      "field": "note",
+      "old": "",
+      "new": "word lạ của danh sách (đúng: wetsuit); ex dùng alt wet suit"
+    }
+  ],
+  "stillCheck": []
+}

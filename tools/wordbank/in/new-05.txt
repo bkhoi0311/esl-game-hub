@@ -1,0 +1,63 @@
+africa	n	ket				Africa	n
+antarctica	n	ket				Antarctica	n
+asia	n	ket				Asia	n
+australia	n	ket				Australia	n
+brazil	n	ket				Brazil	n
+canada	n	ket				Canada	n
+china	n	ket				China	n
+europe	n	ket				Europe	n
+france	n	ket				France	n
+india	n	ket				India	n
+ireland	n	ket				Ireland	n
+italy	n	ket				Italy	n
+north america	n	ket				North America	n
+south america	n	ket				South America	n
+spain	n	ket				Spain	n
+vietnam	n	other	thêm cho lớp Việt Nam			Vietnam	n
+brazilian	adj	ket	quốc tịch, ngôn ngữ			Brazilian	adj
+canadian	adj	ket	quốc tịch, ngôn ngữ			Canadian	adj
+chinese	adj	ket	quốc tịch, ngôn ngữ			Chinese	adj
+french	adj	ket	quốc tịch, ngôn ngữ			French	adj
+indian	adj	ket	quốc tịch, ngôn ngữ			Indian	adj
+irish	adj	ket	quốc tịch, ngôn ngữ			Irish	adj
+italian	adj	ket	quốc tịch, ngôn ngữ			Italian	adj
+spanish	adj	ket	quốc tịch, ngôn ngữ			Spanish	adj
+vietnamese	adj	other	thêm cho lớp Việt Nam			Vietnamese	adj
+eighteen	num	starters					num
+eighteenth	num	movers	thứ tự				num
+eighth	num	movers	thứ tự				num
+eighty	num	movers					num
+eleven	num	starters					num
+eleventh	num	movers	thứ tự				num
+fifteen	num	starters					num
+fifteenth	num	movers	thứ tự				num
+fifth	num	movers	thứ tự				num
+fifty	num	movers					num
+forty	num	movers					num
+fourteen	num	starters					num
+fourteenth	num	movers	thứ tự				num
+fourth	num	movers	thứ tự				num
+nineteen	num	starters					num
+nineteenth	num	movers	thứ tự				num
+ninety	num	movers					num
+ninth	num	movers	thứ tự				num
+seventeen	num	starters					num
+seventeenth	num	movers	thứ tự				num
+seventh	num	movers	thứ tự				num
+seventy	num	movers					num
+sixteen	num	starters					num
+sixteenth	num	movers	thứ tự				num
+sixth	num	movers	thứ tự				num
+sixty	num	movers					num
+tenth	num	movers	thứ tự				num
+thirteen	num	starters					num
+thirteenth	num	movers	thứ tự				num
+thirtieth	num	flyers	thứ tự				num
+thirty	num	movers					num
+thirty-first	num	flyers	thứ tự				num
+twelfth	num	movers	thứ tự				num
+twelve	num	starters					num
+twentieth	num	movers	thứ tự				num
+twenty	num	starters					num
+twenty-first	num	flyers	thứ tự				num
+may (month)	n	flyers				May	n

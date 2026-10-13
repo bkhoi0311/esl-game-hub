@@ -1,0 +1,74 @@
+mine	pron	starters					pron
+miss	other	starters				Miss	title
+mr	other	starters				Mr	title
+mrs	other	starters				Mrs	title
+my	other	starters					poss
+name	n	starters					n
+next to	prep	starters					prep
+nice	adj	starters					adj
+not	adv	starters					adv
+now	adv	starters					adv
+of	prep	starters					prep
+oh	other	starters					dis
+oh dear	phr	starters					excl
+on	prep	starters	of place				prep
+or	other	starters					conj
+our	other	starters					poss
+ours	pron	starters					pron
+page	n	starters					n
+pardon	other	starters					int
+part	n	starters					n
+pick up	v	starters					v
+put	v	starters					v
+really	adv	starters					adv
+room	n	starters					n
+rug	n	starters					n
+scary	adj	starters					adj
+see you	phr	starters					excl
+she	pron	starters					pron
+show	v	starters					v
+so	other	starters					dis
+some	other	starters					det
+spell	v	starters					v
+start	v	starters					v
+tail	n	starters					n
+take a photo	v	starters		take a picture			v
+tell	v	starters					v
+tennis racket	n	starters					n
+thanks	other	starters					dis
+that	other	starters					det+pron
+the	other	starters					det
+their	other	starters					poss
+theirs	pron	starters					pron
+them	pron	starters					pron
+then	other	starters					dis
+there	adv	starters					adv
+these	other	starters					det+pron
+they	pron	starters					pron
+thing	n	starters					n
+this	other	starters					det+pron
+those	other	starters					det+pron
+tick	n	starters					n+v
+to	prep	starters					prep
+too	adv	starters					adv
+try	n	starters					n+v
+under	prep	starters					prep
+understand	v	starters					v
+us	pron	starters					pron
+very	adv	starters					adv
+want	v	starters					v
+we	pron	starters					pron
+wear	v	starters					v
+well	other	starters					dis
+well done	other	starters					dis
+what	other	starters					int
+where	other	starters					int
+which	other	starters					int
+who	other	starters					int
+whose	other	starters					int
+with	prep	starters					prep
+would like	v	starters					v
+wow	phr	starters					excl
+you	pron	starters					pron
+your	other	starters					poss
+yours	pron	starters					pron

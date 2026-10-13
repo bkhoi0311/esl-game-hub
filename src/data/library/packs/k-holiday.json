@@ -1,0 +1,296 @@
+{
+  "title": "Holidays and Hotels",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "accommodation",
+      "meaning": "chỗ ở",
+      "category": "travel",
+      "example": "We found cheap accommodation near the beach.",
+      "image": ""
+    },
+    {
+      "word": "campsite",
+      "meaning": "khu cắm trại",
+      "category": "travel",
+      "example": "We found a nice campsite by the river.",
+      "image": ""
+    },
+    {
+      "word": "guest-house",
+      "meaning": "nhà nghỉ, nhà khách",
+      "category": "travel",
+      "example": "We stayed in a small guest-house by the sea.",
+      "image": ""
+    },
+    {
+      "word": "guidebook",
+      "meaning": "sách hướng dẫn du lịch",
+      "category": "travel",
+      "example": "We read the guidebook on the train.",
+      "image": ""
+    },
+    {
+      "word": "sightseeing",
+      "meaning": "tham quan, ngắm cảnh",
+      "category": "travel",
+      "example": "We went sightseeing in the old town today.",
+      "image": ""
+    },
+    {
+      "word": "tourist",
+      "meaning": "khách du lịch",
+      "category": "people",
+      "example": "A tourist asked me the way to the museum.",
+      "image": ""
+    },
+    {
+      "word": "tour guide",
+      "meaning": "hướng dẫn viên du lịch",
+      "category": "job",
+      "example": "Our tour guide told us funny stories on the bus.",
+      "image": ""
+    },
+    {
+      "word": "guide",
+      "meaning": "hướng dẫn viên",
+      "category": "job",
+      "example": "The guide showed us the old castle.",
+      "image": ""
+    },
+    {
+      "word": "luggage",
+      "meaning": "hành lý",
+      "category": "thing",
+      "example": "Put your luggage in the car.",
+      "image": ""
+    },
+    {
+      "word": "passport",
+      "meaning": "hộ chiếu",
+      "category": "thing",
+      "example": "Dad keeps our passports in his bag.",
+      "image": ""
+    },
+    {
+      "word": "pack",
+      "meaning": "xếp đồ, đóng gói",
+      "category": "daily",
+      "example": "I pack my bag the night before.",
+      "image": ""
+    },
+    {
+      "word": "case",
+      "meaning": "hộp đựng, va li",
+      "category": "thing",
+      "example": "My new glasses came in a small black case.",
+      "image": ""
+    },
+    {
+      "word": "camping",
+      "meaning": "cắm trại",
+      "category": "hobby",
+      "example": "We go camping in summer.",
+      "image": ""
+    },
+    {
+      "word": "harbour",
+      "meaning": "bến cảng",
+      "category": "place",
+      "example": "Many boats are in the harbour.",
+      "image": ""
+    },
+    {
+      "word": "port",
+      "meaning": "cảng",
+      "category": "place",
+      "example": "The ship arrives at the port today.",
+      "image": ""
+    },
+    {
+      "word": "tourist information centre",
+      "meaning": "trung tâm thông tin du lịch",
+      "category": "place",
+      "example": "We asked at the tourist information centre for a map.",
+      "image": ""
+    },
+    {
+      "word": "visitor",
+      "meaning": "khách tham quan",
+      "category": "people",
+      "example": "Every visitor to the zoo gets a free map.",
+      "image": ""
+    },
+    {
+      "word": "guest",
+      "meaning": "khách",
+      "category": "people",
+      "example": "We have a guest tonight.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "The ___ showed us the old castle.",
+      "options": [
+        "port",
+        "harbour",
+        "guide"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khách du lịch)",
+      "options": [
+        "toursit",
+        "tourist",
+        "tourrist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_se (hộp đựng, va li)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sách hướng dẫn du lịch\"?",
+      "options": [
+        "guidebook",
+        "parents",
+        "boots"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tourist information centre\" mean?",
+      "options": [
+        "hướng dẫn viên du lịch",
+        "hướng dẫn viên",
+        "trung tâm thông tin du lịch"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xếp đồ, đóng gói)",
+      "options": [
+        "pcak",
+        "pack",
+        "pacck"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"accommodation\" mean?",
+      "options": [
+        "hộ chiếu",
+        "cắm trại",
+        "chỗ ở"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_est (khách)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We stayed in a small ___ by the sea.",
+      "options": [
+        "tour guide",
+        "guest-house",
+        "tourist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ssport (hộ chiếu)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"camping\" mean?",
+      "options": [
+        "cắm trại",
+        "khách du lịch",
+        "cảng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bến cảng\"?",
+      "options": [
+        "medicine",
+        "cheese",
+        "harbour"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"visitor\" mean?",
+      "options": [
+        "bến cảng",
+        "tham quan, ngắm cảnh",
+        "khách tham quan"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hành lý)",
+      "options": [
+        "luggagi",
+        "luggage",
+        "lugagge"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cảng\"?",
+      "options": [
+        "port",
+        "badminton",
+        "surfing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to pack a suitcase",
+    "Pretend to show your passport",
+    "Pretend to read a guidebook",
+    "Pretend to take a photo of a tall building",
+    "Pretend to check in at a hotel desk",
+    "Pretend to put up a tent slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "title": "Verbs of Thinking 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "accept",
+      "meaning": "chấp nhận",
+      "category": "mind",
+      "example": "He accepted the invitation to my birthday party.",
+      "image": ""
+    },
+    {
+      "word": "achieve",
+      "meaning": "đạt được",
+      "category": "mind",
+      "example": "You can achieve your goals if you work hard.",
+      "image": ""
+    },
+    {
+      "word": "admire",
+      "meaning": "ngưỡng mộ",
+      "category": "mind",
+      "example": "I admire my teacher because she is kind and patient.",
+      "image": ""
+    },
+    {
+      "word": "annoy",
+      "meaning": "làm bực mình",
+      "category": "mind",
+      "example": "Loud music can annoy your neighbours at night.",
+      "image": ""
+    },
+    {
+      "word": "approve",
+      "meaning": "đồng ý, chấp thuận",
+      "category": "mind",
+      "example": "My parents approve of my plan to join the club.",
+      "image": ""
+    },
+    {
+      "word": "attempt",
+      "meaning": "cố gắng",
+      "category": "mind",
+      "example": "He will attempt to climb the wall again.",
+      "image": ""
+    },
+    {
+      "word": "base on",
+      "meaning": "dựa trên",
+      "category": "mind",
+      "example": "The film is based on a true story about a brave dog.",
+      "image": ""
+    },
+    {
+      "word": "compare",
+      "meaning": "so sánh",
+      "category": "mind",
+      "example": "Let's compare the two phones before we buy one.",
+      "image": ""
+    },
+    {
+      "word": "concentrate",
+      "meaning": "tập trung",
+      "category": "mind",
+      "example": "It is hard to concentrate when the room is noisy.",
+      "image": ""
+    },
+    {
+      "word": "consider",
+      "meaning": "cân nhắc",
+      "category": "mind",
+      "example": "We are considering a trip to the mountains.",
+      "image": ""
+    },
+    {
+      "word": "consist",
+      "meaning": "bao gồm",
+      "category": "mind",
+      "example": "The team consists of six students.",
+      "image": ""
+    },
+    {
+      "word": "depend",
+      "meaning": "phụ thuộc",
+      "category": "mind",
+      "example": "Our trip depends on the weather.",
+      "image": ""
+    },
+    {
+      "word": "deserve",
+      "meaning": "xứng đáng",
+      "category": "mind",
+      "example": "You deserve a rest after all that hard work.",
+      "image": ""
+    },
+    {
+      "word": "disappoint",
+      "meaning": "làm thất vọng",
+      "category": "mind",
+      "example": "I do not want to disappoint my parents this term.",
+      "image": ""
+    },
+    {
+      "word": "dislike",
+      "meaning": "không thích",
+      "category": "mind",
+      "example": "Many teenagers dislike getting up early on Mondays.",
+      "image": ""
+    },
+    {
+      "word": "exist",
+      "meaning": "tồn tại",
+      "category": "mind",
+      "example": "Dinosaurs no longer exist, but we can see their bones.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (xứng đáng)",
+      "options": [
+        "deservve",
+        "deserve",
+        "deesrve"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngưỡng mộ)",
+      "options": [
+        "admyre",
+        "admiri",
+        "admire"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_mpare (so sánh)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cố gắng)",
+      "options": [
+        "atempt",
+        "atetmpt",
+        "attempt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disappoint\" mean?",
+      "options": [
+        "làm thất vọng",
+        "che, đậy",
+        "đi du lịch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bao gồm\"?",
+      "options": [
+        "quit",
+        "consist",
+        "try on"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dep_nd (phụ thuộc)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"accept\" mean?",
+      "options": [
+        "chấp nhận",
+        "biến mất",
+        "làm mất"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tập trung\"?",
+      "options": [
+        "happen",
+        "turn off",
+        "concentrate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"achieve\" mean?",
+      "options": [
+        "bao quanh",
+        "đạt được",
+        "trượt chân"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm bực mình\"?",
+      "options": [
+        "work",
+        "look at",
+        "annoy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"exist\" mean?",
+      "options": [
+        "tồn tại",
+        "bỏ, từ bỏ",
+        "nhận, lấy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: appr_ve (đồng ý, chấp thuận)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to concentrate on a hard task",
+    "Pretend to compare two pictures",
+    "Show me you approve with a thumbs up",
+    "Show me you dislike something",
+    "Pretend to consider a difficult choice",
+    "Show me you admire a painting"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

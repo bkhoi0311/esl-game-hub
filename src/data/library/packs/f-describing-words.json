@@ -1,0 +1,310 @@
+{
+  "title": "Describing Words",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "broken",
+      "meaning": "hỏng",
+      "category": "describe",
+      "example": "My toy car is broken.",
+      "image": ""
+    },
+    {
+      "word": "cheap",
+      "meaning": "rẻ",
+      "category": "describe",
+      "example": "These shoes are cheap, so I will buy them.",
+      "image": ""
+    },
+    {
+      "word": "dark",
+      "meaning": "tối",
+      "category": "describe",
+      "example": "It was dark in the cave.",
+      "image": ""
+    },
+    {
+      "word": "deep",
+      "meaning": "sâu",
+      "category": "describe",
+      "example": "The lake is very deep here.",
+      "image": ""
+    },
+    {
+      "word": "early",
+      "meaning": "sớm",
+      "category": "describe",
+      "example": "I get up early on school days.",
+      "image": ""
+    },
+    {
+      "word": "empty",
+      "meaning": "trống rỗng",
+      "category": "describe",
+      "example": "The box is empty.",
+      "image": ""
+    },
+    {
+      "word": "enormous",
+      "meaning": "khổng lồ",
+      "category": "describe",
+      "example": "We saw an enormous whale in the sea.",
+      "image": ""
+    },
+    {
+      "word": "enough",
+      "meaning": "đủ",
+      "category": "describe",
+      "example": "Do we have enough chairs for everyone?",
+      "image": ""
+    },
+    {
+      "word": "expensive",
+      "meaning": "đắt",
+      "category": "describe",
+      "example": "That watch is too expensive for me.",
+      "image": ""
+    },
+    {
+      "word": "fast",
+      "meaning": "nhanh",
+      "category": "describe",
+      "example": "A cheetah is very fast.",
+      "image": ""
+    },
+    {
+      "word": "full",
+      "meaning": "đầy",
+      "category": "describe",
+      "example": "The bag is full of books.",
+      "image": ""
+    },
+    {
+      "word": "half",
+      "meaning": "một nửa",
+      "category": "describe",
+      "example": "I ate half of the cake.",
+      "image": ""
+    },
+    {
+      "word": "heavy",
+      "meaning": "nặng",
+      "category": "describe",
+      "example": "This bag is too heavy for me.",
+      "image": ""
+    },
+    {
+      "word": "high",
+      "meaning": "cao",
+      "category": "describe",
+      "example": "The mountain is very high.",
+      "image": ""
+    },
+    {
+      "word": "large",
+      "meaning": "lớn",
+      "category": "describe",
+      "example": "They live in a large house.",
+      "image": ""
+    },
+    {
+      "word": "low",
+      "meaning": "thấp",
+      "category": "describe",
+      "example": "The table is too low for him.",
+      "image": ""
+    },
+    {
+      "word": "noisy",
+      "meaning": "ồn ào",
+      "category": "describe",
+      "example": "The classroom is very noisy today.",
+      "image": ""
+    },
+    {
+      "word": "ready",
+      "meaning": "sẵn sàng",
+      "category": "describe",
+      "example": "Dinner is ready, so come and eat.",
+      "image": ""
+    },
+    {
+      "word": "same",
+      "meaning": "cùng, giống nhau",
+      "category": "describe",
+      "example": "We have the same teacher this year.",
+      "image": ""
+    },
+    {
+      "word": "soft",
+      "meaning": "mềm",
+      "category": "describe",
+      "example": "My cat has soft fur.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (sẵn sàng)",
+      "options": [
+        "ready",
+        "riady",
+        "reedy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"deep\" mean?",
+      "options": [
+        "đắt",
+        "đầy",
+        "sâu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ch_ap (rẻ)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The table is too ___ for him.",
+      "options": [
+        "low",
+        "desert",
+        "stadium"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhanh)",
+      "options": [
+        "fasst",
+        "fsat",
+        "fast"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khổng lồ\"?",
+      "options": [
+        "deep",
+        "enormous",
+        "large"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"broken\" mean?",
+      "options": [
+        "hỏng",
+        "cao",
+        "ồn ào"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The box is ___.",
+      "options": [
+        "rucksack",
+        "chess",
+        "empty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tối\"?",
+      "options": [
+        "half",
+        "dark",
+        "cheap"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"noisy\" mean?",
+      "options": [
+        "khổng lồ",
+        "ồn ào",
+        "thấp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đầy\"?",
+      "options": [
+        "full",
+        "high",
+        "broken"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_gh (cao)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nặng)",
+      "options": [
+        "heevy",
+        "heavy",
+        "hiavy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_lf (một nửa)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"expensive\" mean?",
+      "options": [
+        "đắt",
+        "tối",
+        "cao"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me something enormous with your arms",
+    "Pretend to hold something heavy",
+    "Show me an empty box with your hands",
+    "Show me something very small",
+    "Pretend to be very noisy and then quiet",
+    "Show me you are ready"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

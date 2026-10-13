@@ -163,8 +163,8 @@
     {
       "prompt": "We paint pictures in ___.",
       "options": [
-        "seed",
-        "pumpkin",
+        "grandpa",
+        "moose",
         "art"
       ],
       "answer": 2,
@@ -214,8 +214,8 @@
       "prompt": "Use the ___ to clean the mistake.",
       "options": [
         "eraser",
-        "king",
-        "day"
+        "horse",
+        "judo"
       ],
       "answer": 0,
       "type": "vocab"

@@ -1,0 +1,282 @@
+{
+  "title": "Prepositions and Phrases 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "by hand",
+      "meaning": "bằng tay",
+      "category": "manner",
+      "example": "The letters were all written by hand in the past.",
+      "image": ""
+    },
+    {
+      "word": "by mistake",
+      "meaning": "do nhầm lẫn",
+      "category": "manner",
+      "example": "I took your bag by mistake because it looks like mine.",
+      "image": ""
+    },
+    {
+      "word": "by name",
+      "meaning": "theo tên",
+      "category": "manner",
+      "example": "The new teacher knows every student by name.",
+      "image": ""
+    },
+    {
+      "word": "in half",
+      "meaning": "làm đôi",
+      "category": "manner",
+      "example": "She cut the cake in half and shared it with her friend.",
+      "image": ""
+    },
+    {
+      "word": "in ink",
+      "meaning": "bằng mực",
+      "category": "manner",
+      "example": "You must write your final answers in ink.",
+      "image": ""
+    },
+    {
+      "word": "in pencil",
+      "meaning": "bằng bút chì",
+      "category": "manner",
+      "example": "Draw the map in pencil first so you can change it.",
+      "image": ""
+    },
+    {
+      "word": "in two",
+      "meaning": "làm đôi, thành hai phần",
+      "category": "manner",
+      "example": "The plate fell on the floor and broke in two.",
+      "image": ""
+    },
+    {
+      "word": "on purpose",
+      "meaning": "cố ý",
+      "category": "manner",
+      "example": "I think he broke the window on purpose.",
+      "image": ""
+    },
+    {
+      "word": "on request",
+      "meaning": "theo yêu cầu",
+      "category": "manner",
+      "example": "Free Wi-Fi is available on request at the hotel.",
+      "image": ""
+    },
+    {
+      "word": "on foot",
+      "meaning": "bằng cách đi bộ",
+      "category": "action",
+      "example": "She goes to school on foot every day.",
+      "image": ""
+    },
+    {
+      "word": "on board",
+      "meaning": "trên tàu, trên máy bay",
+      "category": "place",
+      "example": "All the passengers are now on board the ferry.",
+      "image": ""
+    },
+    {
+      "word": "on business",
+      "meaning": "đi công tác",
+      "category": "describe",
+      "example": "My uncle often travels abroad on business.",
+      "image": ""
+    },
+    {
+      "word": "on fire",
+      "meaning": "đang bốc cháy",
+      "category": "describe",
+      "example": "The old barn was on fire last night.",
+      "image": ""
+    },
+    {
+      "word": "on holiday",
+      "meaning": "đi nghỉ",
+      "category": "describe",
+      "example": "We are on holiday in the mountains this week.",
+      "image": ""
+    },
+    {
+      "word": "on sale",
+      "meaning": "đang giảm giá",
+      "category": "describe",
+      "example": "These trainers are on sale this weekend.",
+      "image": ""
+    },
+    {
+      "word": "on vacation",
+      "meaning": "đang đi nghỉ",
+      "category": "describe",
+      "example": "My cousins are on vacation at the beach.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"in pencil\" mean?",
+      "options": [
+        "đang bốc cháy",
+        "đi công tác",
+        "bằng bút chì"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle often travels abroad ___.",
+      "options": [
+        "by mistake",
+        "on business",
+        "in half"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đang đi nghỉ\"?",
+      "options": [
+        "on vacation",
+        "by post",
+        "get up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in ink\" mean?",
+      "options": [
+        "bằng cách đi bộ",
+        "đang đi nghỉ",
+        "bằng mực"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đi nghỉ\"?",
+      "options": [
+        "on holiday",
+        "by accident",
+        "by post"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in two\" mean?",
+      "options": [
+        "say mê, đang yêu",
+        "làm đôi, thành hai phần",
+        "dậy, ngồi dậy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Free Wi-Fi is available ___ at the hotel.",
+      "options": [
+        "on request",
+        "on board",
+        "on fire"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"by name\" mean?",
+      "options": [
+        "đang giảm giá",
+        "bằng cách đi bộ",
+        "theo tên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trên tàu, trên máy bay\"?",
+      "options": [
+        "in time",
+        "on board",
+        "in advance"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"by hand\" mean?",
+      "options": [
+        "bằng tay",
+        "đang đi nghỉ",
+        "đang bốc cháy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đang bốc cháy\"?",
+      "options": [
+        "on purpose",
+        "in pencil",
+        "on fire"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in half\" mean?",
+      "options": [
+        "đi nghỉ",
+        "làm đôi",
+        "đang giảm giá"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cố ý\"?",
+      "options": [
+        "on request",
+        "on purpose",
+        "by name"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on foot\" mean?",
+      "options": [
+        "bằng cách đi bộ",
+        "đi công tác",
+        "trên tàu, trên máy bay"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"do nhầm lẫn\"?",
+      "options": [
+        "lie down",
+        "thank you",
+        "by mistake"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to walk on foot slowly on the spot",
+    "Pretend to cut paper in half",
+    "Pretend to write in pencil",
+    "Pretend to go on holiday and wave",
+    "Pretend to board a plane",
+    "Pretend to read a sale sign"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

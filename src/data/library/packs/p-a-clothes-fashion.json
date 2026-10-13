@@ -1,0 +1,282 @@
+{
+  "title": "Clothes and Fashion",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "button",
+      "meaning": "cái cúc áo",
+      "category": "clothes",
+      "example": "My coat has three big buttons.",
+      "image": ""
+    },
+    {
+      "word": "clothing",
+      "meaning": "quần áo",
+      "category": "clothes",
+      "example": "Warm clothing is important for a winter trip.",
+      "image": ""
+    },
+    {
+      "word": "collar",
+      "meaning": "cổ áo",
+      "category": "clothes",
+      "example": "The collar of my shirt is too tight.",
+      "image": ""
+    },
+    {
+      "word": "handkerchief",
+      "meaning": "khăn tay",
+      "category": "clothes",
+      "example": "He wiped his face with a clean handkerchief.",
+      "image": ""
+    },
+    {
+      "word": "pants",
+      "meaning": "cái quần",
+      "category": "clothes",
+      "example": "My pants are new.",
+      "image": ""
+    },
+    {
+      "word": "pullover",
+      "meaning": "áo len chui đầu",
+      "category": "clothes",
+      "example": "I wear a warm pullover in winter.",
+      "image": ""
+    },
+    {
+      "word": "sandal",
+      "meaning": "chiếc dép quai hậu",
+      "category": "clothes",
+      "example": "I lost one sandal at the beach.",
+      "image": ""
+    },
+    {
+      "word": "sandals",
+      "meaning": "đôi dép quai hậu",
+      "category": "clothes",
+      "example": "Wear sandals on hot days.",
+      "image": ""
+    },
+    {
+      "word": "sleeve",
+      "meaning": "tay áo",
+      "category": "clothes",
+      "example": "The sleeve of my jacket is too long.",
+      "image": ""
+    },
+    {
+      "word": "sleeveless",
+      "meaning": "không tay",
+      "category": "clothes",
+      "example": "She wore a sleeveless dress in the summer heat.",
+      "image": ""
+    },
+    {
+      "word": "sweatshirt",
+      "meaning": "áo nỉ",
+      "category": "clothes",
+      "example": "He wears a grey sweatshirt on cold days.",
+      "image": ""
+    },
+    {
+      "word": "tracksuit",
+      "meaning": "bộ đồ thể thao",
+      "category": "clothes",
+      "example": "He wears a blue tracksuit to training.",
+      "image": ""
+    },
+    {
+      "word": "underwear",
+      "meaning": "đồ lót",
+      "category": "clothes",
+      "example": "Remember to pack enough underwear for the school camp.",
+      "image": ""
+    },
+    {
+      "word": "wetsuit",
+      "meaning": "bộ đồ lặn",
+      "category": "clothes",
+      "example": "You should wear a wet suit if you swim in cold water.",
+      "image": ""
+    },
+    {
+      "word": "fashionable",
+      "meaning": "hợp thời trang",
+      "category": "opinion",
+      "example": "She wore a fashionable jacket to the party.",
+      "image": ""
+    },
+    {
+      "word": "stylish",
+      "meaning": "sành điệu",
+      "category": "opinion",
+      "example": "Your new jacket looks very stylish.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (cổ áo)",
+      "options": [
+        "coller",
+        "collar",
+        "clolar"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: underw_ar (đồ lót)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"clothing\" mean?",
+      "options": [
+        "quần áo",
+        "sự sửa lỗi",
+        "cà phê"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bộ đồ thể thao)",
+      "options": [
+        "tracskuit",
+        "trracksuit",
+        "tracksuit"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khăn tay\"?",
+      "options": [
+        "handkerchief",
+        "credit",
+        "shopper"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: butt_n (cái cúc áo)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chiếc dép quai hậu\"?",
+      "options": [
+        "boy",
+        "sandal",
+        "officer"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sành điệu)",
+      "options": [
+        "stylsih",
+        "styilsh",
+        "stylish"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái quần\"?",
+      "options": [
+        "pants",
+        "entrance",
+        "document"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sleeveless\" mean?",
+      "options": [
+        "không tay",
+        "sành điệu",
+        "hợp thời trang"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She wore a ___ jacket to the party.",
+      "options": [
+        "wetsuit",
+        "fashionable",
+        "clothing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pull_ver (áo len chui đầu)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wetsuit\" mean?",
+      "options": [
+        "bài học, đơn vị",
+        "bờ biển",
+        "bộ đồ lặn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of my jacket is too long.",
+      "options": [
+        "sleeve",
+        "stylish",
+        "fashionable"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sandals\" mean?",
+      "options": [
+        "tương lai",
+        "đôi dép quai hậu",
+        "người nấu ăn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to do up a button",
+    "Pretend to put on a pullover",
+    "Pretend to wear sandals",
+    "Pretend to fold your sweatshirt",
+    "Pretend to check your collar",
+    "Pretend to walk like a fashion model"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

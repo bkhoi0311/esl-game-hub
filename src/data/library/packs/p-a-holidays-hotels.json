@@ -1,0 +1,289 @@
+{
+  "title": "Holidays and Hotels",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "booking",
+      "meaning": "việc đặt chỗ",
+      "category": "travel",
+      "example": "I made a booking for two nights at the hotel.",
+      "image": ""
+    },
+    {
+      "word": "reservation",
+      "meaning": "việc đặt chỗ",
+      "category": "travel",
+      "example": "I made a reservation for four people.",
+      "image": ""
+    },
+    {
+      "word": "reserve",
+      "meaning": "đặt trước, khu bảo tồn",
+      "category": "travel",
+      "example": "We reserved two seats on the evening train.",
+      "image": ""
+    },
+    {
+      "word": "hostel",
+      "meaning": "nhà trọ, ký túc xá",
+      "category": "travel",
+      "example": "We stayed in a cheap hostel near the station.",
+      "image": ""
+    },
+    {
+      "word": "resort",
+      "meaning": "khu nghỉ dưỡng",
+      "category": "travel",
+      "example": "We stayed at a beach resort last summer.",
+      "image": ""
+    },
+    {
+      "word": "honeymoon",
+      "meaning": "tuần trăng mật",
+      "category": "travel",
+      "example": "My aunt and uncle spent their honeymoon on a quiet island.",
+      "image": ""
+    },
+    {
+      "word": "reception",
+      "meaning": "quầy lễ tân",
+      "category": "place",
+      "example": "Please leave your key at reception.",
+      "image": ""
+    },
+    {
+      "word": "cabin",
+      "meaning": "cabin, buồng nhỏ",
+      "category": "travel",
+      "example": "Our cabin on the ship had two beds and a small window.",
+      "image": ""
+    },
+    {
+      "word": "cruise",
+      "meaning": "chuyến du thuyền",
+      "category": "travel",
+      "example": "They went on a cruise around the islands.",
+      "image": ""
+    },
+    {
+      "word": "baggage",
+      "meaning": "hành lý",
+      "category": "travel",
+      "example": "Our baggage arrived late at the airport.",
+      "image": ""
+    },
+    {
+      "word": "nightlife",
+      "meaning": "đời sống về đêm",
+      "category": "travel",
+      "example": "The city is famous for its exciting nightlife.",
+      "image": ""
+    },
+    {
+      "word": "facilities",
+      "meaning": "cơ sở vật chất",
+      "category": "place",
+      "example": "The new sports centre has excellent facilities for young players.",
+      "image": ""
+    },
+    {
+      "word": "seaside",
+      "meaning": "bờ biển",
+      "category": "place",
+      "example": "We spent a happy weekend at the seaside.",
+      "image": ""
+    },
+    {
+      "word": "check-in",
+      "meaning": "quầy làm thủ tục",
+      "category": "travel",
+      "example": "The check-in at the airport opens three hours before the flight.",
+      "image": ""
+    },
+    {
+      "word": "check out",
+      "meaning": "trả phòng",
+      "category": "daily",
+      "example": "You must check out of the hotel before noon.",
+      "image": ""
+    },
+    {
+      "word": "on holiday",
+      "meaning": "đi nghỉ",
+      "category": "describe",
+      "example": "We are on holiday in the mountains this week.",
+      "image": ""
+    },
+    {
+      "word": "on vacation",
+      "meaning": "đang đi nghỉ",
+      "category": "describe",
+      "example": "My cousins are on vacation at the beach.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: c_bin (cabin, buồng nhỏ)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bờ biển)",
+      "options": [
+        "seaside",
+        "seasdie",
+        "seaisde"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: book_ng (việc đặt chỗ)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (việc đặt chỗ)",
+      "options": [
+        "resevration",
+        "reservation",
+        "resrevation"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We stayed at a beach ___ last summer.",
+      "options": [
+        "resort",
+        "on vacation",
+        "on holiday"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đang đi nghỉ\"?",
+      "options": [
+        "on foot",
+        "on request",
+        "on vacation"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on holiday\" mean?",
+      "options": [
+        "dậy, ngồi dậy",
+        "đi nghỉ",
+        "bằng tay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đời sống về đêm\"?",
+      "options": [
+        "tissue",
+        "tournament",
+        "nightlife"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cơ sở vật chất)",
+      "options": [
+        "facilities",
+        "facylities",
+        "faciliites"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"baggage\" mean?",
+      "options": [
+        "bóng chày",
+        "ba lô",
+        "hành lý"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tuần trăng mật\"?",
+      "options": [
+        "honeymoon",
+        "February",
+        "cartoon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"reserve\" mean?",
+      "options": [
+        "con bạch tuộc",
+        "đặt trước, khu bảo tồn",
+        "đồ ăn nhanh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "They went on a ___ around the islands.",
+      "options": [
+        "cruise",
+        "check out",
+        "niece"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"check out\" mean?",
+      "options": [
+        "được gọi là",
+        "nhường đường",
+        "trả phòng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: host_l (nhà trọ, ký túc xá)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to check in at a hotel",
+    "Pretend to book a room on the phone",
+    "Pretend to carry your baggage",
+    "Pretend to relax at a seaside resort",
+    "Pretend to sunbathe on the beach",
+    "Pretend to ask the receptionist a question"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

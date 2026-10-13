@@ -1,0 +1,282 @@
+{
+  "title": "Music and Technology",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "guitar",
+      "meaning": "đàn ghi-ta",
+      "category": "music",
+      "example": "He plays the guitar well.",
+      "image": ""
+    },
+    {
+      "word": "music",
+      "meaning": "âm nhạc",
+      "category": "music",
+      "example": "She listens to music on the bus.",
+      "image": ""
+    },
+    {
+      "word": "piano",
+      "meaning": "đàn piano",
+      "category": "music",
+      "example": "She plays the piano at home.",
+      "image": ""
+    },
+    {
+      "word": "song",
+      "meaning": "bài hát",
+      "category": "music",
+      "example": "This song is very nice.",
+      "image": ""
+    },
+    {
+      "word": "sing",
+      "meaning": "hát",
+      "category": "action",
+      "example": "We sing songs in class.",
+      "image": ""
+    },
+    {
+      "word": "radio",
+      "meaning": "cái đài",
+      "category": "tech",
+      "example": "We listen to the radio in the car.",
+      "image": ""
+    },
+    {
+      "word": "camera",
+      "meaning": "máy ảnh",
+      "category": "tech",
+      "example": "She takes photos with her new camera.",
+      "image": ""
+    },
+    {
+      "word": "computer",
+      "meaning": "máy tính",
+      "category": "tech",
+      "example": "I play games on the computer.",
+      "image": ""
+    },
+    {
+      "word": "keyboard",
+      "meaning": "bàn phím",
+      "category": "tech",
+      "example": "I type on the keyboard.",
+      "image": ""
+    },
+    {
+      "word": "phone",
+      "meaning": "điện thoại",
+      "category": "tech",
+      "example": "Can I use your phone?",
+      "image": ""
+    },
+    {
+      "word": "robot",
+      "meaning": "người máy",
+      "category": "tech",
+      "example": "My robot can dance and sing.",
+      "image": ""
+    },
+    {
+      "word": "tablet",
+      "meaning": "máy tính bảng",
+      "category": "tech",
+      "example": "My brother plays games on a tablet.",
+      "image": ""
+    },
+    {
+      "word": "television",
+      "meaning": "cái tivi",
+      "category": "tech",
+      "example": "We have a big television.",
+      "image": ""
+    },
+    {
+      "word": "tv",
+      "meaning": "cái tivi",
+      "category": "tech",
+      "example": "I watch TV after dinner.",
+      "image": ""
+    },
+    {
+      "word": "photo",
+      "meaning": "bức ảnh",
+      "category": "thing",
+      "example": "Mum takes a photo of us.",
+      "image": ""
+    },
+    {
+      "word": "take a photo",
+      "meaning": "chụp ảnh",
+      "category": "daily",
+      "example": "Let's take a photo of the park.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"âm nhạc\"?",
+      "options": [
+        "lime",
+        "music",
+        "hand"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Mum takes a ___ of us.",
+      "options": [
+        "sing",
+        "watermelon",
+        "photo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (máy tính)",
+      "options": [
+        "computer",
+        "comptuer",
+        "compputer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She plays the ___ at home.",
+      "options": [
+        "piano",
+        "take a photo",
+        "closed"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keyboard\" mean?",
+      "options": [
+        "cái tivi",
+        "máy ảnh",
+        "bàn phím"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người máy)",
+      "options": [
+        "robut",
+        "robot",
+        "roobt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: so_g (bài hát)",
+      "options": [
+        "m",
+        "j",
+        "n"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chụp ảnh\"?",
+      "options": [
+        "take a photo",
+        "keyboard",
+        "tablet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"TV\" mean?",
+      "options": [
+        "máy tính",
+        "cái tivi",
+        "máy tính bảng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cam_ra (máy ảnh)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tablet\" mean?",
+      "options": [
+        "cái đài",
+        "máy tính bảng",
+        "máy ảnh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: televisi_n (cái tivi)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"radio\" mean?",
+      "options": [
+        "cái đài",
+        "bàn phím",
+        "người máy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (điện thoại)",
+      "options": [
+        "phonne",
+        "phone",
+        "phnoe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hát\"?",
+      "options": [
+        "robot",
+        "camera",
+        "sing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the guitar",
+    "Pretend to play the piano",
+    "Pretend to sing a song",
+    "Pretend to take a photo",
+    "Move like a robot slowly",
+    "Pretend to type on a keyboard"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

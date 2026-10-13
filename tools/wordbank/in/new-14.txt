@@ -1,0 +1,110 @@
+ability	n	pet					n
+abroad	adv	pet					adv
+absent	adj	pet					adj
+absolutely	adv	pet					adv
+accent	n	pet					n
+accept	v	pet					v
+acceptable	adj	pet					adj
+access	n	pet					n
+accompany	v	pet					v
+according to	phr	pet					prep phr
+account	n	pet					n
+accountant	n	pet					n
+accurate	adj	pet					adj
+ache	n	pet					n
+achieve	v	pet					v
+achievement	n	pet					n
+active	adj	pet					adj
+actress	n	pet					n
+addition	n	pet					n
+admire	v	pet					v
+admission	n	pet					n
+admit	v	pet					v
+advance	n	pet					n
+advantage	n	pet					n
+advertise	v	pet					v
+advise	v	pet					v
+affect	v	pet					v
+afford	v	pet					v
+agency	n	pet					n
+ages	n	pet					n pl
+ahead	adv	pet					adv
+aim	n	pet					n+v
+air conditioning	n	pet					n
+air force	n	pet					n
+airline	n	pet					n
+alike	adv	pet					adv
+alive	adj	pet					adj
+aloud	adv	pet					adv
+although	other	pet					conj
+altogether	adv	pet					adv
+ambition	n	pet					n
+amount	n	pet					n
+amusing	adj	pet					adj
+ancient	adj	pet					adj
+ankle	n	pet					n
+anniversary	n	pet					n
+announce	v	pet					v
+announcement	n	pet					n
+annoy	v	pet					v
+annoyed	adj	pet					adj
+annual	adj	pet					adj
+answerphone	n	pet					n
+antique	adj	pet					adj+n
+anxious	adj	pet					adj
+apart	adv	pet					adv
+apart from	adv	pet					adv
+apologise	v	pet					v
+apology	n	pet					n
+appearance	n	pet					n
+application	n	pet					n
+apply	v	pet					v
+approach	v	pet					v
+approve	v	pet					v
+approximately	adv	pet					adv
+architect	n	pet					n
+architecture	n	pet					n
+argue	v	pet					v
+argument	n	pet					n
+arithmetic	n	pet				Arithmetic	n
+army	n	pet					n
+arrange	v	pet					v
+arrangement	n	pet					n
+arrest	v	pet					v
+arrival	n	pet					n
+as long as	phr	pet					phr
+ashamed	adj	pet					adj
+aspirin	n	pet					n
+assist	v	pet					v
+at first	phr	pet					prep phr
+at last	phr	pet					prep phr
+at least	phr	pet					prep phr
+at once	phr	pet					prep phr
+at present	phr	pet					prep phr
+at the same time	phr	pet					prep phr
+athlete	n	pet					n
+athletics	n	pet					n
+atmosphere	n	pet					n
+attach	v	pet					v
+attack	n	pet					n+v
+attempt	v	pet					v
+attend	v	pet					v
+attention	n	pet					n
+attitude	n	pet					n
+attract	v	pet					v
+attraction	n	pet					n
+audience	n	pet					n
+author	n	pet					n
+average	adj	pet					adj+n
+avoid	v	pet					v
+babysit	v	pet					v
+babysitter	n	pet					n
+background	n	pet	experience				n
+backpacker	n	pet					n
+backpacking	n	pet					n
+backwards	adv	pet					adv
+baggage	n	pet					n
+bald	adj	pet					adj
+ballet	n	pet					n
+bank account	n	pet					n
+banker	n	pet					n

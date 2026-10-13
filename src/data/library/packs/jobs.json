@@ -151,8 +151,8 @@
       "prompt": "The ___ has many cows.",
       "options": [
         "farmer",
-        "white",
-        "afraid"
+        "blue",
+        "best"
       ],
       "answer": 0,
       "type": "vocab"
@@ -190,8 +190,8 @@
     {
       "prompt": "The ___ has a lovely voice.",
       "options": [
-        "learn",
-        "relax",
+        "big",
+        "close",
         "singer"
       ],
       "answer": 2,

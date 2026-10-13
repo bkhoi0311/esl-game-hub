@@ -1,0 +1,89 @@
+shut	v	ket					v
+side	n	ket					n
+sightseeing	n	ket					n
+similar	adj	ket					adj
+simple	adj	ket					adj
+single	adj	ket					adj
+sink	n	ket					n
+sit down	v	ket					phr v
+site	n	ket					n
+sitting room	n	ket					n
+size	n	ket					n
+slice	n	ket					n
+slim	adj	ket					adj
+smart	adj	ket	stylish; clever				adj
+smoking	n	ket					n
+social media	n	ket					n
+software	n	ket					n
+somebody	pron	ket					pron
+sort	n	ket					n
+spare	adj	ket					adj
+spelling	n	ket					n
+staff	n	ket					n
+steal	v	ket					v
+stomach ache	n	ket					n
+studies	n	ket					n pl
+stuff	n	ket					n
+success	n	ket					n
+successful	adj	ket					adj
+suggest	v	ket					v
+suit	n	ket					n
+supper	n	ket					n
+suppose	v	ket					v
+surf	v	ket					v
+surfboard	n	ket					n
+surfboarding	n	ket					n
+surprising	adj	ket					adj
+take part	v	ket		take part in			v
+tasty	adj	ket					adj
+technology	n	ket					n
+tennis player	n	ket					n
+term	n	ket					n
+text message	n	ket					n
+textbook	n	ket					n
+themselves	pron	ket					pron
+thunderstorm	n	ket					n
+tidy up	v	ket					v
+tights	n	ket					n pl
+till	prep	ket					prep
+title	n	ket					n
+topic	n	ket					n
+total	adj	ket					adj+n
+tour guide	n	ket					n
+tourist	n	ket					n
+tourist information centre	n	ket					n
+training	n	ket	transitive and intransitive				n
+transport	n	ket					n
+trouble	n	ket					n
+true	adj	ket					adj
+try on	v	ket					phr v
+unfortunately	adj	ket					adj
+upload	v	ket					v
+upset	adj	ket					adj
+useful	adj	ket					adj
+usual	adj	ket					adj
+v	prep	ket		versus			prep
+variety	n	ket					n
+various	adj	ket					adj
+visitor	n	ket					n
+vocabulary	n	ket					n
+waitress	n	ket					n
+wake	v	ket					v
+wash up	v	ket					phr v
+washing-up	n	ket					n
+web	n	ket					n
+web page	n	ket					n
+weekday	n	ket					n
+weekly	adj	ket					adj+adv
+well known	adj	ket					adj
+whole	adj	ket					adj+n
+wide	adj	ket					adj
+wildlife	n	ket					n
+windsurfing	n	ket					n
+wooden	adj	ket					adj
+work out	v	ket					phr v
+working hours	n	ket					n
+worry	v	ket					v
+write down	v	ket					phr v
+writing	n	ket					n
+yourself	pron	ket					pron

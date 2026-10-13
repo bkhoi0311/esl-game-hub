@@ -1,0 +1,275 @@
+{
+  "title": "Health and Medicine",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "aspirin",
+      "meaning": "thuốc aspirin",
+      "category": "health",
+      "example": "She took an aspirin because she had a headache.",
+      "image": ""
+    },
+    {
+      "word": "clinic",
+      "meaning": "phòng khám",
+      "category": "health",
+      "example": "My aunt works at a small clinic near our school.",
+      "image": ""
+    },
+    {
+      "word": "cure",
+      "meaning": "cách chữa, chữa khỏi",
+      "category": "health",
+      "example": "Scientists are looking for a cure for the disease.",
+      "image": ""
+    },
+    {
+      "word": "diet",
+      "meaning": "chế độ ăn",
+      "category": "health",
+      "example": "My doctor says a healthy diet includes lots of vegetables.",
+      "image": ""
+    },
+    {
+      "word": "disease",
+      "meaning": "bệnh",
+      "category": "health",
+      "example": "Washing your hands helps stop the spread of disease.",
+      "image": ""
+    },
+    {
+      "word": "fever",
+      "meaning": "cơn sốt",
+      "category": "health",
+      "example": "He stayed in bed because he had a fever.",
+      "image": ""
+    },
+    {
+      "word": "flu",
+      "meaning": "bệnh cúm",
+      "category": "health",
+      "example": "Half of my class has the flu this week.",
+      "image": ""
+    },
+    {
+      "word": "hunger",
+      "meaning": "cơn đói",
+      "category": "health",
+      "example": "He could not study because of hunger.",
+      "image": ""
+    },
+    {
+      "word": "illness",
+      "meaning": "bệnh tật",
+      "category": "health",
+      "example": "A long illness kept her at home for two weeks.",
+      "image": ""
+    },
+    {
+      "word": "operation",
+      "meaning": "ca phẫu thuật",
+      "category": "health",
+      "example": "My uncle had an operation on his knee.",
+      "image": ""
+    },
+    {
+      "word": "prescription",
+      "meaning": "đơn thuốc",
+      "category": "health",
+      "example": "The doctor gave me a prescription for my cough.",
+      "image": ""
+    },
+    {
+      "word": "virus",
+      "meaning": "vi-rút",
+      "category": "health",
+      "example": "A virus can spread quickly among students in a school.",
+      "image": ""
+    },
+    {
+      "word": "fitness",
+      "meaning": "thể lực",
+      "category": "health",
+      "example": "Regular exercise improves your fitness.",
+      "image": ""
+    },
+    {
+      "word": "stress",
+      "meaning": "căng thẳng",
+      "category": "health",
+      "example": "Exams can cause a lot of stress.",
+      "image": ""
+    },
+    {
+      "word": "ache",
+      "meaning": "cơn đau",
+      "category": "health",
+      "example": "I have a terrible ache in my back today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"operation\" mean?",
+      "options": [
+        "khăn quàng cổ",
+        "nhà khoa học",
+        "ca phẫu thuật"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vi-rút)",
+      "options": [
+        "virus",
+        "vrius",
+        "virrus"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thể lực\"?",
+      "options": [
+        "occupation",
+        "fitness",
+        "corner"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_u (bệnh cúm)",
+      "options": [
+        "l",
+        "r",
+        "k"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cơn đói\"?",
+      "options": [
+        "party",
+        "headteacher",
+        "hunger"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_nic (phòng khám)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"prescription\" mean?",
+      "options": [
+        "máy chủ",
+        "chiều cao",
+        "đơn thuốc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: asp_rin (thuốc aspirin)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stress\" mean?",
+      "options": [
+        "căng thẳng",
+        "ứng dụng",
+        "bóng bàn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A long ___ kept her at home for two weeks.",
+      "options": [
+        "illness",
+        "vegetable",
+        "fork"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cơn đau)",
+      "options": [
+        "ahce",
+        "acche",
+        "ache"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Washing your hands helps stop the spread of ___.",
+      "options": [
+        "basement",
+        "disease",
+        "photography"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cơn sốt\"?",
+      "options": [
+        "contest",
+        "fever",
+        "sir"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cách chữa, chữa khỏi)",
+      "options": [
+        "crue",
+        "curre",
+        "cure"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"diet\" mean?",
+      "options": [
+        "chế độ ăn",
+        "địa điểm",
+        "đồ bơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to take your temperature",
+    "Pretend to take a tablet with water",
+    "Pretend to read a prescription",
+    "Pretend to visit a clinic",
+    "Pretend to sneeze with the flu",
+    "Pretend to have a headache"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "title": "Describing Things",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "asleep",
+      "meaning": "đang ngủ",
+      "category": "describe",
+      "example": "The baby is asleep in the bedroom.",
+      "image": ""
+    },
+    {
+      "word": "awake",
+      "meaning": "thức, tỉnh",
+      "category": "describe",
+      "example": "I was awake all night because of the storm.",
+      "image": ""
+    },
+    {
+      "word": "bad",
+      "meaning": "xấu, tệ",
+      "category": "describe",
+      "example": "The weather is bad today.",
+      "image": ""
+    },
+    {
+      "word": "busy",
+      "meaning": "bận",
+      "category": "describe",
+      "example": "My dad is busy at work today.",
+      "image": ""
+    },
+    {
+      "word": "careful",
+      "meaning": "cẩn thận",
+      "category": "describe",
+      "example": "Be careful on the wet floor.",
+      "image": ""
+    },
+    {
+      "word": "different",
+      "meaning": "khác nhau",
+      "category": "describe",
+      "example": "These two bags are different colours.",
+      "image": ""
+    },
+    {
+      "word": "dangerous",
+      "meaning": "nguy hiểm",
+      "category": "describe",
+      "example": "The river is dangerous in winter.",
+      "image": ""
+    },
+    {
+      "word": "huge",
+      "meaning": "khổng lồ",
+      "category": "describe",
+      "example": "There is a huge elephant at the zoo.",
+      "image": ""
+    },
+    {
+      "word": "little",
+      "meaning": "nhỏ, một chút",
+      "category": "describe",
+      "example": "My little brother is five years old.",
+      "image": ""
+    },
+    {
+      "word": "loud",
+      "meaning": "ồn ào",
+      "category": "describe",
+      "example": "The music is too loud.",
+      "image": ""
+    },
+    {
+      "word": "quick",
+      "meaning": "nhanh chóng",
+      "category": "describe",
+      "example": "Take a quick look at the map.",
+      "image": ""
+    },
+    {
+      "word": "quiet",
+      "meaning": "yên tĩnh",
+      "category": "describe",
+      "example": "Please be quiet in the library.",
+      "image": ""
+    },
+    {
+      "word": "round",
+      "meaning": "tròn",
+      "category": "describe",
+      "example": "The moon looks big and round.",
+      "image": ""
+    },
+    {
+      "word": "safe",
+      "meaning": "an toàn",
+      "category": "describe",
+      "example": "The park is safe for children.",
+      "image": ""
+    },
+    {
+      "word": "slow",
+      "meaning": "chậm",
+      "category": "describe",
+      "example": "The snail is very slow.",
+      "image": ""
+    },
+    {
+      "word": "wrong",
+      "meaning": "sai",
+      "category": "describe",
+      "example": "That answer is wrong.",
+      "image": ""
+    },
+    {
+      "word": "top",
+      "meaning": "trên cùng, cao nhất",
+      "category": "describe",
+      "example": "Put the book on the top shelf.",
+      "image": ""
+    },
+    {
+      "word": "bottom",
+      "meaning": "ở đáy, dưới cùng",
+      "category": "describe",
+      "example": "Look at the bottom shelf of the bookcase.",
+      "image": ""
+    },
+    {
+      "word": "back",
+      "meaning": "phía sau, trở lại",
+      "category": "describe",
+      "example": "Put your bag in the back of the car.",
+      "image": ""
+    },
+    {
+      "word": "big",
+      "meaning": "to lớn",
+      "category": "describe",
+      "example": "The elephant is very big.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: b_ck (phía sau, trở lại)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nguy hiểm)",
+      "options": [
+        "danegrous",
+        "dangerous",
+        "dangeruos"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhanh chóng\"?",
+      "options": [
+        "different",
+        "busy",
+        "quick"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The weather is ___ today.",
+      "options": [
+        "tell",
+        "fence",
+        "bad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"safe\" mean?",
+      "options": [
+        "an toàn",
+        "khác nhau",
+        "khổng lồ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_p (trên cùng, cao nhất)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khác nhau\"?",
+      "options": [
+        "wrong",
+        "different",
+        "quiet"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"round\" mean?",
+      "options": [
+        "chậm",
+        "nguy hiểm",
+        "tròn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khổng lồ\"?",
+      "options": [
+        "huge",
+        "wrong",
+        "round"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"careful\" mean?",
+      "options": [
+        "to lớn",
+        "đang ngủ",
+        "cẩn thận"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: asl_ep (đang ngủ)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"little\" mean?",
+      "options": [
+        "nhỏ, một chút",
+        "ở đáy, dưới cùng",
+        "nhanh chóng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sai)",
+      "options": [
+        "wrnog",
+        "worng",
+        "wrong"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please be ___ in the library.",
+      "options": [
+        "broom",
+        "quiet",
+        "ruler"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bận)",
+      "options": [
+        "busy",
+        "bussy",
+        "bsuy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me something huge with your arms",
+    "Show me something little with your fingers",
+    "Pretend to be asleep",
+    "Pretend to be very busy",
+    "Move in a quiet and careful way",
+    "Move very slowly then quickly on the spot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

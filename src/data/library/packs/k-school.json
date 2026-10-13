@@ -1,0 +1,282 @@
+{
+  "title": "School Life",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "blackboard",
+      "meaning": "bảng đen",
+      "category": "school",
+      "example": "Please clean the blackboard.",
+      "image": ""
+    },
+    {
+      "word": "cafeteria",
+      "meaning": "căng tin",
+      "category": "school",
+      "example": "We eat lunch in the school cafeteria.",
+      "image": ""
+    },
+    {
+      "word": "exam",
+      "meaning": "kỳ thi",
+      "category": "school",
+      "example": "We have an exam on Friday.",
+      "image": ""
+    },
+    {
+      "word": "grade",
+      "meaning": "điểm số",
+      "category": "school",
+      "example": "She got a good grade in maths.",
+      "image": ""
+    },
+    {
+      "word": "mark",
+      "meaning": "điểm",
+      "category": "school",
+      "example": "I got a high mark in history.",
+      "image": ""
+    },
+    {
+      "word": "note",
+      "meaning": "ghi chú",
+      "category": "school",
+      "example": "I write a note for my teacher.",
+      "image": ""
+    },
+    {
+      "word": "notebook",
+      "meaning": "quyển vở",
+      "category": "school",
+      "example": "I write new words in my notebook.",
+      "image": ""
+    },
+    {
+      "word": "pencil case",
+      "meaning": "hộp bút",
+      "category": "school",
+      "example": "I keep my pens in a pencil case.",
+      "image": ""
+    },
+    {
+      "word": "pupil",
+      "meaning": "học sinh",
+      "category": "school",
+      "example": "The pupil raises his hand.",
+      "image": ""
+    },
+    {
+      "word": "test",
+      "meaning": "bài kiểm tra",
+      "category": "school",
+      "example": "We have a spelling test today.",
+      "image": ""
+    },
+    {
+      "word": "textbook",
+      "meaning": "sách giáo khoa",
+      "category": "school",
+      "example": "Open your textbook at page twenty.",
+      "image": ""
+    },
+    {
+      "word": "schoolchild",
+      "meaning": "học sinh",
+      "category": "people",
+      "example": "Each schoolchild must wear a uniform.",
+      "image": ""
+    },
+    {
+      "word": "headteacher",
+      "meaning": "hiệu trưởng",
+      "category": "job",
+      "example": "The headteacher spoke to the whole school.",
+      "image": ""
+    },
+    {
+      "word": "list",
+      "meaning": "danh sách",
+      "category": "school",
+      "example": "Here is a list of animals.",
+      "image": ""
+    },
+    {
+      "word": "fail",
+      "meaning": "trượt, thất bại",
+      "category": "daily",
+      "example": "If you do not study, you may fail the test.",
+      "image": ""
+    },
+    {
+      "word": "pass",
+      "meaning": "đưa, thi đỗ",
+      "category": "daily",
+      "example": "Please pass me the salt.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "I write new words in my ___.",
+      "options": [
+        "schoolchild",
+        "headteacher",
+        "notebook"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cafeteria\" mean?",
+      "options": [
+        "quả dưa hấu",
+        "căng tin",
+        "con bò"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đưa, thi đỗ)",
+      "options": [
+        "pass",
+        "psas",
+        "pas"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bài kiểm tra\"?",
+      "options": [
+        "gram",
+        "test",
+        "midnight"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (điểm số)",
+      "options": [
+        "grdae",
+        "gradde",
+        "grade"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"danh sách\"?",
+      "options": [
+        "list",
+        "earache",
+        "running"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: blackb_ard (bảng đen)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mark\" mean?",
+      "options": [
+        "điểm",
+        "học sinh",
+        "hiệu trưởng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ex_m (kỳ thi)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ raises his hand.",
+      "options": [
+        "schoolchild",
+        "pupil",
+        "headteacher"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fa_l (trượt, thất bại)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"textbook\" mean?",
+      "options": [
+        "sách giáo khoa",
+        "doanh nhân",
+        "bánh mì"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hộp bút\"?",
+      "options": [
+        "film star",
+        "ice skating",
+        "pencil case"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"note\" mean?",
+      "options": [
+        "ghi chú",
+        "học sinh",
+        "hiệu trưởng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (học sinh)",
+      "options": [
+        "shcoolchild",
+        "schoolchild",
+        "scholochild"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write on a blackboard",
+    "Pretend to open your textbook",
+    "Pretend to take an exam",
+    "Pretend to put a pen in your pencil case",
+    "Pretend to carry a lunch tray",
+    "Pretend to put up your hand to answer"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

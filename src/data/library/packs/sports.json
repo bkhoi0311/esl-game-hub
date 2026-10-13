@@ -1,6 +1,6 @@
 {
   "title": "Sports",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "football",
@@ -160,8 +160,8 @@
     {
       "prompt": "Dad goes ___ every morning.",
       "options": [
-        "summer",
-        "clover",
+        "photo",
+        "bear",
         "running"
       ],
       "answer": 2,
@@ -190,8 +190,8 @@
     {
       "prompt": "Our ___ wins the game.",
       "options": [
-        "pasta",
-        "elves",
+        "airplane",
+        "parachute",
         "team"
       ],
       "answer": 2,

@@ -1,0 +1,254 @@
+{
+  "title": "Social Media and Messages",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "blogger",
+      "meaning": "người viết blog",
+      "category": "job",
+      "example": "My cousin is a travel blogger who writes about her trips.",
+      "image": ""
+    },
+    {
+      "word": "podcast",
+      "meaning": "chương trình podcast",
+      "category": "media",
+      "example": "I listen to a funny podcast on the bus.",
+      "image": ""
+    },
+    {
+      "word": "communicate",
+      "meaning": "giao tiếp",
+      "category": "speech",
+      "example": "Phones help us communicate with friends far away.",
+      "image": ""
+    },
+    {
+      "word": "comment",
+      "meaning": "nhận xét, bình luận",
+      "category": "speech",
+      "example": "Please comment on my photo if you like it.",
+      "image": ""
+    },
+    {
+      "word": "announcement",
+      "meaning": "thông báo",
+      "category": "media",
+      "example": "We heard an announcement about the school trip.",
+      "image": ""
+    },
+    {
+      "word": "enquire",
+      "meaning": "hỏi thông tin",
+      "category": "speech",
+      "example": "I will enquire about the price of the tickets.",
+      "image": ""
+    },
+    {
+      "word": "inform",
+      "meaning": "thông báo",
+      "category": "speech",
+      "example": "Please inform the teacher if you are going to be absent.",
+      "image": ""
+    },
+    {
+      "word": "greet",
+      "meaning": "chào hỏi",
+      "category": "speech",
+      "example": "We greet our teacher with a smile.",
+      "image": ""
+    },
+    {
+      "word": "mention",
+      "meaning": "đề cập",
+      "category": "speech",
+      "example": "She did not mention the party to her mum.",
+      "image": ""
+    },
+    {
+      "word": "pass on",
+      "meaning": "truyền lại, chuyển lời",
+      "category": "speech",
+      "example": "Please pass on my message to your teacher.",
+      "image": ""
+    },
+    {
+      "word": "user",
+      "meaning": "người dùng",
+      "category": "people",
+      "example": "Each user must create a password for the website.",
+      "image": ""
+    },
+    {
+      "word": "connect",
+      "meaning": "kết nối",
+      "category": "daily",
+      "example": "You can connect your phone to the speaker.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"người viết blog\"?",
+      "options": [
+        "blogger",
+        "ground",
+        "honeymoon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She did not ___ the party to her mum.",
+      "options": [
+        "connect",
+        "mention",
+        "blogger"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"comment\" mean?",
+      "options": [
+        "kết nối",
+        "sửa chữa, vá",
+        "nhận xét, bình luận"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: inf_rm (thông báo)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người dùng)",
+      "options": [
+        "user",
+        "uesr",
+        "usser"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"communicate\" mean?",
+      "options": [
+        "kết nối",
+        "dỡ đồ ra",
+        "giao tiếp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chương trình podcast\"?",
+      "options": [
+        "podcast",
+        "envelope",
+        "teddy bear"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gre_t (chào hỏi)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kết nối)",
+      "options": [
+        "cunnect",
+        "connect",
+        "conect"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ my message to your teacher.",
+      "options": [
+        "connect",
+        "announcement",
+        "pass on"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"inform\" mean?",
+      "options": [
+        "đột nhập",
+        "thông báo",
+        "cung ứng, cung cấp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chào hỏi\"?",
+      "options": [
+        "greet",
+        "drop",
+        "cut"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"announcement\" mean?",
+      "options": [
+        "người viết blog",
+        "người dùng",
+        "thông báo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giao tiếp\"?",
+      "options": [
+        "communicate",
+        "reduce",
+        "keep in"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: enqu_re (hỏi thông tin)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to post a comment",
+    "Pretend to record a podcast",
+    "Pretend to greet a friend online",
+    "Pretend to send a message",
+    "Pretend to take a selfie",
+    "Pretend to make an announcement"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

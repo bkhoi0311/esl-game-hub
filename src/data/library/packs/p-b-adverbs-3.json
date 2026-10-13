@@ -1,0 +1,275 @@
+{
+  "title": "Adverbs 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "properly",
+      "meaning": "đúng cách, tốt",
+      "category": "manner",
+      "example": "My laptop is not working properly today.",
+      "image": ""
+    },
+    {
+      "word": "rather",
+      "meaning": "khá",
+      "category": "manner",
+      "example": "The test was rather difficult for most students.",
+      "image": ""
+    },
+    {
+      "word": "reasonably",
+      "meaning": "khá, hợp lý",
+      "category": "manner",
+      "example": "The hotel was reasonably cheap and very clean.",
+      "image": ""
+    },
+    {
+      "word": "safely",
+      "meaning": "an toàn",
+      "category": "manner",
+      "example": "Please cross the road safely after school.",
+      "image": ""
+    },
+    {
+      "word": "seriously",
+      "meaning": "nghiêm túc",
+      "category": "manner",
+      "example": "You should take your exams seriously.",
+      "image": ""
+    },
+    {
+      "word": "sincerely",
+      "meaning": "chân thành",
+      "category": "manner",
+      "example": "She sincerely thanked her teacher for the help.",
+      "image": ""
+    },
+    {
+      "word": "slightly",
+      "meaning": "hơi",
+      "category": "manner",
+      "example": "The soup is slightly too salty for me.",
+      "image": ""
+    },
+    {
+      "word": "somehow",
+      "meaning": "bằng cách nào đó",
+      "category": "manner",
+      "example": "We will somehow finish the project by Friday.",
+      "image": ""
+    },
+    {
+      "word": "specially",
+      "meaning": "đặc biệt",
+      "category": "manner",
+      "example": "This cake was made specially for your birthday.",
+      "image": ""
+    },
+    {
+      "word": "terribly",
+      "meaning": "vô cùng",
+      "category": "manner",
+      "example": "I am terribly sorry for being late.",
+      "image": ""
+    },
+    {
+      "word": "totally",
+      "meaning": "hoàn toàn",
+      "category": "manner",
+      "example": "I totally agree with your idea.",
+      "image": ""
+    },
+    {
+      "word": "urgently",
+      "meaning": "khẩn cấp, gấp",
+      "category": "manner",
+      "example": "The doctor was urgently needed at the school.",
+      "image": ""
+    },
+    {
+      "word": "well made",
+      "meaning": "chắc chắn, làm tốt",
+      "category": "manner",
+      "example": "This bag is well made and will last for years.",
+      "image": ""
+    },
+    {
+      "word": "forever",
+      "meaning": "mãi mãi",
+      "category": "time",
+      "example": "I will remember this trip forever.",
+      "image": ""
+    },
+    {
+      "word": "sometimes",
+      "meaning": "đôi khi",
+      "category": "time",
+      "example": "I sometimes walk to school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"sometimes\" mean?",
+      "options": [
+        "làm ơn",
+        "đôi khi",
+        "ở tầng trên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hơi\"?",
+      "options": [
+        "slightly",
+        "o'clock",
+        "typically"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khẩn cấp, gấp)",
+      "options": [
+        "urgentlly",
+        "urgenttly",
+        "urgently"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vô cùng\"?",
+      "options": [
+        "just",
+        "terribly",
+        "yesterday"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She ___ thanked her teacher for the help.",
+      "options": [
+        "sincerely",
+        "upstairs",
+        "please"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"somehow\" mean?",
+      "options": [
+        "ở tầng trên",
+        "ở tầng dưới",
+        "bằng cách nào đó"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đúng cách, tốt)",
+      "options": [
+        "propirly",
+        "properly",
+        "propelry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I will remember this trip ___.",
+      "options": [
+        "forever",
+        "upstairs",
+        "downstairs"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_fely (an toàn)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"well made\" mean?",
+      "options": [
+        "bán thời gian",
+        "chắc chắn, làm tốt",
+        "không bao giờ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_ther (khá)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"specially\" mean?",
+      "options": [
+        "đặc biệt",
+        "đôi khi",
+        "mãi mãi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_tally (hoàn toàn)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nghiêm túc)",
+      "options": [
+        "seriously",
+        "seirously",
+        "serriously"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khá, hợp lý\"?",
+      "options": [
+        "forever",
+        "sometimes",
+        "reasonably"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look serious",
+    "Pretend to cross a road safely by looking left and right",
+    "Show me you are slightly cold",
+    "Pretend to say sorry sincerely",
+    "Show me you are terribly sad",
+    "Show me you are totally surprised"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

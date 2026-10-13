@@ -1,0 +1,268 @@
+{
+  "title": "Transport",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bike",
+      "meaning": "xe đạp",
+      "category": "transport",
+      "example": "I ride my bike to the park.",
+      "image": ""
+    },
+    {
+      "word": "boat",
+      "meaning": "con thuyền",
+      "category": "transport",
+      "example": "A small boat is on the lake.",
+      "image": ""
+    },
+    {
+      "word": "bus",
+      "meaning": "xe buýt",
+      "category": "transport",
+      "example": "I go to school by bus.",
+      "image": ""
+    },
+    {
+      "word": "car",
+      "meaning": "xe ô tô",
+      "category": "transport",
+      "example": "My dad has a red car.",
+      "image": ""
+    },
+    {
+      "word": "helicopter",
+      "meaning": "máy bay trực thăng",
+      "category": "transport",
+      "example": "The helicopter flies over the city.",
+      "image": ""
+    },
+    {
+      "word": "lorry",
+      "meaning": "xe tải",
+      "category": "transport",
+      "example": "A lorry brings fruit to the market.",
+      "image": ""
+    },
+    {
+      "word": "motorbike",
+      "meaning": "xe máy",
+      "category": "transport",
+      "example": "My uncle rides a motorbike to work.",
+      "image": ""
+    },
+    {
+      "word": "plane",
+      "meaning": "máy bay",
+      "category": "transport",
+      "example": "The plane is flying to Hanoi.",
+      "image": ""
+    },
+    {
+      "word": "ship",
+      "meaning": "con tàu",
+      "category": "transport",
+      "example": "The big ship is leaving the port.",
+      "image": ""
+    },
+    {
+      "word": "train",
+      "meaning": "tàu hỏa",
+      "category": "transport",
+      "example": "The train is very long.",
+      "image": ""
+    },
+    {
+      "word": "truck",
+      "meaning": "xe tải",
+      "category": "transport",
+      "example": "The truck carries many boxes.",
+      "image": ""
+    },
+    {
+      "word": "drive",
+      "meaning": "lái xe",
+      "category": "action",
+      "example": "My dad can drive a big truck.",
+      "image": ""
+    },
+    {
+      "word": "ride",
+      "meaning": "đạp xe, cưỡi",
+      "category": "action",
+      "example": "I ride my bike to school.",
+      "image": ""
+    },
+    {
+      "word": "street",
+      "meaning": "đường phố",
+      "category": "place",
+      "example": "Our house is on a quiet street.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"con tàu\"?",
+      "options": [
+        "bus",
+        "motorbike",
+        "ship"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ carries many boxes.",
+      "options": [
+        "ride",
+        "truck",
+        "drive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_rry (xe tải)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"boat\" mean?",
+      "options": [
+        "con thuyền",
+        "xe đạp",
+        "máy bay trực thăng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is flying to Hanoi.",
+      "options": [
+        "drive",
+        "plane",
+        "ride"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xe ô tô\"?",
+      "options": [
+        "truck",
+        "bus",
+        "car"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: helic_pter (máy bay trực thăng)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đạp xe, cưỡi)",
+      "options": [
+        "rdie",
+        "ridde",
+        "ride"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: stre_t (đường phố)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"drive\" mean?",
+      "options": [
+        "đạp xe, cưỡi",
+        "đường phố",
+        "lái xe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xe đạp\"?",
+      "options": [
+        "lorry",
+        "bike",
+        "boat"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ship\" mean?",
+      "options": [
+        "con tàu",
+        "xe ô tô",
+        "xe máy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tàu hỏa)",
+      "options": [
+        "train",
+        "tarin",
+        "trayn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bus\" mean?",
+      "options": [
+        "tàu hỏa",
+        "con tàu",
+        "xe buýt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"motorbike\" mean?",
+      "options": [
+        "xe ô tô",
+        "xe máy",
+        "máy bay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ride a bike",
+    "Pretend to drive a car",
+    "Fly like a plane with your arms",
+    "Pretend to row a boat",
+    "Pretend to be a helicopter slowly",
+    "Pretend to drive a bus"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,97 @@
+able	adj	ket					adj
+accident	n	ket					n
+accommodation	n	ket					n
+action	adj	ket					adj
+activity	n	ket					n
+ad	n	ket					n
+advanced	adj	ket					adj
+advert	n	ket					n
+advertisement	n	ket					n
+advice	n	ket					n
+afterwards	adv	ket					adv
+against	prep	ket					prep
+aged	adj	ket					adj
+alarm clock	n	ket					n
+album	n	ket					n
+all kinds of	other	ket					det+pron
+all sorts of	other	ket					det+pron
+all the time	other	ket					det
+allow	v	ket					v
+almost	adv	ket					adv
+alright	adj	ket					adj+adv+exclam
+amazed	adj	ket					adj
+among	prep	ket					prep
+anybody	pron	ket					pron
+anymore	adv	ket					adv
+anyway	adv	ket					adv
+apartment building	n	ket					n
+appointment	n	ket					n
+area	n	ket					n
+article	n	ket					n
+as well	adv	ket		as well as			adv+prep
+assistant	n	ket					n
+at all	phr	ket					prep phr
+attractive	adj	ket					adj
+available	adj	ket					adj
+awesome	adj	ket					adj
+awful	adj	ket					adj
+barbecue	n	ket		barbeque			n
+bathing suit	n	ket					n
+bathtub	n	ket					n
+because of	phr	ket					prep phr
+become	v	ket					v
+beginner	n	ket					n
+beginning	n	ket					n
+belong	v	ket					v
+beside	prep	ket					prep
+bill	n	ket					n
+biology	n	ket					n
+birth	n	ket					n
+block	n	ket					n
+blog	n	ket					n
+blouse	n	ket					n
+boiled	adj	ket					adj
+bookshelf	n	ket					n
+bookstore	n	ket					n
+born	v	ket					v
+boss	n	ket					n
+bother	v	ket					v
+boyfriend	n	ket					n
+break down	v	ket					phr v
+bright	adj	ket					adj
+bring back	v	ket					v
+business person	n	ket					n
+by accident	phr	ket					prep phr
+by post	phr	ket					prep phr
+by the way	phr	ket					prep phr
+cabinet	n	ket					n
+cafeteria	n	ket					n
+campsite	n	ket					n
+cannot	other	ket					mv
+capital	n	ket					n
+career	n	ket					n
+carpet	n	ket					n
+case	n	ket					n
+cd player	n	ket				CD player	n
+ceiling	n	ket					n
+celebrity	n	ket					n
+cell phone	n	ket					n
+cent	n	ket					n
+centimetre	n	ket		cm|centimeter			n
+certainly	adv	ket		certainly not			adv
+character	n	ket					n
+chatroom	n	ket					n
+check	v	ket					v
+chemistry	n	ket					n
+cheque	n	ket					n
+chilli	n	ket					n
+classical	adj	ket					adj
+clear	adj	ket					adj
+clearly	adv	ket					adv
+close to	phr	ket					prep phr
+closet	n	ket					n
+coach	n	ket					n
+coast	n	ket					n
+cola	n	ket					n
+colleague	n	ket					n
+it (subject)	n	ket		information technology		IT	n

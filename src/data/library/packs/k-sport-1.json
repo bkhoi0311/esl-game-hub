@@ -1,0 +1,272 @@
+{
+  "title": "Sport and Players",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "cricket",
+      "meaning": "môn cricket",
+      "category": "sport",
+      "example": "They play cricket on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "rugby",
+      "meaning": "bóng bầu dục",
+      "category": "sport",
+      "example": "My cousin plays rugby on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "court",
+      "meaning": "sân thi đấu",
+      "category": "sport",
+      "example": "They play tennis on the court near the park.",
+      "image": ""
+    },
+    {
+      "word": "racket",
+      "meaning": "cây vợt",
+      "category": "sport",
+      "example": "She has a new racket.",
+      "image": ""
+    },
+    {
+      "word": "olympic",
+      "meaning": "thuộc Thế vận hội",
+      "category": "sport",
+      "example": "She dreams of winning an Olympic medal.",
+      "image": ""
+    },
+    {
+      "word": "football player",
+      "meaning": "cầu thủ bóng đá",
+      "category": "job",
+      "example": "My brother wants to be a football player.",
+      "image": ""
+    },
+    {
+      "word": "footballer",
+      "meaning": "cầu thủ bóng đá",
+      "category": "job",
+      "example": "The footballer scores two goals.",
+      "image": ""
+    },
+    {
+      "word": "tennis player",
+      "meaning": "người chơi quần vợt",
+      "category": "job",
+      "example": "My cousin is a good tennis player.",
+      "image": ""
+    },
+    {
+      "word": "coach",
+      "meaning": "huấn luyện viên",
+      "category": "job",
+      "example": "Our football coach is very kind.",
+      "image": ""
+    },
+    {
+      "word": "runner",
+      "meaning": "người chạy",
+      "category": "people",
+      "example": "My brother is a fast runner.",
+      "image": ""
+    },
+    {
+      "word": "training",
+      "meaning": "buổi tập, việc tập luyện",
+      "category": "sport",
+      "example": "Football training starts at five o'clock.",
+      "image": ""
+    },
+    {
+      "word": "climbing",
+      "meaning": "leo trèo",
+      "category": "sport",
+      "example": "My brother loves climbing with his dad.",
+      "image": ""
+    },
+    {
+      "word": "cycling",
+      "meaning": "môn đạp xe",
+      "category": "sport",
+      "example": "My dad loves cycling at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "running",
+      "meaning": "chạy bộ",
+      "category": "sport",
+      "example": "Dad goes running every morning.",
+      "image": ""
+    },
+    {
+      "word": "swimming",
+      "meaning": "bơi lội",
+      "category": "sport",
+      "example": "We go swimming every Sunday.",
+      "image": ""
+    },
+    {
+      "word": "skating",
+      "meaning": "trượt patin",
+      "category": "sport",
+      "example": "She is very good at skating.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: runn_ng (chạy bộ)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người chạy\"?",
+      "options": [
+        "runner",
+        "skating",
+        "court"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"footballer\" mean?",
+      "options": [
+        "cầu thủ bóng đá",
+        "môn cricket",
+        "sân thi đấu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bóng bầu dục\"?",
+      "options": [
+        "tea",
+        "rugby",
+        "metre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi tập, việc tập luyện)",
+      "options": [
+        "trainnig",
+        "treining",
+        "training"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cây vợt\"?",
+      "options": [
+        "bathtub",
+        "racket",
+        "tyre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sân thi đấu)",
+      "options": [
+        "court",
+        "corut",
+        "cuurt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"swimming\" mean?",
+      "options": [
+        "người chạy",
+        "huấn luyện viên",
+        "bơi lội"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My brother loves ___ with his dad.",
+      "options": [
+        "climbing",
+        "tennis player",
+        "football player"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_ach (huấn luyện viên)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"football player\" mean?",
+      "options": [
+        "trượt patin",
+        "môn cricket",
+        "cầu thủ bóng đá"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: olymp_c (thuộc Thế vận hội)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"skating\" mean?",
+      "options": [
+        "huấn luyện viên",
+        "trượt patin",
+        "người chơi quần vợt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môn đạp xe)",
+      "options": [
+        "cyclnig",
+        "cyclyng",
+        "cycling"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to hit a tennis ball",
+    "Pretend to swing a cricket bat",
+    "Pretend to cycle slowly on the spot",
+    "Pretend to do your training",
+    "Pretend to cheer for a team",
+    "Pretend to hold up an Olympic medal"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

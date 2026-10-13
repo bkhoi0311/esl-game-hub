@@ -1,0 +1,310 @@
+{
+  "title": "Action Verbs 1",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "build",
+      "meaning": "xây, xây dựng",
+      "category": "action",
+      "example": "They build a house of sand.",
+      "image": ""
+    },
+    {
+      "word": "buy",
+      "meaning": "mua",
+      "category": "action",
+      "example": "I want to buy a new pen.",
+      "image": ""
+    },
+    {
+      "word": "carry",
+      "meaning": "mang, xách",
+      "category": "action",
+      "example": "He can carry two heavy bags.",
+      "image": ""
+    },
+    {
+      "word": "drop",
+      "meaning": "làm rơi, đánh rơi",
+      "category": "action",
+      "example": "Don't drop the glass!",
+      "image": ""
+    },
+    {
+      "word": "fix",
+      "meaning": "sửa",
+      "category": "action",
+      "example": "Dad can fix my broken bike.",
+      "image": ""
+    },
+    {
+      "word": "hide",
+      "meaning": "trốn, giấu",
+      "category": "action",
+      "example": "The cat likes to hide under the bed.",
+      "image": ""
+    },
+    {
+      "word": "lose",
+      "meaning": "làm mất",
+      "category": "action",
+      "example": "Don't lose your new key.",
+      "image": ""
+    },
+    {
+      "word": "send",
+      "meaning": "gửi",
+      "category": "action",
+      "example": "I send a card to my aunt.",
+      "image": ""
+    },
+    {
+      "word": "take",
+      "meaning": "cầm lấy, lấy",
+      "category": "action",
+      "example": "Please take a pencil from the box.",
+      "image": ""
+    },
+    {
+      "word": "bring",
+      "meaning": "mang đến",
+      "category": "daily",
+      "example": "Please bring your book to class tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "change",
+      "meaning": "thay đổi",
+      "category": "daily",
+      "example": "I want to change my red shirt.",
+      "image": ""
+    },
+    {
+      "word": "look for",
+      "meaning": "tìm",
+      "category": "daily",
+      "example": "I am looking for my red pen.",
+      "image": ""
+    },
+    {
+      "word": "wait",
+      "meaning": "đợi",
+      "category": "action",
+      "example": "Please wait for me here.",
+      "image": ""
+    },
+    {
+      "word": "wake up",
+      "meaning": "thức dậy",
+      "category": "action",
+      "example": "I wake up at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "get up",
+      "meaning": "dậy, ngồi dậy",
+      "category": "action",
+      "example": "We get up early on Monday.",
+      "image": ""
+    },
+    {
+      "word": "fall",
+      "meaning": "rơi, ngã",
+      "category": "motion",
+      "example": "Be careful! Don't fall off the wall.",
+      "image": ""
+    },
+    {
+      "word": "move",
+      "meaning": "di chuyển",
+      "category": "motion",
+      "example": "Please move your chair back.",
+      "image": ""
+    },
+    {
+      "word": "find",
+      "meaning": "tìm thấy",
+      "category": "action",
+      "example": "Can you find my bag?",
+      "image": ""
+    },
+    {
+      "word": "give",
+      "meaning": "cho, tặng",
+      "category": "action",
+      "example": "I give a gift to my mum.",
+      "image": ""
+    },
+    {
+      "word": "go",
+      "meaning": "đi",
+      "category": "action",
+      "example": "We go to school by bus.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (làm mất)",
+      "options": [
+        "lsoe",
+        "losse",
+        "lose"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"take\" mean?",
+      "options": [
+        "trốn, giấu",
+        "cầm lấy, lấy",
+        "làm rơi, đánh rơi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_x (sửa)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (di chuyển)",
+      "options": [
+        "mvoe",
+        "move",
+        "movve"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rơi, ngã\"?",
+      "options": [
+        "build",
+        "go",
+        "fall"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_nd (gửi)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tìm thấy\"?",
+      "options": [
+        "drop",
+        "hide",
+        "find"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bring\" mean?",
+      "options": [
+        "mang đến",
+        "thay đổi",
+        "tìm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ early on Monday.",
+      "options": [
+        "office worker",
+        "get up",
+        "theme park"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mang, xách)",
+      "options": [
+        "crary",
+        "carry",
+        "cerry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_de (trốn, giấu)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xây, xây dựng\"?",
+      "options": [
+        "find",
+        "hide",
+        "build"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ to school by bus.",
+      "options": [
+        "would",
+        "go",
+        "love"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"buy\" mean?",
+      "options": [
+        "đi",
+        "làm mất",
+        "mua"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"change\" mean?",
+      "options": [
+        "thay đổi",
+        "mang đến",
+        "tìm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to build a tower",
+    "Pretend to carry a heavy box",
+    "Pretend to fix a toy",
+    "Pretend to look for your keys",
+    "Pretend to wake up and stretch",
+    "Pretend to wait for a bus"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "title": "Opinions and Adverbs",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "best",
+      "meaning": "tốt nhất",
+      "category": "opinion",
+      "example": "This is the best pizza in town.",
+      "image": ""
+    },
+    {
+      "word": "better",
+      "meaning": "tốt hơn",
+      "category": "opinion",
+      "example": "This pen is better than that one.",
+      "image": ""
+    },
+    {
+      "word": "boring",
+      "meaning": "chán",
+      "category": "opinion",
+      "example": "The film was long and boring.",
+      "image": ""
+    },
+    {
+      "word": "exciting",
+      "meaning": "thú vị, hào hứng",
+      "category": "opinion",
+      "example": "The football game was very exciting.",
+      "image": ""
+    },
+    {
+      "word": "terrible",
+      "meaning": "tồi tệ, kinh khủng",
+      "category": "opinion",
+      "example": "The weather was terrible yesterday.",
+      "image": ""
+    },
+    {
+      "word": "brilliant",
+      "meaning": "xuất sắc, tuyệt vời",
+      "category": "opinion",
+      "example": "Your drawing is brilliant, Anna!",
+      "image": ""
+    },
+    {
+      "word": "fair",
+      "meaning": "công bằng",
+      "category": "opinion",
+      "example": "It is not fair! I wanted a turn.",
+      "image": ""
+    },
+    {
+      "word": "fine",
+      "meaning": "khoẻ, ổn",
+      "category": "describe",
+      "example": "I am fine, thank you.",
+      "image": ""
+    },
+    {
+      "word": "all right",
+      "meaning": "ổn, được rồi",
+      "category": "opinion",
+      "example": "Are you all right after the fall?",
+      "image": ""
+    },
+    {
+      "word": "badly",
+      "meaning": "tệ, không tốt",
+      "category": "manner",
+      "example": "He sings badly but he loves music.",
+      "image": ""
+    },
+    {
+      "word": "carefully",
+      "meaning": "cẩn thận",
+      "category": "manner",
+      "example": "Carry the glass carefully, please.",
+      "image": ""
+    },
+    {
+      "word": "loudly",
+      "meaning": "to tiếng, ồn ào",
+      "category": "manner",
+      "example": "The boys shouted loudly in the park.",
+      "image": ""
+    },
+    {
+      "word": "quickly",
+      "meaning": "nhanh",
+      "category": "manner",
+      "example": "Eat your lunch quickly, please.",
+      "image": ""
+    },
+    {
+      "word": "quietly",
+      "meaning": "khẽ, nhẹ nhàng",
+      "category": "manner",
+      "example": "Please close the door quietly.",
+      "image": ""
+    },
+    {
+      "word": "slowly",
+      "meaning": "chậm",
+      "category": "manner",
+      "example": "The snail moves very slowly.",
+      "image": ""
+    },
+    {
+      "word": "more",
+      "meaning": "hơn, nhiều hơn",
+      "category": "manner",
+      "example": "Please speak more slowly.",
+      "image": ""
+    },
+    {
+      "word": "most",
+      "meaning": "nhất, nhiều nhất",
+      "category": "manner",
+      "example": "Which song do you like most?",
+      "image": ""
+    },
+    {
+      "word": "only",
+      "meaning": "chỉ",
+      "category": "manner",
+      "example": "I have only two pencils.",
+      "image": ""
+    },
+    {
+      "word": "worse",
+      "meaning": "tệ hơn",
+      "category": "describe",
+      "example": "My cold is worse today.",
+      "image": ""
+    },
+    {
+      "word": "worst",
+      "meaning": "tệ nhất",
+      "category": "describe",
+      "example": "This is the worst day ever.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"better\" mean?",
+      "options": [
+        "tốt nhất",
+        "tốt hơn",
+        "ổn, được rồi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rst (tệ nhất)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"badly\" mean?",
+      "options": [
+        "tệ, không tốt",
+        "to tiếng, ồn ào",
+        "hơn, nhiều hơn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please speak ___ slowly.",
+      "options": [
+        "more",
+        "fair",
+        "exciting"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cẩn thận)",
+      "options": [
+        "carfeully",
+        "craefully",
+        "carefully"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khẽ, nhẹ nhàng\"?",
+      "options": [
+        "most",
+        "quietly",
+        "quickly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: q_ickly (nhanh)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoẻ, ổn\"?",
+      "options": [
+        "worst",
+        "carefully",
+        "fine"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This is the ___ pizza in town.",
+      "options": [
+        "cactus",
+        "best",
+        "rooster"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (công bằng)",
+      "options": [
+        "fair",
+        "fayr",
+        "fiar"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thú vị, hào hứng\"?",
+      "options": [
+        "quickly",
+        "badly",
+        "exciting"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"boring\" mean?",
+      "options": [
+        "tốt hơn",
+        "chán",
+        "tốt nhất"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: mo_t (nhất, nhiều nhất)",
+      "options": [
+        "c",
+        "s",
+        "k"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (to tiếng, ồn ào)",
+      "options": [
+        "luudly",
+        "louldy",
+        "loudly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"brilliant\" mean?",
+      "options": [
+        "xuất sắc, tuyệt vời",
+        "thú vị, hào hứng",
+        "tồi tệ, kinh khủng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a thumbs up for best",
+    "Show me a bored face",
+    "Move carefully like you carry a full cup",
+    "Pretend to whisper quietly",
+    "Run on the spot quickly for five seconds",
+    "Wave your arms slowly like a tree in the wind"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

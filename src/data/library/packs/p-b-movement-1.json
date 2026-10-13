@@ -1,0 +1,282 @@
+{
+  "title": "Verbs of Movement 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "accompany",
+      "meaning": "đi cùng",
+      "category": "motion",
+      "example": "A teacher will accompany us on the school trip.",
+      "image": ""
+    },
+    {
+      "word": "approach",
+      "meaning": "tiến lại gần",
+      "category": "motion",
+      "example": "A dog began to approach us in the park.",
+      "image": ""
+    },
+    {
+      "word": "depart",
+      "meaning": "khởi hành",
+      "category": "motion",
+      "example": "The train departs from platform two at nine.",
+      "image": ""
+    },
+    {
+      "word": "escape",
+      "meaning": "trốn thoát",
+      "category": "motion",
+      "example": "The hamster managed to escape from its cage.",
+      "image": ""
+    },
+    {
+      "word": "float",
+      "meaning": "nổi",
+      "category": "motion",
+      "example": "Wood can float on water.",
+      "image": ""
+    },
+    {
+      "word": "flow",
+      "meaning": "chảy",
+      "category": "motion",
+      "example": "The river flows slowly to the sea.",
+      "image": ""
+    },
+    {
+      "word": "get down",
+      "meaning": "đi xuống",
+      "category": "motion",
+      "example": "You should get down from that high wall.",
+      "image": ""
+    },
+    {
+      "word": "get in",
+      "meaning": "vào",
+      "category": "motion",
+      "example": "We can get in the car now.",
+      "image": ""
+    },
+    {
+      "word": "give way",
+      "meaning": "nhường đường",
+      "category": "motion",
+      "example": "Drivers must give way to people crossing the road.",
+      "image": ""
+    },
+    {
+      "word": "hike",
+      "meaning": "đi bộ đường dài",
+      "category": "motion",
+      "example": "We want to hike up the mountain this weekend.",
+      "image": ""
+    },
+    {
+      "word": "hitchhike",
+      "meaning": "đi nhờ xe",
+      "category": "motion",
+      "example": "Some young travellers hitchhike across the country to save money.",
+      "image": ""
+    },
+    {
+      "word": "keep up",
+      "meaning": "theo kịp",
+      "category": "motion",
+      "example": "He walks so fast that I can't keep up with him.",
+      "image": ""
+    },
+    {
+      "word": "lead",
+      "meaning": "dẫn, dẫn đến",
+      "category": "motion",
+      "example": "This path leads to a small lake.",
+      "image": ""
+    },
+    {
+      "word": "reach",
+      "meaning": "đến, với tới",
+      "category": "motion",
+      "example": "We will reach the hotel before dark.",
+      "image": ""
+    },
+    {
+      "word": "rise",
+      "meaning": "tăng",
+      "category": "motion",
+      "example": "Prices often rise before the holidays.",
+      "image": ""
+    },
+    {
+      "word": "set off",
+      "meaning": "khởi hành",
+      "category": "motion",
+      "example": "We will set off for the lake at six.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "This path ___ to a small lake.",
+      "options": [
+        "attends",
+        "leads",
+        "quits"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"give way\" mean?",
+      "options": [
+        "kết hôn",
+        "tiếp tục",
+        "nhường đường"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A teacher will ___ us on the school trip.",
+      "options": [
+        "accompany",
+        "call for",
+        "roast"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đi bộ đường dài)",
+      "options": [
+        "hikke",
+        "hike",
+        "hyke"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get in\" mean?",
+      "options": [
+        "vào",
+        "bật",
+        "kết hôn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khởi hành)",
+      "options": [
+        "depert",
+        "dipart",
+        "depart"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiến lại gần\"?",
+      "options": [
+        "approach",
+        "copy",
+        "mend"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_tchhike (đi nhờ xe)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nổi)",
+      "options": [
+        "fluat",
+        "float",
+        "flloat"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"set off\" mean?",
+      "options": [
+        "phân phát",
+        "hoá trang",
+        "khởi hành"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tăng\"?",
+      "options": [
+        "rise",
+        "spoil",
+        "owe"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flow\" mean?",
+      "options": [
+        "nhân",
+        "chảy",
+        "đếm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"theo kịp\"?",
+      "options": [
+        "keep up",
+        "give way",
+        "get down"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: esc_pe (trốn thoát)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_ach (đến, với tới)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to hike up a hill on the spot",
+    "Pretend to float on the water",
+    "Mime reaching for a shelf",
+    "Pretend to lead a group by walking on the spot",
+    "Pretend to wave at a bus and get in",
+    "Pretend to give way to a car"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

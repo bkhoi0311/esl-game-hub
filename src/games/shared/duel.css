@@ -2,7 +2,7 @@
 .duel-play { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); }
 .duel-banner { justify-self: center; margin: 0.8rem 0 0; padding: 0.4rem 2rem; border-radius: 999px; background: var(--yellow); border: 4px solid var(--brand-ink); font-size: 2.3rem; font-weight: 800; color: var(--brand-ink); z-index: 3; }
 .duel-halves { grid-row: 2; display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
-.duel-half { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 0.6rem; padding: 0.8rem 1.6rem 1.4rem; background: color-mix(in srgb, var(--team) 8%, var(--ground)); touch-action: none; min-height: 0; user-select: none; -webkit-user-select: none; }
+.duel-half { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 0.6rem; padding: 0.8rem 1.6rem 1.4rem; background: var(--ground) linear-gradient(var(--team-8, transparent), var(--team-8, transparent)); touch-action: none; min-height: 0; user-select: none; -webkit-user-select: none; }
 .duel-half.left { border-right: 3px dashed var(--rule); }
 .duel-half.hurt { animation: shake 0.35s ease; }
 .duel-head { display: flex; justify-content: space-between; align-items: center; }

@@ -1,0 +1,282 @@
+{
+  "title": "People and Family",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "nephew",
+      "meaning": "cháu trai",
+      "category": "family",
+      "example": "My nephew is five years old.",
+      "image": ""
+    },
+    {
+      "word": "niece",
+      "meaning": "cháu gái",
+      "category": "family",
+      "example": "My niece loves drawing animals.",
+      "image": ""
+    },
+    {
+      "word": "relative",
+      "meaning": "họ hàng",
+      "category": "family",
+      "example": "All my relatives came to the family party.",
+      "image": ""
+    },
+    {
+      "word": "twins",
+      "meaning": "cặp song sinh",
+      "category": "family",
+      "example": "The twins wear the same shirt.",
+      "image": ""
+    },
+    {
+      "word": "generation",
+      "meaning": "thế hệ",
+      "category": "people",
+      "example": "My generation uses phones every day.",
+      "image": ""
+    },
+    {
+      "word": "lady",
+      "meaning": "người phụ nữ, quý bà",
+      "category": "people",
+      "example": "That lady is waiting for the bus.",
+      "image": ""
+    },
+    {
+      "word": "sir",
+      "meaning": "thưa ông",
+      "category": "people",
+      "example": "Excuse me, sir, is this seat free?",
+      "image": ""
+    },
+    {
+      "word": "madam",
+      "meaning": "thưa bà",
+      "category": "people",
+      "example": "Excuse me, madam, is this your bag?",
+      "image": ""
+    },
+    {
+      "word": "youth",
+      "meaning": "tuổi trẻ, thanh niên",
+      "category": "people",
+      "example": "Many youth clubs organise sports events at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "foreigner",
+      "meaning": "người nước ngoài",
+      "category": "people",
+      "example": "A foreigner asked me the way to the park.",
+      "image": ""
+    },
+    {
+      "word": "stranger",
+      "meaning": "người lạ",
+      "category": "people",
+      "example": "Do not open the door for a stranger.",
+      "image": ""
+    },
+    {
+      "word": "leader",
+      "meaning": "người lãnh đạo",
+      "category": "people",
+      "example": "Our team leader explained the plan to everyone.",
+      "image": ""
+    },
+    {
+      "word": "owner",
+      "meaning": "chủ, người sở hữu",
+      "category": "people",
+      "example": "The owner of the shop is very friendly.",
+      "image": ""
+    },
+    {
+      "word": "reader",
+      "meaning": "độc giả, người đọc",
+      "category": "people",
+      "example": "She is a fast reader and loves adventure stories.",
+      "image": ""
+    },
+    {
+      "word": "user",
+      "meaning": "người dùng",
+      "category": "people",
+      "example": "Each user must create a password for the website.",
+      "image": ""
+    },
+    {
+      "word": "vegetarian",
+      "meaning": "người ăn chay",
+      "category": "people",
+      "example": "My best friend is a vegetarian, so she doesn't eat meat.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"twins\" mean?",
+      "options": [
+        "nhiếp ảnh",
+        "bên, mặt",
+        "cặp song sinh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rel_tive (họ hàng)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "That ___ is waiting for the bus.",
+      "options": [
+        "cycle",
+        "lady",
+        "jealous"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Madam\" mean?",
+      "options": [
+        "thưa bà",
+        "cái gương",
+        "buổi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người nước ngoài\"?",
+      "options": [
+        "picnic",
+        "foreigner",
+        "petrol station"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lead_r (người lãnh đạo)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người dùng\"?",
+      "options": [
+        "leisure",
+        "user",
+        "comma"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người lạ)",
+      "options": [
+        "sttranger",
+        "strangger",
+        "stranger"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_r (thưa ông)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"generation\" mean?",
+      "options": [
+        "thế hệ",
+        "lớp học",
+        "hương va-ni"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người ăn chay)",
+      "options": [
+        "vegeterian",
+        "vegetraian",
+        "vegetarian"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of the shop is very friendly.",
+      "options": [
+        "pocket",
+        "owner",
+        "shore"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tuổi trẻ, thanh niên)",
+      "options": [
+        "youtth",
+        "youth",
+        "yuuth"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"nephew\" mean?",
+      "options": [
+        "cháu trai",
+        "chỗ rẽ",
+        "bít tết"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"độc giả, người đọc\"?",
+      "options": [
+        "rock music",
+        "fortnight",
+        "reader"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to introduce your twin sister",
+    "Show me how you greet a relative",
+    "Mime taking a family photo",
+    "Pretend to wave to a stranger politely",
+    "Pretend to read a letter from a relative",
+    "Show me you are a proud leader"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

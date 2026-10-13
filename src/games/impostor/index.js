@@ -91,7 +91,7 @@ function createGame(root, pack) {
       speakBtn.classList.add('imp-speak');
       speakBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        speak(c.word);
+        speak(c.word, { manual: true });
       });
       const card = h('div', {
         class: 'imp-card', role: 'button', tabindex: 0, style: { '--card': CARD_COLORS[i] },

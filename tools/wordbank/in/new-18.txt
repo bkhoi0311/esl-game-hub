@@ -1,0 +1,110 @@
+false	adj	pet					adj
+familiar	adj	pet		familiar with			adj
+fancy	v	pet					v
+fare	n	pet					n
+farming	n	pet					n
+farmland	n	pet					n
+fashionable	adj	pet					adj
+fasten	v	pet					v
+fault	n	pet					n
+favour	n	pet					n
+fear	n	pet					n
+fee	n	pet					n
+feel like	v	pet					v
+feeling	n	pet					n
+female	adj	pet					adj+n
+fever	n	pet					n
+fiction	n	pet					n
+figure	n	pet					n
+fill up	v	pet					phr v
+film maker	n	pet					n
+financial	adj	pet					adj
+firm	n	pet					n
+fitness	n	pet					n
+flavour	n	pet					n
+float	v	pet					v
+flow	v	pet					v
+flu	n	pet					n
+focus on	v	pet		focus upon			v
+fold	v	pet					v
+folk	adj	pet					adj+n
+following	adj	pet					adj
+fond	adj	pet					adj
+fool	n	pet					n
+forbidden	adj	pet					adj
+forecast	n	pet					n
+foreigner	n	pet					n
+forever	adv	pet					adv
+forgive	v	pet					v
+former	adj	pet					adj
+fortnight	n	pet					n
+fortunately	adv	pet					adv
+forward	adv	pet		forwards			adv
+frame	n	pet					n
+freeze	v	pet					v
+freezer	n	pet					n
+freezing	adj	pet					adj
+frequent	adj	pet					adj
+frequently	adv	pet					adv
+friendship	n	pet					n
+frighten	v	pet					v
+frozen	adj	pet					adj
+frying pan	n	pet					n
+full stop	n	pet					n
+full time	adv	pet					adv
+full-time	adj	pet					adj
+fully	adv	pet					adv
+furthest	adj	pet					adj
+gain	v	pet					v
+gale	n	pet					n
+gap	n	pet					n
+general	adj	pet					adj
+generally	adv	pet					adv
+generation	n	pet					n
+generous	adj	pet					adj
+gentle	adj	pet					adj
+get along	v	pet		get along with			phr v
+get down	v	pet					phr v
+get in	v	pet					phr v
+get rid of	v	pet					phr v
+giant	adj	pet					adj
+give in	v	pet					phr v
+give out	v	pet					phr v
+give up	v	pet					phr v
+give way	v	pet					phr v
+glance	v	pet					v
+global warming	n	pet					n
+go for	v	pet					phr v
+go off	v	pet					phr v
+go on	v	pet					phr v
+goalkeeper	n	pet					n
+goods	n	pet					n pl
+gorgeous	adj	pet					adj
+government	n	pet					n
+grab	v	pet					v
+graduate	n	pet					n+v
+graduation	n	pet					n
+grammar	n	pet					n
+grant	n	pet					n
+graphics	n	pet					n pl
+grateful	adj	pet					adj
+greet	v	pet					v
+greeting	n	pet					n
+grill	n	pet					n+v
+groom	n	pet					n
+guided	adj	pet					adj
+guilty	adj	pet					adj
+guitarist	n	pet					n
+gum	n	pet					n
+gymnastics	n	pet					n
+habit	n	pet					n
+haircut	n	pet					n
+hairdryer	n	pet					n
+hand in	v	pet					phr v
+hand out	v	pet					phr v
+hand-held	adj	pet					adj
+handkerchief	n	pet					n
+handle	v	pet					v
+handlebars	n	pet					n
+handsome	adj	pet					adj
+handwriting	n	pet					n

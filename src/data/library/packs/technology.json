@@ -1,6 +1,6 @@
 {
   "title": "Technology",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "computer",
@@ -164,8 +164,8 @@
       "prompt": "What does \"printer\" mean?",
       "options": [
         "máy in",
-        "máy ảnh",
-        "màn hình"
+        "cái loa",
+        "máy tính"
       ],
       "answer": 0,
       "type": "vocab"
@@ -193,8 +193,8 @@
     {
       "prompt": "What does \"microphone\" mean?",
       "options": [
+        "trang web",
         "người máy",
-        "cái đài",
         "cái micro"
       ],
       "answer": 2,
@@ -214,8 +214,8 @@
       "prompt": "She sends an ___ to her teacher.",
       "options": [
         "email",
-        "office",
-        "angel"
+        "arm",
+        "ear"
       ],
       "answer": 0,
       "type": "vocab"
@@ -253,9 +253,9 @@
     {
       "prompt": "My ___ can dance and sing.",
       "options": [
-        "insect",
+        "ship",
         "robot",
-        "superhero"
+        "sausage"
       ],
       "answer": 1,
       "type": "vocab"
@@ -263,8 +263,8 @@
     {
       "prompt": "What does \"screen\" mean?",
       "options": [
-        "cái micro",
-        "cái loa",
+        "đoạn video",
+        "máy tính bảng",
         "màn hình"
       ],
       "answer": 2,

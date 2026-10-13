@@ -1,0 +1,289 @@
+{
+  "title": "Music and Dance",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "album",
+      "meaning": "album",
+      "category": "music",
+      "example": "I bought the band's new album yesterday.",
+      "image": ""
+    },
+    {
+      "word": "hip hop",
+      "meaning": "nhạc hip hop",
+      "category": "music",
+      "example": "My brother loves hip hop music.",
+      "image": ""
+    },
+    {
+      "word": "jazz",
+      "meaning": "nhạc jazz",
+      "category": "music",
+      "example": "My father listens to jazz in the car.",
+      "image": ""
+    },
+    {
+      "word": "musical",
+      "meaning": "có năng khiếu âm nhạc",
+      "category": "music",
+      "example": "He comes from a very musical family.",
+      "image": ""
+    },
+    {
+      "word": "opera",
+      "meaning": "vở opera",
+      "category": "music",
+      "example": "We saw an opera in the city last week.",
+      "image": ""
+    },
+    {
+      "word": "pop",
+      "meaning": "nhạc pop",
+      "category": "music",
+      "example": "My sister listens to pop music every morning.",
+      "image": ""
+    },
+    {
+      "word": "rap",
+      "meaning": "nhạc rap",
+      "category": "music",
+      "example": "He writes his own rap songs.",
+      "image": ""
+    },
+    {
+      "word": "classical",
+      "meaning": "cổ điển",
+      "category": "describe",
+      "example": "I like listening to classical music.",
+      "image": ""
+    },
+    {
+      "word": "musician",
+      "meaning": "nhạc công",
+      "category": "job",
+      "example": "The musician plays the guitar very well.",
+      "image": ""
+    },
+    {
+      "word": "dancer",
+      "meaning": "vũ công",
+      "category": "job",
+      "example": "The dancer moves to the music.",
+      "image": ""
+    },
+    {
+      "word": "disco",
+      "meaning": "buổi tiệc nhảy",
+      "category": "celebration",
+      "example": "There is a school disco on Friday evening.",
+      "image": ""
+    },
+    {
+      "word": "singing",
+      "meaning": "ca hát",
+      "category": "hobby",
+      "example": "She loves singing with her friends.",
+      "image": ""
+    },
+    {
+      "word": "dancing",
+      "meaning": "nhảy múa",
+      "category": "hobby",
+      "example": "I love dancing with my friends.",
+      "image": ""
+    },
+    {
+      "word": "perform",
+      "meaning": "biểu diễn",
+      "category": "action",
+      "example": "The students will perform a play on Friday.",
+      "image": ""
+    },
+    {
+      "word": "event",
+      "meaning": "sự kiện",
+      "category": "celebration",
+      "example": "The school sports day is a big event.",
+      "image": ""
+    },
+    {
+      "word": "celebrate",
+      "meaning": "ăn mừng",
+      "category": "action",
+      "example": "We celebrate my birthday with cake.",
+      "image": ""
+    },
+    {
+      "word": "gift",
+      "meaning": "quà tặng",
+      "category": "celebration",
+      "example": "This gift is for you.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nhạc jazz\"?",
+      "options": [
+        "cereal",
+        "fish",
+        "jazz"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He comes from a very ___ family.",
+      "options": [
+        "musical",
+        "dancer",
+        "musician"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_ncing (nhảy múa)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sự kiện\"?",
+      "options": [
+        "bath",
+        "event",
+        "shampoo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disco\" mean?",
+      "options": [
+        "toà nhà",
+        "bữa trưa",
+        "buổi tiệc nhảy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ca hát)",
+      "options": [
+        "singing",
+        "singyng",
+        "synging"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rap\" mean?",
+      "options": [
+        "nhạc rap",
+        "nữ doanh nhân",
+        "mì ống"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: danc_r (vũ công)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"musician\" mean?",
+      "options": [
+        "nhảy múa",
+        "nhạc công",
+        "buổi tiệc nhảy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"album\"?",
+      "options": [
+        "album",
+        "underground",
+        "sauce"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My brother loves ___ music.",
+      "options": [
+        "classical",
+        "work out",
+        "hip hop"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vở opera)",
+      "options": [
+        "opira",
+        "opera",
+        "oprea"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pop\" mean?",
+      "options": [
+        "nhạc pop",
+        "nhạc công",
+        "vũ công"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rform (biểu diễn)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quà tặng)",
+      "options": [
+        "gifft",
+        "gift",
+        "gfit"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the guitar",
+    "Dance slowly on the spot",
+    "Pretend to sing into a microphone",
+    "Pretend to play the piano",
+    "Pretend to conduct an orchestra",
+    "Pretend to clap to the beat"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

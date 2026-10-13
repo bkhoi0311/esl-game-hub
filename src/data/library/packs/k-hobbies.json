@@ -1,0 +1,268 @@
+{
+  "title": "Hobbies and Free Time",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "activity",
+      "meaning": "hoạt động",
+      "category": "hobby",
+      "example": "Swimming is my favourite activity in summer.",
+      "image": ""
+    },
+    {
+      "word": "fashion",
+      "meaning": "thời trang",
+      "category": "hobby",
+      "example": "She loves fashion and draws new clothes.",
+      "image": ""
+    },
+    {
+      "word": "photography",
+      "meaning": "nhiếp ảnh",
+      "category": "hobby",
+      "example": "Her hobby is photography.",
+      "image": ""
+    },
+    {
+      "word": "reading",
+      "meaning": "đọc sách",
+      "category": "hobby",
+      "example": "I enjoy reading before bed.",
+      "image": ""
+    },
+    {
+      "word": "video game",
+      "meaning": "trò chơi điện tử",
+      "category": "hobby",
+      "example": "He plays a video game after dinner.",
+      "image": ""
+    },
+    {
+      "word": "cooking",
+      "meaning": "nấu ăn",
+      "category": "hobby",
+      "example": "My dad loves cooking on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "dancing",
+      "meaning": "nhảy múa",
+      "category": "hobby",
+      "example": "I love dancing with my friends.",
+      "image": ""
+    },
+    {
+      "word": "singing",
+      "meaning": "ca hát",
+      "category": "hobby",
+      "example": "She loves singing with her friends.",
+      "image": ""
+    },
+    {
+      "word": "walking",
+      "meaning": "đi bộ",
+      "category": "hobby",
+      "example": "We go walking in the hills.",
+      "image": ""
+    },
+    {
+      "word": "riding",
+      "meaning": "cưỡi ngựa",
+      "category": "hobby",
+      "example": "She enjoys riding on her farm.",
+      "image": ""
+    },
+    {
+      "word": "hobby",
+      "meaning": "sở thích",
+      "category": "hobby",
+      "example": "Painting is my hobby.",
+      "image": ""
+    },
+    {
+      "word": "chess",
+      "meaning": "cờ vua",
+      "category": "hobby",
+      "example": "We play chess at the club.",
+      "image": ""
+    },
+    {
+      "word": "drawing",
+      "meaning": "bức vẽ",
+      "category": "hobby",
+      "example": "This drawing is for my mum.",
+      "image": ""
+    },
+    {
+      "word": "comic",
+      "meaning": "truyện tranh",
+      "category": "hobby",
+      "example": "He reads a comic after school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: h_bby (sở thích)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He plays a ___ after dinner.",
+      "options": [
+        "fire fighter",
+        "grocery store",
+        "video game"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_ading (đọc sách)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hoạt động\"?",
+      "options": [
+        "airport",
+        "activity",
+        "worker"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She loves ___ and draws new clothes.",
+      "options": [
+        "path",
+        "grandfather",
+        "fashion"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhiếp ảnh\"?",
+      "options": [
+        "photography",
+        "weather",
+        "scientist"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"drawing\" mean?",
+      "options": [
+        "bức vẽ",
+        "ngôi làng",
+        "nhóm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (truyện tranh)",
+      "options": [
+        "comyc",
+        "comic",
+        "cmoic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"video game\" mean?",
+      "options": [
+        "trạm xăng",
+        "rạp chiếu phim",
+        "trò chơi điện tử"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rid_ng (cưỡi ngựa)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"walking\" mean?",
+      "options": [
+        "chó con",
+        "con ngựa",
+        "đi bộ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ca hát)",
+      "options": [
+        "singnig",
+        "singing",
+        "sinnging"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cờ vua\"?",
+      "options": [
+        "smoke",
+        "chess",
+        "playground"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhảy múa)",
+      "options": [
+        "dancing",
+        "danccing",
+        "dacning"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cooking\" mean?",
+      "options": [
+        "áo sơ mi",
+        "khoá học",
+        "nấu ăn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read a book",
+    "Pretend to play a video game",
+    "Pretend to take a photograph",
+    "Pretend to draw a picture",
+    "Pretend to play chess",
+    "Pretend to cook a meal"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

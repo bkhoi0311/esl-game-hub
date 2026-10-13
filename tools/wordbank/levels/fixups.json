@@ -1,0 +1,610 @@
+{
+ "_doc": "Sửa tay cho parser (PLAN-LEVELS 2.1-2.3). yl: lỗi bảng. heads: ghi đè chuẩn hoá headword. kp.decide: quyết định mục mập mờ (key '<ket|pet>:<id>' -> 'reject' | 'accept' | '<headword>'), xem ambiguous.json. Đợt 2: heads cho ing tea, dj during, suprising, something efficient, wetsuit, city/town centre, get on (with), at / @, IT, May (xem BUILD-NOTES-LEVELS mục 'Đợt 2').",
+ "yl": {
+  "rewrite": {
+   "bat (as sports breakfast n S": [
+    "bat (as sports equipment) n S",
+    "breakfast n S"
+   ]
+  },
+  "drop": [
+   "equipment) n S"
+  ],
+  "posOverride": {
+   "a.m.": "adv",
+   "p.m.": "adv"
+  }
+ },
+ "heads": {
+  "made of/from/out of": {
+   "word": "made of",
+   "alts": [
+    "made from",
+    "made out of"
+   ]
+  },
+  "step over/in/on/out of (sth)": {
+   "word": "step over",
+   "alts": [
+    "step in",
+    "step on",
+    "step out of"
+   ]
+  },
+  "while, whilst": {
+   "word": "while",
+   "alts": [
+    "whilst"
+   ]
+  },
+  "all right/alright": {
+   "word": "all right",
+   "alts": [
+    "alright"
+   ]
+  },
+  "wake (up)": {
+   "word": "wake up",
+   "alts": [
+    "wake"
+   ]
+  },
+  "teddy (bear)": {
+   "word": "teddy",
+   "alts": [
+    "teddy bear"
+   ]
+  },
+  "businessman/woman": {
+   "word": "businessman",
+   "alts": [
+    "businesswoman"
+   ]
+  },
+  "city/town centre (US center)": {
+   "word": "city centre",
+   "alts": [
+    "town centre",
+    "city center",
+    "town center"
+   ]
+  },
+  "town/city centre": {
+   "word": "town centre",
+   "alts": [
+    "city centre"
+   ]
+  },
+  "driving/driver's licence": {
+   "word": "driving licence",
+   "alts": [
+    "driver's licence",
+    "driving license",
+    "driver's license"
+   ]
+  },
+  "focus (sth) on/upon sth/sb": {
+   "word": "focus on",
+   "alts": [
+    "focus upon"
+   ]
+  },
+  "step forward/back(wards)/out": {
+   "word": "step forward",
+   "alts": [
+    "step back",
+    "step backwards",
+    "step out"
+   ]
+  },
+  "railway (station)": {
+   "word": "railway",
+   "alts": [
+    "railway station"
+   ]
+  },
+  "+ ing tea": {
+   "word": "iced tea"
+  },
+  "DJ (disc jockey) during": {
+   "skip": true,
+   "note": "lỗi tách dòng: dj là alt của disc jockey, during đã có"
+  },
+  "suprising": {
+   "skip": true,
+   "note": "chính tả sai của surprising (đã có)"
+  },
+  "something efficient": {
+   "word": "efficient"
+  },
+  "wetsuit/wet suit": {
+   "word": "wetsuit",
+   "alts": [
+    "wet suit"
+   ]
+  },
+  "town/city centre (US center)": {
+   "word": "city centre",
+   "alts": [
+    "town centre",
+    "city center",
+    "town center"
+   ]
+  },
+  "get on (with)": {
+   "word": "get on"
+  },
+  "at / @": {
+   "word": "at"
+  },
+  "IT": {
+   "word": "it (subject)",
+   "display": "IT",
+   "note": "môn tin học"
+  },
+  "IT (Information Technology)": {
+   "word": "it (subject)",
+   "display": "IT",
+   "alts": [
+    "information technology"
+   ]
+  },
+  "May": {
+   "skip": true,
+   "note": "tháng Năm: mục riêng 'may (month)' trong sets.mjs; 'may' = động từ khuyết thiếu"
+  }
+ },
+ "kp": {
+  "lineFix": {
+   "ket:281": "bright (adj) candy (n)",
+   "ket:731": "go shopping (v) have to (mv)",
+   "ket:1306": "rubbish (n)",
+   "pet:568": "• Please leave comments below. common (adj)",
+   "pet:750": "dinner (n) dinosaur (n)",
+   "pet:756": "direction (n)",
+   "pet:2737": "television (TV) (n) through (prep)",
+   "pet:2738": "tell (v)"
+  },
+  "decide": {
+   "ket:111": "reject",
+   "ket:130": "anything",
+   "ket:145": "reject",
+   "ket:147": "reject",
+   "ket:158": "as",
+   "ket:185": "beginner",
+   "ket:275": "reject",
+   "ket:282": "cannot",
+   "ket:351": "coffee",
+   "ket:376": "cook",
+   "ket:377": "cooker",
+   "ket:403": "delayed",
+   "ket:406": "deliver",
+   "ket:588": "reject",
+   "ket:614": "for sale",
+   "ket:622": "free",
+   "ket:647": "reject",
+   "ket:649": "reject",
+   "ket:723": "reject",
+   "ket:725.2": "reject",
+   "ket:726.2": "reject",
+   "ket:749": "idea",
+   "ket:858": "reject",
+   "ket:927": "local",
+   "ket:995": "monkey",
+   "ket:1032": "off",
+   "ket:1094": "reject",
+   "ket:1095": "reject",
+   "ket:1156": "reject",
+   "ket:1157": "reject",
+   "ket:1158.2": "reject",
+   "ket:1182": "queen",
+   "ket:1186": "quiet",
+   "ket:1208": "rabbit",
+   "ket:1210.2": "reject",
+   "ket:1215": "railway (station)",
+   "ket:1226": "really",
+   "ket:1228": "receipt",
+   "ket:1247": "reject",
+   "ket:1250": "reject",
+   "ket:1253": "reject",
+   "ket:1256": "reject",
+   "ket:1268": "reject",
+   "ket:1337": "slow",
+   "ket:1338": "slowly",
+   "ket:1364": "reject",
+   "ket:1366": "reject",
+   "ket:1402": "space",
+   "ket:1452": "reject",
+   "ket:1475": "teach",
+   "ket:1580": "reject",
+   "ket:1605": "reject",
+   "ket:1635": "reject",
+   "ket:1637": "reject",
+   "pet:114": "advert",
+   "pet:116": "reject",
+   "pet:164": "reject",
+   "pet:166": "reject",
+   "pet:178": "aloud",
+   "pet:184": "always",
+   "pet:188": "ambition",
+   "pet:234": "attractive",
+   "pet:372": "broken",
+   "pet:384": "bunch",
+   "pet:388": "burn",
+   "pet:461": "ceremony",
+   "pet:462": "certain",
+   "pet:463": "certainly (not)",
+   "pet:467": "challenge",
+   "pet:468": "challenging",
+   "pet:476": "reject",
+   "pet:495": "climbing",
+   "pet:605.2": "reject",
+   "pet:686": "curriculum",
+   "pet:687": "curry",
+   "pet:721": "reject",
+   "pet:731": "reject",
+   "pet:733": "reject",
+   "pet:788": "dream",
+   "pet:833": "reject",
+   "pet:840": "easy",
+   "pet:846": "effect",
+   "pet:848": "effort",
+   "pet:849": "egg",
+   "pet:864": "evening",
+   "pet:885": "exchange rate",
+   "pet:889": "excuse",
+   "pet:901": "experienced",
+   "pet:902": "experiment",
+   "pet:925": "figure",
+   "pet:936": "reject",
+   "pet:938": "reject",
+   "pet:953.2": "reject",
+   "pet:954.2": "reject",
+   "pet:959.2": "reject",
+   "pet:974": "flower",
+   "pet:1076": "goodbye",
+   "pet:1085": "go on",
+   "pet:1088": "go out",
+   "pet:1103": "graduate",
+   "pet:1106": "grammar",
+   "pet:1111": "grandma",
+   "pet:1163.2": "reject",
+   "pet:1164.2": "reject",
+   "pet:1166": "reject",
+   "pet:1191": "herb",
+   "pet:1201": "hidden",
+   "pet:1202": "hide",
+   "pet:1204": "high jump",
+   "pet:1206": "hill",
+   "pet:1215": "reject",
+   "pet:1216": "reject",
+   "pet:1224": "reject",
+   "pet:1347": "jeans",
+   "pet:1351": "job",
+   "pet:1362": "journalist",
+   "pet:1394": "lead (to)",
+   "pet:1397": "leader",
+   "pet:1398": "leaf",
+   "pet:1402.2": "reject",
+   "pet:1403.2": "reject",
+   "pet:1464": "luckily",
+   "pet:1465": "lucky",
+   "pet:1467": "lunch",
+   "pet:1479": "magazine",
+   "pet:1507": "marvellous",
+   "pet:1509.2": "reject",
+   "pet:1510.2": "reject",
+   "pet:1548": "monthly",
+   "pet:1549": "monument",
+   "pet:1627.2": "reject",
+   "pet:1628.2": "reject",
+   "pet:1631": "notepaper",
+   "pet:1635": "reject",
+   "pet:1637": "reject",
+   "pet:1711.2": "reject",
+   "pet:1713": "reject",
+   "pet:1721": "reject",
+   "pet:1723": "reject",
+   "pet:1725": "reject",
+   "pet:1726": "reject",
+   "pet:1728": "reject",
+   "pet:1734.2": "reject",
+   "pet:1757": "reject",
+   "pet:1759": "reject",
+   "pet:1761": "reject",
+   "pet:1769": "reject",
+   "pet:1771": "reject",
+   "pet:1781": "reject",
+   "pet:1800": "perhaps",
+   "pet:1801": "period",
+   "pet:1826": "reject",
+   "pet:1828": "reject",
+   "pet:1838": "reject",
+   "pet:1839": "reject",
+   "pet:1898": "reject",
+   "pet:1901": "reject",
+   "pet:1916": "reject",
+   "pet:1918": "reject",
+   "pet:1934": "reject",
+   "pet:1936": "reject",
+   "pet:1937": "reject",
+   "pet:1938": "reject",
+   "pet:1939": "reject",
+   "pet:1940": "reject",
+   "pet:1941": "reject",
+   "pet:1942": "reject",
+   "pet:1944": "reject",
+   "pet:1950": "reject",
+   "pet:1956": "practice",
+   "pet:1957": "practise",
+   "pet:1958": "pray",
+   "pet:1973": "reject",
+   "pet:1974": "reject",
+   "pet:1976.2": "reject",
+   "pet:1988": "public",
+   "pet:1989.2": "reject",
+   "pet:1990.2": "reject",
+   "pet:1991": "reject",
+   "pet:1992": "public transport",
+   "pet:2003": "purple",
+   "pet:2049": "reject",
+   "pet:2050": "reject",
+   "pet:2059": "quarter",
+   "pet:2067": "reader",
+   "pet:2077": "reasonable",
+   "pet:2086": "reject",
+   "pet:2087": "recognise",
+   "pet:2089": "reject",
+   "pet:2091.2": "reject",
+   "pet:2092": "reject",
+   "pet:2093.2": "reject",
+   "pet:2095": "recover",
+   "pet:2102": "reduce",
+   "pet:2103": "reduced",
+   "pet:2105": "refrigerator",
+   "pet:2147.2": "reject",
+   "pet:2151": "reject",
+   "pet:2153": "reject",
+   "pet:2176.2": "reject",
+   "pet:2177": "reject",
+   "pet:2178": "reject",
+   "pet:2184": "reject",
+   "pet:2185.2": "reject",
+   "pet:2186": "reject",
+   "pet:2187": "reject",
+   "pet:2194": "reject",
+   "pet:2195": "reject",
+   "pet:2200.2": "reject",
+   "pet:2202": "reject",
+   "pet:2204": "reject",
+   "pet:2211": "reject",
+   "pet:2215": "reject",
+   "pet:2227": "reject",
+   "pet:2228": "reject",
+   "pet:2246": "reject",
+   "pet:2270.2": "reject",
+   "pet:2276": "reject",
+   "pet:2292": "send",
+   "pet:2293": "sense",
+   "pet:2294": "sensible",
+   "pet:2304": "shock",
+   "pet:2305": "reject",
+   "pet:2306": "shocked",
+   "pet:2342": "reject",
+   "pet:2377": "reject",
+   "pet:2379.2": "reject",
+   "pet:2380": "reject",
+   "pet:2381": "reject",
+   "pet:2417": "reject",
+   "pet:2418": "reject",
+   "pet:2419": "reject",
+   "pet:2422": "reject",
+   "pet:2477": "so-so",
+   "pet:2480.2": "reject",
+   "pet:2481.2": "reject",
+   "pet:2482": "soundtrack",
+   "pet:2493.2": "reject",
+   "pet:2494.2": "reject",
+   "pet:2497": "reject",
+   "pet:2499": "reject",
+   "pet:2504": "statue",
+   "pet:2505": "stay",
+   "pet:2506.2": "reject",
+   "pet:2508": "reject",
+   "pet:2509": "reject",
+   "pet:2510": "reject",
+   "pet:2511": "reject",
+   "pet:2512": "reject",
+   "pet:2539": "reject",
+   "pet:2541": "reject",
+   "pet:2565.2": "reject",
+   "pet:2566": "reject",
+   "pet:2567": "reject",
+   "pet:2570.2": "reject",
+   "pet:2572": "story",
+   "pet:2574.2": "reject",
+   "pet:2575": "reject",
+   "pet:2577": "stranger",
+   "pet:2590.2": "reject",
+   "pet:2591": "reject",
+   "pet:2591.2": "reject",
+   "pet:2592": "reject",
+   "pet:2605": "reject",
+   "pet:2607": "reject",
+   "pet:2608": "reject",
+   "pet:2609": "reject",
+   "pet:2623": "surround",
+   "pet:2630": "reject",
+   "pet:2632": "reject",
+   "pet:2634": "reject",
+   "pet:2636": "reject",
+   "pet:2654": "reject",
+   "pet:2656": "reject",
+   "pet:2679": "term",
+   "pet:2680": "terrible",
+   "pet:2715": "reject",
+   "pet:2717": "reject",
+   "pet:2718": "reject",
+   "pet:2732": "reject",
+   "pet:2739": "throw",
+   "pet:2740": "throw away",
+   "pet:2744": "thunderstorm",
+   "pet:2757": "reject",
+   "pet:2759": "reject",
+   "pet:2773": "reject",
+   "pet:2775": "reject",
+   "pet:2783": "reject",
+   "pet:2788": "train",
+   "pet:2789": "reject",
+   "pet:2790.2": "reject",
+   "pet:2801": "travel",
+   "pet:2819": "reject",
+   "pet:2820": "reject",
+   "pet:2829": "unemployed",
+   "pet:2832": "unfair",
+   "pet:2839": "reject",
+   "pet:2841": "reject",
+   "pet:2867": "reject",
+   "pet:2868": "reject",
+   "pet:2874": "reject",
+   "pet:2892": "reject",
+   "pet:2893": "reject",
+   "pet:2951": "wave",
+   "pet:2952.2": "reject",
+   "pet:2953.2": "reject",
+   "pet:2998": "reject",
+   "pet:2999": "reject",
+   "pet:3003": "reject",
+   "pet:3007": "reject",
+   "pet:3019": "wool",
+   "pet:3020": "word",
+   "pet:3024.2": "reject",
+   "pet:3025.2": "reject",
+   "pet:3027": "reject",
+   "pet:3029": "reject",
+   "pet:3031": "reject"
+  }
+ },
+ "_docSenses": "senses: quyết định của Opus cho review/sense-review.tsv (PLAN-LEVELS 2.4, 2.5 bước 4). action keep = giữ nghĩa kho; relabel = đổi nghĩa theo sense cấp thấp nhất. Các trường vi/pos/cat/ex/img/note (nếu có) được relevel --apply-senses ghi đè vào parts. Cấp luôn là cấp thấp nhất của danh sách.",
+ "senses": {
+  "bat": {
+   "action": "relabel",
+   "vi": "gậy đánh bóng",
+   "pos": "n",
+   "cat": "sport",
+   "ex": "He hits the ball with a bat.",
+   "img": "Cricket game",
+   "note": "Starters: gậy đánh bóng (as sports equipment); Movers: con dơi"
+  },
+  "fly": {
+   "action": "keep",
+   "note": "Starters: fly (v) bay; Movers: fly (n) con ruồi. Giữ nghĩa con ruồi vì chủ đề côn trùng (topics.json, gói sea-and-insects) dùng nghĩa này"
+  },
+  "mouse": {
+   "action": "keep"
+  },
+  "floor": {
+   "action": "keep"
+  },
+  "laptop": {
+   "action": "keep"
+  },
+  "lift": {
+   "action": "keep"
+  },
+  "letter": {
+   "action": "relabel",
+   "vi": "chữ cái",
+   "pos": "n",
+   "cat": "school",
+   "ex": "A is the first letter of the alphabet.",
+   "img": "Input latin uppercase",
+   "note": "Starters: chữ cái (as in alphabet); Flyers: lá thư (as in mail)"
+  },
+  "match": {
+   "action": "keep"
+  },
+  "keyboard": {
+   "action": "relabel",
+   "vi": "bàn phím",
+   "pos": "n",
+   "cat": "tech",
+   "ex": "I type on the keyboard.",
+   "img": "Keyboard",
+   "note": "Starters: bàn phím máy tính (computer)"
+  },
+  "band": {
+   "action": "keep"
+  },
+  "train": {
+   "action": "keep"
+  },
+  "fall": {
+   "action": "relabel",
+   "vi": "rơi, ngã",
+   "pos": "v",
+   "cat": "motion",
+   "ex": "Be careful! Don't fall off the wall.",
+   "img": "Fallen leaf",
+   "note": "Movers: fall (v) rơi, ngã; Flyers: fall (n) mùa thu (Anh-Mỹ)"
+  },
+  "smoke": {
+   "action": "keep",
+   "note": "KET: smoke (v) hút thuốc; PET: smoke (n) khói. Giữ nghĩa khói cho phù hợp học sinh"
+  },
+  "drop": {
+   "action": "relabel",
+   "vi": "làm rơi, đánh rơi",
+   "pos": "v",
+   "cat": "action",
+   "ex": "Don't drop the glass!",
+   "img": "Droplet",
+   "note": "Movers: drop (v); PET: drop (n) giọt"
+  },
+  "date": {
+   "action": "keep"
+  },
+  "kind": {
+   "action": "relabel",
+   "vi": "loại, kiểu",
+   "pos": "n",
+   "cat": "abstract",
+   "ex": "What kind of music do you like?",
+   "img": "",
+   "note": "Movers: kind (n) loại; Flyers: kind (adj) tốt bụng"
+  },
+  "right": {
+   "action": "keep"
+  },
+  "please": {
+   "action": "keep"
+  },
+  "welcome": {
+   "action": "relabel",
+   "vi": "chào mừng",
+   "pos": "phr",
+   "cat": "function",
+   "ex": "Our teacher said welcome to the new students.",
+   "img": "Waving hand",
+   "note": "KET: Welcome! / You’re welcome (adj, phr); PET: welcome (n, v) chào đón"
+  },
+  "catch": {
+   "action": "keep"
+  },
+  "take": {
+   "action": "keep"
+  },
+  "type": {
+   "action": "relabel",
+   "vi": "loại, kiểu",
+   "pos": "n",
+   "cat": "abstract",
+   "ex": "What type of films do you like?",
+   "img": "",
+   "note": "KET: type (n) loại; PET: type (v) gõ phím"
+  },
+  "relax": {
+   "action": "keep"
+  }
+ }
+}

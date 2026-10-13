@@ -1,0 +1,275 @@
+{
+  "title": "Film and TV",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "documentary",
+      "meaning": "phim tài liệu",
+      "category": "media",
+      "example": "We watched a documentary about whales in science class.",
+      "image": ""
+    },
+    {
+      "word": "series",
+      "meaning": "loạt phim",
+      "category": "media",
+      "example": "We are watching a new series about animals.",
+      "image": ""
+    },
+    {
+      "word": "episode",
+      "meaning": "tập phim",
+      "category": "media",
+      "example": "We watch one episode of the series every evening.",
+      "image": ""
+    },
+    {
+      "word": "soap opera",
+      "meaning": "phim truyền hình dài tập",
+      "category": "media",
+      "example": "My aunt watches a soap opera every evening.",
+      "image": ""
+    },
+    {
+      "word": "talk show",
+      "meaning": "chương trình trò chuyện",
+      "category": "media",
+      "example": "My mom watches a talk show every evening.",
+      "image": ""
+    },
+    {
+      "word": "chat show",
+      "meaning": "chương trình trò chuyện",
+      "category": "media",
+      "example": "The singer was a guest on a popular chat show.",
+      "image": ""
+    },
+    {
+      "word": "scene",
+      "meaning": "cảnh",
+      "category": "media",
+      "example": "The last scene of the film made everyone laugh.",
+      "image": ""
+    },
+    {
+      "word": "plot",
+      "meaning": "cốt truyện",
+      "category": "media",
+      "example": "The plot of this film is quite simple.",
+      "image": ""
+    },
+    {
+      "word": "ending",
+      "meaning": "đoạn kết",
+      "category": "media",
+      "example": "I did not like the ending of that film.",
+      "image": ""
+    },
+    {
+      "word": "thriller",
+      "meaning": "phim giật gân",
+      "category": "media",
+      "example": "We watched an exciting thriller last night.",
+      "image": ""
+    },
+    {
+      "word": "science fiction",
+      "meaning": "khoa học viễn tưởng",
+      "category": "media",
+      "example": "My brother loves reading science fiction books about space.",
+      "image": ""
+    },
+    {
+      "word": "romance",
+      "meaning": "chuyện tình cảm",
+      "category": "media",
+      "example": "The book is a story of romance and adventure.",
+      "image": ""
+    },
+    {
+      "word": "film maker",
+      "meaning": "nhà làm phim",
+      "category": "job",
+      "example": "My uncle is a film maker in the city.",
+      "image": ""
+    },
+    {
+      "word": "director",
+      "meaning": "giám đốc, đạo diễn",
+      "category": "job",
+      "example": "The director of our school film club is very kind.",
+      "image": ""
+    },
+    {
+      "word": "presenter",
+      "meaning": "người dẫn chương trình",
+      "category": "job",
+      "example": "The presenter of the show is very funny.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"film maker\" mean?",
+      "options": [
+        "nhà làm phim",
+        "phim truyền hình dài tập",
+        "khoa học viễn tưởng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người dẫn chương trình)",
+      "options": [
+        "presetner",
+        "presenter",
+        "presneter"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"romance\" mean?",
+      "options": [
+        "con ngựa vằn",
+        "tín dụng, tiền nạp",
+        "chuyện tình cảm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of this film is quite simple.",
+      "options": [
+        "plot",
+        "presenter",
+        "director"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sc_ne (cảnh)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"talk show\" mean?",
+      "options": [
+        "ngôi sao nhạc pop",
+        "chương trình trò chuyện",
+        "trạm xe buýt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tập phim\"?",
+      "options": [
+        "episode",
+        "check-in",
+        "millimetre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"director\" mean?",
+      "options": [
+        "phim tài liệu",
+        "giám đốc, đạo diễn",
+        "chương trình trò chuyện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"loạt phim\"?",
+      "options": [
+        "hunger",
+        "candidate",
+        "series"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"science fiction\" mean?",
+      "options": [
+        "nhà làm phim",
+        "giám đốc, đạo diễn",
+        "khoa học viễn tưởng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: end_ng (đoạn kết)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chat show\" mean?",
+      "options": [
+        "chương trình trò chuyện",
+        "giày trượt băng",
+        "đồn cảnh sát"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phim tài liệu\"?",
+      "options": [
+        "documentary",
+        "inventor",
+        "stress"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My aunt watches a ___ every evening.",
+      "options": [
+        "film maker",
+        "director",
+        "soap opera"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phim giật gân)",
+      "options": [
+        "thirller",
+        "thriller",
+        "thrliler"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a TV presenter",
+    "Pretend to hold a film camera",
+    "Pretend to cry in a sad scene",
+    "Pretend to watch a thriller and look scared",
+    "Pretend to say the last line of a film",
+    "Pretend to hold a remote control"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

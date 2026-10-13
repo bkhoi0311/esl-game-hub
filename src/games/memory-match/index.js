@@ -6,7 +6,7 @@ import { PERF } from '../../core/perf.js';
 import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
-  TEAM_COLORS, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen,
+  TEAM_COLORS, teamVars, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen,
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
@@ -105,8 +105,7 @@ function createGame(root, pack) {
         a.done = b.done = true;
         a.el.classList.add('matched');
         b.el.classList.add('matched');
-        a.el.style.setProperty('--team', TEAM_COLORS[state.turn]);
-        b.el.style.setProperty('--team', TEAM_COLORS[state.turn]);
+        for (const [k, v] of Object.entries(teamVars(TEAM_COLORS[state.turn]))) { a.el.style.setProperty(k, v); b.el.style.setProperty(k, v); }
         scoreboard.add(state.turn, 1);
         playSound('correct');
         burst(a.el, { count: 12 });

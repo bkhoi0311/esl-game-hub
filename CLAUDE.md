@@ -32,10 +32,10 @@ src/
     ui.js              # nút, modal, bảng điểm đội, đồng hồ đếm ngược dùng chung
     audio.js           # âm thanh đúng/sai/thắng, TTS
     camera.js          # mở camera, chọn thiết bị (S1), xử lý lỗi quyền, tắt camera khi rời game
-    vision.js          # nạp MediaPipe (pose, face, frame diff), dùng chung cho 4 game camera
+    vision.js          # nạp MediaPipe (pose, face, frame diff), dùng chung cho 3 game camera
   games/
-    statue-freeze/  simon-pose/  head-tilt/  word-ninja/
-    gold-heist/  impostor/  tug-of-war/  whack-word/  balloon-pop/  memory-match/  tic-tac-toe/
+    statue-freeze/  simon-pose/  word-ninja/
+    gold-heist/  impostor/  tug-of-war/  whack-word/  balloon-pop/  memory-match/  tic-tac-toe/  sentence-race/
     shared/              # khung chung game 2 người chia đôi màn hình
   data/sample-food-a2.json
 docs/GAMES_SPEC.md
@@ -91,5 +91,6 @@ export default {
 
 ## Cách làm việc
 - Làm theo giai đoạn trong `KICKOFF_PROMPT.md`. Hết mỗi giai đoạn: chạy Playwright, chụp màn hình, dừng lại báo cáo và chờ duyệt.
+- Game thi đấu không đọc giọng mặc định (`src/core/voice-policy.js`: `QUIET_GAMES`, Cài đặt > Đọc từ trong game thi đấu). Nút loa do giáo viên bấm dùng `speak(text, { manual: true })`.
 - Không tự thêm game hoặc tính năng ngoài đặc tả. Có ý tưởng thì ghi vào `docs/IDEAS.md`.
 - Commit nhỏ, message rõ ràng, mỗi game ít nhất 1 commit riêng.

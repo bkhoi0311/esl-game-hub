@@ -98,7 +98,7 @@ body.framed .stage { border: 0; }
 .group-tab.group-class { --accent: #04bc09; }
 .group-tab:hover { transform: translateY(-3px) scale(1.01); }
 .group-tab:active { transform: scale(0.97); }
-.group-icon { display: grid; place-items: center; width: 4rem; height: 4rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent) 60%, #fff), var(--accent)); box-shadow: 0 0.3rem 0 color-mix(in srgb, var(--accent) 70%, #000); }
+.group-icon { display: grid; place-items: center; width: 4rem; height: 4rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)) var(--accent); box-shadow: 0 0.3rem 0 rgba(0, 0, 0, 0.3), 0 0.3rem 0 var(--accent); }
 .group-text { display: grid; gap: 0.1rem; }
 .group-text strong { font-family: var(--font-en); font-size: 1.85rem; line-height: 1.05; color: var(--brand-ink); }
 .group-text small { font-size: 1.02rem; color: #4b5563; }
@@ -135,7 +135,7 @@ body.framed .stage { border: 0; }
 .card-panel { position: relative; z-index: 1; display: grid; align-content: start; gap: 0.3rem; margin: 0 0.5rem 0.5rem; padding: 0.7rem 0.9rem 0.8rem; border-radius: 1.3rem; background: rgba(255, 255, 255, 0.72); box-shadow: inset 0 1px 0 #fff; backdrop-filter: blur(4px); }
 .card-title { font-family: var(--font-en); font-size: 1.85rem; line-height: 1.02; color: var(--ink-card); padding-right: 0.2rem; }
 .card-desc { max-width: none; padding-right: 2.6rem; font-size: 1.02rem; line-height: 1.3; min-height: 3.9em; color: #414a5c; }
-.card-go { position: absolute; right: 0.6rem; bottom: 0.6rem; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent-card) 55%, #fff), var(--accent-card)); box-shadow: 0 0.25rem 0 color-mix(in srgb, var(--accent-card) 65%, #000); animation: go-pulse 2.4s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -0.4s); }
+.card-go { position: absolute; right: 0.6rem; bottom: 0.6rem; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border-radius: 999px; color: #fff; background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0)) var(--accent-card); box-shadow: 0 0.25rem 0 rgba(0, 0, 0, 0.35), 0 0.25rem 0 var(--accent-card); animation: go-pulse 2.4s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -0.4s); }
 .card-badges { top: 0.9rem; left: 0.9rem; z-index: 2; }
 .badge-camera { background: linear-gradient(#3b8cff, #1d6ff2); color: #fff; box-shadow: 0 0.2rem 0.5rem rgba(29, 111, 242, 0.35); font-size: 0.9rem; }
 .game-card.disabled .card-pic { filter: saturate(0.3); opacity: 0.6; }

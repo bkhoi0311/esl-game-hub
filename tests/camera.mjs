@@ -16,7 +16,7 @@ const server = process.env.PREVIEW
   : await createServer({ server: { port: 5196, strictPort: true }, logLevel: 'error' });
 if (!process.env.PREVIEW) await server.listen();
 const BASE = 'http://localhost:5196/';
-const browser = await chromium.launch();
+const browser = await chromium.launch().catch(() => chromium.launch({ channel: 'chrome' })); // máy không có Chromium của Playwright thì dùng Chrome
 const results = [];
 const pageErrors = [];
 
@@ -33,6 +33,7 @@ const FAKE_CAMERA = () => {
     let t = 0;
     const draw = () => {
       t += 1;
+      ctx.filter = window.__gain ? `brightness(${window.__gain})` : 'none'; // giả lập camera tự chỉnh sáng (statue-ae)
       ctx.fillStyle = '#8fa3b8';
       ctx.fillRect(0, 0, 640, 360);
       ctx.fillStyle = '#c9b48a';
@@ -55,6 +56,7 @@ const FAKE_CAMERA = () => {
         ctx.fillStyle = '#ffd2a6';
         ctx.fillRect(m.x * 640 + m.w * 640 * 0.3 + dx, m.y * 360, m.w * 640 * 0.4, m.h * 360);
       }
+      ctx.filter = 'none';
     };
     setInterval(draw, 33);
     draw();
@@ -131,10 +133,101 @@ TESTS['statue-freeze'] = async () => {
   assert.ok(still <= 1, `đứng yên mà báo ${still} ô`);
   await shot(page, 'statue-4-still');
 
+  // Nút +/- độ nhạy.
+  await page.click('[data-testid=sf-sensitivity] [data-act=inc]');
+  assert.equal(await page.evaluate(() => window.__statueFreeze.debug().sensitivity), 7, 'nút + phải tăng độ nhạy lên 7');
+  const st = await page.evaluate(() => window.__statueFreeze.debug());
+  assert.equal(st.mode, 'v2');
+  console.log(`  statue-freeze v2: ${st.stats.procHz.toFixed(1)} Hz · ${(st.stats.ms + st.stats.grabMs).toFixed(1)} ms · σ ${st.stats.sigma.toFixed(1)} · τ ${st.stats.tau} · nguồn ${st.stats.src}`);
+
   // Nút tắt camera tắt hẳn track.
   await page.click('[data-testid=cam-toggle]');
   const live = await page.evaluate(() => window.__tracks.filter((t) => t.readyState === 'live').length);
   assert.equal(live, 0, 'tắt camera nhưng track vẫn chạy');
+  await context.close();
+};
+
+// Camera tự chỉnh sáng giữa pha đo: không được báo sai.
+TESTS['statue-ae'] = async () => {
+  const { context, page } = await open('?diag=sf#/game/statue-freeze');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await page.click('[data-testid=cam-start]');
+  const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
+  const waitPhase = async (p, ms = 20000) => {
+    const end = Date.now() + ms;
+    while ((await phase()) !== p) {
+      if (Date.now() > end) throw new Error(`chờ pha ${p} quá lâu (đang ${await phase()})`);
+      await page.waitForTimeout(100);
+    }
+  };
+  await waitPhase('red');
+  await page.waitForTimeout(1000); // qua ân hạn
+  await page.evaluate(() => {
+    window.__gain = 1;
+    const t0 = performance.now();
+    const id = setInterval(() => {
+      const u = Math.min(1, (performance.now() - t0) / 1000);
+      window.__gain = 1 + 0.2 * u;
+      if (u >= 1) clearInterval(id);
+    }, 33);
+  });
+  await waitPhase('review');
+  const d = await page.evaluate(() => window.__statueFreeze.debug());
+  console.log(`  statue-ae: ô cờ ${d.areas}, global ${d.stats.globalEvents}, gain ${d.stats.gain.toFixed(2)}`);
+  assert.ok(d.areas <= 1, `đổi sáng 20% mà báo ${d.areas} vùng`);
+  assert.ok(await page.isVisible('[data-testid=sf-hud]'), '?diag=sf phải hiện HUD');
+  await shot(page, 'statue-5-ae');
+  await context.close();
+};
+
+// Chia 2 đội: vẫy tay nửa phải màn hình -> đội trái +1.
+TESTS['statue-lanes'] = async () => {
+  const { context, page } = await open('#/game/statue-freeze');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await page.click('[data-testid=sf-lanes] [data-value="2"]');
+  assert.equal(await page.getAttribute('[data-testid=sf-lanes] [aria-pressed=true]', 'data-value'), '2');
+  await page.click('[data-testid=cam-start]');
+  const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
+  const waitPhase = async (p, ms = 20000) => {
+    const end = Date.now() + ms;
+    while ((await phase()) !== p) {
+      if (Date.now() > end) throw new Error(`chờ pha ${p} quá lâu (đang ${await phase()})`);
+      await page.waitForTimeout(100);
+    }
+  };
+  await waitPhase('red');
+  await page.evaluate(() => (window.__motion = { x: 0.08, y: 0.15, w: 0.14, h: 0.25 })); // ảnh gốc trái -> màn hình gương: nửa PHẢI
+  await waitPhase('review');
+  await page.evaluate(() => (window.__motion = null));
+  const d = await page.evaluate(() => window.__statueFreeze.debug());
+  assert.equal(d.lanes[0], 0, `đội trái không cử động: ${d.lanes}`);
+  assert.ok(d.lanes[1] >= 1, `đội phải có cử động: ${d.lanes}`);
+  assert.equal((await page.textContent('[data-testid=sf-score-0]')).trim(), '1', 'đội trái không có ô đỏ phải +1');
+  assert.equal((await page.textContent('[data-testid=sf-score-1]')).trim(), '0');
+  await shot(page, 'statue-6-lanes');
+  await context.close();
+};
+
+// Bản cũ (?sf=v1) còn chạy được để A/B.
+TESTS['statue-v1'] = async () => {
+  const { context, page } = await open('?sf=v1#/game/statue-freeze');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await page.click('[data-testid=cam-start]');
+  const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
+  const waitPhase = async (p, ms = 20000) => {
+    const end = Date.now() + ms;
+    while ((await phase()) !== p) {
+      if (Date.now() > end) throw new Error(`chờ pha ${p} quá lâu (đang ${await phase()})`);
+      await page.waitForTimeout(100);
+    }
+  };
+  await waitPhase('red');
+  await page.evaluate(() => (window.__motion = { x: 0.08, y: 0.15, w: 0.14, h: 0.25 }));
+  await waitPhase('review');
+  await page.evaluate(() => (window.__motion = null));
+  const d = await page.evaluate(() => window.__statueFreeze.debug());
+  assert.equal(d.mode, 'v1');
+  assert.ok(d.areas >= 1, 'bản cũ vẫn phải bắt được vẫy tay lớn');
   await context.close();
 };
 
@@ -219,7 +312,7 @@ TESTS['camera-hotplug'] = async () => {
 };
 
 // ---------- 3 game AI: nạp model, chạy vòng lặp không lỗi ----------
-for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]'], ['head-tilt', '[data-testid=ht-prompt]']]) {
+for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]']]) {
   TESTS[id] = async () => {
     const { context, page } = await open(`#/game/${id}`, undefined, undefined);
     await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
@@ -303,7 +396,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck', 'statue-ae', 'statue-lanes', 'statue-v1'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

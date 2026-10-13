@@ -1,0 +1,261 @@
+{
+  "title": "History and Tradition",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ancient",
+      "meaning": "cổ xưa",
+      "category": "describe",
+      "example": "We visited an ancient temple on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "antique",
+      "meaning": "cổ, đồ cổ",
+      "category": "describe",
+      "example": "She bought an antique clock at the market.",
+      "image": ""
+    },
+    {
+      "word": "historic",
+      "meaning": "có tính lịch sử",
+      "category": "describe",
+      "example": "We visited a historic castle during our school trip.",
+      "image": ""
+    },
+    {
+      "word": "historical",
+      "meaning": "thuộc về lịch sử",
+      "category": "describe",
+      "example": "I enjoy reading historical stories about ancient cities.",
+      "image": ""
+    },
+    {
+      "word": "traditional",
+      "meaning": "truyền thống",
+      "category": "describe",
+      "example": "We ate traditional food at the festival.",
+      "image": ""
+    },
+    {
+      "word": "folk",
+      "meaning": "dân gian",
+      "category": "describe",
+      "example": "My grandfather plays folk music on his guitar.",
+      "image": ""
+    },
+    {
+      "word": "old-fashioned",
+      "meaning": "lỗi thời",
+      "category": "describe",
+      "example": "My grandfather has an old-fashioned phone with buttons.",
+      "image": ""
+    },
+    {
+      "word": "ruin",
+      "meaning": "tàn tích",
+      "category": "place",
+      "example": "We visited an old castle ruin on the hill.",
+      "image": ""
+    },
+    {
+      "word": "prince",
+      "meaning": "hoàng tử",
+      "category": "fantasy",
+      "example": "The prince rides a white horse.",
+      "image": ""
+    },
+    {
+      "word": "princess",
+      "meaning": "công chúa",
+      "category": "fantasy",
+      "example": "The princess lives in a tall tower.",
+      "image": ""
+    },
+    {
+      "word": "drama",
+      "meaning": "kịch",
+      "category": "subject",
+      "example": "Our drama class is performing a play next month.",
+      "image": ""
+    },
+    {
+      "word": "literature",
+      "meaning": "văn học",
+      "category": "subject",
+      "example": "We read a poem in literature class today.",
+      "image": ""
+    },
+    {
+      "word": "famous",
+      "meaning": "nổi tiếng",
+      "category": "describe",
+      "example": "My uncle is a famous singer.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Our ___ class is performing a play next month.",
+      "options": [
+        "princess",
+        "prince",
+        "drama"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_nce (hoàng tử)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nổi tiếng\"?",
+      "options": [
+        "Indian",
+        "famous",
+        "curious"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We visited an old castle ___ on the hill.",
+      "options": [
+        "ruin",
+        "princess",
+        "drama"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_lk (dân gian)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"drama\" mean?",
+      "options": [
+        "công chúa",
+        "kịch",
+        "tàn tích"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"có tính lịch sử\"?",
+      "options": [
+        "historic",
+        "Italian",
+        "third"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: hist_rical (thuộc về lịch sử)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"old-fashioned\" mean?",
+      "options": [
+        "đáng tin cậy",
+        "tò mò",
+        "lỗi thời"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"công chúa\"?",
+      "options": [
+        "dream",
+        "cartoon",
+        "princess"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"literature\" mean?",
+      "options": [
+        "công chúa",
+        "văn học",
+        "hoàng tử"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nổi tiếng)",
+      "options": [
+        "famous",
+        "fmaous",
+        "faomus"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ancient\" mean?",
+      "options": [
+        "không tay",
+        "cổ xưa",
+        "hào phóng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cổ, đồ cổ)",
+      "options": [
+        "anttique",
+        "anntique",
+        "antique"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"truyền thống\"?",
+      "options": [
+        "traditional",
+        "unfriendly",
+        "Spanish"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at an ancient ruin",
+    "Pretend to be a prince or a princess",
+    "Mime holding an antique vase carefully",
+    "Pretend to play a folk song on a guitar",
+    "Pretend to be a performer on stage",
+    "Show me a traditional greeting"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

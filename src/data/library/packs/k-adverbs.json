@@ -1,0 +1,272 @@
+{
+  "title": "Adverbs",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "almost",
+      "meaning": "gần như",
+      "category": "manner",
+      "example": "I am almost ready to leave.",
+      "image": ""
+    },
+    {
+      "word": "certainly",
+      "meaning": "chắc chắn",
+      "category": "manner",
+      "example": "I will certainly help you with homework.",
+      "image": ""
+    },
+    {
+      "word": "clearly",
+      "meaning": "rõ",
+      "category": "manner",
+      "example": "Please speak clearly so we can hear you.",
+      "image": ""
+    },
+    {
+      "word": "easily",
+      "meaning": "dễ dàng",
+      "category": "manner",
+      "example": "She can easily carry the small box.",
+      "image": ""
+    },
+    {
+      "word": "especially",
+      "meaning": "đặc biệt là",
+      "category": "manner",
+      "example": "I like fruit, especially mangoes.",
+      "image": ""
+    },
+    {
+      "word": "even",
+      "meaning": "thậm chí",
+      "category": "manner",
+      "example": "It was so cold that even the lake froze.",
+      "image": ""
+    },
+    {
+      "word": "exactly",
+      "meaning": "chính xác",
+      "category": "manner",
+      "example": "The train leaves at exactly six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "least",
+      "meaning": "ít nhất",
+      "category": "manner",
+      "example": "I like maths the least.",
+      "image": ""
+    },
+    {
+      "word": "luckily",
+      "meaning": "may mắn là",
+      "category": "manner",
+      "example": "We were late, but luckily the bus waited.",
+      "image": ""
+    },
+    {
+      "word": "nearly",
+      "meaning": "gần như",
+      "category": "manner",
+      "example": "I nearly missed the bus this morning.",
+      "image": ""
+    },
+    {
+      "word": "possibly",
+      "meaning": "có lẽ, có thể",
+      "category": "manner",
+      "example": "He is possibly the fastest runner in our school.",
+      "image": ""
+    },
+    {
+      "word": "probably",
+      "meaning": "có lẽ, chắc là",
+      "category": "manner",
+      "example": "It will probably rain tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "unfortunately",
+      "meaning": "không may",
+      "category": "opinion",
+      "example": "We wanted to swim, but unfortunately the pool was closed.",
+      "image": ""
+    },
+    {
+      "word": "indoors",
+      "meaning": "ở trong nhà",
+      "category": "manner",
+      "example": "We stay indoors because it is raining.",
+      "image": ""
+    },
+    {
+      "word": "outdoors",
+      "meaning": "ở ngoài trời",
+      "category": "manner",
+      "example": "The children love to play outdoors.",
+      "image": ""
+    },
+    {
+      "word": "by accident",
+      "meaning": "vô tình",
+      "category": "manner",
+      "example": "I broke the cup by accident.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"ở ngoài trời\"?",
+      "options": [
+        "finally",
+        "outdoors",
+        "soon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"probably\" mean?",
+      "options": [
+        "có lẽ, chắc là",
+        "ở tầng dưới",
+        "ở tầng trên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thậm chí\"?",
+      "options": [
+        "a.m.",
+        "ago",
+        "even"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (may mắn là)",
+      "options": [
+        "lucckily",
+        "luckily",
+        "luckilly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The train leaves at ___ six o'clock.",
+      "options": [
+        "unfortunately",
+        "upstairs",
+        "exactly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"indoors\" mean?",
+      "options": [
+        "ở trong nhà",
+        "lại, một lần nữa",
+        "một lần"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chắc chắn\"?",
+      "options": [
+        "twice",
+        "certainly",
+        "often"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"least\" mean?",
+      "options": [
+        "ở tầng dưới",
+        "làm ơn",
+        "ít nhất"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ssibly (có lẽ, có thể)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gần như)",
+      "options": [
+        "neerly",
+        "niarly",
+        "nearly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: espec_ally (đặc biệt là)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_arly (rõ)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She can ___ carry the small box.",
+      "options": [
+        "unfortunately",
+        "please",
+        "easily"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"by accident\" mean?",
+      "options": [
+        "vô tình",
+        "nằm xuống",
+        "cảm ơn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to lift something easily",
+    "Show me almost with finger and thumb",
+    "Nod and say certainly",
+    "Shrug and say possibly",
+    "Point exactly to your nose",
+    "Show me a lucky smile"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "title": "Action Verbs 2",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "climb",
+      "meaning": "leo",
+      "category": "action",
+      "example": "Monkeys climb trees very fast.",
+      "image": ""
+    },
+    {
+      "word": "cry",
+      "meaning": "khóc",
+      "category": "action",
+      "example": "The baby cries at night.",
+      "image": ""
+    },
+    {
+      "word": "grow",
+      "meaning": "trồng, lớn lên",
+      "category": "action",
+      "example": "Plants grow in the sun.",
+      "image": ""
+    },
+    {
+      "word": "help",
+      "meaning": "giúp đỡ",
+      "category": "action",
+      "example": "I help my mum in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "laugh",
+      "meaning": "cười",
+      "category": "action",
+      "example": "We laugh at the clown.",
+      "image": ""
+    },
+    {
+      "word": "shout",
+      "meaning": "hét, la",
+      "category": "action",
+      "example": "Don't shout in the library.",
+      "image": ""
+    },
+    {
+      "word": "travel",
+      "meaning": "đi du lịch",
+      "category": "action",
+      "example": "They travel by train every summer.",
+      "image": ""
+    },
+    {
+      "word": "sail",
+      "meaning": "đi thuyền",
+      "category": "action",
+      "example": "They sail across the lake.",
+      "image": ""
+    },
+    {
+      "word": "work",
+      "meaning": "làm việc",
+      "category": "action",
+      "example": "My father works in an office.",
+      "image": ""
+    },
+    {
+      "word": "get on",
+      "meaning": "lên xe",
+      "category": "motion",
+      "example": "We get on the bus at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "get off",
+      "meaning": "xuống xe",
+      "category": "motion",
+      "example": "We get off the bus at the park.",
+      "image": ""
+    },
+    {
+      "word": "go shopping",
+      "meaning": "đi mua sắm",
+      "category": "daily",
+      "example": "We go shopping with Mum on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "need",
+      "meaning": "cần",
+      "category": "daily",
+      "example": "I need a new bag for school.",
+      "image": ""
+    },
+    {
+      "word": "must",
+      "meaning": "phải",
+      "category": "daily",
+      "example": "You must wash your hands.",
+      "image": ""
+    },
+    {
+      "word": "have to",
+      "meaning": "phải",
+      "category": "daily",
+      "example": "We have to wear a uniform at school.",
+      "image": ""
+    },
+    {
+      "word": "could",
+      "meaning": "đã có thể",
+      "category": "mind",
+      "example": "I could swim when I was five.",
+      "image": ""
+    },
+    {
+      "word": "would",
+      "meaning": "muốn, sẽ",
+      "category": "mind",
+      "example": "I would like a glass of water.",
+      "image": ""
+    },
+    {
+      "word": "jump",
+      "meaning": "nhảy",
+      "category": "action",
+      "example": "Frogs jump into the water.",
+      "image": ""
+    },
+    {
+      "word": "run",
+      "meaning": "chạy",
+      "category": "action",
+      "example": "Dogs run very fast.",
+      "image": ""
+    },
+    {
+      "word": "walk",
+      "meaning": "đi bộ",
+      "category": "action",
+      "example": "I walk to school with Tom.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"leo\"?",
+      "options": [
+        "run",
+        "travel",
+        "climb"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rk (làm việc)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đi thuyền\"?",
+      "options": [
+        "shout",
+        "sail",
+        "climb"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Dogs ___ very fast.",
+      "options": [
+        "would",
+        "could",
+        "run"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"walk\" mean?",
+      "options": [
+        "đi bộ",
+        "chạy",
+        "hét, la"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giúp đỡ)",
+      "options": [
+        "hlep",
+        "help",
+        "hellp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"have to\" mean?",
+      "options": [
+        "đi mua sắm",
+        "cần",
+        "phải"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: mu_t (phải)",
+      "options": [
+        "k",
+        "s",
+        "c"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get on\" mean?",
+      "options": [
+        "lên xe",
+        "xuống xe",
+        "đi mua sắm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xuống xe\"?",
+      "options": [
+        "get off",
+        "grow",
+        "need"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"need\" mean?",
+      "options": [
+        "phải",
+        "cần",
+        "lên xe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Don't ___ in the library.",
+      "options": [
+        "could",
+        "would",
+        "shout"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đã có thể)",
+      "options": [
+        "could",
+        "colud",
+        "cuuld"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_mp (nhảy)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cười)",
+      "options": [
+        "leugh",
+        "laguh",
+        "laugh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to sail a boat",
+    "Pretend to laugh out loud",
+    "Pretend to cry and then smile",
+    "Pretend to travel by train",
+    "Pretend to go shopping with a basket",
+    "Run on the spot slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

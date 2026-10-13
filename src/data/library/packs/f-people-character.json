@@ -1,0 +1,288 @@
+{
+  "title": "People and Character",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "friendly",
+      "meaning": "thân thiện",
+      "category": "character",
+      "example": "Our new teacher is very friendly.",
+      "image": ""
+    },
+    {
+      "word": "unfriendly",
+      "meaning": "không thân thiện",
+      "category": "character",
+      "example": "The dog looked unfriendly, so we stayed away.",
+      "image": ""
+    },
+    {
+      "word": "unkind",
+      "meaning": "không tử tế",
+      "category": "character",
+      "example": "It is unkind to laugh at others.",
+      "image": ""
+    },
+    {
+      "word": "lazy",
+      "meaning": "lười",
+      "category": "character",
+      "example": "My cat is lazy and sleeps all day.",
+      "image": ""
+    },
+    {
+      "word": "lucky",
+      "meaning": "may mắn",
+      "category": "describe",
+      "example": "I am lucky to have good friends.",
+      "image": ""
+    },
+    {
+      "word": "married",
+      "meaning": "đã kết hôn",
+      "category": "describe",
+      "example": "My uncle is married and has two children.",
+      "image": ""
+    },
+    {
+      "word": "husband",
+      "meaning": "chồng",
+      "category": "family",
+      "example": "Her husband works in a hospital.",
+      "image": ""
+    },
+    {
+      "word": "wife",
+      "meaning": "vợ",
+      "category": "family",
+      "example": "My uncle's wife is a doctor.",
+      "image": ""
+    },
+    {
+      "word": "member",
+      "meaning": "thành viên",
+      "category": "people",
+      "example": "She is a member of the swimming team.",
+      "image": ""
+    },
+    {
+      "word": "group",
+      "meaning": "nhóm",
+      "category": "people",
+      "example": "Our group is going to visit the zoo.",
+      "image": ""
+    },
+    {
+      "word": "surname",
+      "meaning": "họ",
+      "category": "people",
+      "example": "Write your surname on the card.",
+      "image": ""
+    },
+    {
+      "word": "passenger",
+      "meaning": "hành khách",
+      "category": "people",
+      "example": "Every passenger must wear a seat belt.",
+      "image": ""
+    },
+    {
+      "word": "winner",
+      "meaning": "người thắng cuộc",
+      "category": "people",
+      "example": "The winner gets a prize.",
+      "image": ""
+    },
+    {
+      "word": "king",
+      "meaning": "vua",
+      "category": "fantasy",
+      "example": "The king lives in a castle.",
+      "image": ""
+    },
+    {
+      "word": "queen",
+      "meaning": "nữ hoàng",
+      "category": "fantasy",
+      "example": "The queen has a gold crown.",
+      "image": ""
+    },
+    {
+      "word": "alone",
+      "meaning": "một mình",
+      "category": "describe",
+      "example": "The little cat was alone in the garden.",
+      "image": ""
+    },
+    {
+      "word": "together",
+      "meaning": "cùng nhau",
+      "category": "manner",
+      "example": "We play football together after school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"lazy\" mean?",
+      "options": [
+        "lười",
+        "không thân thiện",
+        "thân thiện"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gro_p (nhóm)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"may mắn\"?",
+      "options": [
+        "wife",
+        "group",
+        "lucky"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hành khách)",
+      "options": [
+        "passengir",
+        "passenegr",
+        "passenger"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: unfr_endly (không thân thiện)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nữ hoàng)",
+      "options": [
+        "queen",
+        "qeuen",
+        "quein"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"married\" mean?",
+      "options": [
+        "đã kết hôn",
+        "một mình",
+        "may mắn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (một mình)",
+      "options": [
+        "aolne",
+        "alon",
+        "alone"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_mber (thành viên)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vua\"?",
+      "options": [
+        "wife",
+        "king",
+        "unicorn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We play football ___ after school.",
+      "options": [
+        "member",
+        "unkind",
+        "together"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"họ\"?",
+      "options": [
+        "surname",
+        "name",
+        "player"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our new teacher is very ___.",
+      "options": [
+        "friendly",
+        "husband",
+        "member"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unkind\" mean?",
+      "options": [
+        "thân thiện",
+        "lười",
+        "không tử tế"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"husband\" mean?",
+      "options": [
+        "vợ",
+        "chồng",
+        "nhóm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wave in a friendly way",
+    "Smile in a friendly way",
+    "Pretend to be a lazy cat",
+    "Give a thumbs up to a winner",
+    "Pretend to look lucky"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

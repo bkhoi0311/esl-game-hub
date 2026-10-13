@@ -1,0 +1,275 @@
+{
+  "title": "Phrasal Verbs 4",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "take away",
+      "meaning": "dọn đi, mang đi",
+      "category": "daily",
+      "example": "The waiter will take away the empty plates.",
+      "image": ""
+    },
+    {
+      "word": "take care of",
+      "meaning": "chăm sóc",
+      "category": "daily",
+      "example": "Please take care of my cat this weekend.",
+      "image": ""
+    },
+    {
+      "word": "take place",
+      "meaning": "diễn ra",
+      "category": "daily",
+      "example": "The concert will take place in the school hall.",
+      "image": ""
+    },
+    {
+      "word": "take up",
+      "meaning": "bắt đầu học",
+      "category": "daily",
+      "example": "I want to take up the guitar this year.",
+      "image": ""
+    },
+    {
+      "word": "throw away",
+      "meaning": "vứt đi",
+      "category": "daily",
+      "example": "Please throw away the rubbish after lunch.",
+      "image": ""
+    },
+    {
+      "word": "turn down",
+      "meaning": "từ chối, vặn nhỏ",
+      "category": "speech",
+      "example": "She turned down the invitation because she had exams.",
+      "image": ""
+    },
+    {
+      "word": "turn into",
+      "meaning": "biến thành",
+      "category": "daily",
+      "example": "The small village has turned into a busy town.",
+      "image": ""
+    },
+    {
+      "word": "wear out",
+      "meaning": "làm mòn, dùng đến hỏng",
+      "category": "daily",
+      "example": "Running every day will wear out your shoes quickly.",
+      "image": ""
+    },
+    {
+      "word": "break up",
+      "meaning": "kết thúc, nghỉ học",
+      "category": "time",
+      "example": "School will break up for the summer holidays next week.",
+      "image": ""
+    },
+    {
+      "word": "show up",
+      "meaning": "xuất hiện",
+      "category": "motion",
+      "example": "Several friends did not show up at the party.",
+      "image": ""
+    },
+    {
+      "word": "turn up",
+      "meaning": "đến, xuất hiện",
+      "category": "motion",
+      "example": "Tom never turns up on time for football practice.",
+      "image": ""
+    },
+    {
+      "word": "set off",
+      "meaning": "khởi hành",
+      "category": "motion",
+      "example": "We will set off for the lake at six.",
+      "image": ""
+    },
+    {
+      "word": "set out",
+      "meaning": "lên đường",
+      "category": "motion",
+      "example": "They set out early to climb the mountain.",
+      "image": ""
+    },
+    {
+      "word": "get in",
+      "meaning": "vào",
+      "category": "motion",
+      "example": "We can get in the car now.",
+      "image": ""
+    },
+    {
+      "word": "get down",
+      "meaning": "đi xuống",
+      "category": "motion",
+      "example": "You should get down from that high wall.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "You should ___ from that high wall.",
+      "options": [
+        "break up",
+        "get down",
+        "turn into"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"take away\" mean?",
+      "options": [
+        "dọn đi, mang đi",
+        "đi xuống",
+        "khởi hành"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bắt đầu học\"?",
+      "options": [
+        "step forward",
+        "be over",
+        "take up"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get in\" mean?",
+      "options": [
+        "diễn ra",
+        "vào",
+        "vứt đi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"từ chối, vặn nhỏ\"?",
+      "options": [
+        "turn down",
+        "show up",
+        "wear out"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"set off\" mean?",
+      "options": [
+        "kết thúc, nghỉ học",
+        "vứt đi",
+        "khởi hành"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vứt đi\"?",
+      "options": [
+        "work out",
+        "go for",
+        "throw away"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"show up\" mean?",
+      "options": [
+        "xuất hiện",
+        "diễn ra",
+        "bắt đầu học"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm mòn, dùng đến hỏng\"?",
+      "options": [
+        "take away",
+        "wear out",
+        "take care of"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"break up\" mean?",
+      "options": [
+        "kết thúc, nghỉ học",
+        "làm mòn, dùng đến hỏng",
+        "chăm sóc"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ my cat this weekend.",
+      "options": [
+        "get down",
+        "take care of",
+        "turn up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"turn into\" mean?",
+      "options": [
+        "đi xuống",
+        "kết thúc, nghỉ học",
+        "biến thành"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đến, xuất hiện\"?",
+      "options": [
+        "turn up",
+        "put away",
+        "call in"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"take place\" mean?",
+      "options": [
+        "đến, xuất hiện",
+        "lên đường",
+        "diễn ra"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lên đường\"?",
+      "options": [
+        "take away",
+        "set out",
+        "take care of"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to take care of a plant",
+    "Pretend to throw away rubbish",
+    "Pretend to turn down the music",
+    "Pretend to take up a new hobby",
+    "Show me you are worn out",
+    "Pretend to set off on a trip"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

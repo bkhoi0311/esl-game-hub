@@ -1,0 +1,303 @@
+{
+  "title": "Days and Time",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "monday",
+      "meaning": "thứ Hai",
+      "category": "time",
+      "example": "We have art class on Monday.",
+      "image": ""
+    },
+    {
+      "word": "tuesday",
+      "meaning": "thứ Ba",
+      "category": "time",
+      "example": "We have a test on Tuesday.",
+      "image": ""
+    },
+    {
+      "word": "wednesday",
+      "meaning": "thứ Tư",
+      "category": "time",
+      "example": "We swim on Wednesday.",
+      "image": ""
+    },
+    {
+      "word": "thursday",
+      "meaning": "thứ Năm",
+      "category": "time",
+      "example": "We have music on Thursday.",
+      "image": ""
+    },
+    {
+      "word": "friday",
+      "meaning": "thứ Sáu",
+      "category": "time",
+      "example": "We have a swimming lesson on Friday.",
+      "image": ""
+    },
+    {
+      "word": "saturday",
+      "meaning": "thứ Bảy",
+      "category": "time",
+      "example": "I play with friends on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "sunday",
+      "meaning": "chủ nhật",
+      "category": "time",
+      "example": "We visit Grandma on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "week",
+      "meaning": "tuần",
+      "category": "time",
+      "example": "There are seven days in a week.",
+      "image": ""
+    },
+    {
+      "word": "weekend",
+      "meaning": "cuối tuần",
+      "category": "time",
+      "example": "We go to the beach at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "yesterday",
+      "meaning": "hôm qua",
+      "category": "time",
+      "example": "We played football here yesterday.",
+      "image": ""
+    },
+    {
+      "word": "always",
+      "meaning": "luôn luôn",
+      "category": "time",
+      "example": "My mum always makes breakfast for us.",
+      "image": ""
+    },
+    {
+      "word": "never",
+      "meaning": "không bao giờ",
+      "category": "time",
+      "example": "My brother never eats fish.",
+      "image": ""
+    },
+    {
+      "word": "often",
+      "meaning": "thường xuyên",
+      "category": "time",
+      "example": "We often play football after school.",
+      "image": ""
+    },
+    {
+      "word": "sometimes",
+      "meaning": "đôi khi",
+      "category": "time",
+      "example": "I sometimes walk to school.",
+      "image": ""
+    },
+    {
+      "word": "last",
+      "meaning": "cuối cùng, vừa qua",
+      "category": "describe",
+      "example": "This is the last page of the book.",
+      "image": ""
+    },
+    {
+      "word": "today",
+      "meaning": "hôm nay",
+      "category": "time",
+      "example": "I feel happy today.",
+      "image": ""
+    },
+    {
+      "word": "morning",
+      "meaning": "buổi sáng",
+      "category": "time",
+      "example": "I brush my teeth in the morning.",
+      "image": ""
+    },
+    {
+      "word": "afternoon",
+      "meaning": "buổi chiều",
+      "category": "time",
+      "example": "We play games in the afternoon.",
+      "image": ""
+    },
+    {
+      "word": "evening",
+      "meaning": "buổi tối",
+      "category": "time",
+      "example": "We eat dinner in the evening.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"always\" mean?",
+      "options": [
+        "thường xuyên",
+        "hôm nay",
+        "luôn luôn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We eat dinner in the ___.",
+      "options": [
+        "evening",
+        "invite",
+        "laugh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thường xuyên\"?",
+      "options": [
+        "sometimes",
+        "often",
+        "always"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_metimes (đôi khi)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"yesterday\" mean?",
+      "options": [
+        "hôm qua",
+        "luôn luôn",
+        "đôi khi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ Hai\"?",
+      "options": [
+        "Friday",
+        "Monday",
+        "Tuesday"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_dnesday (thứ Tư)",
+      "options": [
+        "u",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thứ Ba)",
+      "options": [
+        "Tuesady",
+        "Tuedsay",
+        "Tuesday"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"morning\" mean?",
+      "options": [
+        "buổi sáng",
+        "thứ Năm",
+        "buổi tối"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: saturd_y (thứ Bảy)",
+      "options": [
+        "u",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ Năm\"?",
+      "options": [
+        "Sunday",
+        "Thursday",
+        "Saturday"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We play games in the ___.",
+      "options": [
+        "afternoon",
+        "skate",
+        "practise"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"week\" mean?",
+      "options": [
+        "thứ Sáu",
+        "tuần",
+        "thứ Ba"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cuối tuần)",
+      "options": [
+        "weekend",
+        "wekeend",
+        "weikend"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thứ Sáu)",
+      "options": [
+        "Fridday",
+        "Fridey",
+        "Friday"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wake up on Monday",
+    "Pretend to go to school on Friday",
+    "Show me a happy weekend face",
+    "Pretend to brush your teeth in the morning",
+    "Pretend to look at a calendar",
+    "Pretend to yawn in the evening"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

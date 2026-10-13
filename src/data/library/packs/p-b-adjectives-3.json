@@ -1,0 +1,282 @@
+{
+  "title": "Useful Adjectives 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "likely",
+      "meaning": "có thể xảy ra",
+      "category": "describe",
+      "example": "It is likely to rain this afternoon.",
+      "image": ""
+    },
+    {
+      "word": "unlikely",
+      "meaning": "không chắc xảy ra",
+      "category": "describe",
+      "example": "It is unlikely that we will win the match.",
+      "image": ""
+    },
+    {
+      "word": "limited",
+      "meaning": "có hạn, hạn chế",
+      "category": "describe",
+      "example": "We have limited time, so please hurry.",
+      "image": ""
+    },
+    {
+      "word": "loose",
+      "meaning": "lỏng, rộng",
+      "category": "describe",
+      "example": "These trousers are too loose, so I need a belt.",
+      "image": ""
+    },
+    {
+      "word": "maximum",
+      "meaning": "tối đa",
+      "category": "describe",
+      "example": "The maximum number of players is eight.",
+      "image": ""
+    },
+    {
+      "word": "minimum",
+      "meaning": "tối thiểu",
+      "category": "describe",
+      "example": "You need a minimum of ten points to pass.",
+      "image": ""
+    },
+    {
+      "word": "necessary",
+      "meaning": "cần thiết",
+      "category": "describe",
+      "example": "It is necessary to wear a helmet on a bike.",
+      "image": ""
+    },
+    {
+      "word": "unnecessary",
+      "meaning": "không cần thiết",
+      "category": "describe",
+      "example": "Buying a new bag is unnecessary because mine is fine.",
+      "image": ""
+    },
+    {
+      "word": "ordinary",
+      "meaning": "thông thường",
+      "category": "describe",
+      "example": "It was just an ordinary day at school.",
+      "image": ""
+    },
+    {
+      "word": "particular",
+      "meaning": "cụ thể, đặc biệt",
+      "category": "describe",
+      "example": "Is there a particular book you want to borrow?",
+      "image": ""
+    },
+    {
+      "word": "personal",
+      "meaning": "cá nhân",
+      "category": "describe",
+      "example": "Please do not share your personal information online.",
+      "image": ""
+    },
+    {
+      "word": "political",
+      "meaning": "thuộc chính trị",
+      "category": "describe",
+      "example": "He studies political science at university.",
+      "image": ""
+    },
+    {
+      "word": "powerful",
+      "meaning": "mạnh mẽ",
+      "category": "describe",
+      "example": "This computer is very powerful and works fast.",
+      "image": ""
+    },
+    {
+      "word": "prepared",
+      "meaning": "đã chuẩn bị sẵn",
+      "category": "describe",
+      "example": "Are you prepared for tomorrow's test?",
+      "image": ""
+    },
+    {
+      "word": "principal",
+      "meaning": "chính, chủ yếu",
+      "category": "describe",
+      "example": "The principal reason for the delay was the heavy rain.",
+      "image": ""
+    },
+    {
+      "word": "proper",
+      "meaning": "đúng, thích hợp",
+      "category": "describe",
+      "example": "You need proper shoes for a long walk.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (không chắc xảy ra)",
+      "options": [
+        "unlikely",
+        "unllikely",
+        "unlikkely"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lỏng, rộng\"?",
+      "options": [
+        "unfriendly",
+        "willing",
+        "loose"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cụ thể, đặc biệt)",
+      "options": [
+        "praticular",
+        "particular",
+        "particcular"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_kely (có thể xảy ra)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"maximum\" mean?",
+      "options": [
+        "tối đa",
+        "lịch sự",
+        "điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_pared (đã chuẩn bị sẵn)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"political\" mean?",
+      "options": [
+        "thuộc chính trị",
+        "người Ireland",
+        "khôn ngoan, hợp lý"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ reason for the delay was the heavy rain.",
+      "options": [
+        "mountains",
+        "underpants",
+        "principal"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đúng, thích hợp\"?",
+      "options": [
+        "second",
+        "proper",
+        "Spanish"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unnecessary\" mean?",
+      "options": [
+        "độc ác, tàn nhẫn",
+        "không tay",
+        "không cần thiết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_cessary (cần thiết)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have ___ time, so please hurry.",
+      "options": [
+        "limited",
+        "explore",
+        "connect"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cá nhân)",
+      "options": [
+        "personal",
+        "pesronal",
+        "personel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thông thường\"?",
+      "options": [
+        "sociable",
+        "ordinary",
+        "honest"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"powerful\" mean?",
+      "options": [
+        "dễ tính",
+        "thông minh",
+        "mạnh mẽ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are prepared with a bag",
+    "Pretend to be powerful",
+    "Show me a loose sleeve",
+    "Show me maximum and minimum with your hands",
+    "Show me you think it is unlikely",
+    "Pretend to pack the necessary things"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

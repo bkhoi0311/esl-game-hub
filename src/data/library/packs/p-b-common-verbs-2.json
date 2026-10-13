@@ -1,0 +1,272 @@
+{
+  "title": "Common Verbs 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "employ",
+      "meaning": "thuê, tuyển dụng",
+      "category": "daily",
+      "example": "The new cinema will employ twenty young people.",
+      "image": ""
+    },
+    {
+      "word": "entertain",
+      "meaning": "làm vui, giải trí cho",
+      "category": "daily",
+      "example": "The clown tried to entertain the children at the party.",
+      "image": ""
+    },
+    {
+      "word": "gain",
+      "meaning": "đạt được",
+      "category": "daily",
+      "example": "You can gain confidence by practising.",
+      "image": ""
+    },
+    {
+      "word": "handle",
+      "meaning": "xử lý",
+      "category": "daily",
+      "example": "She can handle problems very calmly.",
+      "image": ""
+    },
+    {
+      "word": "hire",
+      "meaning": "thuê",
+      "category": "daily",
+      "example": "Our family decided to hire a car for the summer holiday.",
+      "image": ""
+    },
+    {
+      "word": "install",
+      "meaning": "cài đặt",
+      "category": "daily",
+      "example": "Can you install this app on my phone?",
+      "image": ""
+    },
+    {
+      "word": "keep",
+      "meaning": "giữ",
+      "category": "daily",
+      "example": "Please keep your books in your bag.",
+      "image": ""
+    },
+    {
+      "word": "operate",
+      "meaning": "vận hành, phẫu thuật",
+      "category": "daily",
+      "example": "Do you know how to operate this machine?",
+      "image": ""
+    },
+    {
+      "word": "organise",
+      "meaning": "tổ chức, sắp xếp",
+      "category": "daily",
+      "example": "We are going to organise a party for our teacher.",
+      "image": ""
+    },
+    {
+      "word": "owe",
+      "meaning": "nợ",
+      "category": "daily",
+      "example": "I owe my friend five euros for lunch.",
+      "image": ""
+    },
+    {
+      "word": "pause",
+      "meaning": "tạm dừng",
+      "category": "daily",
+      "example": "Can you pause the video for a moment?",
+      "image": ""
+    },
+    {
+      "word": "produce",
+      "meaning": "sản xuất",
+      "category": "daily",
+      "example": "This factory produces thousands of bicycles every year.",
+      "image": ""
+    },
+    {
+      "word": "promote",
+      "meaning": "thúc đẩy, quảng bá",
+      "category": "daily",
+      "example": "The school wants to promote healthy eating among students.",
+      "image": ""
+    },
+    {
+      "word": "protect",
+      "meaning": "bảo vệ",
+      "category": "daily",
+      "example": "We should protect the forests for future generations.",
+      "image": ""
+    },
+    {
+      "word": "provide",
+      "meaning": "cung cấp",
+      "category": "daily",
+      "example": "The hotel provides free breakfast for all guests.",
+      "image": ""
+    },
+    {
+      "word": "remain",
+      "meaning": "vẫn còn, ở lại",
+      "category": "daily",
+      "example": "Only two cakes remain on the plate.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (thuê)",
+      "options": [
+        "hyre",
+        "hrie",
+        "hire"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gain\" mean?",
+      "options": [
+        "đạt được",
+        "có thể",
+        "phát minh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vận hành, phẫu thuật)",
+      "options": [
+        "opearte",
+        "operate",
+        "opreate"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_use (tạm dừng)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cung cấp\"?",
+      "options": [
+        "provide",
+        "look forward to",
+        "beat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She can ___ problems very calmly.",
+      "options": [
+        "frighten",
+        "handle",
+        "realise"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: empl_y (thuê, tuyển dụng)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"remain\" mean?",
+      "options": [
+        "vẫn còn, ở lại",
+        "bỏ cuộc",
+        "xác nhận"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thúc đẩy, quảng bá\"?",
+      "options": [
+        "deserve",
+        "promote",
+        "get down"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (làm vui, giải trí cho)",
+      "options": [
+        "enntertain",
+        "entertain",
+        "entirtain"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"owe\" mean?",
+      "options": [
+        "nợ",
+        "muốn",
+        "xoá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_duce (sản xuất)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keep\" mean?",
+      "options": [
+        "miêu tả",
+        "giữ",
+        "lo lắng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tổ chức, sắp xếp\"?",
+      "options": [
+        "organise",
+        "advertise",
+        "give way"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to organise a desk",
+    "Pretend to install an app on your phone",
+    "Pretend to entertain guests",
+    "Pretend to pause a video",
+    "Pretend to protect a plant",
+    "Pretend to hire a new worker with a handshake"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

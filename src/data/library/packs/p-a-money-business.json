@@ -1,0 +1,254 @@
+{
+  "title": "Money and Business",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "trade",
+      "meaning": "thương mại",
+      "category": "money",
+      "example": "The country has strong trade with its neighbours.",
+      "image": ""
+    },
+    {
+      "word": "buyer",
+      "meaning": "người mua",
+      "category": "people",
+      "example": "The buyer paid for the bike and took it home.",
+      "image": ""
+    },
+    {
+      "word": "promote",
+      "meaning": "thúc đẩy, quảng bá",
+      "category": "daily",
+      "example": "The school wants to promote healthy eating among students.",
+      "image": ""
+    },
+    {
+      "word": "advertise",
+      "meaning": "quảng cáo",
+      "category": "speech",
+      "example": "Companies advertise their products on social media.",
+      "image": ""
+    },
+    {
+      "word": "industry",
+      "meaning": "ngành công nghiệp",
+      "category": "work",
+      "example": "The tourist industry gives jobs to many people in our town.",
+      "image": ""
+    },
+    {
+      "word": "salesman",
+      "meaning": "người bán hàng",
+      "category": "job",
+      "example": "The salesman showed us a new laptop.",
+      "image": ""
+    },
+    {
+      "word": "salary",
+      "meaning": "lương",
+      "category": "money",
+      "example": "Her salary is paid on the last day of the month.",
+      "image": ""
+    },
+    {
+      "word": "property",
+      "meaning": "tài sản",
+      "category": "money",
+      "example": "Please do not damage school property.",
+      "image": ""
+    },
+    {
+      "word": "tax",
+      "meaning": "thuế",
+      "category": "money",
+      "example": "Shops add tax to the price of goods.",
+      "image": ""
+    },
+    {
+      "word": "bargain",
+      "meaning": "món hời",
+      "category": "money",
+      "example": "This jacket was a real bargain because it was half price.",
+      "image": ""
+    },
+    {
+      "word": "charity",
+      "meaning": "tổ chức từ thiện",
+      "category": "money",
+      "example": "Our class sold cakes to raise money for a charity.",
+      "image": ""
+    },
+    {
+      "word": "goods",
+      "meaning": "hàng hoá",
+      "category": "money",
+      "example": "The shop sells goods from many countries.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (quảng cáo)",
+      "options": [
+        "advertise",
+        "advertisse",
+        "adveritse"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tax\" mean?",
+      "options": [
+        "hòn đá",
+        "con bò",
+        "thuế"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lương\"?",
+      "options": [
+        "dustbin",
+        "salary",
+        "stomach ache"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sal_sman (người bán hàng)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hàng hoá\"?",
+      "options": [
+        "goods",
+        "answer",
+        "star"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"property\" mean?",
+      "options": [
+        "người mua",
+        "tài sản",
+        "tàu vũ trụ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người mua\"?",
+      "options": [
+        "salary",
+        "charity",
+        "buyer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our class sold cakes to raise money for a ___.",
+      "options": [
+        "buyer",
+        "charity",
+        "promote"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_de (thương mại)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The tourist ___ gives jobs to many people in our town.",
+      "options": [
+        "buyer",
+        "promote",
+        "industry"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thúc đẩy, quảng bá)",
+      "options": [
+        "promute",
+        "promote",
+        "pormote"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_yer (người mua)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bargain\" mean?",
+      "options": [
+        "món hời",
+        "châu lục",
+        "hành lý"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thương mại\"?",
+      "options": [
+        "snowboard",
+        "trade",
+        "swan"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"industry\" mean?",
+      "options": [
+        "người mua",
+        "vị trí, địa điểm",
+        "ngành công nghiệp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to promote a new product",
+    "Pretend to count your money",
+    "Pretend to sign a deal",
+    "Pretend to give money to charity",
+    "Pretend to be a salesman",
+    "Pretend to make an advert"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "title": "Space",
-  "level": "A1 Movers",
+  "level": "A2 Flyers",
   "vocab": [
     {
       "word": "earth",
@@ -119,8 +119,8 @@
       "prompt": "He looks at the moon with a ___.",
       "options": [
         "telescope",
-        "paper",
-        "boots"
+        "calendar",
+        "morning"
       ],
       "answer": 0,
       "type": "vocab"
@@ -188,9 +188,9 @@
     {
       "prompt": "Which word means \"vệ tinh\"?",
       "options": [
-        "flamingo",
+        "compass",
         "satellite",
-        "ladybird"
+        "lobster"
       ],
       "answer": 1,
       "type": "vocab"
@@ -209,8 +209,8 @@
       "prompt": "Which word means \"mặt trăng\"?",
       "options": [
         "moon",
-        "sun",
-        "telescope"
+        "satellite",
+        "sun"
       ],
       "answer": 0,
       "type": "vocab"
@@ -239,8 +239,8 @@
       "prompt": "Which word means \"kính thiên văn\"?",
       "options": [
         "telescope",
-        "planet",
-        "space"
+        "satellite",
+        "planet"
       ],
       "answer": 0,
       "type": "vocab"

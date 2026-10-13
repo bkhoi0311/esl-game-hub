@@ -1,0 +1,282 @@
+{
+  "title": "Furniture and Home",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "chest of drawers",
+      "meaning": "tủ ngăn kéo",
+      "category": "house",
+      "example": "I keep my socks in the chest of drawers.",
+      "image": ""
+    },
+    {
+      "word": "duvet",
+      "meaning": "chăn bông",
+      "category": "house",
+      "example": "I pulled the duvet over my head because it was cold.",
+      "image": ""
+    },
+    {
+      "word": "basket",
+      "meaning": "cái giỏ",
+      "category": "thing",
+      "example": "The apples are in the basket.",
+      "image": ""
+    },
+    {
+      "word": "bucket",
+      "meaning": "cái xô",
+      "category": "thing",
+      "example": "Fill the bucket with water.",
+      "image": ""
+    },
+    {
+      "word": "jar",
+      "meaning": "cái lọ, hũ",
+      "category": "thing",
+      "example": "There is a jar of honey on the kitchen shelf.",
+      "image": ""
+    },
+    {
+      "word": "jug",
+      "meaning": "cái bình, cái ca",
+      "category": "house",
+      "example": "Please put the jug of water on the table.",
+      "image": ""
+    },
+    {
+      "word": "kettle",
+      "meaning": "ấm đun nước",
+      "category": "house",
+      "example": "Please fill the kettle with fresh water.",
+      "image": ""
+    },
+    {
+      "word": "vase",
+      "meaning": "cái bình hoa",
+      "category": "house",
+      "example": "She puts roses in the vase.",
+      "image": ""
+    },
+    {
+      "word": "candle",
+      "meaning": "cây nến",
+      "category": "house",
+      "example": "She blows out the candle.",
+      "image": ""
+    },
+    {
+      "word": "bulb",
+      "meaning": "bóng đèn",
+      "category": "house",
+      "example": "The bulb in my bedroom stopped working yesterday.",
+      "image": ""
+    },
+    {
+      "word": "pot",
+      "meaning": "cái nồi",
+      "category": "house",
+      "example": "Mum put the soup in a large pot.",
+      "image": ""
+    },
+    {
+      "word": "pan",
+      "meaning": "cái chảo",
+      "category": "house",
+      "example": "Put the pan on the cooker and add some oil.",
+      "image": ""
+    },
+    {
+      "word": "table-cloth",
+      "meaning": "khăn trải bàn",
+      "category": "house",
+      "example": "She put a clean table-cloth on the table.",
+      "image": ""
+    },
+    {
+      "word": "freezer",
+      "meaning": "tủ đông",
+      "category": "house",
+      "example": "The ice cream is in the freezer.",
+      "image": ""
+    },
+    {
+      "word": "microwave",
+      "meaning": "lò vi sóng",
+      "category": "house",
+      "example": "She heated the soup in the microwave.",
+      "image": ""
+    },
+    {
+      "word": "dishwasher",
+      "meaning": "máy rửa bát",
+      "category": "house",
+      "example": "Please put the dirty plates in the dishwasher.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"cây nến\"?",
+      "options": [
+        "woman",
+        "grammar",
+        "candle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please fill the ___ with fresh water.",
+      "options": [
+        "foreigner",
+        "kettle",
+        "tuna"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tủ ngăn kéo\"?",
+      "options": [
+        "chest of drawers",
+        "detective",
+        "pleasure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jug\" mean?",
+      "options": [
+        "cảnh sát",
+        "các loại rau củ",
+        "cái bình, cái ca"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái lọ, hũ\"?",
+      "options": [
+        "jar",
+        "depth",
+        "athlete"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"table-cloth\" mean?",
+      "options": [
+        "thứ Sáu",
+        "khăn trải bàn",
+        "con ruồi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: micr_wave (lò vi sóng)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái xô\"?",
+      "options": [
+        "episode",
+        "coconut",
+        "bucket"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_vet (chăn bông)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bóng đèn)",
+      "options": [
+        "bullb",
+        "blub",
+        "bulb"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pan\" mean?",
+      "options": [
+        "cướp biển",
+        "cái chảo",
+        "đồng xu Anh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tủ đông)",
+      "options": [
+        "freezer",
+        "ferezer",
+        "freezir"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She puts roses in the ___.",
+      "options": [
+        "unlikely",
+        "vase",
+        "wait"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"basket\" mean?",
+      "options": [
+        "trượt băng",
+        "bóng đá",
+        "cái giỏ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dishw_sher (máy rửa bát)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open a chest of drawers",
+    "Pretend to put a vase on a table",
+    "Pretend to switch on a bulb",
+    "Pretend to boil water in a kettle",
+    "Pretend to put food in the freezer",
+    "Pretend to lay a table-cloth"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

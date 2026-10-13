@@ -1,0 +1,281 @@
+{
+  "title": "Interviews and CV",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "interview",
+      "meaning": "buổi phỏng vấn",
+      "category": "work",
+      "example": "She was nervous before her first job interview.",
+      "image": ""
+    },
+    {
+      "word": "interviewer",
+      "meaning": "người phỏng vấn",
+      "category": "job",
+      "example": "The interviewer asked me about my hobbies.",
+      "image": ""
+    },
+    {
+      "word": "application",
+      "meaning": "đơn xin, ứng dụng",
+      "category": "work",
+      "example": "She sent an application for the part-time job.",
+      "image": ""
+    },
+    {
+      "word": "apply",
+      "meaning": "nộp đơn",
+      "category": "daily",
+      "example": "He wants to apply for a job at the cinema.",
+      "image": ""
+    },
+    {
+      "word": "candidate",
+      "meaning": "ứng viên, thí sinh",
+      "category": "people",
+      "example": "Each candidate has two hours to finish the exam.",
+      "image": ""
+    },
+    {
+      "word": "cv",
+      "meaning": "sơ yếu lý lịch",
+      "category": "work",
+      "example": "I sent my CV to the shop where I want a part-time job.",
+      "image": ""
+    },
+    {
+      "word": "background",
+      "meaning": "nền tảng, kinh nghiệm",
+      "category": "work",
+      "example": "She has a good background in computer science.",
+      "image": ""
+    },
+    {
+      "word": "experienced",
+      "meaning": "có kinh nghiệm",
+      "category": "describe",
+      "example": "Our swimming coach is very experienced.",
+      "image": ""
+    },
+    {
+      "word": "qualified",
+      "meaning": "đủ trình độ",
+      "category": "describe",
+      "example": "He is qualified to teach swimming to children.",
+      "image": ""
+    },
+    {
+      "word": "qualification",
+      "meaning": "bằng cấp, trình độ",
+      "category": "study",
+      "example": "She has a good qualification in computer science.",
+      "image": ""
+    },
+    {
+      "word": "hire",
+      "meaning": "thuê",
+      "category": "daily",
+      "example": "Our family decided to hire a car for the summer holiday.",
+      "image": ""
+    },
+    {
+      "word": "employ",
+      "meaning": "thuê, tuyển dụng",
+      "category": "daily",
+      "example": "The new cinema will employ twenty young people.",
+      "image": ""
+    },
+    {
+      "word": "register",
+      "meaning": "đăng ký",
+      "category": "daily",
+      "example": "You must register before joining the swimming club.",
+      "image": ""
+    },
+    {
+      "word": "sign up",
+      "meaning": "đăng ký tham gia",
+      "category": "daily",
+      "example": "I want to sign up for the swimming club.",
+      "image": ""
+    },
+    {
+      "word": "part-time",
+      "meaning": "bán thời gian",
+      "category": "describe",
+      "example": "He has a part-time job at a café.",
+      "image": ""
+    },
+    {
+      "word": "full-time",
+      "meaning": "toàn thời gian",
+      "category": "describe",
+      "example": "He has a full-time job in a shop now.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"sign up\" mean?",
+      "options": [
+        "đăng ký tham gia",
+        "chịu thua",
+        "được gọi là"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người phỏng vấn)",
+      "options": [
+        "itnerviewer",
+        "interviewer",
+        "interviiwer"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Each ___ has two hours to finish the exam.",
+      "options": [
+        "qualification",
+        "interview",
+        "candidate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sơ yếu lý lịch\"?",
+      "options": [
+        "CV",
+        "TV",
+        "Ms"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: qual_fied (đủ trình độ)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bằng cấp, trình độ)",
+      "options": [
+        "qualificatoin",
+        "quailfication",
+        "qualification"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"register\" mean?",
+      "options": [
+        "ôn tập",
+        "đăng ký",
+        "tưởng tượng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đơn xin, ứng dụng)",
+      "options": [
+        "application",
+        "appliaction",
+        "aplication"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bán thời gian\"?",
+      "options": [
+        "third",
+        "talented",
+        "part-time"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hire\" mean?",
+      "options": [
+        "rơi, ngã",
+        "thuê",
+        "dường như"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nộp đơn\"?",
+      "options": [
+        "apply",
+        "depend",
+        "leave"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She was nervous before her first job ___.",
+      "options": [
+        "candidate",
+        "qualification",
+        "interview"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"employ\" mean?",
+      "options": [
+        "kết thúc",
+        "thuê, tuyển dụng",
+        "bước qua"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"toàn thời gian\"?",
+      "options": [
+        "full-time",
+        "second",
+        "independent"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_ckground (nền tảng, kinh nghiệm)",
+      "options": [
+        "u",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write your CV",
+    "Pretend to answer an interview question",
+    "Pretend to send an application",
+    "Pretend to sign a form",
+    "Pretend to smile confidently"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

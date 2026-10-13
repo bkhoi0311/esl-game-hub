@@ -1,0 +1,93 @@
+go out	v	flyers					v
+group	n	flyers					n
+guess	n	flyers					n+v
+half	adj	flyers					adj+n
+happen	v	flyers					v
+hard	adj	flyers					adj+adv
+hate	v	flyers					v
+hear	v	flyers					v
+heavy	adj	flyers					adj
+high	adj	flyers					adj
+hole	n	flyers					n
+hope	v	flyers					v
+horrible	adj	flyers					adj
+how long	adv	flyers					adv+int
+hurry	v	flyers					v
+husband	n	flyers					n
+if	other	flyers					conj
+if you want	phr	flyers					excl
+important	adj	flyers					adj
+improve	v	flyers					v
+in a minute	phr	flyers					excl
+information	n	flyers					n
+instead	adv	flyers					adv
+instrument	n	flyers					n
+interested	adj	flyers					adj
+interesting	adj	flyers					adj
+invent	v	flyers					v
+invitation	n	flyers					n
+january	n	flyers				January	n
+job	n	flyers					n
+join	v	flyers	a club				v
+july	n	flyers				July	n
+june	n	flyers				June	n
+just	adv	flyers					adv
+keep	v	flyers					v
+kilometre	n	flyers		kilometer|km			n
+land	v	flyers					v
+large	adj	flyers					adj
+late	adj	flyers					adj+adv
+later	adv	flyers					adv
+lazy	adj	flyers					adj
+leave	v	flyers					v
+left	adj	flyers	as in direction				adj+n
+let	v	flyers					v
+lie	v	flyers	as in lie down				v
+london	n	flyers				London	n
+look after	v	flyers					v
+look like	v	flyers					v
+lovely	adj	flyers					adj
+low	adj	flyers					adj
+make sure	v	flyers		make sure that			v
+march	n	flyers				March	n
+married	adj	flyers					adj
+may	v	flyers					v
+meal	n	flyers					n
+meeting	n	flyers					n
+member	n	flyers					n
+metal	adj	flyers					adj+n
+midday	n	flyers					n
+middle	n	flyers					n+adj
+midnight	n	flyers					n
+might	v	flyers					v
+million	n	flyers					n
+mind	v	flyers					v
+missing	adj	flyers					adj
+motorway	n	flyers					n
+much	adv	flyers					adv+det+pron
+news	n	flyers					n
+next	adj	flyers					adj+adv
+no problem	phr	flyers					excl
+no-one	pron	flyers					pron
+noisy	adj	flyers					adj
+north	n	flyers					n
+november	n	flyers				November	n
+nowhere	adv	flyers					adv
+october	n	flyers				October	n
+of course	adv	flyers		of course not			adv
+olives	n	flyers		olive			n
+once	adv	flyers					adv
+online	adj	flyers					adj
+other	other	flyers					det+pron
+over	adv	flyers					adv+prep
+p.m.	adv	flyers	for time				adv
+passenger	n	flyers					n
+past	n	flyers					n+prep
+path	n	flyers					n
+perhaps	adv	flyers					adv
+piece	n	flyers					n
+plastic	adj	flyers					adj+n
+platform	n	flyers					n
+pleased	adj	flyers					adj
+pond	n	flyers					n
+pop music	n	flyers					n

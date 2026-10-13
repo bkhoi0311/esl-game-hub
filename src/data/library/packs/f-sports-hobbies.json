@@ -1,0 +1,289 @@
+{
+  "title": "Sports and Games",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "golf",
+      "meaning": "môn gôn",
+      "category": "sport",
+      "example": "My uncle plays golf at the weekend.",
+      "image": ""
+    },
+    {
+      "word": "match",
+      "meaning": "trận đấu",
+      "category": "sport",
+      "example": "We watch the match on TV.",
+      "image": ""
+    },
+    {
+      "word": "race",
+      "meaning": "cuộc đua",
+      "category": "sport",
+      "example": "He wins the race today.",
+      "image": ""
+    },
+    {
+      "word": "racing",
+      "meaning": "đua",
+      "category": "sport",
+      "example": "He has a new racing bike.",
+      "image": ""
+    },
+    {
+      "word": "ski",
+      "meaning": "ván trượt tuyết",
+      "category": "sport",
+      "example": "These skis are very long.",
+      "image": ""
+    },
+    {
+      "word": "snowboard",
+      "meaning": "ván trượt tuyết",
+      "category": "sport",
+      "example": "She got a new snowboard for her birthday.",
+      "image": ""
+    },
+    {
+      "word": "snowboarding",
+      "meaning": "trượt ván tuyết",
+      "category": "sport",
+      "example": "My cousin loves snowboarding in winter.",
+      "image": ""
+    },
+    {
+      "word": "team",
+      "meaning": "đội",
+      "category": "sport",
+      "example": "Our team wins the game.",
+      "image": ""
+    },
+    {
+      "word": "volleyball",
+      "meaning": "bóng chuyền",
+      "category": "sport",
+      "example": "We play volleyball on the beach.",
+      "image": ""
+    },
+    {
+      "word": "chess",
+      "meaning": "cờ vua",
+      "category": "hobby",
+      "example": "We play chess at the club.",
+      "image": ""
+    },
+    {
+      "word": "club",
+      "meaning": "câu lạc bộ",
+      "category": "hobby",
+      "example": "I go to the chess club on Friday.",
+      "image": ""
+    },
+    {
+      "word": "competition",
+      "meaning": "cuộc thi",
+      "category": "hobby",
+      "example": "She won the drawing competition last week.",
+      "image": ""
+    },
+    {
+      "word": "win",
+      "meaning": "thắng",
+      "category": "action",
+      "example": "Our team can win the game.",
+      "image": ""
+    },
+    {
+      "word": "cards",
+      "meaning": "lá bài",
+      "category": "toy",
+      "example": "We play cards on rainy days.",
+      "image": ""
+    },
+    {
+      "word": "puzzle",
+      "meaning": "trò xếp hình",
+      "category": "toy",
+      "example": "She finishes the puzzle quickly.",
+      "image": ""
+    },
+    {
+      "word": "swing",
+      "meaning": "xích đu, đu đưa",
+      "category": "toy",
+      "example": "She sits on the swing in the park.",
+      "image": ""
+    },
+    {
+      "word": "stadium",
+      "meaning": "sân vận động",
+      "category": "place",
+      "example": "Thousands of fans are in the stadium.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "She sits on the ___ in the park.",
+      "options": [
+        "stadium",
+        "swing",
+        "win"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lá bài\"?",
+      "options": [
+        "cards",
+        "puzzle",
+        "swing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"match\" mean?",
+      "options": [
+        "trượt ván tuyết",
+        "môn gôn",
+        "trận đấu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sân vận động)",
+      "options": [
+        "stadyum",
+        "stadium",
+        "sttadium"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_zzle (trò xếp hình)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"snowboarding\" mean?",
+      "options": [
+        "ván trượt tuyết",
+        "trận đấu",
+        "trượt ván tuyết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_lf (môn gôn)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"team\" mean?",
+      "options": [
+        "trượt ván tuyết",
+        "trận đấu",
+        "đội"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bóng chuyền\"?",
+      "options": [
+        "match",
+        "volleyball",
+        "snowboarding"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our team can ___ the game.",
+      "options": [
+        "puzzle",
+        "swing",
+        "win"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đua)",
+      "options": [
+        "racyng",
+        "racing",
+        "raccing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sn_wboard (ván trượt tuyết)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chess\" mean?",
+      "options": [
+        "câu lạc bộ",
+        "cờ vua",
+        "cuộc thi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"câu lạc bộ\"?",
+      "options": [
+        "chess",
+        "competition",
+        "club"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cuộc thi)",
+      "options": [
+        "competition",
+        "competityon",
+        "copmetition"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to hit a golf ball",
+    "Pretend to play volleyball",
+    "Pretend to ski on the spot",
+    "Pretend to play chess",
+    "Pretend to shuffle cards",
+    "Pretend to win a race and smile"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "title": "Shopping",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bookstore",
+      "meaning": "hiệu sách",
+      "category": "place",
+      "example": "I bought a dictionary at the bookstore.",
+      "image": ""
+    },
+    {
+      "word": "department store",
+      "meaning": "cửa hàng bách hoá",
+      "category": "place",
+      "example": "We bought new shoes at the department store.",
+      "image": ""
+    },
+    {
+      "word": "drugstore",
+      "meaning": "hiệu thuốc",
+      "category": "place",
+      "example": "I bought some medicine at the drugstore.",
+      "image": ""
+    },
+    {
+      "word": "grocery store",
+      "meaning": "cửa hàng tạp hoá",
+      "category": "place",
+      "example": "She bought milk at the grocery store.",
+      "image": ""
+    },
+    {
+      "word": "pharmacy",
+      "meaning": "nhà thuốc",
+      "category": "place",
+      "example": "Mum buys cough medicine at the pharmacy.",
+      "image": ""
+    },
+    {
+      "word": "shopper",
+      "meaning": "người mua sắm",
+      "category": "people",
+      "example": "Each shopper gets a free bag today.",
+      "image": ""
+    },
+    {
+      "word": "customer",
+      "meaning": "khách hàng",
+      "category": "people",
+      "example": "The shop assistant helped every customer politely.",
+      "image": ""
+    },
+    {
+      "word": "shop assistant",
+      "meaning": "nhân viên bán hàng",
+      "category": "job",
+      "example": "The shop assistant helps me find a T-shirt.",
+      "image": ""
+    },
+    {
+      "word": "sale",
+      "meaning": "đợt giảm giá",
+      "category": "money",
+      "example": "The shoe shop has a big sale today.",
+      "image": ""
+    },
+    {
+      "word": "for sale",
+      "meaning": "để bán",
+      "category": "money",
+      "example": "There is a red bike for sale in front of the shop.",
+      "image": ""
+    },
+    {
+      "word": "half-price",
+      "meaning": "nửa giá",
+      "category": "describe",
+      "example": "These shoes are half-price today.",
+      "image": ""
+    },
+    {
+      "word": "discount",
+      "meaning": "giảm giá",
+      "category": "money",
+      "example": "This shop gives a discount to students.",
+      "image": ""
+    },
+    {
+      "word": "offer",
+      "meaning": "ưu đãi, đề nghị",
+      "category": "money",
+      "example": "The shop has a special offer this week.",
+      "image": ""
+    },
+    {
+      "word": "order",
+      "meaning": "đơn hàng, gọi món",
+      "category": "money",
+      "example": "Can I take your order, please?",
+      "image": ""
+    },
+    {
+      "word": "try on",
+      "meaning": "mặc thử",
+      "category": "daily",
+      "example": "Can I try on these shoes, please?",
+      "image": ""
+    },
+    {
+      "word": "size",
+      "meaning": "cỡ, kích thước",
+      "category": "measure",
+      "example": "What size shoes do you wear?",
+      "image": ""
+    },
+    {
+      "word": "credit card",
+      "meaning": "thẻ tín dụng",
+      "category": "thing",
+      "example": "Mum pays with a credit card.",
+      "image": ""
+    },
+    {
+      "word": "chain",
+      "meaning": "sợi xích",
+      "category": "thing",
+      "example": "The dog has a long chain.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (hiệu sách)",
+      "options": [
+        "bookstore",
+        "buokstore",
+        "bookstori"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grocery store\" mean?",
+      "options": [
+        "thẻ tín dụng",
+        "cửa hàng tạp hoá",
+        "nhân viên bán hàng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người mua sắm)",
+      "options": [
+        "sohpper",
+        "shupper",
+        "shopper"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_le (đợt giảm giá)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"offer\" mean?",
+      "options": [
+        "ưu đãi, đề nghị",
+        "cửa hàng tạp hoá",
+        "người mua sắm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mặc thử\"?",
+      "options": [
+        "shop assistant",
+        "try on",
+        "get back"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"department store\" mean?",
+      "options": [
+        "cửa hàng bách hoá",
+        "nhân viên bán hàng",
+        "cỡ, kích thước"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is a red bike ___ in front of the shop.",
+      "options": [
+        "grocery store",
+        "for sale",
+        "department store"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"half-price\" mean?",
+      "options": [
+        "lười",
+        "người Canada",
+        "nửa giá"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dr_gstore (hiệu thuốc)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giảm giá)",
+      "options": [
+        "dicsount",
+        "disscount",
+        "discount"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pharm_cy (nhà thuốc)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khách hàng\"?",
+      "options": [
+        "customer",
+        "size",
+        "offer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Mum pays with a ___.",
+      "options": [
+        "grocery store",
+        "credit card",
+        "shop assistant"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sợi xích\"?",
+      "options": [
+        "shopper",
+        "discount",
+        "chain"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to push a shopping trolley",
+    "Pretend to try on a jacket",
+    "Pretend to pay with a credit card",
+    "Pretend to carry heavy shopping bags",
+    "Pretend to read a price tag",
+    "Pretend to look for your size"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

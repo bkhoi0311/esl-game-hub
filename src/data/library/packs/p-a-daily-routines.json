@@ -1,0 +1,282 @@
+{
+  "title": "Daily Routines",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "regularly",
+      "meaning": "đều đặn",
+      "category": "time",
+      "example": "I visit my grandparents regularly.",
+      "image": ""
+    },
+    {
+      "word": "normally",
+      "meaning": "thông thường",
+      "category": "time",
+      "example": "I normally walk to school with my cousin.",
+      "image": ""
+    },
+    {
+      "word": "frequently",
+      "meaning": "thường xuyên",
+      "category": "time",
+      "example": "He frequently visits his grandparents at weekends.",
+      "image": ""
+    },
+    {
+      "word": "occasionally",
+      "meaning": "thỉnh thoảng",
+      "category": "time",
+      "example": "We occasionally go to the cinema after school.",
+      "image": ""
+    },
+    {
+      "word": "rarely",
+      "meaning": "hiếm khi",
+      "category": "time",
+      "example": "My brother rarely eats vegetables.",
+      "image": ""
+    },
+    {
+      "word": "nowadays",
+      "meaning": "ngày nay",
+      "category": "time",
+      "example": "Most teenagers have a mobile phone nowadays.",
+      "image": ""
+    },
+    {
+      "word": "on time",
+      "meaning": "đúng giờ",
+      "category": "time",
+      "example": "The train arrived on time this morning.",
+      "image": ""
+    },
+    {
+      "word": "overnight",
+      "meaning": "qua đêm",
+      "category": "time",
+      "example": "We stayed overnight at a small hotel near the lake.",
+      "image": ""
+    },
+    {
+      "word": "used to",
+      "meaning": "đã từng, từng",
+      "category": "time",
+      "example": "I used to be afraid of dogs when I was little.",
+      "image": ""
+    },
+    {
+      "word": "haircut",
+      "meaning": "việc cắt tóc, kiểu tóc",
+      "category": "thing",
+      "example": "I need a haircut before school starts.",
+      "image": ""
+    },
+    {
+      "word": "shave",
+      "meaning": "cạo râu",
+      "category": "daily",
+      "example": "My father likes to shave before breakfast.",
+      "image": ""
+    },
+    {
+      "word": "undress",
+      "meaning": "cởi quần áo",
+      "category": "daily",
+      "example": "Students undress in the changing room before swimming lessons.",
+      "image": ""
+    },
+    {
+      "word": "wake up",
+      "meaning": "thức dậy",
+      "category": "action",
+      "example": "I wake up at six o'clock.",
+      "image": ""
+    },
+    {
+      "word": "get up",
+      "meaning": "dậy, ngồi dậy",
+      "category": "action",
+      "example": "We get up early on Monday.",
+      "image": ""
+    },
+    {
+      "word": "go on",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "Please go on with your story.",
+      "image": ""
+    },
+    {
+      "word": "carry on",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "Please carry on with your work while I check the answers.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (thông thường)",
+      "options": [
+        "normaly",
+        "noramlly",
+        "normally"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My brother ___ eats vegetables.",
+      "options": [
+        "carry on",
+        "rarely",
+        "wake up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thường xuyên\"?",
+      "options": [
+        "frequently",
+        "please",
+        "perfectly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shave\" mean?",
+      "options": [
+        "đã từng, từng",
+        "kể, nói",
+        "cạo râu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngày nay\"?",
+      "options": [
+        "nowadays",
+        "downstairs",
+        "please"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đều đặn)",
+      "options": [
+        "regluarly",
+        "regularly",
+        "regullarly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thức dậy\"?",
+      "options": [
+        "wake up",
+        "on request",
+        "on fire"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ go to the cinema after school.",
+      "options": [
+        "wake up",
+        "occasionally",
+        "haircut"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"overnight\" mean?",
+      "options": [
+        "lạ, kỳ lạ",
+        "đạt yêu cầu",
+        "qua đêm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_ircut (việc cắt tóc, kiểu tóc)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get up\" mean?",
+      "options": [
+        "đúng giờ",
+        "dậy, ngồi dậy",
+        "làm đôi, thành hai phần"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đã từng, từng\"?",
+      "options": [
+        "used to",
+        "take part",
+        "get in"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: undr_ss (cởi quần áo)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"go on\" mean?",
+      "options": [
+        "bước qua",
+        "tiếp tục",
+        "dựa trên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on time\" mean?",
+      "options": [
+        "đúng giờ",
+        "dậy, ngồi dậy",
+        "thức dậy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to shave your face",
+    "Pretend to brush your hair",
+    "Pretend to wake up and stretch",
+    "Pretend to set your alarm",
+    "Pretend to get dressed",
+    "Pretend to wash your hands carefully"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

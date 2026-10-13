@@ -1,0 +1,282 @@
+{
+  "title": "People and Roles",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "audience",
+      "meaning": "khán giả",
+      "category": "people",
+      "example": "The audience clapped loudly at the end of the show.",
+      "image": ""
+    },
+    {
+      "word": "buyer",
+      "meaning": "người mua",
+      "category": "people",
+      "example": "The buyer paid for the bike and took it home.",
+      "image": ""
+    },
+    {
+      "word": "candidate",
+      "meaning": "ứng viên, thí sinh",
+      "category": "people",
+      "example": "Each candidate has two hours to finish the exam.",
+      "image": ""
+    },
+    {
+      "word": "champion",
+      "meaning": "nhà vô địch",
+      "category": "people",
+      "example": "He is the school champion.",
+      "image": ""
+    },
+    {
+      "word": "competitor",
+      "meaning": "đối thủ",
+      "category": "people",
+      "example": "Our main competitor in the race was very fast.",
+      "image": ""
+    },
+    {
+      "word": "cyclist",
+      "meaning": "người đi xe đạp",
+      "category": "people",
+      "example": "A cyclist stopped at the red light.",
+      "image": ""
+    },
+    {
+      "word": "expert",
+      "meaning": "chuyên gia",
+      "category": "people",
+      "example": "An expert came to our school to talk about healthy food.",
+      "image": ""
+    },
+    {
+      "word": "fool",
+      "meaning": "kẻ ngốc",
+      "category": "people",
+      "example": "He felt like a fool when he forgot his bag.",
+      "image": ""
+    },
+    {
+      "word": "hero",
+      "meaning": "anh hùng",
+      "category": "people",
+      "example": "The firefighter was a real hero after he saved the family.",
+      "image": ""
+    },
+    {
+      "word": "heroine",
+      "meaning": "nữ anh hùng",
+      "category": "people",
+      "example": "The heroine of the story is a brave girl who loves animals.",
+      "image": ""
+    },
+    {
+      "word": "pedestrian",
+      "meaning": "người đi bộ",
+      "category": "people",
+      "example": "A pedestrian must wait for the green light.",
+      "image": ""
+    },
+    {
+      "word": "rider",
+      "meaning": "người đi xe",
+      "category": "people",
+      "example": "Every rider on the road should wear a helmet.",
+      "image": ""
+    },
+    {
+      "word": "swimmer",
+      "meaning": "người bơi",
+      "category": "people",
+      "example": "She is a fast swimmer in our team.",
+      "image": ""
+    },
+    {
+      "word": "winner",
+      "meaning": "người thắng cuộc",
+      "category": "people",
+      "example": "The winner gets a prize.",
+      "image": ""
+    },
+    {
+      "word": "player",
+      "meaning": "người chơi, cầu thủ",
+      "category": "people",
+      "example": "He is a good football player.",
+      "image": ""
+    },
+    {
+      "word": "fan",
+      "meaning": "người hâm mộ",
+      "category": "people",
+      "example": "My brother is a big fan of this football team.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: p_destrian (người đi bộ)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fan\" mean?",
+      "options": [
+        "người hâm mộ",
+        "máy chủ",
+        "con ruồi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rid_r (người đi xe)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đối thủ\"?",
+      "options": [
+        "air force",
+        "competitor",
+        "accident"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cycl_st (người đi xe đạp)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"winner\" mean?",
+      "options": [
+        "cái lọ, hũ",
+        "đôi dép quai hậu",
+        "người thắng cuộc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà vô địch)",
+      "options": [
+        "champoin",
+        "champion",
+        "chamipon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"buyer\" mean?",
+      "options": [
+        "người mua",
+        "tín dụng, tiền nạp",
+        "quần áo"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kẻ ngốc\"?",
+      "options": [
+        "candy",
+        "piece",
+        "fool"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She is a fast ___ in our team.",
+      "options": [
+        "skin",
+        "guitar",
+        "swimmer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chuyên gia\"?",
+      "options": [
+        "expert",
+        "cloud",
+        "amount"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ứng viên, thí sinh)",
+      "options": [
+        "canddidate",
+        "candidate",
+        "candiadte"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ clapped loudly at the end of the show.",
+      "options": [
+        "audience",
+        "desk",
+        "disk"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (anh hùng)",
+      "options": [
+        "herro",
+        "hreo",
+        "hero"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"player\" mean?",
+      "options": [
+        "hệ thống sưởi",
+        "người chơi, cầu thủ",
+        "camera máy tính"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to clap as part of an audience",
+    "Pretend to win a gold medal as a champion",
+    "Pretend to cycle slowly on the spot",
+    "Pretend to swim slowly on the spot",
+    "Pretend to wait to cross the road as a pedestrian",
+    "Pretend to be a hero with a big smile"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

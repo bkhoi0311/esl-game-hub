@@ -1,0 +1,275 @@
+{
+  "title": "Shops and Money",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "money",
+      "meaning": "tiền",
+      "category": "thing",
+      "example": "He has a lot of money in his bank.",
+      "image": ""
+    },
+    {
+      "word": "rich",
+      "meaning": "giàu",
+      "category": "describe",
+      "example": "The rich king has a big castle.",
+      "image": ""
+    },
+    {
+      "word": "poor",
+      "meaning": "nghèo",
+      "category": "describe",
+      "example": "The poor boy has no shoes.",
+      "image": ""
+    },
+    {
+      "word": "sell",
+      "meaning": "bán",
+      "category": "action",
+      "example": "They sell fresh fruit here.",
+      "image": ""
+    },
+    {
+      "word": "spend",
+      "meaning": "tiêu, dành",
+      "category": "daily",
+      "example": "I spend my money on books.",
+      "image": ""
+    },
+    {
+      "word": "save",
+      "meaning": "tiết kiệm, cứu",
+      "category": "daily",
+      "example": "I save some money every week.",
+      "image": ""
+    },
+    {
+      "word": "bank",
+      "meaning": "ngân hàng",
+      "category": "place",
+      "example": "Mum goes to the bank today.",
+      "image": ""
+    },
+    {
+      "word": "business",
+      "meaning": "việc kinh doanh",
+      "category": "work",
+      "example": "My uncle has a small business in town.",
+      "image": ""
+    },
+    {
+      "word": "piece",
+      "meaning": "mẩu, miếng",
+      "category": "measure",
+      "example": "Can I have a piece of cake?",
+      "image": ""
+    },
+    {
+      "word": "shop",
+      "meaning": "cửa hàng",
+      "category": "place",
+      "example": "The shop opens at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "card",
+      "meaning": "tấm thẻ, tấm thiệp",
+      "category": "thing",
+      "example": "I make a birthday card for my mum.",
+      "image": ""
+    },
+    {
+      "word": "post office",
+      "meaning": "bưu điện",
+      "category": "place",
+      "example": "Dad sends a letter at the post office.",
+      "image": ""
+    },
+    {
+      "word": "stamp",
+      "meaning": "con tem",
+      "category": "thing",
+      "example": "He puts a stamp on the letter.",
+      "image": ""
+    },
+    {
+      "word": "envelope",
+      "meaning": "phong bì",
+      "category": "thing",
+      "example": "Put the letter in the envelope.",
+      "image": ""
+    },
+    {
+      "word": "postcard",
+      "meaning": "bưu thiếp",
+      "category": "thing",
+      "example": "He sends a postcard from the beach.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"sell\" mean?",
+      "options": [
+        "tiết kiệm, cứu",
+        "tiêu, dành",
+        "bán"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_nk (ngân hàng)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rich\" mean?",
+      "options": [
+        "giàu",
+        "nghèo",
+        "phong bì"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mẩu, miếng)",
+      "options": [
+        "pieci",
+        "piece",
+        "piec"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"money\" mean?",
+      "options": [
+        "tiền",
+        "giàu",
+        "nghèo"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: postc_rd (bưu thiếp)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"post office\" mean?",
+      "options": [
+        "ngân hàng",
+        "bưu điện",
+        "con tem"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ opens at eight o'clock.",
+      "options": [
+        "card",
+        "postcard",
+        "shop"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nghèo\"?",
+      "options": [
+        "poor",
+        "bad",
+        "same"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tiêu, dành)",
+      "options": [
+        "spend",
+        "spennd",
+        "spned"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiết kiệm, cứu\"?",
+      "options": [
+        "complete",
+        "save",
+        "start"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Put the letter in the ___.",
+      "options": [
+        "spend",
+        "save",
+        "envelope"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: busin_ss (việc kinh doanh)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tấm thẻ, tấm thiệp\"?",
+      "options": [
+        "plate",
+        "card",
+        "shampoo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con tem)",
+      "options": [
+        "stamp",
+        "stemp",
+        "satmp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to count your money",
+    "Pretend to buy a stamp",
+    "Pretend to pay for something",
+    "Pretend to put money in a box",
+    "Pretend to carry a heavy bag",
+    "Pretend to put a stamp on an envelope"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

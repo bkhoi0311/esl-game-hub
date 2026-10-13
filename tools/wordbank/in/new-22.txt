@@ -1,0 +1,110 @@
+previously	adv	pet					adv
+primary school	n	pet					n
+principal	adj	pet					adj
+prison	n	pet					n
+prisoner	n	pet					n
+private	adj	pet					adj
+produce	v	pet					v
+product	n	pet					n
+production	n	pet					n
+profession	n	pet					n
+professional	n	pet					n+adj
+professor	n	pet					n
+progress	n	pet					n
+prohibited	adj	pet					adj
+promise	n	pet					n+v
+promote	v	pet					v
+pronounce	v	pet					v
+pronunciation	n	pet					n
+proper	adj	pet					adj
+properly	adv	pet	as in working properly				adv
+property	n	pet					n
+protect	v	pet					v
+proud	adj	pet					adj
+prove	v	pet					v
+provide	v	pet					v
+public	adj	pet					adj+n
+public transport	n	pet					n
+publish	v	pet					v
+publisher	n	pet					n
+pullover	n	pet					n
+pump	n	pet					n
+punish	v	pet					v
+pure	adj	pet					adj
+purpose	n	pet					n
+put away	v	pet					phr v
+put down	v	pet					phr v
+put off	v	pet					phr v
+put out	v	pet					phr v
+put through	v	pet					phr v
+put up	v	pet					phr v
+qualification	n	pet					n
+qualified	adj	pet					adj
+quality	n	pet					n
+quantity	n	pet					n
+questionnaire	n	pet					n
+queue	n	pet					n
+quit	v	pet					v
+rail	n	pet					n
+railroad	n	pet					n
+raise	v	pet					v
+range	n	pet					n
+rare	adj	pet					adj
+rarely	adv	pet					adv
+rather	adv	pet					adv
+raw	adj	pet					adj
+reach	v	pet					v
+react	v	pet					v
+reader	n	pet					n
+realise	v	pet					v
+realistic	adj	pet					adj
+reality	n	pet					n
+reasonable	adj	pet					adj
+reasonably	adv	pet					adv
+rebuild	v	pet					v
+recent	adj	pet					adj
+reception	n	pet					n
+recognise	v	pet					v
+recommend	v	pet					v
+recording	n	pet					n
+recover	v	pet					v
+recycled	adj	pet					adj
+recycling	n	pet					n
+reduce	v	pet					v
+reduced	adj	pet					adj
+refreshments	n	pet					n pl
+refund	n	pet					n
+refuse	v	pet					v
+regarding	prep	pet					prep
+regards	n	pet					n
+region	n	pet					n
+register	v	pet					v
+registration	n	pet					n
+regret	n	pet					n+v
+regular	adj	pet					adj
+regularly	adv	pet					adv
+relation	n	pet					n
+relationship	n	pet					n
+relative	n	pet					n
+relaxation	n	pet					n
+relaxed	adj	pet					adj
+reliable	adj	pet					adj
+relieved	adj	pet					adj
+religion	n	pet					n
+rely	v	pet		rely on			v
+remain	v	pet					v
+remind	v	pet					v
+remote control	n	pet					n
+remove	v	pet					v
+replace	v	pet					v
+reply	n	pet					n+v
+report	n	pet					n+v
+reporter	n	pet					n
+request	n	pet					n+v
+require	v	pet					v
+rescue	n	pet					n+v
+research	n	pet					n+v
+reservation	n	pet					n
+reserve	n	pet					n+v
+resort	n	pet					n
+respect	n	pet					n+v

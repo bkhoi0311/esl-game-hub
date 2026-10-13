@@ -227,7 +227,7 @@ export function mountEditor(root) {
           key === 'word' && missing.has(v) ? h('span', { class: 'missing-tag' }, 'chưa có trong kho') : null)),
         h(
           'td', { class: 'row-actions' },
-          button({ iconName: 'volume', title: `Nghe "${v.word}"`, variant: 'ghost', onClick: () => speak(v.word) }),
+          button({ iconName: 'volume', title: `Nghe "${v.word}"`, variant: 'ghost', onClick: () => speak(v.word, { manual: true }) }),
           button({ iconName: 'trash', title: 'Xóa dòng', variant: 'ghost', onClick: () => { missing.delete(v); draft.vocab.splice(i, 1); renderVocab(); commit(); } }),
         ),
       );

@@ -1,0 +1,289 @@
+{
+  "title": "Everyday Objects 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "label",
+      "meaning": "nhãn",
+      "category": "thing",
+      "example": "Read the label before you eat the food.",
+      "image": ""
+    },
+    {
+      "word": "object",
+      "meaning": "đồ vật",
+      "category": "thing",
+      "example": "What is that strange object on the table?",
+      "image": ""
+    },
+    {
+      "word": "packet",
+      "meaning": "gói",
+      "category": "thing",
+      "example": "She bought a packet of biscuits for the trip.",
+      "image": ""
+    },
+    {
+      "word": "parcel",
+      "meaning": "bưu kiện",
+      "category": "thing",
+      "example": "A parcel comes for you today.",
+      "image": ""
+    },
+    {
+      "word": "pattern",
+      "meaning": "hoạ tiết, mẫu",
+      "category": "thing",
+      "example": "She chose a shirt with a blue and white pattern.",
+      "image": ""
+    },
+    {
+      "word": "photocopy",
+      "meaning": "bản photo",
+      "category": "thing",
+      "example": "Can I make a photocopy of this page?",
+      "image": ""
+    },
+    {
+      "word": "photograph",
+      "meaning": "bức ảnh, chụp ảnh",
+      "category": "thing",
+      "example": "She took a photograph of the old bridge.",
+      "image": ""
+    },
+    {
+      "word": "pump",
+      "meaning": "máy bơm",
+      "category": "thing",
+      "example": "We use a pump to fill the bicycle tyres.",
+      "image": ""
+    },
+    {
+      "word": "roll",
+      "meaning": "cuộn",
+      "category": "thing",
+      "example": "She bought a roll of tape for the project.",
+      "image": ""
+    },
+    {
+      "word": "signature",
+      "meaning": "chữ ký",
+      "category": "thing",
+      "example": "Please write your signature at the bottom of the form.",
+      "image": ""
+    },
+    {
+      "word": "signpost",
+      "meaning": "biển chỉ đường",
+      "category": "thing",
+      "example": "The signpost shows the way to the beach.",
+      "image": ""
+    },
+    {
+      "word": "item",
+      "meaning": "món đồ, mục",
+      "category": "thing",
+      "example": "Each item in the shop has a small price label.",
+      "image": ""
+    },
+    {
+      "word": "product",
+      "meaning": "sản phẩm",
+      "category": "thing",
+      "example": "This new product is popular with teenagers.",
+      "image": ""
+    },
+    {
+      "word": "load",
+      "meaning": "hàng chở, khối hàng",
+      "category": "thing",
+      "example": "The truck carried a heavy load of sand.",
+      "image": ""
+    },
+    {
+      "word": "iron",
+      "meaning": "bàn ủi, sắt",
+      "category": "thing",
+      "example": "Be careful, because the iron is very hot.",
+      "image": ""
+    },
+    {
+      "word": "fuel",
+      "meaning": "nhiên liệu",
+      "category": "thing",
+      "example": "The car needs more fuel.",
+      "image": ""
+    },
+    {
+      "word": "haircut",
+      "meaning": "việc cắt tóc, kiểu tóc",
+      "category": "thing",
+      "example": "I need a haircut before school starts.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"photocopy\" mean?",
+      "options": [
+        "cô, bà",
+        "bản photo",
+        "việc làm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Be careful, because the ___ is very hot.",
+      "options": [
+        "iron",
+        "fast food",
+        "eyes"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộn\"?",
+      "options": [
+        "grammar",
+        "musician",
+        "roll"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"label\" mean?",
+      "options": [
+        "công chúa",
+        "nhãn",
+        "thứ Năm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"món đồ, mục\"?",
+      "options": [
+        "explorer",
+        "delivery",
+        "item"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gói)",
+      "options": [
+        "packet",
+        "pcaket",
+        "packit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chữ ký\"?",
+      "options": [
+        "signature",
+        "potato",
+        "offer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lo_d (hàng chở, khối hàng)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hoạ tiết, mẫu)",
+      "options": [
+        "ptatern",
+        "pattern",
+        "pettern"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: signp_st (biển chỉ đường)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sản phẩm)",
+      "options": [
+        "product",
+        "porduct",
+        "pruduct"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fuel\" mean?",
+      "options": [
+        "thư viện",
+        "chế độ ăn",
+        "nhiên liệu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ comes for you today.",
+      "options": [
+        "gymnastics",
+        "tomato",
+        "parcel"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: obj_ct (đồ vật)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"photograph\" mean?",
+      "options": [
+        "bức ảnh, chụp ảnh",
+        "mẩu quảng cáo",
+        "phòng trưng bày"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to sign your name",
+    "Pretend to carry a parcel",
+    "Pretend to take a photograph",
+    "Pretend to read a signpost",
+    "Pretend to pump air into a ball",
+    "Pretend to look at a pattern on a shirt"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "title": "Body Parts and Senses",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ankle",
+      "meaning": "mắt cá chân",
+      "category": "body",
+      "example": "He hurt his ankle during the football match.",
+      "image": ""
+    },
+    {
+      "word": "bone",
+      "meaning": "cái xương",
+      "category": "body",
+      "example": "The dog has a big bone.",
+      "image": ""
+    },
+    {
+      "word": "breath",
+      "meaning": "hơi thở",
+      "category": "body",
+      "example": "Take a deep breath before you start the test.",
+      "image": ""
+    },
+    {
+      "word": "cheek",
+      "meaning": "má",
+      "category": "body",
+      "example": "The baby has soft round cheeks.",
+      "image": ""
+    },
+    {
+      "word": "chin",
+      "meaning": "cằm",
+      "category": "body",
+      "example": "He rested his chin on his hand and listened.",
+      "image": ""
+    },
+    {
+      "word": "heel",
+      "meaning": "gót chân, gót giày",
+      "category": "body",
+      "example": "I have a small cut on my left heel.",
+      "image": ""
+    },
+    {
+      "word": "lips",
+      "meaning": "đôi môi",
+      "category": "body",
+      "example": "She puts cream on her lips.",
+      "image": ""
+    },
+    {
+      "word": "sense",
+      "meaning": "giác quan",
+      "category": "body",
+      "example": "Dogs have a very strong sense of smell.",
+      "image": ""
+    },
+    {
+      "word": "skin",
+      "meaning": "da",
+      "category": "body",
+      "example": "You should wear sun cream to protect your skin.",
+      "image": ""
+    },
+    {
+      "word": "throat",
+      "meaning": "cổ họng",
+      "category": "body",
+      "example": "I have a sore throat today.",
+      "image": ""
+    },
+    {
+      "word": "thumb",
+      "meaning": "ngón tay cái",
+      "category": "body",
+      "example": "He hurt his thumb playing basketball.",
+      "image": ""
+    },
+    {
+      "word": "tongue",
+      "meaning": "cái lưỡi",
+      "category": "body",
+      "example": "The frog has a long tongue.",
+      "image": ""
+    },
+    {
+      "word": "voice",
+      "meaning": "giọng nói",
+      "category": "body",
+      "example": "She has a lovely voice and sings in the school choir.",
+      "image": ""
+    },
+    {
+      "word": "breathe",
+      "meaning": "thở",
+      "category": "body",
+      "example": "It was hard to breathe after running up the stairs.",
+      "image": ""
+    },
+    {
+      "word": "bite",
+      "meaning": "cắn",
+      "category": "action",
+      "example": "Be careful, the dog might bite you.",
+      "image": ""
+    },
+    {
+      "word": "bleed",
+      "meaning": "chảy máu",
+      "category": "action",
+      "example": "If you cut your finger, it may bleed a little.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (da)",
+      "options": [
+        "skkin",
+        "skin",
+        "sikn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bre_th (hơi thở)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (má)",
+      "options": [
+        "cheek",
+        "chiek",
+        "chek"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He hurt his ___ during the football match.",
+      "options": [
+        "bite",
+        "ankle",
+        "bleed"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cắn\"?",
+      "options": [
+        "intend",
+        "worry",
+        "bite"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: vo_ce (giọng nói)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gót chân, gót giày\"?",
+      "options": [
+        "pleasure",
+        "heel",
+        "circle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lips\" mean?",
+      "options": [
+        "dây an toàn",
+        "cây trồng",
+        "đôi môi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cổ họng\"?",
+      "options": [
+        "mosquito",
+        "throat",
+        "January"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chin\" mean?",
+      "options": [
+        "mùa hè",
+        "cuộn",
+        "cằm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bre_the (thở)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tongue\" mean?",
+      "options": [
+        "nhà thiết kế",
+        "cái lưỡi",
+        "buổi phỏng vấn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngón tay cái)",
+      "options": [
+        "tuhmb",
+        "thummb",
+        "thumb"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sense\" mean?",
+      "options": [
+        "giác quan",
+        "địa chỉ",
+        "con chim"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Breathe in and out slowly",
+    "Touch your chin",
+    "Point to your cheek",
+    "Give a thumbs up with your thumb",
+    "Pretend to bite an apple",
+    "Pretend to stretch your ankle gently"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

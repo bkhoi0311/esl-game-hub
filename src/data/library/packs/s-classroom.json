@@ -1,0 +1,303 @@
+{
+  "title": "In the Classroom",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "alphabet",
+      "meaning": "bảng chữ cái",
+      "category": "school",
+      "example": "We sing the alphabet song in class.",
+      "image": ""
+    },
+    {
+      "word": "answer",
+      "meaning": "câu trả lời",
+      "category": "school",
+      "example": "Do you know the answer?",
+      "image": ""
+    },
+    {
+      "word": "class",
+      "meaning": "lớp học",
+      "category": "school",
+      "example": "Our class starts at eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "english",
+      "meaning": "tiếng Anh",
+      "category": "school",
+      "example": "We speak English in class.",
+      "image": ""
+    },
+    {
+      "word": "lesson",
+      "meaning": "bài học",
+      "category": "school",
+      "example": "Our English lesson is fun.",
+      "image": ""
+    },
+    {
+      "word": "letter",
+      "meaning": "chữ cái",
+      "category": "school",
+      "example": "A is the first letter of the alphabet.",
+      "image": ""
+    },
+    {
+      "word": "question",
+      "meaning": "câu hỏi",
+      "category": "school",
+      "example": "Can I ask a question?",
+      "image": ""
+    },
+    {
+      "word": "sentence",
+      "meaning": "câu",
+      "category": "school",
+      "example": "Please read the sentence aloud.",
+      "image": ""
+    },
+    {
+      "word": "spell",
+      "meaning": "đánh vần",
+      "category": "school",
+      "example": "Can you spell your name?",
+      "image": ""
+    },
+    {
+      "word": "word",
+      "meaning": "từ",
+      "category": "school",
+      "example": "I know this word.",
+      "image": ""
+    },
+    {
+      "word": "example",
+      "meaning": "ví dụ",
+      "category": "study",
+      "example": "Look at this example.",
+      "image": ""
+    },
+    {
+      "word": "number",
+      "meaning": "con số",
+      "category": "number",
+      "example": "My favourite number is seven.",
+      "image": ""
+    },
+    {
+      "word": "teacher",
+      "meaning": "giáo viên",
+      "category": "job",
+      "example": "Our teacher reads us a story.",
+      "image": ""
+    },
+    {
+      "word": "classmate",
+      "meaning": "bạn cùng lớp",
+      "category": "people",
+      "example": "My classmate sits next to me.",
+      "image": ""
+    },
+    {
+      "word": "name",
+      "meaning": "tên",
+      "category": "people",
+      "example": "My name is Lily.",
+      "image": ""
+    },
+    {
+      "word": "read",
+      "meaning": "đọc",
+      "category": "action",
+      "example": "I read a book every night.",
+      "image": ""
+    },
+    {
+      "word": "write",
+      "meaning": "viết",
+      "category": "action",
+      "example": "Please write your name here.",
+      "image": ""
+    },
+    {
+      "word": "listen",
+      "meaning": "nghe",
+      "category": "action",
+      "example": "We listen to music in the car.",
+      "image": ""
+    },
+    {
+      "word": "learn",
+      "meaning": "học",
+      "category": "action",
+      "example": "We learn new words today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Can I ask a ___?",
+      "options": [
+        "number",
+        "question",
+        "name"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"listen\" mean?",
+      "options": [
+        "học",
+        "đọc",
+        "nghe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bảng chữ cái)",
+      "options": [
+        "alphabet",
+        "allphabet",
+        "alphabbet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiếng Anh\"?",
+      "options": [
+        "rubber",
+        "page",
+        "English"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (từ)",
+      "options": [
+        "worrd",
+        "word",
+        "wrod"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ your name here.",
+      "options": [
+        "write",
+        "spell",
+        "alphabet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lesson\" mean?",
+      "options": [
+        "chữ cái",
+        "bài học",
+        "bảng chữ cái"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"câu\"?",
+      "options": [
+        "sentence",
+        "word",
+        "example"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_arn (học)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bạn cùng lớp\"?",
+      "options": [
+        "example",
+        "classmate",
+        "English"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_me (tên)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"number\" mean?",
+      "options": [
+        "con số",
+        "lớp học",
+        "bạn cùng lớp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ex_mple (ví dụ)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (câu trả lời)",
+      "options": [
+        "ansewr",
+        "annswer",
+        "answer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"teacher\" mean?",
+      "options": [
+        "bạn cùng lớp",
+        "giáo viên",
+        "tên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read a book",
+    "Pretend to write your name",
+    "Put your hand up to answer",
+    "Pretend to listen with your hand by your ear",
+    "Say hello to your teacher",
+    "Spell your name with your finger in the air"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

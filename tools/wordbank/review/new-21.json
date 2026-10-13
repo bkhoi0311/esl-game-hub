@@ -1,0 +1,85 @@
+{
+  "sampled": [
+    "position",
+    "pavement",
+    "pan",
+    "predict",
+    "officer",
+    "palace",
+    "pitch",
+    "on board",
+    "postpone",
+    "organisation",
+    "operate",
+    "pick",
+    "powerful",
+    "presentation",
+    "performer"
+  ],
+  "sampleErrors": [],
+  "fullPartReviewed": true,
+  "errorsTotal": [],
+  "fixed": [
+    {
+      "word": "prayer",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "on foot",
+      "field": "vi",
+      "old": "đi bộ",
+      "new": "bằng cách đi bộ"
+    },
+    {
+      "word": "on fire",
+      "field": "vi",
+      "old": "đang cháy",
+      "new": "đang bốc cháy"
+    },
+    {
+      "word": "out of work",
+      "field": "vi",
+      "old": "thất nghiệp",
+      "new": "không có việc làm"
+    },
+    {
+      "word": "option",
+      "field": "vi",
+      "old": "lựa chọn",
+      "new": "phương án, lựa chọn"
+    },
+    {
+      "word": "possibility",
+      "field": "vi",
+      "old": "khả năng",
+      "new": "khả năng xảy ra"
+    },
+    {
+      "word": "plenty",
+      "field": "vi",
+      "old": "nhiều",
+      "new": "nhiều, dư dả"
+    },
+    {
+      "word": "particularly",
+      "field": "vi",
+      "old": "đặc biệt là",
+      "new": "nhất là, đặc biệt"
+    },
+    {
+      "word": "ordinary",
+      "field": "vi",
+      "old": "bình thường",
+      "new": "thông thường"
+    },
+    {
+      "word": "previous",
+      "field": "vi",
+      "old": "trước đó",
+      "new": "trước đó"
+    }
+  ],
+  "stillCheck": []
+}

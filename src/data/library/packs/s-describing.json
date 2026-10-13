@@ -1,0 +1,310 @@
+{
+  "title": "Describing Words",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "beautiful",
+      "meaning": "đẹp",
+      "category": "describe",
+      "example": "The garden is beautiful in spring.",
+      "image": ""
+    },
+    {
+      "word": "big",
+      "meaning": "to lớn",
+      "category": "describe",
+      "example": "The elephant is very big.",
+      "image": ""
+    },
+    {
+      "word": "clean",
+      "meaning": "sạch",
+      "category": "describe",
+      "example": "Her hands are clean now.",
+      "image": ""
+    },
+    {
+      "word": "closed",
+      "meaning": "đóng",
+      "category": "describe",
+      "example": "The shop is closed on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "cool",
+      "meaning": "ngầu",
+      "category": "describe",
+      "example": "Your new bike is so cool.",
+      "image": ""
+    },
+    {
+      "word": "correct",
+      "meaning": "chính xác",
+      "category": "describe",
+      "example": "Is this answer correct?",
+      "image": ""
+    },
+    {
+      "word": "dirty",
+      "meaning": "bẩn",
+      "category": "describe",
+      "example": "My shoes are dirty.",
+      "image": ""
+    },
+    {
+      "word": "double",
+      "meaning": "gấp đôi, đôi",
+      "category": "describe",
+      "example": "This is a double bed.",
+      "image": ""
+    },
+    {
+      "word": "funny",
+      "meaning": "buồn cười",
+      "category": "describe",
+      "example": "That joke is very funny.",
+      "image": ""
+    },
+    {
+      "word": "good",
+      "meaning": "tốt",
+      "category": "describe",
+      "example": "This is a good book.",
+      "image": ""
+    },
+    {
+      "word": "great",
+      "meaning": "tuyệt vời",
+      "category": "describe",
+      "example": "The movie is great.",
+      "image": ""
+    },
+    {
+      "word": "long",
+      "meaning": "dài",
+      "category": "describe",
+      "example": "The snake is very long.",
+      "image": ""
+    },
+    {
+      "word": "new",
+      "meaning": "mới",
+      "category": "describe",
+      "example": "I have a new school bag.",
+      "image": ""
+    },
+    {
+      "word": "old",
+      "meaning": "già, cũ",
+      "category": "describe",
+      "example": "My grandfather is very old.",
+      "image": ""
+    },
+    {
+      "word": "right",
+      "meaning": "đúng",
+      "category": "describe",
+      "example": "Your answer is right.",
+      "image": ""
+    },
+    {
+      "word": "short",
+      "meaning": "thấp, ngắn",
+      "category": "describe",
+      "example": "My brother is short.",
+      "image": ""
+    },
+    {
+      "word": "silly",
+      "meaning": "ngốc nghếch",
+      "category": "describe",
+      "example": "That silly cat sits in a box.",
+      "image": ""
+    },
+    {
+      "word": "small",
+      "meaning": "nhỏ",
+      "category": "describe",
+      "example": "My room is small.",
+      "image": ""
+    },
+    {
+      "word": "ugly",
+      "meaning": "xấu xí",
+      "category": "describe",
+      "example": "The ugly frog sits on a leaf.",
+      "image": ""
+    },
+    {
+      "word": "young",
+      "meaning": "trẻ, nhỏ tuổi",
+      "category": "describe",
+      "example": "The young boy is five years old.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Her hands are ___ now.",
+      "options": [
+        "palm tree",
+        "saxophone",
+        "clean"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"old\" mean?",
+      "options": [
+        "trẻ, nhỏ tuổi",
+        "già, cũ",
+        "gấp đôi, đôi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đóng\"?",
+      "options": [
+        "closed",
+        "silly",
+        "right"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xấu xí)",
+      "options": [
+        "ulgy",
+        "ugly",
+        "uggly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhỏ\"?",
+      "options": [
+        "closed",
+        "cool",
+        "small"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_lly (ngốc nghếch)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"funny\" mean?",
+      "options": [
+        "ngốc nghếch",
+        "tuyệt vời",
+        "buồn cười"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đúng)",
+      "options": [
+        "right",
+        "rigght",
+        "ryght"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The snake is very ___.",
+      "options": [
+        "get",
+        "long",
+        "moose"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gấp đôi, đôi)",
+      "options": [
+        "dobule",
+        "double",
+        "doublle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"short\" mean?",
+      "options": [
+        "tuyệt vời",
+        "ngốc nghếch",
+        "thấp, ngắn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"to lớn\"?",
+      "options": [
+        "big",
+        "double",
+        "short"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_od (tốt)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"beautiful\" mean?",
+      "options": [
+        "ngầu",
+        "đóng",
+        "đẹp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: y_ung (trẻ, nhỏ tuổi)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me something big with your arms",
+    "Show me something small with your fingers",
+    "Show me something long",
+    "Make a silly face",
+    "Show me a clean hands pose",
+    "Pretend to be an old man slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

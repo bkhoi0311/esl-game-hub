@@ -1,0 +1,290 @@
+{
+  "title": "Transport and Vehicles",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "airline",
+      "meaning": "hãng hàng không",
+      "category": "transport",
+      "example": "This airline has cheap flights to many cities.",
+      "image": ""
+    },
+    {
+      "word": "brake",
+      "meaning": "phanh xe, phanh lại",
+      "category": "transport",
+      "example": "He pressed the brake when the traffic light turned red.",
+      "image": ""
+    },
+    {
+      "word": "cab",
+      "meaning": "xe taxi",
+      "category": "transport",
+      "example": "We took a cab to the station because it was raining.",
+      "image": ""
+    },
+    {
+      "word": "ferry",
+      "meaning": "chiếc phà",
+      "category": "transport",
+      "example": "The ferry takes us to the island.",
+      "image": ""
+    },
+    {
+      "word": "handlebars",
+      "meaning": "tay lái",
+      "category": "transport",
+      "example": "Hold the handlebars with both hands.",
+      "image": ""
+    },
+    {
+      "word": "jet",
+      "meaning": "máy bay phản lực",
+      "category": "transport",
+      "example": "The jet flew over our town very fast.",
+      "image": ""
+    },
+    {
+      "word": "motorcycle",
+      "meaning": "xe mô tô",
+      "category": "transport",
+      "example": "The motorcycle makes a loud noise.",
+      "image": ""
+    },
+    {
+      "word": "parking",
+      "meaning": "bãi đỗ xe, việc đỗ xe",
+      "category": "transport",
+      "example": "There is free parking behind the shopping centre.",
+      "image": ""
+    },
+    {
+      "word": "public transport",
+      "meaning": "phương tiện công cộng",
+      "category": "transport",
+      "example": "I go to school by public transport.",
+      "image": ""
+    },
+    {
+      "word": "rail",
+      "meaning": "đường ray",
+      "category": "transport",
+      "example": "The train runs on a steel rail.",
+      "image": ""
+    },
+    {
+      "word": "railroad",
+      "meaning": "đường sắt",
+      "category": "transport",
+      "example": "The old railroad goes through the mountains.",
+      "image": ""
+    },
+    {
+      "word": "seat belt",
+      "meaning": "dây an toàn",
+      "category": "transport",
+      "example": "Always fasten your seat belt in the car.",
+      "image": ""
+    },
+    {
+      "word": "subway",
+      "meaning": "tàu điện ngầm",
+      "category": "transport",
+      "example": "I take the subway to school every day.",
+      "image": ""
+    },
+    {
+      "word": "traffic jam",
+      "meaning": "tắc đường",
+      "category": "transport",
+      "example": "We were stuck in a traffic jam for an hour.",
+      "image": ""
+    },
+    {
+      "word": "van",
+      "meaning": "xe tải nhỏ",
+      "category": "transport",
+      "example": "The van is full of toys.",
+      "image": ""
+    },
+    {
+      "word": "vehicle",
+      "meaning": "phương tiện, xe cộ",
+      "category": "transport",
+      "example": "You cannot park a vehicle in front of the school gate.",
+      "image": ""
+    },
+    {
+      "word": "windscreen",
+      "meaning": "kính chắn gió",
+      "category": "transport",
+      "example": "Dad cleaned the car windscreen before the long journey.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"xe tải nhỏ\"?",
+      "options": [
+        "van",
+        "rose",
+        "break"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"handlebars\" mean?",
+      "options": [
+        "việc rửa bát",
+        "tấm thảm",
+        "tay lái"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: j_t (máy bay phản lực)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đường sắt)",
+      "options": [
+        "raillroad",
+        "rialroad",
+        "railroad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cab\" mean?",
+      "options": [
+        "mẩu quảng cáo",
+        "xe taxi",
+        "cái hộp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xe mô tô\"?",
+      "options": [
+        "motorcycle",
+        "expert",
+        "couple"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_bway (tàu điện ngầm)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đường ray\"?",
+      "options": [
+        "bedroom",
+        "thing",
+        "rail"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: park_ng (bãi đỗ xe, việc đỗ xe)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phanh xe, phanh lại)",
+      "options": [
+        "brake",
+        "breke",
+        "brkae"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We were stuck in a ___ for an hour.",
+      "options": [
+        "primary school",
+        "polar bear",
+        "traffic jam"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phương tiện, xe cộ)",
+      "options": [
+        "vihicle",
+        "vehicle",
+        "veihcle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ takes us to the island.",
+      "options": [
+        "ferry",
+        "topic",
+        "system"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"airline\" mean?",
+      "options": [
+        "việc giặt giũ, đồ giặt",
+        "môn mỹ thuật",
+        "hãng hàng không"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"seat belt\" mean?",
+      "options": [
+        "người chơi quần vợt",
+        "dây an toàn",
+        "nước khoáng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to fasten your seat belt",
+    "Pretend to wait in a traffic jam",
+    "Pretend to ride a motorcycle",
+    "Pretend to press the brake",
+    "Pretend to take a ferry",
+    "Pretend to clean a windscreen",
+    "Pretend to hail a cab"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

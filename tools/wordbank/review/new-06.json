@@ -1,0 +1,137 @@
+{
+  "sampled": [
+    "delicious",
+    "a few",
+    "enough",
+    "as",
+    "design",
+    "adventure",
+    "friendly",
+    "future",
+    "frightening",
+    "channel",
+    "a.m.",
+    "act",
+    "cushion",
+    "fall over",
+    "engine"
+  ],
+  "sampleErrors": [
+    "design",
+    "act"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "act",
+      "field": "vi",
+      "old": "diễn xuất",
+      "new": "đóng vai, diễn"
+    },
+    {
+      "word": "act",
+      "field": "cat",
+      "old": "action",
+      "new": "hobby"
+    },
+    {
+      "word": "act",
+      "field": "ex",
+      "old": "Can you act like a funny monkey?",
+      "new": "My sister will act in the school play."
+    },
+    {
+      "word": "ago",
+      "field": "vi",
+      "old": "trước đây",
+      "new": "cách đây, trước"
+    },
+    {
+      "word": "away",
+      "field": "vi",
+      "old": "đi mất",
+      "new": "đi khỏi, ra xa"
+    },
+    {
+      "word": "burn",
+      "field": "vi",
+      "old": "đốt cháy",
+      "new": "làm cháy, đốt"
+    },
+    {
+      "word": "burn",
+      "field": "ex",
+      "old": "Don't burn the paper in the house.",
+      "new": "Dad burned the toast this morning."
+    },
+    {
+      "word": "by myself",
+      "field": "vi",
+      "old": "một mình",
+      "new": "tự mình, một mình"
+    },
+    {
+      "word": "by yourself",
+      "field": "vi",
+      "old": "tự bạn",
+      "new": "tự bạn, một mình bạn"
+    },
+    {
+      "word": "dear",
+      "field": "cat",
+      "old": "feeling",
+      "new": "describe"
+    },
+    {
+      "word": "dear",
+      "field": "ex",
+      "old": "She began her letter with the words Dear Tom.",
+      "new": "My letter to Grandpa starts with Dear Grandpa."
+    },
+    {
+      "word": "design",
+      "field": "cat",
+      "old": "describe",
+      "new": "abstract"
+    },
+    {
+      "word": "each",
+      "field": "vi",
+      "old": "nhau",
+      "new": "mỗi"
+    },
+    {
+      "word": "each",
+      "field": "ex",
+      "old": "The twins help each other every day.",
+      "new": "Our teacher gave each child a sticker."
+    },
+    {
+      "word": "enter",
+      "field": "vi",
+      "old": "tham gia",
+      "new": "đăng ký dự thi"
+    },
+    {
+      "word": "go away",
+      "field": "vi",
+      "old": "đi đi",
+      "new": "đi chỗ khác"
+    },
+    {
+      "word": "go away",
+      "field": "ex",
+      "old": "The cat will not go away from my door.",
+      "new": "The bee is near my ice cream. Go away, bee!"
+    },
+    {
+      "word": "as ... as",
+      "field": "note",
+      "old": "check.mjs đòi ex chứa chuỗi \"as ... as\" nguyên văn; cần Opus quyết câu ví dụ",
+      "new": "Opus: check.mjs/findWordInText chỉ khớp chuỗi \"as ... as\" nguyên văn nên không viết được câu thật; giữ check:true tới khi matcher hỗ trợ \"as X as\" (câu đề xuất: I can run as fast as my brother.)"
+    }
+  ],
+  "stillCheck": [
+    "as ... as"
+  ]
+}

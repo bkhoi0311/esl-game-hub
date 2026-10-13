@@ -1,0 +1,296 @@
+{
+  "title": "Feelings and Opinions",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "bored",
+      "meaning": "chán",
+      "category": "feeling",
+      "example": "He is bored in the car.",
+      "image": ""
+    },
+    {
+      "word": "excited",
+      "meaning": "hào hứng",
+      "category": "feeling",
+      "example": "I am excited about the trip.",
+      "image": ""
+    },
+    {
+      "word": "interested",
+      "meaning": "quan tâm, hứng thú",
+      "category": "feeling",
+      "example": "I am interested in space and planets.",
+      "image": ""
+    },
+    {
+      "word": "pleased",
+      "meaning": "hài lòng, vui",
+      "category": "feeling",
+      "example": "I am pleased with my test result.",
+      "image": ""
+    },
+    {
+      "word": "sure",
+      "meaning": "chắc chắn",
+      "category": "feeling",
+      "example": "I am sure he will come.",
+      "image": ""
+    },
+    {
+      "word": "unhappy",
+      "meaning": "không vui, buồn",
+      "category": "feeling",
+      "example": "He was unhappy about the bad news.",
+      "image": ""
+    },
+    {
+      "word": "worried",
+      "meaning": "lo lắng",
+      "category": "feeling",
+      "example": "Mum is worried about the test.",
+      "image": ""
+    },
+    {
+      "word": "amazing",
+      "meaning": "tuyệt vời",
+      "category": "opinion",
+      "example": "The magic show was amazing!",
+      "image": ""
+    },
+    {
+      "word": "excellent",
+      "meaning": "xuất sắc",
+      "category": "opinion",
+      "example": "Your story is excellent!",
+      "image": ""
+    },
+    {
+      "word": "frightening",
+      "meaning": "đáng sợ",
+      "category": "opinion",
+      "example": "The old house was dark and frightening.",
+      "image": ""
+    },
+    {
+      "word": "horrible",
+      "meaning": "kinh khủng",
+      "category": "opinion",
+      "example": "The weather was horrible yesterday.",
+      "image": ""
+    },
+    {
+      "word": "interesting",
+      "meaning": "thú vị",
+      "category": "opinion",
+      "example": "This is an interesting book about animals.",
+      "image": ""
+    },
+    {
+      "word": "lovely",
+      "meaning": "đáng yêu, tuyệt",
+      "category": "opinion",
+      "example": "What a lovely garden you have!",
+      "image": ""
+    },
+    {
+      "word": "wonderful",
+      "meaning": "tuyệt vời",
+      "category": "opinion",
+      "example": "We had a wonderful holiday.",
+      "image": ""
+    },
+    {
+      "word": "strange",
+      "meaning": "lạ, kỳ lạ",
+      "category": "opinion",
+      "example": "I heard a strange noise last night.",
+      "image": ""
+    },
+    {
+      "word": "unusual",
+      "meaning": "khác thường",
+      "category": "opinion",
+      "example": "She has an unusual name.",
+      "image": ""
+    },
+    {
+      "word": "special",
+      "meaning": "đặc biệt",
+      "category": "opinion",
+      "example": "Today is a special day for us.",
+      "image": ""
+    },
+    {
+      "word": "popular",
+      "meaning": "phổ biến",
+      "category": "opinion",
+      "example": "This game is very popular at our school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "This game is very ___ at our school.",
+      "options": [
+        "cactus",
+        "bike",
+        "popular"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lo lắng)",
+      "options": [
+        "woried",
+        "worried",
+        "worired"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kinh khủng\"?",
+      "options": [
+        "horrible",
+        "excellent",
+        "special"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quan tâm, hứng thú)",
+      "options": [
+        "itnerested",
+        "interested",
+        "interesetd"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đặc biệt\"?",
+      "options": [
+        "strange",
+        "popular",
+        "special"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The old house was dark and ___.",
+      "options": [
+        "frightening",
+        "stadium",
+        "waiter"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: exc_llent (xuất sắc)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"excited\" mean?",
+      "options": [
+        "hào hứng",
+        "hài lòng, vui",
+        "chán"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chắc chắn\"?",
+      "options": [
+        "bored",
+        "unhappy",
+        "sure"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unhappy\" mean?",
+      "options": [
+        "hào hứng",
+        "không vui, buồn",
+        "chắc chắn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wonderf_l (tuyệt vời)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"amazing\" mean?",
+      "options": [
+        "đặc biệt",
+        "thú vị",
+        "tuyệt vời"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_nge (lạ, kỳ lạ)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hài lòng, vui)",
+      "options": [
+        "pleased",
+        "plaesed",
+        "plleased"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"interesting\" mean?",
+      "options": [
+        "xuất sắc",
+        "thú vị",
+        "tuyệt vời"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are excited",
+    "Show me you are worried",
+    "Show me you are bored",
+    "Show me you are pleased",
+    "Show me you are amazed",
+    "Show me you are unhappy"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

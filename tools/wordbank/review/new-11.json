@@ -1,0 +1,122 @@
+{
+  "sampled": [
+    "kilogramme",
+    "hey",
+    "luck",
+    "headteacher",
+    "himself",
+    "least",
+    "look out",
+    "left-hand",
+    "give somebody a call",
+    "itself",
+    "heating",
+    "lost",
+    "glad",
+    "level",
+    "jumper"
+  ],
+  "sampleErrors": [
+    "hey",
+    "look out",
+    "give somebody a call",
+    "heating",
+    "jumper"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "girlfriend",
+      "field": "ex",
+      "old": "His girlfriend likes to play tennis.",
+      "new": "My uncle and his girlfriend visited us on Sunday."
+    },
+    {
+      "word": "give somebody a call",
+      "field": "ex",
+      "old": "Please give somebody a call if you need help.",
+      "new": "If you are lost, stop and give somebody a call."
+    },
+    {
+      "word": "grandchild",
+      "field": "vi",
+      "old": "cháu của ông bà",
+      "new": "cháu"
+    },
+    {
+      "word": "guest-house",
+      "field": "vi",
+      "old": "nhà khách",
+      "new": "nhà nghỉ, nhà khách"
+    },
+    {
+      "word": "hey",
+      "field": "ex",
+      "old": "She shouted hey to her friend.",
+      "new": "She smiled and said hey to her new classmate."
+    },
+    {
+      "word": "however",
+      "field": "ex",
+      "old": "I like tea. However, I prefer coffee.",
+      "new": "The test was hard. However, everyone passed."
+    },
+    {
+      "word": "include",
+      "field": "ex",
+      "old": "The price will include breakfast.",
+      "new": "The price of the room includes breakfast."
+    },
+    {
+      "word": "ing tea",
+      "field": "note",
+      "old": "từ gốc có thể là iced tea (lỗi danh sách)",
+      "new": "LỖI BỘ ĐỌC: đúng là \"iced tea\". Sửa fixups rồi đổi ex thành \"She ordered an iced tea at the cafe.\""
+    },
+    {
+      "word": "kit",
+      "field": "vi",
+      "old": "bộ dụng cụ",
+      "new": "bộ đồ thể thao, bộ dụng cụ"
+    },
+    {
+      "word": "look out",
+      "field": "vi",
+      "old": "cẩn thận",
+      "new": "coi chừng, cẩn thận"
+    },
+    {
+      "word": "luckily",
+      "field": "ex",
+      "old": "We found the keys, luckily.",
+      "new": "We were late, but luckily the bus waited."
+    },
+    {
+      "word": "maybe",
+      "field": "ex",
+      "old": "We could go swimming, maybe.",
+      "new": "We can go to the beach, or maybe the park."
+    },
+    {
+      "word": "heating",
+      "field": "ex",
+      "old": "Please turn on the heating, it is cold.",
+      "new": "Please turn on the heating because it is cold."
+    },
+    {
+      "word": "jumper",
+      "field": "ex",
+      "old": "Put on a jumper, it is cold.",
+      "new": "Put on a jumper because it is cold outside."
+    },
+    {
+      "word": "get married",
+      "field": "cat",
+      "old": "daily",
+      "new": "family"
+    }
+  ],
+  "stillCheck": [
+    "ing tea"
+  ]
+}

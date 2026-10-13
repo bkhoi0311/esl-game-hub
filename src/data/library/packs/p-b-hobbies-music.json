@@ -1,0 +1,282 @@
+{
+  "title": "Music and Hobbies",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "flute",
+      "meaning": "cây sáo",
+      "category": "music",
+      "example": "She plays the flute at school.",
+      "image": ""
+    },
+    {
+      "word": "guitarist",
+      "meaning": "người chơi guitar",
+      "category": "music",
+      "example": "The guitarist in our school band is very good.",
+      "image": ""
+    },
+    {
+      "word": "orchestra",
+      "meaning": "dàn nhạc",
+      "category": "music",
+      "example": "The school orchestra will play at the concert tonight.",
+      "image": ""
+    },
+    {
+      "word": "soundtrack",
+      "meaning": "nhạc phim",
+      "category": "music",
+      "example": "The soundtrack of the film is really exciting.",
+      "image": ""
+    },
+    {
+      "word": "trumpet",
+      "meaning": "kèn trumpet",
+      "category": "music",
+      "example": "He plays the trumpet at school.",
+      "image": ""
+    },
+    {
+      "word": "collection",
+      "meaning": "bộ sưu tập",
+      "category": "hobby",
+      "example": "He has a large collection of old coins.",
+      "image": ""
+    },
+    {
+      "word": "contest",
+      "meaning": "cuộc thi",
+      "category": "hobby",
+      "example": "She won a drawing contest at school.",
+      "image": ""
+    },
+    {
+      "word": "entry",
+      "meaning": "bài dự thi, lối vào",
+      "category": "hobby",
+      "example": "Please send your entry for the photo competition by Friday.",
+      "image": ""
+    },
+    {
+      "word": "interest",
+      "meaning": "sự quan tâm, sở thích",
+      "category": "hobby",
+      "example": "She has a strong interest in music and art.",
+      "image": ""
+    },
+    {
+      "word": "leisure",
+      "meaning": "thời gian rảnh",
+      "category": "hobby",
+      "example": "What do you do in your leisure time?",
+      "image": ""
+    },
+    {
+      "word": "pottery",
+      "meaning": "đồ gốm",
+      "category": "hobby",
+      "example": "I am taking a pottery class on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "ballet",
+      "meaning": "múa ba lê",
+      "category": "hobby",
+      "example": "My sister takes ballet lessons on Tuesday.",
+      "image": ""
+    },
+    {
+      "word": "yoga",
+      "meaning": "yoga",
+      "category": "sport",
+      "example": "Mum does yoga in the morning.",
+      "image": ""
+    },
+    {
+      "word": "jogging",
+      "meaning": "chạy bộ nhẹ",
+      "category": "sport",
+      "example": "Mum goes jogging in the park.",
+      "image": ""
+    },
+    {
+      "word": "workout",
+      "meaning": "buổi tập luyện",
+      "category": "sport",
+      "example": "I do a short workout before school every morning.",
+      "image": ""
+    },
+    {
+      "word": "gymnastics",
+      "meaning": "thể dục dụng cụ",
+      "category": "sport",
+      "example": "My sister does gymnastics after school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"flute\" mean?",
+      "options": [
+        "chuyến bay",
+        "cây sáo",
+        "đô la"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_llection (bộ sưu tập)",
+      "options": [
+        "u",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"interest\" mean?",
+      "options": [
+        "sự quan tâm, sở thích",
+        "thị thực, visa",
+        "nhà nghỉ, nhà khách"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người chơi guitar\"?",
+      "options": [
+        "guitarist",
+        "graduate",
+        "turning"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"leisure\" mean?",
+      "options": [
+        "hướng dẫn viên",
+        "tòa tháp",
+        "thời gian rảnh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi tập luyện)",
+      "options": [
+        "wokrout",
+        "workout",
+        "workuot"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He plays the ___ at school.",
+      "options": [
+        "trumpet",
+        "intelligent",
+        "get fit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (yoga)",
+      "options": [
+        "ygoa",
+        "yogga",
+        "yoga"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_llet (múa ba lê)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cuộc thi)",
+      "options": [
+        "cuntest",
+        "contest",
+        "cotnest"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"entry\" mean?",
+      "options": [
+        "bài dự thi, lối vào",
+        "hội chợ vui chơi",
+        "đại sứ quán"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhạc phim\"?",
+      "options": [
+        "beginner",
+        "snake",
+        "soundtrack"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister does ___ after school.",
+      "options": [
+        "playground",
+        "queen",
+        "gymnastics"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: jogg_ng (chạy bộ nhẹ)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dàn nhạc\"?",
+      "options": [
+        "orchestra",
+        "experiment",
+        "Arithmetic"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to play the flute",
+    "Pretend to play the trumpet",
+    "Mime a yoga pose slowly",
+    "Pretend to show your collection",
+    "Pretend to do a slow workout",
+    "Pretend to dance ballet slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

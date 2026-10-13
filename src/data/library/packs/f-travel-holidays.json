@@ -1,0 +1,289 @@
+{
+  "title": "Travel and Holidays",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "airport",
+      "meaning": "sân bay",
+      "category": "place",
+      "example": "We wait at the airport for Grandma.",
+      "image": ""
+    },
+    {
+      "word": "hotel",
+      "meaning": "khách sạn",
+      "category": "place",
+      "example": "Our hotel is near the beach.",
+      "image": ""
+    },
+    {
+      "word": "suitcase",
+      "meaning": "va li",
+      "category": "thing",
+      "example": "My suitcase is very heavy.",
+      "image": ""
+    },
+    {
+      "word": "passenger",
+      "meaning": "hành khách",
+      "category": "people",
+      "example": "Every passenger must wear a seat belt.",
+      "image": ""
+    },
+    {
+      "word": "journey",
+      "meaning": "hành trình",
+      "category": "hobby",
+      "example": "The journey to the sea is long.",
+      "image": ""
+    },
+    {
+      "word": "tour",
+      "meaning": "chuyến tham quan",
+      "category": "travel",
+      "example": "We went on a tour of the castle.",
+      "image": ""
+    },
+    {
+      "word": "adventure",
+      "meaning": "cuộc phiêu lưu",
+      "category": "travel",
+      "example": "Our trip to the forest was a great adventure.",
+      "image": ""
+    },
+    {
+      "word": "camp",
+      "meaning": "cắm trại",
+      "category": "action",
+      "example": "We camp by the lake in summer.",
+      "image": ""
+    },
+    {
+      "word": "tent",
+      "meaning": "cái lều",
+      "category": "thing",
+      "example": "Our tent is by the river.",
+      "image": ""
+    },
+    {
+      "word": "map",
+      "meaning": "bản đồ",
+      "category": "thing",
+      "example": "We look at the map to find the zoo.",
+      "image": ""
+    },
+    {
+      "word": "postcard",
+      "meaning": "bưu thiếp",
+      "category": "thing",
+      "example": "He sends a postcard from the beach.",
+      "image": ""
+    },
+    {
+      "word": "ticket",
+      "meaning": "tấm vé",
+      "category": "thing",
+      "example": "I have a ticket for the show.",
+      "image": ""
+    },
+    {
+      "word": "hold",
+      "meaning": "cầm, giữ",
+      "category": "action",
+      "example": "Please hold my hand when we cross.",
+      "image": ""
+    },
+    {
+      "word": "leave",
+      "meaning": "rời đi",
+      "category": "motion",
+      "example": "We leave home at seven o'clock.",
+      "image": ""
+    },
+    {
+      "word": "arrive",
+      "meaning": "đến nơi",
+      "category": "motion",
+      "example": "We will arrive at the beach at noon.",
+      "image": ""
+    },
+    {
+      "word": "visit",
+      "meaning": "thăm",
+      "category": "action",
+      "example": "We visit our grandparents in summer.",
+      "image": ""
+    },
+    {
+      "word": "explore",
+      "meaning": "khám phá",
+      "category": "motion",
+      "example": "We want to explore the old castle.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "We look at the ___ to find the zoo.",
+      "options": [
+        "hotel",
+        "airport",
+        "map"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ticket\" mean?",
+      "options": [
+        "tấm vé",
+        "bản đồ",
+        "va li"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: arr_ve (đến nơi)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ home at seven o'clock.",
+      "options": [
+        "hotel",
+        "leave",
+        "journey"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khám phá\"?",
+      "options": [
+        "explore",
+        "hurry",
+        "cycle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hotel\" mean?",
+      "options": [
+        "sân bay",
+        "cái lều",
+        "khách sạn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cầm, giữ\"?",
+      "options": [
+        "travel",
+        "hold",
+        "write"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sân bay)",
+      "options": [
+        "airport",
+        "airprot",
+        "airpport"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cắm trại\"?",
+      "options": [
+        "study",
+        "listen",
+        "camp"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (va li)",
+      "options": [
+        "suitcase",
+        "suitcsae",
+        "suitcasi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_nt (cái lều)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"passenger\" mean?",
+      "options": [
+        "tấm vé",
+        "sân bay",
+        "hành khách"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: postc_rd (bưu thiếp)",
+      "options": [
+        "o",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thăm)",
+      "options": [
+        "visit",
+        "vysit",
+        "viist"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tour\" mean?",
+      "options": [
+        "cuộc phiêu lưu",
+        "chuyến tham quan",
+        "hành khách"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to pack a suitcase",
+    "Pretend to take a photo of a view",
+    "Pretend to show your ticket",
+    "Pretend to wave goodbye at the airport",
+    "Pretend to look at a map",
+    "Pretend to put up a tent"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

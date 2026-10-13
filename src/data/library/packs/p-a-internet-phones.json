@@ -1,0 +1,261 @@
+{
+  "title": "The Internet and Phones",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "smartphone",
+      "meaning": "điện thoại thông minh",
+      "category": "tech",
+      "example": "Most teenagers use a smartphone every day.",
+      "image": ""
+    },
+    {
+      "word": "webcam",
+      "meaning": "camera máy tính",
+      "category": "tech",
+      "example": "I switched on my webcam before the online lesson.",
+      "image": ""
+    },
+    {
+      "word": "homepage",
+      "meaning": "trang chủ",
+      "category": "tech",
+      "example": "The homepage of our school website has many photos.",
+      "image": ""
+    },
+    {
+      "word": "signal",
+      "meaning": "tín hiệu",
+      "category": "tech",
+      "example": "There is no phone signal in the valley.",
+      "image": ""
+    },
+    {
+      "word": "connection",
+      "meaning": "mối liên hệ, kết nối",
+      "category": "tech",
+      "example": "The internet connection at the hotel is slow.",
+      "image": ""
+    },
+    {
+      "word": "remote control",
+      "meaning": "điều khiển từ xa",
+      "category": "tech",
+      "example": "Where is the remote control for the television?",
+      "image": ""
+    },
+    {
+      "word": "answerphone",
+      "meaning": "máy trả lời tự động",
+      "category": "tech",
+      "example": "I left a message on your answerphone yesterday.",
+      "image": ""
+    },
+    {
+      "word": "fax",
+      "meaning": "máy fax",
+      "category": "tech",
+      "example": "The office has an old fax.",
+      "image": ""
+    },
+    {
+      "word": "dial",
+      "meaning": "bấm số, quay số",
+      "category": "daily",
+      "example": "You should dial the number again if nobody answers.",
+      "image": ""
+    },
+    {
+      "word": "dial up",
+      "meaning": "gọi điện, quay số",
+      "category": "daily",
+      "example": "I tried to dial up my cousin, but his phone was off.",
+      "image": ""
+    },
+    {
+      "word": "hang up",
+      "meaning": "cúp máy",
+      "category": "daily",
+      "example": "He was angry and decided to hang up the phone.",
+      "image": ""
+    },
+    {
+      "word": "call in",
+      "meaning": "ghé thăm, gọi đến",
+      "category": "daily",
+      "example": "I will call in at your house on my way home.",
+      "image": ""
+    },
+    {
+      "word": "volume",
+      "meaning": "âm lượng",
+      "category": "tech",
+      "example": "Please turn down the volume because the baby is sleeping.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: v_lume (âm lượng)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of our school website has many photos.",
+      "options": [
+        "hang up",
+        "homepage",
+        "dial"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_al (bấm số, quay số)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dial up\" mean?",
+      "options": [
+        "mang trả lại",
+        "đòi hỏi, kêu gọi",
+        "gọi điện, quay số"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy fax\"?",
+      "options": [
+        "studies",
+        "fax",
+        "year"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (camera máy tính)",
+      "options": [
+        "webcam",
+        "wecbam",
+        "webccam"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tín hiệu\"?",
+      "options": [
+        "signal",
+        "musician",
+        "port"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hang up\" mean?",
+      "options": [
+        "ngồi xuống",
+        "cúp máy",
+        "khởi hành"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"điều khiển từ xa\"?",
+      "options": [
+        "city centre",
+        "boarding pass",
+        "remote control"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (máy trả lời tự động)",
+      "options": [
+        "asnwerphone",
+        "answerpphone",
+        "answerphone"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I will ___ at your house on my way home.",
+      "options": [
+        "call in",
+        "remote control",
+        "answerphone"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"smartphone\" mean?",
+      "options": [
+        "quả chanh xanh",
+        "điện thoại thông minh",
+        "người vẽ tranh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ghé thăm, gọi đến\"?",
+      "options": [
+        "turn down",
+        "go out",
+        "call in"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fax\" mean?",
+      "options": [
+        "máy fax",
+        "châu Nam Cực",
+        "xe mô tô"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"connection\" mean?",
+      "options": [
+        "bảng câu hỏi",
+        "mối liên hệ, kết nối",
+        "đợt giảm giá"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to dial a phone number",
+    "Pretend to answer your smartphone",
+    "Pretend to hang up the phone",
+    "Pretend to turn up the volume",
+    "Pretend to look for a phone signal",
+    "Pretend to check a homepage on your laptop"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "title": "Restaurants and Meals",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "dessert",
+      "meaning": "món tráng miệng",
+      "category": "food",
+      "example": "We had ice cream for dessert after dinner.",
+      "image": ""
+    },
+    {
+      "word": "fast food",
+      "meaning": "đồ ăn nhanh",
+      "category": "food",
+      "example": "We sometimes eat fast food after the cinema.",
+      "image": ""
+    },
+    {
+      "word": "french fries",
+      "meaning": "khoai tây chiên",
+      "category": "food",
+      "example": "We ordered French fries and a salad.",
+      "image": ""
+    },
+    {
+      "word": "main course",
+      "meaning": "món chính",
+      "category": "meal",
+      "example": "Fish is the main course tonight.",
+      "image": ""
+    },
+    {
+      "word": "omelette",
+      "meaning": "món trứng tráng",
+      "category": "meal",
+      "example": "My dad makes a great omelette with cheese.",
+      "image": ""
+    },
+    {
+      "word": "steak",
+      "meaning": "bít tết",
+      "category": "meal",
+      "example": "He cooks a steak for dinner.",
+      "image": ""
+    },
+    {
+      "word": "supper",
+      "meaning": "bữa tối nhẹ",
+      "category": "meal",
+      "example": "We have a light supper at about eight.",
+      "image": ""
+    },
+    {
+      "word": "curry",
+      "meaning": "món cà ri",
+      "category": "meal",
+      "example": "We have chicken curry with rice.",
+      "image": ""
+    },
+    {
+      "word": "barbecue",
+      "meaning": "tiệc nướng",
+      "category": "meal",
+      "example": "We had a barbecue in the garden.",
+      "image": ""
+    },
+    {
+      "word": "toast",
+      "meaning": "bánh mì nướng",
+      "category": "food",
+      "example": "She puts jam on her toast.",
+      "image": ""
+    },
+    {
+      "word": "cola",
+      "meaning": "nước cola",
+      "category": "drink",
+      "example": "He ordered a cola with his burger.",
+      "image": ""
+    },
+    {
+      "word": "iced tea",
+      "meaning": "trà đá",
+      "category": "drink",
+      "example": "She ordered an iced tea at the cafe.",
+      "image": ""
+    },
+    {
+      "word": "mineral water",
+      "meaning": "nước khoáng",
+      "category": "drink",
+      "example": "I would like a bottle of mineral water.",
+      "image": ""
+    },
+    {
+      "word": "menu",
+      "meaning": "thực đơn",
+      "category": "thing",
+      "example": "The waiter gives us the menu.",
+      "image": ""
+    },
+    {
+      "word": "tasty",
+      "meaning": "ngon",
+      "category": "opinion",
+      "example": "The soup was hot and very tasty.",
+      "image": ""
+    },
+    {
+      "word": "waitress",
+      "meaning": "nữ phục vụ",
+      "category": "job",
+      "example": "The waitress brought us two glasses of water.",
+      "image": ""
+    },
+    {
+      "word": "cream",
+      "meaning": "màu kem, kem",
+      "category": "color",
+      "example": "She bought a cream dress for the party.",
+      "image": ""
+    },
+    {
+      "word": "fresh",
+      "meaning": "tươi",
+      "category": "describe",
+      "example": "These vegetables are fresh from the farm.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (bít tết)",
+      "options": [
+        "setak",
+        "steak",
+        "stiak"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"curry\" mean?",
+      "options": [
+        "món cà ri",
+        "thực đơn",
+        "nữ phục vụ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is a job?",
+      "options": [
+        "iced tea",
+        "cream",
+        "waitress"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoai tây chiên\"?",
+      "options": [
+        "main course",
+        "mineral water",
+        "French fries"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ast (bánh mì nướng)",
+      "options": [
+        "i",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thực đơn\"?",
+      "options": [
+        "menu",
+        "fast food",
+        "supper"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "These vegetables are ___ from the farm.",
+      "options": [
+        "waitress",
+        "curry",
+        "fresh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"omelette\" mean?",
+      "options": [
+        "học sinh",
+        "món trứng tráng",
+        "mũ lưỡi trai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nước cola\"?",
+      "options": [
+        "cola",
+        "uniform",
+        "subject"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (món tráng miệng)",
+      "options": [
+        "dessert",
+        "dissert",
+        "dsesert"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: supp_r (bữa tối nhẹ)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mineral water\" mean?",
+      "options": [
+        "thực đơn",
+        "nước khoáng",
+        "nữ phục vụ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is a drink?",
+      "options": [
+        "cream",
+        "iced tea",
+        "waitress"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cr_am (màu kem, kem)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The soup was hot and very ___.",
+      "options": [
+        "tasty",
+        "menu",
+        "iced tea"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read a menu",
+    "Pretend to order a meal",
+    "Pretend to eat french fries",
+    "Pretend to carry a tray like a waitress",
+    "Pretend to drink iced tea",
+    "Show me a tasty smile"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

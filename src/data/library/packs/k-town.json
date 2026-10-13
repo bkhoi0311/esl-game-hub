@@ -1,0 +1,282 @@
+{
+  "title": "Town and Buildings",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "area",
+      "meaning": "khu vực",
+      "category": "place",
+      "example": "This area has a lot of parks.",
+      "image": ""
+    },
+    {
+      "word": "site",
+      "meaning": "địa điểm",
+      "category": "place",
+      "example": "This flat field is a good site for our tents.",
+      "image": ""
+    },
+    {
+      "word": "exhibition",
+      "meaning": "buổi triển lãm",
+      "category": "place",
+      "example": "We saw a photo exhibition at the museum.",
+      "image": ""
+    },
+    {
+      "word": "apartment building",
+      "meaning": "chung cư",
+      "category": "place",
+      "example": "They live in a tall apartment building.",
+      "image": ""
+    },
+    {
+      "word": "block",
+      "meaning": "tòa nhà, khu nhà",
+      "category": "place",
+      "example": "My aunt lives in a tall block of flats.",
+      "image": ""
+    },
+    {
+      "word": "department store",
+      "meaning": "cửa hàng bách hoá",
+      "category": "place",
+      "example": "We bought new shoes at the department store.",
+      "image": ""
+    },
+    {
+      "word": "capital",
+      "meaning": "thủ đô",
+      "category": "place",
+      "example": "Hanoi is the capital of Vietnam.",
+      "image": ""
+    },
+    {
+      "word": "crossing",
+      "meaning": "chỗ qua đường",
+      "category": "place",
+      "example": "Wait at the crossing until the cars stop.",
+      "image": ""
+    },
+    {
+      "word": "gallery",
+      "meaning": "phòng trưng bày",
+      "category": "place",
+      "example": "The art gallery opens at ten o'clock.",
+      "image": ""
+    },
+    {
+      "word": "harbour",
+      "meaning": "bến cảng",
+      "category": "place",
+      "example": "Many boats are in the harbour.",
+      "image": ""
+    },
+    {
+      "word": "port",
+      "meaning": "cảng",
+      "category": "place",
+      "example": "The ship arrives at the port today.",
+      "image": ""
+    },
+    {
+      "word": "pharmacy",
+      "meaning": "nhà thuốc",
+      "category": "place",
+      "example": "Mum buys cough medicine at the pharmacy.",
+      "image": ""
+    },
+    {
+      "word": "hospital",
+      "meaning": "bệnh viện",
+      "category": "place",
+      "example": "The doctor works in the hospital.",
+      "image": ""
+    },
+    {
+      "word": "library",
+      "meaning": "thư viện",
+      "category": "place",
+      "example": "We read books in the library.",
+      "image": ""
+    },
+    {
+      "word": "museum",
+      "meaning": "viện bảo tàng",
+      "category": "place",
+      "example": "The museum has old pictures.",
+      "image": ""
+    },
+    {
+      "word": "bank",
+      "meaning": "ngân hàng",
+      "category": "place",
+      "example": "Mum goes to the bank today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (bệnh viện)",
+      "options": [
+        "hosspital",
+        "hospitel",
+        "hospital"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_brary (thư viện)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pharmacy\" mean?",
+      "options": [
+        "nhà thuốc",
+        "lá cờ",
+        "đồ bơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rt (cảng)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Hanoi is the ___ of Vietnam.",
+      "options": [
+        "skateboard",
+        "badminton",
+        "capital"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bến cảng\"?",
+      "options": [
+        "harbour",
+        "chips",
+        "discount"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"exhibition\" mean?",
+      "options": [
+        "bàn chân",
+        "kinh nghiệm",
+        "buổi triển lãm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khu vực)",
+      "options": [
+        "arrea",
+        "area",
+        "aera"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"crossing\" mean?",
+      "options": [
+        "chỗ qua đường",
+        "mạng, mạng internet",
+        "giấy tờ nhận dạng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"viện bảo tàng\"?",
+      "options": [
+        "gloves",
+        "slice",
+        "museum"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_nk (ngân hàng)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (địa điểm)",
+      "options": [
+        "site",
+        "sitte",
+        "syte"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phòng trưng bày\"?",
+      "options": [
+        "jellyfish",
+        "gallery",
+        "grown-up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"department store\" mean?",
+      "options": [
+        "đồ ăn nhanh",
+        "đầu đĩa DVD",
+        "cửa hàng bách hoá"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "They live in a tall ___.",
+      "options": [
+        "apartment building",
+        "first name",
+        "swimming costume"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at a tall building",
+    "Point to the left and then right",
+    "Pretend to knock on a door",
+    "Pretend to cross the street carefully",
+    "Pretend to post a letter",
+    "Pretend to read a street sign"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

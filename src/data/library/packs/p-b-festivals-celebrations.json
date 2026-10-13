@@ -1,0 +1,282 @@
+{
+  "title": "Festivals and Celebrations",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "anniversary",
+      "meaning": "ngày kỷ niệm",
+      "category": "celebration",
+      "example": "My parents had a special dinner on their anniversary.",
+      "image": ""
+    },
+    {
+      "word": "celebration",
+      "meaning": "buổi ăn mừng",
+      "category": "celebration",
+      "example": "The school has a big celebration today.",
+      "image": ""
+    },
+    {
+      "word": "ceremony",
+      "meaning": "buổi lễ",
+      "category": "celebration",
+      "example": "The prize ceremony starts at six o'clock tonight.",
+      "image": ""
+    },
+    {
+      "word": "fireworks",
+      "meaning": "pháo hoa",
+      "category": "celebration",
+      "example": "The fireworks are bright in the sky.",
+      "image": ""
+    },
+    {
+      "word": "occasion",
+      "meaning": "dịp",
+      "category": "celebration",
+      "example": "Her birthday is a special occasion for the whole family.",
+      "image": ""
+    },
+    {
+      "word": "wedding",
+      "meaning": "đám cưới",
+      "category": "celebration",
+      "example": "My aunt has a wedding in May.",
+      "image": ""
+    },
+    {
+      "word": "bride",
+      "meaning": "cô dâu",
+      "category": "people",
+      "example": "The bride wore a long white dress at the ceremony.",
+      "image": ""
+    },
+    {
+      "word": "groom",
+      "meaning": "chú rể",
+      "category": "people",
+      "example": "The groom wore a dark blue suit.",
+      "image": ""
+    },
+    {
+      "word": "candle",
+      "meaning": "cây nến",
+      "category": "house",
+      "example": "She blows out the candle.",
+      "image": ""
+    },
+    {
+      "word": "magic",
+      "meaning": "ảo thuật",
+      "category": "thing",
+      "example": "He shows us a magic trick.",
+      "image": ""
+    },
+    {
+      "word": "superhero",
+      "meaning": "siêu anh hùng",
+      "category": "fantasy",
+      "example": "My favourite superhero can fly.",
+      "image": ""
+    },
+    {
+      "word": "present",
+      "meaning": "món quà",
+      "category": "celebration",
+      "example": "I get a present from Dad.",
+      "image": ""
+    },
+    {
+      "word": "party",
+      "meaning": "bữa tiệc",
+      "category": "celebration",
+      "example": "We have a party on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "cake",
+      "meaning": "bánh ngọt",
+      "category": "food",
+      "example": "My mum makes a chocolate cake on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "balloon",
+      "meaning": "quả bóng bay",
+      "category": "toy",
+      "example": "The red balloon flies away.",
+      "image": ""
+    },
+    {
+      "word": "gift",
+      "meaning": "quà tặng",
+      "category": "celebration",
+      "example": "This gift is for you.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (cô dâu)",
+      "options": [
+        "brid",
+        "bridde",
+        "bride"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"occasion\" mean?",
+      "options": [
+        "ghi chú",
+        "dịp",
+        "chồng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bữa tiệc\"?",
+      "options": [
+        "party",
+        "bestseller",
+        "stall"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"magic\" mean?",
+      "options": [
+        "chú rể",
+        "ảo thuật",
+        "bữa tiệc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cerem_ny (buổi lễ)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ is for you.",
+      "options": [
+        "gift",
+        "rough",
+        "wonderful"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đám cưới\"?",
+      "options": [
+        "wedding",
+        "video clip",
+        "pancake"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_reworks (pháo hoa)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She blows out the ___.",
+      "options": [
+        "wedding",
+        "bride",
+        "candle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ballo_n (quả bóng bay)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"siêu anh hùng\"?",
+      "options": [
+        "superhero",
+        "present",
+        "fireworks"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chú rể)",
+      "options": [
+        "grom",
+        "groom",
+        "groum"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cake\" mean?",
+      "options": [
+        "quả bóng bay",
+        "bánh ngọt",
+        "món quà"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi ăn mừng)",
+      "options": [
+        "celebration",
+        "celebratiun",
+        "cilebration"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"anniversary\" mean?",
+      "options": [
+        "ảo thuật",
+        "siêu anh hùng",
+        "ngày kỷ niệm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to blow out a candle",
+    "Pretend to watch fireworks",
+    "Mime cutting a wedding cake",
+    "Pretend to open a gift",
+    "Pretend to give a speech at a ceremony",
+    "Pretend to take photos at a celebration"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

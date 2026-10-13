@@ -1,0 +1,282 @@
+{
+  "title": "Character and Personality 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "lively",
+      "meaning": "sôi nổi",
+      "category": "character",
+      "example": "She is a lively girl who loves talking.",
+      "image": ""
+    },
+    {
+      "word": "patient",
+      "meaning": "kiên nhẫn",
+      "category": "character",
+      "example": "You need to be patient when you learn a new skill.",
+      "image": ""
+    },
+    {
+      "word": "reliable",
+      "meaning": "đáng tin cậy",
+      "category": "character",
+      "example": "He is a reliable friend who always keeps secrets.",
+      "image": ""
+    },
+    {
+      "word": "responsible",
+      "meaning": "có trách nhiệm",
+      "category": "character",
+      "example": "Teenagers should be responsible for their own homework.",
+      "image": ""
+    },
+    {
+      "word": "rude",
+      "meaning": "thô lỗ",
+      "category": "character",
+      "example": "It is rude to look at your phone during dinner.",
+      "image": ""
+    },
+    {
+      "word": "selfish",
+      "meaning": "ích kỷ",
+      "category": "character",
+      "example": "It is selfish to keep all the sweets for yourself.",
+      "image": ""
+    },
+    {
+      "word": "sensible",
+      "meaning": "khôn ngoan, hợp lý",
+      "category": "character",
+      "example": "It is sensible to take a coat when it is cold.",
+      "image": ""
+    },
+    {
+      "word": "sociable",
+      "meaning": "hòa đồng",
+      "category": "character",
+      "example": "Tom is sociable and makes friends easily.",
+      "image": ""
+    },
+    {
+      "word": "strict",
+      "meaning": "nghiêm khắc",
+      "category": "character",
+      "example": "Our teacher is very strict about homework.",
+      "image": ""
+    },
+    {
+      "word": "talented",
+      "meaning": "có tài",
+      "category": "character",
+      "example": "He is a talented young artist.",
+      "image": ""
+    },
+    {
+      "word": "willing",
+      "meaning": "sẵn lòng",
+      "category": "character",
+      "example": "Are you willing to help us clean the classroom?",
+      "image": ""
+    },
+    {
+      "word": "wise",
+      "meaning": "khôn ngoan, thông thái",
+      "category": "character",
+      "example": "My grandmother is a wise woman who gives good advice.",
+      "image": ""
+    },
+    {
+      "word": "funny",
+      "meaning": "buồn cười",
+      "category": "describe",
+      "example": "That joke is very funny.",
+      "image": ""
+    },
+    {
+      "word": "polite",
+      "meaning": "lịch sự",
+      "category": "character",
+      "example": "It is polite to say thank you.",
+      "image": ""
+    },
+    {
+      "word": "lazy",
+      "meaning": "lười",
+      "category": "character",
+      "example": "My cat is lazy and sleeps all day.",
+      "image": ""
+    },
+    {
+      "word": "clever",
+      "meaning": "thông minh",
+      "category": "describe",
+      "example": "She is clever at maths.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"clever\" mean?",
+      "options": [
+        "thông minh",
+        "ích kỷ",
+        "hòa đồng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"có tài\"?",
+      "options": [
+        "available",
+        "talented",
+        "underwater"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_ct (nghiêm khắc)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"responsible\" mean?",
+      "options": [
+        "có trách nhiệm",
+        "khuyết tật",
+        "nhiều loại, khác nhau"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hòa đồng\"?",
+      "options": [
+        "clever",
+        "funny",
+        "sociable"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My grandmother is a ___ woman who gives good advice.",
+      "options": [
+        "line",
+        "wise",
+        "pop star"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sôi nổi)",
+      "options": [
+        "lyvely",
+        "lviely",
+        "lively"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is ___ to say thank you.",
+      "options": [
+        "supermarket",
+        "polite",
+        "tea"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thô lỗ)",
+      "options": [
+        "rude",
+        "rdue",
+        "rudde"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"selfish\" mean?",
+      "options": [
+        "không thể nào",
+        "ích kỷ",
+        "khuyết tật"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lười)",
+      "options": [
+        "lazzy",
+        "lzay",
+        "lazy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đáng tin cậy\"?",
+      "options": [
+        "reliable",
+        "clever",
+        "funny"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pati_nt (kiên nhẫn)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sensible\" mean?",
+      "options": [
+        "thông minh",
+        "buồn cười",
+        "khôn ngoan, hợp lý"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: will_ng (sẵn lòng)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a strict teacher",
+    "Show me a patient person waiting",
+    "Pretend to be a talented singer",
+    "Show me a wise old person thinking",
+    "Pretend to carry a bag for a friend as a willing helper",
+    "Show me a lively dance on the spot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

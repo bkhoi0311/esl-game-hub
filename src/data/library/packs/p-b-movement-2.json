@@ -1,0 +1,273 @@
+{
+  "title": "Verbs of Movement 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "set out",
+      "meaning": "lên đường",
+      "category": "motion",
+      "example": "They set out early to climb the mountain.",
+      "image": ""
+    },
+    {
+      "word": "show up",
+      "meaning": "xuất hiện",
+      "category": "motion",
+      "example": "Several friends did not show up at the party.",
+      "image": ""
+    },
+    {
+      "word": "slip",
+      "meaning": "trượt chân",
+      "category": "motion",
+      "example": "Be careful not to slip on the wet floor.",
+      "image": ""
+    },
+    {
+      "word": "stay behind",
+      "meaning": "ở lại",
+      "category": "motion",
+      "example": "Some students stay behind to clean the classroom.",
+      "image": ""
+    },
+    {
+      "word": "step forward",
+      "meaning": "bước lên phía trước",
+      "category": "motion",
+      "example": "Please step forward when I call your name.",
+      "image": ""
+    },
+    {
+      "word": "step over",
+      "meaning": "bước qua",
+      "category": "motion",
+      "example": "Please step over the box on the floor.",
+      "image": ""
+    },
+    {
+      "word": "turn up",
+      "meaning": "đến, xuất hiện",
+      "category": "motion",
+      "example": "Tom never turns up on time for football practice.",
+      "image": ""
+    },
+    {
+      "word": "jog",
+      "meaning": "chạy bộ",
+      "category": "action",
+      "example": "I like to jog in the park before school.",
+      "image": ""
+    },
+    {
+      "word": "row",
+      "meaning": "chèo thuyền",
+      "category": "action",
+      "example": "We row the boat to the island.",
+      "image": ""
+    },
+    {
+      "word": "drag",
+      "meaning": "kéo lê",
+      "category": "daily",
+      "example": "He had to drag the heavy bag up the stairs.",
+      "image": ""
+    },
+    {
+      "word": "grab",
+      "meaning": "chộp lấy",
+      "category": "action",
+      "example": "You should grab your coat because it is cold.",
+      "image": ""
+    },
+    {
+      "word": "shake",
+      "meaning": "lắc",
+      "category": "action",
+      "example": "Please shake the bottle before you pour the juice.",
+      "image": ""
+    },
+    {
+      "word": "knock",
+      "meaning": "gõ cửa",
+      "category": "action",
+      "example": "Please knock before you come into my room.",
+      "image": ""
+    },
+    {
+      "word": "dig",
+      "meaning": "đào",
+      "category": "daily",
+      "example": "The children dig a big hole on the beach.",
+      "image": ""
+    },
+    {
+      "word": "pull",
+      "meaning": "kéo",
+      "category": "action",
+      "example": "We pull the rope very hard.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"step forward\" mean?",
+      "options": [
+        "biến thành",
+        "gọi điện, quay số",
+        "bước lên phía trước"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bước qua\"?",
+      "options": [
+        "step over",
+        "show up",
+        "set out"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dr_g (kéo lê)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lên đường\"?",
+      "options": [
+        "step forward",
+        "turn up",
+        "set out"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jog\" mean?",
+      "options": [
+        "chọn",
+        "chạy bộ",
+        "xin lỗi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chèo thuyền\"?",
+      "options": [
+        "row",
+        "revise",
+        "react"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Several friends did not ___ at the party.",
+      "options": [
+        "drag",
+        "dig",
+        "show up"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stay behind\" mean?",
+      "options": [
+        "tắt",
+        "ở lại",
+        "nuôi dạy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đến, xuất hiện\"?",
+      "options": [
+        "turn up",
+        "step forward",
+        "step over"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lắc)",
+      "options": [
+        "shkae",
+        "shaki",
+        "shake"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Be careful not to ___ on the wet floor.",
+      "options": [
+        "slip",
+        "dig",
+        "drag"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pull\" mean?",
+      "options": [
+        "lo lắng",
+        "kéo",
+        "biết"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_b (chộp lấy)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dig\" mean?",
+      "options": [
+        "ở lại",
+        "đào",
+        "xuất hiện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gõ cửa)",
+      "options": [
+        "knnock",
+        "knocck",
+        "knock"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Jog on the spot slowly",
+    "Pretend to grab a ball",
+    "Pretend to step over a small box",
+    "Pretend to drag a heavy bag"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

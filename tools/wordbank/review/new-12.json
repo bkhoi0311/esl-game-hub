@@ -1,0 +1,110 @@
+{
+  "sampled": [
+    "nobody",
+    "sale",
+    "print",
+    "serious",
+    "set",
+    "pop",
+    "pass",
+    "movie star",
+    "rent",
+    "myself",
+    "per",
+    "nearly",
+    "nervous",
+    "real",
+    "olympic"
+  ],
+  "sampleErrors": [
+    "pop"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "noon",
+      "field": "vi",
+      "old": "buổi trưa",
+      "new": "giữa trưa"
+    },
+    {
+      "word": "offer",
+      "field": "vi",
+      "old": "lời đề nghị, ưu đãi",
+      "new": "ưu đãi, đề nghị"
+    },
+    {
+      "word": "opera",
+      "field": "vi",
+      "old": "nhạc kịch",
+      "new": "vở opera"
+    },
+    {
+      "word": "order",
+      "field": "vi",
+      "old": "đơn đặt hàng, đặt hàng",
+      "new": "đơn hàng, gọi món"
+    },
+    {
+      "word": "pack",
+      "field": "vi",
+      "old": "đóng gói",
+      "new": "xếp đồ, đóng gói"
+    },
+    {
+      "word": "shame",
+      "field": "vi",
+      "old": "điều đáng tiếc",
+      "new": "thật đáng tiếc"
+    },
+    {
+      "word": "pop",
+      "field": "ex",
+      "old": "My brother loves pop and plays it loudly.",
+      "new": "My sister listens to pop music every morning."
+    },
+    {
+      "word": "receipt",
+      "field": "vi",
+      "old": "hóa đơn",
+      "new": "biên lai"
+    },
+    {
+      "word": "receipt",
+      "field": "ex",
+      "old": "Keep the receipt in case you return it.",
+      "new": "Keep the receipt if you want to change the shirt later."
+    },
+    {
+      "word": "return",
+      "field": "vi",
+      "old": "vé khứ hồi, quay lại",
+      "new": "vé khứ hồi, trở về"
+    },
+    {
+      "word": "return",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "return",
+      "field": "note",
+      "old": "nghĩa n khó chọn (vé khứ hồi / sự quay lại)",
+      "new": ""
+    },
+    {
+      "word": "outdoors",
+      "field": "vi",
+      "old": "ngoài trời",
+      "new": "ở ngoài trời"
+    },
+    {
+      "word": "physics",
+      "field": "vi",
+      "old": "vật lý",
+      "new": "môn vật lý"
+    }
+  ],
+  "stillCheck": []
+}

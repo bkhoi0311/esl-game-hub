@@ -1,0 +1,289 @@
+{
+  "title": "Describing People",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "aged",
+      "meaning": "tuổi",
+      "category": "describe",
+      "example": "She has a little brother aged five.",
+      "image": ""
+    },
+    {
+      "word": "good-looking",
+      "meaning": "đẹp, ưa nhìn",
+      "category": "describe",
+      "example": "Her brother is a good-looking boy.",
+      "image": ""
+    },
+    {
+      "word": "slim",
+      "meaning": "mảnh mai, thon thả",
+      "category": "describe",
+      "example": "My sister is tall and slim.",
+      "image": ""
+    },
+    {
+      "word": "pale",
+      "meaning": "nhợt nhạt",
+      "category": "describe",
+      "example": "You look pale. Are you feeling ill?",
+      "image": ""
+    },
+    {
+      "word": "smart",
+      "meaning": "bảnh bao, thông minh",
+      "category": "opinion",
+      "example": "She looked smart in her new school uniform.",
+      "image": ""
+    },
+    {
+      "word": "helpful",
+      "meaning": "hữu ích, hay giúp đỡ",
+      "category": "character",
+      "example": "The shop assistant was very helpful.",
+      "image": ""
+    },
+    {
+      "word": "polite",
+      "meaning": "lịch sự",
+      "category": "character",
+      "example": "It is polite to say thank you.",
+      "image": ""
+    },
+    {
+      "word": "shy",
+      "meaning": "nhút nhát",
+      "category": "feeling",
+      "example": "The shy girl smiles quietly.",
+      "image": ""
+    },
+    {
+      "word": "fit",
+      "meaning": "khoẻ mạnh",
+      "category": "describe",
+      "example": "He plays football every day to stay fit.",
+      "image": ""
+    },
+    {
+      "word": "dressed",
+      "meaning": "mặc quần áo",
+      "category": "describe",
+      "example": "She got dressed quickly and ran to school.",
+      "image": ""
+    },
+    {
+      "word": "golden",
+      "meaning": "màu vàng óng",
+      "category": "describe",
+      "example": "The cat has golden eyes.",
+      "image": ""
+    },
+    {
+      "word": "bright",
+      "meaning": "sáng",
+      "category": "describe",
+      "example": "The room is bright and warm.",
+      "image": ""
+    },
+    {
+      "word": "single",
+      "meaning": "duy nhất, đơn",
+      "category": "describe",
+      "example": "I did not eat a single biscuit today.",
+      "image": ""
+    },
+    {
+      "word": "healthy",
+      "meaning": "khoẻ mạnh, lành mạnh",
+      "category": "describe",
+      "example": "Fruit is healthy food for children.",
+      "image": ""
+    },
+    {
+      "word": "tall",
+      "meaning": "cao",
+      "category": "describe",
+      "example": "The giraffe is very tall.",
+      "image": ""
+    },
+    {
+      "word": "short",
+      "meaning": "thấp, ngắn",
+      "category": "describe",
+      "example": "My brother is short.",
+      "image": ""
+    },
+    {
+      "word": "young",
+      "meaning": "trẻ, nhỏ tuổi",
+      "category": "describe",
+      "example": "The young boy is five years old.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"slim\" mean?",
+      "options": [
+        "mảnh mai, thon thả",
+        "hữu ích, hay giúp đỡ",
+        "lịch sự"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trẻ, nhỏ tuổi\"?",
+      "options": [
+        "polite",
+        "young",
+        "helpful"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mặc quần áo)",
+      "options": [
+        "dresed",
+        "dresesd",
+        "dressed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thấp, ngắn\"?",
+      "options": [
+        "unkind",
+        "French",
+        "short"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_t (khoẻ mạnh)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The giraffe is very ___.",
+      "options": [
+        "tall",
+        "drive",
+        "boot"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tuổi)",
+      "options": [
+        "agged",
+        "aged",
+        "aegd"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhút nhát\"?",
+      "options": [
+        "shy",
+        "Indian",
+        "diving"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I did not eat a ___ biscuit today.",
+      "options": [
+        "business",
+        "clown",
+        "single"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hữu ích, hay giúp đỡ)",
+      "options": [
+        "helpful",
+        "hilpful",
+        "hlepful"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"golden\" mean?",
+      "options": [
+        "thứ ba",
+        "màu vàng óng",
+        "người Pháp, tiếng Pháp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sm_rt (bảnh bao, thông minh)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pale\" mean?",
+      "options": [
+        "lịch sự",
+        "nhợt nhạt",
+        "hữu ích, hay giúp đỡ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: he_lthy (khoẻ mạnh, lành mạnh)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bright\" mean?",
+      "options": [
+        "sáng",
+        "thứ ba",
+        "đua"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Stand tall and smart",
+    "Pretend to comb your hair",
+    "Show me a polite bow",
+    "Show me a shy smile",
+    "Pretend to be a slim model on a catwalk",
+    "Pretend to adjust your tie"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "title": "Clothes and Getting Dressed",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "coat",
+      "meaning": "áo khoác",
+      "category": "clothes",
+      "example": "I wear my coat on cold days.",
+      "image": ""
+    },
+    {
+      "word": "helmet",
+      "meaning": "mũ bảo hiểm",
+      "category": "clothes",
+      "example": "Wear a helmet when you ride.",
+      "image": ""
+    },
+    {
+      "word": "scarf",
+      "meaning": "khăn quàng cổ",
+      "category": "clothes",
+      "example": "Wrap a scarf around your neck.",
+      "image": ""
+    },
+    {
+      "word": "sweater",
+      "meaning": "áo len",
+      "category": "clothes",
+      "example": "Wear a sweater, it is cold.",
+      "image": ""
+    },
+    {
+      "word": "swimsuit",
+      "meaning": "đồ bơi",
+      "category": "clothes",
+      "example": "She wears a swimsuit at the pool.",
+      "image": ""
+    },
+    {
+      "word": "put on",
+      "meaning": "mặc vào, đeo vào",
+      "category": "daily",
+      "example": "Please put on your coat, it is cold.",
+      "image": ""
+    },
+    {
+      "word": "take off",
+      "meaning": "cởi ra",
+      "category": "daily",
+      "example": "Please take off your wet shoes.",
+      "image": ""
+    },
+    {
+      "word": "get dressed",
+      "meaning": "mặc quần áo",
+      "category": "daily",
+      "example": "You must get dressed quickly today.",
+      "image": ""
+    },
+    {
+      "word": "get undressed",
+      "meaning": "cởi quần áo",
+      "category": "daily",
+      "example": "The baby likes to get undressed before her bath.",
+      "image": ""
+    },
+    {
+      "word": "dress up",
+      "meaning": "hoá trang",
+      "category": "daily",
+      "example": "We dress up as animals at the party.",
+      "image": ""
+    },
+    {
+      "word": "pair",
+      "meaning": "đôi",
+      "category": "measure",
+      "example": "I need a new pair of shoes.",
+      "image": ""
+    },
+    {
+      "word": "jacket",
+      "meaning": "áo khoác mỏng",
+      "category": "clothes",
+      "example": "My jacket has two pockets.",
+      "image": ""
+    },
+    {
+      "word": "jeans",
+      "meaning": "quần bò",
+      "category": "clothes",
+      "example": "He wears blue jeans.",
+      "image": ""
+    },
+    {
+      "word": "shoes",
+      "meaning": "đôi giày",
+      "category": "clothes",
+      "example": "Put on your shoes.",
+      "image": ""
+    },
+    {
+      "word": "boots",
+      "meaning": "đôi ủng",
+      "category": "clothes",
+      "example": "I wear boots in the rain.",
+      "image": ""
+    },
+    {
+      "word": "hat",
+      "meaning": "cái mũ",
+      "category": "clothes",
+      "example": "He wears a hat in the sun.",
+      "image": ""
+    },
+    {
+      "word": "dress",
+      "meaning": "chiếc váy",
+      "category": "clothes",
+      "example": "She wears a pink dress.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"boots\" mean?",
+      "options": [
+        "đôi ủng",
+        "áo khoác",
+        "quần bò"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dr_ss (chiếc váy)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồ bơi)",
+      "options": [
+        "swmisuit",
+        "swismuit",
+        "swimsuit"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quần bò\"?",
+      "options": [
+        "shoes",
+        "hat",
+        "jeans"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get undressed\" mean?",
+      "options": [
+        "hoá trang",
+        "cởi quần áo",
+        "mặc quần áo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đôi giày\"?",
+      "options": [
+        "shoes",
+        "hat",
+        "dress"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ir (đôi)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ as animals at the party.",
+      "options": [
+        "pair",
+        "dress up",
+        "scarf"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"take off\" mean?",
+      "options": [
+        "hoá trang",
+        "cởi quần áo",
+        "cởi ra"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: co_t (áo khoác)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sweater\" mean?",
+      "options": [
+        "áo len",
+        "áo khoác",
+        "đồ bơi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ your coat, it is cold.",
+      "options": [
+        "pair",
+        "put on",
+        "coat"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mặc quần áo\"?",
+      "options": [
+        "jacket",
+        "sweater",
+        "get dressed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (áo khoác mỏng)",
+      "options": [
+        "jacket",
+        "jcaket",
+        "jackit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mũ bảo hiểm)",
+      "options": [
+        "helemt",
+        "helmet",
+        "hemlet"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put on a coat",
+    "Pretend to wear a scarf",
+    "Mime putting on a helmet",
+    "Pretend to take off your hat",
+    "Pretend to tie your shoes",
+    "Show me you are cold in a sweater"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

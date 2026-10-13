@@ -1,0 +1,82 @@
+{
+  "sampled": [
+    "base on",
+    "border",
+    "break up",
+    "breath",
+    "bury",
+    "by hand",
+    "cabbage",
+    "call for",
+    "calm",
+    "carry out",
+    "casual",
+    "cattle",
+    "challenging",
+    "check out",
+    "chill out"
+  ],
+  "sampleErrors": [
+    "break up",
+    "challenging"
+  ],
+  "sampleErrorRate": "2/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "banking",
+      "field": "vi",
+      "old": "ngân hàng",
+      "new": "ngành ngân hàng"
+    },
+    {
+      "word": "bar",
+      "field": "vi",
+      "old": "quầy bar, thanh",
+      "new": "thanh, quầy"
+    },
+    {
+      "word": "be over",
+      "field": "cat",
+      "old": "mind",
+      "new": "time"
+    },
+    {
+      "word": "beat",
+      "field": "cat",
+      "old": "action",
+      "new": "sport"
+    },
+    {
+      "word": "besides",
+      "field": "vi",
+      "old": "ngoài ra",
+      "new": "ngoài, bên cạnh"
+    },
+    {
+      "word": "break up",
+      "field": "vi",
+      "old": "chia tay, kết thúc",
+      "new": "kết thúc, nghỉ học"
+    },
+    {
+      "word": "break up",
+      "field": "cat",
+      "old": "mind",
+      "new": "time"
+    },
+    {
+      "word": "by name",
+      "field": "vi",
+      "old": "bằng tên",
+      "new": "theo tên"
+    },
+    {
+      "word": "challenging",
+      "field": "ex",
+      "old": "The math test was challenging, but I finished it.",
+      "new": "The maths test was challenging, but I finished it."
+    }
+  ],
+  "stillCheck": []
+}

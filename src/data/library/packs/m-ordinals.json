@@ -1,0 +1,300 @@
+{
+  "title": "Ordinal Numbers",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "first",
+      "meaning": "đầu tiên",
+      "category": "time",
+      "example": "Today is my first day at the new school.",
+      "image": ""
+    },
+    {
+      "word": "second",
+      "meaning": "thứ hai",
+      "category": "number",
+      "example": "Today is my second day here.",
+      "image": ""
+    },
+    {
+      "word": "third",
+      "meaning": "thứ ba",
+      "category": "number",
+      "example": "She lives on the third floor.",
+      "image": ""
+    },
+    {
+      "word": "fourth",
+      "meaning": "thứ tư",
+      "category": "number",
+      "example": "Our classroom is on the fourth floor.",
+      "image": ""
+    },
+    {
+      "word": "fifth",
+      "meaning": "thứ năm",
+      "category": "number",
+      "example": "My room is on the fifth floor.",
+      "image": ""
+    },
+    {
+      "word": "sixth",
+      "meaning": "thứ sáu",
+      "category": "number",
+      "example": "She was sixth in the swimming race.",
+      "image": ""
+    },
+    {
+      "word": "seventh",
+      "meaning": "thứ bảy",
+      "category": "number",
+      "example": "I live on the seventh floor.",
+      "image": ""
+    },
+    {
+      "word": "eighth",
+      "meaning": "thứ tám",
+      "category": "number",
+      "example": "He is in the eighth row.",
+      "image": ""
+    },
+    {
+      "word": "ninth",
+      "meaning": "thứ chín",
+      "category": "number",
+      "example": "He is the ninth child in line.",
+      "image": ""
+    },
+    {
+      "word": "tenth",
+      "meaning": "thứ mười",
+      "category": "number",
+      "example": "The tenth picture is my favourite.",
+      "image": ""
+    },
+    {
+      "word": "eleventh",
+      "meaning": "thứ mười một",
+      "category": "number",
+      "example": "She sits in the eleventh seat.",
+      "image": ""
+    },
+    {
+      "word": "twelfth",
+      "meaning": "thứ mười hai",
+      "category": "number",
+      "example": "December is the twelfth month of the year.",
+      "image": ""
+    },
+    {
+      "word": "thirteenth",
+      "meaning": "thứ mười ba",
+      "category": "number",
+      "example": "The thirteenth song is very slow.",
+      "image": ""
+    },
+    {
+      "word": "fourteenth",
+      "meaning": "thứ mười bốn",
+      "category": "number",
+      "example": "The fourteenth question is easy.",
+      "image": ""
+    },
+    {
+      "word": "fifteenth",
+      "meaning": "thứ mười lăm",
+      "category": "number",
+      "example": "The fifteenth page has a big picture.",
+      "image": ""
+    },
+    {
+      "word": "sixteenth",
+      "meaning": "thứ mười sáu",
+      "category": "number",
+      "example": "My birthday is on the sixteenth of May.",
+      "image": ""
+    },
+    {
+      "word": "seventeenth",
+      "meaning": "thứ mười bảy",
+      "category": "number",
+      "example": "The seventeenth word is hard to spell.",
+      "image": ""
+    },
+    {
+      "word": "eighteenth",
+      "meaning": "thứ mười tám",
+      "category": "number",
+      "example": "Today is the eighteenth day of the month.",
+      "image": ""
+    },
+    {
+      "word": "nineteenth",
+      "meaning": "thứ mười chín",
+      "category": "number",
+      "example": "Today is the nineteenth of April.",
+      "image": ""
+    },
+    {
+      "word": "twentieth",
+      "meaning": "thứ hai mươi",
+      "category": "number",
+      "example": "Today is the twentieth day of our holiday.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"thứ sáu\"?",
+      "options": [
+        "sixth",
+        "nineteenth",
+        "fourth"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thứ mười hai)",
+      "options": [
+        "twellfth",
+        "twelfth",
+        "twilfth"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fifte_nth (thứ mười lăm)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thứ bảy)",
+      "options": [
+        "seventh",
+        "sevventh",
+        "sevennth"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fourte_nth (thứ mười bốn)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She lives on the ___ floor.",
+      "options": [
+        "boat",
+        "frog",
+        "third"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_rst (đầu tiên)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"seventeenth\" mean?",
+      "options": [
+        "thứ mười một",
+        "thứ năm",
+        "thứ mười bảy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sixteenth\" mean?",
+      "options": [
+        "thứ mười sáu",
+        "thứ tư",
+        "thứ hai mươi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thứ hai)",
+      "options": [
+        "secund",
+        "second",
+        "sicond"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"eleventh\" mean?",
+      "options": [
+        "thứ bảy",
+        "thứ mười ba",
+        "thứ mười một"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ mười chín\"?",
+      "options": [
+        "sixteenth",
+        "seventh",
+        "nineteenth"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"thirteenth\" mean?",
+      "options": [
+        "thứ mười bảy",
+        "thứ mười ba",
+        "thứ mười bốn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ mười tám\"?",
+      "options": [
+        "eighteenth",
+        "twentieth",
+        "fourth"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me the first finger",
+    "Show me three fingers for third",
+    "Pretend to be first in a race",
+    "Show me five fingers for fifth",
+    "Clap ten times for the tenth day",
+    "Show me a winner pose for first place"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

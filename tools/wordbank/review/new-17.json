@@ -1,0 +1,147 @@
+{
+  "sampled": [
+    "dirt",
+    "dishwasher",
+    "disk",
+    "dozen",
+    "dustbin",
+    "duty",
+    "duty-free",
+    "either",
+    "embassy",
+    "entertainment",
+    "escape",
+    "examiner",
+    "exist",
+    "extremely",
+    "face-to-face"
+  ],
+  "sampleErrors": [
+    "dirt"
+  ],
+  "sampleErrorRate": "1/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "diagram",
+      "field": "vi",
+      "old": "biểu đồ, sơ đồ",
+      "new": "sơ đồ"
+    },
+    {
+      "word": "diagram",
+      "field": "cat",
+      "old": "thing",
+      "new": "study"
+    },
+    {
+      "word": "dirt",
+      "field": "cat",
+      "old": "describe",
+      "new": "nature"
+    },
+    {
+      "word": "display",
+      "field": "vi",
+      "old": "màn hình, trưng bày",
+      "new": "trưng bày, màn hình"
+    },
+    {
+      "word": "dj during",
+      "field": "skip",
+      "old": false,
+      "new": true
+    },
+    {
+      "word": "dj during",
+      "field": "vi",
+      "old": "trong lúc, trong suốt",
+      "new": ""
+    },
+    {
+      "word": "dj during",
+      "field": "ex",
+      "old": "The school hired a DJ during the summer festival.",
+      "new": ""
+    },
+    {
+      "word": "dj during",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dj during",
+      "field": "note",
+      "old": "mục dạng lạ trong danh sách (DJ during); nghĩa lấy của during",
+      "new": "Mục lạ do tách dòng danh sách (DJ của disc jockey + during): during đã có ở new-06, dj là alt của disc jockey. Loại."
+    },
+    {
+      "word": "dozen",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "dozen",
+      "field": "note",
+      "old": "cpos det+n; dùng cat function vì measure chỉ cho n",
+      "new": ""
+    },
+    {
+      "word": "duvet",
+      "field": "vi",
+      "old": "chăn lông vũ",
+      "new": "chăn bông"
+    },
+    {
+      "word": "edge",
+      "field": "cat",
+      "old": "describe",
+      "new": "place"
+    },
+    {
+      "word": "elementary",
+      "field": "ex",
+      "old": "My little brother goes to an elementary school near our house.",
+      "new": "This book is for elementary learners of English."
+    },
+    {
+      "word": "employer",
+      "field": "vi",
+      "old": "người sử dụng lao động",
+      "new": "chủ lao động"
+    },
+    {
+      "word": "entertain",
+      "field": "vi",
+      "old": "giải trí",
+      "new": "làm vui, giải trí cho"
+    },
+    {
+      "word": "entry",
+      "field": "vi",
+      "old": "lối vào, sự tham gia",
+      "new": "bài dự thi, lối vào"
+    },
+    {
+      "word": "entry",
+      "field": "cat",
+      "old": "place",
+      "new": "hobby"
+    },
+    {
+      "word": "entry",
+      "field": "ex",
+      "old": "The entry to the museum is free for students.",
+      "new": "Please send your entry for the photo competition by Friday."
+    },
+    {
+      "word": "exchange",
+      "field": "vi",
+      "old": "chuyến trao đổi",
+      "new": "cuộc trao đổi, trao đổi"
+    }
+  ],
+  "stillCheck": []
+}

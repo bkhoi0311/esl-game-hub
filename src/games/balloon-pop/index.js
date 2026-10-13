@@ -118,6 +118,7 @@ function makeBalloonScene(Phaser, shared) {
 
     pop(b) {
       if (b.done || !this.api.running || this.api.paused) return;
+      if (!this.api.tapAllowed(b.side)) return; // chống bấm loạn
       b.done = true;
       const good = b.item.category.toLowerCase() === shared.cat;
       this.api.addScore(b.side, good ? 1 : -1);
@@ -133,6 +134,7 @@ function makeBalloonScene(Phaser, shared) {
         this.tweens.add({ targets: b.c, scale: 1.4, alpha: 0, duration: 170, ease: 'Quad.easeOut', onComplete: () => b.c.destroy() });
       } else {
         playSound('wrong');
+        this.api.penalize(b.side);
         b.img.setTint(0x9aa3ad);
         this.tweens.add({
           targets: b.c, x: x + 14, duration: 60, yoyo: true, repeat: 3,

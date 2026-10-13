@@ -1,6 +1,6 @@
 {
   "title": "Meals and Dishes",
-  "level": "Pre A1 Starters",
+  "level": "A1 Movers",
   "vocab": [
     {
       "word": "breakfast",
@@ -123,8 +123,8 @@
       "prompt": "He wants a big ___ for lunch.",
       "options": [
         "burger",
-        "sparkler",
-        "cards"
+        "house",
+        "thermometer"
       ],
       "answer": 0,
       "type": "vocab"
@@ -170,10 +170,20 @@
       "type": "vocab"
     },
     {
+      "prompt": "What does \"hot dog\" mean?",
+      "options": [
+        "bánh mì xúc xích",
+        "bánh mì kẹp",
+        "bữa trưa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
       "prompt": "We have ___ at school.",
       "options": [
-        "scared",
-        "look",
+        "bad",
+        "big",
         "lunch"
       ],
       "answer": 2,
@@ -204,7 +214,7 @@
       "options": [
         "steak",
         "setak",
-        "staek"
+        "stiak"
       ],
       "answer": 0,
       "type": "vocab"
@@ -232,9 +242,9 @@
     {
       "prompt": "Find the missing letter: sal_d (món salad)",
       "options": [
-        "e",
+        "u",
         "a",
-        "u"
+        "o"
       ],
       "answer": 1,
       "type": "vocab"

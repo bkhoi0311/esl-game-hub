@@ -1,6 +1,6 @@
 {
   "title": "Birds",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "bird",
@@ -98,9 +98,9 @@
     {
       "prompt": "Which word means \"con công\"?",
       "options": [
-        "flamingo",
+        "eagle",
         "peacock",
-        "swan"
+        "duck"
       ],
       "answer": 1,
       "type": "vocab"
@@ -108,8 +108,8 @@
     {
       "prompt": "The ___ sings in the tree.",
       "options": [
-        "children",
-        "light",
+        "bookcase",
+        "carnival",
         "bird"
       ],
       "answer": 2,
@@ -119,8 +119,8 @@
       "prompt": "Which word means \"chim cánh cụt\"?",
       "options": [
         "penguin",
-        "chick",
-        "parrot"
+        "turkey",
+        "swan"
       ],
       "answer": 0,
       "type": "vocab"
@@ -138,9 +138,9 @@
     {
       "prompt": "Which word means \"con chim\"?",
       "options": [
-        "dad",
+        "park",
         "bird",
-        "morning"
+        "apartment"
       ],
       "answer": 1,
       "type": "vocab"
@@ -149,8 +149,8 @@
       "prompt": "What does \"owl\" mean?",
       "options": [
         "con cú",
-        "con đại bàng",
-        "gà con"
+        "con vịt",
+        "con đại bàng"
       ],
       "answer": 0,
       "type": "vocab"
@@ -169,8 +169,8 @@
       "prompt": "The ___ is white and beautiful.",
       "options": [
         "swan",
-        "fry",
-        "see"
+        "let's",
+        "show"
       ],
       "answer": 0,
       "type": "vocab"

@@ -1,0 +1,282 @@
+{
+  "title": "Useful Adjectives 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "accurate",
+      "meaning": "chính xác",
+      "category": "describe",
+      "example": "The map was accurate, so we found the park easily.",
+      "image": ""
+    },
+    {
+      "word": "basic",
+      "meaning": "cơ bản",
+      "category": "describe",
+      "example": "You need basic computer skills to join this class.",
+      "image": ""
+    },
+    {
+      "word": "blank",
+      "meaning": "trống",
+      "category": "describe",
+      "example": "Please leave the last line of the form blank.",
+      "image": ""
+    },
+    {
+      "word": "brief",
+      "meaning": "ngắn gọn",
+      "category": "describe",
+      "example": "Please write a brief answer of two or three sentences.",
+      "image": ""
+    },
+    {
+      "word": "broad",
+      "meaning": "rộng",
+      "category": "describe",
+      "example": "The river is broad and slow near the town.",
+      "image": ""
+    },
+    {
+      "word": "casual",
+      "meaning": "thoải mái, bình thường",
+      "category": "describe",
+      "example": "You can wear casual clothes to the school party.",
+      "image": ""
+    },
+    {
+      "word": "common",
+      "meaning": "phổ biến, thông thường",
+      "category": "describe",
+      "example": "Smith is a very common name in England.",
+      "image": ""
+    },
+    {
+      "word": "complicated",
+      "meaning": "phức tạp",
+      "category": "describe",
+      "example": "The rules of this game are too complicated.",
+      "image": ""
+    },
+    {
+      "word": "cultural",
+      "meaning": "thuộc văn hoá",
+      "category": "describe",
+      "example": "The school has a cultural day every spring.",
+      "image": ""
+    },
+    {
+      "word": "direct",
+      "meaning": "trực tiếp, chỉ đường",
+      "category": "describe",
+      "example": "There is a direct train from our town to the capital.",
+      "image": ""
+    },
+    {
+      "word": "elementary",
+      "meaning": "sơ cấp, cơ bản",
+      "category": "describe",
+      "example": "This book is for elementary learners of English.",
+      "image": ""
+    },
+    {
+      "word": "environmental",
+      "meaning": "thuộc môi trường",
+      "category": "describe",
+      "example": "Our class started an environmental project to save energy.",
+      "image": ""
+    },
+    {
+      "word": "equal",
+      "meaning": "bằng nhau, bình đẳng",
+      "category": "describe",
+      "example": "The two teams had an equal number of players.",
+      "image": ""
+    },
+    {
+      "word": "essential",
+      "meaning": "thiết yếu",
+      "category": "describe",
+      "example": "Water is essential for all living things.",
+      "image": ""
+    },
+    {
+      "word": "exact",
+      "meaning": "chính xác",
+      "category": "describe",
+      "example": "Can you tell me the exact time of the next bus?",
+      "image": ""
+    },
+    {
+      "word": "false",
+      "meaning": "sai",
+      "category": "describe",
+      "example": "The answer on the test paper was false.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"sơ cấp, cơ bản\"?",
+      "options": [
+        "sociable",
+        "friendly",
+        "elementary"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"environmental\" mean?",
+      "options": [
+        "thuộc môi trường",
+        "kỹ thuật số",
+        "kiên nhẫn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sai\"?",
+      "options": [
+        "strict",
+        "false",
+        "helpful"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The rules of this game are too ___.",
+      "options": [
+        "fashion",
+        "postpone",
+        "complicated"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ex_ct (chính xác)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"casual\" mean?",
+      "options": [
+        "thoải mái, bình thường",
+        "khôn ngoan, thông thái",
+        "người Pháp, tiếng Pháp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trống\"?",
+      "options": [
+        "active",
+        "friendly",
+        "blank"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bas_c (cơ bản)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"brief\" mean?",
+      "options": [
+        "ngắn gọn",
+        "có trách nhiệm",
+        "trung thực"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: essent_al (thiết yếu)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trực tiếp, chỉ đường)",
+      "options": [
+        "dirict",
+        "direcct",
+        "direct"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"broad\" mean?",
+      "options": [
+        "lười",
+        "rộng",
+        "năng động"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The two teams had an ___ number of players.",
+      "options": [
+        "ice skates",
+        "equal",
+        "edge"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chính xác)",
+      "options": [
+        "accurtae",
+        "accurati",
+        "accurate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuộc văn hoá)",
+      "options": [
+        "cultural",
+        "cultrual",
+        "culturral"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a blank page",
+    "Pretend to draw a straight direct line",
+    "Pretend to give a brief wave",
+    "Show me a casual outfit",
+    "Show me two equal groups with your hands",
+    "Show me something false with a shake of your head"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

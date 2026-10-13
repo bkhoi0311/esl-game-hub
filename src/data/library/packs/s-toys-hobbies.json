@@ -1,0 +1,296 @@
+{
+  "title": "Toys and Hobbies",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "ball",
+      "meaning": "quả bóng",
+      "category": "toy",
+      "example": "He kicks the ball to me.",
+      "image": ""
+    },
+    {
+      "word": "balloon",
+      "meaning": "quả bóng bay",
+      "category": "toy",
+      "example": "The red balloon flies away.",
+      "image": ""
+    },
+    {
+      "word": "balloons",
+      "meaning": "quả bóng bay",
+      "category": "toy",
+      "example": "We have ten balloons for the party.",
+      "image": ""
+    },
+    {
+      "word": "board game",
+      "meaning": "trò chơi bàn cờ",
+      "category": "toy",
+      "example": "We play a board game after dinner.",
+      "image": ""
+    },
+    {
+      "word": "doll",
+      "meaning": "búp bê",
+      "category": "toy",
+      "example": "She plays with her doll.",
+      "image": ""
+    },
+    {
+      "word": "kite",
+      "meaning": "con diều",
+      "category": "toy",
+      "example": "The kite flies high in the sky.",
+      "image": ""
+    },
+    {
+      "word": "skateboard",
+      "meaning": "ván trượt",
+      "category": "toy",
+      "example": "He rides his skateboard to the park.",
+      "image": ""
+    },
+    {
+      "word": "teddy",
+      "meaning": "gấu bông",
+      "category": "toy",
+      "example": "My teddy sleeps with me every night.",
+      "image": ""
+    },
+    {
+      "word": "teddy bear",
+      "meaning": "gấu bông",
+      "category": "toy",
+      "example": "I sleep with my teddy bear.",
+      "image": ""
+    },
+    {
+      "word": "toy",
+      "meaning": "đồ chơi",
+      "category": "toy",
+      "example": "The baby has a new toy.",
+      "image": ""
+    },
+    {
+      "word": "game",
+      "meaning": "trò chơi",
+      "category": "hobby",
+      "example": "This game is very fun.",
+      "image": ""
+    },
+    {
+      "word": "hobby",
+      "meaning": "sở thích",
+      "category": "hobby",
+      "example": "Painting is my hobby.",
+      "image": ""
+    },
+    {
+      "word": "drawing",
+      "meaning": "bức vẽ",
+      "category": "hobby",
+      "example": "This drawing is for my mum.",
+      "image": ""
+    },
+    {
+      "word": "fishing",
+      "meaning": "câu cá",
+      "category": "hobby",
+      "example": "Grandpa goes fishing at the lake.",
+      "image": ""
+    },
+    {
+      "word": "story",
+      "meaning": "câu chuyện",
+      "category": "hobby",
+      "example": "Mum tells me a funny story.",
+      "image": ""
+    },
+    {
+      "word": "play",
+      "meaning": "chơi",
+      "category": "action",
+      "example": "They play games after school.",
+      "image": ""
+    },
+    {
+      "word": "alien",
+      "meaning": "người ngoài hành tinh",
+      "category": "fantasy",
+      "example": "The alien comes from a far planet.",
+      "image": ""
+    },
+    {
+      "word": "monster",
+      "meaning": "quái vật",
+      "category": "fantasy",
+      "example": "The monster has three green eyes.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (bức vẽ)",
+      "options": [
+        "drawing",
+        "drawnig",
+        "drwaing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ flies high in the sky.",
+      "options": [
+        "monster",
+        "alien",
+        "kite"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (búp bê)",
+      "options": [
+        "dlol",
+        "doll",
+        "dol"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"story\" mean?",
+      "options": [
+        "câu chuyện",
+        "câu cá",
+        "bức vẽ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have ten ___ for the party.",
+      "options": [
+        "alien",
+        "balloons",
+        "monster"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sở thích)",
+      "options": [
+        "hoby",
+        "hboby",
+        "hobby"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ba_l (quả bóng)",
+      "options": [
+        "r",
+        "l",
+        "b"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"câu cá\"?",
+      "options": [
+        "drawing",
+        "story",
+        "fishing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_nster (quái vật)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"teddy bear\" mean?",
+      "options": [
+        "trò chơi bàn cờ",
+        "gấu bông",
+        "búp bê"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ván trượt\"?",
+      "options": [
+        "balloon",
+        "balloons",
+        "skateboard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"play\" mean?",
+      "options": [
+        "chơi",
+        "quái vật",
+        "ván trượt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_me (trò chơi)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"balloon\" mean?",
+      "options": [
+        "con diều",
+        "búp bê",
+        "quả bóng bay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người ngoài hành tinh\"?",
+      "options": [
+        "alien",
+        "teddy bear",
+        "ball"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to fly a kite",
+    "Pretend to blow up a balloon",
+    "Pretend to play with a doll",
+    "Pretend to bounce a ball",
+    "Pretend to go fishing",
+    "Pretend to hug a teddy bear"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

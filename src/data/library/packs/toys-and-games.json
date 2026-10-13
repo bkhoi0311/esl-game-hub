@@ -117,7 +117,7 @@
       "options": [
         "teddy bear",
         "video game",
-        "skateboard"
+        "cards"
       ],
       "answer": 0,
       "type": "vocab"
@@ -125,8 +125,8 @@
     {
       "prompt": "Roll the ___ and move forward.",
       "options": [
-        "garlic",
-        "astronaut",
+        "seal",
+        "genie",
         "dice"
       ],
       "answer": 2,
@@ -145,8 +145,8 @@
     {
       "prompt": "Which word means \"trò chơi\"?",
       "options": [
-        "rabbit",
-        "mango",
+        "clothes",
+        "hippo",
         "game"
       ],
       "answer": 2,
@@ -186,8 +186,8 @@
       "prompt": "What does \"toy\" mean?",
       "options": [
         "đồ chơi",
-        "con cá sấu",
-        "con ếch"
+        "hạt đậu",
+        "phần"
       ],
       "answer": 0,
       "type": "vocab"
@@ -197,7 +197,7 @@
       "options": [
         "video game",
         "chess",
-        "skateboard"
+        "dice"
       ],
       "answer": 1,
       "type": "vocab"
@@ -226,8 +226,8 @@
       "prompt": "He plays a ___ after dinner.",
       "options": [
         "video game",
-        "flower",
-        "spaghetti"
+        "baseball cap",
+        "palm tree"
       ],
       "answer": 0,
       "type": "vocab"

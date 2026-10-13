@@ -1,0 +1,296 @@
+{
+  "title": "Family and Friends",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "aunt",
+      "meaning": "cô, dì",
+      "category": "family",
+      "example": "My aunt lives in a small town.",
+      "image": ""
+    },
+    {
+      "word": "uncle",
+      "meaning": "chú, bác",
+      "category": "family",
+      "example": "My uncle drives a big truck.",
+      "image": ""
+    },
+    {
+      "word": "daughter",
+      "meaning": "con gái",
+      "category": "family",
+      "example": "Their daughter plays the piano.",
+      "image": ""
+    },
+    {
+      "word": "son",
+      "meaning": "con trai",
+      "category": "family",
+      "example": "They have a son and a daughter.",
+      "image": ""
+    },
+    {
+      "word": "granddaughter",
+      "meaning": "cháu gái",
+      "category": "family",
+      "example": "Grandma loves her granddaughter very much.",
+      "image": ""
+    },
+    {
+      "word": "grandson",
+      "meaning": "cháu trai",
+      "category": "family",
+      "example": "Grandpa played football with his grandson.",
+      "image": ""
+    },
+    {
+      "word": "grandparent",
+      "meaning": "ông hoặc bà",
+      "category": "family",
+      "example": "My grandparents live near the sea.",
+      "image": ""
+    },
+    {
+      "word": "parents",
+      "meaning": "bố mẹ",
+      "category": "family",
+      "example": "My parents walk to the park.",
+      "image": ""
+    },
+    {
+      "word": "grown-up",
+      "meaning": "người lớn",
+      "category": "people",
+      "example": "Ask a grown-up to help you cross the road.",
+      "image": ""
+    },
+    {
+      "word": "invite",
+      "meaning": "mời",
+      "category": "daily",
+      "example": "I want to invite you to my party.",
+      "image": ""
+    },
+    {
+      "word": "party",
+      "meaning": "bữa tiệc",
+      "category": "celebration",
+      "example": "We have a party on Sunday.",
+      "image": ""
+    },
+    {
+      "word": "present",
+      "meaning": "món quà",
+      "category": "celebration",
+      "example": "I get a present from Dad.",
+      "image": ""
+    },
+    {
+      "word": "cousin",
+      "meaning": "anh chị em họ",
+      "category": "family",
+      "example": "My cousin visits us in summer.",
+      "image": ""
+    },
+    {
+      "word": "grandmother",
+      "meaning": "bà nội, bà ngoại",
+      "category": "family",
+      "example": "My grandmother has a small garden.",
+      "image": ""
+    },
+    {
+      "word": "grandfather",
+      "meaning": "ông nội, ông ngoại",
+      "category": "family",
+      "example": "My grandfather tells funny stories.",
+      "image": ""
+    },
+    {
+      "word": "brother",
+      "meaning": "anh trai, em trai",
+      "category": "family",
+      "example": "My brother is eight years old.",
+      "image": ""
+    },
+    {
+      "word": "sister",
+      "meaning": "chị gái, em gái",
+      "category": "family",
+      "example": "Her sister likes to draw.",
+      "image": ""
+    },
+    {
+      "word": "friend",
+      "meaning": "người bạn",
+      "category": "people",
+      "example": "She is my best friend.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "My ___ live near the sea.",
+      "options": [
+        "parties",
+        "presents",
+        "grandparents"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"grown-up\" mean?",
+      "options": [
+        "người lớn",
+        "người bạn",
+        "bà nội, bà ngoại"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _ncle (chú, bác)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"món quà\"?",
+      "options": [
+        "grandparent",
+        "present",
+        "friend"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: par_nts (bố mẹ)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ lives in a small town.",
+      "options": [
+        "present",
+        "party",
+        "aunt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"party\" mean?",
+      "options": [
+        "món quà",
+        "bữa tiệc",
+        "chú, bác"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cháu trai\"?",
+      "options": [
+        "brother",
+        "granddaughter",
+        "grandson"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người bạn)",
+      "options": [
+        "friend",
+        "friind",
+        "frriend"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cháu gái\"?",
+      "options": [
+        "granddaughter",
+        "parents",
+        "grandfather"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"invite\" mean?",
+      "options": [
+        "con gái",
+        "cô, dì",
+        "mời"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (anh chị em họ)",
+      "options": [
+        "couisn",
+        "cousin",
+        "cuusin"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sister\" mean?",
+      "options": [
+        "chị gái, em gái",
+        "bà nội, bà ngoại",
+        "cháu trai"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con gái)",
+      "options": [
+        "daguhter",
+        "daughter",
+        "daughetr"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: br_ther (anh trai, em trai)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wave to your friend on the screen",
+    "Pretend to open a present",
+    "Pretend to blow up a balloon",
+    "Show me a big smile for the party",
+    "Pretend to give a present to your aunt",
+    "Pretend to take a family photo"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

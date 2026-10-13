@@ -1,0 +1,247 @@
+{
+  "sampled": [
+    "how old",
+    "a lot of",
+    "favourite",
+    "afternoon",
+    "in front of",
+    "for",
+    "behind",
+    "choose",
+    "hall",
+    "board game",
+    "again",
+    "how many",
+    "food",
+    "its",
+    "long"
+  ],
+  "sampleErrors": [
+    "a lot of",
+    "for",
+    "hall"
+  ],
+  "fullReview": true,
+  "alsoReviewed": [
+    "a",
+    "about",
+    "an",
+    "and",
+    "at",
+    "be",
+    "between",
+    "but",
+    "bye",
+    "count",
+    "cross",
+    "don't worry",
+    "end",
+    "enjoy",
+    "fantastic",
+    "from",
+    "fun",
+    "get",
+    "he",
+    "her",
+    "here",
+    "hers",
+    "hi",
+    "him",
+    "his",
+    "hooray",
+    "how",
+    "i",
+    "in",
+    "it",
+    "know",
+    "like",
+    "line",
+    "lots of",
+    "many",
+    "me",
+    "me too"
+  ],
+  "fixed": [
+    {
+      "word": "a",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "a lot of",
+      "field": "vi",
+      "old": "nhiều",
+      "new": "rất nhiều"
+    },
+    {
+      "word": "add",
+      "field": "vi",
+      "old": "cộng thêm",
+      "new": "thêm vào, cộng"
+    },
+    {
+      "word": "an",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "be",
+      "field": "ex",
+      "old": "They want to be happy.",
+      "new": "Can you be quiet, please?"
+    },
+    {
+      "word": "be",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "bounce",
+      "field": "vi",
+      "old": "nảy, tung nảy",
+      "new": "nảy lên"
+    },
+    {
+      "word": "cross",
+      "field": "vi",
+      "old": "dấu chéo, dấu nhân",
+      "new": "dấu chéo, đánh dấu x"
+    },
+    {
+      "word": "cross",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "don't worry",
+      "field": "ex",
+      "old": "Don't worry, it is easy.",
+      "new": "It is easy, don't worry."
+    },
+    {
+      "word": "for",
+      "field": "vi",
+      "old": "cho, để dành cho",
+      "new": "cho, dành cho"
+    },
+    {
+      "word": "hall",
+      "field": "vi",
+      "old": "hội trường, sảnh",
+      "new": "hành lang, sảnh"
+    },
+    {
+      "word": "hall",
+      "field": "cat",
+      "old": "place",
+      "new": "house"
+    },
+    {
+      "word": "hall",
+      "field": "ex",
+      "old": "We sing songs in the hall.",
+      "new": "Our coats are in the hall."
+    },
+    {
+      "word": "hers",
+      "field": "vi",
+      "old": "của cô ấy",
+      "new": "cái của cô ấy"
+    },
+    {
+      "word": "how",
+      "field": "vi",
+      "old": "như thế nào, thế nào",
+      "new": "như thế nào"
+    },
+    {
+      "word": "i",
+      "field": "ex",
+      "old": "I like apples and bananas.",
+      "new": "Can I sit here, please?"
+    },
+    {
+      "word": "let's",
+      "field": "ex",
+      "old": "Let's play in the park.",
+      "new": "It is sunny. Let's play outside."
+    },
+    {
+      "word": "like",
+      "field": "ex",
+      "old": "She runs like the wind.",
+      "new": "This cloud looks like a sheep."
+    },
+    {
+      "word": "like",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "look at",
+      "field": "vi",
+      "old": "nhìn vào",
+      "new": "nhìn"
+    },
+    {
+      "word": "look at",
+      "field": "ex",
+      "old": "Look at the big tree.",
+      "new": "Please look at the big tree."
+    },
+    {
+      "word": "lots of",
+      "field": "vi",
+      "old": "rất nhiều",
+      "new": "nhiều lắm"
+    },
+    {
+      "word": "mat",
+      "field": "vi",
+      "old": "tấm thảm",
+      "new": "tấm thảm nhỏ"
+    },
+    {
+      "word": "me",
+      "field": "vi",
+      "old": "tôi, tớ",
+      "new": "tớ, mình"
+    },
+    {
+      "word": "me too",
+      "field": "ex",
+      "old": "I like pizza. Me too!",
+      "new": "You like cats? Me too!"
+    },
+    {
+      "word": "he",
+      "field": "ex",
+      "old": "He is my best friend.",
+      "new": "Look, he is my best friend."
+    },
+    {
+      "word": "her",
+      "field": "ex",
+      "old": "Her bag is under the chair.",
+      "new": "I like her red bag."
+    },
+    {
+      "word": "hi",
+      "field": "ex",
+      "old": "Hi, my name is Tom.",
+      "new": "Say hi to your new friend."
+    },
+    {
+      "word": "his",
+      "field": "ex",
+      "old": "His dog is very small.",
+      "new": "I like his small dog."
+    }
+  ],
+  "stillCheck": []
+}

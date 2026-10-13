@@ -1,0 +1,296 @@
+{
+  "title": "Movement and Thinking Verbs",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "arrive",
+      "meaning": "đến nơi",
+      "category": "motion",
+      "example": "We will arrive at the beach at noon.",
+      "image": ""
+    },
+    {
+      "word": "cycle",
+      "meaning": "đạp xe",
+      "category": "motion",
+      "example": "I cycle to school with my friends.",
+      "image": ""
+    },
+    {
+      "word": "explore",
+      "meaning": "khám phá",
+      "category": "motion",
+      "example": "We want to explore the old castle.",
+      "image": ""
+    },
+    {
+      "word": "fetch",
+      "meaning": "đi lấy",
+      "category": "motion",
+      "example": "Please fetch my bag from the car.",
+      "image": ""
+    },
+    {
+      "word": "follow",
+      "meaning": "đi theo",
+      "category": "motion",
+      "example": "The ducklings follow their mother to the pond.",
+      "image": ""
+    },
+    {
+      "word": "get to",
+      "meaning": "đến được",
+      "category": "motion",
+      "example": "How can I get to the station?",
+      "image": ""
+    },
+    {
+      "word": "go out",
+      "meaning": "ra ngoài",
+      "category": "motion",
+      "example": "We often go out after dinner on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "hurry",
+      "meaning": "vội, nhanh lên",
+      "category": "motion",
+      "example": "We must hurry or we will miss the bus.",
+      "image": ""
+    },
+    {
+      "word": "land",
+      "meaning": "hạ cánh",
+      "category": "motion",
+      "example": "The plane will land in ten minutes.",
+      "image": ""
+    },
+    {
+      "word": "leave",
+      "meaning": "rời đi",
+      "category": "motion",
+      "example": "We leave home at seven o'clock.",
+      "image": ""
+    },
+    {
+      "word": "believe",
+      "meaning": "tin",
+      "category": "mind",
+      "example": "I believe you can win the race.",
+      "image": ""
+    },
+    {
+      "word": "decide",
+      "meaning": "quyết định",
+      "category": "mind",
+      "example": "I can't decide which book to read.",
+      "image": ""
+    },
+    {
+      "word": "forget",
+      "meaning": "quên",
+      "category": "mind",
+      "example": "Don't forget your umbrella today.",
+      "image": ""
+    },
+    {
+      "word": "hate",
+      "meaning": "ghét",
+      "category": "mind",
+      "example": "I hate waking up early on Monday.",
+      "image": ""
+    },
+    {
+      "word": "hope",
+      "meaning": "hy vọng",
+      "category": "mind",
+      "example": "I hope you feel better soon.",
+      "image": ""
+    },
+    {
+      "word": "invent",
+      "meaning": "phát minh",
+      "category": "mind",
+      "example": "Who invented the telephone?",
+      "image": ""
+    },
+    {
+      "word": "prefer",
+      "meaning": "thích hơn",
+      "category": "mind",
+      "example": "I prefer tea to milk.",
+      "image": ""
+    },
+    {
+      "word": "remember",
+      "meaning": "nhớ",
+      "category": "mind",
+      "example": "Can you remember her name?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"arrive\" mean?",
+      "options": [
+        "đến nơi",
+        "ra ngoài",
+        "đi lấy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quên)",
+      "options": [
+        "forgget",
+        "forrget",
+        "forget"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_rry (vội, nhanh lên)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ my bag from the car.",
+      "options": [
+        "decide",
+        "fetch",
+        "invent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dec_de (quyết định)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"believe\" mean?",
+      "options": [
+        "ghét",
+        "hy vọng",
+        "tin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thích hơn\"?",
+      "options": [
+        "leave",
+        "prefer",
+        "arrive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khám phá)",
+      "options": [
+        "explore",
+        "epxlore",
+        "expolre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đạp xe\"?",
+      "options": [
+        "land",
+        "follow",
+        "cycle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_te (ghét)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hope\" mean?",
+      "options": [
+        "hy vọng",
+        "ghét",
+        "quên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (rời đi)",
+      "options": [
+        "levae",
+        "laeve",
+        "leave"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hạ cánh\"?",
+      "options": [
+        "follow",
+        "land",
+        "move"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"remember\" mean?",
+      "options": [
+        "tin",
+        "quên",
+        "nhớ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ducklings ___ their mother to the pond.",
+      "options": [
+        "follow",
+        "believe",
+        "hate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to arrive at a station",
+    "Pretend to cycle on the spot",
+    "Pretend to fetch a ball",
+    "Pretend to think and decide",
+    "Pretend to remember something and smile",
+    "Pretend to land a plane"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

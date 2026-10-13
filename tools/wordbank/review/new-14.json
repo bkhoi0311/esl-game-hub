@@ -1,0 +1,99 @@
+{
+  "sampled": [
+    "account",
+    "advise",
+    "although",
+    "answerphone",
+    "architect",
+    "arrange",
+    "arrest",
+    "ashamed",
+    "attach",
+    "attend",
+    "attract",
+    "attraction",
+    "babysit",
+    "bald",
+    "banker"
+  ],
+  "sampleErrors": [
+    "arrest"
+  ],
+  "sampleErrorRate": "1/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "accent",
+      "field": "vi",
+      "old": "giọng nói",
+      "new": "chất giọng"
+    },
+    {
+      "word": "addition",
+      "field": "vi",
+      "old": "phần thêm vào, phép cộng",
+      "new": "phần bổ sung, phép cộng"
+    },
+    {
+      "word": "addition",
+      "field": "ex",
+      "old": "In addition to football, he plays tennis on Sundays.",
+      "new": "The new swimming pool is a great addition to our school."
+    },
+    {
+      "word": "agency",
+      "field": "vi",
+      "old": "công ty, đại lý",
+      "new": "đại lý, công ty dịch vụ"
+    },
+    {
+      "word": "ancient",
+      "field": "vi",
+      "old": "cổ đại",
+      "new": "cổ xưa"
+    },
+    {
+      "word": "application",
+      "field": "vi",
+      "old": "đơn xin việc",
+      "new": "đơn xin, ứng dụng"
+    },
+    {
+      "word": "apply",
+      "field": "vi",
+      "old": "nộp đơn xin",
+      "new": "nộp đơn"
+    },
+    {
+      "word": "arrest",
+      "field": "cat",
+      "old": "daily",
+      "new": "action"
+    },
+    {
+      "word": "arrest",
+      "field": "ex",
+      "old": "The police arrested the thief near the station.",
+      "new": "The police arrested a driver who was going far too fast."
+    },
+    {
+      "word": "attack",
+      "field": "vi",
+      "old": "cuộc tấn công",
+      "new": "đợt tấn công, tấn công"
+    },
+    {
+      "word": "attack",
+      "field": "cat",
+      "old": "abstract",
+      "new": "sport"
+    },
+    {
+      "word": "background",
+      "field": "vi",
+      "old": "lý lịch, kinh nghiệm",
+      "new": "nền tảng, kinh nghiệm"
+    }
+  ],
+  "stillCheck": []
+}

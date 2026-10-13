@@ -1,0 +1,289 @@
+{
+  "title": "Nature and Environment",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "air",
+      "meaning": "không khí",
+      "category": "nature",
+      "example": "Fresh air is good for us.",
+      "image": ""
+    },
+    {
+      "word": "cave",
+      "meaning": "hang động",
+      "category": "nature",
+      "example": "A bat sleeps in the cave.",
+      "image": ""
+    },
+    {
+      "word": "desert",
+      "meaning": "sa mạc",
+      "category": "nature",
+      "example": "Camels live in the desert.",
+      "image": ""
+    },
+    {
+      "word": "environment",
+      "meaning": "môi trường",
+      "category": "nature",
+      "example": "We must protect the environment.",
+      "image": ""
+    },
+    {
+      "word": "fire",
+      "meaning": "lửa",
+      "category": "nature",
+      "example": "Dad lights a fire in the garden.",
+      "image": ""
+    },
+    {
+      "word": "hill",
+      "meaning": "ngọn đồi",
+      "category": "nature",
+      "example": "We run up the hill.",
+      "image": ""
+    },
+    {
+      "word": "nest",
+      "meaning": "cái tổ chim",
+      "category": "nature",
+      "example": "The bird made a nest in the tree.",
+      "image": ""
+    },
+    {
+      "word": "ocean",
+      "meaning": "đại dương",
+      "category": "nature",
+      "example": "Whales live in the ocean.",
+      "image": ""
+    },
+    {
+      "word": "pond",
+      "meaning": "cái ao",
+      "category": "nature",
+      "example": "Ducks swim on the pond.",
+      "image": ""
+    },
+    {
+      "word": "stone",
+      "meaning": "hòn đá",
+      "category": "nature",
+      "example": "She throws a stone into the lake.",
+      "image": ""
+    },
+    {
+      "word": "stream",
+      "meaning": "con suối",
+      "category": "nature",
+      "example": "We crossed a small stream.",
+      "image": ""
+    },
+    {
+      "word": "view",
+      "meaning": "cảnh, tầm nhìn",
+      "category": "nature",
+      "example": "The view from the hill is lovely.",
+      "image": ""
+    },
+    {
+      "word": "wood",
+      "meaning": "khu rừng nhỏ",
+      "category": "nature",
+      "example": "We walk through the wood after lunch.",
+      "image": ""
+    },
+    {
+      "word": "jungle",
+      "meaning": "rừng rậm",
+      "category": "nature",
+      "example": "Monkeys play in the jungle.",
+      "image": ""
+    },
+    {
+      "word": "island",
+      "meaning": "hòn đảo",
+      "category": "nature",
+      "example": "The island has white sand.",
+      "image": ""
+    },
+    {
+      "word": "river",
+      "meaning": "con sông",
+      "category": "nature",
+      "example": "The river is wide and blue.",
+      "image": ""
+    },
+    {
+      "word": "mountain",
+      "meaning": "ngọn núi",
+      "category": "nature",
+      "example": "The mountain is covered with snow.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"fire\" mean?",
+      "options": [
+        "cái ao",
+        "lửa",
+        "hòn đảo"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_st (cái tổ chim)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stream\" mean?",
+      "options": [
+        "con suối",
+        "khu rừng nhỏ",
+        "đại dương"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cảnh, tầm nhìn\"?",
+      "options": [
+        "nest",
+        "cave",
+        "view"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Whales live in the ___.",
+      "options": [
+        "ocean",
+        "back",
+        "fast"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"environment\" mean?",
+      "options": [
+        "mẩu, miếng",
+        "môi trường",
+        "sữa chua"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hang động\"?",
+      "options": [
+        "fire",
+        "air",
+        "cave"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hòn đảo)",
+      "options": [
+        "island",
+        "islland",
+        "islnad"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We walk through the ___ after lunch.",
+      "options": [
+        "dumpling",
+        "wood",
+        "candy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngọn núi)",
+      "options": [
+        "mountain",
+        "mountein",
+        "mounttain"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"desert\" mean?",
+      "options": [
+        "cái ao",
+        "con suối",
+        "sa mạc"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_ll (ngọn đồi)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hòn đá\"?",
+      "options": [
+        "hill",
+        "view",
+        "stone"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: a_r (không khí)",
+      "options": [
+        "i",
+        "o",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái ao)",
+      "options": [
+        "ponnd",
+        "pond",
+        "pnod"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at a hill through binoculars",
+    "Pretend to take a deep breath of fresh air",
+    "Pretend to throw a stone into a pond",
+    "Pretend to look into a cave with a torch",
+    "Point to a mountain",
+    "Pretend to pick up litter"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "title": "Places in Town",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "airport",
+      "meaning": "sân bay",
+      "category": "place",
+      "example": "We wait at the airport for Grandma.",
+      "image": ""
+    },
+    {
+      "word": "bank",
+      "meaning": "ngân hàng",
+      "category": "place",
+      "example": "Mum goes to the bank today.",
+      "image": ""
+    },
+    {
+      "word": "bridge",
+      "meaning": "cây cầu",
+      "category": "place",
+      "example": "We walk across the bridge.",
+      "image": ""
+    },
+    {
+      "word": "castle",
+      "meaning": "lâu đài",
+      "category": "place",
+      "example": "The king lives in a big castle.",
+      "image": ""
+    },
+    {
+      "word": "factory",
+      "meaning": "nhà máy",
+      "category": "place",
+      "example": "My uncle works in a toy factory.",
+      "image": ""
+    },
+    {
+      "word": "fire station",
+      "meaning": "trạm cứu hỏa",
+      "category": "place",
+      "example": "The fire station is near our school.",
+      "image": ""
+    },
+    {
+      "word": "gym",
+      "meaning": "phòng tập thể dục",
+      "category": "place",
+      "example": "She goes to the gym every day.",
+      "image": ""
+    },
+    {
+      "word": "hotel",
+      "meaning": "khách sạn",
+      "category": "place",
+      "example": "Our hotel is near the beach.",
+      "image": ""
+    },
+    {
+      "word": "museum",
+      "meaning": "viện bảo tàng",
+      "category": "place",
+      "example": "The museum has old pictures.",
+      "image": ""
+    },
+    {
+      "word": "office",
+      "meaning": "văn phòng",
+      "category": "place",
+      "example": "My mum works in an office.",
+      "image": ""
+    },
+    {
+      "word": "police station",
+      "meaning": "đồn cảnh sát",
+      "category": "place",
+      "example": "The police station is near the bank.",
+      "image": ""
+    },
+    {
+      "word": "post office",
+      "meaning": "bưu điện",
+      "category": "place",
+      "example": "Dad sends a letter at the post office.",
+      "image": ""
+    },
+    {
+      "word": "restaurant",
+      "meaning": "nhà hàng",
+      "category": "place",
+      "example": "We eat at a restaurant on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "stadium",
+      "meaning": "sân vận động",
+      "category": "place",
+      "example": "Thousands of fans are in the stadium.",
+      "image": ""
+    },
+    {
+      "word": "theatre",
+      "meaning": "nhà hát",
+      "category": "place",
+      "example": "The theatre is in the city.",
+      "image": ""
+    },
+    {
+      "word": "railway station",
+      "meaning": "ga tàu hỏa",
+      "category": "place",
+      "example": "The train leaves the railway station at nine.",
+      "image": ""
+    },
+    {
+      "word": "skyscraper",
+      "meaning": "tòa nhà chọc trời",
+      "category": "place",
+      "example": "The skyscraper is taller than the hotel.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"skyscraper\" mean?",
+      "options": [
+        "ngân hàng",
+        "tòa nhà chọc trời",
+        "văn phòng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngân hàng)",
+      "options": [
+        "bnak",
+        "bannk",
+        "bank"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: restaur_nt (nhà hàng)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà hát)",
+      "options": [
+        "theatre",
+        "tehatre",
+        "thearte"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_m (phòng tập thể dục)",
+      "options": [
+        "r",
+        "t",
+        "y"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"railway station\" mean?",
+      "options": [
+        "bưu điện",
+        "ga tàu hỏa",
+        "tòa nhà chọc trời"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My mum works in an ___.",
+      "options": [
+        "ice cube",
+        "office",
+        "evening"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"museum\" mean?",
+      "options": [
+        "cây cầu",
+        "trạm cứu hỏa",
+        "viện bảo tàng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khách sạn)",
+      "options": [
+        "hotel",
+        "hottel",
+        "htoel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trạm cứu hỏa\"?",
+      "options": [
+        "police station",
+        "railway station",
+        "fire station"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"airport\" mean?",
+      "options": [
+        "đồn cảnh sát",
+        "sân bay",
+        "sân vận động"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà máy\"?",
+      "options": [
+        "factory",
+        "museum",
+        "theatre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Thousands of fans are in the ___.",
+      "options": [
+        "smile",
+        "stadium",
+        "safe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lâu đài\"?",
+      "options": [
+        "castle",
+        "office",
+        "bank"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: br_dge (cây cầu)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to cross a bridge",
+    "Pretend to take a photo of a castle",
+    "Pretend to post a letter",
+    "Pretend to look at a museum picture",
+    "Point up at a skyscraper",
+    "Pretend to read a menu in a restaurant"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

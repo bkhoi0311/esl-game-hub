@@ -1,0 +1,282 @@
+{
+  "title": "Opinions and Attitudes 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "acceptable",
+      "meaning": "chấp nhận được",
+      "category": "opinion",
+      "example": "Is this answer acceptable for the exam question?",
+      "image": ""
+    },
+    {
+      "word": "amusing",
+      "meaning": "vui nhộn",
+      "category": "opinion",
+      "example": "The film was amusing and the whole class laughed.",
+      "image": ""
+    },
+    {
+      "word": "certain",
+      "meaning": "chắc chắn",
+      "category": "opinion",
+      "example": "I am certain that I locked the door this morning.",
+      "image": ""
+    },
+    {
+      "word": "challenging",
+      "meaning": "đầy thử thách",
+      "category": "opinion",
+      "example": "The maths test was challenging, but I finished it.",
+      "image": ""
+    },
+    {
+      "word": "charming",
+      "meaning": "duyên dáng, quyến rũ",
+      "category": "opinion",
+      "example": "We stayed in a charming little town by the sea.",
+      "image": ""
+    },
+    {
+      "word": "confusing",
+      "meaning": "gây khó hiểu",
+      "category": "opinion",
+      "example": "The instructions were confusing for everyone.",
+      "image": ""
+    },
+    {
+      "word": "convenient",
+      "meaning": "thuận tiện",
+      "category": "opinion",
+      "example": "The bus stop is convenient for our school.",
+      "image": ""
+    },
+    {
+      "word": "cute",
+      "meaning": "dễ thương",
+      "category": "opinion",
+      "example": "Your little brother is so cute!",
+      "image": ""
+    },
+    {
+      "word": "disappointing",
+      "meaning": "đáng thất vọng",
+      "category": "opinion",
+      "example": "The ending of the book was really disappointing.",
+      "image": ""
+    },
+    {
+      "word": "disgusting",
+      "meaning": "kinh tởm",
+      "category": "opinion",
+      "example": "The milk smelled disgusting after a week in the sun.",
+      "image": ""
+    },
+    {
+      "word": "dull",
+      "meaning": "buồn tẻ",
+      "category": "opinion",
+      "example": "The lesson was so dull that I almost fell asleep.",
+      "image": ""
+    },
+    {
+      "word": "embarrassing",
+      "meaning": "đáng xấu hổ",
+      "category": "opinion",
+      "example": "It was embarrassing when my phone rang in the library.",
+      "image": ""
+    },
+    {
+      "word": "enjoyable",
+      "meaning": "thú vị",
+      "category": "opinion",
+      "example": "The school trip was really enjoyable for everyone.",
+      "image": ""
+    },
+    {
+      "word": "extraordinary",
+      "meaning": "phi thường",
+      "category": "opinion",
+      "example": "The singer has an extraordinary voice for her age.",
+      "image": ""
+    },
+    {
+      "word": "fashionable",
+      "meaning": "hợp thời trang",
+      "category": "opinion",
+      "example": "She wore a fashionable jacket to the party.",
+      "image": ""
+    },
+    {
+      "word": "gorgeous",
+      "meaning": "tuyệt đẹp",
+      "category": "opinion",
+      "example": "The beach looked gorgeous at sunset.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "The ending of the book was really ___.",
+      "options": [
+        "footballer",
+        "thunder",
+        "disappointing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gây khó hiểu)",
+      "options": [
+        "confusing",
+        "cunfusing",
+        "confsuing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"extraordinary\" mean?",
+      "options": [
+        "thân thiện",
+        "phi thường",
+        "qua đêm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đáng xấu hổ)",
+      "options": [
+        "embarrassnig",
+        "embarassing",
+        "embarrassing"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: du_l (buồn tẻ)",
+      "options": [
+        "l",
+        "r",
+        "v"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"acceptable\" mean?",
+      "options": [
+        "người Ý, tiếng Ý",
+        "chấp nhận được",
+        "nhiều mây"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đầy thử thách\"?",
+      "options": [
+        "challenging",
+        "musical",
+        "digital"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"amusing\" mean?",
+      "options": [
+        "đáng tin cậy",
+        "vui nhộn",
+        "người Brazil"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I am ___ that I locked the door this morning.",
+      "options": [
+        "sheet",
+        "circle",
+        "certain"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_rgeous (tuyệt đẹp)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disgusting\" mean?",
+      "options": [
+        "độc lập",
+        "thân thiện",
+        "kinh tởm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: enjoy_ble (thú vị)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dễ thương\"?",
+      "options": [
+        "cute",
+        "cruel",
+        "gray"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuận tiện)",
+      "options": [
+        "convvenient",
+        "connvenient",
+        "convenient"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"duyên dáng, quyến rũ\"?",
+      "options": [
+        "active",
+        "charming",
+        "humid"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a face for something amusing",
+    "Pretend to look at a cute puppy photo",
+    "Show me a bored and dull face",
+    "Show me an embarrassing moment",
+    "Pretend to say that a view is gorgeous",
+    "Show me you are very certain"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

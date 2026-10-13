@@ -1,0 +1,310 @@
+{
+  "title": "Useful Words and Phrases",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "away",
+      "meaning": "đi khỏi, ra xa",
+      "category": "manner",
+      "example": "The bird flew away from the tree.",
+      "image": ""
+    },
+    {
+      "word": "by myself",
+      "meaning": "tự mình, một mình",
+      "category": "manner",
+      "example": "I can tie my shoes by myself.",
+      "image": ""
+    },
+    {
+      "word": "by yourself",
+      "meaning": "tự bạn, một mình bạn",
+      "category": "manner",
+      "example": "Did you make this cake by yourself?",
+      "image": ""
+    },
+    {
+      "word": "instead",
+      "meaning": "thay vào đó",
+      "category": "manner",
+      "example": "It was raining, so we played inside instead.",
+      "image": ""
+    },
+    {
+      "word": "of course",
+      "meaning": "tất nhiên",
+      "category": "manner",
+      "example": "Yes, of course you can come.",
+      "image": ""
+    },
+    {
+      "word": "perhaps",
+      "meaning": "có lẽ",
+      "category": "manner",
+      "example": "Ask Mum, perhaps she knows.",
+      "image": ""
+    },
+    {
+      "word": "quite",
+      "meaning": "khá",
+      "category": "manner",
+      "example": "The film was quite long.",
+      "image": ""
+    },
+    {
+      "word": "suddenly",
+      "meaning": "đột nhiên",
+      "category": "manner",
+      "example": "The lights suddenly went out.",
+      "image": ""
+    },
+    {
+      "word": "important",
+      "meaning": "quan trọng",
+      "category": "opinion",
+      "example": "It is important to drink water every day.",
+      "image": ""
+    },
+    {
+      "word": "dear",
+      "meaning": "thân mến",
+      "category": "describe",
+      "example": "My letter to Grandpa starts with Dear Grandpa.",
+      "image": ""
+    },
+    {
+      "word": "missing",
+      "meaning": "bị mất, mất tích",
+      "category": "describe",
+      "example": "My blue pen is missing from my bag.",
+      "image": ""
+    },
+    {
+      "word": "look like",
+      "meaning": "trông giống",
+      "category": "describe",
+      "example": "You look like your father.",
+      "image": ""
+    },
+    {
+      "word": "find out",
+      "meaning": "tìm ra",
+      "category": "mind",
+      "example": "Let's find out the answer together.",
+      "image": ""
+    },
+    {
+      "word": "make sure",
+      "meaning": "đảm bảo",
+      "category": "mind",
+      "example": "Please make sure the door is closed.",
+      "image": ""
+    },
+    {
+      "word": "might",
+      "meaning": "có thể",
+      "category": "mind",
+      "example": "It might rain this afternoon.",
+      "image": ""
+    },
+    {
+      "word": "should",
+      "meaning": "nên",
+      "category": "mind",
+      "example": "You should drink more water.",
+      "image": ""
+    },
+    {
+      "word": "will",
+      "meaning": "sẽ",
+      "category": "mind",
+      "example": "I will help you tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "thank",
+      "meaning": "cảm ơn",
+      "category": "speech",
+      "example": "I want to thank you for your help.",
+      "image": ""
+    },
+    {
+      "word": "feel",
+      "meaning": "cảm thấy",
+      "category": "mind",
+      "example": "I feel happy when I play with my dog.",
+      "image": ""
+    },
+    {
+      "word": "invitation",
+      "meaning": "lời mời, thiệp mời",
+      "category": "celebration",
+      "example": "I got an invitation to Tom's party.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"missing\" mean?",
+      "options": [
+        "thân mến",
+        "bị mất, mất tích",
+        "trông giống"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đi khỏi, ra xa\"?",
+      "options": [
+        "suddenly",
+        "most",
+        "away"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"important\" mean?",
+      "options": [
+        "quan trọng",
+        "bị mất, mất tích",
+        "thân mến"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_ll (sẽ)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có thể)",
+      "options": [
+        "mgiht",
+        "mihgt",
+        "might"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tìm ra\"?",
+      "options": [
+        "would like",
+        "find out",
+        "prefer"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thay vào đó)",
+      "options": [
+        "insteed",
+        "instead",
+        "instaed"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_uld (nên)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I want to ___ you for your help.",
+      "options": [
+        "look like",
+        "missing",
+        "thank"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: q_ite (khá)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Ask Mum, ___ she knows.",
+      "options": [
+        "thank",
+        "find out",
+        "perhaps"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lời mời, thiệp mời)",
+      "options": [
+        "invtiation",
+        "invitation",
+        "invitetion"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dear\" mean?",
+      "options": [
+        "bị mất, mất tích",
+        "thân mến",
+        "trông giống"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đột nhiên\"?",
+      "options": [
+        "perhaps",
+        "away",
+        "suddenly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"feel\" mean?",
+      "options": [
+        "cảm thấy",
+        "đảm bảo",
+        "có thể"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Nod and say of course",
+    "Shrug and say perhaps",
+    "Pretend to get a surprise suddenly",
+    "Pretend to write an invitation",
+    "Pretend to look for something missing",
+    "Wave and say thank you"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

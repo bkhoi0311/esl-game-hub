@@ -1,0 +1,282 @@
+{
+  "title": "Adverbs 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "forward",
+      "meaning": "về phía trước",
+      "category": "manner",
+      "example": "Please move forward and sit near the front.",
+      "image": ""
+    },
+    {
+      "word": "fortunately",
+      "meaning": "may mắn thay",
+      "category": "manner",
+      "example": "We were late but fortunately the bus waited.",
+      "image": ""
+    },
+    {
+      "word": "fully",
+      "meaning": "hoàn toàn",
+      "category": "manner",
+      "example": "The room was fully ready for the party.",
+      "image": ""
+    },
+    {
+      "word": "generally",
+      "meaning": "nói chung",
+      "category": "manner",
+      "example": "Teenagers generally need about nine hours of sleep.",
+      "image": ""
+    },
+    {
+      "word": "happily",
+      "meaning": "một cách vui vẻ",
+      "category": "manner",
+      "example": "The children played happily in the garden all afternoon.",
+      "image": ""
+    },
+    {
+      "word": "hardly",
+      "meaning": "hầu như không",
+      "category": "manner",
+      "example": "I was so tired that I could hardly keep my eyes open.",
+      "image": ""
+    },
+    {
+      "word": "honestly",
+      "meaning": "một cách thành thật",
+      "category": "manner",
+      "example": "Please tell me honestly what you think of my idea.",
+      "image": ""
+    },
+    {
+      "word": "hopefully",
+      "meaning": "hy vọng là",
+      "category": "manner",
+      "example": "The bus is late, but hopefully it will come soon.",
+      "image": ""
+    },
+    {
+      "word": "incredibly",
+      "meaning": "cực kỳ",
+      "category": "manner",
+      "example": "The soup was incredibly hot, so I waited before eating it.",
+      "image": ""
+    },
+    {
+      "word": "mainly",
+      "meaning": "chủ yếu",
+      "category": "manner",
+      "example": "The park is mainly used by families and joggers.",
+      "image": ""
+    },
+    {
+      "word": "mostly",
+      "meaning": "hầu hết, chủ yếu",
+      "category": "manner",
+      "example": "My friends are mostly from my class.",
+      "image": ""
+    },
+    {
+      "word": "obviously",
+      "meaning": "rõ ràng là",
+      "category": "manner",
+      "example": "She was obviously tired after the long trip.",
+      "image": ""
+    },
+    {
+      "word": "particularly",
+      "meaning": "nhất là, đặc biệt",
+      "category": "manner",
+      "example": "I am particularly good at maths and science.",
+      "image": ""
+    },
+    {
+      "word": "partly",
+      "meaning": "một phần",
+      "category": "manner",
+      "example": "The match was cancelled partly because of the rain.",
+      "image": ""
+    },
+    {
+      "word": "perfectly",
+      "meaning": "hoàn hảo",
+      "category": "manner",
+      "example": "She sang the song perfectly at the concert.",
+      "image": ""
+    },
+    {
+      "word": "personally",
+      "meaning": "cá nhân tôi",
+      "category": "manner",
+      "example": "I personally think the film was too long.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (cực kỳ)",
+      "options": [
+        "incredibbly",
+        "incredibly",
+        "incrediblly"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please move ___ and sit near the front.",
+      "options": [
+        "please",
+        "upstairs",
+        "forward"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rõ ràng là\"?",
+      "options": [
+        "obviously",
+        "twice",
+        "already"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fully\" mean?",
+      "options": [
+        "ở tầng dưới",
+        "bán thời gian",
+        "hoàn toàn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hầu như không)",
+      "options": [
+        "harrdly",
+        "hardly",
+        "harldy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My friends are ___ from my class.",
+      "options": [
+        "mostly",
+        "upstairs",
+        "please"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: happ_ly (một cách vui vẻ)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhất là, đặc biệt\"?",
+      "options": [
+        "part time",
+        "particularly",
+        "anymore"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hopefully\" mean?",
+      "options": [
+        "ở tầng trên",
+        "làm ơn",
+        "hy vọng là"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chủ yếu\"?",
+      "options": [
+        "mainly",
+        "lately",
+        "at the moment"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fortunately\" mean?",
+      "options": [
+        "ở tầng dưới",
+        "giờ chiều, tối",
+        "may mắn thay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gen_rally (nói chung)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (một phần)",
+      "options": [
+        "parrtly",
+        "patrly",
+        "partly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"honestly\" mean?",
+      "options": [
+        "ngay lập tức",
+        "một cách thành thật",
+        "chưa, vẫn chưa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: perf_ctly (hoàn hảo)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Take a small step forward slowly",
+    "Smile happily",
+    "Show me you can hardly see",
+    "Show me you honestly say sorry",
+    "Show me a perfect thumbs up",
+    "Show me you hopefully cross your fingers"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

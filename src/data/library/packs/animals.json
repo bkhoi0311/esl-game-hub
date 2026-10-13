@@ -136,8 +136,8 @@
     {
       "prompt": "The ___ has soft white wool.",
       "options": [
-        "drive",
-        "win",
+        "purple",
+        "can",
         "sheep"
       ],
       "answer": 2,
@@ -266,8 +266,8 @@
     {
       "prompt": "The cat sees a little ___.",
       "options": [
-        "brave",
-        "sleepy",
+        "young",
+        "bounce",
         "mouse"
       ],
       "answer": 2,

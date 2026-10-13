@@ -1,0 +1,274 @@
+{
+  "title": "People Around Us",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "beginner",
+      "meaning": "người mới bắt đầu",
+      "category": "people",
+      "example": "I am a beginner in the guitar class.",
+      "image": ""
+    },
+    {
+      "word": "colleague",
+      "meaning": "đồng nghiệp",
+      "category": "people",
+      "example": "My dad has lunch with a colleague.",
+      "image": ""
+    },
+    {
+      "word": "crowd",
+      "meaning": "đám đông",
+      "category": "people",
+      "example": "A big crowd waited outside the stadium.",
+      "image": ""
+    },
+    {
+      "word": "fan",
+      "meaning": "người hâm mộ",
+      "category": "people",
+      "example": "My brother is a big fan of this football team.",
+      "image": ""
+    },
+    {
+      "word": "guest",
+      "meaning": "khách",
+      "category": "people",
+      "example": "We have a guest tonight.",
+      "image": ""
+    },
+    {
+      "word": "housewife",
+      "meaning": "bà nội trợ",
+      "category": "people",
+      "example": "His mother is a housewife.",
+      "image": ""
+    },
+    {
+      "word": "people",
+      "meaning": "mọi người",
+      "category": "people",
+      "example": "Many people are in the park.",
+      "image": ""
+    },
+    {
+      "word": "celebrity",
+      "meaning": "người nổi tiếng",
+      "category": "people",
+      "example": "The celebrity visited our city last week.",
+      "image": ""
+    },
+    {
+      "word": "runner",
+      "meaning": "người chạy",
+      "category": "people",
+      "example": "My brother is a fast runner.",
+      "image": ""
+    },
+    {
+      "word": "schoolchild",
+      "meaning": "học sinh",
+      "category": "people",
+      "example": "Each schoolchild must wear a uniform.",
+      "image": ""
+    },
+    {
+      "word": "shopper",
+      "meaning": "người mua sắm",
+      "category": "people",
+      "example": "Each shopper gets a free bag today.",
+      "image": ""
+    },
+    {
+      "word": "tourist",
+      "meaning": "khách du lịch",
+      "category": "people",
+      "example": "A tourist asked me the way to the museum.",
+      "image": ""
+    },
+    {
+      "word": "visitor",
+      "meaning": "khách tham quan",
+      "category": "people",
+      "example": "Every visitor to the zoo gets a free map.",
+      "image": ""
+    },
+    {
+      "word": "customer",
+      "meaning": "khách hàng",
+      "category": "people",
+      "example": "The shop assistant helped every customer politely.",
+      "image": ""
+    },
+    {
+      "word": "movie star",
+      "meaning": "ngôi sao điện ảnh",
+      "category": "people",
+      "example": "My sister wants to meet a movie star.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"runner\" mean?",
+      "options": [
+        "bánh xe",
+        "ghế sofa",
+        "người chạy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"học sinh\"?",
+      "options": [
+        "schoolchild",
+        "earache",
+        "island"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tour_st (khách du lịch)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồng nghiệp\"?",
+      "options": [
+        "sweater",
+        "rubber",
+        "colleague"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đám đông)",
+      "options": [
+        "crowd",
+        "crrowd",
+        "corwd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: visit_r (khách tham quan)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người mới bắt đầu)",
+      "options": [
+        "bgeinner",
+        "beginner",
+        "beginenr"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have a ___ tonight.",
+      "options": [
+        "spotted",
+        "modern",
+        "guest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_lebrity (người nổi tiếng)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"people\" mean?",
+      "options": [
+        "thời trang",
+        "mọi người",
+        "cắm trại"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người mua sắm\"?",
+      "options": [
+        "shopper",
+        "west",
+        "South America"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The shop assistant helped every ___ politely.",
+      "options": [
+        "rubbish",
+        "shopping",
+        "customer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người hâm mộ\"?",
+      "options": [
+        "million",
+        "address",
+        "fan"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"housewife\" mean?",
+      "options": [
+        "bà nội trợ",
+        "con gà",
+        "phòng tắm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"movie star\" mean?",
+      "options": [
+        "cửa hàng tạp hoá",
+        "ngôi sao điện ảnh",
+        "đèn giao thông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Wave to a big crowd",
+    "Pretend to cheer like a fan",
+    "Pretend to welcome a visitor",
+    "Pretend to carry shopping bags",
+    "Pretend to take a photo as a tourist"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

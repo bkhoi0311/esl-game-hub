@@ -1,0 +1,296 @@
+{
+  "title": "Clothes and Accessories",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bathing suit",
+      "meaning": "đồ bơi",
+      "category": "clothes",
+      "example": "She packed a bathing suit for the trip.",
+      "image": ""
+    },
+    {
+      "word": "blouse",
+      "meaning": "áo sơ mi nữ",
+      "category": "clothes",
+      "example": "She wore a white blouse to school.",
+      "image": ""
+    },
+    {
+      "word": "boot",
+      "meaning": "chiếc ủng",
+      "category": "clothes",
+      "example": "There is mud on my boot.",
+      "image": ""
+    },
+    {
+      "word": "cap",
+      "meaning": "mũ lưỡi trai",
+      "category": "clothes",
+      "example": "She wears a red cap.",
+      "image": ""
+    },
+    {
+      "word": "earring",
+      "meaning": "bông tai",
+      "category": "clothes",
+      "example": "She lost one earring at the beach.",
+      "image": ""
+    },
+    {
+      "word": "hoodie",
+      "meaning": "áo hoodie",
+      "category": "clothes",
+      "example": "I wear a hoodie when it is cold.",
+      "image": ""
+    },
+    {
+      "word": "jumper",
+      "meaning": "áo len",
+      "category": "clothes",
+      "example": "Put on a jumper because it is cold outside.",
+      "image": ""
+    },
+    {
+      "word": "raincoat",
+      "meaning": "áo mưa",
+      "category": "clothes",
+      "example": "Take your raincoat because it is wet outside.",
+      "image": ""
+    },
+    {
+      "word": "suit",
+      "meaning": "bộ com-lê",
+      "category": "clothes",
+      "example": "My dad wears a suit to work.",
+      "image": ""
+    },
+    {
+      "word": "swimming costume",
+      "meaning": "bộ đồ bơi",
+      "category": "clothes",
+      "example": "Do not forget your swimming costume.",
+      "image": ""
+    },
+    {
+      "word": "tie",
+      "meaning": "cà vạt",
+      "category": "clothes",
+      "example": "Dad wears a blue tie.",
+      "image": ""
+    },
+    {
+      "word": "tights",
+      "meaning": "quần tất",
+      "category": "clothes",
+      "example": "She wore black tights under her skirt.",
+      "image": ""
+    },
+    {
+      "word": "leather",
+      "meaning": "da thuộc, bằng da",
+      "category": "material",
+      "example": "These boots are made of leather.",
+      "image": ""
+    },
+    {
+      "word": "jewellery",
+      "meaning": "trang sức",
+      "category": "thing",
+      "example": "She keeps her jewellery in a small box.",
+      "image": ""
+    },
+    {
+      "word": "make-up",
+      "meaning": "đồ trang điểm",
+      "category": "thing",
+      "example": "She bought new make-up at the shop.",
+      "image": ""
+    },
+    {
+      "word": "perfume",
+      "meaning": "nước hoa",
+      "category": "thing",
+      "example": "She put on some perfume before the party.",
+      "image": ""
+    },
+    {
+      "word": "dressed",
+      "meaning": "mặc quần áo",
+      "category": "describe",
+      "example": "She got dressed quickly and ran to school.",
+      "image": ""
+    },
+    {
+      "word": "try on",
+      "meaning": "mặc thử",
+      "category": "daily",
+      "example": "Can I try on these shoes, please?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"tie\" mean?",
+      "options": [
+        "séc",
+        "đứa trẻ",
+        "cà vạt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (áo sơ mi nữ)",
+      "options": [
+        "boluse",
+        "blouse",
+        "blousi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bông tai\"?",
+      "options": [
+        "earring",
+        "coconut",
+        "motorway"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_it (bộ com-lê)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trang sức)",
+      "options": [
+        "jewellery",
+        "jewelery",
+        "jewillery"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"áo hoodie\"?",
+      "options": [
+        "bookstore",
+        "mom",
+        "hoodie"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ghts (quần tất)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"make-up\" mean?",
+      "options": [
+        "hành khách",
+        "nước Ireland",
+        "đồ trang điểm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dress_d (mặc quần áo)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (da thuộc, bằng da)",
+      "options": [
+        "leatther",
+        "leather",
+        "leether"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"boot\" mean?",
+      "options": [
+        "da thuộc, bằng da",
+        "phía tây",
+        "chiếc ủng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mũ lưỡi trai\"?",
+      "options": [
+        "cap",
+        "mile",
+        "beach"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"perfume\" mean?",
+      "options": [
+        "da thuộc, bằng da",
+        "bữa trưa",
+        "nước hoa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Take your ___ because it is wet outside.",
+      "options": [
+        "leather",
+        "raincoat",
+        "dressed"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Put on a ___ because it is cold outside.",
+      "options": [
+        "jumper",
+        "sun",
+        "heart"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put on a raincoat",
+    "Pretend to tie a tie",
+    "Pretend to put on an earring",
+    "Pretend to pull on a pair of boots",
+    "Pretend to zip up a hoodie",
+    "Pretend to put on a cap"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

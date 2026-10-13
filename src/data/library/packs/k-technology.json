@@ -1,0 +1,296 @@
+{
+  "title": "Technology and Devices",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "battery",
+      "meaning": "cục pin",
+      "category": "tech",
+      "example": "My toy needs a new battery.",
+      "image": ""
+    },
+    {
+      "word": "cd player",
+      "meaning": "máy phát đĩa CD",
+      "category": "tech",
+      "example": "My CD player is in my room.",
+      "image": ""
+    },
+    {
+      "word": "cell phone",
+      "meaning": "điện thoại di động",
+      "category": "tech",
+      "example": "Please turn off your cell phone in class.",
+      "image": ""
+    },
+    {
+      "word": "digital camera",
+      "meaning": "máy ảnh kỹ thuật số",
+      "category": "tech",
+      "example": "I take photos with my new digital camera.",
+      "image": ""
+    },
+    {
+      "word": "dvd player",
+      "meaning": "đầu đĩa DVD",
+      "category": "tech",
+      "example": "Our DVD player stopped working last week.",
+      "image": ""
+    },
+    {
+      "word": "headphones",
+      "meaning": "tai nghe",
+      "category": "tech",
+      "example": "I wear headphones to listen to music.",
+      "image": ""
+    },
+    {
+      "word": "microphone",
+      "meaning": "cái micro",
+      "category": "tech",
+      "example": "She sings into the microphone.",
+      "image": ""
+    },
+    {
+      "word": "mobile",
+      "meaning": "điện thoại di động",
+      "category": "tech",
+      "example": "She left her mobile at home.",
+      "image": ""
+    },
+    {
+      "word": "pc",
+      "meaning": "máy tính cá nhân",
+      "category": "tech",
+      "example": "My dad uses a PC for work.",
+      "image": ""
+    },
+    {
+      "word": "printer",
+      "meaning": "máy in",
+      "category": "tech",
+      "example": "The printer is next to the desk.",
+      "image": ""
+    },
+    {
+      "word": "speaker",
+      "meaning": "cái loa",
+      "category": "tech",
+      "example": "This speaker is very loud.",
+      "image": ""
+    },
+    {
+      "word": "software",
+      "meaning": "phần mềm",
+      "category": "tech",
+      "example": "This software helps me edit my videos.",
+      "image": ""
+    },
+    {
+      "word": "technology",
+      "meaning": "công nghệ",
+      "category": "tech",
+      "example": "We use new technology in our science lessons.",
+      "image": ""
+    },
+    {
+      "word": "digital",
+      "meaning": "kỹ thuật số",
+      "category": "tech",
+      "example": "My dad bought a digital clock for the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "electric",
+      "meaning": "chạy bằng điện",
+      "category": "describe",
+      "example": "My neighbour has an electric car.",
+      "image": ""
+    },
+    {
+      "word": "electricity",
+      "meaning": "điện",
+      "category": "environment",
+      "example": "The storm cut the electricity in our street.",
+      "image": ""
+    },
+    {
+      "word": "equipment",
+      "meaning": "thiết bị, dụng cụ",
+      "category": "thing",
+      "example": "The gym has a lot of sports equipment.",
+      "image": ""
+    },
+    {
+      "word": "invention",
+      "meaning": "phát minh",
+      "category": "thing",
+      "example": "The telephone was a great invention.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (thiết bị, dụng cụ)",
+      "options": [
+        "equpiment",
+        "equipment",
+        "equypment"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"digital camera\" mean?",
+      "options": [
+        "điện",
+        "viên cảnh sát",
+        "máy ảnh kỹ thuật số"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_ftware (phần mềm)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái micro\"?",
+      "options": [
+        "microphone",
+        "smoke",
+        "shoulder"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"DVD player\" mean?",
+      "options": [
+        "điện",
+        "trung tâm thể thao",
+        "đầu đĩa DVD"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phát minh\"?",
+      "options": [
+        "housewife",
+        "invention",
+        "artist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I wear ___ to listen to music.",
+      "options": [
+        "headphones",
+        "electricity",
+        "electric"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"speaker\" mean?",
+      "options": [
+        "bố mẹ",
+        "cái loa",
+        "thứ Ba"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_nter (máy in)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy tính cá nhân\"?",
+      "options": [
+        "topic",
+        "PC",
+        "wind"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_bile (điện thoại di động)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cục pin)",
+      "options": [
+        "batery",
+        "batetry",
+        "battery"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My dad bought a ___ clock for the kitchen.",
+      "options": [
+        "market",
+        "step",
+        "digital"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (điện)",
+      "options": [
+        "electricity",
+        "ellectricity",
+        "electriccity"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"electric\" mean?",
+      "options": [
+        "kỹ thuật số",
+        "chạy bằng điện",
+        "người Ấn Độ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put on headphones",
+    "Pretend to speak into a microphone",
+    "Pretend to take a photo with a digital camera",
+    "Pretend to plug in a printer",
+    "Pretend to charge a mobile phone",
+    "Pretend to press play on a speaker"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

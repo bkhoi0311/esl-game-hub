@@ -1,0 +1,275 @@
+{
+  "title": "Hobbies and Free Time",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "act",
+      "meaning": "đóng vai, diễn",
+      "category": "hobby",
+      "example": "My sister will act in the school play.",
+      "image": ""
+    },
+    {
+      "word": "chat",
+      "meaning": "trò chuyện",
+      "category": "action",
+      "example": "We chat after school every day.",
+      "image": ""
+    },
+    {
+      "word": "collect",
+      "meaning": "sưu tầm",
+      "category": "action",
+      "example": "I collect stamps from many countries.",
+      "image": ""
+    },
+    {
+      "word": "tent",
+      "meaning": "cái lều",
+      "category": "thing",
+      "example": "Our tent is by the river.",
+      "image": ""
+    },
+    {
+      "word": "card",
+      "meaning": "tấm thẻ, tấm thiệp",
+      "category": "thing",
+      "example": "I make a birthday card for my mum.",
+      "image": ""
+    },
+    {
+      "word": "cartoon",
+      "meaning": "phim hoạt hình",
+      "category": "media",
+      "example": "We watch a funny cartoon after dinner.",
+      "image": ""
+    },
+    {
+      "word": "channel",
+      "meaning": "kênh",
+      "category": "media",
+      "example": "My brother likes this TV channel.",
+      "image": ""
+    },
+    {
+      "word": "diary",
+      "meaning": "cuốn nhật ký",
+      "category": "thing",
+      "example": "I write in my diary every night.",
+      "image": ""
+    },
+    {
+      "word": "magazine",
+      "meaning": "tạp chí",
+      "category": "thing",
+      "example": "My sister reads a magazine about animals.",
+      "image": ""
+    },
+    {
+      "word": "newspaper",
+      "meaning": "tờ báo",
+      "category": "thing",
+      "example": "Grandpa reads the newspaper every morning.",
+      "image": ""
+    },
+    {
+      "word": "programme",
+      "meaning": "chương trình",
+      "category": "media",
+      "example": "My favourite TV programme starts at six.",
+      "image": ""
+    },
+    {
+      "word": "news",
+      "meaning": "tin tức",
+      "category": "media",
+      "example": "I watched the news with my dad.",
+      "image": ""
+    },
+    {
+      "word": "journey",
+      "meaning": "hành trình",
+      "category": "hobby",
+      "example": "The journey to the sea is long.",
+      "image": ""
+    },
+    {
+      "word": "photographer",
+      "meaning": "nhiếp ảnh gia",
+      "category": "job",
+      "example": "The photographer takes pictures of the wedding.",
+      "image": ""
+    },
+    {
+      "word": "festival",
+      "meaning": "lễ hội",
+      "category": "celebration",
+      "example": "We dance at the festival in town.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (phim hoạt hình)",
+      "options": [
+        "certoon",
+        "cartoon",
+        "catroon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chat\" mean?",
+      "options": [
+        "sưu tầm",
+        "đóng vai, diễn",
+        "trò chuyện"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chương trình)",
+      "options": [
+        "programme",
+        "programm",
+        "prgoramme"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_stival (lễ hội)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"channel\" mean?",
+      "options": [
+        "tin tức",
+        "kênh",
+        "phim hoạt hình"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: n_ws (tin tức)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cuốn nhật ký)",
+      "options": [
+        "diery",
+        "diray",
+        "diary"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tờ báo\"?",
+      "options": [
+        "newspaper",
+        "plaster",
+        "medal"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"journey\" mean?",
+      "options": [
+        "đóng vai, diễn",
+        "hành trình",
+        "lễ hội"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cái lều\"?",
+      "options": [
+        "journey",
+        "tent",
+        "act"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"photographer\" mean?",
+      "options": [
+        "nhiếp ảnh gia",
+        "chương trình",
+        "tờ báo"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My sister will ___ in the school play.",
+      "options": [
+        "photographer",
+        "invent",
+        "act"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_gazine (tạp chí)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I make a birthday ___ for my mum.",
+      "options": [
+        "card",
+        "cartoon",
+        "programme"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sưu tầm\"?",
+      "options": [
+        "kick",
+        "draw",
+        "collect"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write in your diary",
+    "Pretend to read a magazine",
+    "Pretend to put up a tent",
+    "Pretend to act like a film star",
+    "Pretend to collect stamps",
+    "Pretend to watch a cartoon"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

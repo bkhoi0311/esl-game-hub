@@ -1,0 +1,296 @@
+{
+  "title": "Sports",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "badminton",
+      "meaning": "cầu lông",
+      "category": "sport",
+      "example": "We play badminton in the park.",
+      "image": ""
+    },
+    {
+      "word": "baseball",
+      "meaning": "bóng chày",
+      "category": "sport",
+      "example": "He plays baseball on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "basketball",
+      "meaning": "bóng rổ",
+      "category": "sport",
+      "example": "They play basketball after school.",
+      "image": ""
+    },
+    {
+      "word": "bat",
+      "meaning": "gậy đánh bóng",
+      "category": "sport",
+      "example": "He hits the ball with a bat.",
+      "image": ""
+    },
+    {
+      "word": "football",
+      "meaning": "bóng đá",
+      "category": "sport",
+      "example": "We play football after school.",
+      "image": ""
+    },
+    {
+      "word": "hockey",
+      "meaning": "khúc côn cầu",
+      "category": "sport",
+      "example": "He plays hockey in winter.",
+      "image": ""
+    },
+    {
+      "word": "skateboarding",
+      "meaning": "trượt ván",
+      "category": "sport",
+      "example": "My brother loves skateboarding in the park.",
+      "image": ""
+    },
+    {
+      "word": "soccer",
+      "meaning": "bóng đá",
+      "category": "sport",
+      "example": "My sister plays soccer on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "sport",
+      "meaning": "môn thể thao",
+      "category": "sport",
+      "example": "Football is my favourite sport.",
+      "image": ""
+    },
+    {
+      "word": "table tennis",
+      "meaning": "bóng bàn",
+      "category": "sport",
+      "example": "We play table tennis at lunch.",
+      "image": ""
+    },
+    {
+      "word": "tennis",
+      "meaning": "quần vợt",
+      "category": "sport",
+      "example": "She plays tennis every Friday.",
+      "image": ""
+    },
+    {
+      "word": "tennis racket",
+      "meaning": "vợt tennis",
+      "category": "sport",
+      "example": "I have a new tennis racket.",
+      "image": ""
+    },
+    {
+      "word": "kick",
+      "meaning": "đá",
+      "category": "action",
+      "example": "He can kick the ball very far.",
+      "image": ""
+    },
+    {
+      "word": "throw",
+      "meaning": "ném",
+      "category": "action",
+      "example": "Can you throw the ball to me?",
+      "image": ""
+    },
+    {
+      "word": "catch",
+      "meaning": "bắt",
+      "category": "action",
+      "example": "Can you catch the ball?",
+      "image": ""
+    },
+    {
+      "word": "swim",
+      "meaning": "bơi",
+      "category": "action",
+      "example": "Fish swim in the river.",
+      "image": ""
+    },
+    {
+      "word": "bounce",
+      "meaning": "nảy lên",
+      "category": "action",
+      "example": "The ball can bounce high.",
+      "image": ""
+    },
+    {
+      "word": "hit",
+      "meaning": "đánh, đập",
+      "category": "action",
+      "example": "Don't hit the table with your toy.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"quần vợt\"?",
+      "options": [
+        "basketball",
+        "baseball",
+        "tennis"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_tch (bắt)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bóng chày\"?",
+      "options": [
+        "basketball",
+        "baseball",
+        "soccer"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: k_ck (đá)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"football\" mean?",
+      "options": [
+        "gậy đánh bóng",
+        "bóng đá",
+        "bóng rổ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "They play ___ after school.",
+      "options": [
+        "rainy",
+        "orange",
+        "basketball"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"swim\" mean?",
+      "options": [
+        "bơi",
+        "bắt",
+        "ném"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (trượt ván)",
+      "options": [
+        "skateobarding",
+        "skateboardyng",
+        "skateboarding"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bat\" mean?",
+      "options": [
+        "quần vợt",
+        "gậy đánh bóng",
+        "vợt tennis"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He plays ___ in winter.",
+      "options": [
+        "fun",
+        "short",
+        "hockey"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hit\" mean?",
+      "options": [
+        "nảy lên",
+        "đánh, đập",
+        "bắt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bóng bàn\"?",
+      "options": [
+        "table tennis",
+        "tennis racket",
+        "skateboarding"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (môn thể thao)",
+      "options": [
+        "sport",
+        "sprot",
+        "soprt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: b_unce (nảy lên)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bóng đá)",
+      "options": [
+        "soccir",
+        "soccer",
+        "socer"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to kick a ball",
+    "Pretend to throw a ball",
+    "Pretend to catch a ball",
+    "Pretend to swim",
+    "Pretend to hit a tennis ball",
+    "Pretend to bounce a basketball"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "title": "Work and Rules",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "annual",
+      "meaning": "hằng năm",
+      "category": "describe",
+      "example": "The annual school sports day is in May.",
+      "image": ""
+    },
+    {
+      "word": "due",
+      "meaning": "đến hạn",
+      "category": "describe",
+      "example": "Your history essay is due on Friday.",
+      "image": ""
+    },
+    {
+      "word": "unemployed",
+      "meaning": "thất nghiệp",
+      "category": "describe",
+      "example": "My uncle was unemployed for six months last year.",
+      "image": ""
+    },
+    {
+      "word": "part-time",
+      "meaning": "bán thời gian",
+      "category": "describe",
+      "example": "He has a part-time job at a café.",
+      "image": ""
+    },
+    {
+      "word": "full-time",
+      "meaning": "toàn thời gian",
+      "category": "describe",
+      "example": "He has a full-time job in a shop now.",
+      "image": ""
+    },
+    {
+      "word": "permanent",
+      "meaning": "vĩnh viễn, cố định",
+      "category": "describe",
+      "example": "He is looking for a permanent job in the city.",
+      "image": ""
+    },
+    {
+      "word": "temporary",
+      "meaning": "tạm thời",
+      "category": "describe",
+      "example": "He has a temporary job at the cafe.",
+      "image": ""
+    },
+    {
+      "word": "qualified",
+      "meaning": "đủ trình độ",
+      "category": "describe",
+      "example": "He is qualified to teach swimming to children.",
+      "image": ""
+    },
+    {
+      "word": "experienced",
+      "meaning": "có kinh nghiệm",
+      "category": "describe",
+      "example": "Our swimming coach is very experienced.",
+      "image": ""
+    },
+    {
+      "word": "professional",
+      "meaning": "chuyên gia, chuyên nghiệp",
+      "category": "work",
+      "example": "The doctor is a true professional and always stays calm.",
+      "image": ""
+    },
+    {
+      "word": "efficient",
+      "meaning": "hiệu quả",
+      "category": "describe",
+      "example": "A bike is an efficient way to get around town.",
+      "image": ""
+    },
+    {
+      "word": "permitted",
+      "meaning": "được phép",
+      "category": "describe",
+      "example": "Photos are not permitted inside the museum.",
+      "image": ""
+    },
+    {
+      "word": "prohibited",
+      "meaning": "bị nghiêm cấm",
+      "category": "describe",
+      "example": "Eating is prohibited in the school library.",
+      "image": ""
+    },
+    {
+      "word": "forbidden",
+      "meaning": "bị cấm",
+      "category": "describe",
+      "example": "Phones are forbidden during the exam.",
+      "image": ""
+    },
+    {
+      "word": "private",
+      "meaning": "riêng tư, tư nhân",
+      "category": "describe",
+      "example": "This is a private room, so please knock first.",
+      "image": ""
+    },
+    {
+      "word": "public",
+      "meaning": "công cộng, công chúng",
+      "category": "describe",
+      "example": "The public library is open until eight o'clock.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: tempor_ry (tạm thời)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hiệu quả\"?",
+      "options": [
+        "Brazilian",
+        "polite",
+        "efficient"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rmitted (được phép)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"due\" mean?",
+      "options": [
+        "thân thiện",
+        "đến hạn",
+        "kiên nhẫn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: perman_nt (vĩnh viễn, cố định)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"part-time\" mean?",
+      "options": [
+        "bán thời gian",
+        "bất cẩn",
+        "đáng tin cậy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The doctor is a true ___ and always stays calm.",
+      "options": [
+        "experienced",
+        "professional",
+        "temporary"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"qualified\" mean?",
+      "options": [
+        "đủ trình độ",
+        "không thân thiện",
+        "kỹ thuật số"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thất nghiệp\"?",
+      "options": [
+        "talented",
+        "honest",
+        "unemployed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This is a ___ room, so please knock first.",
+      "options": [
+        "professional",
+        "class",
+        "private"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hằng năm\"?",
+      "options": [
+        "annual",
+        "cruel",
+        "friendly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (công cộng, công chúng)",
+      "options": [
+        "publyc",
+        "public",
+        "pbulic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"experienced\" mean?",
+      "options": [
+        "dịu dàng",
+        "thông minh",
+        "có kinh nghiệm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị nghiêm cấm)",
+      "options": [
+        "prohibbited",
+        "prohibited",
+        "prohibitted"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị cấm)",
+      "options": [
+        "forbidden",
+        "forbdiden",
+        "fobridden"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a stop sign for something forbidden",
+    "Pretend to sign a work contract",
+    "Pretend to be a qualified expert",
+    "Show me you are efficient at tidying up",
+    "Pretend to hold a private letter",
+    "Pretend to check a due date on a calendar"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

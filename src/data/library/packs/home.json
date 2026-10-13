@@ -166,8 +166,8 @@
     {
       "prompt": "The books are on the ___.",
       "options": [
-        "sad",
-        "row",
+        "smile",
+        "close",
         "table"
       ],
       "answer": 2,
@@ -196,8 +196,8 @@
     {
       "prompt": "Dad is cooking in the ___.",
       "options": [
-        "slow",
-        "stop",
+        "blue",
+        "swim",
         "kitchen"
       ],
       "answer": 2,

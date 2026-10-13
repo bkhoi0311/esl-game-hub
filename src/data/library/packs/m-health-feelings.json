@@ -1,0 +1,296 @@
+{
+  "title": "Health and Feelings",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "cough",
+      "meaning": "cơn ho",
+      "category": "health",
+      "example": "I have a bad cough and a sore throat.",
+      "image": ""
+    },
+    {
+      "word": "earache",
+      "meaning": "đau tai",
+      "category": "health",
+      "example": "I stay home because I have an earache.",
+      "image": ""
+    },
+    {
+      "word": "headache",
+      "meaning": "đau đầu",
+      "category": "health",
+      "example": "I have a headache, so I need to rest.",
+      "image": ""
+    },
+    {
+      "word": "stomach-ache",
+      "meaning": "đau bụng",
+      "category": "health",
+      "example": "I have a stomach-ache today.",
+      "image": ""
+    },
+    {
+      "word": "toothache",
+      "meaning": "đau răng",
+      "category": "health",
+      "example": "He has a toothache today.",
+      "image": ""
+    },
+    {
+      "word": "ill",
+      "meaning": "bị bệnh",
+      "category": "feeling",
+      "example": "My sister is ill today.",
+      "image": ""
+    },
+    {
+      "word": "sick",
+      "meaning": "ốm",
+      "category": "feeling",
+      "example": "Tom is sick, so he stays home.",
+      "image": ""
+    },
+    {
+      "word": "hurt",
+      "meaning": "làm đau",
+      "category": "action",
+      "example": "Be careful, don't hurt your finger!",
+      "image": ""
+    },
+    {
+      "word": "afraid",
+      "meaning": "sợ",
+      "category": "feeling",
+      "example": "I am afraid of big dogs.",
+      "image": ""
+    },
+    {
+      "word": "frightened",
+      "meaning": "hoảng sợ",
+      "category": "feeling",
+      "example": "I am frightened of the dark.",
+      "image": ""
+    },
+    {
+      "word": "surprised",
+      "meaning": "ngạc nhiên",
+      "category": "feeling",
+      "example": "We are surprised by the big cake.",
+      "image": ""
+    },
+    {
+      "word": "hungry",
+      "meaning": "đói",
+      "category": "feeling",
+      "example": "The puppy is hungry and wants food.",
+      "image": ""
+    },
+    {
+      "word": "thirsty",
+      "meaning": "khát",
+      "category": "feeling",
+      "example": "I am thirsty after the game.",
+      "image": ""
+    },
+    {
+      "word": "tired",
+      "meaning": "mệt",
+      "category": "feeling",
+      "example": "I am tired after the long walk.",
+      "image": ""
+    },
+    {
+      "word": "temperature",
+      "meaning": "nhiệt độ",
+      "category": "weather",
+      "example": "The temperature is low in winter.",
+      "image": ""
+    },
+    {
+      "word": "happy",
+      "meaning": "vui vẻ",
+      "category": "feeling",
+      "example": "The children are happy today.",
+      "image": ""
+    },
+    {
+      "word": "sad",
+      "meaning": "buồn",
+      "category": "feeling",
+      "example": "She is sad about her lost toy.",
+      "image": ""
+    },
+    {
+      "word": "angry",
+      "meaning": "tức giận",
+      "category": "feeling",
+      "example": "Dad is angry about the mess.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"frightened\" mean?",
+      "options": [
+        "tức giận",
+        "hoảng sợ",
+        "ngạc nhiên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"buồn\"?",
+      "options": [
+        "hungry",
+        "ill",
+        "sad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"afraid\" mean?",
+      "options": [
+        "sợ",
+        "ốm",
+        "buồn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khát)",
+      "options": [
+        "thirssty",
+        "tihrsty",
+        "thirsty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_rt (làm đau)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I am ___ after the long walk.",
+      "options": [
+        "hurt",
+        "tired",
+        "headache"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_ck (ốm)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngạc nhiên)",
+      "options": [
+        "surprsied",
+        "surprised",
+        "sruprised"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hungry\" mean?",
+      "options": [
+        "vui vẻ",
+        "buồn",
+        "đói"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đau bụng\"?",
+      "options": [
+        "thirsty",
+        "afraid",
+        "stomach-ache"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"temperature\" mean?",
+      "options": [
+        "nhiệt độ",
+        "đau răng",
+        "cơn ho"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bị bệnh\"?",
+      "options": [
+        "sad",
+        "ill",
+        "sorry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I have a bad ___ and a sore throat.",
+      "options": [
+        "cough",
+        "temperature",
+        "hungry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tooth_che (đau răng)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đau đầu)",
+      "options": [
+        "headacche",
+        "headache",
+        "headachi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you are tired",
+    "Pretend to have a headache",
+    "Show me a surprised face",
+    "Pretend to cough into your elbow",
+    "Show me you are hungry",
+    "Show me a happy face"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

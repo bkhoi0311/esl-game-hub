@@ -1,6 +1,6 @@
 {
   "title": "Transport",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "car",
@@ -137,8 +137,8 @@
       "prompt": "My uncle rides a ___ to work.",
       "options": [
         "motorbike",
-        "pudding",
-        "builder"
+        "karate",
+        "chair"
       ],
       "answer": 0,
       "type": "vocab"
@@ -256,8 +256,8 @@
     {
       "prompt": "The big ___ is leaving the port.",
       "options": [
-        "dinner",
-        "doughnut",
+        "clock",
+        "moose",
         "ship"
       ],
       "answer": 2,

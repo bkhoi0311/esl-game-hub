@@ -5,7 +5,7 @@
 .tw-rope-host canvas { display: block; }
 
 .tw-halves { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
-.tw-half { position: relative; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 1.1rem; padding: 1.2rem 2.2rem 1.8rem; background: color-mix(in srgb, var(--team) 7%, var(--ground)); touch-action: none; min-height: 0; }
+.tw-half { position: relative; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 1.1rem; padding: 1.2rem 2.2rem 1.8rem; background: var(--ground) linear-gradient(var(--team-7, transparent), var(--team-7, transparent)); touch-action: none; min-height: 0; }
 .tw-half.left { border-right: 3px dashed var(--rule); }
 .tw-half.pulled { animation: pull-left 0.35s ease; }
 .tw-half.right.pulled { animation-name: pull-right; }

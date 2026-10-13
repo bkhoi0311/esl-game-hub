@@ -1,0 +1,96 @@
+moment	n	ket					n
+monthly	adj	ket					adj+adv
+movie star	n	ket					n
+movie theater	n	ket					n
+ms	n	ket				Ms	n
+mug	n	ket					n
+musical	adj	ket					adj
+myself	pron	ket					pron
+national	adj	ket					adj
+nationality	n	ket					n
+natural	adj	ket	not artificial				adj
+nearly	adv	ket					adv
+neighbour	n	ket					n
+nervous	adj	ket					adj
+no one	pron	ket					pron
+nobody	pron	ket					pron
+noon	n	ket					n
+normal	adj	ket					adj
+notice	n	ket					n
+occupation	n	ket					n
+offer	n	ket					n+v
+oil	n	ket					n
+olympic	adj	ket				Olympic	adj
+omelette	n	ket					n
+opera	n	ket					n
+opinion	n	ket					n
+order	n	ket					n+v
+ourselves	pron	ket					pron
+outdoor	adj	ket					adj
+outdoors	adv	ket					adv
+own	adj	ket					adj
+pack	v	ket					v
+pain	n	ket					n
+pale	adj	ket					adj
+paragraph	n	ket					n
+parking lot	n	ket					n
+partner	n	ket					n
+pass	v	ket					v
+password	n	ket					n
+pc	n	ket		personal computer		PC	n
+pence	n	ket					n
+pencil case	n	ket					n
+penfriend	n	ket					n
+penny	n	ket					n
+per	prep	ket					prep
+perfect	adj	ket					adj
+perform	v	ket	entertain				v
+performance	n	ket	entertainment				n
+perfume	n	ket					n
+petrol	n	ket					n
+physics	n	ket					n
+pity	n	ket					n
+plan	n	ket					n+v
+pleasant	adj	ket					adj
+plus	prep	ket					prep
+polite	adj	ket					adj
+poor thing	adj	ket		poor you			adj
+pop	n	ket					n
+possible	adj	ket					adj
+possibly	adv	ket					adv
+pound	n	ket	£				n
+price	n	ket					n
+print	v	ket					v
+probably	adv	ket					adv
+program	n	ket					n
+raincoat	n	ket					n
+rainforest	n	ket					n
+rap	n	ket					n
+real	adj	ket					adj
+reason	n	ket					n
+receipt	n	ket					n
+receive	v	ket					v
+recently	adv	ket					adv
+receptionist	n	ket					n
+recipe	n	ket					n
+record	v	ket					v
+refrigerator	n	ket					n
+relaxing	adj	ket					adj
+rent	v	ket					v
+return	n	ket					n+v
+review	n	ket					n
+right hand	adj	ket					adj
+roast	v	ket					v+adj
+roundabout	n	ket					n
+rugby	n	ket					n
+runner	n	ket					n
+sale	n	ket					n
+schoolchild	n	ket					n
+seem	v	ket					v
+serious	adj	ket					adj
+serve	v	ket					v
+set	n	ket					n
+shame	n	ket					n
+share	v	ket	digitally				v
+sheet	n	ket					n
+shopper	n	ket					n

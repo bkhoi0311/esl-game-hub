@@ -1,0 +1,282 @@
+{
+  "title": "University and Learning",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "lecture",
+      "meaning": "bài giảng",
+      "category": "study",
+      "example": "The lecture about space was very interesting.",
+      "image": ""
+    },
+    {
+      "word": "lecturer",
+      "meaning": "giảng viên",
+      "category": "job",
+      "example": "The lecturer showed us some photos of old cities.",
+      "image": ""
+    },
+    {
+      "word": "graduate",
+      "meaning": "tốt nghiệp, người tốt nghiệp",
+      "category": "study",
+      "example": "My brother will graduate from university next summer.",
+      "image": ""
+    },
+    {
+      "word": "graduation",
+      "meaning": "lễ tốt nghiệp",
+      "category": "study",
+      "example": "Our graduation is in June.",
+      "image": ""
+    },
+    {
+      "word": "qualification",
+      "meaning": "bằng cấp, trình độ",
+      "category": "study",
+      "example": "She has a good qualification in computer science.",
+      "image": ""
+    },
+    {
+      "word": "research",
+      "meaning": "nghiên cứu",
+      "category": "study",
+      "example": "Scientists do research to find new medicines.",
+      "image": ""
+    },
+    {
+      "word": "curriculum",
+      "meaning": "chương trình học",
+      "category": "study",
+      "example": "Art is part of the school curriculum.",
+      "image": ""
+    },
+    {
+      "word": "education",
+      "meaning": "giáo dục",
+      "category": "study",
+      "example": "Good education gives young people more choices in life.",
+      "image": ""
+    },
+    {
+      "word": "knowledge",
+      "meaning": "kiến thức",
+      "category": "study",
+      "example": "Reading helps you gain knowledge about the world.",
+      "image": ""
+    },
+    {
+      "word": "skill",
+      "meaning": "kỹ năng",
+      "category": "study",
+      "example": "Speaking clearly is an important skill for any job.",
+      "image": ""
+    },
+    {
+      "word": "progress",
+      "meaning": "sự tiến bộ",
+      "category": "study",
+      "example": "You are making good progress in maths.",
+      "image": ""
+    },
+    {
+      "word": "improvement",
+      "meaning": "sự cải thiện, tiến bộ",
+      "category": "study",
+      "example": "There has been a big improvement in your English this term.",
+      "image": ""
+    },
+    {
+      "word": "achievement",
+      "meaning": "thành tích",
+      "category": "study",
+      "example": "Winning the science prize was a great achievement for her.",
+      "image": ""
+    },
+    {
+      "word": "presentation",
+      "meaning": "bài thuyết trình",
+      "category": "study",
+      "example": "I gave a presentation about pandas in class.",
+      "image": ""
+    },
+    {
+      "word": "questionnaire",
+      "meaning": "bảng câu hỏi",
+      "category": "study",
+      "example": "Please fill in this questionnaire about your hobbies.",
+      "image": ""
+    },
+    {
+      "word": "registration",
+      "meaning": "việc đăng ký",
+      "category": "study",
+      "example": "Online registration for the camp closes on Friday.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (thành tích)",
+      "options": [
+        "achievemnet",
+        "achievement",
+        "achieveemnt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sự cải thiện, tiến bộ\"?",
+      "options": [
+        "improvement",
+        "swimming",
+        "garden"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nghiên cứu)",
+      "options": [
+        "resaerch",
+        "rseearch",
+        "research"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lecture\" mean?",
+      "options": [
+        "đồ nội thất",
+        "đồ ăn",
+        "bài giảng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kiến thức)",
+      "options": [
+        "knowledge",
+        "knowldege",
+        "knowleddge"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lectur_r (giảng viên)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tốt nghiệp, người tốt nghiệp\"?",
+      "options": [
+        "graduate",
+        "lake",
+        "flute"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: educati_n (giáo dục)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chương trình học\"?",
+      "options": [
+        "dolphin",
+        "engineer",
+        "curriculum"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has a good ___ in computer science.",
+      "options": [
+        "qualification",
+        "lecturer",
+        "haircut"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"graduation\" mean?",
+      "options": [
+        "khúc côn cầu",
+        "lễ tốt nghiệp",
+        "bóng râm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_gress (sự tiến bộ)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"registration\" mean?",
+      "options": [
+        "giảng viên",
+        "quá khứ",
+        "việc đăng ký"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please fill in this ___ about your hobbies.",
+      "options": [
+        "lecturer",
+        "questionnaire",
+        "checkout"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"skill\" mean?",
+      "options": [
+        "kỹ năng",
+        "cái đèn",
+        "hoạ tiết, mẫu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to listen to a lecture",
+    "Pretend to take notes",
+    "Pretend to give a presentation",
+    "Pretend to receive a certificate at graduation",
+    "Pretend to fill in a questionnaire",
+    "Pretend to read a research report"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

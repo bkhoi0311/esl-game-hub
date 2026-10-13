@@ -1,0 +1,75 @@
+a	other	starters					det
+a lot	adv	starters					adv+pron
+a lot of	other	starters					det
+about	prep	starters					prep
+add	v	starters					v
+afternoon	n	starters					n
+again	adv	starters					adv
+an	other	starters					det
+and	other	starters					conj
+ask	v	starters					v
+at	prep	starters	of place				prep
+be	v	starters					v
+behind	prep	starters					prep
+between	prep	starters					prep
+board game	n	starters					n
+bounce	v	starters					v
+but	other	starters					conj
+bye	phr	starters					excl
+can	v	starters					v
+choose	v	starters					v
+classmate	n	starters					n
+clothes	n	starters					n
+come	v	starters					v
+complete	v	starters					v
+count	v	starters					v
+cross	n	starters					n+v
+dining room	n	starters					n
+do	v	starters					v
+don't worry	phr	starters					excl
+double	adj	starters					adj
+end	n	starters					n
+enjoy	v	starters					v
+example	n	starters					n
+fantastic	adj	starters					adj+excl
+favourite	adj	starters		favorite			adj
+food	n	starters					n
+for	prep	starters					prep
+from	prep	starters					prep
+fun	adj	starters					adj+n
+get	v	starters					v
+go to sleep	v	starters					v
+hall	n	starters					n
+have	v	starters					v
+have got	v	starters					v
+he	pron	starters					pron
+her	other	starters					poss
+here	adv	starters					adv
+hers	pron	starters					pron
+hi	phr	starters					excl
+him	pron	starters					pron
+his	other	starters					poss
+hooray	phr	starters					excl
+how	other	starters					int
+how many	other	starters					int
+how old	other	starters					int
+i	pron	starters				I	pron
+in	prep	starters	of place + time				prep
+in front of	prep	starters					prep
+it	pron	starters					pron
+its	other	starters					poss
+know	v	starters					v
+let's	v	starters					v
+like	prep	starters					prep+v
+line	n	starters					n
+live	v	starters					v
+long	adj	starters					adj
+look at	v	starters					v
+lots	adv	starters					adv+pron
+lots of	other	starters					det
+make	v	starters					v
+many	other	starters					det
+mat	n	starters					n
+me	pron	starters					pron
+me too	other	starters					dis
+meatballs	n	starters		meatball			n

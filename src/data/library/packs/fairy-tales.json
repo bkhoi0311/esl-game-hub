@@ -1,6 +1,6 @@
 {
   "title": "Fairy Tales",
-  "level": "A1 Movers",
+  "level": "A2 Flyers",
   "vocab": [
     {
       "word": "dragon",
@@ -143,8 +143,8 @@
     {
       "prompt": "The ___ has a magic hat.",
       "options": [
-        "clean",
-        "thirsty",
+        "hungry",
+        "prefer",
         "wizard"
       ],
       "answer": 2,
@@ -186,6 +186,16 @@
         "u",
         "e",
         "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phù thuỷ\"?",
+      "options": [
+        "monster",
+        "witch",
+        "wizard"
       ],
       "answer": 1,
       "type": "vocab"

@@ -1,0 +1,275 @@
+{
+  "title": "Airports and Journeys",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "arrival",
+      "meaning": "sự đến nơi",
+      "category": "travel",
+      "example": "Our arrival at the airport was ten minutes late.",
+      "image": ""
+    },
+    {
+      "word": "departure",
+      "meaning": "sự khởi hành",
+      "category": "travel",
+      "example": "Our departure was delayed because of the fog.",
+      "image": ""
+    },
+    {
+      "word": "boarding pass",
+      "meaning": "thẻ lên máy bay",
+      "category": "travel",
+      "example": "Show your boarding pass at the gate, please.",
+      "image": ""
+    },
+    {
+      "word": "baggage",
+      "meaning": "hành lý",
+      "category": "travel",
+      "example": "Our baggage arrived late at the airport.",
+      "image": ""
+    },
+    {
+      "word": "customs",
+      "meaning": "hải quan",
+      "category": "travel",
+      "example": "We waited in line at customs after the flight.",
+      "image": ""
+    },
+    {
+      "word": "immigration",
+      "meaning": "nhập cảnh, nhập cư",
+      "category": "travel",
+      "example": "We waited in a long line at immigration at the airport.",
+      "image": ""
+    },
+    {
+      "word": "check-in",
+      "meaning": "quầy làm thủ tục",
+      "category": "travel",
+      "example": "The check-in at the airport opens three hours before the flight.",
+      "image": ""
+    },
+    {
+      "word": "cabin",
+      "meaning": "cabin, buồng nhỏ",
+      "category": "travel",
+      "example": "Our cabin on the ship had two beds and a small window.",
+      "image": ""
+    },
+    {
+      "word": "crash",
+      "meaning": "vụ va chạm",
+      "category": "travel",
+      "example": "There was a car crash near the school this morning.",
+      "image": ""
+    },
+    {
+      "word": "crossroads",
+      "meaning": "ngã tư",
+      "category": "place",
+      "example": "Turn left at the crossroads and walk to the library.",
+      "image": ""
+    },
+    {
+      "word": "tunnel",
+      "meaning": "đường hầm",
+      "category": "place",
+      "example": "The train goes through a long tunnel under the mountain.",
+      "image": ""
+    },
+    {
+      "word": "turning",
+      "meaning": "chỗ rẽ",
+      "category": "place",
+      "example": "Take the second turning on the left after the bridge.",
+      "image": ""
+    },
+    {
+      "word": "signpost",
+      "meaning": "biển chỉ đường",
+      "category": "thing",
+      "example": "The signpost shows the way to the beach.",
+      "image": ""
+    },
+    {
+      "word": "abroad",
+      "meaning": "ở nước ngoài",
+      "category": "manner",
+      "example": "My cousin wants to study abroad after high school.",
+      "image": ""
+    },
+    {
+      "word": "on board",
+      "meaning": "trên tàu, trên máy bay",
+      "category": "place",
+      "example": "All the passengers are now on board the ferry.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"boarding pass\" mean?",
+      "options": [
+        "trò chơi bàn cờ",
+        "thẻ lên máy bay",
+        "phim truyền hình dài tập"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngã tư)",
+      "options": [
+        "crossrodas",
+        "crossroeds",
+        "crossroads"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on board\" mean?",
+      "options": [
+        "trên tàu, trên máy bay",
+        "say mê, đang yêu",
+        "dậy, ngồi dậy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: depart_re (sự khởi hành)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"check-in\" mean?",
+      "options": [
+        "ban nhạc",
+        "quầy làm thủ tục",
+        "khăn tay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My cousin wants to study ___ after high school.",
+      "options": [
+        "crossroads",
+        "baggage",
+        "abroad"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cr_sh (vụ va chạm)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hành lý\"?",
+      "options": [
+        "colleague",
+        "feelings",
+        "baggage"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tunn_l (đường hầm)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"biển chỉ đường\"?",
+      "options": [
+        "crash",
+        "boarding pass",
+        "signpost"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We waited in a long line at ___ at the airport.",
+      "options": [
+        "signpost",
+        "immigration",
+        "abroad"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chỗ rẽ\"?",
+      "options": [
+        "turning",
+        "teaching",
+        "milk"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hải quan)",
+      "options": [
+        "customms",
+        "cusstoms",
+        "customs"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cabin\" mean?",
+      "options": [
+        "cabin, buồng nhỏ",
+        "biển chỉ đường",
+        "rừng rậm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sự đến nơi)",
+      "options": [
+        "arriavl",
+        "arrival",
+        "arrivel"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to show your boarding pass",
+    "Pretend to put your bag on the scale",
+    "Pretend to look at the departure board",
+    "Pretend to walk through customs",
+    "Pretend to fasten your seat belt on a plane",
+    "Pretend to wave goodbye at the airport"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

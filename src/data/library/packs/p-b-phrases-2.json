@@ -1,0 +1,275 @@
+{
+  "title": "Prepositions and Phrases 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "out of date",
+      "meaning": "lỗi thời, hết hạn",
+      "category": "describe",
+      "example": "This map is out of date, so we need a new one.",
+      "image": ""
+    },
+    {
+      "word": "out of order",
+      "meaning": "bị hỏng",
+      "category": "describe",
+      "example": "The lift is out of order, so we must use the stairs.",
+      "image": ""
+    },
+    {
+      "word": "out of work",
+      "meaning": "không có việc làm",
+      "category": "describe",
+      "example": "His father has been out of work for two months.",
+      "image": ""
+    },
+    {
+      "word": "up to date",
+      "meaning": "cập nhật, mới nhất",
+      "category": "describe",
+      "example": "Please keep your phone software up to date.",
+      "image": ""
+    },
+    {
+      "word": "in love",
+      "meaning": "say mê, đang yêu",
+      "category": "feeling",
+      "example": "My little sister is in love with her new puppy.",
+      "image": ""
+    },
+    {
+      "word": "made of",
+      "meaning": "làm bằng",
+      "category": "daily",
+      "example": "This chair is made of wood.",
+      "image": ""
+    },
+    {
+      "word": "on fire",
+      "meaning": "đang bốc cháy",
+      "category": "describe",
+      "example": "The old barn was on fire last night.",
+      "image": ""
+    },
+    {
+      "word": "on sale",
+      "meaning": "đang giảm giá",
+      "category": "describe",
+      "example": "These trainers are on sale this weekend.",
+      "image": ""
+    },
+    {
+      "word": "take care of",
+      "meaning": "chăm sóc",
+      "category": "daily",
+      "example": "Please take care of my cat this weekend.",
+      "image": ""
+    },
+    {
+      "word": "at the same time",
+      "meaning": "cùng lúc",
+      "category": "time",
+      "example": "Two students spoke at the same time in class.",
+      "image": ""
+    },
+    {
+      "word": "at first",
+      "meaning": "lúc đầu",
+      "category": "time",
+      "example": "I was shy at first, but I made friends.",
+      "image": ""
+    },
+    {
+      "word": "in time",
+      "meaning": "kịp giờ",
+      "category": "time",
+      "example": "We ran fast and arrived at the station in time for the train.",
+      "image": ""
+    },
+    {
+      "word": "by hand",
+      "meaning": "bằng tay",
+      "category": "manner",
+      "example": "The letters were all written by hand in the past.",
+      "image": ""
+    },
+    {
+      "word": "in advance",
+      "meaning": "trước, từ trước",
+      "category": "time",
+      "example": "You should book the tickets in advance to get a cheaper price.",
+      "image": ""
+    },
+    {
+      "word": "in the end",
+      "meaning": "cuối cùng",
+      "category": "time",
+      "example": "We lost our way, but in the end we found the hotel.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "This map is ___, so we need a new one.",
+      "options": [
+        "by hand",
+        "take care of",
+        "out of date"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in time\" mean?",
+      "options": [
+        "thức dậy",
+        "kịp giờ",
+        "cảm ơn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm bằng\"?",
+      "options": [
+        "made of",
+        "in advance",
+        "out of date"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"in the end\" mean?",
+      "options": [
+        "cuối cùng",
+        "đi ngủ",
+        "thức dậy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đang bốc cháy\"?",
+      "options": [
+        "in time",
+        "on fire",
+        "at first"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"on sale\" mean?",
+      "options": [
+        "bằng bút chì",
+        "theo tên",
+        "đang giảm giá"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bị hỏng\"?",
+      "options": [
+        "out of date",
+        "at the same time",
+        "out of order"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"at the same time\" mean?",
+      "options": [
+        "bằng cách đi bộ",
+        "cùng lúc",
+        "cảm ơn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chăm sóc\"?",
+      "options": [
+        "take care of",
+        "out of order",
+        "up to date"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"up to date\" mean?",
+      "options": [
+        "cập nhật, mới nhất",
+        "bằng tay",
+        "đi ngủ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bằng tay\"?",
+      "options": [
+        "at first",
+        "by hand",
+        "on fire"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"at first\" mean?",
+      "options": [
+        "dậy, ngồi dậy",
+        "nằm xuống",
+        "lúc đầu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trước, từ trước\"?",
+      "options": [
+        "on fire",
+        "in advance",
+        "in love"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"out of work\" mean?",
+      "options": [
+        "không có việc làm",
+        "bằng tay",
+        "do nhầm lẫn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My little sister is ___ with her new puppy.",
+      "options": [
+        "by hand",
+        "made of",
+        "in love"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a machine that is out of order",
+    "Pretend to be up to date with the news",
+    "Pretend to check if something is made of wood",
+    "Show me you are in love with a song",
+    "Pretend to check a date on a sign",
+    "Show me you are out of work and thinking"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

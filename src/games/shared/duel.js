@@ -6,7 +6,7 @@ import { PERF } from '../../core/perf.js';
 import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
-  TEAM_COLORS, createCountdown, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
+  TEAM_COLORS, teamVars, createCountdown, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
@@ -97,7 +97,7 @@ export function createDuelGame(root, pack, game) {
     const halves = [0, 1].map((i) => {
       const scoreEl = h('strong', { class: 'duel-score en', 'data-testid': `duel-score-${i}` }, '0');
       const area = h('div', { class: 'duel-area' });
-      const half = h('section', { class: `duel-half ${i ? 'right' : 'left'}`, style: { '--team': TEAM_COLORS[i] }, 'data-testid': `duel-half-${i}` },
+      const half = h('section', { class: `duel-half ${i ? 'right' : 'left'}`, style: teamVars(TEAM_COLORS[i]), 'data-testid': `duel-half-${i}` },
         h('header', { class: 'duel-head' }, h('span', { class: 'duel-name en' }, pack.teams[i]), scoreEl),
         area);
       const side = {

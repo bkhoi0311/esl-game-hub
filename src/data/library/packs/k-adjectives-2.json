@@ -1,0 +1,295 @@
+{
+  "title": "Useful Adjectives 2",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "classical",
+      "meaning": "cổ điển",
+      "category": "describe",
+      "example": "I like listening to classical music.",
+      "image": ""
+    },
+    {
+      "word": "fresh",
+      "meaning": "tươi",
+      "category": "describe",
+      "example": "These vegetables are fresh from the farm.",
+      "image": ""
+    },
+    {
+      "word": "further",
+      "meaning": "xa hơn",
+      "category": "describe",
+      "example": "The beach is further than the park from here.",
+      "image": ""
+    },
+    {
+      "word": "less",
+      "meaning": "ít hơn",
+      "category": "describe",
+      "example": "I have less time than you.",
+      "image": ""
+    },
+    {
+      "word": "lost",
+      "meaning": "bị lạc, bị mất",
+      "category": "describe",
+      "example": "The lost dog was in the park.",
+      "image": ""
+    },
+    {
+      "word": "natural",
+      "meaning": "tự nhiên",
+      "category": "describe",
+      "example": "This juice is made from natural ingredients.",
+      "image": ""
+    },
+    {
+      "word": "own",
+      "meaning": "của riêng mình",
+      "category": "describe",
+      "example": "She wants her own room.",
+      "image": ""
+    },
+    {
+      "word": "spare",
+      "meaning": "dự phòng, rảnh",
+      "category": "describe",
+      "example": "I always keep a spare pen in my bag.",
+      "image": ""
+    },
+    {
+      "word": "total",
+      "meaning": "tổng, tổng số",
+      "category": "describe",
+      "example": "The total cost of the trip was fifty pounds.",
+      "image": ""
+    },
+    {
+      "word": "usual",
+      "meaning": "thường lệ, quen thuộc",
+      "category": "describe",
+      "example": "We met at the usual place after school.",
+      "image": ""
+    },
+    {
+      "word": "various",
+      "meaning": "nhiều loại, khác nhau",
+      "category": "describe",
+      "example": "We played various games at the party.",
+      "image": ""
+    },
+    {
+      "word": "whole",
+      "meaning": "toàn bộ, cả",
+      "category": "describe",
+      "example": "We ate the whole pizza in ten minutes.",
+      "image": ""
+    },
+    {
+      "word": "wide",
+      "meaning": "rộng",
+      "category": "describe",
+      "example": "The river is very wide here.",
+      "image": ""
+    },
+    {
+      "word": "wooden",
+      "meaning": "bằng gỗ",
+      "category": "describe",
+      "example": "He sat on a wooden chair near the window.",
+      "image": ""
+    },
+    {
+      "word": "left-hand",
+      "meaning": "bên tay trái",
+      "category": "describe",
+      "example": "The shop is on the left-hand side.",
+      "image": ""
+    },
+    {
+      "word": "right hand",
+      "meaning": "bên phải",
+      "category": "describe",
+      "example": "The bank is on the right hand side.",
+      "image": ""
+    },
+    {
+      "word": "side",
+      "meaning": "bên, mặt",
+      "category": "thing",
+      "example": "Write your name on the left side of the page.",
+      "image": ""
+    },
+    {
+      "word": "action",
+      "meaning": "hành động",
+      "category": "describe",
+      "example": "My brother loves watching action films.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: f_rther (xa hơn)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị lạc, bị mất)",
+      "options": [
+        "lost",
+        "lsot",
+        "losst"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The shop is on the ___ side.",
+      "options": [
+        "side",
+        "rock music",
+        "left-hand"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bên, mặt)",
+      "options": [
+        "syde",
+        "side",
+        "sdie"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rộng\"?",
+      "options": [
+        "wide",
+        "third",
+        "friendly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"classical\" mean?",
+      "options": [
+        "người Ireland",
+        "thân thiện",
+        "cổ điển"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (toàn bộ, cả)",
+      "options": [
+        "whole",
+        "whloe",
+        "wholle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: nat_ral (tự nhiên)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"total\" mean?",
+      "options": [
+        "kỹ thuật số",
+        "người Pháp, tiếng Pháp",
+        "tổng, tổng số"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ít hơn\"?",
+      "options": [
+        "racing",
+        "Spanish",
+        "less"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We met at the ___ place after school.",
+      "options": [
+        "side",
+        "usual",
+        "download"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wooden\" mean?",
+      "options": [
+        "bằng gỗ",
+        "người Brazil",
+        "không tử tế"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hành động\"?",
+      "options": [
+        "friendly",
+        "action",
+        "second"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _wn (của riêng mình)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"spare\" mean?",
+      "options": [
+        "dự phòng, rảnh",
+        "không thân thiện",
+        "người Canada"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Point to your left-hand side",
+    "Point to your right hand",
+    "Pretend to look for something lost",
+    "Pretend to knock on a wooden table",
+    "Show me a whole circle with your arms"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

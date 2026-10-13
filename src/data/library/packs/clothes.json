@@ -134,8 +134,8 @@
       "prompt": "I wear ___ in summer.",
       "options": [
         "shorts",
-        "volcano",
-        "field"
+        "beach",
+        "genie"
       ],
       "answer": 0,
       "type": "vocab"
@@ -153,8 +153,8 @@
     {
       "prompt": "He wears a ___ in the sun.",
       "options": [
-        "soccer",
-        "forest",
+        "dog",
+        "nose",
         "hat"
       ],
       "answer": 2,

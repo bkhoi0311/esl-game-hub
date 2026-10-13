@@ -1,0 +1,289 @@
+{
+  "title": "More Jobs and People at Work",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "actress",
+      "meaning": "nữ diễn viên",
+      "category": "job",
+      "example": "The actress in this film is only fifteen.",
+      "image": ""
+    },
+    {
+      "word": "athlete",
+      "meaning": "vận động viên",
+      "category": "job",
+      "example": "The young athlete trains every morning before school.",
+      "image": ""
+    },
+    {
+      "word": "author",
+      "meaning": "tác giả",
+      "category": "job",
+      "example": "My favourite author writes funny stories for teenagers.",
+      "image": ""
+    },
+    {
+      "word": "blogger",
+      "meaning": "người viết blog",
+      "category": "job",
+      "example": "My cousin is a travel blogger who writes about her trips.",
+      "image": ""
+    },
+    {
+      "word": "diver",
+      "meaning": "thợ lặn",
+      "category": "job",
+      "example": "The diver swam down to look at the coral.",
+      "image": ""
+    },
+    {
+      "word": "employee",
+      "meaning": "nhân viên",
+      "category": "job",
+      "example": "Every employee at the shop wears a green uniform.",
+      "image": ""
+    },
+    {
+      "word": "employer",
+      "meaning": "chủ lao động",
+      "category": "job",
+      "example": "My employer gave me a day off for my exams.",
+      "image": ""
+    },
+    {
+      "word": "guard",
+      "meaning": "người bảo vệ",
+      "category": "job",
+      "example": "The guard opens the gate.",
+      "image": ""
+    },
+    {
+      "word": "inventor",
+      "meaning": "nhà phát minh",
+      "category": "job",
+      "example": "The inventor spent years building his first flying machine.",
+      "image": ""
+    },
+    {
+      "word": "judge",
+      "meaning": "thẩm phán",
+      "category": "job",
+      "example": "The judge listens to both sides.",
+      "image": ""
+    },
+    {
+      "word": "keeper",
+      "meaning": "người trông coi",
+      "category": "job",
+      "example": "The zoo keeper feeds the lions at noon.",
+      "image": ""
+    },
+    {
+      "word": "librarian",
+      "meaning": "thủ thư",
+      "category": "job",
+      "example": "The librarian helped me find a book about birds.",
+      "image": ""
+    },
+    {
+      "word": "politician",
+      "meaning": "chính trị gia",
+      "category": "job",
+      "example": "The politician visited our school to meet the students.",
+      "image": ""
+    },
+    {
+      "word": "president",
+      "meaning": "tổng thống, chủ tịch",
+      "category": "job",
+      "example": "She is the president of the school music club.",
+      "image": ""
+    },
+    {
+      "word": "professor",
+      "meaning": "giáo sư",
+      "category": "job",
+      "example": "My uncle is a professor at a large university.",
+      "image": ""
+    },
+    {
+      "word": "programmer",
+      "meaning": "lập trình viên",
+      "category": "job",
+      "example": "My sister wants to be a programmer.",
+      "image": ""
+    },
+    {
+      "word": "reporter",
+      "meaning": "phóng viên",
+      "category": "job",
+      "example": "The reporter asked the mayor three questions.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"employee\" mean?",
+      "options": [
+        "tấm vé",
+        "chìa khoá",
+        "nhân viên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tổng thống, chủ tịch\"?",
+      "options": [
+        "president",
+        "burger",
+        "poetry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keeper\" mean?",
+      "options": [
+        "bữa trưa",
+        "người trông coi",
+        "con hươu cao cổ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người viết blog)",
+      "options": [
+        "blogger",
+        "blgoger",
+        "bloggir"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thủ thư\"?",
+      "options": [
+        "roller skating",
+        "graphics",
+        "librarian"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"inventor\" mean?",
+      "options": [
+        "con gấu trúc",
+        "nhà phát minh",
+        "bằng cấp, trình độ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thợ lặn)",
+      "options": [
+        "divir",
+        "divver",
+        "diver"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_porter (phóng viên)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle is a ___ at a large university.",
+      "options": [
+        "professor",
+        "scenery",
+        "countryside"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: progr_mmer (lập trình viên)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thẩm phán\"?",
+      "options": [
+        "sun",
+        "judge",
+        "north"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ opens the gate.",
+      "options": [
+        "video game",
+        "packet",
+        "guard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: auth_r (tác giả)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"actress\" mean?",
+      "options": [
+        "bưu điện",
+        "nữ diễn viên",
+        "đôi tất"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chính trị gia)",
+      "options": [
+        "poltiician",
+        "ploitician",
+        "politician"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a judge in court",
+    "Pretend to be a news reporter",
+    "Pretend to be a programmer",
+    "Pretend to be a security guard",
+    "Pretend to invent a new machine",
+    "Pretend to be a librarian"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

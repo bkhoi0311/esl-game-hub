@@ -1,0 +1,110 @@
+hang	v	pet					v
+hang out	v	pet					phr v
+hang up	v	pet					phr v
+happily	adv	pet					adv
+happiness	n	pet					n
+hardly	adv	pet					adv
+hardware	n	pet					n
+headline	n	pet					n
+heat	n	pet					n
+heater	n	pet					n
+heel	n	pet					n
+height	n	pet					n
+hero	n	pet					n
+heroine	n	pet					n
+hidden	adj	pet					adj
+high jump	n	pet					n
+hike	v	pet					v
+hire	v	pet					v+n
+historic	adj	pet					adj
+historical	adj	pet					adj
+hitchhike	v	pet					v
+hold up	v	pet					phr v
+homepage	n	pet					n
+honest	adj	pet					adj
+honestly	adv	pet					adv
+honeymoon	n	pet					n
+hopeful	adj	pet					adj
+hopefully	adv	pet					adv
+hopeless	adj	pet					adj
+horse-riding	n	pet					n
+hostel	n	pet					n
+housework	n	pet					n
+human	adj	pet					adj+n
+humid	adj	pet					adj
+humour	n	pet		humor			n
+hunger	n	pet					n
+hunt	v	pet					v
+hut	n	pet					n
+ice hockey	n	pet					n
+icy	adj	pet					adj
+identify	v	pet					v
+identity card	n	pet					n
+ignore	v	pet					v
+illness	n	pet					n
+imagination	n	pet					n
+imagine	v	pet					v
+immigration	n	pet					n
+importance	n	pet					n
+impressed	adj	pet					adj
+improvement	n	pet					n
+in advance	phr	pet					prep phr
+in case	adv	pet					adv+conj
+in fact	phr	pet					prep phr
+in half	phr	pet					prep phr
+in ink	phr	pet					prep phr
+in love	phr	pet					prep phr
+in order	phr	pet					prep phr
+in order to	phr	pet					prep phr
+in pencil	phr	pet					prep phr
+in the end	phr	pet					prep phr
+in time	phr	pet					prep phr
+in two	phr	pet					prep phr
+inch	n	pet					n
+incorrect	adj	pet					adj
+increase	v	pet					v
+incredible	adj	pet					adj
+incredibly	adv	pet					adv
+indeed	adv	pet					adv
+independent	adj	pet					adj
+individual	adj	pet					adj
+industry	n	pet					n
+inexpensive	adj	pet					adj
+influence	n	pet					n+v
+inform	v	pet					v
+initial	n	pet					n
+injure	v	pet					v
+ink	n	pet					n
+inquiry	n	pet					n
+insist	v	pet					v
+inspire	v	pet					v
+install	v	pet					v
+instance	n	pet					n
+instructor	n	pet					n
+intelligent	adj	pet					adj
+intend	v	pet					v
+interest	n	pet					n+v
+intermediate	adj	pet					adj
+interrupt	v	pet					v
+interval	n	pet					n
+interview	n	pet					n+v
+interviewer	n	pet					n
+introduce	v	pet					v
+introduction	n	pet					n
+inventor	n	pet					n
+involve	v	pet					v
+iron	n	pet					n+v
+ironing	n	pet					n
+issue	n	pet					n
+item	n	pet					n
+jail	n	pet					n
+jar	n	pet					n
+jealous	adj	pet					adj
+jet	n	pet					n
+jog	v	pet					v
+joke	n	pet					n+v
+jug	n	pet					n
+keen	adj	pet					adj
+keep in	v	pet					phr v
+keep on	v	pet					phr v
+keep up	v	pet					phr v

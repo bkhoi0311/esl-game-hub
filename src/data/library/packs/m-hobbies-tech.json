@@ -1,0 +1,310 @@
+{
+  "title": "Hobbies and Technology",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "comic",
+      "meaning": "truyện tranh",
+      "category": "hobby",
+      "example": "He reads a comic after school.",
+      "image": ""
+    },
+    {
+      "word": "comic book",
+      "meaning": "truyện tranh",
+      "category": "thing",
+      "example": "I read a comic book before bed.",
+      "image": ""
+    },
+    {
+      "word": "dance",
+      "meaning": "điệu nhảy",
+      "category": "hobby",
+      "example": "We learn a new dance at school.",
+      "image": ""
+    },
+    {
+      "word": "film",
+      "meaning": "bộ phim",
+      "category": "hobby",
+      "example": "This film is funny.",
+      "image": ""
+    },
+    {
+      "word": "movie",
+      "meaning": "bộ phim",
+      "category": "hobby",
+      "example": "We watch a movie on Friday.",
+      "image": ""
+    },
+    {
+      "word": "picnic",
+      "meaning": "buổi dã ngoại",
+      "category": "hobby",
+      "example": "We have a picnic in the park.",
+      "image": ""
+    },
+    {
+      "word": "holiday",
+      "meaning": "kỳ nghỉ",
+      "category": "celebration",
+      "example": "We go on holiday in July.",
+      "image": ""
+    },
+    {
+      "word": "trip",
+      "meaning": "chuyến đi",
+      "category": "hobby",
+      "example": "We are on a trip to the beach.",
+      "image": ""
+    },
+    {
+      "word": "band",
+      "meaning": "ban nhạc",
+      "category": "music",
+      "example": "The band plays loud music.",
+      "image": ""
+    },
+    {
+      "word": "app",
+      "meaning": "ứng dụng",
+      "category": "tech",
+      "example": "This app helps me learn words.",
+      "image": ""
+    },
+    {
+      "word": "email",
+      "meaning": "thư điện tử",
+      "category": "tech",
+      "example": "She sends an email to her teacher.",
+      "image": ""
+    },
+    {
+      "word": "internet",
+      "meaning": "mạng internet",
+      "category": "tech",
+      "example": "I use the internet to learn.",
+      "image": ""
+    },
+    {
+      "word": "laptop",
+      "meaning": "máy tính xách tay",
+      "category": "tech",
+      "example": "She works on her laptop.",
+      "image": ""
+    },
+    {
+      "word": "message",
+      "meaning": "tin nhắn",
+      "category": "tech",
+      "example": "She sends me a message every day.",
+      "image": ""
+    },
+    {
+      "word": "video",
+      "meaning": "đoạn video",
+      "category": "tech",
+      "example": "The video is very funny.",
+      "image": ""
+    },
+    {
+      "word": "website",
+      "meaning": "trang web",
+      "category": "tech",
+      "example": "This website has fun games.",
+      "image": ""
+    },
+    {
+      "word": "cd",
+      "meaning": "đĩa CD",
+      "category": "tech",
+      "example": "I listen to a CD in the car.",
+      "image": ""
+    },
+    {
+      "word": "dvd",
+      "meaning": "đĩa DVD",
+      "category": "tech",
+      "example": "We watch a DVD on Friday night.",
+      "image": ""
+    },
+    {
+      "word": "computer",
+      "meaning": "máy tính",
+      "category": "tech",
+      "example": "I play games on the computer.",
+      "image": ""
+    },
+    {
+      "word": "phone",
+      "meaning": "điện thoại",
+      "category": "tech",
+      "example": "Can I use your phone?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"máy tính\"?",
+      "options": [
+        "computer",
+        "email",
+        "video"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thư điện tử)",
+      "options": [
+        "emeil",
+        "email",
+        "emial"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_lm (bộ phim)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (buổi dã ngoại)",
+      "options": [
+        "pcinic",
+        "picnic",
+        "piccnic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: hol_day (kỳ nghỉ)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"phone\" mean?",
+      "options": [
+        "điện thoại",
+        "người đàn ông",
+        "xúc xích"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "This ___ has fun games.",
+      "options": [
+        "website",
+        "sing",
+        "sleep"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"app\" mean?",
+      "options": [
+        "đoạn video",
+        "ứng dụng",
+        "máy tính xách tay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mạng internet\"?",
+      "options": [
+        "email",
+        "message",
+        "internet"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bộ phim)",
+      "options": [
+        "movie",
+        "muvie",
+        "movvie"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_mic (truyện tranh)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"máy tính xách tay\"?",
+      "options": [
+        "website",
+        "app",
+        "laptop"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"comic book\" mean?",
+      "options": [
+        "đĩa CD",
+        "đĩa DVD",
+        "truyện tranh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She sends me a ___ every day.",
+      "options": [
+        "message",
+        "milkshake",
+        "rock"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cd\" mean?",
+      "options": [
+        "mạng internet",
+        "đĩa CD",
+        "trang web"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to type on a laptop",
+    "Pretend to send a message",
+    "Pretend to watch a video",
+    "Dance slowly to the music",
+    "Pretend to take a photo with your phone",
+    "Pretend to play the drums in a band"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

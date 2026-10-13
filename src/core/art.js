@@ -1,4 +1,4 @@
-// Hình minh hoạ tự vẽ cho 9 thẻ game (SVG, nét đậm, màu tươi để các bé dễ nhận ra).
+// Hình minh hoạ tự vẽ cho các thẻ game (SVG, nét đậm, màu tươi để các bé dễ nhận ra).
 // Màu lấy từ bảng shape-* / brand-* của Design-ClassIn-2026.
 const C = {
   ink: '#1c1f25',
@@ -48,21 +48,20 @@ const ART = {
     <circle cx="139" cy="55" r="7" fill="${C.skin}" ${S} stroke-width="3"/>
     <path d="M106 120l-8 26M118 120l8 26" ${S} stroke-width="7"/>`,
 
-  // Khuôn mặt nghiêng + 2 đáp án A/B
-  'head-tilt': `
-    <circle cx="80" cy="80" r="72" fill="#e3f4ff"/>
-    <g transform="rotate(-16 80 88)">
-      <circle cx="80" cy="88" r="36" fill="${C.skin}" ${S}/>
-      <path d="M50 70q30-34 60 0" fill="#6b4226" ${S}/>
-      <circle cx="68" cy="88" r="4.5" fill="${C.ink}"/><circle cx="92" cy="88" r="4.5" fill="${C.ink}"/>
-      <path d="M68 104q12 9 24 0" ${S} stroke-width="3.5"/>
-      <circle cx="60" cy="99" r="5" fill="${C.pink}" opacity=".55"/><circle cx="100" cy="99" r="5" fill="${C.pink}" opacity=".55"/>
-    </g>
-    <rect x="6" y="18" width="40" height="36" rx="10" fill="${C.green}" ${S}/>
-    <path d="M18 45l8-20 8 20M21 38h10" stroke="${C.white}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="114" y="18" width="40" height="36" rx="10" fill="${C.white}" ${S}/>
-    <path d="M127 25v20h8a5 5 0 0 0 0-10h-8 7a5 5 0 0 0 0-10z" stroke="${C.ink}" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-    <path d="M40 132q40 16 80 0" stroke="${C.blue}" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="2 10"/>`,
+  // Thẻ từ xếp thành câu + cờ đích
+  'sentence-race': `
+    <circle cx="80" cy="80" r="72" fill="#fff1dc"/>
+    <rect x="14" y="30" width="58" height="30" rx="9" fill="${C.white}" ${S}/>
+    <path d="M26 45h34" stroke="${C.orange}" stroke-width="6" stroke-linecap="round"/>
+    <rect x="80" y="22" width="62" height="30" rx="9" fill="${C.yellow}" ${S}/>
+    <path d="M92 37h38" stroke="${C.ink}" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+    <rect x="28" y="70" width="50" height="30" rx="9" fill="${C.cyan}" ${S}/>
+    <path d="M40 85h26" stroke="${C.ink}" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+    <path d="M14 132h106" ${S} stroke-width="5"/>
+    <rect x="16" y="112" width="36" height="18" rx="5" fill="${C.green}" ${S} stroke-width="3"/>
+    <rect x="56" y="112" width="30" height="18" rx="5" fill="${C.cobalt}" ${S} stroke-width="3"/>
+    <path d="M128 66v66" ${S} stroke-width="5"/>
+    <path d="M128 66h24l-7 9 7 9h-24z" fill="${C.red}" ${S} stroke-width="3"/>`,
 
   // Thẻ từ bị chém đôi + vệt sáng
   'word-ninja': `

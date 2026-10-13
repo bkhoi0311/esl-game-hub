@@ -9,9 +9,10 @@
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",
-    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs",
+    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs tests/levels.test.mjs tests/statue-motion.test.mjs",
     "test:games": "node tests/games.mjs",
     "test:classin": "node tests/classin-touch.mjs",
+    "test:classin109": "node tests/classin109-layout.mjs",
     "test:offline": "node tests/offline.mjs",
     "predev": "node scripts/copy-wasm.js",
     "prebuild": "node scripts/copy-wasm.js",
@@ -21,6 +22,10 @@
     "test:soanbai": "node tests/soanbai.mjs",
     "build:library": "node tools/library/build.mjs",
     "build:wordbank": "node tools/wordbank/merge.mjs",
+    "levels": "node tools/wordbank/levels/build-levels.mjs",
+    "levels:relevel": "node tools/wordbank/levels/relevel.mjs",
+    "levels:split": "node tools/wordbank/levels/split-new.mjs",
+    "wordbank": "node tools/wordbank/check.mjs all && node tools/wordbank/merge.mjs",
     "test:soanbai-real": "node tests/soanbai-real.mjs"
   },
   "dependencies": {

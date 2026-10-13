@@ -1,6 +1,6 @@
 {
   "title": "Music and Art",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "music",
@@ -133,8 +133,8 @@
     {
       "prompt": "Which word means \"âm nhạc\"?",
       "options": [
-        "sandwich",
         "bus",
+        "bear",
         "music"
       ],
       "answer": 2,
@@ -144,8 +144,8 @@
       "prompt": "She plays the ___ at school.",
       "options": [
         "flute",
-        "orange",
-        "wet"
+        "live",
+        "cool"
       ],
       "answer": 0,
       "type": "vocab"
@@ -201,6 +201,16 @@
       "type": "vocab"
     },
     {
+      "prompt": "Which is the correct spelling? (bài hát)",
+      "options": [
+        "song",
+        "sonng",
+        "snog"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
       "prompt": "What does \"dancer\" mean?",
       "options": [
         "ca sĩ",
@@ -233,19 +243,19 @@
     {
       "prompt": "He plays the ___ well.",
       "options": [
-        "kind",
+        "wear",
         "guitar",
-        "beautiful"
+        "angry"
       ],
       "answer": 1,
       "type": "vocab"
     },
     {
-      "prompt": "Find the missing letter: pict_re (bức tranh)",
+      "prompt": "Find the missing letter: p_cture (bức tranh)",
       "options": [
-        "u",
-        "a",
-        "e"
+        "i",
+        "e",
+        "u"
       ],
       "answer": 0,
       "type": "vocab"
@@ -253,8 +263,8 @@
     {
       "prompt": "Which word means \"ban nhạc\"?",
       "options": [
-        "flute",
         "song",
+        "violin",
         "band"
       ],
       "answer": 2,

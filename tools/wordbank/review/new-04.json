@@ -1,0 +1,150 @@
+{
+  "sampled": [
+    "with",
+    "rug",
+    "ours",
+    "next to",
+    "page",
+    "thanks",
+    "name",
+    "your",
+    "they",
+    "to",
+    "us",
+    "she",
+    "under",
+    "where",
+    "the"
+  ],
+  "sampleErrors": [
+    "thanks",
+    "name",
+    "the"
+  ],
+  "fullReview": true,
+  "alsoReviewed": [
+    "mine",
+    "miss",
+    "my",
+    "nice",
+    "not",
+    "of",
+    "oh",
+    "oh dear",
+    "on",
+    "or",
+    "our",
+    "pardon",
+    "part",
+    "scary",
+    "see you",
+    "show",
+    "so",
+    "some",
+    "that",
+    "their",
+    "theirs",
+    "them",
+    "there",
+    "these",
+    "this",
+    "those",
+    "tick",
+    "too",
+    "try",
+    "understand",
+    "want",
+    "we",
+    "well",
+    "well done",
+    "what",
+    "which",
+    "who",
+    "whose",
+    "would like",
+    "wow",
+    "you",
+    "yours"
+  ],
+  "fixed": [
+    {
+      "word": "name",
+      "field": "cat",
+      "old": "thing",
+      "new": "people"
+    },
+    {
+      "word": "pardon",
+      "field": "vi",
+      "old": "xin nói lại",
+      "new": "xin nhắc lại, gì cơ ạ"
+    },
+    {
+      "word": "pardon",
+      "field": "ex",
+      "old": "Can you say that again, pardon?",
+      "new": "I'm sorry, pardon? I can't hear you."
+    },
+    {
+      "word": "part",
+      "field": "cat",
+      "old": "thing",
+      "new": "abstract"
+    },
+    {
+      "word": "thanks",
+      "field": "ex",
+      "old": "Many thanks for the lovely present!",
+      "new": "Oh, thanks for the lovely present!"
+    },
+    {
+      "word": "the",
+      "field": "vi",
+      "old": "cái, này",
+      "new": "cái, con"
+    },
+    {
+      "word": "the",
+      "field": "ex",
+      "old": "I see the moon tonight.",
+      "new": "Look at the moon tonight!"
+    },
+    {
+      "word": "the",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "the",
+      "field": "note",
+      "old": "mạo từ the, cần chọn cách ghi vi",
+      "new": ""
+    },
+    {
+      "word": "try",
+      "field": "vi",
+      "old": "cố gắng, thử",
+      "new": "lần thử, thử"
+    },
+    {
+      "word": "well",
+      "field": "vi",
+      "old": "ồ, à",
+      "new": "ừm, à"
+    },
+    {
+      "word": "well",
+      "field": "ex",
+      "old": "It is late. Well, let's start.",
+      "new": "Hmm, well, I like the red one."
+    },
+    {
+      "word": "well done",
+      "field": "ex",
+      "old": "You win the game. Well done!",
+      "new": "Your picture is great. Well done!"
+    }
+  ],
+  "stillCheck": []
+}

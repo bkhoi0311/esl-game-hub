@@ -17,7 +17,6 @@ export const VOICES = [
 export const GAME_VOICE = {
   'statue-freeze': 'v06',
   'simon-pose': 'v12',
-  'head-tilt': 'v03',
   'word-ninja': 'v04',
   'gold-heist': 'v02',
   impostor: 'v05',
@@ -26,6 +25,7 @@ export const GAME_VOICE = {
   'balloon-pop': 'v09',
   'memory-match': 'v12',
   'tic-tac-toe': 'v06',
+  'sentence-race': 'v03', // dùng lại thư mục giọng v03 (đã có các câu chung "Let's play!", "Great job!", "It's a tie!")
 };
 export const DEFAULT_VOICE = 'v05';
 
@@ -46,6 +46,8 @@ export const LINES = {
   pickChest: 'Pick a treasure chest!',
   // Impostor Word
   findImpostor: 'Find the impostor!',
+  // Sentence Race
+  buildSentence: 'Build the sentence!',
   // Tug of War
   readyPull: 'Ready, set, pull!',
   // Statue Freeze
@@ -141,8 +143,8 @@ export function textsForGame(gameId, pack) {
       return [...common, ...words, line('findPairs'), line('match'), ...perTeam('teamTurn'), ...perTeam('teamWins')];
     case 'tic-tac-toe':
       return [...common, ...prompts, line('correct'), line('tryAgain'), line('threeInRow'), ...perTeam('teamTurn'), ...perTeam('teamWins')];
-    case 'head-tilt':
-      return [...common, ...prompts, line('correct'), line('tryAgain')];
+    case 'sentence-race':
+      return [...common, line('buildSentence'), line('timesUp'), ...teams.map((t) => `${t} wins!`)];
     case 'word-ninja':
       return [...common, ...cats.map(ninjaTarget), line('timesUp'), line('tryAgain')];
     case 'simon-pose':

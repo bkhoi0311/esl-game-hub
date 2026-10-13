@@ -1,0 +1,258 @@
+{
+  "title": "Measurements",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "centimetre",
+      "meaning": "xăng-ti-mét",
+      "category": "measure",
+      "example": "The pencil is ten centimetres long.",
+      "image": ""
+    },
+    {
+      "word": "degree",
+      "meaning": "độ",
+      "category": "measure",
+      "example": "It is thirty degrees today, so take some water.",
+      "image": ""
+    },
+    {
+      "word": "gram",
+      "meaning": "gam",
+      "category": "measure",
+      "example": "Add fifty grams of sugar to the bowl.",
+      "image": ""
+    },
+    {
+      "word": "kilogramme",
+      "meaning": "ki-lô-gam",
+      "category": "measure",
+      "example": "I bought two kilogrammes of rice.",
+      "image": ""
+    },
+    {
+      "word": "length",
+      "meaning": "chiều dài",
+      "category": "measure",
+      "example": "Measure the length of the table.",
+      "image": ""
+    },
+    {
+      "word": "litre",
+      "meaning": "lít",
+      "category": "measure",
+      "example": "Drink a litre of water every day.",
+      "image": ""
+    },
+    {
+      "word": "metre",
+      "meaning": "mét",
+      "category": "measure",
+      "example": "The pool is twenty metres long.",
+      "image": ""
+    },
+    {
+      "word": "mile",
+      "meaning": "dặm",
+      "category": "measure",
+      "example": "We walked one mile to school.",
+      "image": ""
+    },
+    {
+      "word": "size",
+      "meaning": "cỡ, kích thước",
+      "category": "measure",
+      "example": "What size shoes do you wear?",
+      "image": ""
+    },
+    {
+      "word": "kilometre",
+      "meaning": "ki-lô-mét",
+      "category": "measure",
+      "example": "The park is two kilometres from here.",
+      "image": ""
+    },
+    {
+      "word": "pair",
+      "meaning": "đôi",
+      "category": "measure",
+      "example": "I need a new pair of shoes.",
+      "image": ""
+    },
+    {
+      "word": "piece",
+      "meaning": "mẩu, miếng",
+      "category": "measure",
+      "example": "Can I have a piece of cake?",
+      "image": ""
+    },
+    {
+      "word": "quarter",
+      "meaning": "một phần tư",
+      "category": "measure",
+      "example": "She ate a quarter of the pizza.",
+      "image": ""
+    },
+    {
+      "word": "temperature",
+      "meaning": "nhiệt độ",
+      "category": "weather",
+      "example": "The temperature is low in winter.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"litre\" mean?",
+      "options": [
+        "lít",
+        "nhiệt độ",
+        "mẫu đơn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ece (mẩu, miếng)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pair\" mean?",
+      "options": [
+        "hòn đá",
+        "đôi",
+        "cái tai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lít\"?",
+      "options": [
+        "litre",
+        "notice",
+        "sink"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"kilometre\" mean?",
+      "options": [
+        "cái ghế",
+        "ngày tháng",
+        "ki-lô-mét"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"một phần tư\"?",
+      "options": [
+        "DVD player",
+        "quarter",
+        "swimming"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"metre\" mean?",
+      "options": [
+        "nhiệt độ",
+        "bộ phim",
+        "mét"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: l_ngth (chiều dài)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_m (gam)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dặm)",
+      "options": [
+        "myle",
+        "mile",
+        "mille"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is low in winter.",
+      "options": [
+        "temperature",
+        "take part",
+        "collect"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xăng-ti-mét)",
+      "options": [
+        "centimetre",
+        "centtimetre",
+        "centimetrre"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ki-lô-gam\"?",
+      "options": [
+        "city centre",
+        "doctor",
+        "kilogramme"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cỡ, kích thước)",
+      "options": [
+        "szie",
+        "size",
+        "sizze"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a metre with your arms",
+    "Show me a centimetre with your fingers",
+    "Pretend to weigh something on a scale",
+    "Pretend to pour a litre of water",
+    "Pretend to read a thermometer",
+    "Show me a quarter with your hands"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

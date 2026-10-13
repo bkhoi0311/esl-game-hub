@@ -1,0 +1,289 @@
+{
+  "title": "Travel and Tourism",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "tourism",
+      "meaning": "ngành du lịch",
+      "category": "travel",
+      "example": "The town earns money from tourism.",
+      "image": ""
+    },
+    {
+      "word": "attraction",
+      "meaning": "điểm thu hút",
+      "category": "travel",
+      "example": "The old castle is the main attraction in town.",
+      "image": ""
+    },
+    {
+      "word": "souvenir",
+      "meaning": "quà lưu niệm",
+      "category": "travel",
+      "example": "I bought a small souvenir for my mother.",
+      "image": ""
+    },
+    {
+      "word": "brochure",
+      "meaning": "tờ rơi, sách quảng cáo",
+      "category": "travel",
+      "example": "We picked up a brochure about the hotel at the airport.",
+      "image": ""
+    },
+    {
+      "word": "destination",
+      "meaning": "điểm đến",
+      "category": "travel",
+      "example": "Paris is a popular destination for tourists.",
+      "image": ""
+    },
+    {
+      "word": "backpacker",
+      "meaning": "người du lịch bụi",
+      "category": "travel",
+      "example": "A backpacker asked us the way to the station.",
+      "image": ""
+    },
+    {
+      "word": "backpacking",
+      "meaning": "du lịch bụi",
+      "category": "travel",
+      "example": "My uncle loves backpacking in the mountains.",
+      "image": ""
+    },
+    {
+      "word": "expedition",
+      "meaning": "chuyến thám hiểm",
+      "category": "travel",
+      "example": "The scientists went on an expedition to the north pole.",
+      "image": ""
+    },
+    {
+      "word": "visa",
+      "meaning": "thị thực, visa",
+      "category": "travel",
+      "example": "You need a visa to visit some countries.",
+      "image": ""
+    },
+    {
+      "word": "border",
+      "meaning": "biên giới",
+      "category": "travel",
+      "example": "The train stops at the border so officers can check passports.",
+      "image": ""
+    },
+    {
+      "word": "customs",
+      "meaning": "hải quan",
+      "category": "travel",
+      "example": "We waited in line at customs after the flight.",
+      "image": ""
+    },
+    {
+      "word": "immigration",
+      "meaning": "nhập cảnh, nhập cư",
+      "category": "travel",
+      "example": "We waited in a long line at immigration at the airport.",
+      "image": ""
+    },
+    {
+      "word": "route",
+      "meaning": "tuyến đường",
+      "category": "travel",
+      "example": "We chose a different route to avoid the traffic.",
+      "image": ""
+    },
+    {
+      "word": "landscape",
+      "meaning": "cảnh quan",
+      "category": "nature",
+      "example": "The mountain landscape looked beautiful in the morning.",
+      "image": ""
+    },
+    {
+      "word": "scenery",
+      "meaning": "phong cảnh",
+      "category": "nature",
+      "example": "The mountain scenery was beautiful on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "admission",
+      "meaning": "tiền vé vào cửa",
+      "category": "travel",
+      "example": "The admission to the museum is free for students.",
+      "image": ""
+    },
+    {
+      "word": "cruise",
+      "meaning": "chuyến du thuyền",
+      "category": "travel",
+      "example": "They went on a cruise around the islands.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (quà lưu niệm)",
+      "options": [
+        "suuvenir",
+        "souvvenir",
+        "souvenir"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"biên giới\"?",
+      "options": [
+        "border",
+        "juice",
+        "collar"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The old castle is the main ___ in town.",
+      "options": [
+        "landscape",
+        "attraction",
+        "scenery"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"điểm đến\"?",
+      "options": [
+        "furniture",
+        "destination",
+        "journalist"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: exp_dition (chuyến thám hiểm)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"brochure\" mean?",
+      "options": [
+        "tờ rơi, sách quảng cáo",
+        "kiến trúc sư",
+        "vỉ nướng, nướng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle loves ___ in the mountains.",
+      "options": [
+        "landscape",
+        "scenery",
+        "backpacking"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tuyến đường)",
+      "options": [
+        "ruute",
+        "route",
+        "routte"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"landscape\" mean?",
+      "options": [
+        "cảnh quan",
+        "người du lịch bụi",
+        "chuyến du thuyền"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hải quan)",
+      "options": [
+        "cutsoms",
+        "csutoms",
+        "customs"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"admission\" mean?",
+      "options": [
+        "phong cảnh",
+        "tiền vé vào cửa",
+        "cảnh quan"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: backp_cker (người du lịch bụi)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"scenery\" mean?",
+      "options": [
+        "tiền vé vào cửa",
+        "chuyến thám hiểm",
+        "phong cảnh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: v_sa (thị thực, visa)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngành du lịch\"?",
+      "options": [
+        "tourism",
+        "goods",
+        "lawyer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read a travel brochure",
+    "Pretend to take a photo of an attraction",
+    "Pretend to carry a heavy backpack",
+    "Pretend to show your visa at the border",
+    "Pretend to buy a souvenir",
+    "Pretend to look at a map to find a route"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

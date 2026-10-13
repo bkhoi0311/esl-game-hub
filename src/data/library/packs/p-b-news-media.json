@@ -1,0 +1,275 @@
+{
+  "title": "News and Media",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "announcement",
+      "meaning": "thông báo",
+      "category": "media",
+      "example": "We heard an announcement about the school trip.",
+      "image": ""
+    },
+    {
+      "word": "headline",
+      "meaning": "tiêu đề báo",
+      "category": "media",
+      "example": "The headline in the newspaper was about a school competition.",
+      "image": ""
+    },
+    {
+      "word": "publisher",
+      "meaning": "nhà xuất bản",
+      "category": "job",
+      "example": "The publisher sent us ten copies of the book.",
+      "image": ""
+    },
+    {
+      "word": "presenter",
+      "meaning": "người dẫn chương trình",
+      "category": "job",
+      "example": "The presenter of the show is very funny.",
+      "image": ""
+    },
+    {
+      "word": "interviewer",
+      "meaning": "người phỏng vấn",
+      "category": "job",
+      "example": "The interviewer asked me about my hobbies.",
+      "image": ""
+    },
+    {
+      "word": "podcast",
+      "meaning": "chương trình podcast",
+      "category": "media",
+      "example": "I listen to a funny podcast on the bus.",
+      "image": ""
+    },
+    {
+      "word": "documentary",
+      "meaning": "phim tài liệu",
+      "category": "media",
+      "example": "We watched a documentary about whales in science class.",
+      "image": ""
+    },
+    {
+      "word": "talk show",
+      "meaning": "chương trình trò chuyện",
+      "category": "media",
+      "example": "My mom watches a talk show every evening.",
+      "image": ""
+    },
+    {
+      "word": "chat show",
+      "meaning": "chương trình trò chuyện",
+      "category": "media",
+      "example": "The singer was a guest on a popular chat show.",
+      "image": ""
+    },
+    {
+      "word": "soap opera",
+      "meaning": "phim truyền hình dài tập",
+      "category": "media",
+      "example": "My aunt watches a soap opera every evening.",
+      "image": ""
+    },
+    {
+      "word": "recording",
+      "meaning": "bản ghi âm",
+      "category": "media",
+      "example": "Listen to the recording and answer the questions.",
+      "image": ""
+    },
+    {
+      "word": "video clip",
+      "meaning": "đoạn video ngắn",
+      "category": "media",
+      "example": "I watched a funny video clip about a talking parrot.",
+      "image": ""
+    },
+    {
+      "word": "announce",
+      "meaning": "thông báo",
+      "category": "speech",
+      "example": "The teacher will announce the test results tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "advertise",
+      "meaning": "quảng cáo",
+      "category": "speech",
+      "example": "Companies advertise their products on social media.",
+      "image": ""
+    },
+    {
+      "word": "publish",
+      "meaning": "xuất bản",
+      "category": "daily",
+      "example": "The school will publish a magazine next month.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "We heard an ___ about the school trip.",
+      "options": [
+        "announcement",
+        "interviewer",
+        "advertise"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhà xuất bản)",
+      "options": [
+        "pulbisher",
+        "publisher",
+        "pbulisher"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The singer was a guest on a popular ___.",
+      "options": [
+        "publisher",
+        "presenter",
+        "chat show"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"podcast\" mean?",
+      "options": [
+        "nhà xuất bản",
+        "chương trình podcast",
+        "người dẫn chương trình"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đoạn video ngắn\"?",
+      "options": [
+        "video clip",
+        "first name",
+        "department store"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"talk show\" mean?",
+      "options": [
+        "hướng dẫn viên du lịch",
+        "nhà làm phim",
+        "chương trình trò chuyện"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tiêu đề báo\"?",
+      "options": [
+        "headline",
+        "collar",
+        "cyclist"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"interviewer\" mean?",
+      "options": [
+        "chương trình trò chuyện",
+        "người phỏng vấn",
+        "đoạn video ngắn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xuất bản\"?",
+      "options": [
+        "explore",
+        "realise",
+        "publish"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người dẫn chương trình)",
+      "options": [
+        "presneter",
+        "persenter",
+        "presenter"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ann_unce (thông báo)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phim truyền hình dài tập\"?",
+      "options": [
+        "soap opera",
+        "video clip",
+        "identity card"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_cording (bản ghi âm)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"advertise\" mean?",
+      "options": [
+        "quảng cáo",
+        "xuất bản",
+        "dập tắt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phim tài liệu)",
+      "options": [
+        "documentery",
+        "documentary",
+        "ducumentary"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a reporter on TV",
+    "Pretend to read a headline aloud",
+    "Mime recording a podcast",
+    "Pretend to be a talk show host",
+    "Pretend to make an announcement",
+    "Pretend to watch a video clip on your phone"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

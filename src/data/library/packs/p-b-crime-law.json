@@ -1,0 +1,261 @@
+{
+  "title": "Police and Law",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "rob",
+      "meaning": "cướp",
+      "category": "action",
+      "example": "Two men tried to rob the shop last night.",
+      "image": ""
+    },
+    {
+      "word": "detective",
+      "meaning": "thám tử",
+      "category": "job",
+      "example": "The detective looks for small clues.",
+      "image": ""
+    },
+    {
+      "word": "lawyer",
+      "meaning": "luật sư",
+      "category": "job",
+      "example": "My aunt is a lawyer in a big office.",
+      "image": ""
+    },
+    {
+      "word": "judge",
+      "meaning": "thẩm phán",
+      "category": "job",
+      "example": "The judge listens to both sides.",
+      "image": ""
+    },
+    {
+      "word": "policeman",
+      "meaning": "chú cảnh sát",
+      "category": "job",
+      "example": "The policeman stands near the bank.",
+      "image": ""
+    },
+    {
+      "word": "policewoman",
+      "meaning": "nữ cảnh sát",
+      "category": "job",
+      "example": "A policewoman helped the lost boy find his mother.",
+      "image": ""
+    },
+    {
+      "word": "spy",
+      "meaning": "điệp viên",
+      "category": "job",
+      "example": "The film is about a young spy.",
+      "image": ""
+    },
+    {
+      "word": "security guard",
+      "meaning": "nhân viên bảo vệ",
+      "category": "job",
+      "example": "The security guard checked our bags at the door.",
+      "image": ""
+    },
+    {
+      "word": "forbidden",
+      "meaning": "bị cấm",
+      "category": "describe",
+      "example": "Phones are forbidden during the exam.",
+      "image": ""
+    },
+    {
+      "word": "dangerous",
+      "meaning": "nguy hiểm",
+      "category": "describe",
+      "example": "The river is dangerous in winter.",
+      "image": ""
+    },
+    {
+      "word": "police",
+      "meaning": "cảnh sát",
+      "category": "job",
+      "example": "The police help lost children.",
+      "image": ""
+    },
+    {
+      "word": "court",
+      "meaning": "sân thi đấu",
+      "category": "sport",
+      "example": "They play tennis on the court near the park.",
+      "image": ""
+    },
+    {
+      "word": "officer",
+      "meaning": "sĩ quan, nhân viên",
+      "category": "job",
+      "example": "The officer asked to see my passport at the airport.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"policeman\" mean?",
+      "options": [
+        "sân thi đấu",
+        "dự báo thời tiết",
+        "chú cảnh sát"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: off_cer (sĩ quan, nhân viên)",
+      "options": [
+        "i",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thám tử)",
+      "options": [
+        "detecttive",
+        "detective",
+        "detecctive"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"luật sư\"?",
+      "options": [
+        "hippo",
+        "lawyer",
+        "playground"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bị cấm)",
+      "options": [
+        "forbidden",
+        "forbydden",
+        "fobridden"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thẩm phán\"?",
+      "options": [
+        "football",
+        "diploma",
+        "judge"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dangerous\" mean?",
+      "options": [
+        "nguy hiểm",
+        "không tay",
+        "năng động"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nữ cảnh sát\"?",
+      "options": [
+        "harbour",
+        "rabbit",
+        "policewoman"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"policewoman\" mean?",
+      "options": [
+        "sân thi đấu",
+        "nữ cảnh sát",
+        "phương pháp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The film is about a young ___.",
+      "options": [
+        "court",
+        "rob",
+        "spy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sân thi đấu\"?",
+      "options": [
+        "court",
+        "spy",
+        "policewoman"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_b (cướp)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The river is ___ in winter.",
+      "options": [
+        "dangerous",
+        "policewoman",
+        "detective"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"security guard\" mean?",
+      "options": [
+        "chung cư",
+        "phòng chờ",
+        "nhân viên bảo vệ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_lice (cảnh sát)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a detective with a magnifying glass",
+    "Pretend to be a judge in a court",
+    "Mime a lawyer giving a speech",
+    "Pretend to be a security guard watching a screen",
+    "Show me a stop sign with your hand",
+    "Pretend to be a spy looking around slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

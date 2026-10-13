@@ -1,19 +1,26 @@
 // Luật chống câu mơ hồ cho bộ sinh câu hỏi (REVIEW-LIBRARY mục c, đợt 4). Module thuần, chỉ dữ liệu + hàm nhỏ.
 // Dùng chung cho qgen.js và tools/library/audit.mjs.
-import { groupOf } from './categories.js';
+import { groupOf, WHICH_CATS as WHICH_FROM_CATEGORIES } from './categories.js';
 import { normKey } from './normalize.js';
+import { PROPER_GEN } from './proper-gen.js';
 
 // R0.1 Từ không hợp với trẻ: không bao giờ làm đáp án nhiễu (vẫn được là đáp án nếu giáo viên tự nhập).
-export const KID_UNSAFE = new Set(['blood', 'axe', 'danger', 'beer', 'wine', 'god', 'gun', 'kill', 'die', 'dead', 'knife', 'hubby']);
+export const KID_UNSAFE = new Set([
+  'blood', 'axe', 'danger', 'beer', 'wine', 'god', 'gun', 'kill', 'die', 'dead', 'knife', 'hubby',
+  // PET (thiếu niên): từ nhạy cảm vẫn có mục trong kho nhưng không làm nhiễu và không vào gói thư viện.
+  'crime', 'criminal', 'prison', 'jail', 'prisoner', 'drug', 'drugs', 'arrest', 'war', 'thief', 'weapon', 'shoot', 'murder', 'steal', 'robbery', 'victim', 'bomb', 'alcohol', 'cigarette', 'pistol', 'rifle',
+]);
 
 // R0.2 Danh từ riêng / viết tắt: kho lưu viết thường nên cần ép chữ hoa khi hiển thị.
-export const PROPER = {
+const PROPER_MANUAL = {
   christmas: 'Christmas', easter: 'Easter', halloween: 'Halloween', santa: 'Santa', 'new year': 'New Year', 'father christmas': 'Father Christmas',
   earth: 'Earth', tv: 'TV', dvd: 'DVD', ufo: 'UFO', english: 'English', pe: 'PE',
   monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday',
-  january: 'January', february: 'February', march: 'March', april: 'April', may: 'May', june: 'June', july: 'July', august: 'August',
+  january: 'January', february: 'February', march: 'March', april: 'April', june: 'June', july: 'July', august: 'August',
   september: 'September', october: 'October', november: 'November', december: 'December',
 };
+// Bảng tay + bảng sinh từ cột display của kho (merge.mjs ghi proper-gen.js). Bảng tay thắng khi trùng khoá.
+export const PROPER = Object.assign({}, PROPER_GEN, PROPER_MANUAL);
 export function display(word) {
   const k = String(word == null ? '' : word).trim().toLowerCase();
   return Object.prototype.hasOwnProperty.call(PROPER, k) ? PROPER[k] : String(word == null ? '' : word);
@@ -25,6 +32,16 @@ export function isProper(word) {
 export function isAbbrev(word) {
   const k = String(word == null ? '' : word).trim().toLowerCase();
   return isProper(k) && PROPER[k] === PROPER[k].toUpperCase() && k.length <= 3;
+}
+
+// R0.3 Từ nghĩa mơ hồ hoặc một nghĩa không đủ (mạo từ, trợ động từ, be/like/cross...): vẫn nằm trong kho để tự điền
+// nghĩa, nhưng KHÔNG ra câu hỏi "What does ... mean?" / "Which word means ...?" và không làm nhiễu cho hai loại đó.
+export const NO_MEANING_Q = new Set([
+  'a', 'an', 'the', 'be', 'like', 'cross', 'shall', 'would', 'may', 'can', 'could', 'will', 'should', 'must', 'do', 'does', 'did',
+  'is', 'am', 'are', 'was', 'were', 'to', 'of', 'it', 'there', 'one',
+]);
+export function noMeaningQ(word) {
+  return NO_MEANING_Q.has(normKey(word));
 }
 
 // R1.1 Ma trận nhóm láng giềng (mức cat): hai cat trong cùng một tập là "hàng xóm", nhiễu fill/which không được lấy.
@@ -40,7 +57,29 @@ export const NEAR_SETS = [
   ['place', 'house', 'school', 'nature'],
   ['action', 'hobby', 'sport', 'music'],
   ['fantasy', 'people', 'job', 'family'],
+  // KET/PET (PLAN-LEVELS 2.8). Cố ý KHÔNG nối motion/speech/mind/daily thành một khối: nhiễu động từ cùng loại vẫn tìm được ở nhóm xa.
+  ['health', 'body'],
+  ['travel', 'transport', 'place'],
+  ['money', 'work', 'job'],
+  ['media', 'tech', 'hobby', 'music'],
+  ['study', 'subject', 'school'],
+  ['environment', 'nature', 'weather', 'plant'],
+  ['measure', 'number'],
+  ['country', 'nationality', 'place'],
+  ['character', 'feeling'],
+  ['opinion', 'describe', 'feeling'],
+  ['motion', 'action'],
+  ['speech', 'mind'],
+  ['daily', 'action'],
+  ['daily', 'house'], // tách khỏi ['daily','action','house'] của plan để không biến action~house thành láng giềng (gói cũ đã duyệt có nhiễu house cho action)
+  ['manner', 'time'],
 ];
+
+// function / abstract: không sinh câu điền chỗ trống và không làm nhiễu cho fill (ô trống quá chung). meaning/word vẫn dùng được.
+export function noDistractorFill(cat) {
+  const k = String(cat || '').toLowerCase();
+  return k === 'function' || k === 'abstract';
+}
 export function nearCat(a, b) {
   const x = String(a || '').toLowerCase();
   const y = String(b || '').toLowerCase();
@@ -73,6 +112,9 @@ export function isGeneric(prompt) {
   if (/\b(has|have)\s+an?\s+___\s+in\b/i.test(p)) return true;
   if (/\b(buys?|bought)\s+an?\s+___/i.test(p)) return true;
   if (/\b(is|are)\s+(very|so|too|really)\s+___/i.test(p)) return true;
+  // Khung hay gặp ở KET/PET: nhiều từ cùng loại điền được.
+  if (/^(it|this|that)\s+(was|is)\s+___/i.test(p) || /^i\s+(feel|felt)\s+___/i.test(p) || /\bshe\s+is\s+very\s+___/i.test(p)) return true;
+  if (/\b(feel|feels|felt|seem|seems|look|looks|become|becomes)\s+___/i.test(p)) return true;
   return false;
 }
 
@@ -110,7 +152,8 @@ export function meaningClash(a, b) {
 }
 
 // R2.2 Từ bao (hypernym): không đặt cạnh từ cụ thể cùng nhóm/gần nhóm.
-export const GENERIC_WORDS = new Set(['bird', 'animal', 'fish', 'insect', 'toy', 'game', 'hobby', 'food', 'fruit', 'drink', 'music', 'picture', 'sport', 'job', 'place', 'plant', 'tree', 'flower', 'thing', 'brush', 'phone', 'chicken', 'meal', 'vegetable', 'clothes', 'vehicle', 'building', 'shop', 'weather', 'colour', 'color', 'shape', 'number']);
+export const GENERIC_WORDS = new Set(['bird', 'animal', 'fish', 'insect', 'toy', 'game', 'hobby', 'food', 'fruit', 'drink', 'music', 'picture', 'sport', 'job', 'place', 'plant', 'tree', 'flower', 'thing', 'brush', 'phone', 'chicken', 'meal', 'vegetable', 'clothes', 'vehicle', 'building', 'shop', 'weather', 'colour', 'color', 'shape', 'number',
+  'subject', 'material', 'country', 'language', 'illness', 'work', 'money', 'media', 'environment', 'measurement', 'transport', 'equipment', 'furniture']);
 export function isGenericWord(key) {
   return GENERIC_WORDS.has(String(key || ''));
 }
@@ -124,6 +167,13 @@ export const SYN_GROUPS = [
   ['sad', 'sorry', 'unhappy'], ['quick', 'fast'], ['ill', 'sick'], ['gray', 'grey'], ['sofa', 'armchair', 'couch'], ['trousers', 'jeans', 'pants'],
   ['rabbit', 'bunny'], ['dog', 'puppy'], ['cat', 'kitten'], ['sea', 'ocean'], ['lake', 'river', 'pond'], ['hill', 'mountain'], ['plane', 'aeroplane', 'airplane'],
   ['tv', 'television'], ['car', 'taxi'], ['bike', 'bicycle'], ['mum', 'mother', 'mom'], ['dad', 'father'], ['clever', 'smart'], ['unhappy', 'sad'],
+  // KET/PET: cặp gần nghĩa hay gặp (phần còn lại do check all liệt kê vào review/syn-candidates.tsv để duyệt).
+  ['begin', 'start'], ['finish', 'end', 'complete'], ['big', 'large', 'huge'], ['small', 'little', 'tiny'], ['angry', 'cross', 'annoyed'],
+  ['frightened', 'afraid', 'scared', 'terrified'], ['journey', 'trip', 'travel', 'tour'], ['job', 'work', 'career', 'profession'], ['holiday', 'vacation'],
+  ['rubbish', 'garbage', 'trash'], ['underground', 'subway', 'metro'], ['lorry', 'truck'], ['flat', 'apartment'], ['autumn', 'fall'], ['shop', 'store'],
+  ['film', 'movie'], ['cheap', 'inexpensive'], ['clever', 'intelligent', 'bright'], ['strange', 'odd', 'unusual'], ['famous', 'well-known'],
+  ['quick', 'fast', 'rapid'], ['correct', 'right'], ['wrong', 'incorrect'], ['choose', 'pick', 'select'], ['reply', 'answer', 'respond'],
+  ['repair', 'fix', 'mend'], ['arrive', 'reach', 'get to'], ['buy', 'purchase'], ['enormous', 'huge', 'giant'],
 ];
 const SYN_MAP = (() => {
   const m = new Map();
@@ -140,4 +190,5 @@ export function synClash(a, b) {
 }
 
 // R3 Chỉ các nhóm tự nhiên mới sinh câu "Which one is ...?".
-export const WHICH_CATS = new Set(['fruit', 'vegetable', 'drink', 'animal', 'bird', 'insect', 'sea-animal', 'body', 'clothes', 'transport', 'job', 'color', 'number', 'sport', 'family']);
+// Nguồn sự thật nay là cờ which trong categories.js (thêm material, subject, measure, country).
+export const WHICH_CATS = WHICH_FROM_CATEGORIES;

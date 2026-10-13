@@ -1,0 +1,289 @@
+{
+  "title": "Materials and Shapes",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "wool",
+      "meaning": "len",
+      "category": "material",
+      "example": "This jumper is made of wool.",
+      "image": ""
+    },
+    {
+      "word": "gold",
+      "meaning": "vàng",
+      "category": "thing",
+      "example": "The ring is made of gold.",
+      "image": ""
+    },
+    {
+      "word": "silver",
+      "meaning": "bạc, màu bạc",
+      "category": "color",
+      "example": "She wore a silver ring.",
+      "image": ""
+    },
+    {
+      "word": "metal",
+      "meaning": "kim loại, bằng kim loại",
+      "category": "describe",
+      "example": "This metal box is very heavy.",
+      "image": ""
+    },
+    {
+      "word": "plastic",
+      "meaning": "bằng nhựa, nhựa",
+      "category": "describe",
+      "example": "Do not throw plastic bags in the river.",
+      "image": ""
+    },
+    {
+      "word": "stone",
+      "meaning": "hòn đá",
+      "category": "nature",
+      "example": "She throws a stone into the lake.",
+      "image": ""
+    },
+    {
+      "word": "wood",
+      "meaning": "khu rừng nhỏ",
+      "category": "nature",
+      "example": "We walk through the wood after lunch.",
+      "image": ""
+    },
+    {
+      "word": "pyramid",
+      "meaning": "kim tự tháp",
+      "category": "shape",
+      "example": "We saw a big pyramid in Egypt.",
+      "image": ""
+    },
+    {
+      "word": "stripe",
+      "meaning": "sọc, vằn",
+      "category": "thing",
+      "example": "A zebra has black and white stripes.",
+      "image": ""
+    },
+    {
+      "word": "spot",
+      "meaning": "đốm, vết",
+      "category": "thing",
+      "example": "There is a black spot on the leaf.",
+      "image": ""
+    },
+    {
+      "word": "wheel",
+      "meaning": "bánh xe",
+      "category": "thing",
+      "example": "My bike has a new front wheel.",
+      "image": ""
+    },
+    {
+      "word": "hole",
+      "meaning": "cái lỗ",
+      "category": "thing",
+      "example": "The dog made a hole in the garden.",
+      "image": ""
+    },
+    {
+      "word": "flag",
+      "meaning": "lá cờ",
+      "category": "thing",
+      "example": "The flag is red and white.",
+      "image": ""
+    },
+    {
+      "word": "soft",
+      "meaning": "mềm",
+      "category": "describe",
+      "example": "My cat has soft fur.",
+      "image": ""
+    },
+    {
+      "word": "hard",
+      "meaning": "khó, cứng",
+      "category": "describe",
+      "example": "This test was very hard for me.",
+      "image": ""
+    },
+    {
+      "word": "shape",
+      "meaning": "hình dạng",
+      "category": "shape",
+      "example": "A star is my favourite shape.",
+      "image": ""
+    },
+    {
+      "word": "circle",
+      "meaning": "hình tròn",
+      "category": "shape",
+      "example": "Draw a big circle on the paper.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"pyramid\" mean?",
+      "options": [
+        "hình tròn",
+        "kim tự tháp",
+        "khó, cứng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hình dạng\"?",
+      "options": [
+        "swimsuit",
+        "pancakes",
+        "shape"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She throws a ___ into the lake.",
+      "options": [
+        "stone",
+        "pyramid",
+        "hole"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stripe\" mean?",
+      "options": [
+        "vàng",
+        "đốm, vết",
+        "sọc, vằn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My cat has ___ fur.",
+      "options": [
+        "soft",
+        "stripe",
+        "wood"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wood\" mean?",
+      "options": [
+        "hòn đá",
+        "khu rừng nhỏ",
+        "hình dạng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_le (cái lỗ)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"len\"?",
+      "options": [
+        "soft",
+        "silver",
+        "wool"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: plast_c (bằng nhựa, nhựa)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vàng\"?",
+      "options": [
+        "soft",
+        "gold",
+        "hard"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sp_t (đốm, vết)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khó, cứng)",
+      "options": [
+        "harrd",
+        "hrad",
+        "hard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flag\" mean?",
+      "options": [
+        "bánh xe",
+        "cái lỗ",
+        "lá cờ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bánh xe)",
+      "options": [
+        "wheel",
+        "whiel",
+        "whel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kim loại, bằng kim loại)",
+      "options": [
+        "mital",
+        "metal",
+        "metel"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a triangle with your fingers",
+    "Make a circle with your arms",
+    "Pretend to hold something soft",
+    "Pretend to knit with wool",
+    "Point to something made of plastic",
+    "Point to something that is silver"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

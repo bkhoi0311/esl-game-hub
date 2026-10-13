@@ -1,0 +1,289 @@
+{
+  "title": "Food and Snacks",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "biscuit",
+      "meaning": "bánh quy giòn",
+      "category": "food",
+      "example": "He dips a biscuit in his tea.",
+      "image": ""
+    },
+    {
+      "word": "butter",
+      "meaning": "bơ",
+      "category": "food",
+      "example": "Please put some butter on my toast.",
+      "image": ""
+    },
+    {
+      "word": "cereal",
+      "meaning": "ngũ cốc",
+      "category": "food",
+      "example": "I have cereal with milk for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "cookie",
+      "meaning": "bánh quy",
+      "category": "food",
+      "example": "She bakes a cookie for her brother.",
+      "image": ""
+    },
+    {
+      "word": "flour",
+      "meaning": "bột mì",
+      "category": "food",
+      "example": "We need flour to make bread.",
+      "image": ""
+    },
+    {
+      "word": "honey",
+      "meaning": "mật ong",
+      "category": "food",
+      "example": "Bees make sweet honey.",
+      "image": ""
+    },
+    {
+      "word": "jam",
+      "meaning": "mứt",
+      "category": "food",
+      "example": "I put jam on my bread.",
+      "image": ""
+    },
+    {
+      "word": "olives",
+      "meaning": "quả ô liu",
+      "category": "food",
+      "example": "I like olives on my pizza.",
+      "image": ""
+    },
+    {
+      "word": "salt",
+      "meaning": "muối",
+      "category": "food",
+      "example": "Please pass the salt.",
+      "image": ""
+    },
+    {
+      "word": "snack",
+      "meaning": "đồ ăn vặt",
+      "category": "food",
+      "example": "I eat a snack after school.",
+      "image": ""
+    },
+    {
+      "word": "sugar",
+      "meaning": "đường",
+      "category": "food",
+      "example": "He puts some sugar in his tea.",
+      "image": ""
+    },
+    {
+      "word": "yoghurt",
+      "meaning": "sữa chua",
+      "category": "food",
+      "example": "I have yoghurt with fruit for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "pizza",
+      "meaning": "bánh pizza",
+      "category": "meal",
+      "example": "We share a big pizza on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "meal",
+      "meaning": "bữa ăn",
+      "category": "meal",
+      "example": "Dinner is my favourite meal of the day.",
+      "image": ""
+    },
+    {
+      "word": "strawberry",
+      "meaning": "quả dâu tây",
+      "category": "fruit",
+      "example": "A strawberry is red and sweet.",
+      "image": ""
+    },
+    {
+      "word": "pepper",
+      "meaning": "ớt chuông",
+      "category": "vegetable",
+      "example": "She adds a red pepper to the salad.",
+      "image": ""
+    },
+    {
+      "word": "delicious",
+      "meaning": "ngon",
+      "category": "opinion",
+      "example": "Grandma's soup is delicious!",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"bữa ăn\"?",
+      "options": [
+        "language",
+        "meal",
+        "astronaut"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"salt\" mean?",
+      "options": [
+        "mật ong",
+        "bơ",
+        "muối"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She bakes a ___ for her brother.",
+      "options": [
+        "cookie",
+        "delicious",
+        "goal"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quả ô liu\"?",
+      "options": [
+        "olives",
+        "butter",
+        "salt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cere_l (ngũ cốc)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jam\" mean?",
+      "options": [
+        "bơ",
+        "mật ong",
+        "mứt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: flo_r (bột mì)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mật ong\"?",
+      "options": [
+        "snack",
+        "cereal",
+        "honey"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả dâu tây)",
+      "options": [
+        "strawberry",
+        "strawbrery",
+        "strawebrry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"snack\" mean?",
+      "options": [
+        "sữa chua",
+        "quả ô liu",
+        "đồ ăn vặt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bơ)",
+      "options": [
+        "btuter",
+        "butter",
+        "buttir"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"yoghurt\" mean?",
+      "options": [
+        "sữa chua",
+        "muối",
+        "bánh quy giòn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She adds a red ___ to the salad.",
+      "options": [
+        "delicious",
+        "pepper",
+        "horse riding"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_zza (bánh pizza)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đường)",
+      "options": [
+        "sugar",
+        "suagr",
+        "suger"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to eat a delicious pizza",
+    "Pretend to eat a bowl of cereal",
+    "Pretend to spread jam on bread",
+    "Pretend to eat a cookie",
+    "Rub your tummy and say yummy",
+    "Pretend to put salt on your food"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

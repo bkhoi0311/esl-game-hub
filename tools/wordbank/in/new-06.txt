@@ -1,0 +1,93 @@
+a few	other	flyers		few			det
+a.m.	adv	flyers	for time				adv
+across	prep	flyers					prep
+act	v	flyers					v
+actually	adv	flyers					adv
+adventure	n	flyers					n
+ago	adv	flyers					adv
+agree	v	flyers					v
+alone	adj	flyers					adj
+already	adv	flyers					adv
+also	adv	flyers					adv
+amazing	adj	flyers					adj+excl
+anyone	pron	flyers					pron
+anything	pron	flyers					pron
+anywhere	adv	flyers					adv
+appear	v	flyers					v
+april	n	flyers				April	n
+arrive	v	flyers					v
+as	adv	flyers					adv
+as ... as	adv	flyers					adv
+at the moment	adv	flyers					adv
+august	n	flyers				August	n
+away	adv	flyers					adv
+begin	v	flyers					v
+believe	v	flyers					v
+bit	n	flyers					n
+borrow	v	flyers					v
+bracelet	n	flyers					n
+burn	v	flyers					v
+business	n	flyers					n
+by myself	adv	flyers					adv
+by yourself	adv	flyers					adv
+cartoon	n	flyers					n
+century	n	flyers					n
+channel	n	flyers					n
+cheap	adj	flyers					adj
+competition	n	flyers					n
+conversation	n	flyers					n
+corner	n	flyers					n
+costume	n	flyers					n
+creature	n	flyers					n
+cushion	n	flyers					n
+cycle	v	flyers					v
+dark	adj	flyers					adj
+dear	adj	flyers	as in Dear Harry				adj
+december	n	flyers				December	n
+decide	v	flyers					v
+deep	adj	flyers					adj
+delicious	adj	flyers					adj
+design	n	flyers					n+v
+designer	n	flyers					n
+disappear	v	flyers					v
+during	prep	flyers					prep
+each	other	flyers					det+pron
+early	adj	flyers					adj+adv
+east	n	flyers					n
+elbow	n	flyers					n
+else	adv	flyers					adv
+engine	n	flyers					n
+engineer	n	flyers					n
+enormous	adj	flyers					adj
+enough	adj	flyers					adj+pron
+enter	v	flyers	a competition				v
+entrance	n	flyers					n
+ever	adv	flyers					adv
+everywhere	adv	flyers					adv
+excellent	adj	flyers					adj+excl
+exit	n	flyers					n
+expensive	adj	flyers					adj
+explain	v	flyers					v
+explore	v	flyers					v
+extinct	adj	flyers					adj
+fall over	v	flyers					v
+far	adj	flyers					adj+adv
+february	n	flyers				February	n
+feel	v	flyers					v
+fetch	v	flyers					v
+file	n	flyers	(as in open and close a file)				n
+find out	v	flyers					v
+finish	v	flyers					v
+fire fighter	n	flyers					n
+fire station	n	flyers					n
+flour	n	flyers					n
+follow	v	flyers					v
+forget	v	flyers					v
+friendly	adj	flyers					adj
+frightening	adj	flyers					adj
+front	adj	flyers					adj+n
+fur	n	flyers					n
+furry	adj	flyers					adj
+future	n	flyers					n
+get to	v	flyers					v
+go away	phr	flyers					excl

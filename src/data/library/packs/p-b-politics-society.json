@@ -1,0 +1,254 @@
+{
+  "title": "Politics and Society",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "president",
+      "meaning": "tổng thống, chủ tịch",
+      "category": "job",
+      "example": "She is the president of the school music club.",
+      "image": ""
+    },
+    {
+      "word": "political",
+      "meaning": "thuộc chính trị",
+      "category": "describe",
+      "example": "He studies political science at university.",
+      "image": ""
+    },
+    {
+      "word": "social",
+      "meaning": "mang tính xã hội",
+      "category": "describe",
+      "example": "Too much social media can waste a lot of our time.",
+      "image": ""
+    },
+    {
+      "word": "public",
+      "meaning": "công cộng, công chúng",
+      "category": "describe",
+      "example": "The public library is open until eight o'clock.",
+      "image": ""
+    },
+    {
+      "word": "charity",
+      "meaning": "tổ chức từ thiện",
+      "category": "money",
+      "example": "Our class sold cakes to raise money for a charity.",
+      "image": ""
+    },
+    {
+      "word": "army",
+      "meaning": "quân đội",
+      "category": "work",
+      "example": "His grandfather served in the army for ten years.",
+      "image": ""
+    },
+    {
+      "word": "air force",
+      "meaning": "không quân",
+      "category": "work",
+      "example": "His uncle joined the air force at eighteen.",
+      "image": ""
+    },
+    {
+      "word": "strike",
+      "meaning": "cuộc đình công",
+      "category": "work",
+      "example": "The bus drivers went on strike last week.",
+      "image": ""
+    },
+    {
+      "word": "equal",
+      "meaning": "bằng nhau, bình đẳng",
+      "category": "describe",
+      "example": "The two teams had an equal number of players.",
+      "image": ""
+    },
+    {
+      "word": "human",
+      "meaning": "thuộc con người",
+      "category": "describe",
+      "example": "The human body needs water to stay healthy.",
+      "image": ""
+    },
+    {
+      "word": "cultural",
+      "meaning": "thuộc văn hoá",
+      "category": "describe",
+      "example": "The school has a cultural day every spring.",
+      "image": ""
+    },
+    {
+      "word": "captain",
+      "meaning": "đội trưởng, thuyền trưởng",
+      "category": "people",
+      "example": "Our captain scored two goals in the final game.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (tổ chức từ thiện)",
+      "options": [
+        "charity",
+        "charyty",
+        "cherity"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She is the ___ of the school music club.",
+      "options": [
+        "cultural",
+        "president",
+        "political"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuộc chính trị)",
+      "options": [
+        "politiacl",
+        "politiccal",
+        "political"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: hum_n (thuộc con người)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"charity\" mean?",
+      "options": [
+        "tổ chức từ thiện",
+        "đội trưởng, thuyền trưởng",
+        "bóng bàn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The bus drivers went on ___ last week.",
+      "options": [
+        "captain",
+        "social",
+        "strike"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"captain\" mean?",
+      "options": [
+        "cuộc đình công",
+        "tổ chức từ thiện",
+        "đội trưởng, thuyền trưởng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _rmy (quân đội)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"public\" mean?",
+      "options": [
+        "không tử tế",
+        "công cộng, công chúng",
+        "người Canada"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_ke (cuộc đình công)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thuộc văn hoá\"?",
+      "options": [
+        "diving",
+        "racing",
+        "cultural"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"equal\" mean?",
+      "options": [
+        "người Ireland",
+        "bằng nhau, bình đẳng",
+        "người Pháp, tiếng Pháp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thuộc con người\"?",
+      "options": [
+        "talented",
+        "human",
+        "French"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"không quân\"?",
+      "options": [
+        "alarm clock",
+        "fire station",
+        "air force"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mang tính xã hội\"?",
+      "options": [
+        "social",
+        "curious",
+        "bold"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to give a speech as a president",
+    "Pretend to be a volunteer helping people",
+    "Mime putting a coin in a charity box",
+    "Pretend to be a captain giving a calm order",
+    "Show me a polite greeting to a soldier",
+    "Pretend to vote with a paper"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

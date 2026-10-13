@@ -1,0 +1,282 @@
+{
+  "title": "Numbers and Maths",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "sum",
+      "meaning": "tổng",
+      "category": "number",
+      "example": "The sum of two and three is five.",
+      "image": ""
+    },
+    {
+      "word": "multiply",
+      "meaning": "nhân",
+      "category": "daily",
+      "example": "If you multiply three by four, you get twelve.",
+      "image": ""
+    },
+    {
+      "word": "subtract",
+      "meaning": "trừ",
+      "category": "daily",
+      "example": "You subtract five from ten to get five.",
+      "image": ""
+    },
+    {
+      "word": "divide",
+      "meaning": "chia",
+      "category": "daily",
+      "example": "Let's divide the pizza into eight equal pieces.",
+      "image": ""
+    },
+    {
+      "word": "arithmetic",
+      "meaning": "số học",
+      "category": "subject",
+      "example": "I find arithmetic easy, but algebra is hard.",
+      "image": ""
+    },
+    {
+      "word": "average",
+      "meaning": "trung bình",
+      "category": "describe",
+      "example": "My average mark in maths is eight out of ten.",
+      "image": ""
+    },
+    {
+      "word": "add",
+      "meaning": "thêm vào, cộng",
+      "category": "daily",
+      "example": "You can add two and three.",
+      "image": ""
+    },
+    {
+      "word": "count",
+      "meaning": "đếm",
+      "category": "mind",
+      "example": "I can count to twenty.",
+      "image": ""
+    },
+    {
+      "word": "figure",
+      "meaning": "con số",
+      "category": "study",
+      "example": "The sales figure for May was very high.",
+      "image": ""
+    },
+    {
+      "word": "calculator",
+      "meaning": "máy tính bỏ túi",
+      "category": "school",
+      "example": "Use a calculator for this sum.",
+      "image": ""
+    },
+    {
+      "word": "exact",
+      "meaning": "chính xác",
+      "category": "describe",
+      "example": "Can you tell me the exact time of the next bus?",
+      "image": ""
+    },
+    {
+      "word": "accurate",
+      "meaning": "chính xác",
+      "category": "describe",
+      "example": "The map was accurate, so we found the park easily.",
+      "image": ""
+    },
+    {
+      "word": "approximately",
+      "meaning": "khoảng, xấp xỉ",
+      "category": "manner",
+      "example": "The trip takes approximately two hours by bus.",
+      "image": ""
+    },
+    {
+      "word": "total",
+      "meaning": "tổng, tổng số",
+      "category": "describe",
+      "example": "The total cost of the trip was fifty pounds.",
+      "image": ""
+    },
+    {
+      "word": "half",
+      "meaning": "một nửa",
+      "category": "describe",
+      "example": "I ate half of the cake.",
+      "image": ""
+    },
+    {
+      "word": "double",
+      "meaning": "gấp đôi, đôi",
+      "category": "describe",
+      "example": "This is a double bed.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"con số\"?",
+      "options": [
+        "film",
+        "tap",
+        "figure"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Use a ___ for this sum.",
+      "options": [
+        "sum",
+        "calculator",
+        "double"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đếm\"?",
+      "options": [
+        "count",
+        "chat",
+        "carry out"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "You ___ five from ten to get five.",
+      "options": [
+        "count",
+        "accurate",
+        "subtract"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _dd (thêm vào, cộng)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoảng, xấp xỉ\"?",
+      "options": [
+        "approximately",
+        "upstairs",
+        "downstairs"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhân)",
+      "options": [
+        "multtiply",
+        "multilpy",
+        "multiply"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Arithmetic\" mean?",
+      "options": [
+        "số học",
+        "tổng",
+        "cậu bé"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ex_ct (chính xác)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"divide\" mean?",
+      "options": [
+        "đếm",
+        "theo kịp",
+        "chia"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gấp đôi, đôi)",
+      "options": [
+        "double",
+        "doubble",
+        "duuble"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"total\" mean?",
+      "options": [
+        "khôn ngoan, hợp lý",
+        "tổng, tổng số",
+        "nghiêm khắc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chính xác)",
+      "options": [
+        "accurate",
+        "acucrate",
+        "accruate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: av_rage (trung bình)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"half\" mean?",
+      "options": [
+        "thô lỗ",
+        "thứ hai",
+        "một nửa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to use a calculator",
+    "Pretend to write a sum on a board",
+    "Show me a number with your fingers",
+    "Show me half with your hands",
+    "Pretend to count slowly in the air",
+    "Show me you are thinking about a hard sum"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

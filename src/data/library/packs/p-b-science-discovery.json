@@ -1,0 +1,251 @@
+{
+  "title": "Science and Discovery",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "scientific",
+      "meaning": "khoa học",
+      "category": "describe",
+      "example": "The class did a scientific experiment with water.",
+      "image": ""
+    },
+    {
+      "word": "universe",
+      "meaning": "vũ trụ",
+      "category": "space",
+      "example": "Scientists think the universe is billions of years old.",
+      "image": ""
+    },
+    {
+      "word": "laboratory",
+      "meaning": "phòng thí nghiệm",
+      "category": "school",
+      "example": "We do science experiments in the laboratory.",
+      "image": ""
+    },
+    {
+      "word": "research",
+      "meaning": "nghiên cứu",
+      "category": "study",
+      "example": "Scientists do research to find new medicines.",
+      "image": ""
+    },
+    {
+      "word": "electronic",
+      "meaning": "điện tử",
+      "category": "tech",
+      "example": "He sells electronic games at a small shop in town.",
+      "image": ""
+    },
+    {
+      "word": "energy",
+      "meaning": "năng lượng",
+      "category": "environment",
+      "example": "Solar panels turn sunlight into energy for our school.",
+      "image": ""
+    },
+    {
+      "word": "data",
+      "meaning": "dữ liệu",
+      "category": "tech",
+      "example": "The app stores your data on the phone.",
+      "image": ""
+    },
+    {
+      "word": "method",
+      "meaning": "phương pháp",
+      "category": "study",
+      "example": "This is an easy method for learning new words.",
+      "image": ""
+    },
+    {
+      "word": "disease",
+      "meaning": "bệnh",
+      "category": "health",
+      "example": "Washing your hands helps stop the spread of disease.",
+      "image": ""
+    },
+    {
+      "word": "cure",
+      "meaning": "cách chữa, chữa khỏi",
+      "category": "health",
+      "example": "Scientists are looking for a cure for the disease.",
+      "image": ""
+    },
+    {
+      "word": "experience",
+      "meaning": "kinh nghiệm",
+      "category": "work",
+      "example": "She has two years of experience as a cook.",
+      "image": ""
+    },
+    {
+      "word": "system",
+      "meaning": "hệ thống",
+      "category": "tech",
+      "example": "Our school has a new computer system.",
+      "image": ""
+    },
+    {
+      "word": "version",
+      "meaning": "phiên bản",
+      "category": "tech",
+      "example": "The new version of the app is much faster.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"scientific\" mean?",
+      "options": [
+        "điện tử",
+        "thân thiện",
+        "khoa học"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: dise_se (bệnh)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The new ___ of the app is much faster.",
+      "options": [
+        "version",
+        "energy",
+        "cure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dữ liệu)",
+      "options": [
+        "datta",
+        "dtaa",
+        "data"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nghiên cứu\"?",
+      "options": [
+        "research",
+        "data",
+        "helicopter"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cách chữa, chữa khỏi)",
+      "options": [
+        "crue",
+        "cure",
+        "curre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"universe\" mean?",
+      "options": [
+        "vũ trụ",
+        "dữ liệu",
+        "bệnh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: experi_nce (kinh nghiệm)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"điện tử\"?",
+      "options": [
+        "charming",
+        "following",
+        "electronic"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: syst_m (hệ thống)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"laboratory\" mean?",
+      "options": [
+        "cách chữa, chữa khỏi",
+        "phòng thí nghiệm",
+        "kinh nghiệm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cách chữa, chữa khỏi\"?",
+      "options": [
+        "barber",
+        "cure",
+        "revision"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"experience\" mean?",
+      "options": [
+        "hệ thống",
+        "vũ trụ",
+        "kinh nghiệm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"năng lượng\"?",
+      "options": [
+        "energy",
+        "pan",
+        "chapter"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look through a microscope",
+    "Pretend to be an inventor with a new idea",
+    "Mime writing down data in a notebook",
+    "Pretend to wear a lab coat and mix something carefully",
+    "Pretend to look at the universe through a telescope",
+    "Show me you made a big discovery"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

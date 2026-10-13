@@ -1,0 +1,268 @@
+{
+  "title": "House and Furniture",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bookshelf",
+      "meaning": "giá sách",
+      "category": "house",
+      "example": "There are many books on the bookshelf.",
+      "image": ""
+    },
+    {
+      "word": "cabinet",
+      "meaning": "tủ",
+      "category": "house",
+      "example": "The plates are in the kitchen cabinet.",
+      "image": ""
+    },
+    {
+      "word": "carpet",
+      "meaning": "thảm",
+      "category": "house",
+      "example": "The cat sleeps on the soft carpet.",
+      "image": ""
+    },
+    {
+      "word": "ceiling",
+      "meaning": "trần nhà",
+      "category": "house",
+      "example": "There is a big lamp on the ceiling.",
+      "image": ""
+    },
+    {
+      "word": "closet",
+      "meaning": "tủ quần áo",
+      "category": "house",
+      "example": "She hung her coat in the closet.",
+      "image": ""
+    },
+    {
+      "word": "curtain",
+      "meaning": "rèm cửa",
+      "category": "house",
+      "example": "Please close the curtain because the sun is bright.",
+      "image": ""
+    },
+    {
+      "word": "drawer",
+      "meaning": "ngăn kéo",
+      "category": "house",
+      "example": "I keep my socks in the top drawer.",
+      "image": ""
+    },
+    {
+      "word": "furniture",
+      "meaning": "đồ nội thất",
+      "category": "house",
+      "example": "We bought some new furniture for the living room.",
+      "image": ""
+    },
+    {
+      "word": "pillow",
+      "meaning": "cái gối",
+      "category": "house",
+      "example": "I like a soft pillow.",
+      "image": ""
+    },
+    {
+      "word": "wardrobe",
+      "meaning": "tủ quần áo",
+      "category": "house",
+      "example": "My clothes are in the wardrobe.",
+      "image": ""
+    },
+    {
+      "word": "stairs",
+      "meaning": "cầu thang",
+      "category": "house",
+      "example": "Walk up the stairs slowly.",
+      "image": ""
+    },
+    {
+      "word": "sitting room",
+      "meaning": "phòng khách",
+      "category": "house",
+      "example": "Our sitting room has a big green sofa.",
+      "image": ""
+    },
+    {
+      "word": "alarm clock",
+      "meaning": "đồng hồ báo thức",
+      "category": "house",
+      "example": "My alarm clock rings at six every day.",
+      "image": ""
+    },
+    {
+      "word": "garage",
+      "meaning": "nhà để xe",
+      "category": "house",
+      "example": "Dad puts the car in the garage.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: clos_t (tủ quần áo)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tủ\"?",
+      "options": [
+        "movie star",
+        "cabinet",
+        "ice cream"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cầu thang)",
+      "options": [
+        "stairs",
+        "satirs",
+        "stiars"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rèm cửa\"?",
+      "options": [
+        "classmate",
+        "curtain",
+        "toast"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rdrobe (tủ quần áo)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"drawer\" mean?",
+      "options": [
+        "máy kéo",
+        "cà rốt",
+        "ngăn kéo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ rings at six every day.",
+      "options": [
+        "fire engine",
+        "shop assistant",
+        "alarm clock"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phòng khách\"?",
+      "options": [
+        "alarm clock",
+        "sitting room",
+        "North America"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_rpet (thảm)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I keep my socks in the top ___.",
+      "options": [
+        "drawer",
+        "euro",
+        "square"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"garage\" mean?",
+      "options": [
+        "anh chị em họ",
+        "nha sĩ",
+        "nhà để xe"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồ nội thất)",
+      "options": [
+        "fruniture",
+        "furniture",
+        "furniturre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ceiling\" mean?",
+      "options": [
+        "hành tinh",
+        "những người bạn",
+        "trần nhà"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giá sách)",
+      "options": [
+        "bokshelf",
+        "bookshelf",
+        "booksehlf"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pillow\" mean?",
+      "options": [
+        "cái gối",
+        "đau bụng",
+        "bằng tốt nghiệp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open a wardrobe",
+    "Pretend to close a curtain",
+    "Pretend to turn off an alarm clock",
+    "Pretend to walk slowly up the stairs on the spot",
+    "Pretend to fluff a pillow",
+    "Point to the ceiling"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

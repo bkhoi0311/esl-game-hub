@@ -68,7 +68,10 @@ test('P2: buildDeck write / missing / mc trên mọi gói thư viện', async ()
       const d = buildDeck({ source: p, kind, count: 50, order: 'seq', seed: 7, difficulty: 2 });
       const ids = new Set(d.map((x) => x.id));
       assert.equal(ids.size, d.length, p.id + ' ' + kind + ' có id trùng');
-      assert.ok(d.length > 0, p.id + ' ' + kind + ' rỗng');
+      // 'missing' chỉ dùng từ đơn 3-10 chữ: gói toàn cụm động từ/cụm từ (PET) không có loại này; bảng báo "chưa có câu loại này" (v2.js).
+      const hasSingle = p.vocab.some((v) => /^[a-z]{3,10}$/i.test(v.w.trim()));
+      if (kind === 'missing' && !hasSingle) assert.equal(d.length, 0, p.id + ' missing phải rỗng');
+      else assert.ok(d.length > 0, p.id + ' ' + kind + ' rỗng');
       assert.equal(d.length, deckCapacity(p, kind));
       if (kind === 'write') for (const t of d) { assert.equal(t.kind, 'write'); assert.ok(/^[a-z -]+$/i.test(txt(t.answer))); assert.ok(t.prompt.some((r) => r.t === 'hint')); }
       if (kind === 'mc') {

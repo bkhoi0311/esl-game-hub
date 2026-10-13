@@ -1,0 +1,296 @@
+{
+  "title": "Describing People",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "blond",
+      "meaning": "tóc vàng",
+      "category": "describe",
+      "example": "My little sister has blond hair.",
+      "image": ""
+    },
+    {
+      "word": "curly",
+      "meaning": "xoăn",
+      "category": "describe",
+      "example": "My cousin has long curly hair.",
+      "image": ""
+    },
+    {
+      "word": "straight",
+      "meaning": "thẳng",
+      "category": "describe",
+      "example": "Draw a straight line with a ruler.",
+      "image": ""
+    },
+    {
+      "word": "tall",
+      "meaning": "cao",
+      "category": "describe",
+      "example": "The giraffe is very tall.",
+      "image": ""
+    },
+    {
+      "word": "thin",
+      "meaning": "gầy",
+      "category": "describe",
+      "example": "The thin boy runs very fast.",
+      "image": ""
+    },
+    {
+      "word": "fat",
+      "meaning": "béo",
+      "category": "describe",
+      "example": "The fat pig sleeps in mud.",
+      "image": ""
+    },
+    {
+      "word": "strong",
+      "meaning": "khoẻ",
+      "category": "describe",
+      "example": "My dad is very strong.",
+      "image": ""
+    },
+    {
+      "word": "weak",
+      "meaning": "yếu",
+      "category": "describe",
+      "example": "The old dog is weak and slow.",
+      "image": ""
+    },
+    {
+      "word": "pretty",
+      "meaning": "xinh",
+      "category": "describe",
+      "example": "She has a pretty red dress.",
+      "image": ""
+    },
+    {
+      "word": "clever",
+      "meaning": "thông minh",
+      "category": "describe",
+      "example": "She is clever at maths.",
+      "image": ""
+    },
+    {
+      "word": "famous",
+      "meaning": "nổi tiếng",
+      "category": "describe",
+      "example": "My uncle is a famous singer.",
+      "image": ""
+    },
+    {
+      "word": "naughty",
+      "meaning": "nghịch ngợm",
+      "category": "character",
+      "example": "The naughty puppy bites my shoe.",
+      "image": ""
+    },
+    {
+      "word": "brave",
+      "meaning": "dũng cảm",
+      "category": "describe",
+      "example": "The brave boy helps the cat.",
+      "image": ""
+    },
+    {
+      "word": "short",
+      "meaning": "thấp, ngắn",
+      "category": "describe",
+      "example": "My brother is short.",
+      "image": ""
+    },
+    {
+      "word": "young",
+      "meaning": "trẻ, nhỏ tuổi",
+      "category": "describe",
+      "example": "The young boy is five years old.",
+      "image": ""
+    },
+    {
+      "word": "old",
+      "meaning": "già, cũ",
+      "category": "describe",
+      "example": "My grandfather is very old.",
+      "image": ""
+    },
+    {
+      "word": "beautiful",
+      "meaning": "đẹp",
+      "category": "describe",
+      "example": "The garden is beautiful in spring.",
+      "image": ""
+    },
+    {
+      "word": "funny",
+      "meaning": "buồn cười",
+      "category": "describe",
+      "example": "That joke is very funny.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"short\" mean?",
+      "options": [
+        "buồn cười",
+        "thấp, ngắn",
+        "nổi tiếng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The garden is ___ in spring.",
+      "options": [
+        "score",
+        "stomach-ache",
+        "beautiful"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"funny\" mean?",
+      "options": [
+        "buồn cười",
+        "trẻ, nhỏ tuổi",
+        "thấp, ngắn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dũng cảm)",
+      "options": [
+        "barve",
+        "brave",
+        "brav"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"famous\" mean?",
+      "options": [
+        "thẳng",
+        "thông minh",
+        "nổi tiếng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thẳng\"?",
+      "options": [
+        "straight",
+        "funny",
+        "thin"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: na_ghty (nghịch ngợm)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xoăn\"?",
+      "options": [
+        "funny",
+        "short",
+        "curly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"blond\" mean?",
+      "options": [
+        "tóc vàng",
+        "dũng cảm",
+        "xinh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ boy is five years old.",
+      "options": [
+        "young",
+        "brother",
+        "broom"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cao)",
+      "options": [
+        "tlal",
+        "tal",
+        "tall"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_t (béo)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xinh)",
+      "options": [
+        "pritty",
+        "pertty",
+        "pretty"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoẻ\"?",
+      "options": [
+        "strong",
+        "pretty",
+        "fat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_ak (yếu)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Stand tall like a tall person",
+    "Show me your strong arms",
+    "Pretend to be a funny clown",
+    "Show me a brave face",
+    "Make yourself small and short",
+    "Pretend to be an old man walking slowly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

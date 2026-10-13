@@ -179,9 +179,9 @@
     {
       "prompt": "The ___ are bright in the sky.",
       "options": [
-        "celebrate",
+        "shall",
         "fireworks",
-        "green"
+        "stretch"
       ],
       "answer": 1,
       "type": "vocab"
@@ -219,8 +219,8 @@
     {
       "prompt": "What does \"birthday cake\" mean?",
       "options": [
+        "năm mới",
         "lễ Giáng sinh",
-        "món quà",
         "bánh sinh nhật"
       ],
       "answer": 2,
@@ -241,7 +241,7 @@
       "options": [
         "birthday cake",
         "holiday",
-        "monkey"
+        "lemonade"
       ],
       "answer": 1,
       "type": "vocab"

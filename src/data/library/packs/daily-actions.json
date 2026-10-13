@@ -169,7 +169,7 @@
       "options": [
         "write",
         "love",
-        "grandpa"
+        "want"
       ],
       "answer": 0,
       "type": "vocab"
@@ -282,6 +282,16 @@
         "ngồi"
       ],
       "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We ___ lunch at noon.",
+      "options": [
+        "eat",
+        "tell",
+        "let's"
+      ],
+      "answer": 0,
       "type": "vocab"
     }
   ],

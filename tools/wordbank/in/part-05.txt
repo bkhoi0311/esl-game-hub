@@ -10,7 +10,6 @@ cherry	Cherries
 cherries	Cherries
 kiwi	Kiwi fruit
 melon	Melon
-olive	Olive
 nut	Peanuts
 nuts	Peanuts
 peanut	Peanuts
@@ -36,7 +35,6 @@ chopsticks	Chopsticks
 picnic	Basket
 menu	Fork and knife with plate
 restaurant	Fork and knife with plate
-cafe	Hot beverage
 kitchen	Cooking
 snack	Pretzel
 ice	Ice

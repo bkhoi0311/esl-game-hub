@@ -1,0 +1,282 @@
+{
+  "title": "Home and Chores",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "bathtub",
+      "meaning": "bồn tắm",
+      "category": "house",
+      "example": "The baby is playing in the bathtub.",
+      "image": ""
+    },
+    {
+      "word": "heating",
+      "meaning": "hệ thống sưởi",
+      "category": "house",
+      "example": "Please turn on the heating because it is cold.",
+      "image": ""
+    },
+    {
+      "word": "mug",
+      "meaning": "cái cốc",
+      "category": "house",
+      "example": "She drinks hot chocolate from a big mug.",
+      "image": ""
+    },
+    {
+      "word": "refrigerator",
+      "meaning": "tủ lạnh",
+      "category": "house",
+      "example": "The milk is in the refrigerator.",
+      "image": ""
+    },
+    {
+      "word": "sink",
+      "meaning": "bồn rửa",
+      "category": "house",
+      "example": "She washed the plates in the kitchen sink.",
+      "image": ""
+    },
+    {
+      "word": "toilet",
+      "meaning": "nhà vệ sinh",
+      "category": "house",
+      "example": "The toilet is next to the bathroom.",
+      "image": ""
+    },
+    {
+      "word": "washing machine",
+      "meaning": "máy giặt",
+      "category": "house",
+      "example": "Mum puts the clothes in the washing machine.",
+      "image": ""
+    },
+    {
+      "word": "washing-up",
+      "meaning": "việc rửa bát",
+      "category": "house",
+      "example": "Dad does the washing-up while I dry the plates.",
+      "image": ""
+    },
+    {
+      "word": "rubbish",
+      "meaning": "rác",
+      "category": "thing",
+      "example": "Please put the rubbish in the bin.",
+      "image": ""
+    },
+    {
+      "word": "stuff",
+      "meaning": "đồ đạc, thứ",
+      "category": "thing",
+      "example": "Put your stuff in the locker before class.",
+      "image": ""
+    },
+    {
+      "word": "gas",
+      "meaning": "khí ga, xăng",
+      "category": "thing",
+      "example": "We cook with gas in our kitchen.",
+      "image": ""
+    },
+    {
+      "word": "wash up",
+      "meaning": "rửa bát",
+      "category": "daily",
+      "example": "I wash up after dinner every evening.",
+      "image": ""
+    },
+    {
+      "word": "tidy up",
+      "meaning": "dọn dẹp",
+      "category": "daily",
+      "example": "Please tidy up your room before dinner.",
+      "image": ""
+    },
+    {
+      "word": "apartment building",
+      "meaning": "chung cư",
+      "category": "place",
+      "example": "They live in a tall apartment building.",
+      "image": ""
+    },
+    {
+      "word": "block",
+      "meaning": "tòa nhà, khu nhà",
+      "category": "place",
+      "example": "My aunt lives in a tall block of flats.",
+      "image": ""
+    },
+    {
+      "word": "set",
+      "meaning": "bộ",
+      "category": "thing",
+      "example": "I bought a set of paint brushes.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"rubbish\" mean?",
+      "options": [
+        "chung cư",
+        "rác",
+        "tòa nhà, khu nhà"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rửa bát\"?",
+      "options": [
+        "wash up",
+        "washing machine",
+        "make sure"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tủ lạnh)",
+      "options": [
+        "refrigertaor",
+        "refrigirator",
+        "refrigerator"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: g_s (khí ga, xăng)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"set\" mean?",
+      "options": [
+        "tòa nhà, khu nhà",
+        "chung cư",
+        "bộ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She washed the plates in the kitchen ___.",
+      "options": [
+        "meatballs",
+        "sink",
+        "hand"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chung cư\"?",
+      "options": [
+        "washing machine",
+        "baseball cap",
+        "apartment building"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bl_ck (tòa nhà, khu nhà)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồ đạc, thứ)",
+      "options": [
+        "stuff",
+        "sutff",
+        "stuf"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_g (cái cốc)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please turn on the ___ because it is cold.",
+      "options": [
+        "chicken",
+        "finger",
+        "heating"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà vệ sinh\"?",
+      "options": [
+        "knee",
+        "toilet",
+        "honey"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"washing machine\" mean?",
+      "options": [
+        "vợt tennis",
+        "giờ làm việc",
+        "máy giặt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bồn tắm)",
+      "options": [
+        "bathtub",
+        "bahttub",
+        "bethtub"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tidy up\" mean?",
+      "options": [
+        "được gọi là",
+        "dọn dẹp",
+        "ra ngoài"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wash up the dishes",
+    "Pretend to tidy up your desk",
+    "Pretend to put clothes in a washing machine",
+    "Pretend to open a refrigerator",
+    "Pretend to carry out the rubbish",
+    "Pretend to drink from a mug"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

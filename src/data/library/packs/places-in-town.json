@@ -133,9 +133,9 @@
     {
       "prompt": "Which word means \"cửa hàng\"?",
       "options": [
-        "balloon",
+        "woman",
         "shop",
-        "doctor"
+        "number"
       ],
       "answer": 1,
       "type": "vocab"
@@ -164,8 +164,8 @@
       "prompt": "Which word means \"ngân hàng\"?",
       "options": [
         "bank",
-        "hospital",
-        "station"
+        "station",
+        "museum"
       ],
       "answer": 0,
       "type": "vocab"
@@ -183,7 +183,7 @@
     {
       "prompt": "Which word means \"thư viện\"?",
       "options": [
-        "cinema",
+        "bakery",
         "park",
         "library"
       ],
@@ -194,8 +194,8 @@
       "prompt": "I play football in the ___.",
       "options": [
         "park",
-        "thin",
-        "run"
+        "feed",
+        "get off"
       ],
       "answer": 0,
       "type": "vocab"
@@ -224,8 +224,8 @@
       "prompt": "What does \"post office\" mean?",
       "options": [
         "bưu điện",
-        "nhà hàng",
-        "tiệm bánh mì"
+        "hồ bơi",
+        "nhà hàng"
       ],
       "answer": 0,
       "type": "vocab"
@@ -253,9 +253,9 @@
     {
       "prompt": "My grandma lives in a small ___.",
       "options": [
-        "butter",
+        "trousers",
         "town",
-        "wifi"
+        "fries"
       ],
       "answer": 1,
       "type": "vocab"

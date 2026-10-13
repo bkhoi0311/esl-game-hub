@@ -1,0 +1,288 @@
+{
+  "title": "Useful Adjectives 1",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "able",
+      "meaning": "có khả năng",
+      "category": "describe",
+      "example": "Tom is able to swim very fast.",
+      "image": ""
+    },
+    {
+      "word": "advanced",
+      "meaning": "nâng cao",
+      "category": "describe",
+      "example": "She is in the advanced English class.",
+      "image": ""
+    },
+    {
+      "word": "available",
+      "meaning": "có sẵn",
+      "category": "describe",
+      "example": "Is this book available in your library?",
+      "image": ""
+    },
+    {
+      "word": "clear",
+      "meaning": "rõ ràng",
+      "category": "describe",
+      "example": "The instructions are clear and easy.",
+      "image": ""
+    },
+    {
+      "word": "crowded",
+      "meaning": "đông đúc",
+      "category": "describe",
+      "example": "The bus was too crowded this morning.",
+      "image": ""
+    },
+    {
+      "word": "extra",
+      "meaning": "thêm, phụ",
+      "category": "describe",
+      "example": "Can I have an extra blanket, please?",
+      "image": ""
+    },
+    {
+      "word": "final",
+      "meaning": "cuối cùng",
+      "category": "describe",
+      "example": "The final match starts at seven tonight.",
+      "image": ""
+    },
+    {
+      "word": "free",
+      "meaning": "miễn phí, rảnh",
+      "category": "describe",
+      "example": "The museum is free for children on Sundays.",
+      "image": ""
+    },
+    {
+      "word": "impossible",
+      "meaning": "không thể nào",
+      "category": "describe",
+      "example": "It is impossible to finish this today.",
+      "image": ""
+    },
+    {
+      "word": "possible",
+      "meaning": "có thể",
+      "category": "describe",
+      "example": "Is it possible to book tickets online?",
+      "image": ""
+    },
+    {
+      "word": "latest",
+      "meaning": "mới nhất",
+      "category": "describe",
+      "example": "Have you seen their latest film?",
+      "image": ""
+    },
+    {
+      "word": "modern",
+      "meaning": "hiện đại",
+      "category": "describe",
+      "example": "Their house is very modern.",
+      "image": ""
+    },
+    {
+      "word": "normal",
+      "meaning": "bình thường",
+      "category": "describe",
+      "example": "It was a normal day at school.",
+      "image": ""
+    },
+    {
+      "word": "real",
+      "meaning": "thật",
+      "category": "describe",
+      "example": "Is this a real diamond?",
+      "image": ""
+    },
+    {
+      "word": "similar",
+      "meaning": "giống nhau",
+      "category": "describe",
+      "example": "These two bags are very similar.",
+      "image": ""
+    },
+    {
+      "word": "simple",
+      "meaning": "đơn giản",
+      "category": "describe",
+      "example": "The test was simple, so everyone passed.",
+      "image": ""
+    },
+    {
+      "word": "true",
+      "meaning": "đúng, thật",
+      "category": "describe",
+      "example": "Is it true that you can speak French?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"final\" mean?",
+      "options": [
+        "thứ hai",
+        "cuối cùng",
+        "người Ý, tiếng Ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đúng, thật)",
+      "options": [
+        "true",
+        "trrue",
+        "ture"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The museum is ___ for children on Sundays.",
+      "options": [
+        "build",
+        "whisper",
+        "free"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _ble (có khả năng)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đơn giản)",
+      "options": [
+        "simple",
+        "symple",
+        "simmple"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giống nhau\"?",
+      "options": [
+        "Spanish",
+        "similar",
+        "digital"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"latest\" mean?",
+      "options": [
+        "nghịch ngợm",
+        "mới nhất",
+        "thứ ba"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is ___ to finish this today.",
+      "options": [
+        "impossible",
+        "celebrate",
+        "penguin"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"extra\" mean?",
+      "options": [
+        "thứ hai",
+        "người Ý, tiếng Ý",
+        "thêm, phụ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: crowd_d (đông đúc)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thật\"?",
+      "options": [
+        "second",
+        "real",
+        "unkind"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có thể)",
+      "options": [
+        "possible",
+        "possilbe",
+        "possyble"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nâng cao\"?",
+      "options": [
+        "Irish",
+        "lazy",
+        "advanced"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: mod_rn (hiện đại)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"normal\" mean?",
+      "options": [
+        "kỹ thuật số",
+        "bình thường",
+        "nghịch ngợm"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a big yes with your head",
+    "Pretend to squeeze into a crowded bus",
+    "Show me a thumbs up for possible",
+    "Shake your head for impossible",
+    "Make a simple shape with your hands"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

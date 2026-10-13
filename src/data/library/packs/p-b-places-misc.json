@@ -1,0 +1,282 @@
+{
+  "title": "More Places",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "edge",
+      "meaning": "mép, rìa",
+      "category": "place",
+      "example": "Don't put your glass on the edge of the table.",
+      "image": ""
+    },
+    {
+      "word": "hut",
+      "meaning": "túp lều",
+      "category": "place",
+      "example": "They built a small wooden hut by the river.",
+      "image": ""
+    },
+    {
+      "word": "location",
+      "meaning": "vị trí, địa điểm",
+      "category": "place",
+      "example": "The hotel is in a great location near the beach.",
+      "image": ""
+    },
+    {
+      "word": "region",
+      "meaning": "vùng, khu vực",
+      "category": "place",
+      "example": "This region is famous for its beautiful beaches.",
+      "image": ""
+    },
+    {
+      "word": "seaside",
+      "meaning": "bờ biển",
+      "category": "place",
+      "example": "We spent a happy weekend at the seaside.",
+      "image": ""
+    },
+    {
+      "word": "tower",
+      "meaning": "tòa tháp",
+      "category": "place",
+      "example": "We can see the tower from here.",
+      "image": ""
+    },
+    {
+      "word": "turning",
+      "meaning": "chỗ rẽ",
+      "category": "place",
+      "example": "Take the second turning on the left after the bridge.",
+      "image": ""
+    },
+    {
+      "word": "yard",
+      "meaning": "khoảng sân",
+      "category": "place",
+      "example": "The children are playing football in the school yard.",
+      "image": ""
+    },
+    {
+      "word": "zone",
+      "meaning": "vùng",
+      "category": "place",
+      "example": "This is a quiet zone, so please don't talk loudly.",
+      "image": ""
+    },
+    {
+      "word": "continent",
+      "meaning": "châu lục",
+      "category": "country",
+      "example": "Asia is the biggest continent in the world.",
+      "image": ""
+    },
+    {
+      "word": "cottage",
+      "meaning": "ngôi nhà nhỏ ở quê",
+      "category": "house",
+      "example": "They rent a cottage in the countryside every summer.",
+      "image": ""
+    },
+    {
+      "word": "garden",
+      "meaning": "khu vườn",
+      "category": "house",
+      "example": "We have flowers in the garden.",
+      "image": ""
+    },
+    {
+      "word": "beach",
+      "meaning": "bãi biển",
+      "category": "nature",
+      "example": "We play on the beach.",
+      "image": ""
+    },
+    {
+      "word": "island",
+      "meaning": "hòn đảo",
+      "category": "nature",
+      "example": "The island has white sand.",
+      "image": ""
+    },
+    {
+      "word": "castle",
+      "meaning": "lâu đài",
+      "category": "place",
+      "example": "The king lives in a big castle.",
+      "image": ""
+    },
+    {
+      "word": "bridge",
+      "meaning": "cây cầu",
+      "category": "place",
+      "example": "We walk across the bridge.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: reg_on (vùng, khu vực)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "They rent a ___ in the countryside every summer.",
+      "options": [
+        "cottage",
+        "continent",
+        "planet"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vùng\"?",
+      "options": [
+        "sandwich",
+        "zone",
+        "number"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hut\" mean?",
+      "options": [
+        "túp lều",
+        "bóng chuyền",
+        "bộ lông"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bãi biển)",
+      "options": [
+        "beacch",
+        "beach",
+        "beech"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bridge\" mean?",
+      "options": [
+        "quá khứ",
+        "giới tính",
+        "cây cầu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lâu đài)",
+      "options": [
+        "castle",
+        "csatle",
+        "casttle"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vị trí, địa điểm\"?",
+      "options": [
+        "revision",
+        "date",
+        "location"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_ntinent (châu lục)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hòn đảo)",
+      "options": [
+        "islend",
+        "island",
+        "islnad"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The children are playing football in the school ___.",
+      "options": [
+        "gold",
+        "postman",
+        "yard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gard_n (khu vườn)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"edge\" mean?",
+      "options": [
+        "mép, rìa",
+        "cặp song sinh",
+        "ngành công nghiệp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tòa tháp\"?",
+      "options": [
+        "time",
+        "tower",
+        "label"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"seaside\" mean?",
+      "options": [
+        "trượt patin",
+        "cái lỗ",
+        "bờ biển"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at the edge of a map",
+    "Pretend to walk along the seaside slowly",
+    "Pretend to look up at a tower",
+    "Point to a region on a map",
+    "Pretend to enter a small hut",
+    "Pretend to take a turning at a corner"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

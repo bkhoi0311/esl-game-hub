@@ -1,0 +1,310 @@
+{
+  "title": "Town and Travel",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "building",
+      "meaning": "toà nhà",
+      "category": "place",
+      "example": "There is a big building next to our school.",
+      "image": ""
+    },
+    {
+      "word": "city",
+      "meaning": "thành phố",
+      "category": "place",
+      "example": "Our city has a big park.",
+      "image": ""
+    },
+    {
+      "word": "city centre",
+      "meaning": "trung tâm thành phố",
+      "category": "place",
+      "example": "Our new school is in the city centre.",
+      "image": ""
+    },
+    {
+      "word": "town",
+      "meaning": "thị trấn",
+      "category": "place",
+      "example": "My grandma lives in a small town.",
+      "image": ""
+    },
+    {
+      "word": "village",
+      "meaning": "ngôi làng",
+      "category": "place",
+      "example": "Many farmers live in this village.",
+      "image": ""
+    },
+    {
+      "word": "country",
+      "meaning": "đất nước",
+      "category": "place",
+      "example": "This country has a long river.",
+      "image": ""
+    },
+    {
+      "word": "centre",
+      "meaning": "trung tâm",
+      "category": "place",
+      "example": "The sports centre is open on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "road",
+      "meaning": "con đường",
+      "category": "place",
+      "example": "The road is long and quiet.",
+      "image": ""
+    },
+    {
+      "word": "bus station",
+      "meaning": "bến xe buýt",
+      "category": "place",
+      "example": "We meet at the bus station at nine.",
+      "image": ""
+    },
+    {
+      "word": "bus stop",
+      "meaning": "trạm xe buýt",
+      "category": "place",
+      "example": "Wait for me at the bus stop.",
+      "image": ""
+    },
+    {
+      "word": "car park",
+      "meaning": "bãi đỗ xe",
+      "category": "place",
+      "example": "The car park is full today.",
+      "image": ""
+    },
+    {
+      "word": "station",
+      "meaning": "nhà ga",
+      "category": "place",
+      "example": "Mum meets us at the station.",
+      "image": ""
+    },
+    {
+      "word": "address",
+      "meaning": "địa chỉ",
+      "category": "thing",
+      "example": "Write your address on the card.",
+      "image": ""
+    },
+    {
+      "word": "map",
+      "meaning": "bản đồ",
+      "category": "thing",
+      "example": "We look at the map to find the zoo.",
+      "image": ""
+    },
+    {
+      "word": "ticket",
+      "meaning": "tấm vé",
+      "category": "thing",
+      "example": "I have a ticket for the show.",
+      "image": ""
+    },
+    {
+      "word": "place",
+      "meaning": "nơi, địa điểm",
+      "category": "place",
+      "example": "This is a quiet place to read.",
+      "image": ""
+    },
+    {
+      "word": "bus",
+      "meaning": "xe buýt",
+      "category": "transport",
+      "example": "I go to school by bus.",
+      "image": ""
+    },
+    {
+      "word": "car",
+      "meaning": "xe ô tô",
+      "category": "transport",
+      "example": "My dad has a red car.",
+      "image": ""
+    },
+    {
+      "word": "train",
+      "meaning": "tàu hỏa",
+      "category": "transport",
+      "example": "The train is very long.",
+      "image": ""
+    },
+    {
+      "word": "street",
+      "meaning": "đường phố",
+      "category": "place",
+      "example": "Our house is on a quiet street.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: co_ntry (đất nước)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"place\" mean?",
+      "options": [
+        "địa chỉ",
+        "bản đồ",
+        "nơi, địa điểm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: addr_ss (địa chỉ)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"street\" mean?",
+      "options": [
+        "đường phố",
+        "thị trấn",
+        "bến xe buýt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bản đồ\"?",
+      "options": [
+        "street",
+        "country",
+        "map"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tấm vé)",
+      "options": [
+        "tciket",
+        "ticket",
+        "tickket"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"car park\" mean?",
+      "options": [
+        "trạm xe buýt",
+        "bãi đỗ xe",
+        "bến xe buýt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (toà nhà)",
+      "options": [
+        "building",
+        "buildnig",
+        "builidng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bus\" mean?",
+      "options": [
+        "xe ô tô",
+        "tàu hỏa",
+        "xe buýt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_wn (thị trấn)",
+      "options": [
+        "e",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Many farmers live in this ___.",
+      "options": [
+        "ticket",
+        "address",
+        "village"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thành phố\"?",
+      "options": [
+        "city",
+        "station",
+        "car park"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My dad has a red ___.",
+      "options": [
+        "afraid",
+        "car",
+        "look"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bến xe buýt\"?",
+      "options": [
+        "bus stop",
+        "city centre",
+        "bus station"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tàu hỏa)",
+      "options": [
+        "train",
+        "trein",
+        "tarin"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to wait at the bus stop",
+    "Pretend to look at a map",
+    "Pretend to show your ticket",
+    "Pretend to drive a car",
+    "Pretend to cross the road carefully",
+    "Point to the left and then to the right"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

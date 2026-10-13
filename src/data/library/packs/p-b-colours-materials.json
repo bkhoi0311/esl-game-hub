@@ -1,0 +1,282 @@
+{
+  "title": "Colours and Materials",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "navy blue",
+      "meaning": "xanh hải quân",
+      "category": "color",
+      "example": "Our school uniform is navy blue.",
+      "image": ""
+    },
+    {
+      "word": "cotton",
+      "meaning": "vải bông",
+      "category": "material",
+      "example": "This shirt is made of soft cotton.",
+      "image": ""
+    },
+    {
+      "word": "silk",
+      "meaning": "bằng lụa",
+      "category": "describe",
+      "example": "She wore a silk scarf around her neck.",
+      "image": ""
+    },
+    {
+      "word": "cardboard",
+      "meaning": "bằng bìa, bìa các tông",
+      "category": "describe",
+      "example": "We made a model house from old cardboard boxes.",
+      "image": ""
+    },
+    {
+      "word": "ink",
+      "meaning": "mực",
+      "category": "material",
+      "example": "My pen has run out of ink.",
+      "image": ""
+    },
+    {
+      "word": "liquid",
+      "meaning": "chất lỏng",
+      "category": "material",
+      "example": "Water is a liquid, but ice is a solid.",
+      "image": ""
+    },
+    {
+      "word": "powder",
+      "meaning": "bột",
+      "category": "material",
+      "example": "Add a little powder to the water and stir.",
+      "image": ""
+    },
+    {
+      "word": "material",
+      "meaning": "vật liệu, chất liệu",
+      "category": "material",
+      "example": "What material is this jacket made of?",
+      "image": ""
+    },
+    {
+      "word": "shiny",
+      "meaning": "sáng bóng",
+      "category": "describe",
+      "example": "She wore shiny shoes to the party.",
+      "image": ""
+    },
+    {
+      "word": "colourful",
+      "meaning": "nhiều màu sắc",
+      "category": "describe",
+      "example": "She wore a colourful scarf to the party.",
+      "image": ""
+    },
+    {
+      "word": "pure",
+      "meaning": "tinh khiết",
+      "category": "describe",
+      "example": "This bottle contains pure water from a mountain spring.",
+      "image": ""
+    },
+    {
+      "word": "raw",
+      "meaning": "sống, thô",
+      "category": "describe",
+      "example": "Do not eat raw meat.",
+      "image": ""
+    },
+    {
+      "word": "sticky",
+      "meaning": "dính",
+      "category": "describe",
+      "example": "My hands are sticky from the honey.",
+      "image": ""
+    },
+    {
+      "word": "recycled",
+      "meaning": "tái chế",
+      "category": "describe",
+      "example": "This notebook is made from recycled paper.",
+      "image": ""
+    },
+    {
+      "word": "plain",
+      "meaning": "đơn giản, trơn",
+      "category": "describe",
+      "example": "I like a plain white T-shirt with jeans.",
+      "image": ""
+    },
+    {
+      "word": "wool",
+      "meaning": "len",
+      "category": "material",
+      "example": "This jumper is made of wool.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (vật liệu, chất liệu)",
+      "options": [
+        "matreial",
+        "meterial",
+        "material"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_re (tinh khiết)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bằng lụa)",
+      "options": [
+        "sillk",
+        "silk",
+        "sylk"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our school uniform is ___.",
+      "options": [
+        "navy blue",
+        "powder",
+        "liquid"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ink\" mean?",
+      "options": [
+        "thịt",
+        "giấc mơ",
+        "mực"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tái chế\"?",
+      "options": [
+        "reliable",
+        "recycled",
+        "independent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cotton\" mean?",
+      "options": [
+        "hóa đơn",
+        "tủ quần áo",
+        "vải bông"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cardb_ard (bằng bìa, bìa các tông)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chất lỏng\"?",
+      "options": [
+        "address",
+        "liquid",
+        "sock"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"plain\" mean?",
+      "options": [
+        "đơn giản, trơn",
+        "độc ác, tàn nhẫn",
+        "thân thiện"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dính)",
+      "options": [
+        "stickky",
+        "stciky",
+        "sticky"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sống, thô\"?",
+      "options": [
+        "Spanish",
+        "raw",
+        "patient"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Add a little ___ to the water and stir.",
+      "options": [
+        "cardboard",
+        "powder",
+        "pure"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_ol (len)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shiny\" mean?",
+      "options": [
+        "bất cẩn",
+        "người Ý, tiếng Ý",
+        "sáng bóng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to feel soft silk",
+    "Pretend to fold a piece of cardboard",
+    "Mime writing with ink",
+    "Pretend to pour a liquid slowly",
+    "Show me something shiny with your hands",
+    "Pretend to pick up something sticky"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

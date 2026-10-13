@@ -1,0 +1,268 @@
+{
+  "title": "Nationalities and Places",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "brazilian",
+      "meaning": "người Brazil",
+      "category": "nationality",
+      "example": "My friend is Brazilian, and she plays football well.",
+      "image": ""
+    },
+    {
+      "word": "canadian",
+      "meaning": "người Canada",
+      "category": "nationality",
+      "example": "He is Canadian, so he likes ice hockey.",
+      "image": ""
+    },
+    {
+      "word": "chinese",
+      "meaning": "người Trung Quốc, tiếng Trung",
+      "category": "nationality",
+      "example": "Can you speak Chinese with me?",
+      "image": ""
+    },
+    {
+      "word": "french",
+      "meaning": "người Pháp, tiếng Pháp",
+      "category": "nationality",
+      "example": "My teacher speaks French very well.",
+      "image": ""
+    },
+    {
+      "word": "indian",
+      "meaning": "người Ấn Độ",
+      "category": "nationality",
+      "example": "We had Indian food for dinner last night.",
+      "image": ""
+    },
+    {
+      "word": "irish",
+      "meaning": "người Ireland",
+      "category": "nationality",
+      "example": "Her grandmother is Irish and lives near Dublin.",
+      "image": ""
+    },
+    {
+      "word": "italian",
+      "meaning": "người Ý, tiếng Ý",
+      "category": "nationality",
+      "example": "I want to learn Italian next year.",
+      "image": ""
+    },
+    {
+      "word": "spanish",
+      "meaning": "người Tây Ban Nha, tiếng Tây Ban Nha",
+      "category": "nationality",
+      "example": "She is learning Spanish at school.",
+      "image": ""
+    },
+    {
+      "word": "nationality",
+      "meaning": "quốc tịch",
+      "category": "nationality",
+      "example": "What nationality are your new classmates?",
+      "image": ""
+    },
+    {
+      "word": "foreign",
+      "meaning": "nước ngoài",
+      "category": "describe",
+      "example": "She wants to learn a foreign language.",
+      "image": ""
+    },
+    {
+      "word": "international",
+      "meaning": "quốc tế",
+      "category": "describe",
+      "example": "This is an international school.",
+      "image": ""
+    },
+    {
+      "word": "national",
+      "meaning": "quốc gia",
+      "category": "describe",
+      "example": "The national football team won on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "local",
+      "meaning": "địa phương",
+      "category": "describe",
+      "example": "We buy fruit at the local market.",
+      "image": ""
+    },
+    {
+      "word": "capital",
+      "meaning": "thủ đô",
+      "category": "place",
+      "example": "Hanoi is the capital of Vietnam.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"Irish\" mean?",
+      "options": [
+        "quốc tế",
+        "người Ireland",
+        "địa phương"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ind_an (người Ấn Độ)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"foreign\" mean?",
+      "options": [
+        "nước ngoài",
+        "người Brazil",
+        "người Canada"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người Pháp, tiếng Pháp\"?",
+      "options": [
+        "French",
+        "international",
+        "local"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"national\" mean?",
+      "options": [
+        "người Brazil",
+        "người Ireland",
+        "quốc gia"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"quốc tịch\"?",
+      "options": [
+        "basketball",
+        "nationality",
+        "pillow"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"capital\" mean?",
+      "options": [
+        "vợt tennis",
+        "thủ đô",
+        "bên, mặt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người Ý, tiếng Ý)",
+      "options": [
+        "Italain",
+        "Itelian",
+        "Italian"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: can_dian (người Canada)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (người Brazil)",
+      "options": [
+        "Braziilan",
+        "Brazliian",
+        "Brazilian"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Hanoi is the ___ of Vietnam.",
+      "options": [
+        "local",
+        "capital",
+        "foreign"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"người Tây Ban Nha, tiếng Tây Ban Nha\"?",
+      "options": [
+        "Spanish",
+        "action",
+        "broken"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quốc tế)",
+      "options": [
+        "interrnational",
+        "interntaional",
+        "international"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We buy fruit at the ___ market.",
+      "options": [
+        "capital",
+        "local",
+        "nationality"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ch_nese (người Trung Quốc, tiếng Trung)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to say hello in a foreign language",
+    "Wave like a visitor from another country",
+    "Pretend to show your passport",
+    "Pretend to look at a city map",
+    "Show me a friendly smile",
+    "Pretend to ask for directions"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

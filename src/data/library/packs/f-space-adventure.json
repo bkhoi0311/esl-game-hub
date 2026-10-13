@@ -1,0 +1,289 @@
+{
+  "title": "Space and Adventure",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "earth",
+      "meaning": "Trái Đất",
+      "category": "space",
+      "example": "The earth moves around the sun.",
+      "image": ""
+    },
+    {
+      "word": "planet",
+      "meaning": "hành tinh",
+      "category": "space",
+      "example": "Jupiter is a very big planet.",
+      "image": ""
+    },
+    {
+      "word": "space",
+      "meaning": "vũ trụ",
+      "category": "space",
+      "example": "The astronaut floats in space.",
+      "image": ""
+    },
+    {
+      "word": "spaceship",
+      "meaning": "tàu vũ trụ",
+      "category": "transport",
+      "example": "The spaceship lands on a new planet.",
+      "image": ""
+    },
+    {
+      "word": "rocket",
+      "meaning": "tên lửa",
+      "category": "transport",
+      "example": "The rocket flies up to the moon.",
+      "image": ""
+    },
+    {
+      "word": "astronaut",
+      "meaning": "phi hành gia",
+      "category": "job",
+      "example": "The astronaut flies to the moon.",
+      "image": ""
+    },
+    {
+      "word": "king",
+      "meaning": "vua",
+      "category": "fantasy",
+      "example": "The king lives in a castle.",
+      "image": ""
+    },
+    {
+      "word": "queen",
+      "meaning": "nữ hoàng",
+      "category": "fantasy",
+      "example": "The queen has a gold crown.",
+      "image": ""
+    },
+    {
+      "word": "castle",
+      "meaning": "lâu đài",
+      "category": "place",
+      "example": "The king lives in a big castle.",
+      "image": ""
+    },
+    {
+      "word": "dragon",
+      "meaning": "con rồng",
+      "category": "fantasy",
+      "example": "The dragon can breathe fire.",
+      "image": ""
+    },
+    {
+      "word": "adventure",
+      "meaning": "cuộc phiêu lưu",
+      "category": "travel",
+      "example": "Our trip to the forest was a great adventure.",
+      "image": ""
+    },
+    {
+      "word": "invent",
+      "meaning": "phát minh",
+      "category": "mind",
+      "example": "Who invented the telephone?",
+      "image": ""
+    },
+    {
+      "word": "strange",
+      "meaning": "lạ, kỳ lạ",
+      "category": "opinion",
+      "example": "I heard a strange noise last night.",
+      "image": ""
+    },
+    {
+      "word": "amazing",
+      "meaning": "tuyệt vời",
+      "category": "opinion",
+      "example": "The magic show was amazing!",
+      "image": ""
+    },
+    {
+      "word": "moon",
+      "meaning": "mặt trăng",
+      "category": "space",
+      "example": "The moon is bright tonight.",
+      "image": ""
+    },
+    {
+      "word": "star",
+      "meaning": "ngôi sao",
+      "category": "space",
+      "example": "I can see a bright star.",
+      "image": ""
+    },
+    {
+      "word": "sun",
+      "meaning": "mặt trời",
+      "category": "space",
+      "example": "The sun is hot today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "The ___ is bright tonight.",
+      "options": [
+        "invent",
+        "moon",
+        "strange"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộc phiêu lưu\"?",
+      "options": [
+        "rocket",
+        "space",
+        "adventure"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"planet\" mean?",
+      "options": [
+        "hành tinh",
+        "mặt trời",
+        "ngôi sao"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngôi sao)",
+      "options": [
+        "star",
+        "satr",
+        "sttar"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is hot today.",
+      "options": [
+        "strange",
+        "sun",
+        "invent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con rồng\"?",
+      "options": [
+        "moon",
+        "star",
+        "dragon"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vua)",
+      "options": [
+        "knig",
+        "kyng",
+        "king"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"space\" mean?",
+      "options": [
+        "mặt trời",
+        "vũ trụ",
+        "ngôi sao"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tàu vũ trụ)",
+      "options": [
+        "spaceship",
+        "spacesihp",
+        "spacesship"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"invent\" mean?",
+      "options": [
+        "tàu vũ trụ",
+        "phát minh",
+        "tuyệt vời"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: que_n (nữ hoàng)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"astronaut\" mean?",
+      "options": [
+        "phi hành gia",
+        "tên lửa",
+        "tàu vũ trụ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: str_nge (lạ, kỳ lạ)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lâu đài\"?",
+      "options": [
+        "farm",
+        "castle",
+        "cinema"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rock_t (tên lửa)",
+      "options": [
+        "o",
+        "a",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to float in space",
+    "Pretend to fly a spaceship",
+    "Pretend to look through a telescope",
+    "Wave like a king or queen",
+    "Pretend to wear a space helmet",
+    "Pretend to find something amazing"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -25,7 +25,7 @@ import { reducedMotion } from './core/events.js';
 import { clearFx, setStreakEnabled } from './core/fx.js';
 
 // Game 2 học sinh bấm song song trên 2 nửa bảng.
-const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war']);
+const DUEL_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'sentence-race']);
 // Game vẽ bằng Phaser (canvas cập nhật 60 khung/giây).
 const PHASER_GAMES = new Set(['balloon-pop', 'whack-word', 'tug-of-war', 'word-ninja', 'statue-freeze']);
 
@@ -188,11 +188,11 @@ const CARD_COLORS = {
   impostor: ['#ff9fcf', '#ffe3f1', '#c81e6a', '#ec4899'],
   'tug-of-war': ['#8fd0ff', '#e0f3ff', '#1e3a8a', '#2563eb'],
   'whack-word': ['#a7e07a', '#e8f8d8', '#14532d', '#22c55e'],
-  'head-tilt': ['#a7e07a', '#e8f8d8', '#14532d', '#22c55e'],
   'word-ninja': ['#d8a6ff', '#f5e6ff', '#3b0764', '#a855f7'],
   'balloon-pop': ['#8fd6ff', '#e3f5ff', '#1e3a8a', '#0ea5e9'],
   'memory-match': ['#ffa8d2', '#ffe6f2', '#be185d', '#ec4899'],
   'tic-tac-toe': ['#a7e07a', '#e8f8d8', '#14532d', '#22c55e'],
+  'sentence-race': ['#ffc98f', '#fff1dc', '#9a3412', '#f97316'],
 };
 
 const SIGN_SVG = `<svg viewBox="0 0 220 150" aria-hidden="true">
@@ -252,6 +252,14 @@ function renderMenu(root) {
     h('div', { class: 'pick-bubble en' }, 'Pick a game!'),
     big.el,
     h('div', { class: 'menu-books', innerHTML: BOOKS_SVG }));
+  // Lumi chiếm ô trống đầu tiên của lưới (số game mỗi nhóm đổi thì ô trống đổi theo), hết ô trống thì ẩn.
+  const camN = GAMES.filter((g) => g.group === 'camera').length;
+  const clsN = GAMES.filter((g) => g.group === 'class').length;
+  const slot = camN < 4 ? { row: Math.floor(camN / 2) + 1, col: (camN % 2) + 1 } : clsN < 8 ? { row: Math.floor(clsN / 4) + 1, col: (clsN % 4) + 3 } : null;
+  if (slot) {
+    menuMascot.style.gridRow = String(slot.row);
+    menuMascot.style.gridColumn = String(slot.col);
+  } else menuMascot.style.display = 'none';
   grid.append(menuMascot);
   const view = h('div', { class: 'menu' }, heads, grid);
   root.append(view);
@@ -392,9 +400,13 @@ async function openSettings() {
   const body = h(
     'div', { class: 'settings' },
     linkBox,
-    h('label', { class: 'switch-row' },
-      h('input', { type: 'checkbox', checked: s.sound, onChange: (e) => updateSettings({ sound: e.target.checked }) }),
-      h('span', {}, 'Bật âm thanh hiệu ứng (đúng / sai / thắng)')),
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-sound' },
+      h('span', { id: 'set-sound' }, 'Âm thanh hiệu ứng (đúng / sai / điểm / đếm ngược)'),
+      segmented([{ value: true, label: 'Bật' }, { value: false, label: 'Tắt' }], s.sound !== false, (v) => updateSettings({ sound: v }), 'sound')),
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-read' },
+      h('span', { id: 'set-read' }, 'Đọc từ trong game thi đấu'),
+      segmented([{ value: 'off', label: 'Tắt' }, { value: 'on', label: 'Bật' }], s.readAloud === 'on' ? 'on' : 'off', (v) => updateSettings({ readAloud: v }), 'read-aloud'),
+      h('small', { class: 'muted' }, 'Tắt (khuyên dùng): game thi đấu chỉ còn âm hiệu và điểm, không đọc từ hay câu hỏi. Statue Freeze và Simon Says vẫn đọc lệnh vì đó là luật chơi. Nút loa trong game vẫn đọc khi bấm.')),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-accent' },
       h('span', { id: 'set-accent' }, 'Giọng đọc tiếng Anh'),
       segmented([{ value: 'en-US', label: 'Anh-Mỹ (en-US)' }, { value: 'en-GB', label: 'Anh-Anh (en-GB)' }], s.accent, (v) => updateSettings({ accent: v }), 'accent')),
@@ -416,9 +428,9 @@ async function openSettings() {
         h('div', { class: 'voice-row' },
           h('span', { class: 'en' }, g.title),
           h('span', { class: 'muted' }, voiceLabel(voiceFor(g.id))),
-          button({ iconName: 'volume', title: `Nghe giọng ${g.title}`, variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id) }) })))),
+          button({ iconName: 'volume', title: `Nghe giọng ${g.title}`, variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id), manual: true }) })))),
     h('p', { class: 'muted' }, 'Câu chưa thu sẵn (nội dung mới thêm) sẽ đọc bằng giọng máy. Anh-Mỹ/Anh-Anh và tốc độ bên dưới chỉ áp dụng cho giọng máy.'),
-    button({ label: 'Nghe thử giọng máy', iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true }) }),
+    button({ label: 'Nghe thử giọng máy', iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true, manual: true }) }),
     voiceInfo,
     h('p', { class: 'muted' }, 'Chọn camera sẽ có khi làm các game dùng camera.'),
   );

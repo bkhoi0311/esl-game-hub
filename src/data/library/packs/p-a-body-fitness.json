@@ -1,0 +1,290 @@
+{
+  "title": "Body and Fitness",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ankle",
+      "meaning": "mắt cá chân",
+      "category": "body",
+      "example": "He hurt his ankle during the football match.",
+      "image": ""
+    },
+    {
+      "word": "bone",
+      "meaning": "cái xương",
+      "category": "body",
+      "example": "The dog has a big bone.",
+      "image": ""
+    },
+    {
+      "word": "breath",
+      "meaning": "hơi thở",
+      "category": "body",
+      "example": "Take a deep breath before you start the test.",
+      "image": ""
+    },
+    {
+      "word": "breathe",
+      "meaning": "thở",
+      "category": "body",
+      "example": "It was hard to breathe after running up the stairs.",
+      "image": ""
+    },
+    {
+      "word": "cheek",
+      "meaning": "má",
+      "category": "body",
+      "example": "The baby has soft round cheeks.",
+      "image": ""
+    },
+    {
+      "word": "chin",
+      "meaning": "cằm",
+      "category": "body",
+      "example": "He rested his chin on his hand and listened.",
+      "image": ""
+    },
+    {
+      "word": "heel",
+      "meaning": "gót chân, gót giày",
+      "category": "body",
+      "example": "I have a small cut on my left heel.",
+      "image": ""
+    },
+    {
+      "word": "lips",
+      "meaning": "đôi môi",
+      "category": "body",
+      "example": "She puts cream on her lips.",
+      "image": ""
+    },
+    {
+      "word": "skin",
+      "meaning": "da",
+      "category": "body",
+      "example": "You should wear sun cream to protect your skin.",
+      "image": ""
+    },
+    {
+      "word": "throat",
+      "meaning": "cổ họng",
+      "category": "body",
+      "example": "I have a sore throat today.",
+      "image": ""
+    },
+    {
+      "word": "thumb",
+      "meaning": "ngón tay cái",
+      "category": "body",
+      "example": "He hurt his thumb playing basketball.",
+      "image": ""
+    },
+    {
+      "word": "tongue",
+      "meaning": "cái lưỡi",
+      "category": "body",
+      "example": "The frog has a long tongue.",
+      "image": ""
+    },
+    {
+      "word": "voice",
+      "meaning": "giọng nói",
+      "category": "body",
+      "example": "She has a lovely voice and sings in the school choir.",
+      "image": ""
+    },
+    {
+      "word": "workout",
+      "meaning": "buổi tập luyện",
+      "category": "sport",
+      "example": "I do a short workout before school every morning.",
+      "image": ""
+    },
+    {
+      "word": "yoga",
+      "meaning": "yoga",
+      "category": "sport",
+      "example": "Mum does yoga in the morning.",
+      "image": ""
+    },
+    {
+      "word": "jogging",
+      "meaning": "chạy bộ nhẹ",
+      "category": "sport",
+      "example": "Mum goes jogging in the park.",
+      "image": ""
+    },
+    {
+      "word": "fitness",
+      "meaning": "thể lực",
+      "category": "health",
+      "example": "Regular exercise improves your fitness.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"bone\" mean?",
+      "options": [
+        "chạy bộ nhẹ",
+        "buổi tập luyện",
+        "cái xương"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "You should wear sun cream to protect your ___.",
+      "options": [
+        "yoga",
+        "skin",
+        "jogging"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thở\"?",
+      "options": [
+        "breathe",
+        "begin",
+        "invite"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He rested his ___ on his hand and listened.",
+      "options": [
+        "jogging",
+        "workout",
+        "chin"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ankle\" mean?",
+      "options": [
+        "mắt cá chân",
+        "cửa hàng bách hoá",
+        "con kiến"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngón tay cái\"?",
+      "options": [
+        "countryside",
+        "thumb",
+        "kilometre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giọng nói)",
+      "options": [
+        "voice",
+        "voyce",
+        "vocie"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_el (gót chân, gót giày)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hơi thở)",
+      "options": [
+        "breatth",
+        "braeth",
+        "breath"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: y_ga (yoga)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jogging\" mean?",
+      "options": [
+        "gót chân, gót giày",
+        "chạy bộ nhẹ",
+        "cái xương"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cổ họng\"?",
+      "options": [
+        "throat",
+        "grape",
+        "certificate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tong_e (cái lưỡi)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"lips\" mean?",
+      "options": [
+        "đôi môi",
+        "lá cờ",
+        "con ruồi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (má)",
+      "options": [
+        "cheik",
+        "chek",
+        "cheek"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Touch your chin",
+    "Point to your ankle",
+    "Show me your thumb",
+    "Take a deep breath and breathe out slowly",
+    "Pretend to do some yoga",
+    "Pretend to jog on the spot",
+    "Touch your cheek"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "title": "The Internet and Messages",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "chatroom",
+      "meaning": "phòng chat",
+      "category": "tech",
+      "example": "Our class has a chatroom for homework questions.",
+      "image": ""
+    },
+    {
+      "word": "download",
+      "meaning": "tải xuống",
+      "category": "tech",
+      "example": "You can download the game from the website for free.",
+      "image": ""
+    },
+    {
+      "word": "upload",
+      "meaning": "tải lên",
+      "category": "daily",
+      "example": "I will upload the photos to the class website.",
+      "image": ""
+    },
+    {
+      "word": "folder",
+      "meaning": "thư mục",
+      "category": "tech",
+      "example": "I saved all my photos in one folder.",
+      "image": ""
+    },
+    {
+      "word": "link",
+      "meaning": "liên kết",
+      "category": "tech",
+      "example": "Click the link to open the page.",
+      "image": ""
+    },
+    {
+      "word": "password",
+      "meaning": "mật khẩu",
+      "category": "tech",
+      "example": "Do not tell anyone your password.",
+      "image": ""
+    },
+    {
+      "word": "selfie",
+      "meaning": "ảnh tự chụp",
+      "category": "tech",
+      "example": "I take a selfie with my dog.",
+      "image": ""
+    },
+    {
+      "word": "share",
+      "meaning": "chia sẻ",
+      "category": "tech",
+      "example": "Please share the file with me online.",
+      "image": ""
+    },
+    {
+      "word": "text message",
+      "meaning": "tin nhắn",
+      "category": "tech",
+      "example": "I sent my mum a text message.",
+      "image": ""
+    },
+    {
+      "word": "web",
+      "meaning": "mạng, mạng internet",
+      "category": "tech",
+      "example": "You can find the answer on the web.",
+      "image": ""
+    },
+    {
+      "word": "web page",
+      "meaning": "trang web",
+      "category": "tech",
+      "example": "This web page has a lot of useful pictures.",
+      "image": ""
+    },
+    {
+      "word": "social media",
+      "meaning": "mạng xã hội",
+      "category": "media",
+      "example": "I share my photos on social media.",
+      "image": ""
+    },
+    {
+      "word": "blog",
+      "meaning": "blog cá nhân",
+      "category": "media",
+      "example": "She writes a blog about her trips.",
+      "image": ""
+    },
+    {
+      "word": "click",
+      "meaning": "nhấp chuột",
+      "category": "action",
+      "example": "Please click the green button.",
+      "image": ""
+    },
+    {
+      "word": "mail",
+      "meaning": "thư",
+      "category": "thing",
+      "example": "I got a letter in the mail today.",
+      "image": ""
+    },
+    {
+      "word": "by post",
+      "meaning": "qua đường bưu điện",
+      "category": "manner",
+      "example": "I sent the card to my aunt by post.",
+      "image": ""
+    },
+    {
+      "word": "give somebody a call",
+      "meaning": "gọi điện cho ai",
+      "category": "speech",
+      "example": "I will give you a call after school.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"give somebody a call\" mean?",
+      "options": [
+        "gọi điện cho ai",
+        "nhấp chuột",
+        "chia sẻ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tải lên\"?",
+      "options": [
+        "love",
+        "decide",
+        "upload"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phòng chat)",
+      "options": [
+        "chatroum",
+        "chatroom",
+        "chatorom"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thư\"?",
+      "options": [
+        "mail",
+        "blog",
+        "Africa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"blog\" mean?",
+      "options": [
+        "thư",
+        "blog cá nhân",
+        "cái tai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_wnload (tải xuống)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I take a ___ with my dog.",
+      "options": [
+        "selfie",
+        "by post",
+        "click"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"social media\" mean?",
+      "options": [
+        "thư",
+        "mạng xã hội",
+        "bãi đỗ xe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trang web\"?",
+      "options": [
+        "text message",
+        "movie star",
+        "web page"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mật khẩu)",
+      "options": [
+        "passwurd",
+        "psasword",
+        "password"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_b (mạng, mạng internet)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhấp chuột)",
+      "options": [
+        "click",
+        "cilck",
+        "clcik"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Click the ___ to open the page.",
+      "options": [
+        "by post",
+        "click",
+        "link"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_lder (thư mục)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"share\" mean?",
+      "options": [
+        "chia sẻ",
+        "gọi điện cho ai",
+        "tải lên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to take a selfie",
+    "Pretend to click a link",
+    "Pretend to type a text message",
+    "Pretend to talk on the phone",
+    "Pretend to scroll through a web page",
+    "Pretend to post a letter"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

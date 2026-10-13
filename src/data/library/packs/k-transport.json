@@ -1,0 +1,296 @@
+{
+  "title": "Travel and Transport",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "aeroplane",
+      "meaning": "máy bay",
+      "category": "transport",
+      "example": "The aeroplane is very high in the sky.",
+      "image": ""
+    },
+    {
+      "word": "scooter",
+      "meaning": "xe trượt scooter",
+      "category": "transport",
+      "example": "She rides her scooter in the park.",
+      "image": ""
+    },
+    {
+      "word": "tram",
+      "meaning": "xe điện",
+      "category": "transport",
+      "example": "A tram runs along this street.",
+      "image": ""
+    },
+    {
+      "word": "underground",
+      "meaning": "tàu điện ngầm",
+      "category": "transport",
+      "example": "We take the underground to the museum.",
+      "image": ""
+    },
+    {
+      "word": "transport",
+      "meaning": "giao thông, phương tiện",
+      "category": "transport",
+      "example": "Public transport in this city is cheap.",
+      "image": ""
+    },
+    {
+      "word": "flight",
+      "meaning": "chuyến bay",
+      "category": "travel",
+      "example": "Our flight to the island takes two hours.",
+      "image": ""
+    },
+    {
+      "word": "delay",
+      "meaning": "sự chậm trễ, trì hoãn",
+      "category": "travel",
+      "example": "There is a long delay at the airport today.",
+      "image": ""
+    },
+    {
+      "word": "delayed",
+      "meaning": "bị hoãn",
+      "category": "describe",
+      "example": "Our train is delayed because of the heavy rain.",
+      "image": ""
+    },
+    {
+      "word": "return",
+      "meaning": "vé khứ hồi, trở về",
+      "category": "travel",
+      "example": "I bought a return ticket to the coast.",
+      "image": ""
+    },
+    {
+      "word": "roundabout",
+      "meaning": "bùng binh",
+      "category": "place",
+      "example": "Turn left at the next roundabout.",
+      "image": ""
+    },
+    {
+      "word": "crossing",
+      "meaning": "chỗ qua đường",
+      "category": "place",
+      "example": "Wait at the crossing until the cars stop.",
+      "image": ""
+    },
+    {
+      "word": "traffic light",
+      "meaning": "đèn giao thông",
+      "category": "thing",
+      "example": "Stop at the red traffic light.",
+      "image": ""
+    },
+    {
+      "word": "petrol station",
+      "meaning": "trạm xăng",
+      "category": "place",
+      "example": "The petrol station is next to the shop.",
+      "image": ""
+    },
+    {
+      "word": "gas station",
+      "meaning": "trạm xăng",
+      "category": "place",
+      "example": "We stopped at a gas station to fill the car.",
+      "image": ""
+    },
+    {
+      "word": "parking lot",
+      "meaning": "bãi đỗ xe",
+      "category": "place",
+      "example": "Our car is in the parking lot.",
+      "image": ""
+    },
+    {
+      "word": "petrol",
+      "meaning": "xăng",
+      "category": "thing",
+      "example": "We stopped to buy petrol on the way.",
+      "image": ""
+    },
+    {
+      "word": "police car",
+      "meaning": "xe cảnh sát",
+      "category": "transport",
+      "example": "The police car has a blue light.",
+      "image": ""
+    },
+    {
+      "word": "directions",
+      "meaning": "lời chỉ đường",
+      "category": "travel",
+      "example": "The man gave us directions to the train station.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"xe điện\"?",
+      "options": [
+        "salad",
+        "comb",
+        "tram"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"underground\" mean?",
+      "options": [
+        "tàu điện ngầm",
+        "đèn giao thông",
+        "xăng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_layed (bị hoãn)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flight\" mean?",
+      "options": [
+        "đèn giao thông",
+        "chuyến bay",
+        "xăng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We stopped to buy ___ on the way.",
+      "options": [
+        "underground",
+        "directions",
+        "petrol"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lời chỉ đường)",
+      "options": [
+        "directions",
+        "directtions",
+        "directionns"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our car is in the ___.",
+      "options": [
+        "delayed",
+        "sit down",
+        "parking lot"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giao thông, phương tiện\"?",
+      "options": [
+        "transport",
+        "stream",
+        "writer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vé khứ hồi, trở về)",
+      "options": [
+        "rteurn",
+        "return",
+        "retturn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: scoot_r (xe trượt scooter)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đèn giao thông\"?",
+      "options": [
+        "traffic light",
+        "gas station",
+        "petrol station"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: aer_plane (máy bay)",
+      "options": [
+        "u",
+        "o",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sự chậm trễ, trì hoãn)",
+      "options": [
+        "delay",
+        "dilay",
+        "deley"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gas station\" mean?",
+      "options": [
+        "giờ làm việc",
+        "trạm xăng",
+        "giày trượt patin"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"crossing\" mean?",
+      "options": [
+        "máy tính",
+        "thẻ tín dụng",
+        "chỗ qua đường"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ride a scooter",
+    "Pretend to wait for a tram",
+    "Pretend to check the departure board",
+    "Show me how to read a map",
+    "Pretend to hold a steering wheel",
+    "Point left and then right to give directions"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -2,8 +2,10 @@
 // Giọng đọc: ưu tiên file OmniVoice thu sẵn (src/assets/voices/<giọng>/<khoá>.mp3, nhúng cả vào bản offline);
 // câu chưa thu sẵn (giáo viên mới thêm) thì đọc bằng Web Speech API của trình duyệt.
 // Âm hiệu tổng hợp bằng Web Audio nên không cần file âm thanh.
+// Cổng voice-policy.js: game thi đấu mặc định KHÔNG đọc (Cài đặt > Đọc từ trong game thi đấu); options.manual luôn đọc.
 import { getSettings } from './settings.js';
 import { bus } from './events.js';
+import { speechAllowed } from './voice-policy.js';
 import { DEFAULT_VOICE, GAME_VOICE, VOICES, clipKey, speakable } from './voice-lines.js';
 
 // ---------- Giọng OmniVoice thu sẵn ----------
@@ -114,9 +116,11 @@ export function stopSpeaking() {
 
 // Đọc 1 câu tiếng Anh. Luôn resolve (kể cả khi máy không có giọng), trả về true nếu đã đọc.
 // options.voice: ép dùng 1 giọng OmniVoice; options.web: ép dùng giọng máy.
+// options.manual: người dùng tự bấm nút loa ⇒ bỏ qua cổng game thi đấu.
 // options.priority: 'normal' (mặc định) ngắt câu đang đọc; 'low' (vd đọc lại từ vừa bấm) bị BỎ QUA nếu đang có câu khác.
 export async function speak(text, options = {}) {
   if (!text) return false;
+  if (!speechAllowed(currentGame, getSettings(), options)) return false; // trước stopSpeaking: không cắt câu đang đọc
   if (options.priority === 'low' && speaking) return false;
   stopSpeaking(); // dừng mọi âm đang đọc: cả giọng thu sẵn lẫn giọng máy
   const token = speakToken;

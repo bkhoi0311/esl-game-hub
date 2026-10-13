@@ -181,31 +181,31 @@
       "type": "vocab"
     },
     {
-      "prompt": "What does \"leg\" mean?",
+      "prompt": "What does \"knee\" mean?",
       "options": [
-        "cái chân",
-        "trái tim",
-        "cái miệng"
+        "đầu gối",
+        "cánh tay",
+        "ngón tay"
       ],
       "answer": 0,
       "type": "vocab"
     },
     {
-      "prompt": "Find the missing letter: _rm (cánh tay)",
+      "prompt": "Find the missing letter: h_art (trái tim)",
       "options": [
-        "i",
-        "a",
+        "o",
+        "e",
         "u"
       ],
       "answer": 1,
       "type": "vocab"
     },
     {
-      "prompt": "What does \"head\" mean?",
+      "prompt": "What does \"leg\" mean?",
       "options": [
-        "cái mũi",
-        "ngón chân",
-        "cái đầu"
+        "trái tim",
+        "cái miệng",
+        "cái chân"
       ],
       "answer": 2,
       "type": "vocab"
@@ -241,11 +241,11 @@
       "type": "vocab"
     },
     {
-      "prompt": "Raise your ___ to answer.",
+      "prompt": "He raises his ___ to say hello.",
       "options": [
-        "hand",
-        "hat",
-        "board"
+        "arm",
+        "box",
+        "snake"
       ],
       "answer": 0,
       "type": "vocab"
@@ -271,11 +271,11 @@
       "type": "vocab"
     },
     {
-      "prompt": "She has a small cut on her ___.",
+      "prompt": "Raise your ___ to answer.",
       "options": [
-        "knee",
-        "medicine",
-        "frog"
+        "hand",
+        "rooster",
+        "poster"
       ],
       "answer": 0,
       "type": "vocab"

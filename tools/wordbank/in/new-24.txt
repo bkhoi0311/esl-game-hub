@@ -1,0 +1,109 @@
+southeast	adj	pet					adj+n
+southern	adj	pet					adj
+southwest	adj	pet					adj+n
+souvenir	n	pet					n
+sparkling	adj	pet					adj
+specially	adv	pet					adv
+species	n	pet					n
+spectacular	adj	pet					adj
+speech	n	pet					n
+speed	n	pet					n
+spice	n	pet					n
+spicy	adj	pet					adj
+spill	v	pet					v
+spinach	n	pet					n
+spite	n	pet					n
+split up	v	pet					phr v
+spoil	v	pet					v
+spy	n	pet					n
+squash	n	pet					n
+stall	n	pet					n
+statue	n	pet					n
+stay behind	v	pet					phr v
+steep	adj	pet					adj
+step forward	v	pet		step back|step backwards|step out			v
+step over	v	pet		step in|step on|step out of			v
+stick	n	pet					n+v
+sticky	adj	pet					adj
+stir	v	pet					v
+stranger	n	pet					n
+stress	n	pet					n
+stressed	adj	pet					adj
+stressful	adj	pet					adj
+strict	adj	pet					adj
+strike	n	pet					n+v
+studio	n	pet					n
+stupid	adj	pet					adj
+style	n	pet					n
+stylish	adj	pet					adj
+subtract	v	pet					v
+subway	n	pet					n
+succeed	v	pet					v
+sudden	adj	pet					adj
+suffer	v	pet					v
+suggestion	n	pet					n
+suitable	adj	pet					adj
+sum	n	pet					n
+sunbathe	v	pet					v
+sunshine	n	pet					n
+supply	v	pet					v
+support	n	pet					n+v
+supporter	n	pet					n
+surround	v	pet					v
+sweatshirt	n	pet					n
+swimmer	n	pet					n
+switch	n	pet					n+v
+system	n	pet					n
+table-cloth	n	pet					n
+take away	v	pet					v
+take care of	v	pet					v
+take place	v	pet					v
+take up	v	pet					phr v
+takeaway	n	pet					n
+talent	n	pet					n
+talented	adj	pet					adj
+talk show	n	pet					n
+tax	n	pet					n
+teaching	n	pet					n
+tear	n	pet					n+v
+technique	n	pet					n
+temporary	adj	pet					adj
+tense	n	pet					n
+terribly	adv	pet					adv
+terrific	adj	pet					adj
+terrified	adj	pet					adj
+therefore	adv	pet					adv
+thick	adj	pet					adj
+thief	n	pet					n
+though	other	pet					conj+adv
+thought	n	pet					n
+thriller	n	pet					n
+throat	n	pet					n
+throw away	v	pet					phr v
+thumb	n	pet					n
+tight	adj	pet					adj
+tin	n	pet					n
+tiny	adj	pet					adj
+tip	n	pet	advice				n
+tiring	adj	pet					adj
+tissue	n	pet					n
+totally	adv	pet					adv
+tourism	n	pet					n
+tournament	n	pet					n
+toward	prep	pet		towards			prep
+track	n	pet					n
+tracksuit	n	pet					n
+trade	n	pet					n
+traditional	adj	pet					adj
+traffic jam	n	pet					n
+transfer	v	pet					v
+translate	v	pet					v
+translation	n	pet					n
+trash can	n	pet		rubbish bin			n
+travel agent	n	pet					n
+trend	n	pet					n
+trick	n	pet					n
+trunk	n	pet					n
+trust	v	pet					v
+truth	n	pet					n
+tube	n	pet					n

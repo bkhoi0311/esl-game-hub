@@ -1,0 +1,282 @@
+{
+  "title": "Opinions and Reactions",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "attractive",
+      "meaning": "hấp dẫn",
+      "category": "opinion",
+      "example": "The hotel has an attractive garden.",
+      "image": ""
+    },
+    {
+      "word": "awesome",
+      "meaning": "tuyệt vời",
+      "category": "opinion",
+      "example": "The new game is awesome!",
+      "image": ""
+    },
+    {
+      "word": "awful",
+      "meaning": "tệ hại",
+      "category": "opinion",
+      "example": "The food at the cafe was awful.",
+      "image": ""
+    },
+    {
+      "word": "comfortable",
+      "meaning": "thoải mái",
+      "category": "opinion",
+      "example": "This sofa is very comfortable for reading.",
+      "image": ""
+    },
+    {
+      "word": "perfect",
+      "meaning": "hoàn hảo",
+      "category": "opinion",
+      "example": "The weather is perfect for a picnic.",
+      "image": ""
+    },
+    {
+      "word": "pleasant",
+      "meaning": "dễ chịu",
+      "category": "opinion",
+      "example": "We had a pleasant walk by the lake.",
+      "image": ""
+    },
+    {
+      "word": "poor thing",
+      "meaning": "tội nghiệp",
+      "category": "opinion",
+      "example": "Oh, poor thing, you look so tired.",
+      "image": ""
+    },
+    {
+      "word": "relaxing",
+      "meaning": "thư giãn",
+      "category": "opinion",
+      "example": "A hot bath is very relaxing.",
+      "image": ""
+    },
+    {
+      "word": "serious",
+      "meaning": "nghiêm trọng, nghiêm túc",
+      "category": "opinion",
+      "example": "This is a serious problem.",
+      "image": ""
+    },
+    {
+      "word": "smart",
+      "meaning": "bảnh bao, thông minh",
+      "category": "opinion",
+      "example": "She looked smart in her new school uniform.",
+      "image": ""
+    },
+    {
+      "word": "successful",
+      "meaning": "thành công",
+      "category": "opinion",
+      "example": "My uncle is a successful business owner.",
+      "image": ""
+    },
+    {
+      "word": "surprising",
+      "meaning": "đáng ngạc nhiên",
+      "category": "opinion",
+      "example": "It is surprising that he knows so many languages.",
+      "image": ""
+    },
+    {
+      "word": "tasty",
+      "meaning": "ngon",
+      "category": "opinion",
+      "example": "The soup was hot and very tasty.",
+      "image": ""
+    },
+    {
+      "word": "unfortunately",
+      "meaning": "không may",
+      "category": "opinion",
+      "example": "We wanted to swim, but unfortunately the pool was closed.",
+      "image": ""
+    },
+    {
+      "word": "useful",
+      "meaning": "hữu ích",
+      "category": "opinion",
+      "example": "This map is very useful for tourists.",
+      "image": ""
+    },
+    {
+      "word": "well known",
+      "meaning": "nổi tiếng",
+      "category": "opinion",
+      "example": "She is a well known singer in my country.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"nổi tiếng\"?",
+      "options": [
+        "poor thing",
+        "cream",
+        "well known"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tasty\" mean?",
+      "options": [
+        "ngon",
+        "lười",
+        "màu trắng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tội nghiệp\"?",
+      "options": [
+        "well known",
+        "poor thing",
+        "racing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: r_laxing (thư giãn)",
+      "options": [
+        "e",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unfortunately\" mean?",
+      "options": [
+        "màu kem, kem",
+        "không tử tế",
+        "không may"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rfect (hoàn hảo)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pleasant\" mean?",
+      "options": [
+        "thứ ba",
+        "dễ chịu",
+        "màu trắng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The new game is ___!",
+      "options": [
+        "petrol",
+        "comic book",
+        "awesome"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bảnh bao, thông minh)",
+      "options": [
+        "smart",
+        "smarrt",
+        "smrat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_rious (nghiêm trọng, nghiêm túc)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hữu ích)",
+      "options": [
+        "useufl",
+        "usefful",
+        "useful"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"successful\" mean?",
+      "options": [
+        "người Canada",
+        "thành công",
+        "người Ý, tiếng Ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hấp dẫn\"?",
+      "options": [
+        "attractive",
+        "silver",
+        "purple"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đáng ngạc nhiên)",
+      "options": [
+        "surprissing",
+        "surprising",
+        "surprysing"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The food at the cafe was ___.",
+      "options": [
+        "yoghurt",
+        "land",
+        "awful"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Give a thumbs up for awesome",
+    "Show me an awful taste face",
+    "Pretend to relax in a comfortable chair",
+    "Show me a surprised face",
+    "Say perfect and give a big smile",
+    "Pretend to say poor thing kindly"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

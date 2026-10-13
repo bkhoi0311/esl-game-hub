@@ -1,0 +1,254 @@
+{
+  "title": "Restaurants and Cafes",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "takeaway",
+      "meaning": "đồ ăn mang đi",
+      "category": "food",
+      "example": "We ate a takeaway at home after the match.",
+      "image": ""
+    },
+    {
+      "word": "refreshments",
+      "meaning": "đồ ăn thức uống nhẹ",
+      "category": "food",
+      "example": "We will serve refreshments after the school concert.",
+      "image": ""
+    },
+    {
+      "word": "saucer",
+      "meaning": "đĩa lót tách",
+      "category": "house",
+      "example": "Put the cup back on the saucer, please.",
+      "image": ""
+    },
+    {
+      "word": "jug",
+      "meaning": "cái bình, cái ca",
+      "category": "house",
+      "example": "Please put the jug of water on the table.",
+      "image": ""
+    },
+    {
+      "word": "kettle",
+      "meaning": "ấm đun nước",
+      "category": "house",
+      "example": "Please fill the kettle with fresh water.",
+      "image": ""
+    },
+    {
+      "word": "table-cloth",
+      "meaning": "khăn trải bàn",
+      "category": "house",
+      "example": "She put a clean table-cloth on the table.",
+      "image": ""
+    },
+    {
+      "word": "booking",
+      "meaning": "việc đặt chỗ",
+      "category": "travel",
+      "example": "I made a booking for two nights at the hotel.",
+      "image": ""
+    },
+    {
+      "word": "waiting room",
+      "meaning": "phòng chờ",
+      "category": "place",
+      "example": "We sat in the waiting room before seeing the dentist.",
+      "image": ""
+    },
+    {
+      "word": "service",
+      "meaning": "dịch vụ",
+      "category": "work",
+      "example": "The hotel offers a free bus service to the beach.",
+      "image": ""
+    },
+    {
+      "word": "menu",
+      "meaning": "thực đơn",
+      "category": "thing",
+      "example": "The waiter gives us the menu.",
+      "image": ""
+    },
+    {
+      "word": "bill",
+      "meaning": "hóa đơn",
+      "category": "money",
+      "example": "Dad paid the bill after dinner.",
+      "image": ""
+    },
+    {
+      "word": "bar",
+      "meaning": "thanh, quầy",
+      "category": "food",
+      "example": "The students bought a chocolate bar from the school shop.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"phòng chờ\"?",
+      "options": [
+        "waiting room",
+        "credit card",
+        "digital camera"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"menu\" mean?",
+      "options": [
+        "phòng chờ",
+        "việc đặt chỗ",
+        "thực đơn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: serv_ce (dịch vụ)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khăn trải bàn\"?",
+      "options": [
+        "snowboard",
+        "table-cloth",
+        "refund"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"booking\" mean?",
+      "options": [
+        "việc đặt chỗ",
+        "đồ ăn mang đi",
+        "khăn trải bàn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thanh, quầy\"?",
+      "options": [
+        "jug",
+        "ring",
+        "bar"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bo_king (việc đặt chỗ)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồ ăn mang đi\"?",
+      "options": [
+        "jug",
+        "takeaway",
+        "species"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đồ ăn thức uống nhẹ)",
+      "options": [
+        "refreshments",
+        "refrsehments",
+        "refrishments"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bi_l (hóa đơn)",
+      "options": [
+        "r",
+        "d",
+        "l"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đĩa lót tách)",
+      "options": [
+        "saucer",
+        "sauecr",
+        "saucir"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"takeaway\" mean?",
+      "options": [
+        "dịch vụ",
+        "đồ ăn mang đi",
+        "khăn trải bàn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The students bought a chocolate ___ from the school shop.",
+      "options": [
+        "saucer",
+        "kettle",
+        "bar"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"kettle\" mean?",
+      "options": [
+        "việc đặt chỗ",
+        "ấm đun nước",
+        "thanh, quầy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please put the ___ of water on the table.",
+      "options": [
+        "jug",
+        "bill",
+        "booking"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to book a table",
+    "Pretend to read the menu",
+    "Pretend to call a waiter",
+    "Pretend to pour tea into a cup",
+    "Pretend to leave a tip",
+    "Pretend to pay the bill"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

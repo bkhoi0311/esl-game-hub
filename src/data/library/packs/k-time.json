@@ -1,0 +1,296 @@
+{
+  "title": "Time and Dates",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "afterwards",
+      "meaning": "sau đó",
+      "category": "time",
+      "example": "We played football and went home afterwards.",
+      "image": ""
+    },
+    {
+      "word": "anymore",
+      "meaning": "nữa",
+      "category": "time",
+      "example": "I do not play that game anymore.",
+      "image": ""
+    },
+    {
+      "word": "appointment",
+      "meaning": "cuộc hẹn",
+      "category": "time",
+      "example": "I have a doctor's appointment at three.",
+      "image": ""
+    },
+    {
+      "word": "daily",
+      "meaning": "hằng ngày",
+      "category": "time",
+      "example": "Brushing your teeth is part of your daily routine.",
+      "image": ""
+    },
+    {
+      "word": "finally",
+      "meaning": "cuối cùng thì",
+      "category": "time",
+      "example": "After a long wait, the bus finally arrived.",
+      "image": ""
+    },
+    {
+      "word": "immediately",
+      "meaning": "ngay lập tức",
+      "category": "time",
+      "example": "Please call your mother immediately.",
+      "image": ""
+    },
+    {
+      "word": "lunchtime",
+      "meaning": "giờ ăn trưa",
+      "category": "time",
+      "example": "We play football at lunchtime.",
+      "image": ""
+    },
+    {
+      "word": "moment",
+      "meaning": "khoảnh khắc",
+      "category": "time",
+      "example": "Wait a moment while I find my keys.",
+      "image": ""
+    },
+    {
+      "word": "monthly",
+      "meaning": "hằng tháng",
+      "category": "time",
+      "example": "I pay a monthly fee for this app.",
+      "image": ""
+    },
+    {
+      "word": "noon",
+      "meaning": "giữa trưa",
+      "category": "time",
+      "example": "We usually have lunch at noon.",
+      "image": ""
+    },
+    {
+      "word": "recently",
+      "meaning": "gần đây",
+      "category": "time",
+      "example": "I have recently started learning the guitar.",
+      "image": ""
+    },
+    {
+      "word": "season",
+      "meaning": "mùa",
+      "category": "time",
+      "example": "Summer is my favourite season.",
+      "image": ""
+    },
+    {
+      "word": "weekday",
+      "meaning": "ngày trong tuần",
+      "category": "time",
+      "example": "The shop is open on every weekday.",
+      "image": ""
+    },
+    {
+      "word": "weekly",
+      "meaning": "hằng tuần",
+      "category": "time",
+      "example": "We have a weekly meeting at school.",
+      "image": ""
+    },
+    {
+      "word": "midday",
+      "meaning": "giữa trưa",
+      "category": "time",
+      "example": "We eat lunch at midday.",
+      "image": ""
+    },
+    {
+      "word": "minute",
+      "meaning": "phút",
+      "category": "time",
+      "example": "Wait a minute, please.",
+      "image": ""
+    },
+    {
+      "word": "month",
+      "meaning": "tháng",
+      "category": "time",
+      "example": "My birthday is next month.",
+      "image": ""
+    },
+    {
+      "word": "week",
+      "meaning": "tuần",
+      "category": "time",
+      "example": "There are seven days in a week.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"tháng\"?",
+      "options": [
+        "Italy",
+        "husband",
+        "month"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"noon\" mean?",
+      "options": [
+        "môn toán",
+        "giữa trưa",
+        "chiếc váy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_ment (khoảnh khắc)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We eat lunch at ___.",
+      "options": [
+        "website",
+        "town",
+        "midday"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gần đây\"?",
+      "options": [
+        "recently",
+        "luckily",
+        "by myself"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"minute\" mean?",
+      "options": [
+        "giấc mơ",
+        "phút",
+        "đồ bơi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cuộc hẹn\"?",
+      "options": [
+        "blackboard",
+        "advertisement",
+        "appointment"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (sau đó)",
+      "options": [
+        "afterwadrs",
+        "afterwards",
+        "afterwarrds"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: luncht_me (giờ ăn trưa)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nữa)",
+      "options": [
+        "anymroe",
+        "annymore",
+        "anymore"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: we_kday (ngày trong tuần)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please call your mother ___.",
+      "options": [
+        "immediately",
+        "downstairs",
+        "upstairs"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"finally\" mean?",
+      "options": [
+        "ở tầng dưới",
+        "ở tầng trên",
+        "cuối cùng thì"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hằng tuần)",
+      "options": [
+        "weekly",
+        "weelky",
+        "weikly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"season\" mean?",
+      "options": [
+        "cờ vua",
+        "mùa",
+        "từ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to check your watch",
+    "Point to noon on an imaginary clock",
+    "Pretend to turn a calendar page",
+    "Pretend to eat lunch",
+    "Pretend to wait for one minute",
+    "Pretend to make an appointment"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

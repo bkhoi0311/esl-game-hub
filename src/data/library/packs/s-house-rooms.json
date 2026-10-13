@@ -1,0 +1,289 @@
+{
+  "title": "Rooms in the House",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "apartment",
+      "meaning": "căn hộ",
+      "category": "house",
+      "example": "Our apartment is on the fifth floor.",
+      "image": ""
+    },
+    {
+      "word": "bath",
+      "meaning": "bồn tắm",
+      "category": "house",
+      "example": "The baby is in the bath.",
+      "image": ""
+    },
+    {
+      "word": "bathroom",
+      "meaning": "phòng tắm",
+      "category": "house",
+      "example": "Wash your hands in the bathroom.",
+      "image": ""
+    },
+    {
+      "word": "bedroom",
+      "meaning": "phòng ngủ",
+      "category": "house",
+      "example": "My bedroom is quiet at night.",
+      "image": ""
+    },
+    {
+      "word": "dining room",
+      "meaning": "phòng ăn",
+      "category": "house",
+      "example": "We eat dinner in the dining room.",
+      "image": ""
+    },
+    {
+      "word": "flat",
+      "meaning": "căn hộ",
+      "category": "house",
+      "example": "They live in a small flat.",
+      "image": ""
+    },
+    {
+      "word": "garden",
+      "meaning": "khu vườn",
+      "category": "house",
+      "example": "We have flowers in the garden.",
+      "image": ""
+    },
+    {
+      "word": "hall",
+      "meaning": "hành lang, sảnh",
+      "category": "house",
+      "example": "Our coats are in the hall.",
+      "image": ""
+    },
+    {
+      "word": "home",
+      "meaning": "nhà",
+      "category": "house",
+      "example": "I go home after school.",
+      "image": ""
+    },
+    {
+      "word": "house",
+      "meaning": "ngôi nhà",
+      "category": "house",
+      "example": "Their house has a red door.",
+      "image": ""
+    },
+    {
+      "word": "kitchen",
+      "meaning": "nhà bếp",
+      "category": "house",
+      "example": "Dad is cooking in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "living room",
+      "meaning": "phòng khách",
+      "category": "house",
+      "example": "We watch TV in the living room.",
+      "image": ""
+    },
+    {
+      "word": "room",
+      "meaning": "phòng",
+      "category": "house",
+      "example": "My room is small.",
+      "image": ""
+    },
+    {
+      "word": "door",
+      "meaning": "cánh cửa",
+      "category": "house",
+      "example": "Please close the door.",
+      "image": ""
+    },
+    {
+      "word": "window",
+      "meaning": "cửa sổ",
+      "category": "house",
+      "example": "She looks out of the window.",
+      "image": ""
+    },
+    {
+      "word": "floor",
+      "meaning": "sàn nhà",
+      "category": "house",
+      "example": "The toy is on the floor.",
+      "image": ""
+    },
+    {
+      "word": "wall",
+      "meaning": "bức tường",
+      "category": "house",
+      "example": "There is a picture on the wall.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: b_droom (phòng ngủ)",
+      "options": [
+        "o",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bath\" mean?",
+      "options": [
+        "phòng ngủ",
+        "bồn tắm",
+        "nhà bếp"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cửa sổ)",
+      "options": [
+        "window",
+        "winduw",
+        "widnow"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I go ___ after school.",
+      "options": [
+        "tree",
+        "potato",
+        "home"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"garden\" mean?",
+      "options": [
+        "phòng khách",
+        "khu vườn",
+        "sàn nhà"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sàn nhà\"?",
+      "options": [
+        "floor",
+        "bedroom",
+        "bathroom"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dining room\" mean?",
+      "options": [
+        "phòng khách",
+        "ngôi nhà",
+        "phòng ăn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We watch TV in the ___.",
+      "options": [
+        "would like",
+        "living room",
+        "look at"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhà bếp\"?",
+      "options": [
+        "kitchen",
+        "floor",
+        "wall"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phòng tắm)",
+      "options": [
+        "bathrom",
+        "bathroom",
+        "bethroom"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bức tường\"?",
+      "options": [
+        "wall",
+        "bedroom",
+        "garden"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (căn hộ)",
+      "options": [
+        "apartmennt",
+        "aparttment",
+        "apartment"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fl_t (căn hộ)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hall\" mean?",
+      "options": [
+        "khu vườn",
+        "bức tường",
+        "hành lang, sảnh"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_use (ngôi nhà)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open a door",
+    "Pretend to look out of a window",
+    "Pretend to cook in the kitchen",
+    "Pretend to have a bath",
+    "Pretend to sleep in the bedroom",
+    "Pretend to watch TV in the living room"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

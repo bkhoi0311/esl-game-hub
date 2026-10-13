@@ -1,0 +1,296 @@
+{
+  "title": "Documents and Forms",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "document",
+      "meaning": "tài liệu",
+      "category": "study",
+      "example": "Please save the document on your computer.",
+      "image": ""
+    },
+    {
+      "word": "form",
+      "meaning": "mẫu đơn",
+      "category": "study",
+      "example": "Please fill in this form before the lesson.",
+      "image": ""
+    },
+    {
+      "word": "sheet",
+      "meaning": "tờ giấy",
+      "category": "study",
+      "example": "Take a sheet of paper, please.",
+      "image": ""
+    },
+    {
+      "word": "instructions",
+      "meaning": "hướng dẫn",
+      "category": "study",
+      "example": "Read the instructions before you start.",
+      "image": ""
+    },
+    {
+      "word": "fill in",
+      "meaning": "điền vào",
+      "category": "daily",
+      "example": "Please fill in the form with your name and age.",
+      "image": ""
+    },
+    {
+      "word": "fill",
+      "meaning": "đổ đầy, làm đầy",
+      "category": "daily",
+      "example": "Please fill the glass with cold water.",
+      "image": ""
+    },
+    {
+      "word": "write down",
+      "meaning": "ghi lại",
+      "category": "daily",
+      "example": "Please write down your name and phone number.",
+      "image": ""
+    },
+    {
+      "word": "copy",
+      "meaning": "sao chép",
+      "category": "daily",
+      "example": "Can you copy these notes into your notebook?",
+      "image": ""
+    },
+    {
+      "word": "print",
+      "meaning": "in",
+      "category": "daily",
+      "example": "Can you print this page for me?",
+      "image": ""
+    },
+    {
+      "word": "identification",
+      "meaning": "giấy tờ nhận dạng",
+      "category": "thing",
+      "example": "Bring some identification to the bank.",
+      "image": ""
+    },
+    {
+      "word": "id",
+      "meaning": "giấy tờ tùy thân",
+      "category": "thing",
+      "example": "Please show your ID at the door.",
+      "image": ""
+    },
+    {
+      "word": "id card",
+      "meaning": "thẻ căn cước",
+      "category": "thing",
+      "example": "You need an ID card to enter.",
+      "image": ""
+    },
+    {
+      "word": "driving licence",
+      "meaning": "bằng lái xe",
+      "category": "thing",
+      "example": "My brother is waiting for his driving licence.",
+      "image": ""
+    },
+    {
+      "word": "licence",
+      "meaning": "giấy phép",
+      "category": "thing",
+      "example": "My uncle has a driving licence.",
+      "image": ""
+    },
+    {
+      "word": "notice",
+      "meaning": "thông báo",
+      "category": "thing",
+      "example": "There is a notice on the school door.",
+      "image": ""
+    },
+    {
+      "word": "sign",
+      "meaning": "biển báo",
+      "category": "thing",
+      "example": "Look at the sign on the road.",
+      "image": ""
+    },
+    {
+      "word": "dot",
+      "meaning": "dấu chấm",
+      "category": "study",
+      "example": "Put a dot at the end of the sentence.",
+      "image": ""
+    },
+    {
+      "word": "record",
+      "meaning": "ghi âm",
+      "category": "daily",
+      "example": "We want to record a song together.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"ID\" mean?",
+      "options": [
+        "tài liệu",
+        "dấu chấm",
+        "giấy tờ tùy thân"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Bring some ___ to the bank.",
+      "options": [
+        "document",
+        "identification",
+        "instructions"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"form\" mean?",
+      "options": [
+        "mẫu đơn",
+        "thông báo",
+        "giấy phép"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle has a driving ___.",
+      "options": [
+        "licence",
+        "fill in",
+        "print"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"dot\" mean?",
+      "options": [
+        "thông báo",
+        "thẻ căn cước",
+        "dấu chấm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (in)",
+      "options": [
+        "prnit",
+        "print",
+        "pirnt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"notice\" mean?",
+      "options": [
+        "tờ giấy",
+        "dấu chấm",
+        "thông báo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tờ giấy)",
+      "options": [
+        "sheet",
+        "sehet",
+        "sheit"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bằng lái xe\"?",
+      "options": [
+        "ID card",
+        "driving licence",
+        "bus station"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_gn (biển báo)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ghi âm)",
+      "options": [
+        "reccord",
+        "record",
+        "recurd"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fi_l (đổ đầy, làm đầy)",
+      "options": [
+        "r",
+        "j",
+        "l"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"hướng dẫn\"?",
+      "options": [
+        "ID",
+        "text message",
+        "instructions"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_py (sao chép)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tài liệu\"?",
+      "options": [
+        "ID card",
+        "document",
+        "ID"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to fill in a form",
+    "Pretend to show your id card",
+    "Pretend to print a sheet of paper",
+    "Pretend to write down a number",
+    "Pretend to read the instructions",
+    "Pretend to sign a document"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

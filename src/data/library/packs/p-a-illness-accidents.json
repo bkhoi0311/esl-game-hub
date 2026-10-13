@@ -1,0 +1,272 @@
+{
+  "title": "Illness and Accidents",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ache",
+      "meaning": "cơn đau",
+      "category": "health",
+      "example": "I have a terrible ache in my back today.",
+      "image": ""
+    },
+    {
+      "word": "bleed",
+      "meaning": "chảy máu",
+      "category": "action",
+      "example": "If you cut your finger, it may bleed a little.",
+      "image": ""
+    },
+    {
+      "word": "injure",
+      "meaning": "làm bị thương",
+      "category": "action",
+      "example": "He fell off his bike and injured his arm.",
+      "image": ""
+    },
+    {
+      "word": "crash",
+      "meaning": "vụ va chạm",
+      "category": "travel",
+      "example": "There was a car crash near the school this morning.",
+      "image": ""
+    },
+    {
+      "word": "unwell",
+      "meaning": "không khoẻ, ốm",
+      "category": "describe",
+      "example": "My sister felt unwell and stayed home from school.",
+      "image": ""
+    },
+    {
+      "word": "unfit",
+      "meaning": "thể lực kém",
+      "category": "describe",
+      "example": "I felt unfit after a long holiday without any sport.",
+      "image": ""
+    },
+    {
+      "word": "unhealthy",
+      "meaning": "có hại cho sức khoẻ",
+      "category": "describe",
+      "example": "Eating too many sweets is unhealthy for your teeth.",
+      "image": ""
+    },
+    {
+      "word": "shock",
+      "meaning": "cú sốc",
+      "category": "feeling",
+      "example": "The news about the exam was a big shock.",
+      "image": ""
+    },
+    {
+      "word": "shocked",
+      "meaning": "bị sốc",
+      "category": "feeling",
+      "example": "Everyone was shocked by the sudden noise.",
+      "image": ""
+    },
+    {
+      "word": "bite",
+      "meaning": "cắn",
+      "category": "action",
+      "example": "Be careful, the dog might bite you.",
+      "image": ""
+    },
+    {
+      "word": "flood",
+      "meaning": "lũ lụt",
+      "category": "nature",
+      "example": "The flood covers the village.",
+      "image": ""
+    },
+    {
+      "word": "fever",
+      "meaning": "cơn sốt",
+      "category": "health",
+      "example": "He stayed in bed because he had a fever.",
+      "image": ""
+    },
+    {
+      "word": "virus",
+      "meaning": "vi-rút",
+      "category": "health",
+      "example": "A virus can spread quickly among students in a school.",
+      "image": ""
+    },
+    {
+      "word": "illness",
+      "meaning": "bệnh tật",
+      "category": "health",
+      "example": "A long illness kept her at home for two weeks.",
+      "image": ""
+    },
+    {
+      "word": "flu",
+      "meaning": "bệnh cúm",
+      "category": "health",
+      "example": "Half of my class has the flu this week.",
+      "image": ""
+    },
+    {
+      "word": "pain",
+      "meaning": "cơn đau",
+      "category": "health",
+      "example": "He has a bad pain in his back.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"bị sốc\"?",
+      "options": [
+        "shocked",
+        "sleeveless",
+        "Brazilian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ache\" mean?",
+      "options": [
+        "cú sốc",
+        "vụ va chạm",
+        "cơn đau"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bệnh tật)",
+      "options": [
+        "illness",
+        "illniss",
+        "illnes"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "If you cut your finger, it may ___ a little.",
+      "options": [
+        "pain",
+        "unwell",
+        "bleed"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_u (bệnh cúm)",
+      "options": [
+        "r",
+        "l",
+        "n"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bite\" mean?",
+      "options": [
+        "cắn",
+        "lặp lại",
+        "ghét"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cơn sốt\"?",
+      "options": [
+        "check-in",
+        "ambulance",
+        "fever"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sh_ck (cú sốc)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"flood\" mean?",
+      "options": [
+        "lũ lụt",
+        "bệnh cúm",
+        "cơn đau"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"không khoẻ, ốm\"?",
+      "options": [
+        "talented",
+        "unwell",
+        "Canadian"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unfit\" mean?",
+      "options": [
+        "điện tử",
+        "thân thiện",
+        "thể lực kém"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: unh_althy (có hại cho sức khoẻ)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vi-rút)",
+      "options": [
+        "virus",
+        "viurs",
+        "vrius"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vụ va chạm)",
+      "options": [
+        "crsah",
+        "crrash",
+        "crash"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to call the emergency number",
+    "Pretend to have a stomach ache",
+    "Pretend to put a plaster on your finger",
+    "Pretend to feel unwell",
+    "Pretend to look shocked",
+    "Pretend to read a warning sign"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

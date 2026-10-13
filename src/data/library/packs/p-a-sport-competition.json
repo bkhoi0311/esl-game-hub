@@ -1,0 +1,290 @@
+{
+  "title": "Sport and Competition",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "athletics",
+      "meaning": "môn điền kinh",
+      "category": "sport",
+      "example": "I joined the school athletics team this year.",
+      "image": ""
+    },
+    {
+      "word": "championship",
+      "meaning": "giải vô địch",
+      "category": "sport",
+      "example": "Our school won the swimming championship this year.",
+      "image": ""
+    },
+    {
+      "word": "tournament",
+      "meaning": "giải đấu",
+      "category": "sport",
+      "example": "Our school won the football tournament last year.",
+      "image": ""
+    },
+    {
+      "word": "league",
+      "meaning": "liên đoàn, giải đấu",
+      "category": "sport",
+      "example": "Our school football team plays in a local league.",
+      "image": ""
+    },
+    {
+      "word": "goalkeeper",
+      "meaning": "thủ môn",
+      "category": "sport",
+      "example": "The goalkeeper saved the ball at the last minute.",
+      "image": ""
+    },
+    {
+      "word": "pitch",
+      "meaning": "sân thi đấu",
+      "category": "sport",
+      "example": "The players ran onto the pitch before the match.",
+      "image": ""
+    },
+    {
+      "word": "defence",
+      "meaning": "sự phòng thủ",
+      "category": "sport",
+      "example": "The team has a strong defence this season.",
+      "image": ""
+    },
+    {
+      "word": "defend",
+      "meaning": "bảo vệ, phòng thủ",
+      "category": "sport",
+      "example": "The goalkeeper must defend the goal.",
+      "image": ""
+    },
+    {
+      "word": "attack",
+      "meaning": "đợt tấn công, tấn công",
+      "category": "sport",
+      "example": "Our team's attack was strong in the second half.",
+      "image": ""
+    },
+    {
+      "word": "beat",
+      "meaning": "đánh bại",
+      "category": "sport",
+      "example": "Our team hopes to beat the school champions on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "defeat",
+      "meaning": "thất bại, đánh bại",
+      "category": "sport",
+      "example": "Our team suffered a defeat in the final game.",
+      "image": ""
+    },
+    {
+      "word": "compete",
+      "meaning": "thi đấu",
+      "category": "daily",
+      "example": "Many schools compete in the sports day every year.",
+      "image": ""
+    },
+    {
+      "word": "competitor",
+      "meaning": "đối thủ",
+      "category": "people",
+      "example": "Our main competitor in the race was very fast.",
+      "image": ""
+    },
+    {
+      "word": "champion",
+      "meaning": "nhà vô địch",
+      "category": "people",
+      "example": "He is the school champion.",
+      "image": ""
+    },
+    {
+      "word": "supporter",
+      "meaning": "người ủng hộ",
+      "category": "people",
+      "example": "He is a big supporter of our school team.",
+      "image": ""
+    },
+    {
+      "word": "high jump",
+      "meaning": "môn nhảy cao",
+      "category": "sport",
+      "example": "My brother is training for the high jump at the school sports day.",
+      "image": ""
+    },
+    {
+      "word": "long jump",
+      "meaning": "nhảy xa",
+      "category": "sport",
+      "example": "She won the long jump at sports day.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (nhà vô địch)",
+      "options": [
+        "chamipon",
+        "champion",
+        "chammpion"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"attack\" mean?",
+      "options": [
+        "người ủng hộ",
+        "nhà vô địch",
+        "đợt tấn công, tấn công"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (giải vô địch)",
+      "options": [
+        "championship",
+        "chamiponship",
+        "chmapionship"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"beat\" mean?",
+      "options": [
+        "thi đấu",
+        "thêm vào, cộng",
+        "đánh bại"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our school won the football ___ last year.",
+      "options": [
+        "competitor",
+        "tournament",
+        "supporter"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"league\" mean?",
+      "options": [
+        "liên đoàn, giải đấu",
+        "người ủng hộ",
+        "nhà vô địch"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: compet_tor (đối thủ)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"supporter\" mean?",
+      "options": [
+        "người ủng hộ",
+        "nhảy xa",
+        "giải đấu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_mpete (thi đấu)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thủ môn)",
+      "options": [
+        "gualkeeper",
+        "goalkeeper",
+        "gaolkeeper"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: defe_t (thất bại, đánh bại)",
+      "options": [
+        "a",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sự phòng thủ\"?",
+      "options": [
+        "roller skates",
+        "zone",
+        "defence"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The goalkeeper must ___ the goal.",
+      "options": [
+        "compete",
+        "defend",
+        "supporter"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"sân thi đấu\"?",
+      "options": [
+        "bell",
+        "museum",
+        "pitch"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"môn điền kinh\"?",
+      "options": [
+        "athletics",
+        "waitress",
+        "window"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a goalkeeper",
+    "Pretend to jump in the long jump",
+    "Pretend to win a championship",
+    "Pretend to cheer as a supporter",
+    "Pretend to defend a goal",
+    "Pretend to run a race on the spot",
+    "Pretend to hold up a trophy"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

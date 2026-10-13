@@ -1,0 +1,275 @@
+{
+  "title": "Useful Adjectives 5",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "steep",
+      "meaning": "dốc",
+      "category": "describe",
+      "example": "The path up the hill is very steep.",
+      "image": ""
+    },
+    {
+      "word": "sticky",
+      "meaning": "dính",
+      "category": "describe",
+      "example": "My hands are sticky from the honey.",
+      "image": ""
+    },
+    {
+      "word": "sudden",
+      "meaning": "đột ngột",
+      "category": "describe",
+      "example": "There was a sudden noise in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "thick",
+      "meaning": "dày",
+      "category": "describe",
+      "example": "She wore a thick coat in winter.",
+      "image": ""
+    },
+    {
+      "word": "tight",
+      "meaning": "chật",
+      "category": "describe",
+      "example": "These shoes are too tight for me.",
+      "image": ""
+    },
+    {
+      "word": "typical",
+      "meaning": "điển hình, tiêu biểu",
+      "category": "describe",
+      "example": "Rice and fish is a typical meal in many countries.",
+      "image": ""
+    },
+    {
+      "word": "unable",
+      "meaning": "không thể",
+      "category": "describe",
+      "example": "He was unable to finish the test in time.",
+      "image": ""
+    },
+    {
+      "word": "unknown",
+      "meaning": "không rõ, chưa biết",
+      "category": "describe",
+      "example": "The reason for the power cut is still unknown.",
+      "image": ""
+    },
+    {
+      "word": "unlucky",
+      "meaning": "không may",
+      "category": "describe",
+      "example": "He was unlucky and lost his phone on the bus.",
+      "image": ""
+    },
+    {
+      "word": "waste",
+      "meaning": "thừa, phế thải",
+      "category": "describe",
+      "example": "Please put waste paper in the green bin.",
+      "image": ""
+    },
+    {
+      "word": "well-dressed",
+      "meaning": "ăn mặc đẹp",
+      "category": "describe",
+      "example": "The well-dressed man at the door welcomed the guests.",
+      "image": ""
+    },
+    {
+      "word": "well-known",
+      "meaning": "được nhiều người biết",
+      "category": "describe",
+      "example": "She is a well-known singer in my country.",
+      "image": ""
+    },
+    {
+      "word": "working",
+      "meaning": "đang hoạt động",
+      "category": "describe",
+      "example": "The lift is not working, so we have to use the stairs.",
+      "image": ""
+    },
+    {
+      "word": "written",
+      "meaning": "bằng văn bản, viết",
+      "category": "describe",
+      "example": "We have a written test on Friday.",
+      "image": ""
+    },
+    {
+      "word": "electrical",
+      "meaning": "thuộc về điện",
+      "category": "describe",
+      "example": "Never touch electrical equipment with wet hands.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: el_ctrical (thuộc về điện)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There was a ___ noise in the kitchen.",
+      "options": [
+        "sudden",
+        "depart",
+        "refrigerator"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ăn mặc đẹp\"?",
+      "options": [
+        "honest",
+        "well-dressed",
+        "independent"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (không rõ, chưa biết)",
+      "options": [
+        "unknown",
+        "unkknown",
+        "unnkown"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sticky\" mean?",
+      "options": [
+        "có tài",
+        "dính",
+        "độc lập"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: wr_tten (bằng văn bản, viết)",
+      "options": [
+        "e",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"không may\"?",
+      "options": [
+        "unlucky",
+        "intelligent",
+        "lively"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"typical\" mean?",
+      "options": [
+        "khôn ngoan, thông thái",
+        "táo bạo, in đậm",
+        "điển hình, tiêu biểu"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The lift is not ___, so we have to use the stairs.",
+      "options": [
+        "sign up",
+        "working",
+        "gallery"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chật)",
+      "options": [
+        "tight",
+        "tihgt",
+        "tyght"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ste_p (dốc)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"waste\" mean?",
+      "options": [
+        "người Ireland",
+        "lịch sự",
+        "thừa, phế thải"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dày)",
+      "options": [
+        "thyck",
+        "thick",
+        "thcik"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"well-known\" mean?",
+      "options": [
+        "nghiêm khắc",
+        "hay ra lệnh",
+        "được nhiều người biết"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"không thể\"?",
+      "options": [
+        "unable",
+        "intelligent",
+        "patient"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to climb a steep hill by walking on the spot",
+    "Show me a sudden surprise",
+    "Show me you are unlucky",
+    "Pretend to be well-dressed and check your shirt",
+    "Pretend to write a note",
+    "Pretend to switch on an electronic device"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

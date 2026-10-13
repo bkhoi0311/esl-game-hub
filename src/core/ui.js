@@ -178,6 +178,12 @@ export function toast(message, type = 'info', ms = 2600) {
 
 export const TEAM_COLORS = ['#ff5a00', '#0c6bed', '#04bc09', '#fd3cc6'];
 
+// Biến màu đội + các độ nhạt dạng hex 8 chữ số (#rrggbbaa). Thay cho color-mix() vì Chromium 109 (ClassIn X) không có color-mix,
+// nền dùng var() sẽ thành trong suốt. Dùng: background: var(--team-12) (trong suốt 12% đè lên nền bên dưới).
+export function teamVars(color) {
+  return { '--team': color, '--team-7': `${color}12`, '--team-8': `${color}14`, '--team-12': `${color}1f`, '--team-25': `${color}40` };
+}
+
 // teams: ['Red', 'Blue', ...] (2-4 đội).
 // Trả về { el, add(i, n), set(i, n), scores, highlight(i), reset(), onChange }.
 export function createScoreboard(teams, { min = 0, controls = true, onChange, unit = '' } = {}) {
@@ -193,7 +199,7 @@ export function createScoreboard(teams, { min = 0, controls = true, onChange, un
     valueEls.push(value);
     const card = h(
       'div',
-      { class: 'score-team', style: { '--team': TEAM_COLORS[i] } },
+      { class: 'score-team', style: teamVars(TEAM_COLORS[i]) },
       h('div', { class: 'score-name' }, name),
       h(
         'div',
@@ -503,7 +509,7 @@ export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_
     h('h2', {}, title),
     h('ol', { class: 'rank-list' },
       ranking.map((r, k) =>
-        h('li', { style: { '--team': colors[r.index] } },
+        h('li', { style: teamVars(colors[r.index]) },
           h('span', { class: 'rank-pos' }, `#${k + 1}`), h('span', {}, r.name), h('span', {}, `${r.score}${unit}`)))),
     h('div', { class: 'results-actions' },
       button({ label: 'Play again', iconName: 'restart', variant: 'primary', size: 'lg', onClick: onReplay }),

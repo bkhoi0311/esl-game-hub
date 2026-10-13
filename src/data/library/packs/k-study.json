@@ -1,0 +1,275 @@
+{
+  "title": "Subjects and Studying",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "biology",
+      "meaning": "môn sinh học",
+      "category": "subject",
+      "example": "My favourite subject at school is biology.",
+      "image": ""
+    },
+    {
+      "word": "chemistry",
+      "meaning": "môn hóa học",
+      "category": "subject",
+      "example": "We did an experiment in chemistry today.",
+      "image": ""
+    },
+    {
+      "word": "it (subject)",
+      "meaning": "tin học",
+      "category": "subject",
+      "example": "We have an IT lesson on Tuesday.",
+      "image": ""
+    },
+    {
+      "word": "physics",
+      "meaning": "môn vật lý",
+      "category": "subject",
+      "example": "I like physics because of the experiments.",
+      "image": ""
+    },
+    {
+      "word": "course",
+      "meaning": "khoá học",
+      "category": "study",
+      "example": "I am taking a cooking course after school.",
+      "image": ""
+    },
+    {
+      "word": "diploma",
+      "meaning": "bằng tốt nghiệp",
+      "category": "study",
+      "example": "He hung his diploma on the wall of his room.",
+      "image": ""
+    },
+    {
+      "word": "experiment",
+      "meaning": "thí nghiệm",
+      "category": "study",
+      "example": "We did an experiment with water in science class.",
+      "image": ""
+    },
+    {
+      "word": "spelling",
+      "meaning": "chính tả, cách đánh vần",
+      "category": "study",
+      "example": "My spelling is getting better every week.",
+      "image": ""
+    },
+    {
+      "word": "vocabulary",
+      "meaning": "từ vựng",
+      "category": "study",
+      "example": "We learn new vocabulary in every English lesson.",
+      "image": ""
+    },
+    {
+      "word": "writing",
+      "meaning": "kỹ năng viết, bài viết",
+      "category": "study",
+      "example": "My writing is better than my speaking.",
+      "image": ""
+    },
+    {
+      "word": "topic",
+      "meaning": "chủ đề",
+      "category": "study",
+      "example": "Our topic for the project is space.",
+      "image": ""
+    },
+    {
+      "word": "paragraph",
+      "meaning": "đoạn văn",
+      "category": "study",
+      "example": "Write one paragraph about your best friend.",
+      "image": ""
+    },
+    {
+      "word": "term",
+      "meaning": "học kỳ",
+      "category": "study",
+      "example": "The first term at school starts in September.",
+      "image": ""
+    },
+    {
+      "word": "level",
+      "meaning": "trình độ",
+      "category": "study",
+      "example": "My English level is getting better.",
+      "image": ""
+    },
+    {
+      "word": "studies",
+      "meaning": "việc học",
+      "category": "study",
+      "example": "Her studies take up most of her time.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (kỹ năng viết, bài viết)",
+      "options": [
+        "writing",
+        "writinng",
+        "wryting"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trình độ\"?",
+      "options": [
+        "shorts",
+        "level",
+        "airport"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: chem_stry (môn hóa học)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"physics\" mean?",
+      "options": [
+        "hệ thống sưởi",
+        "môn vật lý",
+        "người chơi quần vợt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: par_graph (đoạn văn)",
+      "options": [
+        "a",
+        "o",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thí nghiệm)",
+      "options": [
+        "experimment",
+        "experiemnt",
+        "experiment"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"IT\" mean?",
+      "options": [
+        "ga tàu hỏa",
+        "trượt patin",
+        "tin học"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I am taking a cooking ___ after school.",
+      "options": [
+        "course",
+        "surfboard",
+        "beginner"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chính tả, cách đánh vần\"?",
+      "options": [
+        "member",
+        "spelling",
+        "centimetre"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"biology\" mean?",
+      "options": [
+        "tin tức",
+        "môn sinh học",
+        "con đại bàng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"từ vựng\"?",
+      "options": [
+        "clock",
+        "fridge",
+        "vocabulary"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_ploma (bằng tốt nghiệp)",
+      "options": [
+        "i",
+        "u",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"topic\" mean?",
+      "options": [
+        "nấu ăn",
+        "cái trống",
+        "chủ đề"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (việc học)",
+      "options": [
+        "studies",
+        "stuides",
+        "sttudies"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The first ___ at school starts in September.",
+      "options": [
+        "blog",
+        "term",
+        "gift"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look through a microscope",
+    "Pretend to do a science experiment carefully",
+    "Pretend to write a paragraph",
+    "Pretend to practise your spelling",
+    "Pretend to receive a diploma",
+    "Pretend to type on a laptop"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "title": "Sea Animals and Insects",
-  "level": "A1 Movers",
+  "level": "Pre A1 Starters",
   "vocab": [
     {
       "word": "fish",
@@ -122,9 +122,9 @@
     {
       "prompt": "A ___ is walking on the beach.",
       "options": [
-        "quiet",
+        "blue",
         "crab",
-        "dangerous"
+        "white"
       ],
       "answer": 1,
       "type": "vocab"
@@ -162,9 +162,9 @@
     {
       "prompt": "Which word means \"con cá\"?",
       "options": [
-        "baby",
+        "sentence",
         "fish",
-        "hand"
+        "bath"
       ],
       "answer": 1,
       "type": "vocab"
@@ -243,8 +243,8 @@
       "prompt": "A ___ is sitting on my hand.",
       "options": [
         "butterfly",
-        "scared",
-        "strong"
+        "take a photo",
+        "have got"
       ],
       "answer": 0,
       "type": "vocab"

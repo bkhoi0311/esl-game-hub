@@ -1,0 +1,282 @@
+{
+  "title": "Opposites 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "rare",
+      "meaning": "hiếm",
+      "category": "describe",
+      "example": "This rare bird lives only on one island.",
+      "image": ""
+    },
+    {
+      "word": "common",
+      "meaning": "phổ biến, thông thường",
+      "category": "describe",
+      "example": "Smith is a very common name in England.",
+      "image": ""
+    },
+    {
+      "word": "sudden",
+      "meaning": "đột ngột",
+      "category": "describe",
+      "example": "There was a sudden noise in the kitchen.",
+      "image": ""
+    },
+    {
+      "word": "regular",
+      "meaning": "đều đặn, thường xuyên",
+      "category": "describe",
+      "example": "Teenagers need regular exercise to stay healthy.",
+      "image": ""
+    },
+    {
+      "word": "brief",
+      "meaning": "ngắn gọn",
+      "category": "describe",
+      "example": "Please write a brief answer of two or three sentences.",
+      "image": ""
+    },
+    {
+      "word": "complicated",
+      "meaning": "phức tạp",
+      "category": "describe",
+      "example": "The rules of this game are too complicated.",
+      "image": ""
+    },
+    {
+      "word": "basic",
+      "meaning": "cơ bản",
+      "category": "describe",
+      "example": "You need basic computer skills to join this class.",
+      "image": ""
+    },
+    {
+      "word": "false",
+      "meaning": "sai",
+      "category": "describe",
+      "example": "The answer on the test paper was false.",
+      "image": ""
+    },
+    {
+      "word": "absent",
+      "meaning": "vắng mặt",
+      "category": "describe",
+      "example": "Three students were absent from class today.",
+      "image": ""
+    },
+    {
+      "word": "hard",
+      "meaning": "khó, cứng",
+      "category": "describe",
+      "example": "This test was very hard for me.",
+      "image": ""
+    },
+    {
+      "word": "soft",
+      "meaning": "mềm",
+      "category": "describe",
+      "example": "My cat has soft fur.",
+      "image": ""
+    },
+    {
+      "word": "heavy",
+      "meaning": "nặng",
+      "category": "describe",
+      "example": "This bag is too heavy for me.",
+      "image": ""
+    },
+    {
+      "word": "light",
+      "meaning": "đèn, ánh sáng",
+      "category": "house",
+      "example": "Turn off the light before bed.",
+      "image": ""
+    },
+    {
+      "word": "wide",
+      "meaning": "rộng",
+      "category": "describe",
+      "example": "The river is very wide here.",
+      "image": ""
+    },
+    {
+      "word": "narrow",
+      "meaning": "hẹp",
+      "category": "describe",
+      "example": "The street was too narrow for the big bus.",
+      "image": ""
+    },
+    {
+      "word": "thin",
+      "meaning": "gầy",
+      "category": "describe",
+      "example": "The thin boy runs very fast.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"complicated\" mean?",
+      "options": [
+        "phức tạp",
+        "không tay",
+        "điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gầy)",
+      "options": [
+        "thyn",
+        "thin",
+        "tihn"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Three students were ___ from class today.",
+      "options": [
+        "light",
+        "video clip",
+        "absent"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"narrow\" mean?",
+      "options": [
+        "hẹp",
+        "lặn",
+        "có tài"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nặng\"?",
+      "options": [
+        "rude",
+        "active",
+        "heavy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"basic\" mean?",
+      "options": [
+        "độc lập",
+        "cơ bản",
+        "đáng tin cậy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mềm\"?",
+      "options": [
+        "soft",
+        "second",
+        "active"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: bri_f (ngắn gọn)",
+      "options": [
+        "u",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rộng\"?",
+      "options": [
+        "rude",
+        "easygoing",
+        "wide"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_dden (đột ngột)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đều đặn, thường xuyên)",
+      "options": [
+        "reuglar",
+        "regular",
+        "regullar"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_lse (sai)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Turn off the ___ before bed.",
+      "options": [
+        "common",
+        "light",
+        "heavy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"rare\" mean?",
+      "options": [
+        "hiếm",
+        "sáng tạo",
+        "điện tử"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khó, cứng)",
+      "options": [
+        "hrad",
+        "harrd",
+        "hard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me tight and loose with your hands",
+    "Show me thick and thin with your fingers",
+    "Show me smooth and rough with a hand",
+    "Show me narrow and broad with your hands",
+    "Show me a brief wave then a long wave",
+    "Show me true and false with a nod and a shake"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

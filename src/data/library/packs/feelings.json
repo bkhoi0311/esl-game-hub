@@ -179,8 +179,8 @@
     {
       "prompt": "The little boy is ___ of thunder.",
       "options": [
-        "email",
-        "grape",
+        "elves",
+        "fix",
         "scared"
       ],
       "answer": 2,
@@ -209,9 +209,9 @@
     {
       "prompt": "Which is the correct spelling? (đói)",
       "options": [
-        "hnugry",
+        "hunngry",
         "hungry",
-        "hunngry"
+        "hungrry"
       ],
       "answer": 1,
       "type": "vocab"
@@ -230,8 +230,8 @@
       "prompt": "The children are ___ today.",
       "options": [
         "happy",
-        "see",
-        "joystick"
+        "moustache",
+        "movie"
       ],
       "answer": 0,
       "type": "vocab"

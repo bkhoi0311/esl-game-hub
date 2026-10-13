@@ -1,0 +1,272 @@
+{
+  "title": "Verbs of Communication 2",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "insist",
+      "meaning": "khăng khăng, nhất quyết",
+      "category": "speech",
+      "example": "My mother insists that I wear a helmet when I ride my bike.",
+      "image": ""
+    },
+    {
+      "word": "interrupt",
+      "meaning": "ngắt lời, làm gián đoạn",
+      "category": "speech",
+      "example": "It is rude to interrupt someone when they are talking.",
+      "image": ""
+    },
+    {
+      "word": "introduce",
+      "meaning": "giới thiệu",
+      "category": "speech",
+      "example": "Let me introduce my friend to you.",
+      "image": ""
+    },
+    {
+      "word": "mention",
+      "meaning": "đề cập",
+      "category": "speech",
+      "example": "She did not mention the party to her mum.",
+      "image": ""
+    },
+    {
+      "word": "pass on",
+      "meaning": "truyền lại, chuyển lời",
+      "category": "speech",
+      "example": "Please pass on my message to your teacher.",
+      "image": ""
+    },
+    {
+      "word": "permit",
+      "meaning": "cho phép",
+      "category": "speech",
+      "example": "The school does not permit phones in class.",
+      "image": ""
+    },
+    {
+      "word": "persuade",
+      "meaning": "thuyết phục",
+      "category": "speech",
+      "example": "I tried to persuade my mum to buy a puppy.",
+      "image": ""
+    },
+    {
+      "word": "pronounce",
+      "meaning": "phát âm",
+      "category": "speech",
+      "example": "How do you pronounce this difficult word?",
+      "image": ""
+    },
+    {
+      "word": "recommend",
+      "meaning": "giới thiệu, đề xuất",
+      "category": "speech",
+      "example": "Can you recommend a good book about animals?",
+      "image": ""
+    },
+    {
+      "word": "refuse",
+      "meaning": "từ chối",
+      "category": "speech",
+      "example": "She refused to leave without her little brother.",
+      "image": ""
+    },
+    {
+      "word": "remind",
+      "meaning": "nhắc nhở",
+      "category": "speech",
+      "example": "Please remind me to call my aunt.",
+      "image": ""
+    },
+    {
+      "word": "ring back",
+      "meaning": "gọi lại",
+      "category": "speech",
+      "example": "I will ring back after my piano lesson.",
+      "image": ""
+    },
+    {
+      "word": "ring up",
+      "meaning": "gọi điện",
+      "category": "speech",
+      "example": "You can ring up the cinema to ask about the time.",
+      "image": ""
+    },
+    {
+      "word": "translate",
+      "meaning": "dịch",
+      "category": "speech",
+      "example": "Can you translate this sentence into English?",
+      "image": ""
+    },
+    {
+      "word": "turn down",
+      "meaning": "từ chối, vặn nhỏ",
+      "category": "speech",
+      "example": "She turned down the invitation because she had exams.",
+      "image": ""
+    },
+    {
+      "word": "warn",
+      "meaning": "cảnh báo",
+      "category": "speech",
+      "example": "The teacher warned us not to run near the pool.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "I will ___ after my piano lesson.",
+      "options": [
+        "chill out",
+        "ring back",
+        "hold up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đề cập\"?",
+      "options": [
+        "mention",
+        "love",
+        "turn up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ins_st (khăng khăng, nhất quyết)",
+      "options": [
+        "u",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"remind\" mean?",
+      "options": [
+        "cất đi",
+        "làm rơi, đánh rơi",
+        "nhắc nhở"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rn (cảnh báo)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"persuade\" mean?",
+      "options": [
+        "ngồi xuống",
+        "thuyết phục",
+        "thực hiện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dịch)",
+      "options": [
+        "translatte",
+        "trasnlate",
+        "translate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pass on\" mean?",
+      "options": [
+        "rốt cuộc, cuối cùng là",
+        "truyền lại, chuyển lời",
+        "mang trả lại"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rmit (cho phép)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"introduce\" mean?",
+      "options": [
+        "giới thiệu",
+        "cư xử",
+        "trang trí"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"gọi điện\"?",
+      "options": [
+        "pass on",
+        "ring up",
+        "ring back"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phát âm)",
+      "options": [
+        "prononuce",
+        "pronounce",
+        "pronnounce"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"giới thiệu, đề xuất\"?",
+      "options": [
+        "recommend",
+        "destroy",
+        "go on"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngắt lời, làm gián đoạn)",
+      "options": [
+        "interupt",
+        "inetrrupt",
+        "interrupt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to ring up a friend",
+    "Pretend to recommend a book",
+    "Pretend to persuade a friend to join you",
+    "Mime saying a hard word slowly",
+    "Pretend to remind a friend about a test",
+    "Pretend to translate a message"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

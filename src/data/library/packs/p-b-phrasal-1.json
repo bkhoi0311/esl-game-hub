@@ -1,0 +1,258 @@
+{
+  "title": "Phrasal Verbs 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "break in",
+      "meaning": "đột nhập",
+      "category": "action",
+      "example": "Someone tried to break in through the back window last night.",
+      "image": ""
+    },
+    {
+      "word": "bring up",
+      "meaning": "nuôi dạy",
+      "category": "daily",
+      "example": "Her grandparents helped to bring up the children.",
+      "image": ""
+    },
+    {
+      "word": "call in",
+      "meaning": "ghé thăm, gọi đến",
+      "category": "daily",
+      "example": "I will call in at your house on my way home.",
+      "image": ""
+    },
+    {
+      "word": "carry on",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "Please carry on with your work while I check the answers.",
+      "image": ""
+    },
+    {
+      "word": "carry out",
+      "meaning": "thực hiện",
+      "category": "daily",
+      "example": "The students will carry out a science experiment today.",
+      "image": ""
+    },
+    {
+      "word": "check in",
+      "meaning": "làm thủ tục nhận phòng",
+      "category": "daily",
+      "example": "We can check in at the hotel after two o'clock.",
+      "image": ""
+    },
+    {
+      "word": "check out",
+      "meaning": "trả phòng",
+      "category": "daily",
+      "example": "You must check out of the hotel before noon.",
+      "image": ""
+    },
+    {
+      "word": "chill out",
+      "meaning": "thư giãn",
+      "category": "daily",
+      "example": "After the exam, we like to chill out at the park.",
+      "image": ""
+    },
+    {
+      "word": "cross out",
+      "meaning": "gạch bỏ",
+      "category": "daily",
+      "example": "Please cross out the wrong answer and write the right one.",
+      "image": ""
+    },
+    {
+      "word": "cut up",
+      "meaning": "cắt nhỏ",
+      "category": "daily",
+      "example": "First, cut up the apples and put them in a bowl.",
+      "image": ""
+    },
+    {
+      "word": "dial up",
+      "meaning": "gọi điện, quay số",
+      "category": "daily",
+      "example": "I tried to dial up my cousin, but his phone was off.",
+      "image": ""
+    },
+    {
+      "word": "end up",
+      "meaning": "rốt cuộc, cuối cùng là",
+      "category": "daily",
+      "example": "If you don't plan well, you may end up late for school.",
+      "image": ""
+    },
+    {
+      "word": "fill up",
+      "meaning": "đổ đầy",
+      "category": "daily",
+      "example": "Dad stopped to fill up the car with petrol.",
+      "image": ""
+    },
+    {
+      "word": "get along",
+      "meaning": "hòa thuận",
+      "category": "daily",
+      "example": "I get along well with my cousins.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"thực hiện\"?",
+      "options": [
+        "bring up",
+        "carry out",
+        "carry on"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"carry on\" mean?",
+      "options": [
+        "đòi hỏi, kêu gọi",
+        "gọi điện",
+        "tiếp tục"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đột nhập\"?",
+      "options": [
+        "break in",
+        "dial up",
+        "cut up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bring up\" mean?",
+      "options": [
+        "được gọi là",
+        "nuôi dạy",
+        "trông giống"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"rốt cuộc, cuối cùng là\"?",
+      "options": [
+        "end up",
+        "cross out",
+        "fill up"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"chill out\" mean?",
+      "options": [
+        "tập trung vào",
+        "muốn có",
+        "thư giãn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đổ đầy\"?",
+      "options": [
+        "get along",
+        "fill up",
+        "cut up"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cross out\" mean?",
+      "options": [
+        "gạch bỏ",
+        "ngồi xuống",
+        "ra ngoài"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ghé thăm, gọi đến\"?",
+      "options": [
+        "call in",
+        "fill up",
+        "carry out"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"check in\" mean?",
+      "options": [
+        "được gọi là",
+        "làm thủ tục nhận phòng",
+        "tập trung vào"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I tried to ___ my cousin, but his phone was off.",
+      "options": [
+        "set off",
+        "step over",
+        "dial up"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"get along\" mean?",
+      "options": [
+        "giải ra, tìm ra",
+        "hòa thuận",
+        "dựa trên"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trả phòng\"?",
+      "options": [
+        "chill out",
+        "check in",
+        "check out"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fill up\" mean?",
+      "options": [
+        "đổ đầy",
+        "ở lại",
+        "chịu thua"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to check in at a hotel desk",
+    "Pretend to cross out a word",
+    "Pretend to chill out on a sofa",
+    "Pretend to carry on reading",
+    "Pretend to cut up an apple",
+    "Pretend to fill up a bottle with water"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

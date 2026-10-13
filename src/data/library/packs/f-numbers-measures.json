@@ -1,0 +1,295 @@
+{
+  "title": "Numbers and Measures",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "zero",
+      "meaning": "số không",
+      "category": "number",
+      "example": "Five minus five is zero.",
+      "image": ""
+    },
+    {
+      "word": "thousand",
+      "meaning": "nghìn",
+      "category": "number",
+      "example": "The town has about ten thousand people.",
+      "image": ""
+    },
+    {
+      "word": "million",
+      "meaning": "triệu",
+      "category": "number",
+      "example": "The city has one million people.",
+      "image": ""
+    },
+    {
+      "word": "thirtieth",
+      "meaning": "thứ ba mươi",
+      "category": "number",
+      "example": "Her birthday is on the thirtieth of June.",
+      "image": ""
+    },
+    {
+      "word": "thirty-first",
+      "meaning": "thứ ba mươi mốt",
+      "category": "number",
+      "example": "We will have a party on the thirty-first of December.",
+      "image": ""
+    },
+    {
+      "word": "twenty-first",
+      "meaning": "thứ hai mươi mốt",
+      "category": "number",
+      "example": "The twenty-first of March is a school holiday.",
+      "image": ""
+    },
+    {
+      "word": "kilometre",
+      "meaning": "ki-lô-mét",
+      "category": "measure",
+      "example": "The park is two kilometres from here.",
+      "image": ""
+    },
+    {
+      "word": "quarter",
+      "meaning": "một phần tư",
+      "category": "measure",
+      "example": "She ate a quarter of the pizza.",
+      "image": ""
+    },
+    {
+      "word": "half",
+      "meaning": "một nửa",
+      "category": "describe",
+      "example": "I ate half of the cake.",
+      "image": ""
+    },
+    {
+      "word": "bit",
+      "meaning": "một chút",
+      "category": "measure",
+      "example": "Add a bit of salt to the soup.",
+      "image": ""
+    },
+    {
+      "word": "piece",
+      "meaning": "mẩu, miếng",
+      "category": "measure",
+      "example": "Can I have a piece of cake?",
+      "image": ""
+    },
+    {
+      "word": "several",
+      "meaning": "vài, một vài",
+      "category": "describe",
+      "example": "I saw several birds in the garden.",
+      "image": ""
+    },
+    {
+      "word": "much",
+      "meaning": "nhiều",
+      "category": "manner",
+      "example": "I don't like fish very much.",
+      "image": ""
+    },
+    {
+      "word": "enough",
+      "meaning": "đủ",
+      "category": "describe",
+      "example": "Do we have enough chairs for everyone?",
+      "image": ""
+    },
+    {
+      "word": "full",
+      "meaning": "đầy",
+      "category": "describe",
+      "example": "The bag is full of books.",
+      "image": ""
+    },
+    {
+      "word": "empty",
+      "meaning": "trống rỗng",
+      "category": "describe",
+      "example": "The box is empty.",
+      "image": ""
+    },
+    {
+      "word": "heavy",
+      "meaning": "nặng",
+      "category": "describe",
+      "example": "This bag is too heavy for me.",
+      "image": ""
+    },
+    {
+      "word": "large",
+      "meaning": "lớn",
+      "category": "describe",
+      "example": "They live in a large house.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (lớn)",
+      "options": [
+        "largi",
+        "largge",
+        "large"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I don't like fish very ___.",
+      "options": [
+        "heavy",
+        "much",
+        "piece"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: sev_ral (vài, một vài)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (một nửa)",
+      "options": [
+        "hlaf",
+        "hallf",
+        "half"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bit\" mean?",
+      "options": [
+        "một chút",
+        "ki-lô-mét",
+        "mẩu, miếng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: z_ro (số không)",
+      "options": [
+        "u",
+        "e",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"enough\" mean?",
+      "options": [
+        "đầy",
+        "nặng",
+        "đủ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ ba mươi mốt\"?",
+      "options": [
+        "twenty-first",
+        "thirty-first",
+        "zero"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"million\" mean?",
+      "options": [
+        "triệu",
+        "nghìn",
+        "thứ ba mươi"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: kilom_tre (ki-lô-mét)",
+      "options": [
+        "a",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"thứ ba mươi\"?",
+      "options": [
+        "twenty-first",
+        "thirtieth",
+        "sixteen"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"empty\" mean?",
+      "options": [
+        "trống rỗng",
+        "vài, một vài",
+        "một nửa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"một phần tư\"?",
+      "options": [
+        "zero",
+        "quarter",
+        "thirtieth"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nghìn)",
+      "options": [
+        "thousand",
+        "tohusand",
+        "thousannd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of March is a school holiday.",
+      "options": [
+        "several",
+        "enough",
+        "twenty-first"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a quarter with your hands",
+    "Show me a big number with your fingers",
+    "Pretend to weigh something heavy",
+    "Show me half with your hands",
+    "Count slowly to ten on the spot"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "title": "Animals and Pets",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bull",
+      "meaning": "con bò đực",
+      "category": "animal",
+      "example": "The farmer kept the bull in a strong fence.",
+      "image": ""
+    },
+    {
+      "word": "calf",
+      "meaning": "con bê",
+      "category": "animal",
+      "example": "The calf stayed close to its mother in the field.",
+      "image": ""
+    },
+    {
+      "word": "cattle",
+      "meaning": "gia súc",
+      "category": "animal",
+      "example": "The cattle were eating grass on the hill.",
+      "image": ""
+    },
+    {
+      "word": "lamb",
+      "meaning": "cừu non",
+      "category": "animal",
+      "example": "The lamb followed its mother across the field.",
+      "image": ""
+    },
+    {
+      "word": "pig",
+      "meaning": "con lợn",
+      "category": "animal",
+      "example": "The pig is rolling in the mud.",
+      "image": ""
+    },
+    {
+      "word": "ant",
+      "meaning": "con kiến",
+      "category": "insect",
+      "example": "The ant carries a small leaf.",
+      "image": ""
+    },
+    {
+      "word": "bug",
+      "meaning": "con bọ, lỗi phần mềm",
+      "category": "insect",
+      "example": "I found a tiny bug on a leaf in the garden.",
+      "image": ""
+    },
+    {
+      "word": "mosquito",
+      "meaning": "con muỗi",
+      "category": "insect",
+      "example": "A mosquito is flying near my ear.",
+      "image": ""
+    },
+    {
+      "word": "turkey",
+      "meaning": "con gà tây",
+      "category": "bird",
+      "example": "The turkey is a big bird.",
+      "image": ""
+    },
+    {
+      "word": "species",
+      "meaning": "loài",
+      "category": "nature",
+      "example": "Many species of birds live in this forest.",
+      "image": ""
+    },
+    {
+      "word": "crop",
+      "meaning": "cây trồng, vụ mùa",
+      "category": "plant",
+      "example": "Farmers grow rice and other crops here.",
+      "image": ""
+    },
+    {
+      "word": "farming",
+      "meaning": "nghề nông",
+      "category": "work",
+      "example": "My uncle enjoys farming in the countryside.",
+      "image": ""
+    },
+    {
+      "word": "farmland",
+      "meaning": "đất nông nghiệp",
+      "category": "nature",
+      "example": "There is a lot of farmland near our village.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"con bê\"?",
+      "options": [
+        "calf",
+        "glasses",
+        "long jump"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"crop\" mean?",
+      "options": [
+        "nghề nông",
+        "cây trồng, vụ mùa",
+        "hiệu thuốc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ were eating grass on the hill.",
+      "options": [
+        "wash",
+        "local",
+        "cattle"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bug\" mean?",
+      "options": [
+        "cái chuông",
+        "thiếu niên",
+        "con bọ, lỗi phần mềm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: farml_nd (đất nông nghiệp)",
+      "options": [
+        "a",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bull\" mean?",
+      "options": [
+        "đất nông nghiệp",
+        "con bò đực",
+        "nghề nông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: speci_s (loài)",
+      "options": [
+        "e",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cừu non)",
+      "options": [
+        "lammb",
+        "lamb",
+        "lmab"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"turkey\" mean?",
+      "options": [
+        "sân khấu",
+        "đồ vật, thứ",
+        "con gà tây"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con kiến\"?",
+      "options": [
+        "crash",
+        "cap",
+        "ant"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My uncle enjoys ___ in the countryside.",
+      "options": [
+        "mosquito",
+        "farming",
+        "species"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con lợn\"?",
+      "options": [
+        "pig",
+        "pyramid",
+        "butcher"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con bò đực)",
+      "options": [
+        "bul",
+        "bull",
+        "blul"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cừu non\"?",
+      "options": [
+        "dot",
+        "pencil",
+        "lamb"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_squito (con muỗi)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to feed a lamb",
+    "Pretend to be a pig",
+    "Pretend to chase away a mosquito",
+    "Pretend to look at an ant closely",
+    "Pretend to take a dog for a walk",
+    "Pretend to give water to a calf"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

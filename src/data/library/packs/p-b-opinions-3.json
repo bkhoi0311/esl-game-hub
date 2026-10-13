@@ -1,0 +1,282 @@
+{
+  "title": "Opinions and Attitudes 3",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "spectacular",
+      "meaning": "ngoạn mục",
+      "category": "opinion",
+      "example": "The view from the mountain was spectacular.",
+      "image": ""
+    },
+    {
+      "word": "stressful",
+      "meaning": "gây căng thẳng",
+      "category": "opinion",
+      "example": "Moving to a new school can be stressful.",
+      "image": ""
+    },
+    {
+      "word": "stupid",
+      "meaning": "ngớ ngẩn",
+      "category": "opinion",
+      "example": "It was a stupid mistake, but he laughed.",
+      "image": ""
+    },
+    {
+      "word": "stylish",
+      "meaning": "sành điệu",
+      "category": "opinion",
+      "example": "Your new jacket looks very stylish.",
+      "image": ""
+    },
+    {
+      "word": "suitable",
+      "meaning": "phù hợp",
+      "category": "opinion",
+      "example": "This film is suitable for young children.",
+      "image": ""
+    },
+    {
+      "word": "terrific",
+      "meaning": "rất tuyệt",
+      "category": "opinion",
+      "example": "You did a terrific job on the project.",
+      "image": ""
+    },
+    {
+      "word": "tiring",
+      "meaning": "gây mệt mỏi",
+      "category": "opinion",
+      "example": "The long walk was tiring but fun.",
+      "image": ""
+    },
+    {
+      "word": "unbelievable",
+      "meaning": "khó tin",
+      "category": "opinion",
+      "example": "The view from the top of the hill was unbelievable.",
+      "image": ""
+    },
+    {
+      "word": "unexpected",
+      "meaning": "bất ngờ",
+      "category": "opinion",
+      "example": "We got an unexpected visit from my cousin yesterday.",
+      "image": ""
+    },
+    {
+      "word": "unfair",
+      "meaning": "không công bằng",
+      "category": "opinion",
+      "example": "It is unfair that she has to do all the work.",
+      "image": ""
+    },
+    {
+      "word": "unforgettable",
+      "meaning": "khó quên",
+      "category": "opinion",
+      "example": "Our school trip to the coast was unforgettable.",
+      "image": ""
+    },
+    {
+      "word": "unimportant",
+      "meaning": "không quan trọng",
+      "category": "opinion",
+      "example": "Don't worry about that mistake because it is unimportant.",
+      "image": ""
+    },
+    {
+      "word": "uninteresting",
+      "meaning": "nhàm chán",
+      "category": "opinion",
+      "example": "I found the film long and uninteresting.",
+      "image": ""
+    },
+    {
+      "word": "unpleasant",
+      "meaning": "khó chịu",
+      "category": "opinion",
+      "example": "There was an unpleasant smell in the old kitchen.",
+      "image": ""
+    },
+    {
+      "word": "valuable",
+      "meaning": "có giá trị, quý giá",
+      "category": "opinion",
+      "example": "This old watch is very valuable to my grandfather.",
+      "image": ""
+    },
+    {
+      "word": "worth",
+      "meaning": "đáng giá, có giá trị",
+      "category": "opinion",
+      "example": "This museum is really worth a visit.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "This film is ___ for young children.",
+      "options": [
+        "firefighter",
+        "tomato",
+        "suitable"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: stressf_l (gây căng thẳng)",
+      "options": [
+        "u",
+        "i",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"terrific\" mean?",
+      "options": [
+        "ích kỷ",
+        "rất tuyệt",
+        "có gió"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (không quan trọng)",
+      "options": [
+        "unimporrtant",
+        "unymportant",
+        "unimportant"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"spectacular\" mean?",
+      "options": [
+        "ôn hoà, nhẹ",
+        "ngoạn mục",
+        "thứ hai"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: unfa_r (không công bằng)",
+      "options": [
+        "i",
+        "u",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"có giá trị, quý giá\"?",
+      "options": [
+        "windy",
+        "valuable",
+        "white"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khó tin)",
+      "options": [
+        "unbelievable",
+        "uneblievable",
+        "unbilievable"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"unforgettable\" mean?",
+      "options": [
+        "táo bạo, in đậm",
+        "xanh hải quân",
+        "khó quên"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (nhàm chán)",
+      "options": [
+        "uninteresting",
+        "unintiresting",
+        "uninteristing"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_ring (gây mệt mỏi)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Your new jacket looks very ___.",
+      "options": [
+        "made of",
+        "tidy up",
+        "stylish"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đáng giá, có giá trị\"?",
+      "options": [
+        "third",
+        "worth",
+        "previous"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"stupid\" mean?",
+      "options": [
+        "ngớ ngẩn",
+        "sẵn lòng",
+        "kiên nhẫn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bất ngờ\"?",
+      "options": [
+        "friendly",
+        "yellow",
+        "unexpected"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me you think something is unfair",
+    "Pretend to watch a spectacular show",
+    "Show me a tired and tiring day",
+    "Show me you cannot believe the news",
+    "Pretend to hold something very valuable",
+    "Show me an unexpected surprise"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

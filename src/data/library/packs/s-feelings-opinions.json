@@ -1,0 +1,296 @@
+{
+  "title": "Feelings and Opinions",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "angry",
+      "meaning": "tức giận",
+      "category": "feeling",
+      "example": "Dad is angry about the mess.",
+      "image": ""
+    },
+    {
+      "word": "happy",
+      "meaning": "vui vẻ",
+      "category": "feeling",
+      "example": "The children are happy today.",
+      "image": ""
+    },
+    {
+      "word": "sad",
+      "meaning": "buồn",
+      "category": "feeling",
+      "example": "She is sad about her lost toy.",
+      "image": ""
+    },
+    {
+      "word": "sorry",
+      "meaning": "xin lỗi",
+      "category": "feeling",
+      "example": "I am sorry for the noise.",
+      "image": ""
+    },
+    {
+      "word": "love",
+      "meaning": "yêu",
+      "category": "feeling",
+      "example": "I love my grandma very much.",
+      "image": ""
+    },
+    {
+      "word": "fantastic",
+      "meaning": "tuyệt vời",
+      "category": "opinion",
+      "example": "The show is fantastic!",
+      "image": ""
+    },
+    {
+      "word": "favourite",
+      "meaning": "yêu thích",
+      "category": "opinion",
+      "example": "Blue is my favourite colour.",
+      "image": ""
+    },
+    {
+      "word": "fun",
+      "meaning": "vui, trò vui",
+      "category": "opinion",
+      "example": "The party is fun.",
+      "image": ""
+    },
+    {
+      "word": "nice",
+      "meaning": "tốt, dễ thương",
+      "category": "opinion",
+      "example": "You have a nice dog.",
+      "image": ""
+    },
+    {
+      "word": "scary",
+      "meaning": "đáng sợ",
+      "category": "opinion",
+      "example": "The big dog is scary.",
+      "image": ""
+    },
+    {
+      "word": "really",
+      "meaning": "thật sự",
+      "category": "manner",
+      "example": "I really like this game.",
+      "image": ""
+    },
+    {
+      "word": "very",
+      "meaning": "rất",
+      "category": "manner",
+      "example": "My cat is very small.",
+      "image": ""
+    },
+    {
+      "word": "a lot",
+      "meaning": "nhiều",
+      "category": "manner",
+      "example": "We learn a lot at school.",
+      "image": ""
+    },
+    {
+      "word": "lots",
+      "meaning": "rất nhiều",
+      "category": "manner",
+      "example": "We have lots to eat.",
+      "image": ""
+    },
+    {
+      "word": "please",
+      "meaning": "làm ơn",
+      "category": "action",
+      "example": "Can I have water, please?",
+      "image": ""
+    },
+    {
+      "word": "thank you",
+      "meaning": "cảm ơn",
+      "category": "action",
+      "example": "I say thank you to my teacher.",
+      "image": ""
+    },
+    {
+      "word": "hello",
+      "meaning": "xin chào",
+      "category": "action",
+      "example": "She says hello to the dog.",
+      "image": ""
+    },
+    {
+      "word": "goodbye",
+      "meaning": "tạm biệt",
+      "category": "action",
+      "example": "We wave goodbye at the gate.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"love\" mean?",
+      "options": [
+        "yêu",
+        "buồn",
+        "vui vẻ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tạm biệt\"?",
+      "options": [
+        "hello",
+        "favourite",
+        "goodbye"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The show is ___!",
+      "options": [
+        "crystal ball",
+        "fantastic",
+        "beach"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"please\" mean?",
+      "options": [
+        "cảm ơn",
+        "làm ơn",
+        "tạm biệt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vui, trò vui\"?",
+      "options": [
+        "fun",
+        "nice",
+        "fantastic"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tốt, dễ thương)",
+      "options": [
+        "ncie",
+        "nicce",
+        "nice"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sorry\" mean?",
+      "options": [
+        "tức giận",
+        "xin lỗi",
+        "yêu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fav_urite (yêu thích)",
+      "options": [
+        "a",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhiều\"?",
+      "options": [
+        "a lot",
+        "really",
+        "hello"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_ppy (vui vẻ)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đáng sợ)",
+      "options": [
+        "sacry",
+        "sccary",
+        "scary"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"really\" mean?",
+      "options": [
+        "thật sự",
+        "rất nhiều",
+        "nhiều"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "We have ___ to eat.",
+      "options": [
+        "sorry",
+        "lots",
+        "fantastic"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_llo (xin chào)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tức giận)",
+      "options": [
+        "angry",
+        "agnry",
+        "anggry"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a happy face",
+    "Show me a sad face",
+    "Show me an angry face",
+    "Show me a scared face",
+    "Say thank you and bow",
+    "Wave goodbye"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "title": "Opposites",
-  "level": "Pre A1 Starters",
+  "level": "A1 Movers",
   "vocab": [
     {
       "word": "big",
@@ -258,8 +258,8 @@
       "prompt": "My grandfather is very ___.",
       "options": [
         "old",
-        "spider",
-        "dna"
+        "work",
+        "e-book"
       ],
       "answer": 0,
       "type": "vocab"
@@ -287,9 +287,9 @@
     {
       "prompt": "Her hands are ___ now.",
       "options": [
-        "thermometer",
+        "tennis",
         "clean",
-        "television"
+        "judo"
       ],
       "answer": 1,
       "type": "vocab"

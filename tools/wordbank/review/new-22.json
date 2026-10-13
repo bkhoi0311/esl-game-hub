@@ -1,0 +1,73 @@
+{
+  "sampled": [
+    "require",
+    "remove",
+    "react",
+    "rare",
+    "rail",
+    "report",
+    "publisher",
+    "pump",
+    "region",
+    "put down",
+    "proper",
+    "queue",
+    "put out",
+    "raise",
+    "property"
+  ],
+  "sampleErrors": [
+    "queue"
+  ],
+  "fullPartReviewed": true,
+  "errorsTotal": [
+    "reserve",
+    "queue",
+    "recognise"
+  ],
+  "fixed": [
+    {
+      "word": "reserve",
+      "field": "vi",
+      "old": "chỗ đặt trước, đặt trước",
+      "new": "đặt trước, khu bảo tồn"
+    },
+    {
+      "word": "queue",
+      "field": "vi",
+      "old": "hàng người xếp hàng",
+      "new": "hàng chờ, hàng người"
+    },
+    {
+      "word": "recognise",
+      "field": "vi",
+      "old": "nhận ra mặt, công nhận",
+      "new": "nhận ra, nhận diện"
+    },
+    {
+      "word": "realise",
+      "field": "vi",
+      "old": "nhận ra",
+      "new": "nhận ra, nhận thấy"
+    },
+    {
+      "word": "previously",
+      "field": "vi",
+      "old": "trước đây",
+      "new": "trước kia"
+    },
+    {
+      "word": "prohibited",
+      "field": "vi",
+      "old": "bị cấm",
+      "new": "bị nghiêm cấm"
+    },
+    {
+      "word": "regularly",
+      "field": "vi",
+      "old": "thường xuyên",
+      "new": "đều đặn"
+    }
+  ],
+  "stillCheck": []
+}

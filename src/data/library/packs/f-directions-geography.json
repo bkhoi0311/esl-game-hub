@@ -1,0 +1,289 @@
+{
+  "title": "Directions and Geography",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "north",
+      "meaning": "phía bắc",
+      "category": "place",
+      "example": "The lake is in the north of the country.",
+      "image": ""
+    },
+    {
+      "word": "south",
+      "meaning": "phía nam",
+      "category": "place",
+      "example": "The beach is to the south.",
+      "image": ""
+    },
+    {
+      "word": "east",
+      "meaning": "hướng đông",
+      "category": "place",
+      "example": "The sun comes up in the east.",
+      "image": ""
+    },
+    {
+      "word": "west",
+      "meaning": "phía tây",
+      "category": "place",
+      "example": "The sun sets in the west.",
+      "image": ""
+    },
+    {
+      "word": "corner",
+      "meaning": "góc",
+      "category": "place",
+      "example": "The shop is on the corner of the street.",
+      "image": ""
+    },
+    {
+      "word": "entrance",
+      "meaning": "lối vào",
+      "category": "place",
+      "example": "Meet me at the entrance of the zoo.",
+      "image": ""
+    },
+    {
+      "word": "exit",
+      "meaning": "lối ra",
+      "category": "place",
+      "example": "The exit is next to the stairs.",
+      "image": ""
+    },
+    {
+      "word": "middle",
+      "meaning": "giữa, chính giữa",
+      "category": "place",
+      "example": "The cat sat in the middle of the road.",
+      "image": ""
+    },
+    {
+      "word": "path",
+      "meaning": "lối đi, đường mòn",
+      "category": "place",
+      "example": "We walked along a path in the forest.",
+      "image": ""
+    },
+    {
+      "word": "straight on",
+      "meaning": "đi thẳng",
+      "category": "manner",
+      "example": "Go straight on until you see the park.",
+      "image": ""
+    },
+    {
+      "word": "far",
+      "meaning": "xa",
+      "category": "describe",
+      "example": "Is your house far from the school?",
+      "image": ""
+    },
+    {
+      "word": "front",
+      "meaning": "phía trước",
+      "category": "describe",
+      "example": "I sit in the front row in class.",
+      "image": ""
+    },
+    {
+      "word": "left",
+      "meaning": "bên trái",
+      "category": "describe",
+      "example": "Write with your left hand.",
+      "image": ""
+    },
+    {
+      "word": "next",
+      "meaning": "tiếp theo, sau",
+      "category": "describe",
+      "example": "Our next lesson is maths.",
+      "image": ""
+    },
+    {
+      "word": "view",
+      "meaning": "cảnh, tầm nhìn",
+      "category": "nature",
+      "example": "The view from the hill is lovely.",
+      "image": ""
+    },
+    {
+      "word": "london",
+      "meaning": "Luân Đôn",
+      "category": "place",
+      "example": "We are going to visit London next summer.",
+      "image": ""
+    },
+    {
+      "word": "hill",
+      "meaning": "ngọn đồi",
+      "category": "nature",
+      "example": "We run up the hill.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"giữa, chính giữa\"?",
+      "options": [
+        "middle",
+        "London",
+        "west"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hướng đông)",
+      "options": [
+        "esat",
+        "east",
+        "easst"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: entr_nce (lối vào)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cảnh, tầm nhìn)",
+      "options": [
+        "view",
+        "vyew",
+        "veiw"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"straight on\" mean?",
+      "options": [
+        "ngọn đồi",
+        "lối đi, đường mòn",
+        "đi thẳng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The sun sets in the ___.",
+      "options": [
+        "left",
+        "west",
+        "far"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (góc)",
+      "options": [
+        "corner",
+        "curner",
+        "corenr"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Write with your ___ hand.",
+      "options": [
+        "east",
+        "left",
+        "view"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: lond_n (Luân Đôn)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"exit\" mean?",
+      "options": [
+        "lối vào",
+        "lối ra",
+        "hướng đông"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: h_ll (ngọn đồi)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phía bắc\"?",
+      "options": [
+        "north",
+        "exit",
+        "south"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"front\" mean?",
+      "options": [
+        "tiếp theo, sau",
+        "bên trái",
+        "phía trước"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lối đi, đường mòn\"?",
+      "options": [
+        "north",
+        "path",
+        "west"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"south\" mean?",
+      "options": [
+        "phía nam",
+        "lối đi, đường mòn",
+        "phía tây"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Point north",
+    "Point to the left",
+    "Point to your front",
+    "Pretend to walk straight on",
+    "Pretend to turn left at the corner",
+    "Point to the exit"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

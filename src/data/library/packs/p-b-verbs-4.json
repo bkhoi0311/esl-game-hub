@@ -1,0 +1,275 @@
+{
+  "title": "Useful Verbs 4",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bury",
+      "meaning": "chôn",
+      "category": "daily",
+      "example": "The dog likes to bury its bone in the garden.",
+      "image": ""
+    },
+    {
+      "word": "compete",
+      "meaning": "thi đấu",
+      "category": "daily",
+      "example": "Many schools compete in the sports day every year.",
+      "image": ""
+    },
+    {
+      "word": "deal",
+      "meaning": "chia bài",
+      "category": "daily",
+      "example": "It's your turn to deal the cards.",
+      "image": ""
+    },
+    {
+      "word": "dial",
+      "meaning": "bấm số, quay số",
+      "category": "daily",
+      "example": "You should dial the number again if nobody answers.",
+      "image": ""
+    },
+    {
+      "word": "go on",
+      "meaning": "tiếp tục",
+      "category": "daily",
+      "example": "Please go on with your story.",
+      "image": ""
+    },
+    {
+      "word": "lay",
+      "meaning": "đặt nằm, bày ra",
+      "category": "daily",
+      "example": "Please lay the books on the table.",
+      "image": ""
+    },
+    {
+      "word": "pick",
+      "meaning": "chọn, hái",
+      "category": "daily",
+      "example": "You can pick any book from this shelf.",
+      "image": ""
+    },
+    {
+      "word": "postpone",
+      "meaning": "hoãn",
+      "category": "daily",
+      "example": "They had to postpone the match because of the storm.",
+      "image": ""
+    },
+    {
+      "word": "prevent",
+      "meaning": "ngăn ngừa",
+      "category": "daily",
+      "example": "Washing your hands can prevent many illnesses.",
+      "image": ""
+    },
+    {
+      "word": "rebuild",
+      "meaning": "xây lại",
+      "category": "daily",
+      "example": "They plan to rebuild the old bridge next year.",
+      "image": ""
+    },
+    {
+      "word": "spoil",
+      "meaning": "làm hỏng",
+      "category": "daily",
+      "example": "The heavy rain spoiled our picnic at the beach.",
+      "image": ""
+    },
+    {
+      "word": "underline",
+      "meaning": "gạch chân",
+      "category": "daily",
+      "example": "Please underline the main idea in each paragraph.",
+      "image": ""
+    },
+    {
+      "word": "defend",
+      "meaning": "bảo vệ, phòng thủ",
+      "category": "sport",
+      "example": "The goalkeeper must defend the goal.",
+      "image": ""
+    },
+    {
+      "word": "beat",
+      "meaning": "đánh bại",
+      "category": "sport",
+      "example": "Our team hopes to beat the school champions on Saturday.",
+      "image": ""
+    },
+    {
+      "word": "shine",
+      "meaning": "chiếu sáng",
+      "category": "nature",
+      "example": "The sun began to shine after the rain.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"bury\" mean?",
+      "options": [
+        "chôn",
+        "đánh bại",
+        "chiếu sáng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ the books on the table.",
+      "options": [
+        "defend",
+        "beat",
+        "lay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"go on\" mean?",
+      "options": [
+        "xuống xe",
+        "tiếp tục",
+        "đòi hỏi, kêu gọi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm hỏng\"?",
+      "options": [
+        "mention",
+        "comment",
+        "spoil"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our team hopes to ___ the school champions on Saturday.",
+      "options": [
+        "spoil",
+        "beat",
+        "underline"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"postpone\" mean?",
+      "options": [
+        "hoãn",
+        "bảo vệ, phòng thủ",
+        "lên đường"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rebu_ld (xây lại)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chọn, hái)",
+      "options": [
+        "pyck",
+        "picck",
+        "pick"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shine\" mean?",
+      "options": [
+        "làm hỏng",
+        "chiếu sáng",
+        "thi đấu"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: di_l (bấm số, quay số)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thi đấu)",
+      "options": [
+        "competi",
+        "compete",
+        "comptee"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: und_rline (gạch chân)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chia bài\"?",
+      "options": [
+        "deal",
+        "blame",
+        "pass on"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bảo vệ, phòng thủ)",
+      "options": [
+        "dfeend",
+        "defend",
+        "defennd"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ngăn ngừa\"?",
+      "options": [
+        "select",
+        "wonder",
+        "prevent"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to dial a phone number",
+    "Pretend to pick a flower",
+    "Pretend to underline a word",
+    "Pretend to lay a plate on a table",
+    "Pretend to compete in a quiz",
+    "Pretend to build a tower with blocks"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "title": "Everyday Verbs",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "begin",
+      "meaning": "bắt đầu",
+      "category": "daily",
+      "example": "The lesson will begin at nine o'clock.",
+      "image": ""
+    },
+    {
+      "word": "borrow",
+      "meaning": "mượn",
+      "category": "daily",
+      "example": "Can I borrow your pencil, please?",
+      "image": ""
+    },
+    {
+      "word": "enter",
+      "meaning": "đăng ký dự thi",
+      "category": "daily",
+      "example": "I want to enter the school singing competition.",
+      "image": ""
+    },
+    {
+      "word": "finish",
+      "meaning": "làm xong",
+      "category": "daily",
+      "example": "I will finish my picture before lunch.",
+      "image": ""
+    },
+    {
+      "word": "happen",
+      "meaning": "xảy ra",
+      "category": "daily",
+      "example": "What will happen if it rains tomorrow?",
+      "image": ""
+    },
+    {
+      "word": "hear",
+      "meaning": "nghe thấy",
+      "category": "daily",
+      "example": "Can you hear the birds outside?",
+      "image": ""
+    },
+    {
+      "word": "improve",
+      "meaning": "cải thiện",
+      "category": "daily",
+      "example": "I practise every day to improve my English.",
+      "image": ""
+    },
+    {
+      "word": "join",
+      "meaning": "tham gia",
+      "category": "daily",
+      "example": "I want to join the school music club.",
+      "image": ""
+    },
+    {
+      "word": "keep",
+      "meaning": "giữ",
+      "category": "daily",
+      "example": "Please keep your books in your bag.",
+      "image": ""
+    },
+    {
+      "word": "let",
+      "meaning": "để, cho phép",
+      "category": "daily",
+      "example": "Mum will let me watch TV tonight.",
+      "image": ""
+    },
+    {
+      "word": "look after",
+      "meaning": "chăm sóc",
+      "category": "daily",
+      "example": "I look after my little brother after school.",
+      "image": ""
+    },
+    {
+      "word": "post",
+      "meaning": "gửi thư",
+      "category": "daily",
+      "example": "I will post this letter after school.",
+      "image": ""
+    },
+    {
+      "word": "prepare",
+      "meaning": "chuẩn bị",
+      "category": "daily",
+      "example": "We prepare lunch for the picnic.",
+      "image": ""
+    },
+    {
+      "word": "repair",
+      "meaning": "sửa chữa",
+      "category": "daily",
+      "example": "My dad can repair our old bike.",
+      "image": ""
+    },
+    {
+      "word": "save",
+      "meaning": "tiết kiệm, cứu",
+      "category": "daily",
+      "example": "I save some money every week.",
+      "image": ""
+    },
+    {
+      "word": "stay",
+      "meaning": "ở lại",
+      "category": "daily",
+      "example": "We stay at my grandma's house.",
+      "image": ""
+    },
+    {
+      "word": "turn off",
+      "meaning": "tắt",
+      "category": "daily",
+      "example": "Please turn off the light.",
+      "image": ""
+    },
+    {
+      "word": "turn on",
+      "meaning": "bật",
+      "category": "daily",
+      "example": "Please turn on the TV.",
+      "image": ""
+    },
+    {
+      "word": "use",
+      "meaning": "dùng, sử dụng",
+      "category": "daily",
+      "example": "We use computers in class.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"tiết kiệm, cứu\"?",
+      "options": [
+        "improve",
+        "save",
+        "turn on"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hear\" mean?",
+      "options": [
+        "làm xong",
+        "đăng ký dự thi",
+        "nghe thấy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chuẩn bị\"?",
+      "options": [
+        "prepare",
+        "begin",
+        "improve"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Mum will ___ me watch TV tonight.",
+      "options": [
+        "get off",
+        "spell",
+        "let"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"borrow\" mean?",
+      "options": [
+        "xảy ra",
+        "mượn",
+        "cải thiện"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ the light.",
+      "options": [
+        "turn off",
+        "would like",
+        "get on"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_st (gửi thư)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ở lại)",
+      "options": [
+        "saty",
+        "sttay",
+        "stay"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ent_r (đăng ký dự thi)",
+      "options": [
+        "e",
+        "a",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"finish\" mean?",
+      "options": [
+        "tham gia",
+        "xảy ra",
+        "làm xong"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (xảy ra)",
+      "options": [
+        "hpapen",
+        "happen",
+        "heppen"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"dùng, sử dụng\"?",
+      "options": [
+        "use",
+        "begin",
+        "happen"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bắt đầu)",
+      "options": [
+        "begin",
+        "bgein",
+        "beign"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"keep\" mean?",
+      "options": [
+        "bắt đầu",
+        "ở lại",
+        "giữ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: repa_r (sửa chữa)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to borrow a pen",
+    "Pretend to turn on a light",
+    "Pretend to turn off a television",
+    "Pretend to look after a baby",
+    "Pretend to repair a toy",
+    "Pretend to listen carefully"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

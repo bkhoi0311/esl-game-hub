@@ -23,9 +23,9 @@ let BASE;
 let viteServer = null;
 let py = null;
 if (MODE === 'dev') {
-  viteServer = await createServer({ server: { port: 5198, strictPort: true }, logLevel: 'error' });
+  viteServer = await createServer({ server: { port: Number(process.env.SB_PORT || 5198), strictPort: true }, logLevel: 'error' });
   await viteServer.listen();
-  BASE = 'http://localhost:5198/';
+  BASE = `http://localhost:${process.env.SB_PORT || 5198}/`;
 } else {
   py = spawn('python3', ['-m', 'http.server', '5199', '-d', 'dist'], { stdio: 'ignore' });
   await new Promise((r) => setTimeout(r, 1200));
@@ -75,7 +75,7 @@ async function openEditor(size = HD) {
 const vocabRows = (page) => page.locator('.vocab-table tbody tr');
 const questionRows = (page) => page.locator('.question-table tbody tr');
 const packOf = (page) => page.evaluate(() => JSON.parse(localStorage.getItem('eslhub.pack.default')));
-const shot = async (page, name) => { await page.waitForTimeout(800); return page.screenshot({ path: `${SHOTS}/soanbai-${name}.png` }); };
+const shot = async (page, name) => { await page.waitForTimeout(800); return page.screenshot({ path: `${SHOTS}/${/^lib[23]-/.test(name) ? "" : "soanbai-"}${name}.png` }); };
 const closeModal = async (page) => { await page.keyboard.press('Escape'); await page.waitForTimeout(150); };
 
 async function assertModalFits(page, label) {
@@ -402,6 +402,116 @@ try {
     await page.waitForTimeout(1200);
     assert.equal(await page.locator('.notice').count(), 0, 'Memory Match không được báo thiếu nội dung');
     await context.close();
+  });
+
+  // ---------- 9b (PLAN-LEVELS 5.6) ----------
+  await check('9b. Thư viện: tab theo cấp, chip, tìm nhanh, tải lười', async () => {
+    const index = JSON.parse(readFileSync('src/data/library/index.json', 'utf8'));
+    const { context, page } = await openEditor(HD);
+    const packReqs = [];
+    const packIds = new Set(index.map((x) => x.id));
+    page.on('request', (r) => {
+      const u = r.url();
+      const m = u.match(/assets\/(.+)-[A-Za-z0-9_-]{8}\.js$/); // dist: mỗi gói là một chunk <id>-<hash>.js
+      if (/library\/packs\//.test(u) || (m && packIds.has(m[1]))) packReqs.push(u);
+    });
+    await page.click(TID('qt-library'));
+    await page.waitForSelector(TID('lib-card'));
+    // thứ tự tab và số trên tab
+    const tabs = await page.locator(`${TID('lib-level')} [data-testid="lib-tab"]`).evaluateAll((els) => els.map((e) => [e.dataset.value, e.textContent.trim()]));
+    const order = ['all', 'movers', 'starters', 'flyers', 'ket', 'pet'].filter((v) => v === 'all' || index.some((x) => !x.general && x.level === v));
+    assert.deepEqual(tabs.map((t) => t[0]), order);
+    const nOf = (lv) => index.filter((x) => !x.general && x.level === lv).length;
+    assert.ok(tabs[0][1].startsWith('Tất cả chủ đề'));
+    assert.ok(tabs.find((t) => t[0] === 'movers')[1].includes('A1 Movers · ' + nOf('movers')), tabs.join('|'));
+    assert.ok(tabs.find((t) => t[0] === 'starters')[1].includes('Pre A1 Starters · ' + nOf('starters')));
+    // lần đầu mở: tab Movers
+    assert.equal(await page.locator(`${TID('lib-level')} [aria-pressed="true"]`).getAttribute('data-value'), 'movers');
+    assert.equal(await page.locator(TID('lib-card')).count(), nOf('movers'));
+    assert.equal(packReqs.length, 0, 'chưa bấm gói thì không tải tệp gói: ' + packReqs.join(','));
+    await assertModalFits(page, 'library tabs');
+    if (MODE === 'dev') await shot(page, 'lib2-movers-1280x720');
+    // chip chủ đề
+    await page.click(`${TID('lib-chips')} [data-value="animal"]`);
+    const animalTitles = await page.locator(`${TID('lib-card')} .lib-title`).allTextContents();
+    assert.ok(animalTitles.length >= 1 && animalTitles.length < nOf('movers'), 'chip animal: ' + animalTitles.length);
+    await page.click(`${TID('lib-chips')} [data-value=""]`);
+    // tìm nhanh (EN và VI không dấu)
+    await page.fill(TID('lib-search'), 'food');
+    const food = await page.locator(TID('lib-card')).count();
+    assert.ok(food >= 1 && food < nOf('movers'), 'tìm food: ' + food);
+    await page.fill(TID('lib-search'), 'do an');
+    assert.ok((await page.locator(TID('lib-card')).count()) >= 1, 'tìm "do an" không dấu');
+    await page.fill(TID('lib-search'), 'zzqqxx');
+    assert.equal(await page.locator(TID('lib-card')).count(), 0);
+    assert.ok(/Không có bài khớp 'zzqqxx'/.test(await page.locator(TID('lib-empty')).textContent()));
+    await page.fill(TID('lib-search'), '');
+    // Starters rồi Tất cả (có gói chung ở cuối)
+    await page.click(`${TID('lib-level')} [data-value="starters"]`);
+    assert.equal(await page.locator(TID('lib-card')).count(), nOf('starters'));
+    await page.click(`${TID('lib-level')} [data-value="all"]`);
+    assert.equal(await page.locator(TID('lib-card')).count(), index.length);
+    assert.ok((await page.locator('.lib-group').last().textContent()).startsWith('Chủ đề chung'));
+    // 5 tab cấp: đúng số gói, nhãn có số, mỗi chip chủ đề ra >= 1 gói ở PET, tab PET (109 gói) đổi nhanh và cuộn được
+    const LV3 = ['movers', 'starters', 'flyers', 'ket', 'pet'];
+    for (const lv of LV3) {
+      const t0 = Date.now();
+      await page.click(`${TID('lib-level')} [data-value="${lv}"]`);
+      assert.equal(await page.locator(TID('lib-card')).count(), nOf(lv), 'số thẻ tab ' + lv);
+      const lab = await page.locator(`${TID('lib-level')} [data-value="${lv}"]`).textContent();
+      assert.ok(lab.includes(' · ' + nOf(lv)), 'nhãn tab ' + lv + ': ' + lab);
+      assert.ok(Date.now() - t0 < 1500, 'đổi sang tab ' + lv + ' chậm: ' + (Date.now() - t0) + ' ms');
+      await assertModalFits(page, 'library ' + lv);
+      if (MODE === 'dev') await shot(page, 'lib3-' + lv + '-1280x720');
+    }
+    assert.ok(nOf('pet') >= 100);
+    const chipVals = await page.locator(`${TID('lib-chips')} [data-testid="lib-chip"]`).evaluateAll((els) => els.map((e) => e.dataset.value).filter(Boolean));
+    assert.ok(chipVals.length >= 12, 'chip: ' + chipVals.length);
+    let chipHits = 0;
+    for (const v of chipVals) {
+      await page.click(`${TID('lib-chips')} [data-value="${v}"]`);
+      const n = await page.locator(TID('lib-card')).count();
+      if (n > 0) chipHits++;
+      assert.ok(n < nOf('pet'), 'chip ' + v + ' không lọc được ở PET (' + n + ')');
+    }
+    assert.ok(chipHits >= 10, 'chỉ ' + chipHits + ' chip có kết quả ở PET');
+    await page.click(`${TID('lib-chips')} [data-value=""]`);
+    // cuộn tới thẻ cuối PET
+    const scrolled = await page.evaluate(async () => {
+      const mb = document.querySelector('.modal-body'); const g = mb || document.scrollingElement;
+      g.scrollTop = g.scrollHeight; await new Promise((r) => setTimeout(r, 200)); return g.scrollTop;
+    });
+    assert.ok(scrolled > 500, 'PET phải cuộn được: ' + scrolled);
+    await page.fill(TID('lib-search'), 'phrasal');
+    const ph = await page.locator(TID('lib-card')).count();
+    assert.ok(ph >= 1, 'tìm phrasal ở PET: ' + ph);
+    await page.fill(TID('lib-search'), '');
+    // đổi tab được nhớ cho lần mở sau
+    await page.click(`${TID('lib-level')} [data-value="starters"]`);
+    if (MODE === 'dev') await shot(page, 'lib2-starters-1280x720');
+    // bấm một gói: tải đúng 1 tệp gói
+    await page.locator(TID('lib-card')).first().click();
+    await page.waitForSelector(TID('lib-replace'));
+    assert.equal(packReqs.length, 1, 'bấm 1 gói tải đúng 1 tệp: ' + packReqs.join(','));
+    await closeModal(page);
+    await closeModal(page);
+    await page.click(TID('qt-library'));
+    await page.waitForSelector(TID('lib-card'));
+    assert.equal(await page.locator(`${TID('lib-level')} [aria-pressed="true"]`).getAttribute('data-value'), 'starters', 'nhớ tab lần trước');
+    await context.close();
+    const big = await newPage(BIG);
+    await big.page.goto(BASE + '#/editor');
+    await big.page.waitForSelector(TID('quick-tools'));
+    await big.page.click(TID('qt-library'));
+    await big.page.waitForSelector(TID('lib-card'));
+    await assertModalFits(big.page, 'library 1080');
+    if (MODE === 'dev') await shot(big.page, 'lib2-movers-1920x1080');
+    for (const lv of ['movers', 'starters', 'flyers', 'ket', 'pet']) {
+      await big.page.click(`${TID('lib-level')} [data-value="${lv}"]`);
+      await assertModalFits(big.page, 'library 1080 ' + lv);
+      if (MODE === 'dev') await shot(big.page, 'lib3-' + lv + '-1920x1080');
+    }
+    await big.context.close();
   });
 
   // ---------- 10 ----------

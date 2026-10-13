@@ -1,0 +1,282 @@
+{
+  "title": "Behaviour and Manners",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "behave",
+      "meaning": "cư xử",
+      "category": "daily",
+      "example": "Please behave well when we visit the museum.",
+      "image": ""
+    },
+    {
+      "word": "apologise",
+      "meaning": "xin lỗi",
+      "category": "speech",
+      "example": "You should apologise to your friend for being late.",
+      "image": ""
+    },
+    {
+      "word": "forgive",
+      "meaning": "tha thứ",
+      "category": "mind",
+      "example": "Please forgive me for being late.",
+      "image": ""
+    },
+    {
+      "word": "blame",
+      "meaning": "đổ lỗi",
+      "category": "speech",
+      "example": "Don't blame him for the mistake; it was an accident.",
+      "image": ""
+    },
+    {
+      "word": "admit",
+      "meaning": "thừa nhận",
+      "category": "speech",
+      "example": "He admitted that he had forgotten his homework.",
+      "image": ""
+    },
+    {
+      "word": "interrupt",
+      "meaning": "ngắt lời, làm gián đoạn",
+      "category": "speech",
+      "example": "It is rude to interrupt someone when they are talking.",
+      "image": ""
+    },
+    {
+      "word": "ignore",
+      "meaning": "phớt lờ",
+      "category": "mind",
+      "example": "Don't ignore your teacher when she is speaking to you.",
+      "image": ""
+    },
+    {
+      "word": "disturb",
+      "meaning": "làm phiền",
+      "category": "daily",
+      "example": "Please do not disturb me while I am studying.",
+      "image": ""
+    },
+    {
+      "word": "punish",
+      "meaning": "phạt, trừng phạt",
+      "category": "daily",
+      "example": "The teacher did not punish him for being late.",
+      "image": ""
+    },
+    {
+      "word": "cheat",
+      "meaning": "gian lận",
+      "category": "daily",
+      "example": "It is wrong to cheat in an exam.",
+      "image": ""
+    },
+    {
+      "word": "deserve",
+      "meaning": "xứng đáng",
+      "category": "mind",
+      "example": "You deserve a rest after all that hard work.",
+      "image": ""
+    },
+    {
+      "word": "trust",
+      "meaning": "tin tưởng",
+      "category": "mind",
+      "example": "I trust my best friend with my secrets.",
+      "image": ""
+    },
+    {
+      "word": "agree",
+      "meaning": "đồng ý",
+      "category": "speech",
+      "example": "I agree with you about the film.",
+      "image": ""
+    },
+    {
+      "word": "insist",
+      "meaning": "khăng khăng, nhất quyết",
+      "category": "speech",
+      "example": "My mother insists that I wear a helmet when I ride my bike.",
+      "image": ""
+    },
+    {
+      "word": "permit",
+      "meaning": "cho phép",
+      "category": "speech",
+      "example": "The school does not permit phones in class.",
+      "image": ""
+    },
+    {
+      "word": "warn",
+      "meaning": "cảnh báo",
+      "category": "speech",
+      "example": "The teacher warned us not to run near the pool.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"gian lận\"?",
+      "options": [
+        "agree",
+        "interrupt",
+        "cheat"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"disturb\" mean?",
+      "options": [
+        "xứng đáng",
+        "làm phiền",
+        "tha thứ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khăng khăng, nhất quyết\"?",
+      "options": [
+        "insist",
+        "avoid",
+        "search"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phạt, trừng phạt)",
+      "options": [
+        "pnuish",
+        "punish",
+        "punnish"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"blame\" mean?",
+      "options": [
+        "làm phiền",
+        "gian lận",
+        "đổ lỗi"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cảnh báo)",
+      "options": [
+        "warn",
+        "warrn",
+        "wran"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_st (tin tưởng)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "You ___ a rest after all that hard work.",
+      "options": [
+        "deserve",
+        "disturb",
+        "cheat"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"forgive\" mean?",
+      "options": [
+        "gian lận",
+        "cư xử",
+        "tha thứ"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"xin lỗi\"?",
+      "options": [
+        "apologise",
+        "measure",
+        "travel"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_rmit (cho phép)",
+      "options": [
+        "i",
+        "e",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I ___ with you about the film.",
+      "options": [
+        "disturb",
+        "punish",
+        "agree"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngắt lời, làm gián đoạn)",
+      "options": [
+        "interupt",
+        "intirrupt",
+        "interrupt"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ignore\" mean?",
+      "options": [
+        "phớt lờ",
+        "tiếp tục",
+        "hạ cánh"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: beh_ve (cư xử)",
+      "options": [
+        "i",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to apologise to a friend",
+    "Show me how to say no politely",
+    "Pretend to wait your turn calmly",
+    "Mime a polite thank you",
+    "Show me how a person who behaves well sits",
+    "Pretend to give a gentle warning"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "title": "Studying and Exams",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "revision",
+      "meaning": "việc ôn tập",
+      "category": "study",
+      "example": "Good revision helps you remember facts before a test.",
+      "image": ""
+    },
+    {
+      "word": "revise",
+      "meaning": "ôn tập",
+      "category": "mind",
+      "example": "I need to revise for the history exam tonight.",
+      "image": ""
+    },
+    {
+      "word": "essay",
+      "meaning": "bài luận",
+      "category": "study",
+      "example": "I have to write an essay about my summer holiday.",
+      "image": ""
+    },
+    {
+      "word": "composition",
+      "meaning": "bài viết, bài luận",
+      "category": "study",
+      "example": "Our teacher asked us to write a composition about summer.",
+      "image": ""
+    },
+    {
+      "word": "handwriting",
+      "meaning": "chữ viết tay",
+      "category": "study",
+      "example": "My brother has very neat handwriting.",
+      "image": ""
+    },
+    {
+      "word": "pronunciation",
+      "meaning": "cách phát âm",
+      "category": "study",
+      "example": "Her English pronunciation is clear and easy to understand.",
+      "image": ""
+    },
+    {
+      "word": "translation",
+      "meaning": "bản dịch",
+      "category": "study",
+      "example": "The translation of this poem is very good.",
+      "image": ""
+    },
+    {
+      "word": "vowel",
+      "meaning": "nguyên âm",
+      "category": "study",
+      "example": "The letter a is a vowel in English.",
+      "image": ""
+    },
+    {
+      "word": "consonant",
+      "meaning": "phụ âm",
+      "category": "study",
+      "example": "The letter B is a consonant.",
+      "image": ""
+    },
+    {
+      "word": "comma",
+      "meaning": "dấu phẩy",
+      "category": "study",
+      "example": "You need a comma after the word yes here.",
+      "image": ""
+    },
+    {
+      "word": "full stop",
+      "meaning": "dấu chấm",
+      "category": "study",
+      "example": "Put a full stop at the end of the sentence.",
+      "image": ""
+    },
+    {
+      "word": "tense",
+      "meaning": "thì",
+      "category": "study",
+      "example": "We study the past tense in English class.",
+      "image": ""
+    },
+    {
+      "word": "correction",
+      "meaning": "sự sửa lỗi",
+      "category": "study",
+      "example": "The teacher made a correction on my test.",
+      "image": ""
+    },
+    {
+      "word": "concentrate",
+      "meaning": "tập trung",
+      "category": "mind",
+      "example": "It is hard to concentrate when the room is noisy.",
+      "image": ""
+    },
+    {
+      "word": "certificate",
+      "meaning": "chứng chỉ",
+      "category": "study",
+      "example": "She received a certificate after finishing the English course.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (chữ viết tay)",
+      "options": [
+        "handwirting",
+        "handrwiting",
+        "handwriting"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: correct_on (sự sửa lỗi)",
+      "options": [
+        "a",
+        "i",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pronunciation\" mean?",
+      "options": [
+        "cách phát âm",
+        "cầu thang",
+        "phòng ban, khoa"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bài luận\"?",
+      "options": [
+        "essay",
+        "evening",
+        "vase"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rev_sion (việc ôn tập)",
+      "options": [
+        "o",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dấu phẩy)",
+      "options": [
+        "comme",
+        "comma",
+        "cmoma"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"translation\" mean?",
+      "options": [
+        "áo len",
+        "bản dịch",
+        "nhạc jazz"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The letter B is a ___.",
+      "options": [
+        "concentrate",
+        "revise",
+        "consonant"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"composition\" mean?",
+      "options": [
+        "bài viết, bài luận",
+        "nước Canada",
+        "thịt viên"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chứng chỉ\"?",
+      "options": [
+        "photography",
+        "author",
+        "certificate"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tập trung)",
+      "options": [
+        "concentrate",
+        "cnocentrate",
+        "cocnentrate"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: t_nse (thì)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"full stop\" mean?",
+      "options": [
+        "dấu chấm",
+        "bãi đỗ xe",
+        "trạm xe buýt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nguyên âm\"?",
+      "options": [
+        "network",
+        "beginner",
+        "vowel"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I need to ___ for the history exam tonight.",
+      "options": [
+        "pronunciation",
+        "revise",
+        "translation"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to write an essay",
+    "Pretend to revise for an exam",
+    "Pretend to check your handwriting",
+    "Pretend to put a comma in a sentence",
+    "Pretend to concentrate hard",
+    "Pretend to hold up a certificate"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

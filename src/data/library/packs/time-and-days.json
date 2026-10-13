@@ -122,8 +122,8 @@
     {
       "prompt": "Which is the correct spelling? (mùa)",
       "options": [
-        "seeson",
-        "seasson",
+        "seaosn",
+        "sesaon",
         "season"
       ],
       "answer": 2,
@@ -164,7 +164,7 @@
       "options": [
         "time",
         "timme",
-        "tyme"
+        "tmie"
       ],
       "answer": 0,
       "type": "vocab"
@@ -174,7 +174,7 @@
       "options": [
         "yesterday",
         "please",
-        "kangaroo"
+        "there"
       ],
       "answer": 0,
       "type": "vocab"
@@ -203,8 +203,8 @@
       "prompt": "We eat dinner in the ___.",
       "options": [
         "evening",
-        "visit",
-        "recycle"
+        "know",
+        "sleep"
       ],
       "answer": 0,
       "type": "vocab"

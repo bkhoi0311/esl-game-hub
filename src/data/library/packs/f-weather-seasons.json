@@ -1,0 +1,282 @@
+{
+  "title": "Weather and Seasons",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "fog",
+      "meaning": "sương mù",
+      "category": "weather",
+      "example": "There is thick fog on the road.",
+      "image": ""
+    },
+    {
+      "word": "foggy",
+      "meaning": "có sương mù",
+      "category": "weather",
+      "example": "It is foggy this morning.",
+      "image": ""
+    },
+    {
+      "word": "snowman",
+      "meaning": "người tuyết",
+      "category": "weather",
+      "example": "We make a snowman in winter.",
+      "image": ""
+    },
+    {
+      "word": "storm",
+      "meaning": "cơn bão",
+      "category": "weather",
+      "example": "A big storm is coming.",
+      "image": ""
+    },
+    {
+      "word": "spring",
+      "meaning": "mùa xuân",
+      "category": "time",
+      "example": "Flowers grow in spring.",
+      "image": ""
+    },
+    {
+      "word": "summer",
+      "meaning": "mùa hè",
+      "category": "time",
+      "example": "We go to the beach in summer.",
+      "image": ""
+    },
+    {
+      "word": "autumn",
+      "meaning": "mùa thu",
+      "category": "time",
+      "example": "The weather is cool in autumn.",
+      "image": ""
+    },
+    {
+      "word": "winter",
+      "meaning": "mùa đông",
+      "category": "time",
+      "example": "It snows a lot in winter.",
+      "image": ""
+    },
+    {
+      "word": "warm",
+      "meaning": "ấm",
+      "category": "describe",
+      "example": "My jacket is warm.",
+      "image": ""
+    },
+    {
+      "word": "cold",
+      "meaning": "lạnh",
+      "category": "describe",
+      "example": "The water is very cold.",
+      "image": ""
+    },
+    {
+      "word": "umbrella",
+      "meaning": "cái ô",
+      "category": "thing",
+      "example": "Take an umbrella, it is raining.",
+      "image": ""
+    },
+    {
+      "word": "snowball",
+      "meaning": "quả cầu tuyết",
+      "category": "toy",
+      "example": "The children made a snowball in the park.",
+      "image": ""
+    },
+    {
+      "word": "sunny",
+      "meaning": "có nắng",
+      "category": "weather",
+      "example": "It is sunny at the beach.",
+      "image": ""
+    },
+    {
+      "word": "rainy",
+      "meaning": "có mưa",
+      "category": "weather",
+      "example": "It is a rainy day.",
+      "image": ""
+    },
+    {
+      "word": "windy",
+      "meaning": "có gió",
+      "category": "weather",
+      "example": "It is windy on the hill.",
+      "image": ""
+    },
+    {
+      "word": "cloudy",
+      "meaning": "nhiều mây",
+      "category": "weather",
+      "example": "It is cloudy today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Flowers grow in ___.",
+      "options": [
+        "umbrella",
+        "snowball",
+        "spring"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cloudy\" mean?",
+      "options": [
+        "có gió",
+        "nhiều mây",
+        "có sương mù"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is thick ___ on the road.",
+      "options": [
+        "fog",
+        "umbrella",
+        "snowball"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mùa thu\"?",
+      "options": [
+        "summer",
+        "winter",
+        "autumn"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_rm (ấm)",
+      "options": [
+        "u",
+        "a",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lạnh\"?",
+      "options": [
+        "cold",
+        "warm",
+        "summer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_rm (cơn bão)",
+      "options": [
+        "i",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mùa hè\"?",
+      "options": [
+        "autumn",
+        "summer",
+        "spring"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"winter\" mean?",
+      "options": [
+        "mùa đông",
+        "mùa hè",
+        "mùa xuân"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_ggy (có sương mù)",
+      "options": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (quả cầu tuyết)",
+      "options": [
+        "snowbal",
+        "snowblal",
+        "snowball"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"snowman\" mean?",
+      "options": [
+        "người tuyết",
+        "cơn bão",
+        "sương mù"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có mưa)",
+      "options": [
+        "riany",
+        "rainy",
+        "rainny"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"windy\" mean?",
+      "options": [
+        "có gió",
+        "có sương mù",
+        "nhiều mây"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có nắng)",
+      "options": [
+        "snuny",
+        "suny",
+        "sunny"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to open an umbrella",
+    "Pretend to shiver in the cold",
+    "Pretend to build a snowman",
+    "Pretend to feel hot in summer",
+    "Pretend to walk in the wind",
+    "Pretend to catch a snowball"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

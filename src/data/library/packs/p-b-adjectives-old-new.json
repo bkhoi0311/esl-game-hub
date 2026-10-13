@@ -1,0 +1,282 @@
+{
+  "title": "Old and New",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "ancient",
+      "meaning": "cổ xưa",
+      "category": "describe",
+      "example": "We visited an ancient temple on our school trip.",
+      "image": ""
+    },
+    {
+      "word": "antique",
+      "meaning": "cổ, đồ cổ",
+      "category": "describe",
+      "example": "She bought an antique clock at the market.",
+      "image": ""
+    },
+    {
+      "word": "brand new",
+      "meaning": "mới tinh",
+      "category": "describe",
+      "example": "She got a brand new phone for her birthday.",
+      "image": ""
+    },
+    {
+      "word": "old-fashioned",
+      "meaning": "lỗi thời",
+      "category": "describe",
+      "example": "My grandfather has an old-fashioned phone with buttons.",
+      "image": ""
+    },
+    {
+      "word": "second-hand",
+      "meaning": "đã qua sử dụng",
+      "category": "describe",
+      "example": "I bought a second-hand bike for only twenty pounds.",
+      "image": ""
+    },
+    {
+      "word": "recent",
+      "meaning": "gần đây",
+      "category": "describe",
+      "example": "I read a recent article about space travel.",
+      "image": ""
+    },
+    {
+      "word": "former",
+      "meaning": "cũ, trước đây",
+      "category": "describe",
+      "example": "He is a former student of this school.",
+      "image": ""
+    },
+    {
+      "word": "original",
+      "meaning": "nguyên bản, độc đáo",
+      "category": "describe",
+      "example": "I prefer the original version of this song.",
+      "image": ""
+    },
+    {
+      "word": "traditional",
+      "meaning": "truyền thống",
+      "category": "describe",
+      "example": "We ate traditional food at the festival.",
+      "image": ""
+    },
+    {
+      "word": "historic",
+      "meaning": "có tính lịch sử",
+      "category": "describe",
+      "example": "We visited a historic castle during our school trip.",
+      "image": ""
+    },
+    {
+      "word": "elderly",
+      "meaning": "cao tuổi",
+      "category": "describe",
+      "example": "Our class visits elderly people at the care home every month.",
+      "image": ""
+    },
+    {
+      "word": "elder",
+      "meaning": "lớn tuổi hơn",
+      "category": "describe",
+      "example": "My elder sister helps me with my science homework.",
+      "image": ""
+    },
+    {
+      "word": "middle-aged",
+      "meaning": "trung niên",
+      "category": "describe",
+      "example": "A middle-aged man was reading on the bench.",
+      "image": ""
+    },
+    {
+      "word": "up to date",
+      "meaning": "cập nhật, mới nhất",
+      "category": "describe",
+      "example": "Please keep your phone software up to date.",
+      "image": ""
+    },
+    {
+      "word": "out of date",
+      "meaning": "lỗi thời, hết hạn",
+      "category": "describe",
+      "example": "This map is out of date, so we need a new one.",
+      "image": ""
+    },
+    {
+      "word": "modern",
+      "meaning": "hiện đại",
+      "category": "describe",
+      "example": "Their house is very modern.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"lỗi thời, hết hạn\"?",
+      "options": [
+        "up to date",
+        "out of date",
+        "brand new"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"second-hand\" mean?",
+      "options": [
+        "đã qua sử dụng",
+        "kỹ thuật số",
+        "độc ác, tàn nhẫn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cổ, đồ cổ\"?",
+      "options": [
+        "racing",
+        "bossy",
+        "antique"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"old-fashioned\" mean?",
+      "options": [
+        "lỗi thời",
+        "trung thực",
+        "ích kỷ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A ___ man was reading on the bench.",
+      "options": [
+        "get undressed",
+        "middle-aged",
+        "watermelon"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: eld_rly (cao tuổi)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I read a ___ article about space travel.",
+      "options": [
+        "gallery",
+        "beginner",
+        "recent"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"up to date\" mean?",
+      "options": [
+        "cập nhật, mới nhất",
+        "do nhầm lẫn",
+        "đi ngủ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có tính lịch sử)",
+      "options": [
+        "histuric",
+        "historic",
+        "historric"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: anc_ent (cổ xưa)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (lớn tuổi hơn)",
+      "options": [
+        "eledr",
+        "elder",
+        "edler"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mới tinh\"?",
+      "options": [
+        "out of date",
+        "up to date",
+        "brand new"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cũ, trước đây)",
+      "options": [
+        "former",
+        "formir",
+        "foremr"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: m_dern (hiện đại)",
+      "options": [
+        "u",
+        "a",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"traditional\" mean?",
+      "options": [
+        "hay ra lệnh",
+        "truyền thống",
+        "người Ý, tiếng Ý"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Show me a brand new phone",
+    "Pretend to hold an antique clock",
+    "Show me an elderly person walking slowly",
+    "Pretend to look at old-fashioned clothes",
+    "Pretend to compare old and new shoes",
+    "Show me a second-hand book"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

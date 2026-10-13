@@ -1,0 +1,94 @@
+popular	adj	flyers					adj
+post	v	flyers					v
+prefer	v	flyers		would prefer			v
+prepare	v	flyers					v
+problem	n	flyers					n
+programme	n	flyers					n
+project	n	flyers					n
+pyramid	n	flyers					n
+quarter	n	flyers					n
+quite	adv	flyers					adv
+quiz	n	flyers					n
+racing	adj	flyers	car; bike				adj
+ready	adj	flyers					adj
+remember	v	flyers					v
+repair	v	flyers					v
+repeat	v	flyers					v
+rock music	n	flyers					n
+rucksack	n	flyers					n
+same	adj	flyers					adj
+save	v	flyers					v
+secret	n	flyers					n
+september	n	flyers				September	n
+several	adj	flyers					adj
+shampoo	n	flyers					n
+should	v	flyers					v
+silver	adj	flyers					adj+n
+since	prep	flyers					prep
+skyscraper	n	flyers					n
+smell	n	flyers					n+v
+snowball	n	flyers					n
+snowboard	n	flyers					n
+soft	adj	flyers					adj
+somewhere	adv	flyers					adv
+soon	adv	flyers					adv
+sore	adj	flyers					adj
+sound	n	flyers					n+v
+south	n	flyers					n
+special	adj	flyers					adj
+spend	v	flyers					v
+spot	n	flyers					n
+spotted	adj	flyers					adj
+stage	n	flyers	theatre				n
+stay	v	flyers					v
+step	n	flyers					n
+still	adv	flyers					adv
+straight on	adv	flyers					adv
+strange	adj	flyers					adj
+stream	n	flyers					n
+stripe	n	flyers		stripes			n
+striped	adj	flyers					adj
+subject	n	flyers					n
+such	other	flyers					det
+suddenly	adv	flyers					adv
+sure	adj	flyers					adj
+surname	n	flyers					n
+surprise	n	flyers					n
+swing	n	flyers					n+v
+taste	n	flyers					n+v
+thank	v	flyers					v
+thousand	n	flyers					n
+through	prep	flyers					prep
+tidy	adj	flyers					adj+v
+together	adv	flyers					adv
+tonight	adv	flyers					adv+n
+tour	n	flyers					n
+tune	n	flyers					n
+turn	v	flyers					v
+turn off	v	flyers					v
+turn on	v	flyers					v
+twice	adv	flyers					adv
+tyre	n	flyers		tire			n
+unfriendly	adj	flyers					adj
+unhappy	adj	flyers					adj
+unkind	adj	flyers					adj
+untidy	adj	flyers					adj
+until	prep	flyers					prep
+unusual	adj	flyers					adj
+use	v	flyers					v
+usually	adv	flyers					adv
+view	n	flyers					n
+way	n	flyers					n
+west	n	flyers					n
+while	other	flyers		whilst			conj
+whistle	v	flyers					v
+wife	n	flyers					n
+wild	adj	flyers					adj
+will	v	flyers					v
+wing	n	flyers					n
+wish	n	flyers					n+v
+without	prep	flyers					prep
+wonderful	adj	flyers					adj
+wool	n	flyers					n
+yet	adv	flyers					adv
+you're welcome	phr	flyers					excl

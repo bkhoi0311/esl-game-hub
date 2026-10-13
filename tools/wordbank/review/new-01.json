@@ -1,0 +1,156 @@
+{
+  "sampled": [
+    "easy",
+    "above",
+    "difference",
+    "ice skates",
+    "hurt",
+    "both",
+    "earache",
+    "film star",
+    "carefully",
+    "inside",
+    "city centre",
+    "cough",
+    "awake",
+    "cage",
+    "better"
+  ],
+  "sampleErrors": [
+    "hurt",
+    "carefully",
+    "better"
+  ],
+  "fullReview": true,
+  "alsoReviewed": [
+    "after",
+    "age",
+    "all right",
+    "along",
+    "another",
+    "any",
+    "around",
+    "back",
+    "because",
+    "before",
+    "below",
+    "best",
+    "boring",
+    "break",
+    "brilliant",
+    "by",
+    "café",
+    "change",
+    "come on",
+    "could",
+    "down",
+    "every",
+    "everyone",
+    "everything",
+    "exciting",
+    "excuse me",
+    "fair",
+    "fine",
+    "get off",
+    "get on",
+    "have to",
+    "how much",
+    "how often"
+  ],
+  "fixed": [
+    {
+      "word": "age",
+      "field": "ex",
+      "old": "What is your age, Tom?",
+      "new": "My brother and I are the same age."
+    },
+    {
+      "word": "be called",
+      "field": "ex",
+      "old": "A baby cat can be called a kitten.",
+      "new": "I want my new kitten to be called Snowy."
+    },
+    {
+      "word": "better",
+      "field": "ex",
+      "old": "My English is better than last year.",
+      "new": "This pen is better than that one."
+    },
+    {
+      "word": "break",
+      "field": "vi",
+      "old": "giờ nghỉ",
+      "new": "giờ ra chơi"
+    },
+    {
+      "word": "café",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "café",
+      "field": "note",
+      "old": "ex phai chua café nhung check.mjs cam chu co dau trong ex (xung dot luat)",
+      "new": ""
+    },
+    {
+      "word": "carefully",
+      "field": "vi",
+      "old": "một cách cẩn thận",
+      "new": "cẩn thận"
+    },
+    {
+      "word": "come on",
+      "field": "ex",
+      "old": "We are late, so come on, run!",
+      "new": "Quick, come on, the bus is here!"
+    },
+    {
+      "word": "excuse me",
+      "field": "ex",
+      "old": "Hello, excuse me, where is the library?",
+      "new": "Oh, excuse me, is this your bag?"
+    },
+    {
+      "word": "get on",
+      "field": "ex",
+      "old": "Let us get on the train now.",
+      "new": "We get on the bus at eight o'clock."
+    },
+    {
+      "word": "grandparent",
+      "field": "ex",
+      "old": "My grandparent lives near the sea.",
+      "new": "My grandparents live near the sea."
+    },
+    {
+      "word": "how much",
+      "field": "ex",
+      "old": "Tell me how much this red bag is.",
+      "new": "Mum, how much is this red bag?"
+    },
+    {
+      "word": "how often",
+      "field": "ex",
+      "old": "Tell me how often you visit your grandparents.",
+      "new": "Ben, how often do you visit your grandparents?"
+    },
+    {
+      "word": "hurt",
+      "field": "ex",
+      "old": "Be careful, you might hurt your finger.",
+      "new": "Be careful, don't hurt your finger!"
+    },
+    {
+      "word": "brilliant",
+      "field": "vi",
+      "old": "tuyệt vời",
+      "new": "xuất sắc, tuyệt vời"
+    }
+  ],
+  "stillCheck": [],
+  "notes": [
+    "café trùng mục cafe (part-05, ket): chuẩn hoá lemma không gộp dấu"
+  ]
+}

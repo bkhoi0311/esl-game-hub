@@ -1,0 +1,275 @@
+{
+  "title": "School Subjects",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "arithmetic",
+      "meaning": "số học",
+      "category": "subject",
+      "example": "I find arithmetic easy, but algebra is hard.",
+      "image": ""
+    },
+    {
+      "word": "cookery",
+      "meaning": "nấu ăn",
+      "category": "subject",
+      "example": "My sister loves cookery classes on Saturdays.",
+      "image": ""
+    },
+    {
+      "word": "drama",
+      "meaning": "kịch",
+      "category": "subject",
+      "example": "Our drama class is performing a play next month.",
+      "image": ""
+    },
+    {
+      "word": "economics",
+      "meaning": "kinh tế học",
+      "category": "subject",
+      "example": "My sister wants to study economics at university.",
+      "image": ""
+    },
+    {
+      "word": "engineering",
+      "meaning": "ngành kỹ thuật",
+      "category": "subject",
+      "example": "He is studying engineering because he loves building machines.",
+      "image": ""
+    },
+    {
+      "word": "grammar",
+      "meaning": "ngữ pháp",
+      "category": "subject",
+      "example": "I practise English grammar every evening.",
+      "image": ""
+    },
+    {
+      "word": "literature",
+      "meaning": "văn học",
+      "category": "subject",
+      "example": "We read a poem in literature class today.",
+      "image": ""
+    },
+    {
+      "word": "architecture",
+      "meaning": "kiến trúc",
+      "category": "study",
+      "example": "I love the architecture of the old buildings in this town.",
+      "image": ""
+    },
+    {
+      "word": "laboratory",
+      "meaning": "phòng thí nghiệm",
+      "category": "school",
+      "example": "We do science experiments in the laboratory.",
+      "image": ""
+    },
+    {
+      "word": "calculator",
+      "meaning": "máy tính bỏ túi",
+      "category": "school",
+      "example": "Use a calculator for this sum.",
+      "image": ""
+    },
+    {
+      "word": "bell",
+      "meaning": "cái chuông",
+      "category": "school",
+      "example": "The bell rings at nine o'clock.",
+      "image": ""
+    },
+    {
+      "word": "canteen",
+      "meaning": "căng tin",
+      "category": "school",
+      "example": "We eat lunch in the school canteen every day.",
+      "image": ""
+    },
+    {
+      "word": "locker",
+      "meaning": "tủ khoá",
+      "category": "school",
+      "example": "I keep my sports shoes in my locker.",
+      "image": ""
+    },
+    {
+      "word": "notepaper",
+      "meaning": "giấy viết thư",
+      "category": "school",
+      "example": "I wrote a short message on a piece of notepaper.",
+      "image": ""
+    },
+    {
+      "word": "noticeboard",
+      "meaning": "bảng thông báo",
+      "category": "school",
+      "example": "The sports results are on the noticeboard.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (ngành kỹ thuật)",
+      "options": [
+        "engineering",
+        "enigneering",
+        "egnineering"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"locker\" mean?",
+      "options": [
+        "chồng",
+        "tủ khoá",
+        "xu Anh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (căng tin)",
+      "options": [
+        "centeen",
+        "caneten",
+        "canteen"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_lculator (máy tính bỏ túi)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I practise English ___ every evening.",
+      "options": [
+        "grammar",
+        "reserve",
+        "ending"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: ec_nomics (kinh tế học)",
+      "options": [
+        "u",
+        "o",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"Arithmetic\" mean?",
+      "options": [
+        "số học",
+        "quả bóng",
+        "không quân"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bảng thông báo\"?",
+      "options": [
+        "movie star",
+        "milkshake",
+        "noticeboard"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I wrote a short message on a piece of ___.",
+      "options": [
+        "fire engine",
+        "notepaper",
+        "midday"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kịch\"?",
+      "options": [
+        "drama",
+        "garlic",
+        "health"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"literature\" mean?",
+      "options": [
+        "nhà ga",
+        "mọi người",
+        "văn học"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"kiến trúc\"?",
+      "options": [
+        "circus",
+        "architecture",
+        "access"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: be_l (cái chuông)",
+      "options": [
+        "l",
+        "r",
+        "t"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phòng thí nghiệm)",
+      "options": [
+        "leboratory",
+        "laobratory",
+        "laboratory"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cookery\" mean?",
+      "options": [
+        "con sông",
+        "nấu ăn",
+        "gia súc"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to use a calculator",
+    "Pretend to do an experiment in a laboratory",
+    "Pretend to open your locker",
+    "Pretend to ring the school bell",
+    "Pretend to read a noticeboard",
+    "Pretend to act in a drama lesson"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

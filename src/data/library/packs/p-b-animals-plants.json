@@ -1,0 +1,268 @@
+{
+  "title": "Animals and Plants",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "bull",
+      "meaning": "con bò đực",
+      "category": "animal",
+      "example": "The farmer kept the bull in a strong fence.",
+      "image": ""
+    },
+    {
+      "word": "calf",
+      "meaning": "con bê",
+      "category": "animal",
+      "example": "The calf stayed close to its mother in the field.",
+      "image": ""
+    },
+    {
+      "word": "cattle",
+      "meaning": "gia súc",
+      "category": "animal",
+      "example": "The cattle were eating grass on the hill.",
+      "image": ""
+    },
+    {
+      "word": "lamb",
+      "meaning": "cừu non",
+      "category": "animal",
+      "example": "The lamb followed its mother across the field.",
+      "image": ""
+    },
+    {
+      "word": "pig",
+      "meaning": "con lợn",
+      "category": "animal",
+      "example": "The pig is rolling in the mud.",
+      "image": ""
+    },
+    {
+      "word": "ant",
+      "meaning": "con kiến",
+      "category": "insect",
+      "example": "The ant carries a small leaf.",
+      "image": ""
+    },
+    {
+      "word": "bug",
+      "meaning": "con bọ, lỗi phần mềm",
+      "category": "insect",
+      "example": "I found a tiny bug on a leaf in the garden.",
+      "image": ""
+    },
+    {
+      "word": "mosquito",
+      "meaning": "con muỗi",
+      "category": "insect",
+      "example": "A mosquito is flying near my ear.",
+      "image": ""
+    },
+    {
+      "word": "branch",
+      "meaning": "cành cây, chi nhánh",
+      "category": "plant",
+      "example": "A small bird was sitting on a branch of the tree.",
+      "image": ""
+    },
+    {
+      "word": "bush",
+      "meaning": "bụi cây",
+      "category": "plant",
+      "example": "A rabbit was hiding under the bush.",
+      "image": ""
+    },
+    {
+      "word": "crop",
+      "meaning": "cây trồng, vụ mùa",
+      "category": "plant",
+      "example": "Farmers grow rice and other crops here.",
+      "image": ""
+    },
+    {
+      "word": "herb",
+      "meaning": "rau thơm",
+      "category": "plant",
+      "example": "Mum puts fresh herbs in the soup.",
+      "image": ""
+    },
+    {
+      "word": "rose",
+      "meaning": "hoa hồng",
+      "category": "plant",
+      "example": "She gives her mum a red rose.",
+      "image": ""
+    },
+    {
+      "word": "trunk",
+      "meaning": "thân cây, vòi voi",
+      "category": "plant",
+      "example": "The trunk of this old tree is very thick.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: l_mb (cừu non)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She gives her mum a red ___.",
+      "options": [
+        "rose",
+        "ages",
+        "hall"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con bò đực\"?",
+      "options": [
+        "tear",
+        "bull",
+        "TV"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bull\" mean?",
+      "options": [
+        "bến cảng",
+        "con bò đực",
+        "khung"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cây trồng, vụ mùa\"?",
+      "options": [
+        "crop",
+        "motorway",
+        "quantity"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"calf\" mean?",
+      "options": [
+        "phòng tắm",
+        "văn học",
+        "con bê"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (gia súc)",
+      "options": [
+        "cattli",
+        "cattle",
+        "catle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A small bird was sitting on a ___ of the tree.",
+      "options": [
+        "branch",
+        "cup",
+        "room"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tr_nk (thân cây, vòi voi)",
+      "options": [
+        "a",
+        "e",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"herb\" mean?",
+      "options": [
+        "động cơ",
+        "rau thơm",
+        "tháng Mười Một"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con muỗi)",
+      "options": [
+        "mosquito",
+        "moqsuito",
+        "mosquitto"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"bug\" mean?",
+      "options": [
+        "cửa hàng tạp hoá",
+        "giày trượt patin",
+        "con bọ, lỗi phần mềm"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con lợn\"?",
+      "options": [
+        "youth",
+        "pig",
+        "result"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _nt (con kiến)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bụi cây)",
+      "options": [
+        "bussh",
+        "bsuh",
+        "bush"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to be a pig",
+    "Pretend to be a lamb with a soft voice",
+    "Pretend to be a mosquito flying slowly",
+    "Pretend to smell a rose",
+    "Pretend to pick a herb",
+    "Pretend to look at an ant on the ground"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "title": "Media and Technology",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "cartoon",
+      "meaning": "phim hoạt hình",
+      "category": "media",
+      "example": "We watch a funny cartoon after dinner.",
+      "image": ""
+    },
+    {
+      "word": "channel",
+      "meaning": "kênh",
+      "category": "media",
+      "example": "My brother likes this TV channel.",
+      "image": ""
+    },
+    {
+      "word": "information",
+      "meaning": "thông tin",
+      "category": "media",
+      "example": "You can find the information on the website.",
+      "image": ""
+    },
+    {
+      "word": "news",
+      "meaning": "tin tức",
+      "category": "media",
+      "example": "I watched the news with my dad.",
+      "image": ""
+    },
+    {
+      "word": "programme",
+      "meaning": "chương trình",
+      "category": "media",
+      "example": "My favourite TV programme starts at six.",
+      "image": ""
+    },
+    {
+      "word": "newspaper",
+      "meaning": "tờ báo",
+      "category": "thing",
+      "example": "Grandpa reads the newspaper every morning.",
+      "image": ""
+    },
+    {
+      "word": "magazine",
+      "meaning": "tạp chí",
+      "category": "thing",
+      "example": "My sister reads a magazine about animals.",
+      "image": ""
+    },
+    {
+      "word": "engine",
+      "meaning": "động cơ",
+      "category": "tech",
+      "example": "The engine of the car is very loud.",
+      "image": ""
+    },
+    {
+      "word": "file",
+      "meaning": "tập tin",
+      "category": "tech",
+      "example": "Please save the file on your computer.",
+      "image": ""
+    },
+    {
+      "word": "screen",
+      "meaning": "màn hình",
+      "category": "tech",
+      "example": "The screen is very bright.",
+      "image": ""
+    },
+    {
+      "word": "telephone",
+      "meaning": "điện thoại bàn",
+      "category": "tech",
+      "example": "The telephone is ringing.",
+      "image": ""
+    },
+    {
+      "word": "wifi",
+      "meaning": "wifi",
+      "category": "tech",
+      "example": "Is there wifi in this room?",
+      "image": ""
+    },
+    {
+      "word": "online",
+      "meaning": "trực tuyến",
+      "category": "describe",
+      "example": "We have an online lesson today.",
+      "image": ""
+    },
+    {
+      "word": "television",
+      "meaning": "cái tivi",
+      "category": "tech",
+      "example": "We have a big television.",
+      "image": ""
+    },
+    {
+      "word": "computer",
+      "meaning": "máy tính",
+      "category": "tech",
+      "example": "I play games on the computer.",
+      "image": ""
+    },
+    {
+      "word": "film",
+      "meaning": "bộ phim",
+      "category": "hobby",
+      "example": "This film is funny.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"screen\" mean?",
+      "options": [
+        "điện thoại bàn",
+        "màn hình",
+        "cái tivi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"tạp chí\"?",
+      "options": [
+        "telephone",
+        "computer",
+        "magazine"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pr_gramme (chương trình)",
+      "options": [
+        "o",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"newspaper\" mean?",
+      "options": [
+        "tạp chí",
+        "động cơ",
+        "tờ báo"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: tel_vision (cái tivi)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thông tin)",
+      "options": [
+        "infformation",
+        "information",
+        "informtaion"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: teleph_ne (điện thoại bàn)",
+      "options": [
+        "o",
+        "a",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bộ phim\"?",
+      "options": [
+        "telephone",
+        "film",
+        "news"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cartoon\" mean?",
+      "options": [
+        "tin tức",
+        "chương trình",
+        "phim hoạt hình"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (kênh)",
+      "options": [
+        "chanenl",
+        "channel",
+        "chennel"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ of the car is very loud.",
+      "options": [
+        "engine",
+        "online",
+        "view"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"trực tuyến\"?",
+      "options": [
+        "information",
+        "programme",
+        "online"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please save the ___ on your computer.",
+      "options": [
+        "online",
+        "file",
+        "sugar"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (máy tính)",
+      "options": [
+        "commputer",
+        "comptuer",
+        "computer"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"news\" mean?",
+      "options": [
+        "tin tức",
+        "phim hoạt hình",
+        "thông tin"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to look at a screen",
+    "Pretend to answer a telephone",
+    "Pretend to read the news",
+    "Pretend to change the channel",
+    "Pretend to take a picture on a phone",
+    "Pretend to type on a computer"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

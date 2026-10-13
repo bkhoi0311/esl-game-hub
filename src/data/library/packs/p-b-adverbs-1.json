@@ -1,0 +1,282 @@
+{
+  "title": "Adverbs 1",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "abroad",
+      "meaning": "ở nước ngoài",
+      "category": "manner",
+      "example": "My cousin wants to study abroad after high school.",
+      "image": ""
+    },
+    {
+      "word": "absolutely",
+      "meaning": "hoàn toàn",
+      "category": "manner",
+      "example": "I absolutely love the new music club at school.",
+      "image": ""
+    },
+    {
+      "word": "ahead",
+      "meaning": "phía trước",
+      "category": "manner",
+      "example": "There is a small café just ahead of us.",
+      "image": ""
+    },
+    {
+      "word": "alike",
+      "meaning": "giống nhau",
+      "category": "manner",
+      "example": "The twin sisters dress alike every day.",
+      "image": ""
+    },
+    {
+      "word": "aloud",
+      "meaning": "thành tiếng",
+      "category": "manner",
+      "example": "Please read the text aloud to the class.",
+      "image": ""
+    },
+    {
+      "word": "altogether",
+      "meaning": "tổng cộng",
+      "category": "manner",
+      "example": "The tickets cost thirty dollars altogether.",
+      "image": ""
+    },
+    {
+      "word": "apart",
+      "meaning": "cách xa nhau",
+      "category": "manner",
+      "example": "The two villages are ten kilometres apart.",
+      "image": ""
+    },
+    {
+      "word": "approximately",
+      "meaning": "khoảng, xấp xỉ",
+      "category": "manner",
+      "example": "The trip takes approximately two hours by bus.",
+      "image": ""
+    },
+    {
+      "word": "backwards",
+      "meaning": "về phía sau",
+      "category": "manner",
+      "example": "She walked backwards to take a photo.",
+      "image": ""
+    },
+    {
+      "word": "completely",
+      "meaning": "hoàn toàn",
+      "category": "manner",
+      "example": "I completely forgot about the test.",
+      "image": ""
+    },
+    {
+      "word": "curiously",
+      "meaning": "một cách tò mò",
+      "category": "manner",
+      "example": "The cat looked curiously at the new toy.",
+      "image": ""
+    },
+    {
+      "word": "definitely",
+      "meaning": "chắc chắn",
+      "category": "manner",
+      "example": "I will definitely call you tomorrow.",
+      "image": ""
+    },
+    {
+      "word": "directly",
+      "meaning": "trực tiếp",
+      "category": "manner",
+      "example": "Please send your answers directly to the teacher.",
+      "image": ""
+    },
+    {
+      "word": "extremely",
+      "meaning": "vô cùng",
+      "category": "manner",
+      "example": "The exam was extremely difficult for most students.",
+      "image": ""
+    },
+    {
+      "word": "face to face",
+      "meaning": "trực tiếp, mặt đối mặt",
+      "category": "manner",
+      "example": "I would like to talk to you face to face.",
+      "image": ""
+    },
+    {
+      "word": "fairly",
+      "meaning": "khá",
+      "category": "manner",
+      "example": "The film was fairly good, but a bit too long.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"trực tiếp\"?",
+      "options": [
+        "previously",
+        "finally",
+        "directly"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khá)",
+      "options": [
+        "fairlly",
+        "fairly",
+        "failry"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"abroad\" mean?",
+      "options": [
+        "ở nước ngoài",
+        "gần đây",
+        "lúc này"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khoảng, xấp xỉ)",
+      "options": [
+        "apprxoimately",
+        "approxiamtely",
+        "approximately"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"về phía sau\"?",
+      "options": [
+        "today",
+        "backwards",
+        "tonight"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: c_mpletely (hoàn toàn)",
+      "options": [
+        "o",
+        "e",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vô cùng\"?",
+      "options": [
+        "nowadays",
+        "extremely",
+        "never"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: al_ud (thành tiếng)",
+      "options": [
+        "i",
+        "e",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"absolutely\" mean?",
+      "options": [
+        "hoàn toàn",
+        "ở tầng trên",
+        "ở tầng dưới"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cách xa nhau)",
+      "options": [
+        "aparrt",
+        "apart",
+        "aaprt"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: altog_ther (tổng cộng)",
+      "options": [
+        "a",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "There is a small café just ___ of us.",
+      "options": [
+        "ahead",
+        "there",
+        "please"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"alike\" mean?",
+      "options": [
+        "làm ơn",
+        "giống nhau",
+        "ở tầng dưới"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I will ___ call you tomorrow.",
+      "options": [
+        "there",
+        "downstairs",
+        "definitely"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"face to face\" mean?",
+      "options": [
+        "trực tiếp, mặt đối mặt",
+        "không bao giờ",
+        "thỉnh thoảng"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to read aloud",
+    "Pretend to look ahead",
+    "Take a small step backwards slowly",
+    "Pretend to talk face to face",
+    "Show me you are extremely tired",
+    "Show me you definitely agree"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

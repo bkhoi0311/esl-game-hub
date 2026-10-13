@@ -1,0 +1,79 @@
+{
+  "sampled": [
+    "false",
+    "fancy",
+    "fare",
+    "farmland",
+    "folk",
+    "following",
+    "forward",
+    "frame",
+    "friendship",
+    "full stop",
+    "generous",
+    "giant",
+    "government",
+    "grammar",
+    "grateful"
+  ],
+  "sampleErrors": [],
+  "sampleErrorRate": "0/15",
+  "fullReview": true,
+  "fixed": [
+    {
+      "word": "glance",
+      "field": "ex",
+      "old": "She will glance at her phone during the break.",
+      "new": "He glanced at the clock and saw that he was late."
+    },
+    {
+      "word": "go for",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "go for",
+      "field": "note",
+      "old": "nghĩa 'chọn'; go for còn nhiều nghĩa khác",
+      "new": ""
+    },
+    {
+      "word": "go off",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "go off",
+      "field": "note",
+      "old": "đa nghĩa: reo, bị ôi",
+      "new": ""
+    },
+    {
+      "word": "go off",
+      "field": "vi",
+      "old": "reo, bị ôi",
+      "new": "reo, bị ôi thiu"
+    },
+    {
+      "word": "graduate",
+      "field": "vi",
+      "old": "tốt nghiệp, cử nhân",
+      "new": "tốt nghiệp, người tốt nghiệp"
+    },
+    {
+      "word": "graduate",
+      "field": "ex",
+      "old": "She will graduate from school next summer.",
+      "new": "My brother will graduate from university next summer."
+    },
+    {
+      "word": "haircut",
+      "field": "vi",
+      "old": "kiểu cắt tóc",
+      "new": "việc cắt tóc, kiểu tóc"
+    }
+  ],
+  "stillCheck": []
+}

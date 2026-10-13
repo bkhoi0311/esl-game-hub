@@ -1,0 +1,296 @@
+{
+  "title": "Useful Verbs 1",
+  "level": "A2 Key (KET)",
+  "vocab": [
+    {
+      "word": "belong",
+      "meaning": "thuộc về",
+      "category": "daily",
+      "example": "This bag belongs to my sister.",
+      "image": ""
+    },
+    {
+      "word": "bother",
+      "meaning": "làm phiền",
+      "category": "daily",
+      "example": "Please do not bother your sister now.",
+      "image": ""
+    },
+    {
+      "word": "check",
+      "meaning": "kiểm tra",
+      "category": "daily",
+      "example": "Please check your answers again.",
+      "image": ""
+    },
+    {
+      "word": "cover",
+      "meaning": "che, đậy",
+      "category": "daily",
+      "example": "Please cover the bowl with a plate to keep the food warm.",
+      "image": ""
+    },
+    {
+      "word": "fail",
+      "meaning": "trượt, thất bại",
+      "category": "daily",
+      "example": "If you do not study, you may fail the test.",
+      "image": ""
+    },
+    {
+      "word": "lend",
+      "meaning": "cho mượn",
+      "category": "daily",
+      "example": "Can you lend me a pen?",
+      "image": ""
+    },
+    {
+      "word": "pass",
+      "meaning": "đưa, thi đỗ",
+      "category": "daily",
+      "example": "Please pass me the salt.",
+      "image": ""
+    },
+    {
+      "word": "receive",
+      "meaning": "nhận",
+      "category": "daily",
+      "example": "I hope to receive a reply soon.",
+      "image": ""
+    },
+    {
+      "word": "serve",
+      "meaning": "phục vụ",
+      "category": "daily",
+      "example": "The café serves hot soup every day.",
+      "image": ""
+    },
+    {
+      "word": "shut",
+      "meaning": "đóng",
+      "category": "daily",
+      "example": "Please shut the door when you leave.",
+      "image": ""
+    },
+    {
+      "word": "wake",
+      "meaning": "thức dậy, đánh thức",
+      "category": "daily",
+      "example": "I usually wake at half past six.",
+      "image": ""
+    },
+    {
+      "word": "suppose",
+      "meaning": "cho rằng, đoán",
+      "category": "mind",
+      "example": "I suppose it will rain later today.",
+      "image": ""
+    },
+    {
+      "word": "discover",
+      "meaning": "khám phá",
+      "category": "mind",
+      "example": "Scientists hope to discover new animals in the forest.",
+      "image": ""
+    },
+    {
+      "word": "allow",
+      "meaning": "cho phép",
+      "category": "speech",
+      "example": "Our school does not allow phones in class.",
+      "image": ""
+    },
+    {
+      "word": "describe",
+      "meaning": "miêu tả",
+      "category": "speech",
+      "example": "Can you describe your best friend to me?",
+      "image": ""
+    },
+    {
+      "word": "discuss",
+      "meaning": "thảo luận",
+      "category": "speech",
+      "example": "We will discuss the school trip in class today.",
+      "image": ""
+    },
+    {
+      "word": "excuse",
+      "meaning": "thứ lỗi, bỏ qua",
+      "category": "speech",
+      "example": "Please excuse my late answer to your message.",
+      "image": ""
+    },
+    {
+      "word": "suggest",
+      "meaning": "đề nghị, gợi ý",
+      "category": "speech",
+      "example": "I suggest we meet at the library at four.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"excuse\" mean?",
+      "options": [
+        "che, đậy",
+        "thứ lỗi, bỏ qua",
+        "thuộc về"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I ___ we meet at the library at four.",
+      "options": [
+        "belong",
+        "lend",
+        "suggest"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"discuss\" mean?",
+      "options": [
+        "thảo luận",
+        "kiểm tra",
+        "cho mượn"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: fa_l (trượt, thất bại)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"shut\" mean?",
+      "options": [
+        "miêu tả",
+        "khám phá",
+        "đóng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cho phép\"?",
+      "options": [
+        "allow",
+        "cover",
+        "wake"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I hope to ___ a reply soon.",
+      "options": [
+        "discuss",
+        "receive",
+        "excuse"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: p_ss (đưa, thi đỗ)",
+      "options": [
+        "a",
+        "o",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cho rằng, đoán\"?",
+      "options": [
+        "wake",
+        "serve",
+        "suppose"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thức dậy, đánh thức)",
+      "options": [
+        "wake",
+        "wakke",
+        "wkae"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm phiền\"?",
+      "options": [
+        "turn",
+        "bother",
+        "know"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"check\" mean?",
+      "options": [
+        "thứ lỗi, bỏ qua",
+        "đề nghị, gợi ý",
+        "kiểm tra"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khám phá)",
+      "options": [
+        "discover",
+        "dicsover",
+        "disocver"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_rve (phục vụ)",
+      "options": [
+        "o",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (thuộc về)",
+      "options": [
+        "bellong",
+        "belung",
+        "belong"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to shut a door gently",
+    "Pretend to receive a letter",
+    "Pretend to wake up and stretch",
+    "Pretend to check your bag",
+    "Pretend to suggest an idea",
+    "Pretend to discover a treasure"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

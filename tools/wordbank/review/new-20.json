@@ -1,0 +1,149 @@
+{
+  "sampled": [
+    "mainly",
+    "lamb",
+    "nightlife",
+    "maximum",
+    "mystery",
+    "object",
+    "noticeboard",
+    "marvellous",
+    "mention",
+    "microwave",
+    "lay",
+    "minimum",
+    "nightclub",
+    "messy",
+    "locate"
+  ],
+  "sampleErrors": [],
+  "fullPartReviewed": true,
+  "errorsTotal": [
+    "kill",
+    "lady",
+    "laundry",
+    "load",
+    "luxury",
+    "marry"
+  ],
+  "fixed": [
+    {
+      "word": "kill",
+      "field": "vi",
+      "old": "giết",
+      "new": "giết, làm chết"
+    },
+    {
+      "word": "lady",
+      "field": "vi",
+      "old": "quý bà",
+      "new": "người phụ nữ, quý bà"
+    },
+    {
+      "word": "laundry",
+      "field": "vi",
+      "old": "đồ giặt",
+      "new": "việc giặt giũ, đồ giặt"
+    },
+    {
+      "word": "load",
+      "field": "vi",
+      "old": "vật nặng",
+      "new": "hàng chở, khối hàng"
+    },
+    {
+      "word": "luxury",
+      "field": "vi",
+      "old": "xa xỉ",
+      "new": "sự xa hoa, đồ xa xỉ"
+    },
+    {
+      "word": "luxury",
+      "field": "ex",
+      "old": "The hotel was full of luxury, with a pool and a spa.",
+      "new": "Staying in a five-star hotel is a luxury for my family."
+    },
+    {
+      "word": "marry",
+      "field": "ex",
+      "old": "My cousin will marry next summer.",
+      "new": "My cousin is going to marry a doctor next summer."
+    },
+    {
+      "word": "marry",
+      "field": "vi",
+      "old": "kết hôn",
+      "new": "cưới, kết hôn với"
+    },
+    {
+      "word": "lighter",
+      "field": "ex",
+      "old": "We need a lighter to light the candles.",
+      "new": "Dad used a lighter to light the candles on the cake."
+    },
+    {
+      "word": "lighter",
+      "field": "check",
+      "old": true,
+      "new": false
+    },
+    {
+      "word": "lighter",
+      "field": "note",
+      "old": "bật lửa: chọn câu nến, cần duyệt độ phù hợp",
+      "new": "bật lửa: câu thắp nến sinh nhật, trung tính"
+    },
+    {
+      "word": "lay",
+      "field": "vi",
+      "old": "đặt, để",
+      "new": "đặt nằm, bày ra"
+    },
+    {
+      "word": "league",
+      "field": "vi",
+      "old": "giải đấu",
+      "new": "liên đoàn, giải đấu"
+    },
+    {
+      "word": "landscape",
+      "field": "vi",
+      "old": "phong cảnh",
+      "new": "cảnh quan"
+    },
+    {
+      "word": "lately",
+      "field": "vi",
+      "old": "gần đây",
+      "new": "dạo này"
+    },
+    {
+      "word": "normally",
+      "field": "vi",
+      "old": "thường thường",
+      "new": "thông thường"
+    },
+    {
+      "word": "marvellous",
+      "field": "vi",
+      "old": "tuyệt vời",
+      "new": "tuyệt diệu"
+    },
+    {
+      "word": "likely",
+      "field": "vi",
+      "old": "có khả năng",
+      "new": "có thể xảy ra"
+    },
+    {
+      "word": "messy",
+      "field": "vi",
+      "old": "bừa bộn",
+      "new": "lộn xộn, bừa bộn"
+    }
+  ],
+  "stillCheck": [],
+  "decisions": [
+    "kill: giữ (câu trung tính về cây, vi giết, làm chết), không skip"
+  ]
+}

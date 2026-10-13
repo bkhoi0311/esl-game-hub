@@ -1,0 +1,289 @@
+{
+  "title": "Weather and Sky",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "cloud",
+      "meaning": "đám mây",
+      "category": "weather",
+      "example": "There is a big cloud in the sky.",
+      "image": ""
+    },
+    {
+      "word": "cloudy",
+      "meaning": "nhiều mây",
+      "category": "weather",
+      "example": "It is cloudy today.",
+      "image": ""
+    },
+    {
+      "word": "rain",
+      "meaning": "mưa",
+      "category": "weather",
+      "example": "I like the sound of rain.",
+      "image": ""
+    },
+    {
+      "word": "rainbow",
+      "meaning": "cầu vồng",
+      "category": "weather",
+      "example": "Look at the rainbow in the sky!",
+      "image": ""
+    },
+    {
+      "word": "snow",
+      "meaning": "tuyết",
+      "category": "weather",
+      "example": "We play in the snow.",
+      "image": ""
+    },
+    {
+      "word": "sunny",
+      "meaning": "có nắng",
+      "category": "weather",
+      "example": "It is sunny at the beach.",
+      "image": ""
+    },
+    {
+      "word": "weather",
+      "meaning": "thời tiết",
+      "category": "weather",
+      "example": "What is the weather like today?",
+      "image": ""
+    },
+    {
+      "word": "wind",
+      "meaning": "gió",
+      "category": "weather",
+      "example": "The wind is strong today.",
+      "image": ""
+    },
+    {
+      "word": "windy",
+      "meaning": "có gió",
+      "category": "weather",
+      "example": "It is windy on the hill.",
+      "image": ""
+    },
+    {
+      "word": "wet",
+      "meaning": "ướt",
+      "category": "describe",
+      "example": "The dog is wet from the rain.",
+      "image": ""
+    },
+    {
+      "word": "dry",
+      "meaning": "khô",
+      "category": "describe",
+      "example": "The towel is dry now.",
+      "image": ""
+    },
+    {
+      "word": "hot",
+      "meaning": "nóng",
+      "category": "describe",
+      "example": "The soup is very hot.",
+      "image": ""
+    },
+    {
+      "word": "cold",
+      "meaning": "lạnh",
+      "category": "describe",
+      "example": "The water is very cold.",
+      "image": ""
+    },
+    {
+      "word": "moon",
+      "meaning": "mặt trăng",
+      "category": "space",
+      "example": "The moon is bright tonight.",
+      "image": ""
+    },
+    {
+      "word": "star",
+      "meaning": "ngôi sao",
+      "category": "space",
+      "example": "I can see a bright star.",
+      "image": ""
+    },
+    {
+      "word": "sky",
+      "meaning": "bầu trời",
+      "category": "nature",
+      "example": "The sky is blue today.",
+      "image": ""
+    },
+    {
+      "word": "sun",
+      "meaning": "mặt trời",
+      "category": "space",
+      "example": "The sun is hot today.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"rainbow\" mean?",
+      "options": [
+        "tuyết",
+        "cầu vồng",
+        "đám mây"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (mưa)",
+      "options": [
+        "rain",
+        "rayn",
+        "rian"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"sky\" mean?",
+      "options": [
+        "mặt trăng",
+        "ngôi sao",
+        "bầu trời"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ngôi sao)",
+      "options": [
+        "sttar",
+        "satr",
+        "star"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "It is ___ on the hill.",
+      "options": [
+        "windy",
+        "pet",
+        "take"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"nhiều mây\"?",
+      "options": [
+        "sunny",
+        "cloudy",
+        "windy"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (có nắng)",
+      "options": [
+        "sunny",
+        "suny",
+        "snuny"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: w_nd (gió)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is hot today.",
+      "options": [
+        "dry",
+        "sun",
+        "hot"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đám mây\"?",
+      "options": [
+        "cloud",
+        "rain",
+        "snow"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: weath_r (thời tiết)",
+      "options": [
+        "i",
+        "e",
+        "a"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"lạnh\"?",
+      "options": [
+        "sunny",
+        "windy",
+        "cold"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: mo_n (mặt trăng)",
+      "options": [
+        "e",
+        "u",
+        "o"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"snow\" mean?",
+      "options": [
+        "tuyết",
+        "mưa",
+        "đám mây"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hot\" mean?",
+      "options": [
+        "khô",
+        "nóng",
+        "lạnh"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put up an umbrella",
+    "Show me you are cold",
+    "Show me you are hot",
+    "Pretend to catch a snowflake",
+    "Draw a rainbow in the air",
+    "Pretend to blow like the wind"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "title": "Clothes and Accessories",
+  "level": "A2 Flyers",
+  "vocab": [
+    {
+      "word": "belt",
+      "meaning": "thắt lưng",
+      "category": "clothes",
+      "example": "Dad wears a black belt.",
+      "image": ""
+    },
+    {
+      "word": "bracelet",
+      "meaning": "vòng tay",
+      "category": "clothes",
+      "example": "She wears a silver bracelet on her arm.",
+      "image": ""
+    },
+    {
+      "word": "costume",
+      "meaning": "trang phục",
+      "category": "clothes",
+      "example": "I wore a dragon costume to the party.",
+      "image": ""
+    },
+    {
+      "word": "crown",
+      "meaning": "vương miện",
+      "category": "clothes",
+      "example": "The king wears a gold crown.",
+      "image": ""
+    },
+    {
+      "word": "glove",
+      "meaning": "chiếc găng tay",
+      "category": "clothes",
+      "example": "I lost one glove.",
+      "image": ""
+    },
+    {
+      "word": "gloves",
+      "meaning": "đôi găng tay",
+      "category": "clothes",
+      "example": "Wear gloves when it is cold.",
+      "image": ""
+    },
+    {
+      "word": "necklace",
+      "meaning": "vòng cổ",
+      "category": "clothes",
+      "example": "Mum wears a gold necklace.",
+      "image": ""
+    },
+    {
+      "word": "pocket",
+      "meaning": "cái túi áo",
+      "category": "clothes",
+      "example": "I have a coin in my pocket.",
+      "image": ""
+    },
+    {
+      "word": "pyjamas",
+      "meaning": "bộ đồ ngủ",
+      "category": "clothes",
+      "example": "I put on my pyjamas at night.",
+      "image": ""
+    },
+    {
+      "word": "ring",
+      "meaning": "chiếc nhẫn",
+      "category": "clothes",
+      "example": "She has a ring on her finger.",
+      "image": ""
+    },
+    {
+      "word": "sunglasses",
+      "meaning": "kính râm",
+      "category": "clothes",
+      "example": "I wear sunglasses on sunny days.",
+      "image": ""
+    },
+    {
+      "word": "trainers",
+      "meaning": "giày thể thao",
+      "category": "clothes",
+      "example": "I play football in my trainers.",
+      "image": ""
+    },
+    {
+      "word": "uniform",
+      "meaning": "đồng phục",
+      "category": "clothes",
+      "example": "We wear a uniform at school.",
+      "image": ""
+    },
+    {
+      "word": "umbrella",
+      "meaning": "cái ô",
+      "category": "thing",
+      "example": "Take an umbrella, it is raining.",
+      "image": ""
+    },
+    {
+      "word": "rucksack",
+      "meaning": "ba lô",
+      "category": "thing",
+      "example": "I put my books in my rucksack.",
+      "image": ""
+    },
+    {
+      "word": "wool",
+      "meaning": "len",
+      "category": "material",
+      "example": "This jumper is made of wool.",
+      "image": ""
+    },
+    {
+      "word": "gold",
+      "meaning": "vàng",
+      "category": "thing",
+      "example": "The ring is made of gold.",
+      "image": ""
+    },
+    {
+      "word": "silver",
+      "meaning": "bạc, màu bạc",
+      "category": "color",
+      "example": "She wore a silver ring.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "I wore a dragon ___ to the party.",
+      "options": [
+        "costume",
+        "wool",
+        "silver"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: pock_t (cái túi áo)",
+      "options": [
+        "u",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (vòng cổ)",
+      "options": [
+        "necklece",
+        "necklace",
+        "neccklace"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: umbr_lla (cái ô)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which one is something you wear?",
+      "options": [
+        "sunglasses",
+        "silver",
+        "wool"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She wears a silver ___ on her arm.",
+      "options": [
+        "wool",
+        "silver",
+        "bracelet"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"trainers\" mean?",
+      "options": [
+        "giày thể thao",
+        "thắt lưng",
+        "kính râm"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: rucks_ck (ba lô)",
+      "options": [
+        "o",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"ring\" mean?",
+      "options": [
+        "vòng cổ",
+        "chiếc nhẫn",
+        "đôi găng tay"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"vương miện\"?",
+      "options": [
+        "belt",
+        "pyjamas",
+        "crown"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"gold\" mean?",
+      "options": [
+        "vàng",
+        "ba lô",
+        "cái ô"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bạc, màu bạc\"?",
+      "options": [
+        "silver",
+        "pocket",
+        "sunglasses"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đôi găng tay)",
+      "options": [
+        "gluves",
+        "glovves",
+        "gloves"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chiếc găng tay\"?",
+      "options": [
+        "uniform",
+        "glove",
+        "necklace"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to put on sunglasses",
+    "Pretend to put on a necklace",
+    "Pretend to tie your trainers",
+    "Pretend to wear a crown",
+    "Pretend to put on gloves",
+    "Pretend to put something in your pocket"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

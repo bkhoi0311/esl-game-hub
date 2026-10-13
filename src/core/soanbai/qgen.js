@@ -1,11 +1,11 @@
 // Sinh câu hỏi trắc nghiệm bằng luật từ bảng từ vựng (PLAN-SOANBAI mục D). Thuần: không DOM, không import content.js.
 // Tất định theo seed. Chỉ dùng cú pháp có ở Chromium 84.
 import { normKey, findWordInText, candidates as formCandidates } from './normalize.js';
-import { phraseFor, groupOf } from './categories.js';
+import { phraseFor, groupOf, LEVEL_ORDER } from './categories.js';
 import { lookup } from './wordbank.js';
 import {
-  KID_UNSAFE, display, isProper, isAbbrev, nearCat, closeCat, isGeneric, fillBlacklisted, meaningClash,
-  isGenericWord, synClash, WHICH_CATS,
+  KID_UNSAFE, noMeaningQ, display, isProper, isAbbrev, nearCat, closeCat, isGeneric, fillBlacklisted, meaningClash,
+  isGenericWord, synClash, WHICH_CATS, noDistractorFill,
 } from './qrules.js';
 import { commonWords } from './commonwords.js';
 
@@ -135,12 +135,45 @@ function prepare(vocab, bank) {
   return items;
 }
 
-function bankPool(bank) {
+// Cấp tối đa của một bảng từ (theo kho): trả tên cấp ('starters'...'pet') hoặc null nếu không tra được từ nào có cấp.
+export function maxLevelOf(vocab, bank) {
+  let best = -1;
+  let name = null;
+  (vocab || []).forEach((v) => {
+    if (!v || blank(v.word) || !bank) return;
+    const e = lookup(bank, v.word);
+    if (!e) return;
+    const idx = LEVEL_ORDER[e.level];
+    if (idx !== undefined && idx < LEVEL_ORDER.other && idx > best) { best = idx; name = e.level; }
+  });
+  return name;
+}
+
+// Cache theo (kho, cấp tối đa): kho ~3.600 mục, bankPool được gọi mỗi lượt sinh.
+const POOL_CACHE = new WeakMap();
+
+// maxLevel: tên cấp ('starters'...'pet') hoặc null (không lọc, như cũ). Mục có cấp cao hơn maxLevel không bao giờ làm nhiễu;
+// mục 'other' (ngoài danh sách) chỉ dùng cho Starters/Movers/Flyers.
+function bankPool(bank, maxLevel) {
   if (!bank || !bank.list) return [];
-  return bank.list.filter((e) => !KID_UNSAFE.has(normKey(e.word))).map((e) => ({
+  const mk = maxLevel && LEVEL_ORDER[maxLevel] !== undefined ? maxLevel : '';
+  let byLevel = POOL_CACHE.get(bank);
+  if (!byLevel) { byLevel = new Map(); POOL_CACHE.set(bank, byLevel); }
+  if (byLevel.has(mk)) return byLevel.get(mk);
+  const maxIdx = mk ? LEVEL_ORDER[mk] : null;
+  const pool = bank.list.filter((e) => {
+    if (KID_UNSAFE.has(normKey(e.word))) return false;
+    if (e.word.indexOf('(') >= 0) return false; // khoá có hậu tố nghĩa (it (subject), may (month)): hiển thị trùng từ khác, không làm nhiễu
+    if (maxIdx === null) return true;
+    const idx = LEVEL_ORDER[e.level] === undefined ? LEVEL_ORDER.other : LEVEL_ORDER[e.level];
+    if (idx === LEVEL_ORDER.other) return maxIdx <= LEVEL_ORDER.flyers;
+    return idx <= maxIdx;
+  }).map((e) => ({
     word: e.word, key: normKey(e.word), meaning: e.vi, category: e.cat, cat: e.cat, group: groupOf(e.cat),
-    pos: e.pos, lv: e.lv, fromBank: true, pl: e.pl, alt: e.alt,
+    pos: e.pos, lv: e.lv, level: e.level, fromBank: true, pl: e.pl, alt: e.alt,
   }));
+  byLevel.set(mk, pool);
+  return pool;
 }
 
 // Token trong các câu ví dụ của kho (tiếng Anh đơn giản mà trẻ gặp): coi như "từ có thật". Cache theo kho.
@@ -159,13 +192,16 @@ function exampleTokens(bank) {
   return s;
 }
 
-function makeCtx(vocab, rng, bank) {
+function makeCtx(vocab, rng, bank, maxLevel) {
   const items = prepare(vocab, bank);
+  const ml = maxLevel === 'auto' ? maxLevelOf(vocab, bank) : (maxLevel || null);
   const known = new Set(items.map((i) => i.key));
   if (bank && bank.map) bank.map.forEach((_, k) => known.add(k));
   const ctx = {
-    items, rng, bank, known, pool: null, usedWrong: {}, tokens: exampleTokens(bank),
-    getPool() { if (!this.pool) this.pool = bankPool(bank); return this.pool; },
+    items, rng, bank, known, pool: null, usedWrong: {}, tokens: exampleTokens(bank), maxLevel: ml,
+    // KET/PET: nhiễu cùng loại từ nhưng khác nhóm được ưu tiên (PLAN-LEVELS mục 6.2)
+    hi: !!ml && LEVEL_ORDER[ml] >= LEVEL_ORDER.ket,
+    getPool() { if (!this.pool) this.pool = bankPool(bank, ml); return this.pool; },
   };
   return ctx;
 }
@@ -195,7 +231,9 @@ function rank(cands, target, rng, getStr) {
     .map((c, i) => {
       const l = getStr(c).length;
       const lenOk = l >= len * 0.5 && l <= len * 2 + 1;
-      const pen = (posT && c.pos && posT !== c.pos ? 2 : 0) + (lenOk ? 0 : 1);
+      // cụm nhiều chữ: ưu tiên nhiễu có cùng số chữ (PLAN-LEVELS 6.2)
+      const tokPen = target.word && target.word.indexOf(' ') >= 0 && String(c.word || '').split(' ').length !== target.word.split(' ').length ? 1 : 0;
+      const pen = (posT && c.pos && posT !== c.pos ? 2 : 0) + (lenOk ? 0 : 1) + tokPen;
       return { c, pen, i };
     })
     .sort((a, b) => a.pen - b.pen || a.i - b.i)
@@ -240,14 +278,30 @@ function pickFromTiers(tiers, n, target, ctx, getStr, ok) {
 }
 
 // Tầng nhiễu chung (cùng nhóm trong bảng -> cùng siêu nhóm -> bất kỳ trong bảng -> kho cùng cat -> kho cùng cấp).
+// KET/PET (ctx.hi): nhiễu cùng loại từ nhưng khác nhóm đứng đầu; từ chức năng/trừu tượng chỉ lấy nhiễu cùng nhãn + loại từ.
 function tiersFor(it, ctx, filterFn) {
   const others = ctx.items.filter((o) => o !== it && (!filterFn || filterFn(o)));
   const tiers = [];
+  const itCat = it.cat || it.category;
+  const samePos = (o) => !it.pos || !o.pos || o.pos === it.pos;
+  const strictPos = (o) => !!it.pos && !!o.pos && o.pos === it.pos;
+  const pool = ctx.bank ? ctx.getPool().filter((o) => o.key !== it.key && (!filterFn || filterFn(o))) : [];
+  if (noDistractorFill(itCat)) {
+    // function / abstract: meaning/word chỉ so với cùng nhãn + cùng loại từ
+    tiers.push(others.filter((o) => (o.cat || o.category) === itCat && samePos(o)));
+    tiers.push(pool.filter((o) => o.cat === itCat && samePos(o)));
+  }
+  if (ctx.hi && itCat) {
+    const diffGroup = (o) => strictPos(o) && !!(o.cat || o.category) && groupOf(o.cat || o.category) !== it.group && !nearCat(o.cat || o.category, itCat) && !synClash(o.key, it.key) && !meaningClash(o.meaning, it.meaning);
+    tiers.push(others.filter(diffGroup));
+    tiers.push(pool.filter((o) => diffGroup(o) && !noDistractorFill(o.cat)));
+    tiers.push(others.filter((o) => strictPos(o) && (o.cat || o.category) !== itCat));
+    tiers.push(pool.filter((o) => strictPos(o) && o.cat !== itCat && !noDistractorFill(o.cat)));
+  }
   if (it.category) tiers.push(others.filter((o) => o.category === it.category));
   if (it.group) tiers.push(others.filter((o) => o.group === it.group && o.category !== it.category));
   tiers.push(others);
   if (ctx.bank) {
-    const pool = ctx.getPool().filter((o) => o.key !== it.key && (!filterFn || filterFn(o)));
     if (it.cat) tiers.push(pool.filter((o) => o.cat === it.cat));
     const entry = lookup(ctx.bank, it.word);
     if (entry) tiers.push(pool.filter((o) => o.lv === entry.lv));
@@ -259,20 +313,20 @@ function tiersFor(it, ctx, filterFn) {
 // ---------- Từng loại ----------
 
 function genMeaning(it, ctx) {
-  if (blank(it.meaning)) return null;
+  if (blank(it.meaning) || noMeaningQ(it.word)) return null;
   const mine = it.meaning;
-  const wrong = pickFromTiers(tiersFor(it, ctx, (o) => !blank(o.meaning)), 2, it, ctx, (c) => c.meaning, (s) => !meaningClash(s, mine));
+  const wrong = pickFromTiers(tiersFor(it, ctx, (o) => !blank(o.meaning) && !noMeaningQ(o.word)), 2, it, ctx, (c) => c.meaning, (s) => !meaningClash(s, mine));
   if (!wrong) return null;
   return { prompt: `What does "${display(it.word)}" mean?`, correct: it.meaning, wrong };
 }
 
 function genWord(it, ctx) {
-  if (blank(it.meaning)) return null;
+  if (blank(it.meaning) || noMeaningQ(it.word)) return null;
   const mine = lc(it.meaning);
   if (ctx.items.some((o) => o !== it && lc(o.meaning) === mine)) return null; // hai từ cùng nghĩa: mơ hồ
   const isPhrase = it.word.indexOf(' ') >= 0;
-  const tiers = tiersFor(it, ctx, null);
-  if (isPhrase) tiers.unshift(ctx.items.filter((o) => o !== it && o.word.indexOf(' ') >= 0));
+  const tiers = tiersFor(it, ctx, (o) => !noMeaningQ(o.word));
+  if (isPhrase) tiers.unshift(ctx.items.filter((o) => o !== it && o.word.indexOf(' ') >= 0 && !noMeaningQ(o.word)));
   const wrong = pickFromTiers(tiers, 2, it, ctx, (c) => display(c.word),
     (s, c) => lc(s) !== lc(it.word) && lc(c.meaning) !== mine && !meaningClash(c.meaning, it.meaning));
   if (!wrong) return null;
@@ -284,6 +338,7 @@ const capFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 function genFill(it, ctx) {
   const ex = it.example;
   if (!ex || ex.split(/\s+/).length < 4) return null;
+  if (noDistractorFill(it.cat || it.category)) return null; // function / abstract: ô trống quá chung
   if (fillBlacklisted(it.key, ex)) return null;
   const hits = findWordInText(ex, it.word, { pl: it.pl, alt: it.alt });
   if (hits.length !== 1) return null;
@@ -297,6 +352,9 @@ function genFill(it, ctx) {
   // Chống lộ chữ hoa: token viết hoa giữa câu (danh từ riêng) thì bỏ câu, vì mọi nhiễu viết thường sẽ lộ đáp án.
   if (!atStart && /^[A-Z]/.test(token)) return null;
   const generic = isGeneric(prompt);
+  // Không điền vào cụm động từ tách rời ("look it ___") và tính từ đứng sau "a ___ of".
+  if (/\b(it|them|him|her|me|us)\s+___/i.test(prompt)) return null;
+  if (it.pos === 'adj' && /\b(a|an)\s+___\s+(of|to|for|in|at|on)\b/i.test(prompt)) return null;
   const art = /\b(a|an)\s+___/i.exec(prompt);
   // Loại từ của nhiễu: câu khung chung hoặc đáp án là tính từ thì nhiễu phải KHÁC từ loại (chỉ một phương án đúng ngữ pháp).
   const answerPos = it.pos;
@@ -318,7 +376,7 @@ function genFill(it, ctx) {
     return !closeCat(oc, itCat);
   };
   const lowerOk = (o) => atStart || (!isProper(o.word) && !isAbbrev(o.word));
-  const accept = (o) => notNear(o) && posOk(o) && lowerOk(o) && !(isAbbrev(o.word) && !isAbbrev(it.word));
+  const accept = (o) => notNear(o) && posOk(o) && lowerOk(o) && !noDistractorFill(o.cat || o.category) && !(isAbbrev(o.word) && !isAbbrev(it.word));
   const others = ctx.items.filter((o) => o !== it && accept(o));
   const pool = ctx.bank ? ctx.getPool().filter((o) => o.key !== it.key && accept(o)) : [];
   const samePos = (o) => !it.pos || !o.pos || o.pos === it.pos;
@@ -505,7 +563,7 @@ function candidatesOf(type, ctx) {
 
 export function capacity(vocab, opts) {
   const o = opts || {};
-  const ctx = makeCtx(vocab, makeRng(12345), o.bank || null);
+  const ctx = makeCtx(vocab, makeRng(12345), o.bank || null, o.maxLevel || null);
   const cap = {};
   const reasons = {};
   QTYPES.forEach((t) => {
@@ -535,7 +593,7 @@ export function generateQuestions(vocab, opts) {
   const count = o.count == null ? 15 : o.count;
   const seed = o.seed == null ? Date.now() : o.seed;
   const rng = makeRng(seed);
-  const ctx = makeCtx(vocab, rng, o.bank || null);
+  const ctx = makeCtx(vocab, rng, o.bank || null, o.maxLevel || null);
   const byType = {};
   QTYPES.forEach((t) => { byType[t] = 0; });
   const result = { questions: [], byType, kinds: [], skippedDup: 0 };

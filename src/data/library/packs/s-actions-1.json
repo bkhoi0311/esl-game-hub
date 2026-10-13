@@ -1,0 +1,310 @@
+{
+  "title": "Moving and Doing",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "come",
+      "meaning": "đến, tới",
+      "category": "motion",
+      "example": "Please come to my house today.",
+      "image": ""
+    },
+    {
+      "word": "go",
+      "meaning": "đi",
+      "category": "action",
+      "example": "We go to school by bus.",
+      "image": ""
+    },
+    {
+      "word": "run",
+      "meaning": "chạy",
+      "category": "action",
+      "example": "Dogs run very fast.",
+      "image": ""
+    },
+    {
+      "word": "walk",
+      "meaning": "đi bộ",
+      "category": "action",
+      "example": "I walk to school with Tom.",
+      "image": ""
+    },
+    {
+      "word": "jump",
+      "meaning": "nhảy",
+      "category": "action",
+      "example": "Frogs jump into the water.",
+      "image": ""
+    },
+    {
+      "word": "stand",
+      "meaning": "đứng",
+      "category": "action",
+      "example": "Please stand up and sing.",
+      "image": ""
+    },
+    {
+      "word": "sit",
+      "meaning": "ngồi",
+      "category": "action",
+      "example": "I sit on the red chair.",
+      "image": ""
+    },
+    {
+      "word": "stop",
+      "meaning": "dừng lại",
+      "category": "action",
+      "example": "Please stop at the red light.",
+      "image": ""
+    },
+    {
+      "word": "open",
+      "meaning": "mở",
+      "category": "action",
+      "example": "Please open your book.",
+      "image": ""
+    },
+    {
+      "word": "close",
+      "meaning": "đóng",
+      "category": "action",
+      "example": "Please close the door.",
+      "image": ""
+    },
+    {
+      "word": "hold",
+      "meaning": "cầm, giữ",
+      "category": "action",
+      "example": "Please hold my hand when we cross.",
+      "image": ""
+    },
+    {
+      "word": "give",
+      "meaning": "cho, tặng",
+      "category": "action",
+      "example": "I give a gift to my mum.",
+      "image": ""
+    },
+    {
+      "word": "put",
+      "meaning": "đặt, để",
+      "category": "daily",
+      "example": "I put my bag on the chair.",
+      "image": ""
+    },
+    {
+      "word": "pick up",
+      "meaning": "nhặt lên",
+      "category": "daily",
+      "example": "Please pick up the pencil.",
+      "image": ""
+    },
+    {
+      "word": "find",
+      "meaning": "tìm thấy",
+      "category": "action",
+      "example": "Can you find my bag?",
+      "image": ""
+    },
+    {
+      "word": "start",
+      "meaning": "bắt đầu",
+      "category": "daily",
+      "example": "The lesson starts at nine.",
+      "image": ""
+    },
+    {
+      "word": "wear",
+      "meaning": "mặc",
+      "category": "daily",
+      "example": "I wear a hat in the sun.",
+      "image": ""
+    },
+    {
+      "word": "show",
+      "meaning": "cho xem",
+      "category": "daily",
+      "example": "Can you show me your new toy?",
+      "image": ""
+    },
+    {
+      "word": "add",
+      "meaning": "thêm vào, cộng",
+      "category": "daily",
+      "example": "You can add two and three.",
+      "image": ""
+    },
+    {
+      "word": "complete",
+      "meaning": "hoàn thành",
+      "category": "daily",
+      "example": "Please complete the picture.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: compl_te (hoàn thành)",
+      "options": [
+        "i",
+        "o",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "I ___ my bag on the chair.",
+      "options": [
+        "put",
+        "come",
+        "tell"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cho, tặng\"?",
+      "options": [
+        "stop",
+        "give",
+        "close"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ my hand when we cross.",
+      "options": [
+        "tell",
+        "want",
+        "hold"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đi\"?",
+      "options": [
+        "sit",
+        "go",
+        "stand"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"walk\" mean?",
+      "options": [
+        "đi bộ",
+        "đóng",
+        "chạy"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tìm thấy)",
+      "options": [
+        "find",
+        "finnd",
+        "fynd"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"come\" mean?",
+      "options": [
+        "nhảy",
+        "đến, tới",
+        "cho, tặng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (bắt đầu)",
+      "options": [
+        "stert",
+        "strat",
+        "start"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jump\" mean?",
+      "options": [
+        "ngồi",
+        "đóng",
+        "nhảy"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"chạy\"?",
+      "options": [
+        "open",
+        "run",
+        "go"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"wear\" mean?",
+      "options": [
+        "mặc",
+        "cho xem",
+        "bắt đầu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dừng lại)",
+      "options": [
+        "stop",
+        "sttop",
+        "sotp"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: cl_se (đóng)",
+      "options": [
+        "u",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: st_nd (đứng)",
+      "options": [
+        "e",
+        "u",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Run on the spot slowly",
+    "Jump two times on the spot",
+    "Stand up and sit down slowly",
+    "Pretend to open a door",
+    "Pretend to close a window",
+    "Pretend to give a present"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

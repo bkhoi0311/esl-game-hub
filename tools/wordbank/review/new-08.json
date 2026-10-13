@@ -1,0 +1,80 @@
+{
+  "sampled": [
+    "repair",
+    "thank",
+    "smell",
+    "tune",
+    "surname",
+    "stay",
+    "unusual",
+    "several",
+    "stream",
+    "programme",
+    "stripe",
+    "project",
+    "sure",
+    "secret",
+    "repeat"
+  ],
+  "sampleErrors": [
+    "repeat"
+  ],
+  "fullPartReviewed": true,
+  "fixed": [
+    {
+      "word": "repeat",
+      "field": "ex",
+      "old": "Please repeat the question, teacher.",
+      "new": "Can you repeat that, please?"
+    },
+    {
+      "word": "same",
+      "field": "vi",
+      "old": "giống nhau",
+      "new": "cùng, giống nhau"
+    },
+    {
+      "word": "somewhere",
+      "field": "cat",
+      "old": "manner",
+      "new": "function"
+    },
+    {
+      "word": "step",
+      "field": "cat",
+      "old": "thing",
+      "new": "action"
+    },
+    {
+      "word": "such",
+      "field": "vi",
+      "old": "như vậy, đến thế",
+      "new": "thật là, như thế"
+    },
+    {
+      "word": "suddenly",
+      "field": "cat",
+      "old": "time",
+      "new": "manner"
+    },
+    {
+      "word": "unkind",
+      "field": "vi",
+      "old": "không tốt bụng",
+      "new": "không tử tế"
+    },
+    {
+      "word": "usually",
+      "field": "vi",
+      "old": "thường thường",
+      "new": "thường"
+    },
+    {
+      "word": "you're welcome",
+      "field": "ex",
+      "old": "Tom said thanks, and I said you're welcome.",
+      "new": "Thanks for helping me! You're welcome, Sam."
+    }
+  ],
+  "stillCheck": []
+}

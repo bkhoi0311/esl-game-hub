@@ -1,6 +1,8 @@
 // Test logic thuần của các game (không cần trình duyệt). Chạy: npm test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { QUIET_GAMES, speechAllowed } from '../src/core/voice-policy.js';
+import { createTapGuard } from '../src/games/shared/tap-guard.js';
 import { applyChest, availableChests, dealChests, defaultWeights, validTargets } from '../src/games/gold-heist/logic.js';
 
 // ---------- Gold Heist ----------
@@ -118,32 +120,67 @@ test('Simon: các tư thế khác', () => {
   assert.ok(matches(body({ 23: [0.55, 0.72], 24: [0.45, 0.72], 25: [0.6, 0.76], 26: [0.4, 0.76] })).includes('squat'));
 });
 
-// ---------- Head Tilt ----------
-import { createTiltTracker, rollDegrees, twoChoice } from '../src/games/head-tilt/logic.js';
+// ---------- Sentence Race ----------
+import { readdirSync } from 'node:fs';
+import { MIN_SENTENCES, countsByLength, isNext, makeRound as makeSrRound, sentencesFromPack, tokenize } from '../src/games/sentence-race/logic.js';
 
-const face = (lx, ly, rx, ry) => { const f = []; f[33] = { x: rx, y: ry }; f[263] = { x: lx, y: ly }; return f; };
-test('Head Tilt: đầu thẳng = 0 độ, nghiêng theo hình gương', () => {
-  // Ảnh gốc: mắt phải học sinh (33) ở x nhỏ. Lật gương: 33 sang bên phải màn hình.
-  assert.ok(Math.abs(rollDegrees(face(0.6, 0.4, 0.4, 0.4))) < 1);
-  // Mắt bên phải màn hình (33) thấp hơn => nghiêng về phải màn hình => dương.
-  assert.ok(rollDegrees(face(0.6, 0.35, 0.4, 0.45)) > 15);
-  assert.ok(rollDegrees(face(0.6, 0.45, 0.4, 0.35)) < -15);
+const readJson = (rel) => JSON.parse(readFileSync(new URL(rel, import.meta.url), 'utf8'));
+const seeded = (seed) => () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+
+test('Sentence Race: tokenize', () => {
+  const t = tokenize('I eat a banana every morning.');
+  assert.equal(t.tokens.length, 6);
+  assert.equal(t.end, '.');
+  assert.equal(tokenize('Tôi ăn một quả chuối mỗi sáng.'), null);
+  assert.equal(tokenize('Hi.'), null);
+  assert.equal(tokenize('Is it big?').end, '?');
+  assert.equal(tokenize('This is a supercalifragilistic word.'), null, 'từ quá dài');
 });
-test('Head Tilt: phải giữ 0.4 giây mới chọn, đầu thẳng không chọn', () => {
-  const t = createTiltTracker();
-  assert.equal(t.update(5, 0), null);
-  assert.equal(t.update(3, 1000), null);
-  assert.equal(t.update(20, 1100), null);
-  assert.equal(t.update(20, 1300), null);
-  assert.equal(t.update(20, 1550), 'right');
-  assert.equal(t.update(-20, 1600), null);
+
+test('Sentence Race: câu từ bài mẫu (ví dụ + câu hỏi điền chỗ trống), không trùng', () => {
+  const sample = readJson('../src/data/sample-food-a2.json');
+  const list = sentencesFromPack(sample);
+  assert.ok(list.filter((s) => s.source === 'example').length >= 20);
+  const fromQ = list.filter((s) => s.source === 'question');
+  assert.ok(fromQ.length >= 1, 'phải có câu từ câu hỏi "___"');
+  assert.ok(list.every((s) => !s.text.includes('___')));
+  const keys = list.map((s) => s.tokens.join(' ').toLowerCase());
+  assert.equal(new Set(keys).size, keys.length, 'có câu trùng');
+  assert.ok(list.length >= MIN_SENTENCES);
+  // Gói thiếu câu: không đủ
+  assert.ok(sentencesFromPack({ vocab: [{ word: 'cat', example: '' }], questions: [] }).length < MIN_SENTENCES);
 });
-test('Head Tilt: câu 3 đáp án -> đúng + 1 sai', () => {
-  const q = { prompt: 'x', options: ['eats', 'eat', 'eating'], answer: 0 };
-  for (let i = 0; i < 20; i++) {
-    const c = twoChoice(q);
-    assert.equal(c[c.correct], 'eats');
-    assert.notEqual(c.left, c.right);
+
+test('Sentence Race: makeRound là hoán vị, không để sẵn đúng thứ tự; keepCaps=false', () => {
+  const item = tokenize('I eat a banana every morning.');
+  for (let seed = 1; seed < 30; seed++) {
+    const r = makeSrRound(item, { rand: seeded(seed) });
+    assert.deepEqual([...r.tiles.map((t) => t.text)].sort(), [...item.tokens].sort());
+    assert.notDeepEqual(r.tiles.map((t) => t.text), r.answer, 'thẻ đã đúng thứ tự sẵn');
+  }
+  const low = makeSrRound(tokenize('The cat is big.'), { keepCaps: false });
+  assert.equal(low.answer[0], 'the');
+  const lowI = makeSrRound(tokenize("I'm happy today."), { keepCaps: false });
+  assert.equal(lowI.answer[0], "I'm");
+});
+
+test('Sentence Race: isNext so theo chữ (thẻ trùng chữ bấm thẻ nào cũng đúng)', () => {
+  const r = makeSrRound(tokenize('The cat and the dog.'), { rand: seeded(3) });
+  assert.equal(isNext(r, 0, 'The'), true);
+  assert.equal(isNext(r, 3, 'the'), true, '"the" thứ hai');
+  assert.equal(isNext(r, 3, 'dog'), false);
+  assert.equal(isNext(r, 5, 'x'), false, 'đã hết câu');
+});
+
+test('Sentence Race: mọi gói thư viện có >= 6 câu mức Vừa (4-7 từ)', () => {
+  const dir = new URL('../src/data/library/packs/', import.meta.url);
+  const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+  assert.ok(files.length >= 30);
+  for (const f of files) {
+    const c = countsByLength(sentencesFromPack(JSON.parse(readFileSync(new URL(f, dir), 'utf8'))));
+    // Gói PET (p-) có câu ví dụ dài hơn 7 từ nên "Vừa" có thể thiếu; game tự chọn mức nhiều câu nhất (bestLength) => cần mức đó >= MIN-1.
+    if (f.startsWith('p-')) assert.ok(Math.max(c.short, c.medium, c.long) >= MIN_SENTENCES - 1, `${f}: không mức nào đủ câu ${JSON.stringify(c)}`);
+    else assert.ok(c.medium >= MIN_SENTENCES, `${f}: chỉ ${c.medium} câu vừa`);
   }
 });
 
@@ -269,4 +306,33 @@ test('Tracker: nhận biết camera không thấy chân (đứng nửa người)
   assert.equal(bodyInfo(person(0.5)).legs, true);
   const half = person(0.5).map((p, i) => (i >= 25 ? { ...p, visibility: 0.1 } : p));
   assert.equal(bodyInfo(half).legs, false);
+});
+
+// ---------- Chính sách giọng đọc + chống bấm loạn (B1) ----------
+
+test('voice-policy: game thi đấu mặc định không đọc, bật công tắc thì đọc', () => {
+  assert.equal(speechAllowed('whack-word', { readAloud: 'off' }, {}), false);
+  assert.equal(speechAllowed('whack-word', { readAloud: 'on' }, {}), true);
+  assert.equal(speechAllowed('whack-word', { readAloud: 'off' }, { manual: true }), true);
+  assert.equal(speechAllowed('statue-freeze', { readAloud: 'off' }), true);
+  assert.equal(speechAllowed('simon-pose', {}), true);
+  assert.equal(speechAllowed(null, {}), true);
+  for (const id of QUIET_GAMES) assert.equal(speechAllowed(id, {}), false, `${id} phải im lặng khi chưa có cài đặt`);
+  assert.ok(QUIET_GAMES.has('sentence-race') && QUIET_GAMES.has('word-ninja'));
+});
+
+test('tap-guard: khoảng cách tối thiểu, hai bên độc lập, khoá khi sai', () => {
+  const g = createTapGuard({ sides: 2 });
+  assert.equal(g.allow(0, 0), true);
+  assert.equal(g.allow(0, 50), false, 'dưới minGap');
+  assert.equal(g.allow(1, 50), true, 'bên kia độc lập');
+  assert.equal(g.allow(0, 200), true);
+  g.wrong(0, 200);
+  assert.equal(g.allow(0, 800), false, 'đang khoá');
+  assert.equal(g.allow(0, 901), true, 'hết khoá');
+  assert.equal(g.allow(1, 300), true, 'bên 1 không bị khoá');
+  const off = createTapGuard({ enabled: false });
+  off.wrong(0, 0);
+  assert.equal(off.allow(0, 1), true);
+  assert.equal(off.allow(0, 2), true);
 });

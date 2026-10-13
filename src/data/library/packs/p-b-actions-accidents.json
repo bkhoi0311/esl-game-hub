@@ -1,0 +1,275 @@
+{
+  "title": "Actions and Accidents",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "blow",
+      "meaning": "thổi",
+      "category": "action",
+      "example": "The wind began to blow hard across the field.",
+      "image": ""
+    },
+    {
+      "word": "break in",
+      "meaning": "đột nhập",
+      "category": "action",
+      "example": "Someone tried to break in through the back window last night.",
+      "image": ""
+    },
+    {
+      "word": "destroy",
+      "meaning": "phá huỷ",
+      "category": "action",
+      "example": "The fire destroyed part of the old building.",
+      "image": ""
+    },
+    {
+      "word": "explode",
+      "meaning": "nổ",
+      "category": "action",
+      "example": "The balloon will explode if you blow too much air into it.",
+      "image": ""
+    },
+    {
+      "word": "fight",
+      "meaning": "đánh nhau",
+      "category": "action",
+      "example": "Brothers should not fight.",
+      "image": ""
+    },
+    {
+      "word": "freeze",
+      "meaning": "đóng băng, đông lạnh",
+      "category": "action",
+      "example": "Water will freeze at zero degrees.",
+      "image": ""
+    },
+    {
+      "word": "fry",
+      "meaning": "chiên",
+      "category": "action",
+      "example": "Mum fries eggs for breakfast.",
+      "image": ""
+    },
+    {
+      "word": "glance",
+      "meaning": "liếc nhìn",
+      "category": "action",
+      "example": "He glanced at the clock and saw that he was late.",
+      "image": ""
+    },
+    {
+      "word": "hunt",
+      "meaning": "săn",
+      "category": "action",
+      "example": "Wild cats hunt small animals at night.",
+      "image": ""
+    },
+    {
+      "word": "injure",
+      "meaning": "làm bị thương",
+      "category": "action",
+      "example": "He fell off his bike and injured his arm.",
+      "image": ""
+    },
+    {
+      "word": "recycle",
+      "meaning": "tái chế",
+      "category": "action",
+      "example": "We recycle paper at school.",
+      "image": ""
+    },
+    {
+      "word": "knock",
+      "meaning": "gõ cửa",
+      "category": "action",
+      "example": "Please knock before you come into my room.",
+      "image": ""
+    },
+    {
+      "word": "shake",
+      "meaning": "lắc",
+      "category": "action",
+      "example": "Please shake the bottle before you pour the juice.",
+      "image": ""
+    },
+    {
+      "word": "grab",
+      "meaning": "chộp lấy",
+      "category": "action",
+      "example": "You should grab your coat because it is cold.",
+      "image": ""
+    },
+    {
+      "word": "throw",
+      "meaning": "ném",
+      "category": "action",
+      "example": "Can you throw the ball to me?",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"đánh nhau\"?",
+      "options": [
+        "ring up",
+        "select",
+        "fight"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: kn_ck (gõ cửa)",
+      "options": [
+        "e",
+        "o",
+        "i"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fry\" mean?",
+      "options": [
+        "chiên",
+        "chứng minh",
+        "hiểu"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Please ___ the bottle before you pour the juice.",
+      "options": [
+        "depend",
+        "expect",
+        "shake"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"destroy\" mean?",
+      "options": [
+        "phá huỷ",
+        "thứ lỗi, bỏ qua",
+        "đánh vần"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đóng băng, đông lạnh)",
+      "options": [
+        "frezee",
+        "freeze",
+        "freez"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hunt\" mean?",
+      "options": [
+        "săn",
+        "phớt lờ",
+        "tha thứ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The wind began to ___ hard across the field.",
+      "options": [
+        "focus on",
+        "blow",
+        "persuade"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"break in\" mean?",
+      "options": [
+        "được gọi là",
+        "đảm bảo",
+        "đột nhập"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: expl_de (nổ)",
+      "options": [
+        "o",
+        "e",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (tái chế)",
+      "options": [
+        "rceycle",
+        "recycle",
+        "recyccle"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: gr_b (chộp lấy)",
+      "options": [
+        "e",
+        "o",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (ném)",
+      "options": [
+        "thruw",
+        "thrrow",
+        "throw"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"làm bị thương\"?",
+      "options": [
+        "complain",
+        "injure",
+        "accept"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"liếc nhìn\"?",
+      "options": [
+        "glance",
+        "consist",
+        "tell"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to blow on hot soup",
+    "Pretend to fry an egg",
+    "Glance to the left then to the right",
+    "Mime recycling a bottle",
+    "Pretend to freeze like a statue",
+    "Pretend to knock on a door"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

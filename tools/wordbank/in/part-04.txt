@@ -60,7 +60,6 @@ meat	Cut of meat
 steak	Cut of meat
 sausage	Hot dog
 hot dog	Hot dog
-meatball	Pot of food
 milk	Glass of milk
 milkshake	Cup with straw
 noodles	Steaming bowl

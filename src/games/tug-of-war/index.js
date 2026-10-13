@@ -8,7 +8,7 @@ import { getQuestions, shuffle } from '../../core/content.js';
 import { playSound, speak } from '../../core/audio.js';
 import { line } from '../../core/voice-lines.js';
 import {
-  TEAM_COLORS, answerButtons, button, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
+  TEAM_COLORS, teamVars, answerButtons, button, createGameFrame, h, isSmallScreen, resultsScreen, segmented, setupScreen,
 } from '../../core/ui.js';
 import { gameArt } from '../../core/art.js';
 import { icon } from '../../core/icons.js';
@@ -125,7 +125,7 @@ function createGame(root, pack) {
     const lock = h('div', { class: 'tw-lock', hidden: true }, icon('lock', 64), h('span', { class: 'tw-lock-num en' }, '2'));
     const half = h('section', {
       class: `tw-half ${side.i === 0 ? 'left' : 'right'}`,
-      style: { '--team': TEAM_COLORS[side.i] },
+      style: teamVars(TEAM_COLORS[side.i]),
       'data-side': side.i,
       'data-testid': `tw-half-${side.i}`,
     },

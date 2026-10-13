@@ -1,0 +1,282 @@
+{
+  "title": "Measurement and Quantity",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "amount",
+      "meaning": "số lượng",
+      "category": "measure",
+      "example": "Drink a large amount of water after sport.",
+      "image": ""
+    },
+    {
+      "word": "bunch",
+      "meaning": "chùm, bó",
+      "category": "measure",
+      "example": "He gave his mother a bunch of flowers.",
+      "image": ""
+    },
+    {
+      "word": "couple",
+      "meaning": "đôi, một vài",
+      "category": "measure",
+      "example": "I'll be ready in a couple of minutes.",
+      "image": ""
+    },
+    {
+      "word": "depth",
+      "meaning": "độ sâu",
+      "category": "measure",
+      "example": "The depth of the lake is about ten metres.",
+      "image": ""
+    },
+    {
+      "word": "distance",
+      "meaning": "khoảng cách",
+      "category": "measure",
+      "example": "The distance between my house and school is two kilometres.",
+      "image": ""
+    },
+    {
+      "word": "height",
+      "meaning": "chiều cao",
+      "category": "measure",
+      "example": "What is the height of the tallest tree in the park?",
+      "image": ""
+    },
+    {
+      "word": "inch",
+      "meaning": "inch",
+      "category": "measure",
+      "example": "This phone is only a few inches wide.",
+      "image": ""
+    },
+    {
+      "word": "millimetre",
+      "meaning": "mi-li-mét",
+      "category": "measure",
+      "example": "The insect was only one millimetre long.",
+      "image": ""
+    },
+    {
+      "word": "quantity",
+      "meaning": "số lượng",
+      "category": "measure",
+      "example": "A large quantity of water was wasted.",
+      "image": ""
+    },
+    {
+      "word": "speed",
+      "meaning": "tốc độ",
+      "category": "measure",
+      "example": "The car was travelling at a high speed.",
+      "image": ""
+    },
+    {
+      "word": "weight",
+      "meaning": "cân nặng, trọng lượng",
+      "category": "measure",
+      "example": "The weight of my school bag is about five kilos.",
+      "image": ""
+    },
+    {
+      "word": "measure",
+      "meaning": "đo",
+      "category": "daily",
+      "example": "We measure the table with a long ruler.",
+      "image": ""
+    },
+    {
+      "word": "weigh",
+      "meaning": "cân nặng, cân",
+      "category": "daily",
+      "example": "The shop assistant weighed the apples before I paid.",
+      "image": ""
+    },
+    {
+      "word": "maximum",
+      "meaning": "tối đa",
+      "category": "describe",
+      "example": "The maximum number of players is eight.",
+      "image": ""
+    },
+    {
+      "word": "minimum",
+      "meaning": "tối thiểu",
+      "category": "describe",
+      "example": "You need a minimum of ten points to pass.",
+      "image": ""
+    },
+    {
+      "word": "pile",
+      "meaning": "đống",
+      "category": "thing",
+      "example": "There is a pile of books on my desk.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What does \"quantity\" mean?",
+      "options": [
+        "đống",
+        "cháu gái",
+        "số lượng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"độ sâu\"?",
+      "options": [
+        "depth",
+        "air force",
+        "board game"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"pile\" mean?",
+      "options": [
+        "chiều cao",
+        "đống",
+        "mi-li-mét"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đo)",
+      "options": [
+        "measurre",
+        "measure",
+        "measur"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"minimum\" mean?",
+      "options": [
+        "tối thiểu",
+        "dịu dàng",
+        "không tay"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: maxim_m (tối đa)",
+      "options": [
+        "a",
+        "i",
+        "u"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"cân nặng, trọng lượng\"?",
+      "options": [
+        "police",
+        "weight",
+        "France"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: co_ple (đôi, một vài)",
+      "options": [
+        "u",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What is the ___ of the tallest tree in the park?",
+      "options": [
+        "pile",
+        "measure",
+        "height"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: _nch (inch)",
+      "options": [
+        "a",
+        "u",
+        "i"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"khoảng cách\"?",
+      "options": [
+        "distance",
+        "science fiction",
+        "kitten"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The car was travelling at a high ___.",
+      "options": [
+        "pile",
+        "speed",
+        "measure"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (số lượng)",
+      "options": [
+        "ammount",
+        "amonut",
+        "amount"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"millimetre\" mean?",
+      "options": [
+        "mi-li-mét",
+        "giám khảo",
+        "bóng đá"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (chùm, bó)",
+      "options": [
+        "bnuch",
+        "bunch",
+        "bunnch"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to measure a table with a ruler",
+    "Show me how tall you are with your hand",
+    "Pretend to weigh something on a scale",
+    "Show me a big amount with your arms",
+    "Mime holding a bunch of flowers",
+    "Show me a small distance with your fingers"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

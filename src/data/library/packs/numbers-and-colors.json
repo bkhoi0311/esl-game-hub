@@ -155,11 +155,11 @@
       "type": "vocab"
     },
     {
-      "prompt": "What does \"one\" mean?",
+      "prompt": "What does \"seven\" mean?",
       "options": [
-        "bốn",
-        "một",
-        "sáu"
+        "chín",
+        "bảy",
+        "năm"
       ],
       "answer": 1,
       "type": "vocab"
@@ -178,8 +178,8 @@
       "prompt": "Which word means \"màu trắng\"?",
       "options": [
         "white",
-        "six",
-        "three"
+        "orange",
+        "six"
       ],
       "answer": 0,
       "type": "vocab"
@@ -208,8 +208,8 @@
       "prompt": "She has a ___ bag.",
       "options": [
         "purple",
-        "find",
-        "mosque"
+        "lunch",
+        "book"
       ],
       "answer": 0,
       "type": "vocab"
@@ -218,7 +218,7 @@
       "prompt": "Find the missing letter: t_n (mười)",
       "options": [
         "u",
-        "i",
+        "o",
         "e"
       ],
       "answer": 2,
@@ -227,9 +227,19 @@
     {
       "prompt": "Which word means \"chín\"?",
       "options": [
-        "ten",
+        "two",
         "nine",
         "six"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "She has ___ cats.",
+      "options": [
+        "green",
+        "three",
+        "yellow"
       ],
       "answer": 1,
       "type": "vocab"
@@ -247,8 +257,8 @@
     {
       "prompt": "What does \"four\" mean?",
       "options": [
-        "ba",
         "bảy",
+        "ba",
         "bốn"
       ],
       "answer": 2,
@@ -257,9 +267,9 @@
     {
       "prompt": "Which word means \"sáu\"?",
       "options": [
-        "two",
+        "nine",
         "six",
-        "eight"
+        "three"
       ],
       "answer": 1,
       "type": "vocab"
@@ -267,8 +277,8 @@
     {
       "prompt": "What does \"eight\" mean?",
       "options": [
-        "một",
-        "năm",
+        "bốn",
+        "hai",
         "tám"
       ],
       "answer": 2,
@@ -278,8 +288,8 @@
       "prompt": "What does \"five\" mean?",
       "options": [
         "năm",
-        "bảy",
-        "chín"
+        "mười",
+        "hai"
       ],
       "answer": 0,
       "type": "vocab"

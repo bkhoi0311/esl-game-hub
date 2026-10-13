@@ -1,0 +1,282 @@
+{
+  "title": "Body, Face and Teeth",
+  "level": "A1 Movers",
+  "vocab": [
+    {
+      "word": "beard",
+      "meaning": "bộ râu",
+      "category": "body",
+      "example": "My grandfather has a long white beard.",
+      "image": ""
+    },
+    {
+      "word": "moustache",
+      "meaning": "ria mép",
+      "category": "body",
+      "example": "The man has a funny moustache.",
+      "image": ""
+    },
+    {
+      "word": "neck",
+      "meaning": "cổ",
+      "category": "body",
+      "example": "A giraffe has a long neck.",
+      "image": ""
+    },
+    {
+      "word": "shoulder",
+      "meaning": "vai",
+      "category": "body",
+      "example": "My bag hurts my shoulder.",
+      "image": ""
+    },
+    {
+      "word": "stomach",
+      "meaning": "bụng, dạ dày",
+      "category": "body",
+      "example": "My stomach is full.",
+      "image": ""
+    },
+    {
+      "word": "teeth",
+      "meaning": "hàm răng",
+      "category": "body",
+      "example": "Brush your teeth twice a day.",
+      "image": ""
+    },
+    {
+      "word": "tooth",
+      "meaning": "cái răng",
+      "category": "body",
+      "example": "The baby has one small tooth.",
+      "image": ""
+    },
+    {
+      "word": "toothbrush",
+      "meaning": "bàn chải đánh răng",
+      "category": "thing",
+      "example": "I have a blue toothbrush.",
+      "image": ""
+    },
+    {
+      "word": "toothpaste",
+      "meaning": "kem đánh răng",
+      "category": "thing",
+      "example": "Put some toothpaste on your brush.",
+      "image": ""
+    },
+    {
+      "word": "wash",
+      "meaning": "rửa",
+      "category": "action",
+      "example": "Please wash your hands.",
+      "image": ""
+    },
+    {
+      "word": "shower",
+      "meaning": "vòi hoa sen",
+      "category": "house",
+      "example": "I take a shower every morning.",
+      "image": ""
+    },
+    {
+      "word": "eye",
+      "meaning": "mắt",
+      "category": "body",
+      "example": "Close one eye and look at the star.",
+      "image": ""
+    },
+    {
+      "word": "face",
+      "meaning": "khuôn mặt",
+      "category": "body",
+      "example": "He has a happy face today.",
+      "image": ""
+    },
+    {
+      "word": "hand",
+      "meaning": "bàn tay",
+      "category": "body",
+      "example": "Raise your hand to answer.",
+      "image": ""
+    },
+    {
+      "word": "mouth",
+      "meaning": "cái miệng",
+      "category": "body",
+      "example": "Open your mouth wide, please.",
+      "image": ""
+    },
+    {
+      "word": "nose",
+      "meaning": "cái mũi",
+      "category": "body",
+      "example": "A clown has a red nose.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Find the missing letter: be_rd (bộ râu)",
+      "options": [
+        "u",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"toothpaste\" mean?",
+      "options": [
+        "kem đánh răng",
+        "bàn chải đánh răng",
+        "vòi hoa sen"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (khuôn mặt)",
+      "options": [
+        "facce",
+        "face",
+        "fcae"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "My ___ is full.",
+      "options": [
+        "wash",
+        "stomach",
+        "take off"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"bàn tay\"?",
+      "options": [
+        "hand",
+        "tooth",
+        "nose"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (hàm răng)",
+      "options": [
+        "tieth",
+        "teth",
+        "teeth"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"ria mép\"?",
+      "options": [
+        "beard",
+        "mouth",
+        "moustache"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"mouth\" mean?",
+      "options": [
+        "cái miệng",
+        "bộ râu",
+        "khuôn mặt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "A giraffe has a long ___.",
+      "options": [
+        "wash",
+        "neck",
+        "have got"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"toothbrush\" mean?",
+      "options": [
+        "kem đánh răng",
+        "vòi hoa sen",
+        "bàn chải đánh răng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"mắt\"?",
+      "options": [
+        "eye",
+        "neck",
+        "nose"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"tooth\" mean?",
+      "options": [
+        "ria mép",
+        "cái răng",
+        "cái mũi"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: should_r (vai)",
+      "options": [
+        "i",
+        "u",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (cái mũi)",
+      "options": [
+        "nosse",
+        "nose",
+        "nsoe"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: show_r (vòi hoa sen)",
+      "options": [
+        "e",
+        "a",
+        "i"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Point to your shoulder",
+    "Pretend to brush your teeth",
+    "Pretend to wash your face",
+    "Show me your hands",
+    "Touch your nose with your own finger",
+    "Pretend to dry your hair with a towel"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

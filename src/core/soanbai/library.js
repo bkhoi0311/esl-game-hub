@@ -1,4 +1,4 @@
-// Thư viện bài Starters / Movers / Flyers (PLAN-SOANBAI A5, A6). Nạp lười từng gói.
+// Thư viện bài theo cấp (PLAN-LEVELS 5.6). Nạp lười từng gói. Phần thuần (tab, chip, lọc) ở libfilter.js để test bằng Node.
 const PACKS = import.meta.glob('../../data/library/packs/*.json', { import: 'default' });
 
 let indexPromise = null;
@@ -17,3 +17,5 @@ export function loadPack(id) {
   if (!key) return Promise.reject(new Error('Không tìm thấy gói ' + id));
   return PACKS[key]();
 }
+
+export { LIB_LEVELS, LIB_THEMES, foldText, countByLevel, visibleLevels, filterPacks, levelTag } from './libfilter.js';

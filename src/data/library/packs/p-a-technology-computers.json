@@ -1,0 +1,275 @@
+{
+  "title": "Technology and Computers",
+  "level": "B1 Preliminary (PET)",
+  "vocab": [
+    {
+      "word": "access",
+      "meaning": "quyền truy cập",
+      "category": "tech",
+      "example": "Students have access to the library computers every day.",
+      "image": ""
+    },
+    {
+      "word": "data",
+      "meaning": "dữ liệu",
+      "category": "tech",
+      "example": "The app stores your data on the phone.",
+      "image": ""
+    },
+    {
+      "word": "delete",
+      "meaning": "xoá",
+      "category": "tech",
+      "example": "Please delete the old photos from your phone.",
+      "image": ""
+    },
+    {
+      "word": "disk",
+      "meaning": "đĩa",
+      "category": "tech",
+      "example": "I saved my project on a disk and gave it to the teacher.",
+      "image": ""
+    },
+    {
+      "word": "display",
+      "meaning": "trưng bày, màn hình",
+      "category": "tech",
+      "example": "The shop has a nice display of new phones.",
+      "image": ""
+    },
+    {
+      "word": "electronic",
+      "meaning": "điện tử",
+      "category": "tech",
+      "example": "He sells electronic games at a small shop in town.",
+      "image": ""
+    },
+    {
+      "word": "graphics",
+      "meaning": "đồ hoạ",
+      "category": "tech",
+      "example": "This game has amazing graphics.",
+      "image": ""
+    },
+    {
+      "word": "hardware",
+      "meaning": "phần cứng",
+      "category": "tech",
+      "example": "The shop sells computer hardware such as keyboards and screens.",
+      "image": ""
+    },
+    {
+      "word": "network",
+      "meaning": "mạng lưới, mạng",
+      "category": "tech",
+      "example": "The school has a fast computer network.",
+      "image": ""
+    },
+    {
+      "word": "plug",
+      "meaning": "phích cắm",
+      "category": "tech",
+      "example": "Put the plug in the wall.",
+      "image": ""
+    },
+    {
+      "word": "server",
+      "meaning": "máy chủ",
+      "category": "tech",
+      "example": "The website is slow because the server is busy.",
+      "image": ""
+    },
+    {
+      "word": "system",
+      "meaning": "hệ thống",
+      "category": "tech",
+      "example": "Our school has a new computer system.",
+      "image": ""
+    },
+    {
+      "word": "update",
+      "meaning": "bản cập nhật, cập nhật",
+      "category": "tech",
+      "example": "There is a new update for the game on my tablet.",
+      "image": ""
+    },
+    {
+      "word": "version",
+      "meaning": "phiên bản",
+      "category": "tech",
+      "example": "The new version of the app is much faster.",
+      "image": ""
+    },
+    {
+      "word": "cable",
+      "meaning": "dây cáp",
+      "category": "tech",
+      "example": "I need a longer cable to charge my laptop.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which word means \"quyền truy cập\"?",
+      "options": [
+        "access",
+        "salad",
+        "farmer"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"hardware\" mean?",
+      "options": [
+        "khách tham quan",
+        "nha sĩ",
+        "phần cứng"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (dữ liệu)",
+      "options": [
+        "datta",
+        "data",
+        "dtaa"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "He sells ___ games at a small shop in town.",
+      "options": [
+        "electronic",
+        "leather",
+        "vocabulary"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"cable\" mean?",
+      "options": [
+        "bánh quy",
+        "dây cáp",
+        "cơ thể"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"phích cắm\"?",
+      "options": [
+        "property",
+        "ocean",
+        "plug"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"network\" mean?",
+      "options": [
+        "doanh nhân",
+        "mạng lưới, mạng",
+        "đau bụng"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Our school has a new computer ___.",
+      "options": [
+        "system",
+        "bridge",
+        "windscreen"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"display\" mean?",
+      "options": [
+        "thành viên",
+        "ông nội, ông ngoại",
+        "trưng bày, màn hình"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (đĩa)",
+      "options": [
+        "dysk",
+        "dsik",
+        "disk"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"đồ hoạ\"?",
+      "options": [
+        "zebra",
+        "graphics",
+        "accident"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (phiên bản)",
+      "options": [
+        "version",
+        "versoin",
+        "versyon"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: upd_te (bản cập nhật, cập nhật)",
+      "options": [
+        "u",
+        "a",
+        "o"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: s_rver (máy chủ)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: d_lete (xoá)",
+      "options": [
+        "e",
+        "i",
+        "u"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Pretend to plug in a cable",
+    "Pretend to delete a file",
+    "Pretend to update your computer",
+    "Pretend to type on a keyboard",
+    "Pretend to look at a computer display",
+    "Pretend to fix a network problem"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "title": "Wild Animals",
+  "level": "Pre A1 Starters",
+  "vocab": [
+    {
+      "word": "bear",
+      "meaning": "con gấu",
+      "category": "animal",
+      "example": "The bear is eating honey.",
+      "image": ""
+    },
+    {
+      "word": "crocodile",
+      "meaning": "con cá sấu",
+      "category": "animal",
+      "example": "The crocodile has big sharp teeth.",
+      "image": ""
+    },
+    {
+      "word": "elephant",
+      "meaning": "con voi",
+      "category": "animal",
+      "example": "The elephant has a long nose.",
+      "image": ""
+    },
+    {
+      "word": "frog",
+      "meaning": "con ếch",
+      "category": "animal",
+      "example": "The frog jumps into the pond.",
+      "image": ""
+    },
+    {
+      "word": "giraffe",
+      "meaning": "con hươu cao cổ",
+      "category": "animal",
+      "example": "The giraffe eats leaves from tall trees.",
+      "image": ""
+    },
+    {
+      "word": "hippo",
+      "meaning": "con hà mã",
+      "category": "animal",
+      "example": "The hippo is lying in the river.",
+      "image": ""
+    },
+    {
+      "word": "lizard",
+      "meaning": "con thằn lằn",
+      "category": "animal",
+      "example": "A lizard is sitting on the wall.",
+      "image": ""
+    },
+    {
+      "word": "monkey",
+      "meaning": "con khỉ",
+      "category": "animal",
+      "example": "The monkey likes to eat bananas.",
+      "image": ""
+    },
+    {
+      "word": "polar bear",
+      "meaning": "gấu trắng Bắc Cực",
+      "category": "animal",
+      "example": "The polar bear lives in the cold north.",
+      "image": ""
+    },
+    {
+      "word": "snake",
+      "meaning": "con rắn",
+      "category": "animal",
+      "example": "The snake is long and green.",
+      "image": ""
+    },
+    {
+      "word": "tiger",
+      "meaning": "con hổ",
+      "category": "animal",
+      "example": "The tiger has orange and black stripes.",
+      "image": ""
+    },
+    {
+      "word": "zebra",
+      "meaning": "con ngựa vằn",
+      "category": "animal",
+      "example": "The zebra has black and white stripes.",
+      "image": ""
+    },
+    {
+      "word": "fish",
+      "meaning": "con cá",
+      "category": "sea-animal",
+      "example": "There is a fish in the bowl.",
+      "image": ""
+    },
+    {
+      "word": "jellyfish",
+      "meaning": "con sứa",
+      "category": "sea-animal",
+      "example": "The jellyfish floats in the sea.",
+      "image": ""
+    },
+    {
+      "word": "bee",
+      "meaning": "con ong",
+      "category": "insect",
+      "example": "A bee is on the yellow flower.",
+      "image": ""
+    },
+    {
+      "word": "fly",
+      "meaning": "con ruồi",
+      "category": "insect",
+      "example": "A fly is on the window.",
+      "image": ""
+    },
+    {
+      "word": "spider",
+      "meaning": "con nhện",
+      "category": "insect",
+      "example": "A spider is making a web in the corner.",
+      "image": ""
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Which is the correct spelling? (con ếch)",
+      "options": [
+        "frrog",
+        "forg",
+        "frog"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ is eating honey.",
+      "options": [
+        "start",
+        "bear",
+        "orange"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con voi)",
+      "options": [
+        "elephant",
+        "eliphant",
+        "elepahnt"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con nhện\"?",
+      "options": [
+        "spider",
+        "bee",
+        "fly"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: liz_rd (con thằn lằn)",
+      "options": [
+        "e",
+        "i",
+        "a"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"polar bear\" mean?",
+      "options": [
+        "con hà mã",
+        "gấu trắng Bắc Cực",
+        "con hươu cao cổ"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: croc_dile (con cá sấu)",
+      "options": [
+        "o",
+        "i",
+        "e"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which is the correct spelling? (con hổ)",
+      "options": [
+        "tiegr",
+        "tgier",
+        "tiger"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Find the missing letter: f_sh (con cá)",
+      "options": [
+        "o",
+        "i",
+        "u"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"jellyfish\" mean?",
+      "options": [
+        "con cá sấu",
+        "con ong",
+        "con sứa"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    },
+    {
+      "prompt": "The ___ has black and white stripes.",
+      "options": [
+        "hit",
+        "zebra",
+        "read"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"fly\" mean?",
+      "options": [
+        "con ruồi",
+        "con ong",
+        "con nhện"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con hà mã\"?",
+      "options": [
+        "bear",
+        "hippo",
+        "snake"
+      ],
+      "answer": 1,
+      "type": "vocab"
+    },
+    {
+      "prompt": "What does \"monkey\" mean?",
+      "options": [
+        "con khỉ",
+        "con ngựa vằn",
+        "con hươu cao cổ"
+      ],
+      "answer": 0,
+      "type": "vocab"
+    },
+    {
+      "prompt": "Which word means \"con rắn\"?",
+      "options": [
+        "hippo",
+        "frog",
+        "snake"
+      ],
+      "answer": 2,
+      "type": "vocab"
+    }
+  ],
+  "actionCommands": [
+    "Roar like a tiger",
+    "Walk like an elephant on the spot",
+    "Stand tall like a giraffe",
+    "Hiss like a snake",
+    "Swing your arms like a monkey",
+    "Pretend to be a fish and open your mouth"
+  ],
+  "teams": [
+    "Red",
+    "Blue"
+  ]
+}
