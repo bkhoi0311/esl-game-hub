@@ -6,6 +6,7 @@ import {
   SF, boxDown2, countAreas, coherent, createDetector, createLegacyDetector, gainBetween, laneAreas, robustLevel,
 } from '../src/games/statue-freeze/motion.js';
 import { countFlagged, inBox, run, sequence, targetBox } from './helpers/frames.mjs';
+import { seqCalMove } from './helpers/frames-calmove.mjs';
 
 const SEEDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const cache = new Map();
@@ -110,6 +111,48 @@ test('C11 bigWaveOutside: cánh tay quét qua nền, không thụt lùi', () => 
   const a = evaluate('bigWaveOutside');
   assert.equal(a.v1.det, 10, `v1 ${a.v1.det}/10`);
   assert.equal(a.v2.det, 10, `v2 ${a.v2.det}/10`);
+});
+
+// ---------- C12–C14: người cử động lúc hiệu chỉnh không bị tô xám; TV/quạt vẫn xám (PLAN-STATUE-FIX.md) ----------
+const leftMaskedCells = (d) => { let n = 0; for (let i = 0; i < 144; i++) if (d.masked[i] && i % 16 < 8) n++; return n; };
+
+test('C12 cúi đầu rồi giữ / lắc người lúc hiệu chỉnh: làn trái không xám nặng, vẫn bắt tay ở pha đỏ', () => {
+  for (const calKind of ['bowHold', 'bowFidget', 'sway', 'lookDown']) {
+    let det = 0;
+    let maxMasked = 0;
+    for (const seed of SEEDS) {
+      const d = createDetector({ sensitivity: 6 });
+      const res = run(d, seqCalMove(calKind, 'hand', seed), { sensitivity: 6 });
+      maxMasked = Math.max(maxMasked, leftMaskedCells(d));
+      if (res.lanes[0] >= 1) det++;
+    }
+    table.push({ ca: `cal ${calKind} → hand`, s: 6, 'v1 bắt': '-', 'v2 bắt': `${det}/10`, 'v1 ô cờ': '-', 'v2 ô cờ': `xám trái max ${maxMasked}` });
+    assert.ok(maxMasked <= 2, `${calKind}: làn trái còn ${maxMasked} ô xám`);
+    assert.ok(det >= 9, `${calKind}: bắt ${det}/10`);
+  }
+});
+
+test('C13 cử động lúc hiệu chỉnh rồi đứng yên: không báo sai', () => {
+  for (const calKind of ['bowHold', 'bowFidget', 'sway']) {
+    let flags = 0;
+    for (const seed of SEEDS) flags += countFlagged(run(createDetector({ sensitivity: 6 }), seqCalMove(calKind, 'still', seed), { sensitivity: 6 }));
+    assert.ok(flags <= 1, `${calKind}: báo sai ${flags} ô`);
+  }
+});
+
+test('C14 TV + quạt: vẫn tô xám, không báo sai, người vẫn bắt được', () => {
+  let flagsStill = 0;
+  let det = 0;
+  for (const seed of SEEDS) {
+    const d = createDetector({ sensitivity: 6 });
+    const r1 = run(d, seqCalMove('none', 'still', seed, { tv: 1, fan: 1 }), { sensitivity: 6 });
+    assert.ok(r1.cal.masked >= 8, `seed ${seed}: chỉ ${r1.cal.masked} ô xám`);
+    flagsStill += countFlagged(r1);
+    const r2 = run(createDetector({ sensitivity: 6 }), seqCalMove('none', 'hand', seed, { tv: 1, fan: 1 }), { sensitivity: 6 });
+    if (r2.lanes[0] >= 1) det++;
+  }
+  assert.ok(flagsStill <= 3, `TV/quạt báo sai ${flagsStill} ô`);
+  assert.ok(det >= 9, `bắt ${det}/10`);
 });
 
 test('Bảng so sánh v1 và v2', () => {

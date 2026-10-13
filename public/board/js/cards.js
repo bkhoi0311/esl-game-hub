@@ -6,6 +6,7 @@ import { icon } from './icons.js';
 import { pressable } from './ui.js';
 import { renderRuns, hasMath } from './math/render.js';
 import * as C from './classroom.js';
+import { bind, tIn, t } from './i18n.js';
 
 // Co chữ: bắt đầu từ max, giảm `step` px cho đến khi vừa (tối đa maxLines dòng với chữ thường), không nhỏ hơn min.
 export function fitText(el, o) {
@@ -22,6 +23,8 @@ export function fitText(el, o) {
 }
 
 const LETTERS = ['A', 'B', 'C'];
+// Lời nhắc cho HỌC SINH (Get ready…, Q n/N, Answer:) theo ngôn ngữ của ĐỀ, không theo ngôn ngữ giao diện (PLAN-I18N A.6).
+const deckLang = (cls) => (cls && cls.deck && cls.deck.lang === 'vi' ? 'vi' : 'en');
 
 export function createCards({ overlay, actions }) {
   const root = h('div', 'cards', null, { 'data-testid': 'cards' });
@@ -36,7 +39,8 @@ export function createCards({ overlay, actions }) {
     el.style.left = r.x + 'px'; el.style.top = (r.y - top) + 'px';
     el.style.width = r.w + 'px'; el.style.height = r.h + 'px';
   }
-  const btn = (cls, ic, label, tid) => h('button', cls, icon(ic), { type: 'button', 'aria-label': label, 'data-testid': tid });
+  // key: khoá chuỗi của aria-label, nhận tham số { n: số vùng }
+  const btn = (cls, ic, key, tid, zid) => bind(h('button', cls, icon(ic), { type: 'button', 'data-testid': tid }), key, { n: zid }, 'aria-label');
 
   function buildBand(zid, b) {
     const band = h('div', 'band', null, { 'data-testid': 'z' + zid + '-card' });
@@ -45,10 +49,11 @@ export function createCards({ overlay, actions }) {
     const bar = h('div', 'band-bar');
     const main = h('div', 'band-main');
     const head = h('div', 'band-head');
-    const chip = h('button', 'chip', '<i class="chip-dot"></i><span class="chip-name"></span><b class="chip-score"></b>', { type: 'button', 'data-testid': 'z' + zid + '-team', 'aria-label': 'Đội vùng ' + zid });
+    const chip = h('button', 'chip', '<i class="chip-dot"></i><span class="chip-name"></span><b class="chip-score"></b>', { type: 'button', 'data-testid': 'z' + zid + '-team' });
+    bind(chip, 'board.card.team', { n: zid }, 'aria-label');
     const q = h('span', 'band-q', '', { 'data-testid': 'z' + zid + '-q' });
     head.append(chip, q);
-    const zoom = btn('band-zoom', 'maximize-2', 'Phóng to đề vùng ' + zid, 'z' + zid + '-zoom');
+    const zoom = btn('band-zoom', 'maximize-2', 'board.card.zoom', 'z' + zid + '-zoom', zid);
     const body = h('div', 'band-body');
     const prompt = h('div', 'band-prompt', null, { 'data-testid': 'z' + zid + '-prompt' });
     const opts = h('div', 'band-opts', null, { 'data-testid': 'z' + zid + '-opts' });
@@ -56,10 +61,10 @@ export function createCards({ overlay, actions }) {
     body.append(prompt, opts, ans);
     main.append(head, zoom, body);
     const side = h('div', 'band-side');
-    const prev = btn('sbtn2 sb-prev', 'chevron-left', 'Câu trước vùng ' + zid, 'z' + zid + '-prev');
-    const next = btn('sbtn2 sb-next', 'chevron-right', 'Câu tiếp vùng ' + zid, 'z' + zid + '-next');
-    const ok = btn('sbtn2 sb-ok', 'check', 'Đúng vùng ' + zid, 'z' + zid + '-ok');
-    const no = btn('sbtn2 sb-no', 'x', 'Sai vùng ' + zid, 'z' + zid + '-no');
+    const prev = btn('sbtn2 sb-prev', 'chevron-left', 'board.card.prev', 'z' + zid + '-prev', zid);
+    const next = btn('sbtn2 sb-next', 'chevron-right', 'board.card.next', 'z' + zid + '-next', zid);
+    const ok = btn('sbtn2 sb-ok', 'check', 'board.card.ok', 'z' + zid + '-ok', zid);
+    const no = btn('sbtn2 sb-no', 'x', 'board.card.no', 'z' + zid + '-no', zid);
     side.append(prev, next, ok, no);
     band.append(bar, main, side);
     pressable(chip, () => actions.team(zid));
@@ -116,7 +121,7 @@ export function createCards({ overlay, actions }) {
     opts.classList.remove('opts--cols'); opts.hidden = true; ans.hidden = true;
     if (!task) { prompt.textContent = '—'; prompt.style.fontSize = o.max + 'px'; return; }
     if (cls.hidden) {
-      prompt.textContent = 'Get ready…';
+      prompt.textContent = tIn(deckLang(cls), 'cue.ready');
       prompt.classList.add('ready');
       fitText(prompt, { max: o.max, min: o.min, maxLines: 1 });
       return;
@@ -137,8 +142,8 @@ export function createCards({ overlay, actions }) {
       if (opts.scrollWidth > opts.clientWidth + 1) opts.classList.add('opts--cols');
     }
     if (zone.shown) {
-      const vi = task.lang === 'vi';
-      ans.appendChild(h('b', null, vi ? 'Đáp án: ' : 'Answer: '));
+      const ab = h('b'); ab.textContent = tIn(task.lang === 'vi' ? 'vi' : 'en', 'cue.answer');
+      ans.appendChild(ab);
       if (task.options) {
         const k = (zone.optOrder || [0, 1, 2]).indexOf(task.answerIndex);
         ans.appendChild(document.createTextNode(LETTERS[k] + '. '));
@@ -166,7 +171,7 @@ export function createCards({ overlay, actions }) {
       const single = cls.zones.length === 1;
       e.name.textContent = single ? '' : zone.team;
       e.name.hidden = single;
-      const sc = single ? zone.score + '/' + zone.judged + ' đúng' : String(zone.score);
+      const sc = single ? t('board.score.correct', { s: zone.score, j: zone.judged }) : String(zone.score);
       if (e.score.textContent !== sc) {
         e.score.textContent = sc;
         if (prevScore[zone.id] != null && prevScore[zone.id] !== zone.score) {
@@ -175,7 +180,7 @@ export function createCards({ overlay, actions }) {
       }
       prevScore[zone.id] = zone.score;
       const total = C.total(cls);
-      e.q.textContent = zone.task == null ? '' : 'Q ' + (zone.task + 1) + '/' + total;
+      e.q.textContent = zone.task == null ? '' : tIn(deckLang(cls), 'cue.q', { i: zone.task + 1, total });
       e.q.hidden = !!cls.hidden;
       // cột phải: ‹ › (Chia câu) hoặc ✓ ✗ (sau khi bấm Đáp án)
       const split = !C.isCommon(cls);

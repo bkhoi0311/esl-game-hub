@@ -1,6 +1,6 @@
 // Toán sinh bằng luật (không AI), lớp 1-12. PLAN-V2 mục B.iii. THUẦN, không DOM.
 //   generateMath({ grade, type, difficulty, count, seed, lang, options }) -> Task[] (có cờ .short khi không đủ câu khác nhau)
-//   MATH_TYPES[grade] -> [{ type, labelVi, home, review }]
+//   MATH_TYPES[grade] -> [{ type, labelVi, labelEn, home, review }]
 //   checkAnswer(task) -> boolean: bộ kiểm độc lập, tính lại từ CHUỖI ĐỀ (hoặc từ tham số) bằng cách khác lúc sinh.
 //   boundOf(type, grade, d) -> số lớn nhất được phép xuất hiện trong đề.
 // Sinh ngược: chọn đáp án trước rồi dựng đề. Câu nào không qua checkAnswer thì bỏ và sinh lại (tối đa 50 lần mỗi câu).
@@ -90,7 +90,7 @@ const def = (type, o) => { TYPES[type] = Object.assign({ type }, o); };
 
 // ----- lớp 1-3 -----
 def('add', {
-  label: 'Phép cộng', S: { 1: { max: [10, 20, 100], carry: ['no', 'no', 'no'] }, 2: { max: [50, 100, 100], carry: ['any', 'any', 'yes'] }, 3: { max: [300, 1000, 1000], carry: ['any', 'any', 'yes'] } },
+  label: 'Phép cộng', labelEn: 'Addition', S: { 1: { max: [10, 20, 100], carry: ['no', 'no', 'no'] }, 2: { max: [50, 100, 100], carry: ['any', 'any', 'yes'] }, 3: { max: [300, 1000, 1000], carry: ['any', 'any', 'yes'] } },
   bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1], mode = s.carry[d - 1];
@@ -101,7 +101,7 @@ def('add', {
   verify: arithVerify,
 });
 def('sub', {
-  label: 'Phép trừ', S: { 1: { max: [10, 20, 100], carry: ['no', 'no', 'no'] }, 2: { max: [50, 100, 100], carry: ['any', 'any', 'yes'] }, 3: { max: [300, 1000, 1000], carry: ['any', 'any', 'yes'] } },
+  label: 'Phép trừ', labelEn: 'Subtraction', S: { 1: { max: [10, 20, 100], carry: ['no', 'no', 'no'] }, 2: { max: [50, 100, 100], carry: ['any', 'any', 'yes'] }, 3: { max: [300, 1000, 1000], carry: ['any', 'any', 'yes'] } },
   bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1], mode = s.carry[d - 1];
@@ -112,7 +112,7 @@ def('sub', {
   verify: arithVerify,
 });
 def('compare', {
-  label: 'So sánh số', S: { 1: { max: [10, 20, 100] } }, bound: (s, d) => s.max[d - 1],
+  label: 'So sánh số', labelEn: 'Comparing numbers', S: { 1: { max: [10, 20, 100] } }, bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1];
     const a = ri(r, 0, max); const b = r() < 0.15 ? a : ri(r, 0, max);
@@ -126,7 +126,7 @@ def('compare', {
   },
 });
 def('mul-table', {
-  label: 'Bảng nhân 2 và 5', S: { 2: { tables: [[2], [2, 5], [2, 5]], mmax: [5, 10, 10] } }, bound: (s, d) => [10, 10, 50][d - 1],
+  label: 'Bảng nhân 2 và 5', labelEn: '2 and 5 times tables', S: { 2: { tables: [[2], [2, 5], [2, 5]], mmax: [5, 10, 10] } }, bound: (s, d) => [10, 10, 50][d - 1],
   gen({ r, d, s, L }) {
     const t = pick(r, s.tables[d - 1]), m = ri(r, 1, s.mmax[d - 1]);
     if (d === 3 && r() < 0.5) return { prompt: [T(L.calc + ' '), T(t + ' × '), BL, T(' = ' + t * m)], answer: [T(String(m))], args: { t, m, missing: true }, value: m, vkind: 'int' };
@@ -141,7 +141,7 @@ def('mul-table', {
   },
 });
 def('seq', {
-  label: 'Dãy số cách đều', S: { 2: { steps: [[2], [5], [2, 5, 10]] } }, bound: (s, d) => [20, 70, 100][d - 1],
+  label: 'Dãy số cách đều', labelEn: 'Skip counting', S: { 2: { steps: [[2], [5], [2, 5, 10]] } }, bound: (s, d) => [20, 70, 100][d - 1],
   gen({ r, d, s, L }) {
     const step = pick(r, s.steps[d - 1]);
     let a0, st = step;
@@ -167,7 +167,7 @@ def('seq', {
   },
 });
 def('mul', {
-  label: 'Phép nhân',
+  label: 'Phép nhân', labelEn: 'Multiplication',
   S: { 3: { A: [[2, 5], [2, 9], [6, 9]], B: [[1, 5], [1, 10], [6, 10]], max: [5, 10, 10] }, 4: { A: [[10, 99], [100, 999], [100, 999]], B: [[2, 9], [2, 9], [6, 9]], max: [99, 999, 999] } },
   bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
@@ -177,7 +177,7 @@ def('mul', {
   verify: arithVerify,
 });
 def('div', {
-  label: 'Phép chia',
+  label: 'Phép chia', labelEn: 'Division',
   S: { 3: { D: [[2, 5], [2, 9], [2, 9]], rng: [[1, 10], [1, 10], [10, 99]], exact: [true, true, false], max: [50, 90, 99] }, 4: { D: [[2, 9], [2, 9], [2, 9]], rng: [[10, 99], [100, 999], [100, 999]], exact: [true, true, false], max: [99, 999, 999] } },
   bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
@@ -203,7 +203,7 @@ def('div', {
   },
 });
 def('find-x', {
-  label: 'Tìm x', S: { 3: { max: [20, 100, 1000], forms: [['add'], ['add', 'sub', 'mul'], ['add', 'sub', 'mul']] } }, bound: (s, d) => s.max[d - 1],
+  label: 'Tìm x', labelEn: 'Find x', S: { 3: { max: [20, 100, 1000], forms: [['add'], ['add', 'sub', 'mul'], ['add', 'sub', 'mul']] } }, bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1], f = pick(r, s.forms[d - 1]);
     let runs, x;
@@ -256,7 +256,7 @@ function unitsVerify(task) {
 }
 // mass: thêm kg/g/t trong cùng bảng; mỗi lần chọn họ đơn vị theo bảng nào có cặp hợp lệ
 def('units', {
-  label: 'Đổi đơn vị độ dài, khối lượng', S: { 4: {} }, bound: (s, d) => [20, 999, 9000][d - 1],
+  label: 'Đổi đơn vị độ dài, khối lượng', labelEn: 'Length and mass units', S: { 4: {} }, bound: (s, d) => [20, 999, 9000][d - 1],
   gen(c) {
     const fam = c.r() < 0.6 ? U_LEN : Object.assign({}, U_MASS);
     return unitsGen(fam, [[10, 100, 1000], [100, 1000], [100, 1000]], 9)(c);
@@ -264,7 +264,7 @@ def('units', {
   verify: unitsVerify,
 });
 def('frac-compare', {
-  label: 'So sánh phân số cùng mẫu', S: { 4: { dmax: [10, 20, 30] } }, bound: (s, d) => s.dmax[d - 1],
+  label: 'So sánh phân số cùng mẫu', labelEn: 'Compare fractions (same denominator)', S: { 4: { dmax: [10, 20, 30] } }, bound: (s, d) => s.dmax[d - 1],
   gen({ r, d, s, L }) {
     const den = ri(r, 3, s.dmax[d - 1]);
     const a = ri(r, 1, den - 1), b = r() < 0.1 ? a : ri(r, 1, den - 1);
@@ -295,10 +295,10 @@ function fracOp(opSym, op) {
       near: [Q.frac(opSym === '+' ? a + c : a - c, b + dd), Q.frac(opSym === '+' ? a + c : a - c, b), Q.frac(res.n + 1, res.d), Q.frac(res.n, res.d + 1)] };
   };
 }
-def('frac-add', { label: 'Cộng phân số', S: { 5: { dmax: [12, 20, 30] } }, bound: (s, d) => s.dmax[d - 1], gen: fracOp('+', Q.add), verify: (t) => arithVerify(t) && reducedOk(t) });
-def('frac-sub', { label: 'Trừ phân số', S: { 5: { dmax: [12, 20, 30] } }, bound: (s, d) => s.dmax[d - 1], gen: fracOp(MINUS, Q.sub), verify: (t) => arithVerify(t) && reducedOk(t) });
+def('frac-add', { label: 'Cộng phân số', labelEn: 'Adding fractions', S: { 5: { dmax: [12, 20, 30] } }, bound: (s, d) => s.dmax[d - 1], gen: fracOp('+', Q.add), verify: (t) => arithVerify(t) && reducedOk(t) });
+def('frac-sub', { label: 'Trừ phân số', labelEn: 'Subtracting fractions', S: { 5: { dmax: [12, 20, 30] } }, bound: (s, d) => s.dmax[d - 1], gen: fracOp(MINUS, Q.sub), verify: (t) => arithVerify(t) && reducedOk(t) });
 def('decimal', {
-  label: 'Số thập phân', S: { 5: {} }, bound: () => 100,
+  label: 'Số thập phân', labelEn: 'Decimals', S: { 5: {} }, bound: () => 100,
   gen({ r, d, L, lang }) {
     let a, b, op, pl, A, B, v, vp;
     const op3 = d === 1 ? pick(r, ['+', MINUS]) : d === 2 ? pick(r, ['+', MINUS, '×i']) : pick(r, ['×d', '×d', '+', MINUS]);
@@ -318,7 +318,7 @@ def('decimal', {
 });
 // với 'dec' các hàm arith() ghi answer bằng sg(value): thay bằng định dạng thập phân sau khi sinh (xem finishDecimal)
 def('percent', {
-  label: 'Tìm phần trăm của một số', S: { 5: { pcts: [[10, 20, 25, 50], [5, 10, 15, 20, 25, 30, 40, 50, 75], [2, 4, 6, 8, 12, 15, 35, 45, 60, 80]], bmax: [200, 500, 1000] } }, bound: (s, d) => s.bmax[d - 1],
+  label: 'Tìm phần trăm của một số', labelEn: 'Percent of a number', S: { 5: { pcts: [[10, 20, 25, 50], [5, 10, 15, 20, 25, 30, 40, 50, 75], [2, 4, 6, 8, 12, 15, 35, 45, 60, 80]], bmax: [200, 500, 1000] } }, bound: (s, d) => s.bmax[d - 1],
   gen({ r, d, s, L }) {
     const a = pick(r, s.pcts[d - 1]);
     const step = 100 / gcdI(a, 100);
@@ -333,14 +333,14 @@ def('percent', {
   },
 });
 def('units-area', {
-  label: 'Đổi đơn vị diện tích', S: { 5: {} }, bound: (s, d) => [20, 999, 90000][d - 1],
+  label: 'Đổi đơn vị diện tích', labelEn: 'Area units', S: { 5: {} }, bound: (s, d) => [20, 999, 90000][d - 1],
   gen: unitsGen(U_AREA, [[100], [100, 10000], [100, 10000]], 9), verify: unitsVerify,
 });
 
 // ----- lớp 6-7 -----
 const par = (n) => (n < 0 ? '(' + MINUS + (-n) + ')' : String(n));
 def('int-ops', {
-  label: 'Số nguyên âm', S: { 6: { max: [10, 30, 99] } }, bound: (s, d) => s.max[d - 1],
+  label: 'Số nguyên âm', labelEn: 'Negative numbers', S: { 6: { max: [10, 30, 99] } }, bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1];
     const op = d === 1 ? pick(r, ['+', MINUS]) : d === 2 ? pick(r, ['+', MINUS, '×']) : pick(r, ['+', MINUS, '÷', '×']);
@@ -353,7 +353,7 @@ def('int-ops', {
   verify: arithVerify,
 });
 def('frac-mul-div', {
-  label: 'Nhân, chia phân số', S: { 6: { dmax: [6, 12, 20] } }, bound: (s, d) => s.dmax[d - 1],
+  label: 'Nhân, chia phân số', labelEn: 'Multiplying and dividing fractions', S: { 6: { dmax: [6, 12, 20] } }, bound: (s, d) => s.dmax[d - 1],
   gen({ r, d, s, L }) {
     const dm = s.dmax[d - 1];
     let b, dd, a, c, tries = 0;
@@ -366,7 +366,7 @@ def('frac-mul-div', {
   verify: (t) => arithVerify(t) && reducedOk(t),
 });
 def('gcd-lcm', {
-  label: 'ƯCLN, BCNN', S: { 6: { max: [30, 60, 100] } }, bound: (s, d) => s.max[d - 1],
+  label: 'ƯCLN, BCNN', labelEn: 'GCF and LCM', S: { 6: { max: [30, 60, 100] } }, bound: (s, d) => s.max[d - 1],
   gen({ r, d, s, L }) {
     const max = s.max[d - 1];
     const isG = r() < 0.5;
@@ -388,7 +388,7 @@ def('gcd-lcm', {
   },
 });
 def('pow', {
-  label: 'Luỹ thừa', S: { 6: { bmax: [5, 9, 12], emax: [3, 4, 5], vmax: [125, 6561, 20000] } }, bound: (s, d) => s.bmax[d - 1],
+  label: 'Luỹ thừa', labelEn: 'Exponents', S: { 6: { bmax: [5, 9, 12], emax: [3, 4, 5], vmax: [125, 6561, 20000] } }, bound: (s, d) => s.bmax[d - 1],
   gen({ r, d, s, L }) {
     let a, e, tries = 0;
     do { a = ri(r, 2, s.bmax[d - 1]); e = ri(r, 2, s.emax[d - 1]); tries++; } while (Math.pow(a, e) > s.vmax[d - 1] && tries < 200);
@@ -401,7 +401,7 @@ function signedFracRuns(n, d) {   // phân số có dấu, âm thì đặt trong
   return n < 0 ? [T('(' + MINUS), F(-n, d), T(')')] : [F(n, d)];
 }
 def('rational', {
-  label: 'Số hữu tỉ', S: { 7: { nmax: [6, 10, 15] } }, bound: (s, d) => s.nmax[d - 1],
+  label: 'Số hữu tỉ', labelEn: 'Rational numbers', S: { 7: { nmax: [6, 10, 15] } }, bound: (s, d) => s.nmax[d - 1],
   gen({ r, d, s, L }) {
     const nm = s.nmax[d - 1];
     const ops = d === 1 ? ['+', MINUS] : d === 2 ? ['+', MINUS, '×'] : ['×', '÷', '+', MINUS];
@@ -416,7 +416,7 @@ def('rational', {
   verify: (t) => arithVerify(t) && reducedOk(t),
 });
 def('ratio', {
-  label: 'Tỉ lệ thức', S: { 7: { pq: [4, 5, 6], k: [3, 4, 6] } }, bound: (s, d) => s.pq[d - 1] * s.k[d - 1],
+  label: 'Tỉ lệ thức', labelEn: 'Proportions', S: { 7: { pq: [4, 5, 6], k: [3, 4, 6] } }, bound: (s, d) => s.pq[d - 1] * s.k[d - 1],
   gen({ r, d, s, L }) {
     let p, q, tries = 0;
     do { p = ri(r, 1, s.pq[d - 1]); q = ri(r, 1, s.pq[d - 1]); tries++; } while ((p === q || gcdI(p, q) !== 1) && tries < 100);
@@ -433,7 +433,7 @@ def('ratio', {
   },
 });
 def('sqrt-perfect', {
-  label: 'Căn bậc hai', S: { 7: { kmax: [10, 20, 30] } }, bound: (s, d) => s.kmax[d - 1] * s.kmax[d - 1],
+  label: 'Căn bậc hai', labelEn: 'Square roots', S: { 7: { kmax: [10, 20, 30] } }, bound: (s, d) => s.kmax[d - 1] * s.kmax[d - 1],
   gen({ r, d, s, L }) {
     const km = s.kmax[d - 1];
     if (d < 3) { const k = ri(r, 2, km); return { prompt: [T(L.calc + ' '), SQ(k * k), T(' = ?')], answer: [T(k)], args: { k }, value: k, vkind: 'int', near: [k * 2, k + 1, k - 1, k * k] }; }
@@ -444,7 +444,7 @@ def('sqrt-perfect', {
   verify: arithVerify,
 });
 def('graph-point', {
-  label: 'Vẽ điểm, đường thẳng', S: { 6: {} }, bound: () => 6,
+  label: 'Vẽ điểm, đường thẳng', labelEn: 'Plotting points and lines', S: { 6: {} }, bound: () => 6,
   gen({ r, d, L, lang }) {
     if (d === 1 || (d === 2 && r() < 0.25)) {
       let x = ri(r, -5, 5), y = ri(r, -5, 5);
@@ -487,7 +487,7 @@ def('graph-point', {
 function pickCoef(r, cmax, positiveOnly) { let c = 0; while (c === 0) c = ri(r, -cmax, cmax); return positiveOnly ? Math.abs(c) : c; }
 const polyPoints = [-2, -1, 0, 1, 2, 3];
 def('simplify', {
-  label: 'Thu gọn đa thức', S: { 8: { cmax: [9, 15, 20] } }, bound: (s, d) => s.cmax[d - 1],
+  label: 'Thu gọn đa thức', labelEn: 'Simplifying polynomials', S: { 8: { cmax: [9, 15, 20] } }, bound: (s, d) => s.cmax[d - 1],
   gen({ r, d, s, L }) {
     const powers = d === 1 ? [1, 1, 0] : d === 2 ? [2, 1, 2, 1] : [2, 1, 0, 2, 1];
     for (let tries = 0; tries < 100; tries++) {
@@ -507,7 +507,7 @@ def('simplify', {
   },
 });
 def('expand', {
-  label: 'Nhân đa thức', S: { 8: { cmax: [9, 15, 20] } }, bound: (s, d) => s.cmax[d - 1],
+  label: 'Nhân đa thức', labelEn: 'Multiplying polynomials', S: { 8: { cmax: [9, 15, 20] } }, bound: (s, d) => s.cmax[d - 1],
   gen({ r, d, s, L }) {
     const cm = s.cmax[d - 1];
     const lin = (p, c) => [T('('), ...polyRuns([{ c: p, p: 1 }, { c, p: 0 }]), T(')')];
@@ -528,7 +528,7 @@ def('expand', {
   },
 });
 def('linear', {
-  label: 'Phương trình bậc nhất', S: { 8: { cmax: [9, 15, 20], xmax: [5, 8, 10] } }, bound: (s, d) => s.cmax[d - 1] * s.xmax[d - 1] + s.cmax[d - 1],
+  label: 'Phương trình bậc nhất', labelEn: 'Linear equations', S: { 8: { cmax: [9, 15, 20], xmax: [5, 8, 10] } }, bound: (s, d) => s.cmax[d - 1] * s.xmax[d - 1] + s.cmax[d - 1],
   gen({ r, d, s, L }) {
     const pos = d === 1;
     const a = pickCoef(r, s.cmax[d - 1], pos), b = pickCoef(r, s.cmax[d - 1], pos);
@@ -552,7 +552,7 @@ function lin2Runs(a, b) {   // a x + b y
   return out;
 }
 def('linear-system', {
-  label: 'Hệ hai phương trình', S: { 9: { cmax: [3, 5, 9], xy: [4, 5, 6] } }, bound: (s, d) => 2 * s.cmax[d - 1] * s.xy[d - 1],
+  label: 'Hệ hai phương trình', labelEn: 'Systems of two equations', S: { 9: { cmax: [3, 5, 9], xy: [4, 5, 6] } }, bound: (s, d) => 2 * s.cmax[d - 1] * s.xy[d - 1],
   gen({ r, d, s, L }) {
     const pos = d === 1;
     const c = (m) => pickCoef(r, m, pos);
@@ -571,7 +571,7 @@ def('linear-system', {
   },
 });
 def('quadratic', {
-  label: 'Phương trình bậc hai',
+  label: 'Phương trình bậc hai', labelEn: 'Quadratic equations',
   S: { 9: { rmax: [5, 8, 10], amax: [1, 2, 3], modes: [['two'], ['two'], ['two']] }, 10: { rmax: [5, 8, 10], amax: [1, 2, 3], modes: [['two'], ['two', 'double'], ['two', 'double', 'none']] } },
   bound: (s, d) => [25, 128, 300][d - 1],
   gen({ r, d, s, L }) {
@@ -614,7 +614,7 @@ def('quadratic', {
   },
 });
 def('sqrt-simplify', {
-  label: 'Rút gọn căn', S: { 9: { kmax: [5, 8, 12], ms: [[2, 3, 5], [2, 3, 5, 6, 7], [2, 3, 5, 6, 7, 10, 11]] } }, bound: (s, d) => s.kmax[d - 1] * s.kmax[d - 1] * Math.max.apply(null, s.ms[d - 1]),
+  label: 'Rút gọn căn', labelEn: 'Simplifying radicals', S: { 9: { kmax: [5, 8, 12], ms: [[2, 3, 5], [2, 3, 5, 6, 7], [2, 3, 5, 6, 7, 10, 11]] } }, bound: (s, d) => s.kmax[d - 1] * s.kmax[d - 1] * Math.max.apply(null, s.ms[d - 1]),
   gen({ r, d, s, L }) {
     const k = ri(r, 2, s.kmax[d - 1]), m = pick(r, s.ms[d - 1]);
     const n = k * k * m;
@@ -632,7 +632,7 @@ def('sqrt-simplify', {
   },
 });
 def('ineq-linear', {
-  label: 'Bất phương trình bậc nhất', S: { 10: { amax: [3, 6, 9], bmax: [9, 15, 20], xmax: [5, 6, 8] } }, bound: (s, d) => s.amax[d - 1] * s.xmax[d - 1] + s.bmax[d - 1],
+  label: 'Bất phương trình bậc nhất', labelEn: 'Linear inequalities', S: { 10: { amax: [3, 6, 9], bmax: [9, 15, 20], xmax: [5, 6, 8] } }, bound: (s, d) => s.amax[d - 1] * s.xmax[d - 1] + s.bmax[d - 1],
   gen({ r, d, s, L }) {
     const pos = d === 1;
     let a = pickCoef(r, s.amax[d - 1], pos); if (Math.abs(a) < 2) a = a * 2;
@@ -653,7 +653,7 @@ def('ineq-linear', {
   },
 });
 def('vector-dot', {
-  label: 'Tích vô hướng', S: { 10: { cmax: [3, 6, 9] } }, bound: (s, d) => s.cmax[d - 1] * 2,
+  label: 'Tích vô hướng', labelEn: 'Dot product', S: { 10: { cmax: [3, 6, 9] } }, bound: (s, d) => s.cmax[d - 1] * 2,
   gen({ r, d, s, L }) {
     const cm = s.cmax[d - 1];
     if (d === 3 && r() < 0.5) {
@@ -678,7 +678,7 @@ def('vector-dot', {
 
 // ----- lớp 11 -----
 def('log-exp', {
-  label: 'Logarit và mũ', S: { 11: { pairs: [[[2, 2, 6], [3, 2, 3], [4, 2, 3], [5, 2, 2]], [[2, 2, 7], [3, 2, 5], [4, 2, 3], [5, 2, 3]], [[2, 2, 10], [3, 2, 6], [4, 2, 5]]] } }, bound: (s, d) => [64, 243, 1024][d - 1],
+  label: 'Logarit và mũ', labelEn: 'Logarithms and exponents', S: { 11: { pairs: [[[2, 2, 6], [3, 2, 3], [4, 2, 3], [5, 2, 2]], [[2, 2, 7], [3, 2, 5], [4, 2, 3], [5, 2, 3]], [[2, 2, 10], [3, 2, 6], [4, 2, 5]]] } }, bound: (s, d) => [64, 243, 1024][d - 1],
   gen({ r, d, s, L }) {
     const [a, k0, k1] = pick(r, s.pairs[d - 1]);
     const k = ri(r, k0, k1), N = Math.pow(a, k);
@@ -711,7 +711,7 @@ function trigRuns(e) {      // e: [dấu] | [dấu, căn, mẫu]
   return (s < 0 ? [T(MINUS)] : []).concat(body);
 }
 def('trig-value', {
-  label: 'Giá trị lượng giác', S: { 11: {} }, bound: (s, d) => [90, 90, 180][d - 1],
+  label: 'Giá trị lượng giác', labelEn: 'Trig values', S: { 11: {} }, bound: (s, d) => [90, 90, 180][d - 1],
   gen({ r, d, L }) {
     const fns = d === 1 ? ['sin', 'cos'] : ['sin', 'cos', 'tan'];
     const fn = pick(r, fns);
@@ -732,7 +732,7 @@ def('trig-value', {
   },
 });
 def('seq-arith-geo', {
-  label: 'Cấp số cộng, cấp số nhân', S: { 11: { nmax: [10, 15, 20] } }, bound: (s, d) => s.nmax[d - 1],
+  label: 'Cấp số cộng, cấp số nhân', labelEn: 'Arithmetic and geometric sequences', S: { 11: { nmax: [10, 15, 20] } }, bound: (s, d) => s.nmax[d - 1],
   gen({ r, d, s, L, lang }) {
     const nm = s.nmax[d - 1];
     const variant = d === 1 ? 'ar' : d === 2 ? pick(r, ['ar', 'geo']) : pick(r, ['ar', 'geo', 'sum']);
@@ -774,7 +774,7 @@ function randPoly(r, deg, cm) {
   return [{ c: 3, p: deg }, { c: 1, p: 0 }];
 }
 def('deriv-poly', {
-  label: 'Đạo hàm đa thức', S: { 12: { deg: [2, 3, 4], cmax: [9, 9, 12] } }, bound: (s, d) => s.cmax[d - 1],
+  label: 'Đạo hàm đa thức', labelEn: 'Derivatives of polynomials', S: { 12: { deg: [2, 3, 4], cmax: [9, 9, 12] } }, bound: (s, d) => s.cmax[d - 1],
   gen({ r, d, s, L }) {
     const f = randPoly(r, s.deg[d - 1], s.cmax[d - 1]);
     const df = normPoly(f.filter((t) => t.p > 0).map((t) => ({ c: t.c * t.p, p: t.p - 1 })));
@@ -789,7 +789,7 @@ def('deriv-poly', {
   },
 });
 def('integral-poly', {
-  label: 'Tích phân đa thức', S: { 12: { deg: [1, 2, 2], cmax: [6, 9, 9], lim: [[0, 3], [-2, 3], [-3, 4]] } }, bound: (s, d) => Math.max(s.cmax[d - 1], s.lim[d - 1][1]),
+  label: 'Tích phân đa thức', labelEn: 'Integrals of polynomials', S: { 12: { deg: [1, 2, 2], cmax: [6, 9, 9], lim: [[0, 3], [-2, 3], [-3, 4]] } }, bound: (s, d) => Math.max(s.cmax[d - 1], s.lim[d - 1][1]),
   gen({ r, d, s, L }) {
     const f = randPoly(r, s.deg[d - 1], s.cmax[d - 1]);
     let lo, hi;
@@ -829,7 +829,7 @@ function cplxAns(re, im) {
   return out;
 }
 def('complex', {
-  label: 'Số phức', S: { 12: { cmax: [9, 5, 9] } }, bound: (s, d) => s.cmax[d - 1],
+  label: 'Số phức', labelEn: 'Complex numbers', S: { 12: { cmax: [9, 5, 9] } }, bound: (s, d) => s.cmax[d - 1],
   gen({ r, d, s, L }) {
     const cm = s.cmax[d - 1];
     const a = pickCoef(r, cm), b = pickCoef(r, cm), c = pickCoef(r, cm), dd = pickCoef(r, cm);
@@ -858,7 +858,7 @@ export const MATH_TYPES = {};
 for (let g = 1; g <= 12; g++) {
   const seen = new Set(), list = [];
   [g, g - 1, g - 2].forEach((gg, k) => {
-    (HOME[gg] || []).forEach((t) => { if (!seen.has(t) && !(gg < 6 && t === 'graph-point')) { seen.add(t); list.push({ type: t, labelVi: TYPES[t].label, home: gg, review: k > 0 }); } });
+    (HOME[gg] || []).forEach((t) => { if (!seen.has(t) && !(gg < 6 && t === 'graph-point')) { seen.add(t); list.push({ type: t, labelVi: TYPES[t].label, labelEn: TYPES[t].labelEn, home: gg, review: k > 0 }); } });
   });
   MATH_TYPES[g] = list;
 }

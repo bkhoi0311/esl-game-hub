@@ -60,7 +60,7 @@ body {
   background-attachment: fixed;
 }
 .top {
-  display: flex; align-items: center; gap: 1rem; min-height: 4.5rem; padding: 0 1.5rem;
+  display: flex; align-items: center; gap: 1rem; min-height: max(4.5rem, 64px); padding: 0 1.5rem;
   background: var(--panel); border-bottom: 2px solid var(--rule);
 }
 .logo { height: 1.9rem; width: auto; display: block; }
@@ -75,7 +75,7 @@ body {
 .pill i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--green); display: block; }
 .main {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  height: calc(100vh - 4.5rem); padding: 0 1rem 3rem;
+  height: calc(100vh - max(4.5rem, 64px)); padding: 0 1rem 3rem;
 }
 h1 { margin: 0 0 1.75rem; font-size: 2rem; font-weight: 800; color: var(--brand-ink); text-align: center; }
 .cards { display: flex; gap: 2.5rem; justify-content: center; }
@@ -120,10 +120,33 @@ h1 { margin: 0 0 1.75rem; font-size: 2rem; font-weight: 800; color: var(--brand-
   .part-card:focus { outline: 0.25rem solid var(--green); outline-offset: 0.25rem; }
 }
 @media (max-aspect-ratio: 1/1) {
-  .main { height: auto; min-height: calc(100vh - 4.5rem); justify-content: flex-start; padding-top: 1.5rem; overflow-y: auto; }
+  .main { height: auto; min-height: calc(100vh - max(4.5rem, 64px)); justify-content: flex-start; padding-top: 1.5rem; overflow-y: auto; }
   h1 { font-size: 1.6rem; }
   .cards { flex-direction: column; gap: 1.5rem; align-items: center; }
   .part-card { width: min(30rem, calc(100vw - 2rem)); height: auto; }
   .pill { display: none; }
   .top { padding: 0 1rem; }
+}
+
+/* ---------- công tắc ngôn ngữ [cờ VN VI] [cờ Mỹ EN] ---------- */
+.i18n-wait body { visibility: hidden; }
+.lang-slot { flex: none; display: flex; align-items: center; }
+.lang-seg { display: inline-flex; gap: 0.25rem; padding: 0.25rem; border-radius: 999px; background: rgba(4,188,9,.10); }
+.lang-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  height: max(3.5rem, 56px); min-width: 88px; padding: 0 1rem; border: 2px solid transparent; border-radius: 999px;
+  background: transparent; color: var(--ink-muted); font-family: var(--font); font-size: max(1rem, 14px); font-weight: 800; letter-spacing: .02em;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.lang-btn .flag { display: block; width: 36px; height: 24px; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.18); opacity: .55; flex: none; }
+.lang-btn .flag svg { display: block; width: 36px; height: 24px; }
+.lang-btn.is-selected { background: #fff; border-color: var(--green); color: var(--brand-ink); }
+.lang-btn.is-selected .flag { opacity: 1; }
+.lang-btn:active { transform: translateY(1px); }
+@supports selector(:focus-visible) { .lang-btn:focus { outline: none; } .lang-btn:focus-visible { outline: 0.2rem solid var(--green); outline-offset: 0.1rem; } }
+@media (max-aspect-ratio: 1/1) {
+  .top { flex-wrap: wrap; row-gap: 0.25rem; padding-top: 0.4rem; padding-bottom: 0.4rem; }
+  .titles { flex: 1 1 8rem; }
+  .lang-slot { flex: 1 1 100%; justify-content: flex-end; }
+  .lang-btn { min-width: 72px; padding: 0 0.6rem; }
 }

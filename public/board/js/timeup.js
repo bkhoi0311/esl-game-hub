@@ -1,11 +1,12 @@
 // Lớp "Time’s up!" khi hết giờ + chạm để bỏ. Dùng chung 2 chế độ (Đề tắt / Đề bật). PLAN-BOARD-V21 mục 4.
 // Bắt chạm ở pha capture của document: chạm vào vùng viết bị nuốt (không ra nét), sau 600 ms ân hạn thì bỏ lớp phủ.
 import { h } from './dom.js';
+import { bind, tIn } from './i18n.js';
 
 export const GRACE_MS = 600;
 export const SWALLOW_MS = 250;   // sau khi bỏ lớp, nuốt thêm chạm trong vùng viết (ngón thứ hai chạm cùng lúc)
 
-export function createTimeup({ overlay, onDismiss, now }) {
+export function createTimeup({ overlay, onDismiss, now, cueLang }) {
   const clock = now || (() => performance.now());
   let root = null, els = [];
   let visible = false, t0 = 0, swallowUntil = 0, listening = false;
@@ -28,7 +29,10 @@ export function createTimeup({ overlay, onDismiss, now }) {
     if (root) root.remove();
     root = h('div', 'locks', null, { 'data-testid': 'locks' });
     els = writes.map((w) => {
-      const e = h('div', 'zone-lock', '<span class="zl-t">Time’s up!</span><span class="zl-s">Chạm để viết tiếp</span>', { 'data-testid': 'z' + w.id + '-lock' });
+      // zl-t: lời nhắc cho HỌC SINH, theo ngôn ngữ của đề (không có đề: tiếng Anh như trước). zl-s: dòng chỉ dẫn, theo ngôn ngữ giao diện.
+      const e = h('div', 'zone-lock', '<span class="zl-t"></span><span class="zl-s"></span>', { 'data-testid': 'z' + w.id + '-lock' });
+      e.firstChild.textContent = tIn(cueLang ? cueLang() : 'en', 'cue.timeUp');
+      bind(e.lastChild, 'board.lock.tap');
       e.style.left = w.x + 'px'; e.style.top = (w.y - top) + 'px'; e.style.width = w.w + 'px'; e.style.height = w.h + 'px';
       e.hidden = !visible;
       root.appendChild(e);
@@ -38,7 +42,7 @@ export function createTimeup({ overlay, onDismiss, now }) {
   }
   function show() {
     visible = true; t0 = clock(); swallowUntil = 0;
-    els.forEach((e) => { e.hidden = false; });
+    els.forEach((e) => { e.firstChild.textContent = tIn(cueLang ? cueLang() : 'en', 'cue.timeUp'); e.hidden = false; });
     attach();
   }
   function hide() {

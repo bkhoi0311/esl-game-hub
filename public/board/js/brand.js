@@ -3,8 +3,8 @@
 export const BRAND = {
   logo: true,                          // false: ẩn ảnh logo, thay bằng chữ "ClassIn"
   wordmark: true,                      // false: ẩn cả chữ "ClassIn" lẫn pill "Dành cho ClassIn X" (chế độ trung tính)
-  label: 'Dành cho ClassIn X',
-  disclaimer: 'Công cụ bổ trợ, không phải tính năng chính thức của ClassIn',
+  labelKey: 'common.forClassinX',      // chữ pill và dòng tuyên bố nằm trong public/i18n (VI/EN)
+  disclaimerKey: 'common.disclaimer',
   accent: '#04BC09',
   accentHover: '#0EE516',
 };

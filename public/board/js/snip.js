@@ -6,6 +6,7 @@ import { icon } from './icons.js';
 import { pressable } from './ui.js';
 import { paperSVG } from './paper.js';
 import { GAP } from './layout.js';
+import { bind } from './i18n.js';
 
 // 'full': hiện Sao chép + Lưu tệp + Xem to. 'view': kết quả mở thẳng chế độ Xem to kèm hướng dẫn Chụp màn hình của ClassIn.
 // Đổi một dòng này sau khi có kết quả trang thử snip-test.html trên ClassIn X thật.
@@ -13,12 +14,12 @@ export const SNIP_MODE = 'full';
 const MAX_MP = 8e6;            // trần số điểm ảnh của ảnh ra
 const MIN_SIDE = 40;           // (nhân s) nhỏ hơn thì coi như chạm nhầm
 const SEP = { dark: '#2C2C2E', light: '#D1D1D6' };
-const MSG = {
-  copied: 'Đã sao chép ảnh. Bấm Ctrl+V để dán vào bảng ClassIn hoặc ứng dụng khác.',
-  copyFail: 'Cửa sổ này không cho sao chép ảnh. Bấm Xem to, rồi dùng nút Chụp màn hình (biểu tượng chiếc kéo) trên thanh công cụ của ClassIn.',
-  saved: 'Nếu không thấy tệp trong thư mục Tải về, cửa sổ này không cho lưu tệp. Hãy dùng Sao chép hoặc Chụp màn hình của ClassIn.',
-  buildFail: 'Không tạo được ảnh. Hãy thử chọn vùng nhỏ hơn.',
-  view: 'Dùng nút Chụp màn hình (biểu tượng chiếc kéo) trên thanh công cụ của ClassIn để lấy ảnh này.',
+const MSG = {   // khoá chuỗi (board.snip.*)
+  copied: 'board.snip.copied',
+  copyFail: 'board.snip.copyFail',
+  saved: 'board.snip.saved',
+  buildFail: 'board.snip.buildFail',
+  view: 'board.snip.view',
 };
 
 let cur = null;   // phiên đang mở: { cancel() }
@@ -86,15 +87,17 @@ export function startSnip(deps) {
   const top = parseFloat(getComputedStyle(root).getPropertyValue('--top-h')) || 0;
   const layer = h('div', 'snip-layer', null, { id: 'snip-layer', 'data-testid': 'snip-layer' });
   layer.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
-  const hint = h('div', 'pane snip-hint', '<span class="snip-msg">Kéo một ngón để chọn vùng cần cắt</span>', { 'data-testid': 'snip-hint' });
-  const bAll = h('button', 'cbtn', 'Cả bảng', { type: 'button', 'data-testid': 'snip-all' });
-  const bCancel = h('button', 'cbtn', 'Huỷ', { type: 'button', 'data-testid': 'snip-cancel' });
+  const hint = h('div', 'pane snip-hint', '<span class="snip-msg"></span>', { 'data-testid': 'snip-hint' });
+  bind(hint.firstChild, 'board.snip.hint');
+  const bAll = bind(h('button', 'cbtn', null, { type: 'button', 'data-testid': 'snip-all' }), 'board.snip.all');
+  const bCancel = bind(h('button', 'cbtn', null, { type: 'button', 'data-testid': 'snip-cancel' }), 'common.cancel');
   hint.append(bAll, bCancel);
   const box = h('div', 'snip-box', null, { 'data-testid': 'snip-box' }); box.hidden = true;
   const bar = h('div', 'pane snip-confirm', null, { 'data-testid': 'snip-confirm' }); bar.hidden = true;
-  const bOk = h('button', 'cbtn cbtn--primary', icon('check') + '<span>Cắt vùng này</span>', { type: 'button', 'data-testid': 'snip-ok' });
-  const bRedo = h('button', 'cbtn', 'Chọn lại', { type: 'button', 'data-testid': 'snip-redo' });
-  const bCancel2 = h('button', 'cbtn', 'Huỷ', { type: 'button', 'data-testid': 'snip-cancel2' });
+  const bOk = h('button', 'cbtn cbtn--primary', icon('check') + '<span></span>', { type: 'button', 'data-testid': 'snip-ok' });
+  bind(bOk.lastChild, 'board.snip.ok');
+  const bRedo = bind(h('button', 'cbtn', null, { type: 'button', 'data-testid': 'snip-redo' }), 'board.snip.redo');
+  const bCancel2 = bind(h('button', 'cbtn', null, { type: 'button', 'data-testid': 'snip-cancel2' }), 'common.cancel');
   bar.append(bOk, bRedo, bCancel2);
   layer.append(box, hint, bar);
   document.body.appendChild(layer);
@@ -172,7 +175,7 @@ export function startSnip(deps) {
     try {
       out = await composeSnip(sel, { renderer, board, papers: deps.getPapers, scale: s, theme: deps.getTheme() });
     } catch (e) {
-      ui.toast(MSG.buildFail, 4000);
+      ui.toastKey(MSG.buildFail, null, 4000);
       toSelect();
       return;
     }
@@ -187,18 +190,25 @@ export function startSnip(deps) {
     result = out;
     if (deps.test) window.__snip = { w: out.w, h: out.h, q: out.q, bytes: out.blob.size };
     const dim = h('div', 'dim dim--below snip-dim', null, { 'data-testid': 'snip-result-dim' });
-    const card = h('div', 'pane pane--sheet sheet snip-card', null, { 'data-testid': 'snip-result', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Ảnh đã cắt' });
+    const card = h('div', 'pane pane--sheet sheet snip-card', null, { 'data-testid': 'snip-result', role: 'dialog', 'aria-modal': 'true' });
+    bind(card, 'board.snip.resultAria', null, 'aria-label');
     const wrap = h('div', 'snip-imgwrap');
-    const img = h('img', 'snip-img', null, { 'data-testid': 'snip-img', alt: 'Ảnh đã cắt' });
+    const img = h('img', 'snip-img', null, { 'data-testid': 'snip-img' });
+    bind(img, 'board.snip.resultAria', null, 'aria-label');
+    img.alt = '';
     img.src = url;
     wrap.appendChild(img);
-    const status = h('p', 'snip-status', SNIP_MODE === 'view' ? MSG.view : 'Ảnh đã cắt ' + out.w + 'x' + out.h + '. Bấm Sao chép, hoặc Xem to rồi dùng Chụp màn hình của ClassIn.', { 'data-testid': 'snip-status', role: 'status' });
+    const status = h('p', 'snip-status', null, { 'data-testid': 'snip-status', role: 'status' });
+    if (SNIP_MODE === 'view') bind(status, MSG.view); else bind(status, 'board.snip.status', { w: out.w, h: out.h });
     const acts = h('div', 'snip-actions');
     const canCopy = !!(navigator.clipboard && navigator.clipboard.write && typeof window.ClipboardItem !== 'undefined');
-    const bCopy = h('button', 'cbtn cbtn--primary', icon('copy') + '<span>Sao chép ảnh</span>', { type: 'button', 'data-testid': 'snip-copy' });
-    const bSave = h('button', 'cbtn', icon('download') + '<span>Lưu tệp PNG</span>', { type: 'button', 'data-testid': 'snip-save' });
-    const bFull = h('button', 'cbtn', icon('maximize') + '<span>Xem to</span>', { type: 'button', 'data-testid': 'snip-full' });
-    const bClose = h('button', 'cbtn', 'Đóng', { type: 'button', 'data-testid': 'snip-close' });
+    const bCopy = h('button', 'cbtn cbtn--primary', icon('copy') + '<span></span>', { type: 'button', 'data-testid': 'snip-copy' });
+    bind(bCopy.lastChild, 'board.snip.copy');
+    const bSave = h('button', 'cbtn', icon('download') + '<span></span>', { type: 'button', 'data-testid': 'snip-save' });
+    bind(bSave.lastChild, 'board.snip.save');
+    const bFull = h('button', 'cbtn', icon('maximize') + '<span></span>', { type: 'button', 'data-testid': 'snip-full' });
+    bind(bFull.lastChild, 'board.snip.full');
+    const bClose = bind(h('button', 'cbtn', null, { type: 'button', 'data-testid': 'snip-close' }), 'common.close');
     if (SNIP_MODE !== 'view') { if (canCopy) acts.appendChild(bCopy); acts.appendChild(bSave); }
     acts.append(bFull, bClose);
     card.append(wrap, status, acts);
@@ -210,8 +220,8 @@ export function startSnip(deps) {
     pressable(bCopy, async () => {
       try {
         await navigator.clipboard.write([new window.ClipboardItem({ 'image/png': out.blob })]);
-        status.textContent = MSG.copied; status.className = 'snip-status is-good';
-      } catch (e) { status.textContent = MSG.copyFail; status.className = 'snip-status is-bad'; }
+        bind(status, MSG.copied); status.className = 'snip-status is-good';
+      } catch (e) { bind(status, MSG.copyFail); status.className = 'snip-status is-bad'; }
     });
     pressable(bSave, () => {
       try {
@@ -219,7 +229,7 @@ export function startSnip(deps) {
         a.href = url; a.download = 'bang-' + stamp() + '.png'; a.style.display = 'none';
         document.body.appendChild(a); a.click(); a.remove();
       } catch (e) { /* bỏ qua */ }
-      status.textContent = MSG.saved; status.className = 'snip-status';
+      bind(status, MSG.saved); status.className = 'snip-status';
     });
     pressable(bFull, () => openFull(url, dim));
     if (SNIP_MODE === 'view') openFull(url, dim);
@@ -227,9 +237,10 @@ export function startSnip(deps) {
   function openFull(url, dim) {
     if (fullEl) return;
     fullEl = h('div', 'snip-full', null, { 'data-testid': 'snip-fullview' });
-    const im = h('img', 'snip-fullimg', null, { alt: 'Ảnh đã cắt, xem to' });
+    const im = bind(h('img', 'snip-fullimg', null, {}), 'board.snip.fullAria', null, 'aria-label');
+    im.alt = '';
     im.src = url;
-    const tip = h('div', 'snip-fulltip', MSG.view + ' Chạm để thoát.');
+    const tip = bind(h('div', 'snip-fulltip'), 'board.snip.fullTip');
     fullEl.append(im, tip);
     fullEl.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
     pressable(fullEl, () => { if (fullEl) { fullEl.remove(); fullEl = null; } });

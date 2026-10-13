@@ -10,6 +10,7 @@ import { BOARDS, PALETTES, inkMap, remapInk, parseTheme } from './theme.js';
 import { createTimer } from './timer.js';
 import { createClockUI } from './clockui.js';
 import { createTimeup } from './timeup.js';
+import { bind } from './i18n.js';
 
 const TIMER_PARAM = { 0: ['off', 0], 30: ['down', 30], 60: ['down', 60], 90: ['down', 90], 120: ['down', 120], up: ['up', 0] };
 
@@ -37,7 +38,8 @@ export function createTools(deps) {
 
   /* ----- lớp Hết giờ ----- */
   let onDismissHook = null;
-  const timeup = createTimeup({ overlay, onDismiss: () => { if (onDismissHook) onDismissHook(); } });
+  let cueLang = () => 'en';   // ngôn ngữ lời nhắc học sinh trên lớp Hết giờ: theo ngôn ngữ của đề (v2 đăng ký); chưa có đề thì luôn tiếng Anh như trước
+const timeup = createTimeup({ overlay, onDismiss: () => { if (onDismissHook) onDismissHook(); }, cueLang: () => cueLang() });
 
   /* ----- nền kẻ từng vùng (lớp tĩnh trong #stage) ----- */
   // paperStore: mảng { id, paper, paperManual }. Khi bật Đề, v2 gắn cls.zones vào đây (setPaperStore).
@@ -115,15 +117,17 @@ export function createTools(deps) {
       sheets.close(); clockUIs.forEach((c) => c.closeTray());
       if (!snipMod) snipMod = await import('./snip.js');
       snipMod.startSnip({ renderer, board, ui, getTheme: () => theme, getPapers: () => paperStore, getScale: () => (curG ? curG.s : 1), test });
-    } catch (e) { ui.toast('Không mở được công cụ Cắt màn hình.'); } finally { snipBusy = false; }
+    } catch (e) { ui.toastKey('board.toast.snipOpenFail'); } finally { snipBusy = false; }
   }
 
   /* ----- nút công cụ (dùng cho cụm trên thanh và cho thanh lớp khi bật Đề) ----- */
   function toolBtn(kind) {
     const spec = kind === 'paper'
-      ? { tid: 'paper-open', ic: 'grid-3x3', label: 'Nền viết', text: 'Nền', fn: openPaperSheet }
-      : { tid: 'snip-open', ic: 'scissors', label: 'Cắt màn hình', text: 'Cắt', fn: openSnip };
-    const b = h('button', 'cbtn tt-btn', icon(spec.ic) + '<span class="cb-text">' + spec.text + '</span>', { type: 'button', 'data-testid': spec.tid, 'aria-label': spec.label });
+      ? { tid: 'paper-open', ic: 'grid-3x3', label: 'board.cb.paperAria', text: 'board.cb.paper', fn: openPaperSheet }
+      : { tid: 'snip-open', ic: 'scissors', label: 'board.tool.snipAria', text: 'board.tool.snip', fn: openSnip };
+    const b = h('button', 'cbtn tt-btn', icon(spec.ic) + '<span class="cb-text"></span>', { type: 'button', 'data-testid': spec.tid });
+    bind(b, spec.label, null, 'aria-label');
+    bind(b.querySelector('.cb-text'), spec.text);
     pressable(b, spec.fn);
     return b;
   }
@@ -144,7 +148,7 @@ export function createTools(deps) {
       onEnd() {
         lastRun = false;
         ui2.update(timer.state());
-        ui.toast('Hết giờ', 3000);
+        ui.toastKey('board.toast.timeUp', null, 3000);
         beep();
         timeup.show();
       },
@@ -189,7 +193,8 @@ export function createTools(deps) {
   let toolrow = null;
   function ensureToolrow() {
     if (toolrow) return toolrow;
-    toolrow = h('div', 'pane pane--bar', null, { id: 'toolrow', 'data-testid': 'toolrow', role: 'toolbar', 'aria-label': 'Công cụ' });
+    toolrow = h('div', 'pane pane--bar', null, { id: 'toolrow', 'data-testid': 'toolrow', role: 'toolbar' });
+    bind(toolrow, 'board.tools.bar', null, 'aria-label');
     toolrow.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
     document.body.insertBefore(toolrow, stage);
     return toolrow;
@@ -237,6 +242,7 @@ export function createTools(deps) {
     setTheme, theme: () => theme,
     registerClockUI(c) { clockUIs.push(c); },
     onTimeupDismiss(fn) { onDismissHook = fn; },
+    setCueLang(fn) { cueLang = fn; },
     isLocked: () => timeup.isLocked(),
     clock: () => clock,
   };

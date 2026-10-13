@@ -77,7 +77,7 @@ async function open({ zones = 3, w = 1280, h = 720, dpr = 1, query = '', hash = 
 }
 // bấm nút trong hộp thoại; nếu nút đang ở trang khác thì lật trang trước (pagerTid = 'deck-page' | 'deck-tpage')
 async function pickPaged(b, testid, pagerTid) {
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 40; i++) {   // thư viện có hơn 250 gói (~33 trang): 6 trang không đủ
     if (await b.id(testid).first().isVisible()) { await b.tapId(testid); return; }
     await b.tapId(pagerTid + '-next');
   }

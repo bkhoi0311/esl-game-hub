@@ -207,7 +207,8 @@ function createGame(root, pack) {
 
   function finishCalibration() {
     const q = detector.finishCalibration();
-    if (q.masked > 0) toast(`Có ${q.masked} vùng luôn nhấp nháy (màn hình, quạt, cửa sổ). Máy bỏ qua vùng xám.`);
+    if (q.bigBlobs > 0) toast('Lúc đo có bạn còn cử động. Máy vẫn theo dõi bạn đó. Nếu báo sai nhiều, bấm "Check again (stand still)".');
+    else if (q.masked > 0) toast(`Có ${q.masked} vùng luôn nhấp nháy (màn hình, quạt, cửa sổ). Máy bỏ qua vùng xám.`);
     else if (q.movingFrac > 0.25) toast('Lúc đo, nhiều bạn còn cử động. Nếu báo sai nhiều, bấm "Check again (stand still)".');
     nextGreen();
   }

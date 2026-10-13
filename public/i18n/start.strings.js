@@ -1,0 +1,25 @@
+/* Chuỗi của màn chọn (public/start). Nạp sau i18n.js. */
+window.I18N.add({
+  vi: {
+    'start.docTitle': 'Công cụ lớp học – ClassIn',
+    'start.name': 'Công cụ lớp học',
+    'start.heading': 'Hôm nay lớp mình dùng gì?',
+    'start.lastUsed': 'Dùng lần trước',
+    'start.open': 'Mở',
+    'start.games.aria': 'Mở ESL Game Hub',
+    'start.games.desc': '11 trò chơi tiếng Anh cho cả lớp, có game vận động với camera.',
+    'start.board.aria': 'Mở Bảng nhiều người viết',
+    'start.board.desc': 'Chia bảng 1–4 vùng, nhiều học sinh cùng viết trên màn hình chạm.',
+  },
+  en: {
+    'start.docTitle': 'Classroom Tools – ClassIn',
+    'start.name': 'Classroom Tools',
+    'start.heading': 'What’s the class using today?',
+    'start.lastUsed': 'Last used',
+    'start.open': 'Open',
+    'start.games.aria': 'Open ESL Game Hub',
+    'start.games.desc': '11 English games for the whole class, including camera movement games.',
+    'start.board.aria': 'Open Multi-Writer Board',
+    'start.board.desc': 'Split the board into 1–4 zones so several students can write at once on the touchscreen.',
+  },
+});

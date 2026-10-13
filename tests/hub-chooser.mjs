@@ -69,7 +69,7 @@ t('C3', 'A', async () => {
   await page.waitForSelector('[data-testid=part-games]');
   await page.waitForTimeout(300);
   for (const u of log.requests) {
-    ok(u.startsWith(A + 'start/'), 'request ngoài /start/: ' + u);
+    ok(u.startsWith(A + 'start/') || u.startsWith(A + 'i18n/'), 'request ngoài /start/ và /i18n/: ' + u);
     ok(!/phaser|main\.js|assets\/index-|model-viewer/.test(u), 'request cấm: ' + u);
   }
   ok(log.requests.some((u) => u.endsWith('start.css')) && log.requests.some((u) => u.endsWith('start.js')) && log.requests.some((u) => u.endsWith('.woff2')), 'thiếu css/js/font');

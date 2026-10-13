@@ -92,7 +92,7 @@ export function createInput({ el, board, getScale, render, diag, hooks, ink, pal
     const full = zoneFull(a.zone);
     const s = endStroke(a.zone, a.stroke);
     if (s) render.strokeFinished(a.zone, s);
-    else if (full && a.stroke.pts.length >= 3) hooks.toast('Vùng đã đầy, hãy xoá bớt.');
+    else if (full && a.stroke.pts.length >= 3) hooks.toastKey('board.toast.zoneFull');
     hooks.zoneChanged(a.zone);
   }
 
@@ -116,7 +116,7 @@ export function createInput({ el, board, getScale, render, diag, hooks, ink, pal
       active.set(e.pointerId, a);
       eraseHere(a, e.pointerId, e.clientX, e.clientY);
     } else {
-      if (zoneFull(zone)) { hooks.toast('Vùng đã đầy, hãy xoá bớt.'); return; }
+      if (zoneFull(zone)) { hooks.toastKey('board.toast.zoneFull'); return; }
       a.kind = 'draw';
       a.stroke = beginStroke(zone, { color: zone.color, size: zone.size });
       active.set(e.pointerId, a);

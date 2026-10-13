@@ -13,6 +13,9 @@ export const SF = {
   MIN_COUNT: 2, BASE_COUNT: 2, R_TAU_ADD: 4, R_COUNT_ADD: 1,
   E_ADD: 2, E_ON: 3, R_ON: 3, GLOBAL_FRAC: 0.6, UNSTABLE_FRAC: 0.4,
   GAIN_MIN: 0.75, GAIN_MAX: 1.33,
+  // Khối bất ổn (TV, quạt) phải bất ổn ở CẢ UNSTABLE_PARTS phần của cửa sổ hiệu chỉnh; cụm bất ổn > MASK_BLOB_MAX khối
+  // (8 hướng, ~8 ô) là người cử động lúc hiệu chỉnh, không che. Xem PLAN-STATUE-FIX.md.
+  UNSTABLE_PARTS: 3, MASK_BLOB_MAX: 32,
   TAU_K0: 2.5, TAU_K1: 0, // tau = round((K0 - K1*s) * sigma) + 2
   Q_LOG0: -4, Q_LOG_STEP: 0.1, // xác suất nhiễu cho phép của một khối: 10^(Q_LOG0 + Q_LOG_STEP*(s-1))
 };
@@ -199,7 +202,9 @@ export function createDetector({ sensitivity = 6 } = {}) {
   let taus = [tauFor(sigma, 1)]; // các tau khác nhau theo độ nhạy 1..10
   let tauOfSens = new Array(11).fill(0);
   let nBlock = [new Float32Array(NB).fill(1)]; // theo tau: mức nhiễu khối (đã chặn trần)
-  let medS = [new Float32Array(NB)];
+  let unst = [new Uint8Array(NB)]; // theo tau: khối bất ổn suốt cửa sổ hiệu chỉnh (TV, quạt)
+  let busy = [new Uint8Array(NB)]; // theo tau: khối có cử động lúc hiệu chỉnh (mức nhiễu > trần), không đưa vào sàn gộp
+  let bigBlobs = 0;
   let calibrated = false;
   let poolT = SF.MIN_COUNT;
   let calInfo = { sigma, tau: 0, medNoise: 0, masked: 0, movingFrac: 0 };
@@ -234,7 +239,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
     const hist = new Float64Array(BLOCK_PX + 2);
     let n = 0;
     for (let b = 0; b < NB; b++) {
-      if (maskedBlocks[b]) continue;
+      if (maskedBlocks[b] || busy[ti][b]) continue;
       for (let k = 0; k < ns; k++) { hist[cal.samples[k][ti * NB + b]]++; n++; }
     }
     if (!n) return SF.MIN_COUNT;
@@ -250,7 +255,47 @@ export function createDetector({ sensitivity = 6 } = {}) {
   function applySens() {
     const ti = tauOfSens[sens] || 0;
     const nb = nBlock[ti];
-    for (let i = 0; i < NB; i++) maskedBlocks[i] = calibrated && medS[ti][i] > SF.UNSTABLE_FRAC * BLOCK_PX ? 1 : 0;
+    for (let i = 0; i < NB; i++) maskedBlocks[i] = calibrated && unst[ti][i] ? 1 : 0;
+    // Cụm khối bất ổn quá lớn (> MASK_BLOB_MAX khối, nối 8 hướng) là người cử động lúc hiệu chỉnh, không phải TV/quạt: bỏ che.
+    bigBlobs = 0;
+    if (calibrated) {
+      const seen = new Uint8Array(NB);
+      const stack = [];
+      const comp = [];
+      for (let i0 = 0; i0 < NB; i0++) {
+        if (!maskedBlocks[i0] || seen[i0]) continue;
+        comp.length = 0;
+        seen[i0] = 1;
+        stack.push(i0);
+        while (stack.length) {
+          const p = stack.pop();
+          comp.push(p);
+          const x = p % BX;
+          const y = (p / BX) | 0;
+          for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+            const xx = x + dx; const yy = y + dy;
+            if (xx < 0 || xx >= BX || yy < 0 || yy >= BY) continue;
+            const q = yy * BX + xx;
+            if (maskedBlocks[q] && !seen[q]) { seen[q] = 1; stack.push(q); }
+          }
+        }
+        if (comp.length > SF.MASK_BLOB_MAX) { bigBlobs++; for (const q of comp) maskedBlocks[q] = 0; }
+      }
+    }
+    // Viền: khối có cử động lúc hiệu chỉnh nằm sát khối bất ổn còn lại (mép cánh quạt, mép TV) cũng che.
+    if (calibrated) {
+      const core = Uint8Array.from(maskedBlocks);
+      for (let y = 0; y < BY; y++) for (let x = 0; x < BX; x++) {
+        const i = y * BX + x;
+        if (core[i] || !busy[ti][i]) continue;
+        let near = 0;
+        for (let dy = -1; dy <= 1 && !near; dy++) for (let dx = -1; dx <= 1; dx++) {
+          const yy = y + dy; const xx = x + dx;
+          if (yy >= 0 && yy < BY && xx >= 0 && xx < BX && core[yy * BX + xx]) { near = 1; break; }
+        }
+        if (near) maskedBlocks[i] = 1;
+      }
+    }
     const floorT = poolFloor(ti);
     poolT = floorT;
     for (let i = 0; i < NB; i++) {
@@ -456,7 +501,8 @@ export function createDetector({ sensitivity = 6 } = {}) {
       }
       const ns = cal.samples.length;
       nBlock = taus.map(() => new Float32Array(NB).fill(1));
-      medS = taus.map(() => new Float32Array(NB));
+      unst = taus.map(() => new Uint8Array(NB));
+      busy = taus.map(() => new Uint8Array(NB));
       let movingFrames = 0;
       if (ns) {
         const caps = [];
@@ -466,10 +512,18 @@ export function createDetector({ sensitivity = 6 } = {}) {
           for (let b = 0; b < NB; b++) {
             for (let s = 0; s < ns; s++) vals[s] = cal.samples[s][k * NB + b];
             raw[b] = robustLevel(vals);
-            medS[k][b] = medianOf(vals);
+            // Bất ổn = trung vị > UNSTABLE_FRAC*64 ở MỌI phần của cửa sổ (nháy liên tục), không chỉ trung vị cả cửa sổ.
+            const parts = ns >= 2 * SF.UNSTABLE_PARTS ? SF.UNSTABLE_PARTS : 1;
+            let all = 1;
+            for (let p = 0; p < parts && all; p++) {
+              const a = Math.floor((p * ns) / parts);
+              const z = Math.floor(((p + 1) * ns) / parts);
+              if (medianOf(vals.slice(a, z)) <= SF.UNSTABLE_FRAC * BLOCK_PX) all = 0;
+            }
+            unst[k][b] = all;
           }
           const cap = Math.max(4, 2 * medianOf(raw) + 2);
-          for (let b = 0; b < NB; b++) nBlock[k][b] = Math.min(raw[b], cap);
+          for (let b = 0; b < NB; b++) { nBlock[k][b] = Math.min(raw[b], cap); busy[k][b] = raw[b] > cap ? 1 : 0; }
           caps.push(cap);
         }
         const kk = tauOfSens[sens] || 0;
@@ -486,7 +540,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
       const kk = tauOfSens[sens] || 0;
       let sum = 0;
       for (let b = 0; b < NB; b++) sum += nBlock[kk][b];
-      calInfo = { sigma, tau: taus[kk], medNoise: sum / NB, masked, movingFrac: ns ? movingFrames / ns : 0 };
+      calInfo = { sigma, tau: taus[kk], medNoise: sum / NB, masked, movingFrac: ns ? movingFrames / ns : 0, bigBlobs };
       return calInfo;
     },
     startRed(t) {

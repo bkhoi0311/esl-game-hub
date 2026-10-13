@@ -11,6 +11,7 @@ import { createUI } from './ui.js';
 import { FEATURES } from './features.js';
 import { createTools } from './tools.js';
 import { parseTheme } from './theme.js';
+import { onLang } from './i18n.js';
 
 const root = document.documentElement;
 const q = new URLSearchParams(location.search);
@@ -42,7 +43,7 @@ const actions = {
     const zone = board.zones[zid - 1];
     if (!zone) return;
     const a = undo(zone);
-    if (!a) { ui.toast('Vùng ' + zid + ' không còn gì để hoàn tác.'); return; }
+    if (!a) { ui.toastKey('board.toast.nothingToUndo', { n: zid }); return; }
     renderer.markDirty(zid);
     ui.refreshZone(zone);
   },
@@ -51,7 +52,7 @@ const actions = {
     if (!zone || !clearZone(zone)) return;
     renderer.markDirty(zid);
     ui.refreshZone(zone);
-    ui.toast('Đã xoá vùng ' + zid + '. Bấm Hoàn tác để lấy lại.');
+    ui.toastKey('board.toast.zoneCleared', { n: zid });
   },
   clearAll() {
     for (const zone of board.zones) {
@@ -63,7 +64,7 @@ const actions = {
     if (n === board.zones.length) return;
     const deckOn = deck.hasDeck();   // có đề thì đặt lại điểm và chia lại câu
     if (deckOn || board.zones.some((z) => z.strokes.length)) {
-      const ok = await ui.confirm({ title: 'Chia ' + n + ' vùng?', body: deckOn ? 'Đổi số vùng sẽ đặt lại điểm, chia lại câu và xoá toàn bộ nét hiện có.' : 'Đổi số vùng sẽ xoá toàn bộ nét hiện có.', ok: 'Đổi', cancel: 'Huỷ' });
+      const ok = await ui.confirm({ title: 'board.dlg.zones.title', args: { n }, body: deckOn ? 'board.dlg.zones.bodyDeck' : 'board.dlg.zones.body', ok: 'board.dlg.zones.ok', cancel: 'common.cancel' });
       if (!ok) return;
     }
     input.cancelAll();
@@ -109,7 +110,7 @@ document.getElementById('floaters').appendChild(diag.hud);
 document.querySelector('[data-testid="brand-label"]').addEventListener('pointerdown', () => diag.labelClick());
 
 // phát hiện "chỉ 1 pointer" (mục 3.1)
-const WARN = 'Cửa sổ này có thể chỉ nhận 1 điểm chạm: mỗi lúc chỉ 1 người viết được. Xem Thông tin để biết cách khác.';
+const WARN = 'board.banner.singleTouch';   // khoá chuỗi
 let provenMulti = false, toldMulti = false;
 const evidenceMulti = () => provenMulti || (diag.st.maxSimul >= 2 && diag.st.cancelsWithOthers === 0);
 function evalWarn() {
@@ -120,9 +121,10 @@ const hooks = {
   isLocked: (zid) => deck.isLocked(zid) || tools.isLocked(zid),          // khoá vùng (Đề, Hết giờ)
   lockedTouch: (zid) => deck.lockedTouch(zid),
   closeTray: (zid) => ui.closeTray(zid),
-  toast: (t) => ui.toast(t),
+  toast: (txt) => ui.toast(txt),
+  toastKey: (k, prm, ms) => ui.toastKey(k, prm, ms),
   onSimul(m) {
-    if (m >= 2 && !toldMulti) { toldMulti = true; ui.toast('Đã nhận 2 người viết cùng lúc.'); }
+    if (m >= 2 && !toldMulti) { toldMulti = true; ui.toastKey('board.toast.multiOk'); }
     evalWarn();
   },
   zoneChanged: (zone) => ui.refreshZone(zone),
@@ -174,8 +176,15 @@ if (FEATURES.deck) {
     lastKey = '';
     relayout();
     deck.start();   // nạp đề theo tham số URL / link bài (không chặn khởi động)
-  }).catch(() => ui.toast('Không tải được phần Đề.'));
+  }).catch(() => ui.toastKey('board.toast.deckLoadFail'));
 }
+// Đổi ngôn ngữ giao diện: chữ đã được lõi i18n dịch tại chỗ. Ở đây chỉ đo lại tràn thanh gộp (chữ tiếng Anh dài hơn): nếu tràn thì
+// dùng hai hàng như bộ đo cũ. Không dựng lại canvas, không đụng nét / đề / điểm / đồng hồ khi không tràn.
+onLang(() => {
+  const W = innerWidth;
+  const ch = chromeLayout(W, innerHeight, FEATURES.deck, !!forceRows[W]);
+  if (ch.merged && tools.overflowed()) { forceRows[W] = true; lastKey = ''; relayout(); }
+});
 window.addEventListener('resize', () => { for (const k in forceRows) if (Number(k) !== innerWidth) delete forceRows[k]; relayout(); });
 if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.getElementById('stage'));
 

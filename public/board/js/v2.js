@@ -9,6 +9,7 @@ import { PAPERS } from './sheets.js';
 import { openTeamSheet, openScoreSheet } from './deck-sheets.js';
 import { openDeckDialog } from './deck-dialog.js';
 import * as C from './classroom.js';
+import { t, lang, onLang } from './i18n.js';
 
 const STORE = 'board.v2';
 const KINDS = ['write', 'missing', 'mc'];
@@ -62,7 +63,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     onEnd() {
       C.endTimer(cls);
       lastRun = false;
-      ui.toast('Hết giờ', 3000);
+      ui.toastKey('board.toast.timeUp', null, 3000);
       tools.beep();
       tools.timeup.show();
       refresh();
@@ -75,8 +76,8 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     overlay: document.getElementById('overlay'),
     actions: {
       team: (zid) => teamSheet(zid),
-      prev: (zid) => { if (C.prevForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toast('Đây là câu đầu của vùng ' + zid + '.'); },
-      next: (zid) => { if (C.nextForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.'); },
+      prev: (zid) => { if (C.prevForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toastKey('board.toast.firstQ', { n: zid }); },
+      next: (zid) => { if (C.nextForZone(cls, zid)) { strokes.clearZone(zid); refresh(); } else ui.toastKey('board.toast.noMore'); },
       verdict: (zid, v) => { C.setVerdict(cls, zid, v); refresh(); },
     },
   });
@@ -90,7 +91,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     actions: {
       openDeck: () => openDeck(),
       sharedPrev: () => { if (C.prevShared(cls)) refresh(); },
-      sharedNext: () => { if (C.nextShared(cls)) refresh(); else ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.'); },
+      sharedNext: () => { if (C.nextShared(cls)) refresh(); else ui.toastKey('board.toast.noMore'); },
       timerSet,
       timerPower() { if (cls.timer.mode === 'off') timerSet(lastTimer.mode, lastTimer.total); else timerSet('off', 0); },
       timerToggle() {
@@ -125,7 +126,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     lastRun = false;
     tools.timeup.hide();
     strokes.clearAll();
-    if (r.end) ui.toast('Hết đề. Bấm Chọn đề để làm đề mới.');
+    if (r.end) ui.toastKey('board.toast.noMore');
     refresh();
   }
 
@@ -136,6 +137,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
   /* ----- nền viết: do tools.js giữ; v2 chỉ gắn trạng thái nền của từng vùng (cls.zones) vào đó ----- */
   tools.setPaperStore(cls.zones, persist);
   tools.onTimeupDismiss(() => { C.dismissTimeup(cls); refresh(); });
+  tools.setCueLang(() => (cls.deck && cls.deck.lang === 'vi' ? 'vi' : 'en'));   // lời nhắc học sinh theo ngôn ngữ của đề
   const autoPaper = (paper) => tools.autoPaper(paper);
   const paintPapers = () => tools.paintPapers();
 
@@ -162,27 +164,29 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     if (choice.source.type === 'lib' || choice.source.type === 'lesson') {
       let pack;
       if (choice.source.type === 'lesson') {
-        if (!lesson) { ui.toast('Chưa có bài trong link.'); return false; }
+        if (!lesson) { ui.toastKey('board.toast.noLesson'); return false; }
         pack = lesson.source;
       } else pack = await loadPack(choice.source.id);
       title = pack.title; teams = pack.teams; level = pack.level || '';
       tasks = buildDeck({ source: pack, kind: choice.kind, count: choice.count, order: choice.order, seed, difficulty: choice.difficulty || 1 });
-      if (tasks.length && tasks.length < choice.count) ui.toast('Gói này chỉ có ' + tasks.length + ' câu loại này.');
+      if (tasks.length && tasks.length < choice.count) ui.toastKey('board.toast.packShort', { n: tasks.length });
     } else if (choice.source.type === 'math') {
       const m = await import('./math/gen.js');
       const r = m.generateMath({ grade: choice.grade, type: choice.mathType, difficulty: choice.difficulty || 2, count: choice.count, seed, lang: choice.lang || 'vi', withOptions: false });
       tasks = r.tasks || r;
-      if (r.short) ui.toast('Dạng này chỉ sinh được ' + tasks.length + ' câu khác nhau.');
+      if (r.short) ui.toastKey('board.toast.mathShort', { n: tasks.length });
     }
-    if (!tasks.length) { ui.toast('Gói này chưa có câu loại này.'); return false; }
+    if (!tasks.length) { ui.toastKey('board.toast.packEmpty'); return false; }
     if (board.zones.some((z) => z.strokes.length)) {
-      const ok = await ui.confirm({ title: 'Bắt đầu đề mới?', body: 'Nét trên bảng sẽ bị xoá.', ok: 'Bắt đầu', cancel: 'Huỷ' });
+      const ok = await ui.confirm({ title: 'board.dlg.newDeck.title', body: 'board.dlg.newDeck.body', ok: 'common.start', cancel: 'common.cancel' });
       if (!ok) return false;
     }
     strokes.clearAll();
     packTeams = teams;
     autoPaper(paperFor(Object.assign({ level }, choice)));
-    C.applyDeck(cls, { source: Object.assign({}, choice.source, { title }), kind: choice.kind, tasks, mode: choice.mode, order: choice.order, seed, lang: choice.lang || 'en' },
+    // deck.lang = ngôn ngữ của ĐỀ (quyết định lời nhắc học sinh): gói Anh luôn 'en'; Toán theo lời đề đã chọn.
+    const deckLang = choice.source.type === 'math' ? (choice.lang === 'en' ? 'en' : 'vi') : 'en';
+    C.applyDeck(cls, { source: Object.assign({}, choice.source, { title }), kind: choice.kind, tasks, mode: choice.mode, order: choice.order, seed, lang: deckLang },
       { teams, timer: choice.timer });
     timer.set(cls.timer.mode, cls.timer.total);
     lastRun = false;
@@ -196,7 +200,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     closeSheets();
     const choice = await openDeckDialog({ sheets, lesson: lesson ? { title: lesson.title } : null, prefill: lastPrefill });
     if (!choice) return;
-    lastPrefill = { subject: choice.subject, packId: choice.source.id, kind: choice.kind === 'math' ? 'write' : choice.kind, grade: choice.grade, mathType: choice.mathType, difficulty: choice.difficulty, lang: choice.lang, mode: choice.mode, order: choice.order, count: choice.count, timer: choice.timer };
+    lastPrefill = { subject: choice.subject, packId: choice.source.id, kind: choice.kind === 'math' ? 'write' : choice.kind, grade: choice.grade, mathType: choice.mathType, difficulty: choice.difficulty, lang: choice.lang, mode: choice.mode, order: choice.order, count: choice.count, timer: choice.timer, langTouched: !!choice.langTouched };
     await loadChoice(choice);
   }
   let lastPrefill = null;
@@ -209,7 +213,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
         const m = await import('./lesson.js');
         const r = await m.readLessonFromHash();
         if (r) lesson = r;
-      } catch (e) { ui.toast('Link bài hỏng hoặc bị cắt.', 4000); }
+      } catch (e) { ui.toastKey('board.toast.badLink', null, 4000); }
     }
     const src = q.get('src');
     if (!src) return;
@@ -229,9 +233,11 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     const base = { mode, order: p.get('order') === 'rand' ? 'rand' : 'seq', count: num('n', 1, 50, 10), timer: { mode: tm[0], total: tm[1] || 60 }, paper: p.get('paper') || '', seed: parseInt(p.get('seed'), 10) || 0, difficulty: num('d', 1, 3, 2) };
     if (src === 'math') {
       const grade = num('grade', 1, 12, 3);
+      // Lời đề Toán: tham số `mlang` (KHÔNG dùng `lang`: ClassIn tự gắn lang=en vào mọi liên kết); thiếu thì theo ngôn ngữ giao diện.
+      const ml = p.get('mlang') === 'en' ? 'en' : p.get('mlang') === 'vi' ? 'vi' : '';
       let mt = p.get('type') || '';
       try { const m = await import('./math/gen.js'); if (!m.MATH_TYPES[grade].some((x) => x.type === mt)) mt = m.MATH_TYPES[grade][0].type; } catch (e) { return null; }
-      return Object.assign(base, { subject: 'math', source: { type: 'math', id: 'math-' + grade, title: 'Toán lớp ' + grade }, kind: 'math', grade, mathType: mt, lang: p.get('lang') === 'en' ? 'en' : 'vi' });
+      return Object.assign(base, { subject: 'math', source: { type: 'math', id: 'math-' + grade, title: t('board.deck.mathTitle', { n: grade }) }, kind: 'math', grade, mathType: mt, lang: ml || lang(), langTouched: !!ml });
     }
     const kind = KINDS.indexOf(p.get('kind')) >= 0 ? p.get('kind') : null;
     if (src === 'lesson') {
@@ -246,22 +252,32 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     return null;
   }
 
+  // Thanh lớp: ngưỡng 1400 làm mặc định, nhưng bật thu gọn theo PHÉP ĐO khi chữ (tiếng Anh) làm thanh tràn.
+  function fitBar() {
+    const rootEl = document.documentElement;
+    rootEl.classList.toggle('cb-compact', !!curG && curG.W < 1400);
+    if (curG && curG.W >= 1400 && bar.el.scrollWidth > bar.el.clientWidth + 1) rootEl.classList.add('cb-compact');
+  }
+  // Đổi ngôn ngữ giao diện: chỉ chữ đổi (apply() của lõi đã dịch phần có data-i18n). Ở đây vẽ lại chữ do mã dựng (nhãn câu, điểm), đo lại thanh lớp.
+  // KHÔNG sinh lại đề, KHÔNG đụng nét / canvas / đồng hồ.
+  onLang(() => { refresh(); fitBar(); });
+
   /* ----- API cho main.js ----- */
   const api = {
     bandH: (s, stageH) => bandHeight(s, stageH, C.hasDeck(cls)),
     layout(g) {   // g = { bands, writes, top, s, W }
       curG = g;
       const n = board.zones.length;
-      document.documentElement.classList.toggle('cb-compact', g.W < 1400);
       document.documentElement.style.setProperty('--band-h', (g.bands[0] ? g.bands[0].h : 0) + 'px');   // toast / banner nằm dưới dải đề
       cards.layout({ bands: g.bands, writes: g.writes, top: g.top, s: g.s, fm: fontMax(n, g.s), n });
       refresh();
+      fitBar();
     },
     hasDeck: () => C.hasDeck(cls),
     isLocked: (zid) => C.isLocked(cls, zid),
     lockedTouch(zid) {
       const now = Date.now();
-      if (cls.hidden && now - lastLockToast > 2500) { lastLockToast = now; ui.toast('Bấm Bắt đầu để mở đề.', 2000); }
+      if (cls.hidden && now - lastLockToast > 2500) { lastLockToast = now; ui.toastKey('board.toast.tapStart', null, 2000); }
     },
     // đổi số vùng (main đã dựng lại board.zones): đặt lại điểm, chia lại câu
     zoneCount(n) { C.setZoneCount(cls, n); tools.setPaperStore(cls.zones, persist); timer.reset(); lastRun = false; tools.timeup.hide(); closeSheets(); cards.closeZoom(); },

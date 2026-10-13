@@ -2,21 +2,25 @@
 import { icon } from './icons.js';
 import { isHugePalm } from './palm.js';
 import { FEATURES } from './features.js';
+import { t, bind, apply, mountSwitch, withUi, lang } from './i18n.js';
 
 // Bảng màu bút hiện tại. Mảng này được sửa tại chỗ khi đổi nền bảng (setPalette), nên nơi khác cứ import COLORS.
+// Tên màu / cỡ nét hiển thị lấy từ danh mục chuỗi (board.color.*, board.size.*), không còn viết cứng ở đây.
 export const COLORS = [
-  { key: 'white', name: 'Trắng', hex: '#FFFFFF' },
-  { key: 'red', name: 'Đỏ', hex: '#FF4D4F' },
-  { key: 'yellow', name: 'Vàng', hex: '#FFD43B' },
-  { key: 'green', name: 'Xanh lá', hex: '#40C057' },
-  { key: 'blue', name: 'Xanh dương', hex: '#4DABF7' },
-  { key: 'orange', name: 'Cam', hex: '#FF922B' },
+  { key: 'white', hex: '#FFFFFF' },
+  { key: 'red', hex: '#FF4D4F' },
+  { key: 'yellow', hex: '#FFD43B' },
+  { key: 'green', hex: '#40C057' },
+  { key: 'blue', hex: '#4DABF7' },
+  { key: 'orange', hex: '#FF922B' },
 ];
 export const SIZES = [
-  { v: 5, name: 'Mảnh', dot: 6 },
-  { v: 10, name: 'Vừa', dot: 11 },
-  { v: 20, name: 'Đậm', dot: 18 },
+  { v: 5, k: 'thin', dot: 6 },
+  { v: 10, k: 'medium', dot: 11 },
+  { v: 20, k: 'thick', dot: 18 },
 ];
+// Khoá chuỗi của một màu bút (Vàng đậm của nền Trắng có khoá riêng).
+export const colorKey = (c) => 'board.color.' + (c.hex === '#E67700' ? 'yellowDark' : c.key);
 const WIDE_MIN = 760;        // (đơn vị gốc, chia cho s): từ đây dock dạng rộng
 const TRAY_IDLE_MS = 5000;
 
@@ -74,28 +78,30 @@ export function createUI({ board, brand, actions, getS }) {
         ? '<img class="logo-img" data-testid="brand-logo" src="./assets/classin-logo.png" alt="ClassIn" width="887" height="231">'
         : '<span class="brand-word" data-testid="brand-wordmark">ClassIn</span>');
     const second = brand.wordmark
-      ? '<span class="tb-pill" data-testid="brand-pill"><i></i>' + brand.label + '</span>'
-      : '<span class="tb-sub" data-testid="brand-sub">Công cụ bổ trợ cho ClassIn X</span>';
+      ? '<span class="tb-pill" data-testid="brand-pill"><i></i><span data-i18n="' + brand.labelKey + '"></span></span>'
+      : '<span class="tb-sub" data-testid="brand-sub" data-i18n="board.tb.subNeutral"></span>';
     // Nút "Về màn chọn": chỉ có khi mở từ màn chọn của Hub (URL có from=hub)
     const backHtml = FROM_HUB
-      ? '<button type="button" class="tbtn tbtn--icon tbtn--back" data-testid="back-hub" aria-label="Về màn chọn">' + icon('chevron-left') + '</button><span class="tb-div tb-div--back"></span>'
+      ? '<button type="button" class="tbtn tbtn--icon tbtn--back" data-testid="back-hub" data-i18n-aria="board.tb.back">' + icon('chevron-left') + '</button><span class="tb-div tb-div--back"></span>'
       : '';
     topbar.innerHTML =
       '<div class="tb-left">' + backHtml + logoHtml + (brand.wordmark ? '<span class="tb-div"></span>' : '') +
       '<div class="tb-title" data-testid="brand-label">' +
-      '<div class="tb-row"><span class="tb-name">Bảng nhiều người viết</span>' + second + '</div>' +
-      '<div class="tb-disc" data-testid="brand-disclaimer">' + brand.disclaimer + '</div></div></div>' +
+      '<div class="tb-row"><span class="tb-name" data-i18n="common.boardName"></span>' + second + '</div>' +
+      '<div class="tb-disc" data-testid="brand-disclaimer" data-i18n="' + brand.disclaimerKey + '"></div></div></div>' +
       '<div class="tb-mid" data-testid="tb-mid"></div>' +
-      '<div class="tb-right"><div class="seg" role="group" aria-label="Số vùng"></div>' +
-      '<button type="button" class="tbtn tbtn--danger" data-testid="clear-all" aria-label="Xoá hết">' + icon('trash-2') + '<span class="tb-label">Xoá hết</span></button>' +
-      '<button type="button" class="tbtn tbtn--icon" data-testid="fullscreen" aria-label="Toàn màn hình">' + icon('maximize') + '</button>' +
-      '<button type="button" class="tbtn tbtn--icon" data-testid="info" aria-label="Thông tin">' + icon('info') + '</button></div>';
+      '<div class="tb-right"><div class="tb-lang" data-testid="tb-lang"></div><span class="tb-div tb-div--lang"></span><div class="seg" role="group" data-i18n-aria="board.tb.zonesGroup"></div>' +
+      '<button type="button" class="tbtn tbtn--danger" data-testid="clear-all" data-i18n-aria="board.tb.clearAll">' + icon('trash-2') + '<span class="tb-label" data-i18n="board.tb.clearAll"></span></button>' +
+      '<button type="button" class="tbtn tbtn--icon" data-testid="fullscreen" data-i18n-aria="board.tb.fullscreen">' + icon('maximize') + '</button>' +
+      '<button type="button" class="tbtn tbtn--icon" data-testid="info" data-i18n-aria="board.tb.info">' + icon('info') + '</button></div>';
     const seg = $('.seg', topbar);
     for (let i = 1; i <= 4; i++) {
-      const b = h('button', 'segbtn', String(i), { type: 'button', 'data-testid': 'zones-' + i, 'aria-label': 'Chia ' + i + ' vùng' });
+      const b = h('button', 'segbtn', String(i), { type: 'button', 'data-testid': 'zones-' + i });
+      bind(b, 'board.tb.zonesBtn', { n: i }, 'aria-label');
       pressable(b, () => actions.setZones(i));
       seg.appendChild(b);
     }
+    mountSwitch($('.tb-lang', topbar), { wire: (b, fn) => pressable(b, fn) });
     if (FROM_HUB) pressable($('[data-testid="back-hub"]', topbar), () => askBackHub());
     pressable($('[data-testid="clear-all"]', topbar), () => askClearAll());
     const fs = $('[data-testid="fullscreen"]', topbar);
@@ -104,9 +110,10 @@ export function createUI({ board, brand, actions, getS }) {
     document.addEventListener('fullscreenchange', () => {
       const on = !!document.fullscreenElement;
       fs.innerHTML = icon(on ? 'minimize' : 'maximize');
-      fs.setAttribute('aria-label', on ? 'Thoát toàn màn hình' : 'Toàn màn hình');
+      bind(fs, on ? 'board.tb.exitFullscreen' : 'board.tb.fullscreen', null, 'aria-label');
     });
     pressable($('[data-testid="info"]', topbar), showInfo);
+    apply(topbar);
     refreshTopbar();
   }
 
@@ -125,25 +132,26 @@ export function createUI({ board, brand, actions, getS }) {
       if (p && p.catch) p.catch(fsDenied);
     } catch (e) { fsDenied(); }
   }
-  function fsDenied() { toast('Cửa sổ này không cho toàn màn hình. Hãy phóng to cửa sổ bằng thanh của ClassIn.'); }
+  function fsDenied() { toastKey('board.toast.fsDenied'); }
 
   async function askBackHub() {
     // Rời bảng là mất nét viết (bảng không lưu): hỏi lại nếu còn nét.
     let go = true;
     if (board.zones.some((z) => z.strokes.length)) {
-      go = await confirmDialog({ title: 'Về màn chọn?', body: 'Nét viết trên bảng sẽ mất.', ok: 'Rời bảng', cancel: 'Ở lại', danger: true });
+      go = await confirmDialog({ title: 'board.dlg.back.title', body: 'board.dlg.back.body', ok: 'board.dlg.back.ok', cancel: 'board.dlg.back.cancel', danger: true });
     }
-    if (go) location.href = '../start/index.html';
+    if (go) location.href = withUi('../start/index.html', lang());
   }
 
   async function askClearAll() {
-    const ok = await confirmDialog({ title: 'Xoá hết bảng?', body: 'Mọi vùng sẽ được xoá. Có thể hoàn tác từng vùng.', ok: 'Xoá hết', cancel: 'Huỷ', danger: true });
+    const ok = await confirmDialog({ title: 'board.dlg.clearAll.title', body: 'board.dlg.clearAll.body', ok: 'board.tb.clearAll', cancel: 'common.cancel', danger: true });
     if (ok) actions.clearAll();
   }
 
   /* ---------- vùng: dock, khay, huy hiệu, khe ---------- */
-  function dockBtn(zid, key, label, ic) {
-    const b = h('button', 'dbtn', icon(ic), { type: 'button', 'data-testid': 'z' + zid + '-' + key, 'aria-label': label });
+  function dockBtn(zid, key, labelKey, ic, args) {
+    const b = h('button', 'dbtn', icon(ic), { type: 'button', 'data-testid': 'z' + zid + '-' + key });
+    bind(b, labelKey, args, 'aria-label');
     return b;
   }
 
@@ -156,23 +164,26 @@ export function createUI({ board, brand, actions, getS }) {
     wrap.style.height = rect.h + 'px';
     if (n >= 2) wrap.appendChild(h('div', 'zone-badge', String(zid), { 'data-testid': 'badge-' + zid }));
 
-    const pen = dockBtn(zid, 'pen', 'Bút', 'pen-line');
+    const pen = dockBtn(zid, 'pen', 'board.dock.pen', 'pen-line');
     pen.insertAdjacentHTML('beforeend', '<span class="pen-dot"></span>');
-    const er = dockBtn(zid, 'eraser', 'Tẩy', 'eraser');
-    const un = dockBtn(zid, 'undo', 'Hoàn tác', 'undo-2');
-    const cl = dockBtn(zid, 'clear', 'Xoá vùng ' + zid, 'trash-2');
-    const dock = h('div', 'pane pane--dock dock' + (wide ? ' dock--wide' : '') + (grid ? ' dock--grid' : ''), null, { 'data-testid': 'z' + zid + '-dock', role: 'toolbar', 'aria-label': 'Công cụ vùng ' + zid });
+    const er = dockBtn(zid, 'eraser', 'board.dock.eraser', 'eraser');
+    const un = dockBtn(zid, 'undo', 'board.dock.undo', 'undo-2');
+    const cl = dockBtn(zid, 'clear', 'board.dock.clearZone', 'trash-2', { n: zid });
+    const dock = h('div', 'pane pane--dock dock' + (wide ? ' dock--wide' : '') + (grid ? ' dock--grid' : ''), null, { 'data-testid': 'z' + zid + '-dock', role: 'toolbar' });
+    bind(dock, 'board.dock.toolbar', { n: zid }, 'aria-label');
     const info = { wrap, dock, tray: null, open: false, timer: 0, wide, pen };
 
     const colorBtn = (c) => {
-      const b = h('button', 'cdot', '<span style="background:' + c.hex + '"></span>', { type: 'button', 'data-testid': 'z' + zid + '-color-' + c.key, 'aria-label': c.name });
+      const b = h('button', 'cdot', '<span style="background:' + c.hex + '"></span>', { type: 'button', 'data-testid': 'z' + zid + '-color-' + c.key });
+      bind(b, colorKey(c), null, 'aria-label');
       b.dataset.hex = c.hex;
       b.dataset.idx = String(COLORS.indexOf(c));
       pressable(b, () => pick(zid, { color: b.dataset.hex }));   // đọc từ dataset: bảng màu đổi theo nền bảng
       return b;
     };
     const sizeBtn = (s) => {
-      const b = h('button', 'sdot', '<span style="width:calc(' + s.dot + 'px * var(--s));height:calc(' + s.dot + 'px * var(--s))"></span>', { type: 'button', 'data-testid': 'z' + zid + '-size-' + s.v, 'aria-label': s.name });
+      const b = h('button', 'sdot', '<span style="width:calc(' + s.dot + 'px * var(--s));height:calc(' + s.dot + 'px * var(--s))"></span>', { type: 'button', 'data-testid': 'z' + zid + '-size-' + s.v });
+      bind(b, 'board.size.' + s.k, null, 'aria-label');
       b.dataset.size = s.v;
       pressable(b, () => pick(zid, { size: s.v }));
       return b;
@@ -186,7 +197,8 @@ export function createUI({ board, brand, actions, getS }) {
       dock.append(h('i', 'vr'), un, cl);
     } else {
       dock.append(pen, er, un, cl);
-      const tray = h('div', 'pane pane--tray tray', null, { 'data-testid': 'z' + zid + '-tray', role: 'group', 'aria-label': 'Màu và cỡ nét vùng ' + zid });
+      const tray = h('div', 'pane pane--tray tray', null, { 'data-testid': 'z' + zid + '-tray', role: 'group' });
+      bind(tray, 'board.dock.tray', { n: zid }, 'aria-label');
       tray.hidden = true;
       COLORS.forEach((c) => tray.appendChild(colorBtn(c)));
       SIZES.forEach((s) => tray.appendChild(sizeBtn(s)));
@@ -301,14 +313,14 @@ export function createUI({ board, brand, actions, getS }) {
   // Đổi bảng màu bút theo nền bảng: cập nhật nút màu tại chỗ (không dựng lại dock, giữ trạng thái khay).
   function setPalette(list) {
     COLORS.length = 0;
-    list.forEach((c) => COLORS.push({ key: c.key, name: c.name, hex: c.hex }));
+    list.forEach((c) => COLORS.push({ key: c.key, hex: c.hex }));
     for (const zid in zoneUI) {
       zoneUI[zid].wrap.querySelectorAll('.cdot').forEach((b) => {
         const c = COLORS[Number(b.dataset.idx)];
         if (!c) return;
         b.dataset.hex = c.hex;
         b.setAttribute('data-testid', 'z' + zid + '-color-' + c.key);
-        b.setAttribute('aria-label', c.name);
+        bind(b, colorKey(c), null, 'aria-label');
         b.firstChild.style.background = c.hex;
       });
     }
@@ -330,12 +342,19 @@ export function createUI({ board, brand, actions, getS }) {
     toastTimer = setTimeout(() => { toastEl.hidden = true; toastEl.classList.remove('show'); }, ms || 2500);
   }
 
-  function showBanner(text) {
+  // Toast theo khoá: ghi data-key để test kiểm theo khoá. Toast đang hiện không dịch lại khi đổi ngôn ngữ (chỉ sống 2,5 giây).
+  function toastKey(key, params, ms) {
+    toast(t(key, params), ms);
+    toastEl.dataset.key = key;
+  }
+
+  function showBanner(key) {
     floaters.classList.add('has-banner');
     if (bannerEl) { bannerEl.hidden = false; return; }
     bannerEl = h('div', 'pane pane--banner banner', icon('triangle-alert') + '<span class="banner-text"></span>', { 'data-testid': 'banner', role: 'alert' });
-    $('.banner-text', bannerEl).textContent = text;
-    const x = h('button', 'tbtn tbtn--icon banner-x', icon('x'), { type: 'button', 'data-testid': 'banner-close', 'aria-label': 'Đóng' });
+    bind($('.banner-text', bannerEl), key);
+    const x = h('button', 'tbtn tbtn--icon banner-x', icon('x'), { type: 'button', 'data-testid': 'banner-close' });
+    bind(x, 'common.close', null, 'aria-label');
     pressable(x, hideBanner);
     bannerEl.appendChild(x);
     floaters.appendChild(bannerEl);
@@ -351,16 +370,18 @@ export function createUI({ board, brand, actions, getS }) {
     const r = dialogResolve; dialogResolve = null;
     if (r) r(result);
   }
-  function confirmDialog({ title, body, ok, cancel, danger }) {
+  // title/body/ok/cancel là KHOÁ chuỗi (không phải chữ đã dịch) nên hộp đang mở vẫn dịch lại được khi đổi ngôn ngữ. args: tham số cho title/body.
+  function confirmDialog({ title, body, ok, cancel, danger, args }) {
     if (dialogEl) closeDialog(false);
     return new Promise((resolve) => {
       dialogResolve = resolve;
       dialogEl = h('div', 'dim', null, { 'data-testid': 'dialog-dim' });
       const card = h('div', 'pane pane--sheet sheet', '<h2 class="sheet-title"></h2><p class="sheet-body"></p><div class="sheet-actions"></div>', { 'data-testid': 'dialog', role: 'dialog', 'aria-modal': 'true' });
-      $('.sheet-title', card).textContent = title;
-      $('.sheet-body', card).textContent = body;
-      const bc = h('button', 'sbtn sbtn--ghost', cancel, { type: 'button', 'data-testid': 'dialog-cancel' });
-      const bo = h('button', 'sbtn ' + (danger ? 'sbtn--danger' : 'sbtn--primary'), ok, { type: 'button', 'data-testid': 'dialog-ok' });
+      bind($('.sheet-title', card), title, args);
+      bind($('.sheet-body', card), body, args);
+      const bc = h('button', 'sbtn sbtn--ghost', null, { type: 'button', 'data-testid': 'dialog-cancel' });
+      const bo = h('button', 'sbtn ' + (danger ? 'sbtn--danger' : 'sbtn--primary'), null, { type: 'button', 'data-testid': 'dialog-ok' });
+      bind(bc, cancel); bind(bo, ok);
       pressable(bc, () => closeDialog(false));
       pressable(bo, () => closeDialog(true));
       $('.sheet-actions', card).append(bc, bo);
@@ -377,32 +398,31 @@ export function createUI({ board, brand, actions, getS }) {
     const logo = brand.wordmark ? (brand.logo ? '<img class="logo-img info-logo" src="./assets/classin-logo.png" alt="ClassIn">' : '<span class="brand-word">ClassIn</span>') : '';
     const card = h('div', 'pane pane--sheet sheet sheet--info', null, { 'data-testid': 'info-panel', role: 'dialog', 'aria-modal': 'true' });
     const D = FEATURES.deck;
-    const how = ['<li>Mỗi vùng có thanh công cụ riêng ở dưới. Nhiều người viết cùng lúc được. Bấm Bút lần nữa để chọn màu và cỡ nét.</li>'];
-    if (D) {
-      how.push('<li>Bấm Chọn đề để lấy câu hỏi từ thư viện, từ bài soạn trong Hub hoặc đề Toán lớp 1 đến 12. Đề hiện ở đầu mỗi vùng.</li>',
-        '<li>Đề chung: mọi vùng cùng một câu. Chia câu: mỗi vùng một câu, có nút ‹ › riêng.</li>',
-        '<li>Bấm Đáp án rồi chấm ✓ ✗ cho từng vùng. Điểm xem bảng điểm. Lượt mới xoá nét, giữ điểm và sang câu kế.</li>');
-    }
-    how.push('<li>Nền: chọn màu bảng Trắng hoặc Đen (cho cả bảng) và kiểu kẻ: 4 dòng, ô li, lưới, trục toạ độ.</li>',
-      '<li>Đồng hồ: bấm biểu tượng đồng hồ để bật, chạm số giờ để chọn 30, 60, 90 giây, 2 phút hoặc Bấm giờ. Hết giờ hiện Time’s up!, chạm bất kỳ đâu để viết tiếp.</li>',
-      '<li>Cắt: kéo chọn vùng cần lấy rồi xem ảnh, bấm Sao chép. Nếu cửa sổ không cho sao chép thì dùng nút Chụp màn hình của ClassIn.</li>');
-    const src = D ? '<h3>Nguồn đề</h3><ul><li>Gói thư viện là chủ đề tự soạn, không theo sách giáo khoa nào. Đề Toán do máy sinh theo luật, giáo viên nên xem lại trước giờ học.</li>' +
-      '<li>Đề tự soạn trong Hub là trách nhiệm của giáo viên. Muốn dùng đề riêng: soạn trên laptop rồi bấm Lưu .edu cho Bảng nhiều người viết.</li></ul>' : '';
-    const priv1 = D ? 'Trang không gửi dữ liệu đi đâu. Nét vẽ mất khi đóng cửa sổ. Đề, điểm, tên đội chỉ nằm trong cửa sổ này (bộ nhớ phiên).' : 'Trang không gửi dữ liệu đi đâu và không lưu gì. Nét vẽ mất khi đóng cửa sổ.';
-    const priv2 = D ? '<li>Link bài từ Hub chứa toàn bộ bài: không ghi tên học sinh vào bài.</li>' : '';
-    card.innerHTML =
-      '<div class="info-head">' + logo + '<h2 class="sheet-title">Bảng nhiều người viết <span class="ver">v0.3</span></h2></div>' +
-      '<p class="sheet-body">Dành cho ClassIn X. Công cụ bổ trợ do ClassIn Việt Nam thử nghiệm, không phải tính năng chính thức của ClassIn.</p>' +
-      '<div class="info-cols"><div><h3>Cách dùng</h3><ul>' + how.join('') + '</ul></div>' +
-      '<div>' + src +
-      '<h3>Nếu chỉ 1 người viết được</h3><p class="sheet-body">Mở địa chỉ dưới đây bằng Edge hoặc Chrome trên Windows của màn hình:</p><p class="info-url"></p>' +
-      '<h3>Quyền riêng tư</h3><ul><li>' + priv1 + '</li>' + priv2 +
-      '<li>ClassIn tự gắn mã trường, mã lớp vào địa chỉ trang. Máy chủ lưu trang (GitHub Pages) có thể ghi nhận địa chỉ này trong nhật ký truy cập. File .edu đã tắt gửi mã người dùng, tên và vai trò.</li></ul></div></div>' +
-      '<div class="sheet-actions"></div>';
-    $('.info-url', card).textContent = url;
-    const x = h('button', 'sbtn sbtn--primary', 'Đóng', { type: 'button', 'data-testid': 'info-close' });
+    // Mỗi mục một khoá (không có HTML trong danh mục): dựng bằng DOM, đổi ngôn ngữ thì apply() dịch lại.
+    const K = (tag, key, cls) => bind(h(tag, cls || null), key);
+    const ul = (keys) => { const u = h('ul'); keys.forEach((k) => u.appendChild(K('li', k))); return u; };
+    const how = ['board.info.how.pen'];
+    if (D) how.push('board.info.how.deck', 'board.info.how.modes', 'board.info.how.answers');
+    how.push('board.info.how.paper', 'board.info.how.clock', 'board.info.how.snip');
+    const priv = [D ? 'board.info.priv1' : 'board.info.priv1b'];
+    if (D) priv.push('board.info.priv2');
+    priv.push('board.info.priv3');
+    const head = h('div', 'info-head', logo);
+    const title = h('h2', 'sheet-title');
+    title.append(K('span', 'common.boardName'), document.createTextNode(' '), h('span', 'ver', 'v0.3'));
+    head.appendChild(title);
+    const c1 = h('div'), c2 = h('div');
+    c1.append(K('h3', 'board.info.howTitle'), ul(how));
+    if (D) c2.append(K('h3', 'board.info.srcTitle'), ul(['board.info.src1', 'board.info.src2']));
+    const urlEl = h('p', 'info-url'); urlEl.textContent = url;
+    c2.append(K('h3', 'board.info.oneTitle'), K('p', 'board.info.oneBody', 'sheet-body'), urlEl, K('h3', 'board.info.privTitle'), ul(priv));
+    const cols = h('div', 'info-cols'); cols.append(c1, c2);
+    const actions = h('div', 'sheet-actions');
+    const x = h('button', 'sbtn sbtn--primary', null, { type: 'button', 'data-testid': 'info-close' });
+    bind(x, 'common.close');
     pressable(x, closeInfo);
-    $('.sheet-actions', card).appendChild(x);
+    actions.appendChild(x);
+    card.append(head, K('p', 'board.info.lead', 'sheet-body'), cols, actions);
     infoEl.appendChild(card);
     document.body.appendChild(infoEl);
     x.focus();
@@ -432,7 +452,7 @@ export function createUI({ board, brand, actions, getS }) {
       refreshTopbar();
     },
     refreshZone, refreshAll, refreshTopbar, setPalette,
-    closeTray, closeAllTrays, toast,
+    closeTray, closeAllTrays, toast, toastKey,
     showBanner, hideBanner, bannerVisible,
     confirm: confirmDialog,
     isDialogOpen: () => !!dialogEl || !!infoEl,

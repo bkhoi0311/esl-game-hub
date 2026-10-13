@@ -9,7 +9,7 @@
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",
-    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs tests/levels.test.mjs tests/statue-motion.test.mjs",
+    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs tests/levels.test.mjs tests/statue-motion.test.mjs tests/i18n.test.mjs",
     "test:games": "node tests/games.mjs",
     "test:classin": "node tests/classin-touch.mjs",
     "test:classin109": "node tests/classin109-layout.mjs",

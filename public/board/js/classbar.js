@@ -5,30 +5,35 @@ import { pressable } from './ui.js';
 import { createClockUI } from './clockui.js';
 import { FEATURES } from './features.js';
 import * as C from './classroom.js';
+import { bind } from './i18n.js';
 
 // actions: { openDeck, sharedPrev, sharedNext, timerSet(mode, sec), timerPower (bật/tắt), timerToggle (chạy/tạm dừng), timerReset, toggleAnswers, newRound, openScore }
 // tools: nút Nền và Cắt dùng chung với thanh gộp (tools.js)
 export function createClassbar({ actions, tools }) {
-  const el = h('div', 'pane pane--bar', null, { id: 'classbar', 'data-testid': 'classbar', role: 'toolbar', 'aria-label': 'Thanh lớp học' });
+  const el = h('div', 'pane pane--bar', null, { id: 'classbar', 'data-testid': 'classbar', role: 'toolbar' });
+  bind(el, 'board.cb.bar', null, 'aria-label');
   el.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
-  const b = (cls, tid, ic, label, text) => {
-    const x = h('button', 'cbtn ' + cls, icon(ic) + (text ? '<span class="cb-text">' + text + '</span>' : ''), { type: 'button', 'data-testid': tid, 'aria-label': label });
+  // aria: khoá chuỗi của aria-label; text: khoá chuỗi của chữ trên nút (hoặc '')
+  const b = (cls, tid, ic, aria, text) => {
+    const x = h('button', 'cbtn ' + cls, icon(ic) + (text ? '<span class="cb-text"></span>' : ''), { type: 'button', 'data-testid': tid });
+    bind(x, aria, null, 'aria-label');
+    if (text) bind(x.querySelector('.cb-text'), text);
     return x;
   };
   const sep = () => h('i', 'cb-sep');
-  const deck = b('', 'deck-open', 'book-open', 'Chọn đề', 'Chọn đề');
+  const deck = b('', 'deck-open', 'book-open', 'board.cb.deckAria', 'board.cb.deck');
   const paper = tools.toolBtn('paper');
   const snip = FEATURES.snip ? tools.toolBtn('snip') : null;
-  const prev = b('cbtn--sq', 'shared-prev', 'chevron-left', 'Câu trước', '');
+  const prev = b('cbtn--sq', 'shared-prev', 'chevron-left', 'board.cb.prev', '');
   const label = h('span', 'cb-q', '', { 'data-testid': 'shared-label' });
-  const next = b('cbtn--sq', 'shared-next', 'chevron-right', 'Câu tiếp', '');
+  const next = b('cbtn--sq', 'shared-next', 'chevron-right', 'board.cb.next', '');
   const nav = h('div', 'cb-grp cb-nav');
   nav.append(prev, label, next);
   const clk = createClockUI({ actions: { toggle: () => actions.timerPower(), startPause: () => actions.timerToggle(), reset: () => actions.timerReset(), set: (m, sec) => actions.timerSet(m, sec) } });
   tools.registerClockUI(clk);
-  const ans = b('', 'answers-toggle', 'eye', 'Đáp án', 'Đáp án');
-  const round = b('', 'new-round', 'refresh-cw', 'Lượt mới', 'Lượt mới');
-  const score = b('', 'score-open', 'trophy', 'Bảng điểm', 'Điểm');
+  const ans = b('', 'answers-toggle', 'eye', 'board.cb.answers', 'board.cb.answers');
+  const round = b('', 'new-round', 'refresh-cw', 'board.cb.newRound', 'board.cb.newRound');
+  const score = b('', 'score-open', 'trophy', 'board.cb.scoreAria', 'board.cb.score');
   const g1 = h('div', 'cb-grp'); g1.append(deck, paper); if (snip) g1.appendChild(snip);
   const g3 = h('div', 'cb-grp'); g3.appendChild(clk.el);
   const g4 = h('div', 'cb-grp cb-end'); g4.append(ans, round, score);
@@ -48,7 +53,7 @@ export function createClassbar({ actions, tools }) {
     nav.hidden = !common; s2.hidden = !common;
     ans.hidden = !has; round.hidden = !has; score.hidden = !has; s3.hidden = !has;
     if (common) {
-      label.textContent = 'Câu ' + (cls.shared + 1) + '/' + C.total(cls);
+      bind(label, 'board.cb.qLabel', { i: cls.shared + 1, total: C.total(cls) });
       prev.classList.toggle('is-disabled', cls.shared <= 0);
       next.classList.toggle('is-disabled', cls.shared + 1 >= C.total(cls));
     }
