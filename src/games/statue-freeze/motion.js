@@ -4,6 +4,8 @@
 // và nhiễu riêng từng khối, so ngắn hạn (~200 ms) VÀ so với ảnh mốc (bắt cử động chậm), bù sáng toàn khung,
 // bằng chứng có suy giảm thay cho "reset khi hụt một khung".
 
+import { createReframeWatch, down4 } from '../../core/reframe.js';
+
 export const SF = {
   SAMPLE_W: 256, SAMPLE_H: 144, BLOCK: 8, CELLS_X: 16, CELLS_Y: 9,
   PROCESS_MIN_GAP_MS: 60, SHORT_DT_MS: 200, RING: 6,
@@ -18,6 +20,8 @@ export const SF = {
   UNSTABLE_PARTS: 3, MASK_BLOB_MAX: 32,
   TAU_K0: 2.5, TAU_K1: 0, // tau = round((K0 - K1*s) * sigma) + 2
   Q_LOG0: -4, Q_LOG_STEP: 0.1, // xác suất nhiễu cho phép của một khối: 10^(Q_LOG0 + Q_LOG_STEP*(s-1))
+  // Camera tự đổi khung (S1): sau khi khung ổn định phải đo được ít nhất RF_MIN_VALID_MS thì lượt đỏ mới có giá trị. PLAN-S1-REFRAME.md.
+  RF_MIN_VALID_MS: 1500,
 };
 
 const BX = SF.SAMPLE_W / SF.BLOCK; // 32
@@ -195,8 +199,14 @@ export function laneAreas(cells, cols, rows, lanes = 1) {
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
 // ---------- Bộ phát hiện v2 ----------
-export function createDetector({ sensitivity = 6 } = {}) {
+export function createDetector({ sensitivity = 6, reframe = true } = {}) {
   let sens = sensitivity;
+  const rw = reframe ? createReframeWatch() : null;
+  const small = new Float32Array(64 * 36);
+  let masksOff = false; // camera đã đổi khung: vùng xám cũ không còn đúng chỗ
+  let needRecal = false;
+  let rfMoving = false;
+  let calRestarts = 0;
   let phase = 'idle'; // idle | cal | red
   let sigma = 2.5;
   let taus = [tauFor(sigma, 1)]; // các tau khác nhau theo độ nhạy 1..10
@@ -215,7 +225,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
   const red = {
     t0: 0, fb: new Uint8Array(NB), e: new Uint8Array(NB), r: new Uint8Array(NB),
     refSum: new Float32Array(SF.SAMPLE_W * SF.SAMPLE_H), refN: 0, refGray: new Uint8Array(SF.SAMPLE_W * SF.SAMPLE_H), refMeans: new Float32Array(NC),
-    refReady: false, refFrom: 0, retakeAt: 0,
+    refReady: false, refFrom: 0, retakeAt: 0, validMs: 0, rfCount: 0, lastT: 0,
   };
   const live = new Uint8Array(NC);
   const flaggedCells = new Uint8Array(NC);
@@ -255,10 +265,10 @@ export function createDetector({ sensitivity = 6 } = {}) {
   function applySens() {
     const ti = tauOfSens[sens] || 0;
     const nb = nBlock[ti];
-    for (let i = 0; i < NB; i++) maskedBlocks[i] = calibrated && unst[ti][i] ? 1 : 0;
+    for (let i = 0; i < NB; i++) maskedBlocks[i] = calibrated && !masksOff && unst[ti][i] ? 1 : 0;
     // Cụm khối bất ổn quá lớn (> MASK_BLOB_MAX khối, nối 8 hướng) là người cử động lúc hiệu chỉnh, không phải TV/quạt: bỏ che.
     bigBlobs = 0;
-    if (calibrated) {
+    if (calibrated && !masksOff) {
       const seen = new Uint8Array(NB);
       const stack = [];
       const comp = [];
@@ -283,7 +293,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
       }
     }
     // Viền: khối có cử động lúc hiệu chỉnh nằm sát khối bất ổn còn lại (mép cánh quạt, mép TV) cũng che.
-    if (calibrated) {
+    if (calibrated && !masksOff) {
       const core = Uint8Array.from(maskedBlocks);
       for (let y = 0; y < BY; y++) for (let x = 0; x < BX; x++) {
         const i = y * BX + x;
@@ -353,6 +363,43 @@ export function createDetector({ sensitivity = 6 } = {}) {
     red.refReady = true;
   }
 
+  function restartCal(t) {
+    cal.t0 = t;
+    cal.hist.fill(0);
+    cal.nHist = 0;
+    cal.samples = [];
+    cal.frames = 0;
+    cal.sigmaDone = false;
+    calRestarts++;
+  }
+
+  // Camera tự đổi khung: bỏ phần đo dở, không tô xám, không tính ô đỏ; khung ổn định lại thì đo lại từ đầu.
+  function onReframe(rf, t) {
+    rfMoving = rf.moving;
+    if (rf.started) {
+      live.fill(0);
+      if (phase === 'red') {
+        red.fb.fill(0); red.e.fill(0); red.r.fill(0);
+        flaggedCells.fill(0);
+        resetRef(Infinity);
+        red.rfCount++;
+      }
+      if (calibrated && !masksOff) {
+        let any = 0;
+        for (let i = 0; i < NB; i++) any |= maskedBlocks[i];
+        if (any) { masksOff = true; needRecal = true; applySens(); }
+      }
+    }
+    if (rf.ended) {
+      if (phase === 'cal') restartCal(t);
+      if (phase === 'red') {
+        red.t0 = t - SF.GRACE_MS; // như vừa hết ân hạn: chụp ảnh mốc mới rồi đo tiếp
+        red.e.fill(0); red.r.fill(0);
+        resetRef(t);
+      }
+    }
+  }
+
   function push(gray, t) {
     const t0p = now();
     // vào vòng đệm
@@ -367,6 +414,14 @@ export function createDetector({ sensitivity = 6 } = {}) {
     if (dtp > 0) st.procHz = st.procHz ? st.procHz * 0.9 + (1000 / dtp) * 0.1 : 1000 / dtp;
     st.lastT = t;
 
+    if (rw) {
+      onReframe(rw.push(down4(gray, SF.SAMPLE_W, SF.SAMPLE_H, small), t), t);
+      if (rfMoving) {
+        if (phase === 'cal' && cal.t0 !== t) restartCal(t);
+        red.lastT = t;
+        return finish(t0p, false);
+      }
+    }
     let isGlobal = false;
     const old = findOld(t);
     if (!old || old === slot) return finish(t0p, false);
@@ -429,6 +484,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
           } else finalizeRef();
         }
         if (dt >= detectFrom) {
+          if (red.refReady && red.lastT) red.validMs += Math.min(200, t - red.lastT);
           // S: bằng chứng có suy giảm
           for (let b = 0; b < NB; b++) {
             if (act[b]) red.e[b] = Math.min(255, red.e[b] + SF.E_ADD);
@@ -459,6 +515,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
         }
       }
     }
+    red.lastT = t;
     return finish(t0p, isGlobal);
   }
 
@@ -480,6 +537,9 @@ export function createDetector({ sensitivity = 6 } = {}) {
     startCalibration(t) {
       phase = 'cal';
       calibrated = false;
+      masksOff = false;
+      needRecal = false;
+      calRestarts = 0;
       cal.t0 = t;
       cal.hist.fill(0);
       cal.nHist = 0;
@@ -534,13 +594,14 @@ export function createDetector({ sensitivity = 6 } = {}) {
         }
       }
       calibrated = true;
+      if (rfMoving) masksOff = true; // hết giờ chờ mà camera vẫn đổi khung: không che vùng nào
       applySens();
       let masked = 0;
       for (let i = 0; i < NC; i++) masked += maskedCells[i];
       const kk = tauOfSens[sens] || 0;
       let sum = 0;
       for (let b = 0; b < NB; b++) sum += nBlock[kk][b];
-      calInfo = { sigma, tau: taus[kk], medNoise: sum / NB, masked, movingFrac: ns ? movingFrames / ns : 0, bigBlobs };
+      calInfo = { sigma, tau: taus[kk], medNoise: sum / NB, masked, movingFrac: ns ? movingFrames / ns : 0, bigBlobs, reframes: calRestarts, camMoving: rfMoving };
       return calInfo;
     },
     startRed(t) {
@@ -550,7 +611,11 @@ export function createDetector({ sensitivity = 6 } = {}) {
       red.e.fill(0);
       red.r.fill(0);
       flaggedCells.fill(0);
+      red.validMs = 0;
+      red.rfCount = 0;
+      red.lastT = 0;
       resetRef(t + SF.GRACE_MS);
+      if (rfMoving) resetRef(Infinity);
     },
     endRed() {
       phase = 'idle';
@@ -560,8 +625,14 @@ export function createDetector({ sensitivity = 6 } = {}) {
         flagged,
         areas: countAreas(flagged, SF.CELLS_X, SF.CELLS_Y),
         lanes: laneAreas(flagged, SF.CELLS_X, SF.CELLS_Y, 2),
+        reframes: red.rfCount,
+        interrupted: red.rfCount > 0 && red.validMs < SF.RF_MIN_VALID_MS,
       };
     },
+    // Hiệu chỉnh đủ: đã qua CAL_MS kể từ lần (bắt đầu lại) gần nhất và camera không đang đổi khung.
+    calReady(t) { return phase === 'cal' && !rfMoving && t - cal.t0 >= SF.CAL_MS; },
+    get reframing() { return rfMoving; },
+    get needRecal() { return needRecal; },
     setIdle() {
       phase = 'idle';
       flaggedCells.fill(0);
@@ -582,6 +653,7 @@ export function createDetector({ sensitivity = 6 } = {}) {
       return {
         mode: 'v2', procHz: st.procHz, ms: st.ms, sigma, tau: taus[kk], medNoise: calInfo.medNoise, masked: m, live: l,
         globalEvents: st.globalEvents, gain: st.gain, refReady: red.refReady, poolT,
+        rf: rw ? rw.stats() : null, needRecal, calRestarts, validMs: red.validMs,
       };
     },
   };

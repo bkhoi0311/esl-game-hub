@@ -39,10 +39,15 @@ function smoothLandmarks(prev, next, base) {
 }
 
 // zone: [trái, phải] theo toạ độ màn hình gương 0..1. minSize: bề rộng vai tối thiểu (lọc người đứng quá xa).
-export function createPoseTracker({ maxPlayers = 3, zone = [0, 1], minSize = 0.05, lostMs = 900, smooth = 0.45, matchDist = 1.4 } = {}) {
+// keepFrac: người đang chơi chỉ bị bỏ khi vai < keepFrac*minSize (camera S1 thu nhỏ khung không làm mất người). legsMs: báo "không thấy chân"
+// chỉ khi mất chân liên tục legsMs. hold(true): camera đang đổi khung, giữ nguyên mọi chỗ, không nhận người mới. reanchor(tf): ghép lại sau khi
+// khung ổn định (tf = { k, dx, dy } theo toạ độ chuẩn hoá ảnh gốc, hoặc null). Xem PLAN-S1-REFRAME.md.
+export function createPoseTracker({ maxPlayers = 3, zone = [0, 1], minSize = 0.05, lostMs = 900, smooth = 0.45, matchDist = 1.4, keepFrac = 0.6, legsMs = 800 } = {}) {
   let slots = Array(maxPlayers).fill(null);
   let nextId = 1;
   const cfg = { zone, minSize };
+  let holding = false;
+  let anchor = null; // { tf } chờ ghép lại ở lần update kế tiếp
 
   return {
     setZone(z) {
@@ -50,15 +55,71 @@ export function createPoseTracker({ maxPlayers = 3, zone = [0, 1], minSize = 0.0
     },
     reset() {
       slots = Array(maxPlayers).fill(null);
+      holding = false;
+      anchor = null;
+    },
+    hold(on) {
+      holding = Boolean(on);
+    },
+    reanchor(tf = null) {
+      holding = false;
+      anchor = { tf };
+    },
+    get holding() {
+      return holding;
     },
     // list: mảng landmarks (mỗi phần tử 33 điểm). Trả về { players: [slot|null ...], others: [landmarks ...] }.
     update(list, now) {
       const people = (list || []).map((lm) => ({ lm, info: bodyInfo(lm) })).filter((p) => p.info);
+      if (holding) {
+        // Camera đang đổi khung: không chấm, không đổi chỗ; vẽ mọi người dạng mờ.
+        slots = slots.map((s) => s && { ...s, fresh: false, lastSeen: now });
+        return { players: slots.map((s) => s && { ...s }), others: people.map((p) => p.lm) };
+      }
+      if (anchor) {
+        const tf = anchor.tf;
+        anchor = null;
+        const held = slots.map((s, si) => ({ s, si })).filter((x) => x.s);
+        const pool = people.filter((p) => p.info.size >= cfg.minSize * keepFrac).sort((a, b) => b.info.size - a.info.size).slice(0, held.length);
+        const assign = new Map();
+        if (!tf && pool.length === held.length) {
+          // Dời / phóng giữ thứ tự trái -> phải: ghép theo thứ tự.
+          const hs = [...held].sort((a, b) => a.s.sx - b.s.sx);
+          const ps = [...pool].sort((a, b) => a.info.sx - b.info.sx);
+          hs.forEach((h, i) => assign.set(h.si, ps[i]));
+        } else {
+          // Dự đoán chỗ mới theo phép biến đổi của camera (nếu có) rồi ghép gần nhất, nới ngưỡng.
+          const pred = (s) => (tf ? { cx: s.cx + tf.k * (s.cx - 0.5) + tf.dx, cy: s.cy + tf.k * (s.cy - 0.5) + tf.dy, size: s.size * (1 + tf.k) } : s);
+          const pairs = [];
+          held.forEach(({ s, si }) => {
+            const q = pred(s);
+            pool.forEach((c, ci) => pairs.push({ si, ci, d: Math.hypot(c.info.cx - q.cx, c.info.cy - q.cy) / Math.max(q.size, c.info.size) }));
+          });
+          pairs.sort((a, b) => a.d - b.d);
+          const usedC = new Set();
+          for (const { si, ci, d } of pairs) {
+            if (assign.has(si) || usedC.has(ci) || d > matchDist * 2.5) continue;
+            assign.set(si, pool[ci]);
+            usedC.add(ci);
+          }
+        }
+        slots = slots.map((s, si) => {
+          if (!s) return s;
+          const c = assign.get(si);
+          if (!c) return { ...s, fresh: false, lastSeen: now };
+          return { ...s, ...c.info, legs: c.info.legs, legsMiss: 0, lm: smoothLandmarks(null, c.lm, smooth), lastSeen: now, fresh: true };
+        });
+        const used = new Set([...assign.values()]);
+        return { players: slots.map((s) => s && { ...s }), others: people.filter((p) => !used.has(p)).map((p) => p.lm) };
+      }
       const [z0, z1] = cfg.zone;
       const cands = [];
       const others = [];
       people.forEach((p) => {
-        if (p.info.sx >= z0 && p.info.sx <= z1 && p.info.size >= cfg.minSize) cands.push(p);
+        // Người mới phải đủ minSize; người đang chơi (gần một chỗ đang giữ) chỉ cần keepFrac*minSize.
+        const nearSlot = slots.some((s) => s && Math.hypot(p.info.cx - s.cx, p.info.cy - s.cy) / Math.max(s.size, p.info.size) < matchDist);
+        const min = nearSlot ? cfg.minSize * keepFrac : cfg.minSize;
+        if (p.info.sx >= z0 && p.info.sx <= z1 && p.info.size >= min) cands.push(p);
         else others.push(p.lm);
       });
 
@@ -80,7 +141,8 @@ export function createPoseTracker({ maxPlayers = 3, zone = [0, 1], minSize = 0.0
         usedCand.add(ci);
         const s = slots[si];
         const c = cands[ci];
-        slots[si] = { ...s, ...c.info, lm: smoothLandmarks(s.lm, c.lm, smooth), lastSeen: now, fresh: true };
+        const legsMiss = c.info.legs ? 0 : s.legsMiss || now;
+        slots[si] = { ...s, ...c.info, legs: c.info.legs || now - legsMiss < legsMs, legsMiss, lm: smoothLandmarks(s.lm, c.lm, smooth), lastSeen: now, fresh: true };
       }
 
       // Ứng viên mới: người to (gần) nhất trước, rồi xếp vào chỗ trống theo thứ tự trái -> phải.

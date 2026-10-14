@@ -37,6 +37,14 @@ const FAKE_CAMERA = () => {
       ctx.filter = window.__gain ? `brightness(${window.__gain})` : 'none'; // giả lập camera tự chỉnh sáng (statue-ae)
       ctx.fillStyle = '#8fa3b8';
       ctx.fillRect(0, 0, 640, 360);
+      // window.__view = { s, dx, dy }: giả lập camera AI (S1) tự phóng to / dời khung (statue-reframe). PLAN-S1-REFRAME.md.
+      const vw = window.__view;
+      if (vw) {
+        ctx.save();
+        ctx.translate(320, 180);
+        ctx.scale(vw.s || 1, vw.s || 1);
+        ctx.translate(-320 - (vw.dx || 0), -180 - (vw.dy || 0));
+      }
       ctx.fillStyle = '#c9b48a';
       ctx.fillRect(0, 250, 640, 110);
       for (let i = 0; i < 6; i++) {
@@ -57,6 +65,7 @@ const FAKE_CAMERA = () => {
         ctx.fillStyle = '#ffd2a6';
         ctx.fillRect(m.x * 640 + m.w * 640 * 0.3 + dx, m.y * 360, m.w * 640 * 0.4, m.h * 360);
       }
+      if (vw) ctx.restore();
       ctx.filter = 'none';
     };
     setInterval(draw, 33);
@@ -182,6 +191,69 @@ TESTS['statue-ae'] = async () => {
 };
 
 // Chia 2 đội: vẫy tay nửa phải màn hình -> đội trái +1.
+// Camera AI tự đổi khung: lúc Stand still (phóng 1 -> 1,5) và lúc Freeze (dời 60 px). Không ô xám, không ô đỏ giả, lượt vẫn tính.
+const animateView = (page, from, to, ms = 300) => page.evaluate(([a, b, d]) => {
+  const t0 = performance.now();
+  const id = setInterval(() => {
+    const u = Math.min(1, (performance.now() - t0) / d);
+    window.__view = { s: a.s + (b.s - a.s) * u, dx: a.dx + (b.dx - a.dx) * u, dy: a.dy + (b.dy - a.dy) * u };
+    if (u >= 1) clearInterval(id);
+  }, 33);
+}, [from, to, ms]);
+TESTS['statue-reframe'] = async () => {
+  const { context, page } = await open('?diag=sf#/game/statue-freeze');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await page.click('[data-testid=cam-start]');
+  const dbg = () => page.evaluate(() => window.__statueFreeze.debug());
+  const waitPhase = async (p, ms = 25000) => {
+    const end = Date.now() + ms;
+    while ((await dbg()).phase !== p) {
+      if (Date.now() > end) throw new Error(`chờ pha ${p} quá lâu (đang ${(await dbg()).phase})`);
+      await page.waitForTimeout(100);
+    }
+  };
+  const t0 = Date.now();
+  await page.waitForTimeout(1000);
+  await animateView(page, { s: 1, dx: 0, dy: 0 }, { s: 1.5, dx: 0, dy: 0 });
+  await waitPhase('green');
+  const calMs = Date.now() - t0;
+  let d = await dbg();
+  console.log(`  statue-reframe: hiệu chỉnh ${calMs} ms · đổi khung ${d.stats.rf.events} · xám ${d.masked}`);
+  assert.ok(d.stats.rf.events >= 1, 'phải phát hiện đổi khung lúc Stand still');
+  assert.ok(calMs >= 4000, `phải đo lại sau khi đổi khung (chỉ ${calMs} ms)`);
+  assert.equal(d.masked, 0, `đổi khung lúc hiệu chỉnh mà còn ${d.masked} ô xám`);
+  await waitPhase('red');
+  await page.waitForTimeout(1300);
+  await animateView(page, { s: 1.5, dx: 0, dy: 0 }, { s: 1.5, dx: 60, dy: 10 });
+  await page.waitForTimeout(400);
+  await shot(page, 'statue-7-reframe');
+  await waitPhase('review', 20000);
+  d = await dbg();
+  console.log(`  statue-reframe: Freeze · vùng ${d.areas} · gián đoạn ${d.interrupted} · đổi khung ${d.stats.rf.events}`);
+  assert.ok(d.stats.rf.events >= 2, 'phải phát hiện đổi khung lúc Freeze');
+  assert.ok(d.areas <= 1, `camera đổi khung mà báo ${d.areas} vùng`);
+  assert.equal(d.interrupted, false, 'đã kéo dài lượt: không được coi là gián đoạn');
+  // Lượt sau: vẫn bắt cử động thật trên khung mới.
+  await page.click('[data-testid=sf-next]');
+  await waitPhase('red');
+  await page.evaluate(() => (window.__motion = { x: 0.3, y: 0.3, w: 0.14, h: 0.25 }));
+  await waitPhase('review');
+  await page.evaluate(() => (window.__motion = null));
+  d = await dbg();
+  assert.ok(d.areas >= 1, 'sau khi đổi khung vẫn phải bắt được tay vẫy');
+  await context.close();
+};
+
+// ?reframe=0: đường lùi, không dò đổi khung.
+TESTS['statue-reframe-off'] = async () => {
+  const { context, page } = await open('?reframe=0#/game/statue-freeze');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await page.click('[data-testid=cam-start]');
+  await page.waitForFunction(() => window.__statueFreeze && window.__statueFreeze.debug().phase === 'green', null, { timeout: 15000 });
+  assert.equal((await page.evaluate(() => window.__statueFreeze.debug())).stats.rf, null);
+  await context.close();
+};
+
 TESTS['statue-lanes'] = async () => {
   const { context, page } = await open('#/game/statue-freeze');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
@@ -313,6 +385,28 @@ TESTS['camera-hotplug'] = async () => {
 };
 
 // ---------- 3 game AI: nạp model, chạy vòng lặp không lỗi ----------
+// Simon: vùng chơi mặc định "Cả khung"; tip "Step back" không làm khung video co lại; camera đổi khung thì tạm dừng.
+TESTS['simon-layout'] = async () => {
+  const { context, page } = await open('#/game/simon-pose');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  assert.equal(await page.getAttribute('[data-testid=sp-zone] .btn[aria-pressed="true"]', 'data-value'), 'full', 'vùng chơi mặc định phải là Cả khung');
+  await page.click('[data-testid=cam-start]');
+  await page.waitForSelector('[data-testid=sp-video]');
+  const box = () => page.evaluate(() => { const r = document.querySelector('[data-testid=sp-video]').getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; });
+  const before = await box();
+  await page.evaluate(() => { const t = document.querySelector('[data-testid=sp-tip]'); t.hidden = false; t.textContent = 'Step back so the camera can see your feet!'; });
+  const after = await box();
+  assert.deepEqual(after, before, `hiện tip làm khung video đổi cỡ ${before} -> ${after}`);
+  await page.waitForTimeout(1500);
+  await animateView(page, { s: 1, dx: 0, dy: 0 }, { s: 1.5, dx: 40, dy: 0 });
+  await page.waitForFunction(() => window.__simonPose.debug().reframing, null, { timeout: 5000 });
+  await page.waitForFunction(() => !window.__simonPose.debug().reframing, null, { timeout: 8000 });
+  const d = await page.evaluate(() => window.__simonPose.debug());
+  assert.ok(d.rf.events >= 1 && d.rf.lastSettleMs <= 2500, `đổi khung ${d.rf.events} lần, ổn định sau ${d.rf.lastSettleMs} ms`);
+  await shot(page, 'simon-reframe');
+  await context.close();
+};
+
 for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]']]) {
   TESTS[id] = async () => {
     const { context, page } = await open(`#/game/${id}`, undefined, undefined);
@@ -397,7 +491,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck', 'statue-ae', 'statue-lanes', 'statue-v1'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck', 'statue-ae', 'statue-lanes', 'statue-v1', 'statue-reframe', 'statue-reframe-off', 'simon-layout'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

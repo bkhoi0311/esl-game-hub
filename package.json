@@ -9,7 +9,7 @@
     "build:offline": "vite build --mode offline",
     "preview": "vite preview",
     "shots": "node tests/screenshots.mjs",
-    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs tests/levels.test.mjs tests/statue-motion.test.mjs tests/i18n.test.mjs tests/i18n-hub.test.mjs",
+    "test": "node --test tests/logic.test.mjs tests/soanbai.test.mjs tests/levels.test.mjs tests/statue-motion.test.mjs tests/i18n.test.mjs tests/i18n-hub.test.mjs tests/reframe.test.mjs tests/simon-reframe.test.mjs",
     "i18n:scan": "node tools/i18n/scan-vi.mjs",
     "i18n:check": "node tools/i18n/check-keys.mjs",
     "test:i18n-hub": "node tests/i18n-hub-base.mjs",

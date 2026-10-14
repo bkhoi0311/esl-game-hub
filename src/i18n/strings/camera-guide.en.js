@@ -135,4 +135,9 @@ export default {
   "guide.tip.cloud": "Tap the cloud icon",
   "guide.video": "Watch video",
   "guide.title": "Create a lesson and open it on the ClassIn display",
+  "cam.autoframe.hint": "AI cameras (such as S1) may zoom in, zoom out or move the frame to follow people. For camera games, turn off the camera's auto-framing / people-tracking mode (if it has one) so the picture stays still.",
+  "cam.autoframe.lock": "The camera keeps reframing on its own (an AI camera following people). Lock the framing: turn off auto-framing / tracking in the camera's software or settings (if available).",
+  "game.simon.reframe.wait": "The camera is reframing: scoring is paused and no one loses points.",
+  "game.statue.reframe.round": "The camera reframed during this round, so the round doesn't count. Tap “Next command” to keep playing.",
+  "game.statue.reframe.wait": "The camera is reframing; measuring again…",
 };

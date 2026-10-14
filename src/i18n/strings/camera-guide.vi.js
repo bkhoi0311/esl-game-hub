@@ -135,4 +135,9 @@ export default {
   "guide.tip.cloud": "Bấm biểu tượng đám mây",
   "guide.video": "Xem video",
   "guide.title": "Soạn bài và mở trên màn hình ClassIn",
+  "cam.autoframe.hint": "Camera AI (như S1) có thể tự phóng to, thu nhỏ hoặc dời khung theo người đang di chuyển. Khi chơi game camera, nên tắt chế độ tự lấy khung / tự theo dõi người của camera (nếu camera có) để khung hình đứng yên.",
+  "cam.autoframe.lock": "Camera đang tự đổi khung nhiều lần (camera AI tự theo dõi người). Nên khoá khung hình cố định: tắt chế độ tự lấy khung / tự theo dõi trong phần mềm hoặc cài đặt của camera (nếu có).",
+  "game.simon.reframe.wait": "Camera đang đổi khung: tạm dừng chấm điểm, không trừ điểm học sinh.",
+  "game.statue.reframe.round": "Camera đổi khung trong lượt này nên lượt không được tính. Bấm \"Next command\" để chơi tiếp.",
+  "game.statue.reframe.wait": "Camera đang đổi khung, đang đo lại…",
 };

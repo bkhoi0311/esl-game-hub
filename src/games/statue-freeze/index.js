@@ -18,6 +18,12 @@ import VI from '../../i18n/strings/camera-guide.vi.js';
 addStrings('camera-guide', VI);
 
 const MODE = /[?&#]sf=v1\b/.test(location.href) ? 'v1' : 'v2';
+const REFRAME = !/[?&#]reframe=0\b/.test(location.href); // ?reframe=0: tắt xử lý camera tự đổi khung (PLAN-S1-REFRAME.md)
+const CAL_MAX_MS = 9000; // camera đổi khung liên tục: chờ tối đa 9 s rồi chốt hiệu chỉnh (không tô xám)
+const RED_EXTEND_MAX_MS = 4000; // pha Freeze được kéo dài tối đa 4 s khi camera đổi khung
+const RED_AFTER_STABLE_MS = SF.REF_MS + 2000; // sau khi khung ổn định còn ít nhất ~2,2 s để đo lại
+const RECAL_MIN_GAP_MS = 15000; // vùng xám cũ bị bỏ vì đổi khung: tự đo lại trước lượt sau, không quá 1 lần / 15 s
+const RF_TOAST_GAP_MS = 10000;
 const MEASURE_V1_MS = 66; // bản cũ đo mỗi 66 ms trong rAF, không kiểm khung mới (giữ nguyên để A/B)
 const RED_TOTAL_MS = SF.GRACE_MS + SF.REF_MS + SF.MEASURE_MS;
 
@@ -29,7 +35,7 @@ const HOW_TO = {
 
 function createGame(root, pack) {
   const session = createCameraSession();
-  const detector = MODE === 'v1' ? createLegacyDetector({ sensitivity: 6 }) : createDetector({ sensitivity: 6 });
+  const detector = MODE === 'v1' ? createLegacyDetector({ sensitivity: 6 }) : createDetector({ sensitivity: 6, reframe: REFRAME });
   const teams = (pack.teams || ['Red', 'Blue']).slice(0, 2);
   const opts = { sensitivity: 6, auto: false, lanes: 1 };
   let raf = 0;
@@ -45,6 +51,15 @@ function createGame(root, pack) {
   let lastAreas = 0;
   let scoreboard = null;
   let lastCount = '';
+  // camera tự đổi khung (S1)
+  let calStart = 0;
+  let lastCalAt = -Infinity;
+  let redExtended = 0;
+  let lastTickAt = 0;
+  let rfWasMoving = false;
+  let rfToastAt = -Infinity;
+  let rfLockWarned = false;
+  let lastInterrupted = false;
   // lấy khung
   const cvs = document.createElement('canvas');
   let cvsMode = 'box'; // box: vẽ 512x288 rồi trung bình 2x2 | direct: vẽ thẳng 256x144 (máy yếu)
@@ -90,7 +105,7 @@ function createGame(root, pack) {
       session,
       title: 'Statue Freeze',
       art: gameArt('statue-freeze'),
-      hint: t('game.statue.camHint'),
+      hint: `${t('game.statue.camHint')} ${t('cam.autoframe.hint')}`,
       extraRows: [
         { label: t('game.statue.after'), control: segmented([{ value: false, label: t('game.statue.after.teacher') }, { value: true, label: t('game.statue.after.auto') }], opts.auto, (v) => (opts.auto = v), 'sf-auto') },
         {
@@ -203,6 +218,8 @@ function createGame(root, pack) {
     setControls();
     speak(line('standStill'));
     const now = performance.now();
+    calStart = now;
+    lastCalAt = now;
     detector.setSensitivity(opts.sensitivity);
     detector.startCalibration(now);
     lastProc = 0;
@@ -219,6 +236,11 @@ function createGame(root, pack) {
 
   function nextGreen() {
     clearTimers();
+    // Camera đã đổi khung làm vùng xám cũ sai chỗ: đo lại (Stand still) trước lượt này.
+    if (detector.needRecal && performance.now() - lastCalAt > RECAL_MIN_GAP_MS) {
+      calibrate();
+      return;
+    }
     if (!commands.length) commands = shuffle(pack.actionCommands);
     const cmd = commands.shift();
     roundNo += 1;
@@ -237,6 +259,7 @@ function createGame(root, pack) {
     phase = 'red';
     const now = performance.now();
     redStart = now;
+    redExtended = 0;
     detector.startRed(now);
     lastCount = '';
     setLight('red');
@@ -249,6 +272,24 @@ function createGame(root, pack) {
     phase = 'review';
     view.light.dataset.phase = phase;
     const r = detector.endRed();
+    lastInterrupted = Boolean(r.interrupted);
+    if (r.interrupted) {
+      // Camera đổi khung gần hết lượt: không đủ thời gian đo, không tính lượt (không phạt ai).
+      lastLanes = [0, 0];
+      lastAreas = 0;
+      view.count.hidden = false;
+      view.count.textContent = 'Camera moved';
+      view.count.dataset.good = 'false';
+      playSound('pop');
+      setBanner('Camera moved', "Let's try that again.");
+      toast(t('game.statue.reframe.round'), 'info', 6000);
+      setControls(
+        button({ label: 'Next command', iconName: 'play', variant: 'primary', size: 'lg', onClick: nextGreen, attrs: { 'data-testid': 'sf-next' } }),
+        button({ label: 'Check again (stand still)', iconName: 'refresh', onClick: calibrate }),
+      );
+      if (opts.auto) later(nextGreen, 4000);
+      return;
+    }
     lastLanes = r.lanes;
     lastAreas = r.areas;
     const n = r.areas;
@@ -333,12 +374,20 @@ function createGame(root, pack) {
       } else if (srcName === 'raf' && useVfc && now - lastVfcAt < 300) {
         srcName = 'rVFC';
       }
+      watchReframe(now);
       draw(now);
       if (phaseEnd && now >= phaseEnd) {
-        phaseEnd = 0;
-        if (phase === 'calibrate') finishCalibration();
-        else if (phase === 'green') startRed();
-        else if (phase === 'red') finishRed();
+        if (phase === 'calibrate') {
+          // Chỉ chốt khi đã đo đủ 3 s trên khung ổn định (hoặc đã chờ quá CAL_MAX_MS).
+          if (!detector.calReady || detector.calReady(now) || now - calStart >= CAL_MAX_MS) {
+            phaseEnd = 0;
+            finishCalibration();
+          } else phaseEnd = now + 100;
+        } else {
+          phaseEnd = 0;
+          if (phase === 'green') startRed();
+          else if (phase === 'red') finishRed();
+        }
       }
     };
     raf = requestAnimationFrame(tick);
@@ -351,6 +400,36 @@ function createGame(root, pack) {
     vfc = 0;
   }
 
+  // Camera tự đổi khung: kéo dài pha Freeze, báo giáo viên, nhắc khoá khung khi lặp lại.
+  function watchReframe(now) {
+    const moving = Boolean(detector.reframing);
+    const dt = lastTickAt ? Math.min(100, now - lastTickAt) : 0;
+    lastTickAt = now;
+    if (phase === 'red' && phaseEnd) {
+      if (moving && redExtended < RED_EXTEND_MAX_MS) {
+        phaseEnd += dt;
+        redExtended += dt;
+      }
+      if (rfWasMoving && !moving) phaseEnd = Math.max(phaseEnd, Math.min(redStart + RED_TOTAL_MS + RED_EXTEND_MAX_MS, now + RED_AFTER_STABLE_MS));
+    }
+    if (moving === rfWasMoving) return;
+    rfWasMoving = moving;
+    view.videoBox.dataset.reframe = String(moving);
+    if (moving) {
+      if (phase === 'calibrate' || phase === 'red') view.sub.textContent = 'Camera is moving… stay still';
+      if (now - rfToastAt > RF_TOAST_GAP_MS) {
+        rfToastAt = now;
+        toast(t('game.statue.reframe.wait'), 'info', 2500);
+      }
+      const rf = detector.stats().rf;
+      if (rf && rf.recent >= 3 && !rfLockWarned) {
+        rfLockWarned = true;
+        toast(t('cam.autoframe.lock'), 'info', 9000);
+      }
+    } else if (phase === 'calibrate') view.sub.textContent = 'Checking the camera for 3 seconds…';
+    else if (phase === 'red') lastCount = ''; // đếm ngược hiện lại
+  }
+
   let hudAt = 0;
   // Vẽ do lớp phủ Phaser đảm nhận; ở đây ghi số ô đỏ cho test, đếm ngược và HUD.
   function draw(now) {
@@ -358,7 +437,7 @@ function createGame(root, pack) {
     let n = 0;
     for (let i = 0; i < fl.length; i++) n += fl[i];
     view.overlay.dataset.flagged = String(n);
-    if (phase === 'red' && now >= redStart + SF.GRACE_MS + SF.REF_MS) {
+    if (phase === 'red' && now >= redStart + SF.GRACE_MS + SF.REF_MS && !detector.reframing) {
       const left = Math.max(1, Math.ceil((phaseEnd - now) / 1000));
       const txt = String(Math.min(3, left));
       if (txt !== lastCount) { lastCount = txt; view.sub.textContent = txt; }
@@ -368,9 +447,10 @@ function createGame(root, pack) {
       const st = detector.stats();
       window.__sfStats = { ...st, src: srcName, grabMs, ...counters, mode: MODE };
       if (view.hud) {
-        view.hud.textContent = `${MODE} · ${st.procHz.toFixed(1)} Hz · ${(st.ms + grabMs).toFixed(1)} ms · dup ${counters.dup} · ${srcName} · ${cvsMode}\n`
+        view.hud.textContent = `${MODE} · ${st.procHz.toFixed(1)} Hz · ${(st.ms + grabMs).toFixed(1)} ms · dup ${counters.dup} · ${srcName} · ${cvsMode} · video ${session.video.videoWidth}x${session.video.videoHeight}\n`
           + `σ ${st.sigma.toFixed(1)} · τ ${st.tau} · nhiễu khối TB ${st.medNoise.toFixed(1)} · xám ${st.masked}\n` // i18n-keep: HUD chẩn đoán
-          + `live ${st.live} · global ${st.globalEvents} · gain ${st.gain.toFixed(2)} · mốc ${st.refReady ? '✓' : '·'}`; // i18n-keep: HUD chẩn đoán
+          + `live ${st.live} · global ${st.globalEvents} · gain ${st.gain.toFixed(2)} · mốc ${st.refReady ? '✓' : '·'}` // i18n-keep: HUD chẩn đoán
+          + (st.rf ? `\nđổi khung ${st.rf.events} · ${st.rf.moving ? 'ĐANG ĐỔI' : 'ổn định'} · ổn định sau ${st.rf.lastSettleMs} ms · ncc ${st.rf.ncc.toFixed(2)} · đo lại ${st.calRestarts}${st.needRecal ? ' · cần đo lại' : ''} · đo được ${Math.round(st.validMs)} ms` : ''); // i18n-keep: HUD chẩn đoán
       }
     }
   }
@@ -392,6 +472,10 @@ function createGame(root, pack) {
       live: Array.from(detector.live),
       lanes: lastLanes,
       areas: lastAreas,
+      interrupted: lastInterrupted,
+      reframing: Boolean(detector.reframing),
+      needRecal: Boolean(detector.needRecal),
+      masked: Array.from(detector.masked).reduce((a, b) => a + b, 0),
       sensitivity: opts.sensitivity,
       mode: MODE,
       stats: { ...detector.stats(), src: srcName, grabMs, ...counters },
