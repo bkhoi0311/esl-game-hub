@@ -214,7 +214,7 @@ async function openBoard({ zones = 3, w = 1280, h = 720, dpr = 1, query = '', ha
   const log = wire(page);
   await page.addInitScript((n) => { Object.defineProperty(navigator, 'maxTouchPoints', { get: () => n }); }, touchPoints);
   const q = `test=1&zones=${zones}${from ? '&from=hub' : ''}${deck ? '&deck=1' : ''}${ui ? '&ui=' + ui : ''}${query ? '&' + query : ''}`;
-  const needV2 = deck || /(^|&)src=/.test(query) || hash.indexOf('#L=') === 0;
+  const needV2 = deck || /(^|&)src=/.test(query);
   await gotoRetry(page, `${HOST}board/index.html?${q}${hash}`, (v2) => window.__board && (!v2 || window.__v2), needV2);
   await page.evaluate(() => window.__board.ready);
   const cdp = await ctx.newCDPSession(page);

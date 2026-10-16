@@ -21,7 +21,6 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
   const stage = document.getElementById('stage');
   let cls = restore() || C.createClassroom(board.zones.length);
   let curG = null;
-  let lesson = null;          // bài đang mở từ link #L= (đã giải mã), hoặc null
   let packTeams = null;
   const sheets = tools.sheets;
   let lastLockToast = 0;
@@ -42,9 +41,8 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
     clearTimeout(persistT);
     persistT = setTimeout(() => {
       try {
-        // đề lấy từ link bài (#L=) không ghi vào storage: tải lại thì đọc lại từ hash
         // chưa có đề thì không ghi gì (test riêng tư P22: sessionStorage rỗng)
-        if (!cls.deck || (cls.deck.source && cls.deck.source.type === 'lesson')) { if (sessionStorage.getItem(STORE) !== null) sessionStorage.removeItem(STORE); }
+        if (!cls.deck) { if (sessionStorage.getItem(STORE) !== null) sessionStorage.removeItem(STORE); }
         else sessionStorage.setItem(STORE, JSON.stringify(C.toJSON(cls)));
       } catch (e) { /* bỏ qua */ }
     }, 500);
@@ -161,12 +159,8 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
   async function loadChoice(choice) {
     let tasks = [], teams = null, title = choice.source.title || '', level = '';
     const seed = choice.seed || ((Date.now() & 0x7fffffff) || 1);
-    if (choice.source.type === 'lib' || choice.source.type === 'lesson') {
-      let pack;
-      if (choice.source.type === 'lesson') {
-        if (!lesson) { ui.toastKey('board.toast.noLesson'); return false; }
-        pack = lesson.source;
-      } else pack = await loadPack(choice.source.id);
+    if (choice.source.type === 'lib') {
+      const pack = await loadPack(choice.source.id);
       title = pack.title; teams = pack.teams; level = pack.level || '';
       tasks = buildDeck({ source: pack, kind: choice.kind, count: choice.count, order: choice.order, seed, difficulty: choice.difficulty || 1 });
       if (tasks.length && tasks.length < choice.count) ui.toastKey('board.toast.packShort', { n: tasks.length });
@@ -198,7 +192,7 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
 
   async function openDeck() {
     closeSheets();
-    const choice = await openDeckDialog({ sheets, lesson: lesson ? { title: lesson.title } : null, prefill: lastPrefill });
+    const choice = await openDeckDialog({ sheets, prefill: lastPrefill });
     if (!choice) return;
     lastPrefill = { subject: choice.subject, packId: choice.source.id, kind: choice.kind === 'math' ? 'write' : choice.kind, grade: choice.grade, mathType: choice.mathType, difficulty: choice.difficulty, lang: choice.lang, mode: choice.mode, order: choice.order, count: choice.count, timer: choice.timer, langTouched: !!choice.langTouched };
     await loadChoice(choice);
@@ -206,22 +200,12 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
   let lastPrefill = null;
   function closeSheets() { sheets.close(); }
 
-  /* ----- tham số URL (B.v) và link bài (#L=) ----- */
+  /* ----- tham số URL (B.v) ----- */
   async function start() {
-    if (location.hash.indexOf('#L=') === 0) {
-      try {
-        const m = await import('./lesson.js');
-        const r = await m.readLessonFromHash();
-        if (r) lesson = r;
-      } catch (e) { ui.toastKey('board.toast.badLink', null, 4000); }
-    }
     const src = q.get('src');
     if (!src) return;
     const ch = await choiceFromParams(q);
-    if (!ch) {
-      if (src === 'lesson' && lesson) { lastPrefill = { subject: 'en', packId: 'lesson' }; await openDeck(); }
-      return;
-    }
+    if (!ch) return;
     await loadChoice(ch);
   }
   async function choiceFromParams(p) {
@@ -240,10 +224,6 @@ export function createV2({ board, ui, strokes, relayout, test, query, tools }) {
       return Object.assign(base, { subject: 'math', source: { type: 'math', id: 'math-' + grade, title: t('board.deck.mathTitle', { n: grade }) }, kind: 'math', grade, mathType: mt, lang: ml || lang(), langTouched: !!ml });
     }
     const kind = KINDS.indexOf(p.get('kind')) >= 0 ? p.get('kind') : null;
-    if (src === 'lesson') {
-      if (!lesson || !kind) return null;
-      return Object.assign(base, { subject: 'en', source: { type: 'lesson', id: 'lesson', title: lesson.title }, kind });
-    }
     if (src.indexOf('lib:') === 0) {
       const id = src.slice(4);
       if (!/^[a-z0-9-]+$/.test(id)) return null;

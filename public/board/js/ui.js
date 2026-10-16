@@ -405,7 +405,6 @@ export function createUI({ board, brand, actions, getS }) {
     if (D) how.push('board.info.how.deck', 'board.info.how.modes', 'board.info.how.answers');
     how.push('board.info.how.paper', 'board.info.how.clock', 'board.info.how.snip');
     const priv = [D ? 'board.info.priv1' : 'board.info.priv1b'];
-    if (D) priv.push('board.info.priv2');
     priv.push('board.info.priv3');
     const head = h('div', 'info-head', logo);
     const title = h('h2', 'sheet-title');

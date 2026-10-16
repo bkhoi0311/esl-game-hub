@@ -375,7 +375,6 @@ button { font-family: inherit; color: inherit; }
 .dcard-vi { font-size: calc(12px * var(--s)); opacity: .8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .dcard em { font-size: calc(11px * var(--s)); font-style: normal; opacity: .7; }
 .dcard--type { font-size: calc(15px * var(--s)); font-weight: 600; justify-content: center; }
-.dcard--lesson { box-shadow: inset 0 0 0 2px var(--accent); }
 .dnote { min-height: calc(18px * var(--s)); font-size: calc(13px * var(--s)); color: var(--warning); }
 .sheet--deck .sheet-actions { margin-top: 0; }
 .cswatch { width: calc(30px * var(--s)); height: calc(30px * var(--s)); border-radius: 50%; display: block; }
@@ -496,4 +495,4 @@ button { font-family: inherit; color: inherit; }
 /* tên bảng không được đè sang nút khi chữ dài hơn */
 .tb-title { overflow: hidden; }
 .tb-name { overflow: hidden; text-overflow: ellipsis; }
-html[lang="en"] .dcard-vi:not(.dcard-vi--keep) { display: none; }   /* EN: chỉ tên gói tiếng Anh; dòng phụ của thẻ "Current lesson" là tên bài của giáo viên nên vẫn hiện */
+html[lang="en"] .dcard-vi { display: none; }   /* EN: chỉ tên gói tiếng Anh */

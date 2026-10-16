@@ -22,6 +22,7 @@
     "prebuild": "node scripts/copy-wasm.js",
     "test:camera": "node tests/camera.mjs",
     "test:link": "node tests/link.mjs",
+    "test:start-edu": "node tests/start-edu.mjs",
     "test:qa": "node tests/qa.mjs",
     "test:soanbai": "node tests/soanbai.mjs",
     "build:library": "node tools/library/build.mjs",

@@ -49,7 +49,7 @@ export function shuffleOptions(task, rng) {
   });
 }
 
-function prefixOf(source) { return source.id === 'lesson' ? 'lesson' : 'lib:' + source.id; }
+function prefixOf(source) { return 'lib:' + source.id; }
 
 const WORD_RE = /^[a-z]+(?:[ -][a-z]+){0,2}$/i;
 const SINGLE_RE = /^[a-z]{3,10}$/i;

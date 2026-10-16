@@ -49,7 +49,8 @@ await run('Hộp "Lưu bài cho ClassIn (.edu)" EN: nút, 3 bước, không ch�
   await h.page.waitForSelector('.modal');
   assert.equal(await text(h.page, '.modal h2, .modal .modal-title'), 'Save lesson for ClassIn (.edu)');
   const btns = await h.page.$$eval('.modal-actions button, .modal footer button', (a) => a.map((x) => x.textContent.trim()));
-  assert.ok(btns.includes('Save .edu for Multi-Writer Board') && btns.includes('Try on the board') && btns.includes('Save .edu file'), btns.join('|'));
+  assert.deepEqual(btns, ['Try it', 'Copy link', 'Save .edu file'], btns.join('|'));   // chỉ 1 nút lưu, không còn nút Bảng
+  assert.match(await text(h.page, '.link-steps'), /Multi-Writer Board/);
   assert.deepEqual(await vietnameseIn(h.page, '.modal-overlay'), []);
   assert.deepEqual(await overflow(h.page, '.modal'), []);
   await shot(h.page, 'hub-i18n-b-edu-modal-en');

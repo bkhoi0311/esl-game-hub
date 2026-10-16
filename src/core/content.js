@@ -293,6 +293,14 @@ export async function lessonLink(pack) {
   return `${base}#L=${await encodeLesson(pack)}`;
 }
 
+// Link vào MÀN CHỌN (public/start/): bài đi theo phần sau dấu #, màn chọn đọc tên bài rồi chuyển mã sang Hub khi bấm ESL;
+// Bảng nhiều người viết không nhận bài. Bản offline mở bằng file:// không có màn chọn: dùng thẳng link Hub.
+export async function startLink(pack) {
+  if (location.protocol === 'file:') return lessonLink(pack);
+  const base = location.href.split('#')[0].split('?')[0];
+  return `${new URL('start/index.html', base).href}#L=${await encodeLesson(pack)}`;
+}
+
 // File .edu của ClassIn: JSON nhỏ trỏ tới 1 trang web; mở trong lớp ClassIn như học liệu.
 // Cùng khuôn với công cụ tạo .edu của classin.vn. classin_authority: false = mọi học sinh tương tác được,
 // true = chỉ học sinh được giáo viên cấp quyền. size: cỡ cửa sổ mặc định (1280x720 cho game), cỡ nhỏ nhất.
@@ -302,7 +310,7 @@ export function eduFileText({ url, title, authorizedOnly = false }) {
 }
 
 export async function saveEduFile(pack, { title, authorizedOnly = false } = {}) {
-  const url = await lessonLink(pack);
+  const url = await startLink(pack);
   const name = `${fileSlug({ title: title || pack.title })}.edu`;
   downloadFile(name, eduFileText({ url, title: title || pack.title, authorizedOnly }), 'application/octet-stream');
   return name;

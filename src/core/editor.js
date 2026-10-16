@@ -2,8 +2,8 @@
 // Sửa trực tiếp trong bảng, dán bảng từ Excel/Google Sheet, lưu thành file .edu cho ClassIn,
 // xem video hướng dẫn, khôi phục nội dung mẫu.
 import {
-  LIMITS, getPack, lessonLink, normalizePack, resetToSample, saveEduFile,
-  setPack, validatePack, encodeLesson, eduFileText, downloadFile, fileSlug,
+  LIMITS, getPack, startLink, normalizePack, resetToSample, saveEduFile,
+  setPack, validatePack,
 } from './content.js';
 import { speak } from './audio.js';
 import { openGuide } from './guide.js';
@@ -32,7 +32,7 @@ async function openLinkModal(pack) {
   }
   let url;
   try {
-    url = await lessonLink(pack);
+    url = await startLink(pack);
   } catch (err) {
     console.error(err);
     toast(t('ed.link.unsupported'), 'error', 6000);
@@ -61,27 +61,7 @@ async function openLinkModal(pack) {
       toast(t('ed.edu.saveFail'), 'error');
     }
   };
-  // v2: link riêng cho Bảng nhiều người viết (bài đi theo phần sau dấu #, không gửi lên máy chủ)
-  let boardUrl = '';
-  try {
-    boardUrl = new URL('board/?zones=3&src=lesson', location.href.split('#')[0]).href + '#L=' + await encodeLesson(pack);
-  } catch (err) {
-    console.error(err);
-  }
-  const saveBoardEdu = () => {
-    try {
-      const title = titleInput.value.trim() || pack.title || 'ESL Game Hub';
-      const o = JSON.parse(eduFileText({ url: boardUrl, title: t('ed.edu.boardTitle', { title }), authorizedOnly: who.value === 'true' }));
-      Object.assign(o, { uid: false, identity: false, nickname: false, size: '1280x720,960x540' });
-      const name = `${fileSlug({ title })}-bang.edu`;
-      downloadFile(name, JSON.stringify(o, null, 1).replace(/\n/g, '\r\n'), 'application/octet-stream');
-      toast(t('ed.edu.saved', { name }), 'success', 5000);
-    } catch (err) {
-      console.error(err);
-      toast(t('ed.edu.boardSaveFail'), 'error');
-    }
-  };
-  const long = url.length > 2000 || boardUrl.length > 2000;
+  const long = url.length > 2000;
   openModal({
     title: t('ed.edu.title'),
     wide: true,
@@ -101,10 +81,8 @@ async function openLinkModal(pack) {
     actions: [
       { label: t('ed.link.try'), iconName: 'external', onClick: () => { window.open(url, '_blank', 'noopener'); return false; } },
       { label: t('ed.link.copy'), iconName: 'copy', onClick: () => { copy(); return false; } },
-      boardUrl ? { label: t('ed.board.try'), iconName: 'external', attrs: { 'data-testid': 'open-board' }, onClick: () => { window.open(boardUrl, '_blank', 'noopener'); return false; } } : null,
-      boardUrl ? { label: t('ed.board.save'), iconName: 'download', attrs: { 'data-testid': 'save-edu-board' }, onClick: () => { saveBoardEdu(); return false; } } : null,
       { label: t('ed.edu.save'), iconName: 'download', variant: 'primary', attrs: { 'data-testid': 'save-edu' }, onClick: () => { saveEdu(); return false; } },
-    ].filter(Boolean),
+    ],
   });
 }
 

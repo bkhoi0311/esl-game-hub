@@ -471,52 +471,6 @@ test('M7: Run hợp lệ, không HTML trong chữ, tên dạng không chứa d�
   assert.ok(f.prompt.filter((r) => r.t === 'frac').length === 2);
 });
 
-/* ---------- L1: link bài #L= ---------- */
-import { loadContent } from '../tools/library/content-node.mjs';
-import { decodeLesson, readLessonFromHash, normalizeLesson } from '../public/board/js/lesson.js';
-
-test('L1: decodeLesson đọc mã do encodeLesson của content.js sinh; mã hỏng thì ném lỗi', async () => {
-  const c = await loadContent();
-  const pack = c.normalizePack({
-    title: 'Unit 3 - Fruit', level: 'A2',
-    vocab: ['apple:quả táo', 'banana:quả chuối', 'orange:quả cam', 'grape:nho', 'lemon:chanh', 'mango:xoài'].map((x) => ({ word: x.split(':')[0], meaning: x.split(':')[1], category: 'fruit', example: 'I like it.', image: 'https://x.test/a.png' })),
-    questions: [{ prompt: 'I eat an ___.', options: ['apple', 'banana', 'grape'], answer: 0, type: 'grammar' }, { prompt: 'Which is yellow?', options: ['grape', 'lemon', 'apple'], answer: 1, type: 'vocab' }],
-    teams: ['Red', 'Blue', 'Green'],
-  });
-  const code = await c.encodeLesson(pack);
-  assert.ok(/^1[A-Za-z0-9_-]+$/.test(code), 'mã nén bắt đầu bằng 1');
-  const L = await decodeLesson(code);
-  assert.equal(L.title, 'Unit 3 - Fruit');
-  assert.deepEqual(L.vocab.map((v) => v.w), ['apple', 'banana', 'orange', 'grape', 'lemon', 'mango']);
-  assert.equal(L.vocab[0].m, 'quả táo');
-  assert.equal(L.vocab[0].image, undefined, 'bỏ ảnh');
-  assert.deepEqual(L.questions, [{ p: 'I eat an ___.', o: ['apple', 'banana', 'grape'], a: 0 }, { p: 'Which is yellow?', o: ['grape', 'lemon', 'apple'], a: 1 }]);
-  assert.deepEqual(L.teams, ['Red', 'Blue', 'Green']);
-  // mã "0": không nén
-  const raw = Buffer.from(JSON.stringify({ title: 'Raw', vocab: [{ word: 'cat', meaning: 'mèo' }], questions: [] })).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-  assert.equal((await decodeLesson('0' + raw)).vocab[0].w, 'cat');
-  // đọc từ hash
-  const r = await readLessonFromHash('#L=' + code);
-  assert.equal(r.source.id, 'lesson'); assert.equal(r.counts.vocab, 6); assert.equal(r.counts.questions, 2);
-  assert.equal(await readLessonFromHash('#/editor'), null);
-  assert.equal(await readLessonFromHash(''), null);
-  // mã hỏng / bị cắt
-  await assert.rejects(() => decodeLesson('9abc'));
-  await assert.rejects(() => decodeLesson('1' + code.slice(1, 20)));
-  await assert.rejects(() => decodeLesson('1!!!'));
-  await assert.rejects(() => decodeLesson('0' + raw.slice(0, 10)));
-  // dùng được làm nguồn buildDeck
-  const src = r.source;
-  const w = buildDeck({ source: src, kind: 'write', count: 10, order: 'seq', seed: 1 });
-  assert.equal(w.length, 6); assert.ok(w.every((t) => t.id.indexOf('lesson:write:') === 0));
-  assert.equal(buildDeck({ source: src, kind: 'mc', count: 10, order: 'seq', seed: 1 }).length, 2);
-  assert.equal(buildDeck({ source: src, kind: 'missing', count: 10, order: 'seq', seed: 1 }).length, 6);
-  // rút gọn: bỏ mục hỏng, giới hạn độ dài
-  const n = normalizeLesson({ title: 'x'.repeat(200), vocab: [{ word: '' }, { word: 'ok', meaning: 'y' }], questions: [{ prompt: 'p', options: ['a', 'b'], answer: 0 }, { prompt: 'q', options: ['a', 'b', 'c'], answer: 5 }], teams: ['a', '', 'b'] });
-  assert.equal(n.title.length, 60); assert.equal(n.vocab.length, 1); assert.equal(n.questions.length, 0); assert.deepEqual(n.teams, ['a', 'b']);
-  assert.throws(() => normalizeLesson(null));
-});
-
 // ================= v2.1: chạm để bỏ màn Hết giờ =================
 test('D1: dismissTimeup mở khoá vùng, giữ hidden, giữ đồng hồ 00:00', () => {
   const cls = C.createClassroom(3);

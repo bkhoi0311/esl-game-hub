@@ -168,7 +168,7 @@ test('I9: mọi dạng Toán lớp 1-12 có labelEn, không dấu tiếng Việt
 
 test('I10: không còn chuỗi giao diện tiếng Việt cứng trong public/board/js (trừ diag / palm / ink / lỗi nội bộ / dữ liệu)', () => {
   const VNC = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]/;
-  const SKIP = new Set(['diag.js', 'palm.js', 'snip-test.js', 'ink.js', 'render-tiles.js', 'gen.js', 'expr.js', 'rational.js', 'lesson.js', 'theme.js', 'i18n.js']);
+  const SKIP = new Set(['diag.js', 'palm.js', 'snip-test.js', 'ink.js', 'render-tiles.js', 'gen.js', 'expr.js', 'rational.js', 'theme.js', 'i18n.js']);
   const bad = [];
   const dir = path.join(PUB, 'board/js');
   for (const f of fs.readdirSync(dir)) {

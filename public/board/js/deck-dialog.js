@@ -1,6 +1,6 @@
 // Hộp thoại "Chọn đề" (PLAN-V2 mục C.2). Không cuộn: danh sách dài chia trang bằng nút ‹ ›.
 // openDeckDialog(ctx) -> Promise<choice|null>
-//   ctx: { sheets, lesson: { title, vocab, questions } | null, prefill?: {...} }
+//   ctx: { sheets, prefill?: {...} }
 //   choice: { subject:'en'|'math', source:{type,id,title}, kind, grade, mathType, difficulty, lang, langTouched, mode, order, count, timer:{mode,total} }
 //   lang = lời đề Toán: mặc định theo ngôn ngữ giao diện, giáo viên vẫn đổi riêng được (langTouched = đã tự chọn thì giữ lựa chọn đó).
 import { h, markSelected } from './dom.js';
@@ -17,7 +17,7 @@ const timerKey = (t) => t.mode + ':' + t.total;
 
 export function defaultChoice(ctx) {
   return {
-    subject: 'en', packId: ctx && ctx.lesson ? 'lesson' : null, kind: 'write', grade: 3, mathType: null, difficulty: 2, lang: lang(), langTouched: false,
+    subject: 'en', packId: null, kind: 'write', grade: 3, mathType: null, difficulty: 2, lang: lang(), langTouched: false,
     mode: 'common', order: 'seq', count: 10, timer: { mode: 'down', total: 60 },
   };
 }
@@ -30,7 +30,6 @@ export async function openDeckDialog(ctx) {
   try { catalog = (await import('../packs/catalog.js')).default; } catch (e) { catalog = []; }
   let MT = null;   // MATH_TYPES nạp lười khi mở mục Toán
   const cards = [];
-  if (ctx.lesson) cards.push({ id: 'lesson', title: '', titleKey: 'board.deck.currentLesson', titleVi: ctx.lesson.title || '', level: '', lesson: true });
   catalog.forEach((c) => cards.push(c));
   if (!st.packId || !cards.some((c) => c.id === st.packId)) st.packId = cards.length ? cards[0].id : null;
 
@@ -55,10 +54,10 @@ export async function openDeckDialog(ctx) {
     const packGrid = bind(h('div', 'dgrid dgrid--packs', null, { role: 'group' }), 'board.deck.packs', null, 'aria-label');
     const packBtns = cards.map((c, i) => {
       const lv = LEVEL[c.level] || c.level || '';
-      const b = h('button', 'dcard' + (c.lesson ? ' dcard--lesson' : ''), null, { type: 'button', 'data-testid': 'deck-pack-' + c.id, 'aria-pressed': 'false' });
-      // Gói thư viện: VI hiện title (đậm) + titleVi (dòng phụ); EN ẩn dòng phụ bằng CSS. Thẻ "Bài đang mở": dòng phụ là tên bài do giáo viên đặt, luôn hiện.
+      const b = h('button', 'dcard', null, { type: 'button', 'data-testid': 'deck-pack-' + c.id, 'aria-pressed': 'false' });
+      // Gói thư viện: VI hiện title (đậm) + titleVi (dòng phụ); EN ẩn dòng phụ bằng CSS.
       const t1 = h('b', null); if (c.titleKey) bind(t1, c.titleKey); else t1.textContent = c.title;
-      const t2 = h('span', 'dcard-vi' + (c.lesson ? ' dcard-vi--keep' : '')); t2.textContent = c.titleVi;
+      const t2 = h('span', 'dcard-vi'); t2.textContent = c.titleVi;
       b.append(t1, t2);
       if (lv) { const t3 = h('em', null); t3.textContent = lv; b.appendChild(t3); }
       b.dataset.v = c.id; b.dataset.i = String(i);
@@ -150,7 +149,7 @@ export async function openDeckDialog(ctx) {
       finish({
         subject: st.subject,
         source: st.subject === 'en'
-          ? { type: pack && pack.lesson ? 'lesson' : 'lib', id: st.packId, title: pack ? (pack.lesson ? pack.titleVi : pack.title) : '' }
+          ? { type: 'lib', id: st.packId, title: pack ? pack.title : '' }
           : { type: 'math', id: 'math-' + st.grade + '-' + st.mathType, title: t('board.deck.mathTitle', { n: st.grade }) },
         kind: st.subject === 'en' ? st.kind : 'math',
         grade: st.grade, mathType: st.mathType, difficulty: st.difficulty, lang: st.lang, langTouched: !!st.langTouched,

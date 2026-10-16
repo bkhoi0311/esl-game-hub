@@ -13,7 +13,8 @@ const PORT = Number(process.env.PORT || 5195); // PORT=... để chạy song son
 const server = await createServer({ server: { port: PORT, strictPort: true }, logLevel: 'error' });
 await server.listen();
 const BASE = `http://localhost:${PORT}/`;
-const browser = await chromium.launch();
+let browser;
+try { browser = await chromium.launch(); } catch { browser = await chromium.launch({ channel: 'chrome' }); }
 const errors = [];
 let failed = false;
 
@@ -50,6 +51,11 @@ try {
   b.on('pageerror', (e) => errors.push(e.message));
   // ClassIn có thể gắn thêm ?uid=..&identity=.. vào link khi mở .edu: vẫn phải đọc được bài
   await b.goto(link.replace('#', '?uid=123&identity=student#') + '&uid=123');
+  assert.match(new URL(b.url()).pathname, /\/start\/index\.html$/, 'link .edu mở màn chọn');
+  await b.waitForSelector('[data-testid=lesson-chip]:not([hidden])');
+  assert.equal(await b.textContent('[data-testid=lesson-title]'), 'Unit 9 - Animals', 'màn chọn hiện tên bài');
+  assert.ok(!(await b.getAttribute('[data-testid=part-board]', 'href')).includes('L='), 'Bảng không mang bài');
+  await b.click('[data-testid=part-games]');
   await b.waitForSelector('.game-card');
   assert.match(await b.textContent('[data-testid=pack-chip]'), /Unit 9 - Animals/, 'phải dùng bài trong link');
   assert.ok(await b.evaluate(() => document.body.classList.contains('present')), 'phải ở chế độ trình chiếu');

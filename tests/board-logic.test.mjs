@@ -435,14 +435,14 @@ import { chromeLayout } from '../public/board/js/layout.js';
 import { BOARDS, PALETTES, inkMap, remapInk, paperColors, parseTheme } from '../public/board/js/theme.js';
 import { paperSVG } from '../public/board/js/paper.js';
 
-test('F1: readFeatures (mặc định tắt Đề; deck=1 bật; deck=0 thắng src; src= và #L= bật)', () => {
+test('F1: readFeatures (mặc định tắt Đề; deck=1 bật; deck=0 thắng src; src= bật; #L= không còn tác dụng)', () => {
   assert.equal(DEFAULTS.deck, false);
   assert.equal(readFeatures('', '').deck, false);
   assert.equal(readFeatures('?zones=3', '').deck, false);
   assert.equal(readFeatures('?deck=1', '').deck, true);
   assert.equal(readFeatures('?deck=0&src=lib:x', '').deck, false);
   assert.equal(readFeatures('?src=lib:food-and-drink&kind=write', '').deck, true);
-  assert.equal(readFeatures('', '#L=abc').deck, true);
+  assert.equal(readFeatures('', '#L=abc').deck, false);
   assert.equal(readFeatures('', '#x=abc').deck, false);
   assert.equal(readFeatures('?snip=0', '').snip, false);
   assert.equal(readFeatures('', '').snip, true);

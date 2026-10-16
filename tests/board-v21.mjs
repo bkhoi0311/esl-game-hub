@@ -52,7 +52,7 @@ async function open({ zones = 3, w = 1280, h = 720, dpr = 1, query = '', hash = 
   page.on('dialog', async (d) => { await d.dismiss(); });
   await page.addInitScript(() => { Object.defineProperty(navigator, 'maxTouchPoints', { get: () => 10 }); });
   const q = `test=1&zones=${zones}${deck ? '&deck=1' : ''}${query ? '&' + query : ''}`;
-  const needV2 = deck || /(^|&)(src|deck)=1?/.test(query) && /(^|&)deck=1|(^|&)src=/.test(query) || hash.indexOf('#L=') === 0;
+  const needV2 = deck || /(^|&)(src|deck)=1?/.test(query) && /(^|&)deck=1|(^|&)src=/.test(query);
   for (let i = 0; i < 6; i++) {
     if (i === 0) await page.goto(`${BASE}?${q}${hash}`); else await page.reload();
     try { await pollPage(page, (v2) => window.__board && (!v2 || window.__v2), needV2, 3000); break; }
@@ -91,7 +91,7 @@ async function open({ zones = 3, w = 1280, h = 720, dpr = 1, query = '', hash = 
 }
 const zoneLine = (s, id, dy = 0) => { const r = s.zones[id - 1].rect; const y = r.y + r.h * 0.5 + dy; return [[r.x + r.w * 0.2, y], [r.x + r.w * 0.6, y + 30]]; };
 const strokesOf = async (b) => (await b.state()).zones.map((z) => z.strokeCount).join();
-const NODECK_RE = /\/(v2|classbar|cards|deck-dialog|tasks|classroom|lesson)\.js|\/math\/|\/packs\//;
+const NODECK_RE = /\/(v2|classbar|cards|deck-dialog|tasks|classroom)\.js|\/math\/|\/packs\//;
 const noErr = (b) => eq(b.log.errors.length, 0, b.log.errors.join(' | '));
 export { t, eq, ok, open, sleep, zoneLine, strokesOf, noErr, px, SIZES };
 
@@ -124,15 +124,6 @@ t('W3', async () => {   // link từ Hub (src=) tự bật Đề
   noErr(b);
   await b.close();
 });
-t('W4', async () => {   // link bài từ Hub (src=lesson#L=...) vẫn mở hộp Chọn đề khi Đề tắt mặc định
-  const code = '0eyJ0aXRsZSI6ICJSYXciLCAidm9jYWIiOiBbeyJ3b3JkIjogImNhdCIsICJtZWFuaW5nIjogIm1lbyJ9XSwgInF1ZXN0aW9ucyI6IFtdfQ';
-  const b = await open({ zones: 3, query: 'src=lesson', hash: '#L=' + code });
-  await b.waitVis('deck-dialog', 8000);
-  ok((await b.id('deck-pack-lesson').textContent()).indexOf('Raw') > 0, 'bảng nhận bài từ link');
-  noErr(b);
-  await b.close();
-});
-
 // ================= BƯỚC 2: thanh gộp =================
 const rectsOf = (b, sel) => b.page.evaluate((q) => [...document.querySelectorAll(q)].filter((e) => e.offsetParent !== null).map((e) => { const r = e.getBoundingClientRect(); return { id: e.dataset.testid || e.className, x: r.x, y: r.y, w: r.width, h: r.height }; }), sel);
 const noOverlap = (boxes, label) => {

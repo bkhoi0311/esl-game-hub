@@ -128,6 +128,18 @@ h1 { margin: 0 0 1.75rem; font-size: 2rem; font-weight: 800; color: var(--brand-
   .top { padding: 0 1rem; }
 }
 
+/* ---------- bài đã nạp sẵn trên thẻ ESL ---------- */
+.lesson-chip { display: flex; flex-direction: column; gap: 0.1rem; padding: 0.4rem 0.9rem; margin-top: 0.15rem; max-width: calc(100% - 8.2rem); border-radius: 0.9rem; background: rgba(4,188,9,.12); border: 2px solid rgba(4,188,9,.35); min-width: 0; }
+.lesson-chip[hidden] { display: none; }
+.lesson-tag { font-size: 0.75rem; font-weight: 700; color: var(--green-dark); letter-spacing: .02em; }
+.lesson-title { font-family: var(--font-en); font-size: 1.5rem; line-height: 1.2; color: var(--brand-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lesson-title[hidden], .lesson-words[hidden], .lesson-qs[hidden] { display: none; }
+.lesson-meta { display: flex; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; align-items: baseline; gap: 0 0.35rem; }
+.lesson-counts { font-size: 0.75rem; font-weight: 700; color: var(--ink-muted); }
+.lesson-meta .lesson-tag::after { content: " ·"; }
+.lesson-words + .lesson-qs::before { content: " · "; }
+.part-card.has-lesson .part-desc { display: none; }
+
 /* ---------- công tắc ngôn ngữ [cờ VN VI] [cờ Mỹ EN] ---------- */
 .i18n-wait body { visibility: hidden; }
 .lang-slot { flex: none; display: flex; align-items: center; }

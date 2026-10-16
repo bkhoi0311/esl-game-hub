@@ -262,8 +262,11 @@ t('C11', 'B', async () => {
   const url = link.replace(/^https?:\/\/[^/]+\//, B);
   for (const u of [url, url.replace('#', '?uid=123&identity=student#')]) {
     const { ctx, page, log } = await open(u);
+    await page.waitForSelector('[data-testid=lesson-chip]:not([hidden])');
+    ok(/start\//.test(page.url()), 'link .edu mở màn chọn: ' + page.url());
+    await tid(page, 'part-games').click();
     await page.waitForSelector('.game-card');
-    ok(!/start\//.test(page.url()), 'qua màn chọn: ' + page.url());
+    ok(!/start\//.test(page.url()), 'ESL vào thẳng Hub: ' + page.url());
     ok(await page.evaluate(() => document.body.classList.contains('present')), 'phải ở chế độ trình chiếu');
     ok(!(await tid(page, 'to-chooser').isVisible()), 'to-chooser phải ẩn');
     noErr(log); await ctx.close();
