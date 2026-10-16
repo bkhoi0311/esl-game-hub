@@ -227,7 +227,7 @@ body.framed .game-bar { margin: 0.7rem 1.4rem 0; border: 0; border-radius: 2rem;
 .gs-note { background: #f3f4f6; color: #4b5563; font-size: 1rem; }
 .gs-nav { display: flex; justify-content: space-between; align-items: center; }
 .gs-video-view { display: grid; place-items: center; }
-.gs-video { height: min(78vh, 52rem); aspect-ratio: 9 / 16; border-radius: 1.2rem; background: #0b0b0b; }
+.gs-video { width: min(100%, calc(min(70vh, 46rem) * 16 / 9)); height: auto; aspect-ratio: 16 / 9; border-radius: 1.2rem; background: #0b0b0b; }
 @keyframes gs-in { from { opacity: 0; scale: 0.4; } to { opacity: 1; scale: 1; } }
 @keyframes gs-ping { from { opacity: 0.9; scale: 1; } to { opacity: 0; scale: 1.6; } }
 body.fluid .gs-rail { flex-wrap: wrap; }
@@ -238,7 +238,7 @@ body.fluid .gs-pic { height: auto; width: 100%; }
 body.fluid .gs-mark { width: 2.4rem; height: 2.4rem; border-width: 0.2rem; }
 body.fluid .gs-head h3 { font-size: 1.3rem; }
 body.fluid .gs-tips li { font-size: 0.95rem; }
-body.fluid .gs-video { height: 70vh; }
+body.fluid .gs-video { width: min(100%, calc(60vh * 16 / 9)); }
 @media (prefers-reduced-motion: reduce) { .gs-mark, .gs-tips li { animation: none; opacity: 1; } .gs-mark::after, .gs-warn { animation: none; } }
 /* Camera bị lớp ClassIn giữ */
 .cam-busy { display: grid; gap: 0.8rem; }

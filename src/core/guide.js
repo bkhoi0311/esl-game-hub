@@ -20,9 +20,9 @@ const steps = () => [
   { place: 'laptop', label: t('guide.s2.label'), title: t('guide.s2.title'), img: 'steps/0-drive-bang-den.webp', ratio: 2000 / 1168,
     marks: [[97.35, 52.2], [77.4, 54.8]], tips: [t('guide.tip.cloud'), t('guide.s2.tip2')], note: t('guide.s2.note') },
   { place: 'laptop', label: t('guide.s3.label'), title: t('guide.s3.title'), img: 'steps/1-soan-bai.webp', ratio: 16 / 9,
-    marks: [[46.7, 5.5], [46.1, 34.6], [50, 61.2]], tips: [t('guide.s3.tip1'), t('guide.s3.tip2'), t('guide.s3.tip3')] },
+    marks: [[52.4, 5.2], [46.1, 58.1], [50, 85]], tips: [t('guide.s3.tip1'), t('guide.s3.tip2'), t('guide.s3.tip3')] },
   { place: 'laptop', label: t('guide.s4.label'), title: t('guide.s4.title'), img: 'steps/2-luu-edu.webp', ratio: 16 / 9,
-    marks: [[54.7, 14.4], [70.1, 72.5]], tips: [t('guide.s4.tip1'), t('guide.s4.tip2')], note: t('guide.s4.note') },
+    marks: [[56.2, 14.1], [71.2, 73.7]], tips: [t('guide.s4.tip1'), t('guide.s4.tip2')], note: t('guide.s4.note') },
   { place: 'laptop', label: t('guide.s5.label'), title: t('guide.s5.title'), img: 'steps/0-drive-bang-den.webp', ratio: 2000 / 1168,
     marks: [[97.35, 52.2], [37.85, 16.3]], tips: [t('guide.tip.cloud'), t('guide.s5.tip2')] },
   { place: 'board', label: t('guide.s6.label'), title: t('guide.s6.title'), img: 'steps/4-dang-nhap.webp', ratio: 1280 / 636,
@@ -30,7 +30,7 @@ const steps = () => [
   { place: 'board', label: t('guide.s7.label'), title: t('guide.s7.title'), img: 'steps/5-mo-file.webp', ratio: 16 / 9,
     marks: [[42.6, 91.6], [21.3, 20.2], [56, 55.6]], tips: [t('guide.s7.tip1'), t('guide.s7.tip2'), t('guide.s7.tip3')], note: t('guide.s7.note') },
   { place: 'board', label: t('guide.s8.label'), title: t('guide.s8.title'), img: 'steps/6-choi.webp', ratio: 16 / 9,
-    marks: [[69.5, 46.1]], tips: [t('guide.s8.tip1')], note: t('guide.s8.note') },
+    marks: [[42.5, 76.9]], tips: [t('guide.s8.tip1')], note: t('guide.s8.note') },
 ];
 
 const PLACES = { laptop: { key: 'guide.dev.pc', icon: 'laptop' }, board: { key: 'guide.dev.board', icon: 'board' } };
