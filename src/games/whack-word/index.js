@@ -159,13 +159,17 @@ function makeWhackScene(Phaser) {
       side.target = t;
       side.sinceTarget = 0;
       const img = t.picKey && this.textures.exists(t.picKey);
-      const text = img ? '' : t.pic.type === 'img' ? (picOf({ word: t.word, example: t.example, image: '' }) || {}).text || t.word : t.pic.text;
-      const cloze = !img && t.pic.type !== 'digits';
+      // Hình dễ nhầm có câu gợi ý (t.pic.hint): hình nhỏ bên trái + câu đục lỗ bên phải.
+      const hint = img && t.pic.hint;
+      const text = hint ? t.pic.hint : img ? '' : t.pic.type === 'img' ? (picOf({ word: t.word, example: t.example, image: '' }) || {}).text || t.word : t.pic.text;
+      const cloze = hint || (!img && t.pic.type !== 'digits');
+      const cx = LANE * side.i + LANE / 2;
       side.head.setText(cloze ? 'Find the missing word' : 'Which word is this?');
-      side.picImg.setVisible(Boolean(img));
-      if (img) side.picImg.setTexture(t.picKey).setDisplaySize(82, 82);
+      side.picImg.setVisible(Boolean(img)).setPosition(hint ? LANE * side.i + 112 : cx, hint ? 96 : 102);
+      if (img) side.picImg.setTexture(t.picKey).setDisplaySize(hint ? 70 : 82, hint ? 70 : 82);
+      side.meaning.setX(hint ? cx + 50 : cx).setWordWrapWidth(hint ? LANE - 260 : LANE - 140);
       side.meaning.setText(text);
-      side.meaning.setFontSize(cloze ? (text.length > 34 ? '28px' : '34px') : '60px');
+      side.meaning.setFontSize(cloze ? (text.length > 34 ? '27px' : '33px') : '60px');
       if (!this.calm) this.tweens.add({ targets: img ? side.picImg : side.meaning, scale: { from: img ? 0.5 : 0.6, to: img ? side.picImg.scale : 1 }, duration: 350, ease: 'Back.easeOut' });
     }
 

@@ -15,3 +15,6 @@
 .mm-card.pic .pic-digits { font-size: 3.4rem; }
 .mm-card.matched .mm-front { background: #fff linear-gradient(var(--team-25, transparent), var(--team-25, transparent)); border-color: var(--team); }
 .mm-card.matched { animation: nudge 0.5s ease; }
+.mm-card.pic .pic-hinted { height: auto; gap: 0.35rem; }
+.mm-card.pic .pic-hinted .pic-img { width: 4.6rem; height: 4.6rem; }
+.mm-card.pic .pic-hint { font-size: 1.05rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }

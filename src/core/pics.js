@@ -43,14 +43,16 @@ export function clozeOf(word, example) {
   return null;
 }
 
-// { type: 'img', src } | { type: 'digits', text } | { type: 'cloze', text } | null
+// { type: 'img', src, hint? } | { type: 'digits', text } | { type: 'cloze', text } | null
+// Mã có dấu "~" = hình dễ nhầm (father 👨, fantastic 🤩): luôn kèm câu gợi ý đục lỗ (hint); không có câu thì chỉ dùng câu/bỏ.
 export function picOf(item) {
   const v = typeof item === 'string' ? { word: item } : item || {};
   if (/^https?:\/\//i.test(v.image || '')) return { type: 'img', src: v.image };
   const code = picCode(v.word);
-  if (code && code[0] === '#') return { type: 'digits', text: code.slice(1) };
-  if (code) return { type: 'img', src: `${BASE}emoji_u${code}.svg` };
   const text = clozeOf(v.word, v.example);
+  if (code && code[0] === '#') return { type: 'digits', text: code.slice(1) };
+  if (code && code[0] === '~') return text ? { type: 'img', src: `${BASE}emoji_u${code.slice(1)}.svg`, hint: text } : null;
+  if (code) return { type: 'img', src: `${BASE}emoji_u${code}.svg` };
   return text ? { type: 'cloze', text } : null;
 }
 
@@ -60,6 +62,10 @@ export const isPicture = (p) => Boolean(p && p.type !== 'cloze');
 // Phần tử DOM hiển thị hình (dùng chung cho mọi game DOM).
 export function picNode(pic, cls = '') {
   if (!pic) return null;
+  if (pic.type === 'img' && pic.hint) {
+    return h('span', { class: `pic pic-hinted ${cls}` },
+      h('img', { class: 'pic-img', src: pic.src, alt: '', draggable: false }), h('span', { class: 'pic-hint' }, pic.hint));
+  }
   if (pic.type === 'img') return h('img', { class: `pic pic-img ${cls}`, src: pic.src, alt: '', draggable: false });
   if (pic.type === 'digits') return h('span', { class: `pic pic-digits ${cls}` }, pic.text);
   return h('span', { class: `pic pic-cloze ${cls}` }, pic.text);
@@ -87,7 +93,8 @@ export function studentQuestion(q, vocab = []) {
   const asPicture = (word) => {
     const pic = picOf(itemOf(word));
     if (!pic) return null;
-    if (isPicture(pic)) { out.prompt = 'What is this?'; out.pic = word; } else { out.prompt = pic.text; delete out.pic; }
+    if (pic.hint) { out.prompt = pic.hint; out.pic = word; out.picBare = true; } // hình nhỏ + câu gợi ý làm đề
+    else if (isPicture(pic)) { out.prompt = 'What is this?'; out.pic = word; } else { out.prompt = pic.text; delete out.pic; }
     return out;
   };
 
@@ -132,4 +139,12 @@ export function studentQuestion(q, vocab = []) {
 // Câu hỏi cho học sinh của 1 bài: không còn tiếng Việt.
 export function studentQuestions(pack) {
   return getQuestions(pack).map((q) => studentQuestion(q, pack.vocab)).filter(Boolean);
+}
+
+// Hình trên đề câu hỏi: câu có q.picBare (đề đã là câu gợi ý) thì chỉ vẽ hình, không lặp câu.
+export function questionPic(q) {
+  if (!q || !q.pic) return null;
+  const pic = picOf(q.pic);
+  if (!pic) return null;
+  return picNode(q.picBare ? { ...pic, hint: undefined } : pic, 'q-pic');
 }

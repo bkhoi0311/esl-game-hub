@@ -1,3 +1,4 @@
+// img = hình rõ, hint = hình kèm câu gợi ý đục lỗ, cloze = chỉ câu đục lỗ.
 // Rà hình cho từ vựng + câu hỏi học sinh thấy (không còn tiếng Việt) trên MỌI gói thư viện và kho từ.
 // Dùng: node tools/pics/audit.mjs [--list]   (--list in các từ chưa có hình thật)
 import fs from 'node:fs';
@@ -24,12 +25,12 @@ let bad = 0;
 for (const p of idx) {
   const pack = JSON.parse(fs.readFileSync(path.join(root, 'src/data/library/packs', `${p.id}.json`), 'utf8'));
   const lv = LEVELS.includes(p.level) ? p.level : 'chung';
-  const s = (stat[lv] ||= { packs: 0, words: 0, img: 0, digits: 0, cloze: 0, none: 0, q: 0, qPic: 0, qDrop: 0 });
+  const s = (stat[lv] ||= { packs: 0, words: 0, img: 0, hint: 0, digits: 0, cloze: 0, none: 0, q: 0, qPic: 0, qDrop: 0 });
   s.packs++;
   pack.vocab.forEach((v) => {
     s.words++;
     const pic = pics.picOf(v);
-    s[pic ? pic.type : 'none']++;
+    s[pic ? (pic.hint ? 'hint' : pic.type) : 'none']++;
     if (!pics.isPicture(pic)) (noPic[lv] ||= new Set()).add(v.word);
   });
   pack.questions.forEach((q) => {
@@ -56,10 +57,10 @@ const bankStat = {};
 for (const r of bank.rows) {
   const lv = LV[r[4]];
   if (!lv) continue;
-  const s = (bankStat[lv] ||= { words: 0, img: 0, digits: 0, cloze: 0, none: 0 });
+  const s = (bankStat[lv] ||= { words: 0, img: 0, hint: 0, digits: 0, cloze: 0, none: 0 });
   s.words++;
   const pic = pics.picOf({ word: r[0], example: r[5] });
-  s[pic ? pic.type : 'none']++;
+  s[pic ? (pic.hint ? 'hint' : pic.type) : 'none']++;
 }
 
 console.log('\nGói thư viện (từ trong gói + câu hỏi):');
