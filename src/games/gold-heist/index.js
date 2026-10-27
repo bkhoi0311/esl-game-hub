@@ -4,7 +4,8 @@ import { gsap } from 'gsap';
 import confetti from 'canvas-confetti';
 import { PERF } from '../../core/perf.js';
 import { confettiLite } from '../../core/fx.js';
-import { getQuestions, shuffle } from '../../core/content.js';
+import { shuffle } from '../../core/content.js';
+import { picNode, picOf, studentQuestions } from '../../core/pics.js';
 import { playSound, speak } from '../../core/audio.js';
 import {
   TEAM_COLORS, teamVars, answerButtons, button, createGameFrame, createScoreboard, h, resultsScreen, segmented, setupScreen, stepper,
@@ -43,7 +44,7 @@ function chestSvg() {
 }
 
 function createGame(root, pack) {
-  const questionsAll = getQuestions(pack);
+  const questionsAll = studentQuestions(pack);
   const names = [...pack.teams];
   for (const d of DEFAULT_TEAMS) if (names.length < 4 && !names.includes(d)) names.push(d);
 
@@ -170,7 +171,7 @@ function createGame(root, pack) {
     answersEl.dataset.correct = String(correctPos);
     setStage(h('div', { class: 'gh-play', 'data-testid': 'gh-question' },
       turnBanner(),
-      h('div', { class: 'gh-prompt-row' }, h('p', { class: 'prompt' }, q.prompt), listen),
+      h('div', { class: 'gh-prompt-row' }, q.pic ? picNode(picOf(q.pic), 'q-pic') : null, h('p', { class: 'prompt' }, q.prompt), listen),
       answersEl));
   }
 

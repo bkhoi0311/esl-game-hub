@@ -4,7 +4,8 @@ import confetti from 'canvas-confetti';
 import { PERF } from '../../core/perf.js';
 import { confettiLite } from '../../core/fx.js';
 import { playSound, speak } from '../../core/audio.js';
-import { getQuestions, shuffle } from '../../core/content.js';
+import { shuffle } from '../../core/content.js';
+import { picNode, picOf, studentQuestions } from '../../core/pics.js';
 import { TEAM_COLORS, answerButtons, button, createGameFrame, createScoreboard, h } from '../../core/ui.js';
 import { line } from '../../core/voice-lines.js';
 import { outcome } from './logic.js';
@@ -22,7 +23,7 @@ const HOW_TO = {
 };
 
 function createGame(root, pack) {
-  const questionsAll = getQuestions(pack);
+  const questionsAll = studentQuestions(pack);
   const teams = pack.teams.slice(0, 2);
   let queue = [];
   let board = null;
@@ -116,7 +117,7 @@ function createGame(root, pack) {
     el.classList.add('ttt-answers');
     el.dataset.correct = String(correctPos);
     panel.textContent = '';
-    panel.append(h('p', { class: 'prompt ttt-prompt' }, q.prompt), el);
+    panel.append(...[q.pic ? picNode(picOf(q.pic), 'q-pic') : null, h('p', { class: 'prompt ttt-prompt' }, q.prompt), el].filter(Boolean));
     speak(q.prompt);
   }
 

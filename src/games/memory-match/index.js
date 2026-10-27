@@ -1,4 +1,4 @@
-// Memory Match — lật 2 thẻ, cặp "từ tiếng Anh + nghĩa tiếng Việt" trùng nhau thì ghi điểm và được lật tiếp.
+// Memory Match — lật 2 thẻ, cặp "từ tiếng Anh + hình" trùng nhau thì ghi điểm và được lật tiếp.
 // 2-4 đội thay phiên trên cùng bảng. Máy đọc từ khi tìm được cặp.
 import './style.css';
 import confetti from 'canvas-confetti';
@@ -11,6 +11,7 @@ import {
 import { gameArt } from '../../core/art.js';
 import { line } from '../../core/voice-lines.js';
 import { buildDeck, isMatch, maxPairs } from './logic.js';
+import { picNode, picOf } from '../../core/pics.js';
 import { burst } from '../../core/fx.js';
 import { addStrings, onLang, t } from '../../i18n/index.js';
 import VI from '../../i18n/strings/games-duel.vi.js';
@@ -20,14 +21,14 @@ addStrings('games-duel', VI);
 const DEFAULT_TEAMS = ['Red', 'Blue', 'Green', 'Pink'];
 const HOW_TO = {
   title: 'How to play',
-  text: 'Find the English word and its Vietnamese meaning.',
+  text: 'Find the English word and its picture.',
   steps: ['Flip two cards.', 'A pair: +1 point and play again.', 'No pair: next team.'],
 };
 
 function createGame(root, pack) {
   const names = [...pack.teams];
   for (const d of DEFAULT_TEAMS) if (names.length < 4 && !names.includes(d)) names.push(d);
-  const available = maxPairs(pack.vocab);
+  const available = maxPairs(pack.vocab, picOf);
   const opts = { pairs: Math.min(8, available), teams: 2 };
   let state = null;
   let scoreboard = null;
@@ -65,7 +66,7 @@ function createGame(root, pack) {
 
   function start() {
     setupOpen = false;
-    const deck = buildDeck(pack.vocab, opts.pairs);
+    const deck = buildDeck(pack.vocab, opts.pairs, Math.random, picOf);
     const teamNames = names.slice(0, opts.teams);
     state = { deck, teamNames, turn: 0, open: [], found: 0, busy: false };
     scoreboard = createScoreboard(teamNames, { controls: false });
@@ -78,7 +79,7 @@ function createGame(root, pack) {
         const el = h('button', { type: 'button', class: `mm-card ${card.kind}`, 'data-index': i, 'data-pair': card.pair, 'aria-label': `Card ${i + 1}` },
           h('span', { class: 'mm-inner' },
             h('span', { class: 'mm-back' }, h('span', { class: 'mm-q en' }, '?')),
-            h('span', { class: `mm-front${card.kind === 'word' ? ' en' : ''}` }, card.text)));
+            h('span', { class: `mm-front${card.kind === 'word' ? ' en' : ''}` }, card.kind === 'pic' ? picNode(card.pic) : card.text)));
         el.addEventListener('click', () => flip(i));
         card.el = el;
         return el;
@@ -170,7 +171,7 @@ export default {
   icon: 'grid',
   get description() { return t('game.memory.desc'); },
   ready: true,
-  checkContent: (pack) => (maxPairs(pack.vocab) >= 6 ? [] : [t('game.memory.need', { n: maxPairs(pack.vocab) })]),
+  checkContent: (pack) => (maxPairs(pack.vocab, picOf) >= 6 ? [] : [t('game.memory.need', { n: maxPairs(pack.vocab, picOf) })]),
 
   mount(rootEl, content) {
     instance = createGame(rootEl, content);

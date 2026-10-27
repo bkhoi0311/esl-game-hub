@@ -263,3 +263,11 @@ body.fluid .cam-ways { grid-template-columns: 1fr; }
 html.no-loop .world *, html.no-loop .w-float, html.no-loop .card-pic img, html.no-loop .menu-sign, html.no-loop .card-go,
 html.no-loop .game-card, html.no-loop .gh-chest-art, html.no-loop .wn-heart, html.no-loop .ttt-cell, html.no-loop .ttt-num, html.no-loop .ht-arrow,
 html.no-loop .gs-mark::after, html.no-loop .gs-warn, html.no-loop .setup-card h2 .game-art.has-pic img { animation: none !important; }
+
+/* Hình của từ (src/core/pics.js): emoji Noto SVG, chữ số to, hoặc câu đục lỗ */
+.pic-img { display: block; object-fit: contain; }
+.pic-digits { font-family: var(--font-en); font-weight: 800; color: var(--brand-ink); line-height: 1; }
+.pic-cloze { font-family: var(--font-en); font-weight: 700; color: var(--brand-ink); line-height: 1.25; text-align: center; }
+.q-pic.pic-img { width: 8.5rem; height: 8.5rem; margin: 0 auto; flex: none; }
+.q-pic.pic-digits { font-size: 6rem; }
+.tw-prompt .q-pic.pic-img { width: 7rem; height: 7rem; }

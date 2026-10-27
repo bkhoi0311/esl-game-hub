@@ -4,7 +4,8 @@ import './style.css';
 import confetti from 'canvas-confetti';
 import { PERF } from '../../core/perf.js';
 import { confettiLite } from '../../core/fx.js';
-import { getQuestions, shuffle } from '../../core/content.js';
+import { shuffle } from '../../core/content.js';
+import { picNode, picOf, studentQuestions } from '../../core/pics.js';
 import { playSound, speak } from '../../core/audio.js';
 import { line } from '../../core/voice-lines.js';
 import {
@@ -29,7 +30,7 @@ const HOW_TO = {
 };
 
 function createGame(root, pack) {
-  const questions = getQuestions(pack);
+  const questions = studentQuestions(pack);
   const opts = { steps: 5 };
   let state = null;
   let setupOpen = false;
@@ -157,7 +158,8 @@ function createGame(root, pack) {
     side.order = order;
     const correctPos = order.indexOf(side.q.answer);
 
-    side.el.promptEl.textContent = side.q.prompt;
+    side.el.promptEl.textContent = '';
+    side.el.promptEl.append(...[side.q.pic ? picNode(picOf(side.q.pic), 'q-pic') : null, side.q.prompt].filter(Boolean));
     const { el, buttons } = answerButtons(order.map((k) => side.q.options[k]), (pos, btn) => answer(side, pos, correctPos, btn, buttons), { usePointer: true });
     el.classList.add('tw-answers');
     el.dataset.correct = String(correctPos);

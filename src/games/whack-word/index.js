@@ -1,4 +1,4 @@
-// Whack-a-Word (Phaser 4) — chuột chũi ngoi lên cầm từ tiếng Anh; đập thật nhanh con có từ đúng với nghĩa tiếng Việt.
+// Whack-a-Word (Phaser 4) — chuột chũi ngoi lên cầm từ tiếng Anh; đập thật nhanh con có từ đúng với hình (không có tiếng Việt).
 // 2 học sinh 2 nửa bảng, mỗi bên mục tiêu riêng. Đúng +1, sai -1. Búa vung theo chỗ chạm.
 import { playSound, speak } from '../../core/audio.js';
 import { shuffle } from '../../core/content.js';
@@ -8,6 +8,7 @@ import VI from '../../i18n/strings/games-duel.vi.js';
 import { createPhaserDuel } from '../shared/duel-phaser.js';
 import { DESIGN, FONT_EN, INK, bake, makeFxTextures, textPool, toScreen } from '../shared/phaser-host.js';
 import { nextTarget, pickMoleWord, usableWords } from './logic.js';
+import { picOf } from '../../core/pics.js';
 
 addStrings('games-duel', VI);
 
@@ -17,7 +18,7 @@ const MAX_UP = 3;
 
 const HOW_TO = {
   title: 'How to play',
-  text: 'Read the Vietnamese word at the top.',
+  text: 'Look at the picture at the top.',
   steps: ['Whack the mole with the English word.', 'Right mole: +1 point.', 'Wrong mole: -1 point.'],
 };
 
@@ -52,7 +53,7 @@ function makeWhackScene(Phaser) {
     init(data) {
       this.api = data.api;
       this.calm = data.calm;
-      this.words = usableWords(this.api.pack.vocab);
+      this.words = usableWords(this.api.pack.vocab, picOf);
       this.sides = [];
       this.started = 0;
     }
@@ -60,6 +61,17 @@ function makeWhackScene(Phaser) {
     preload() {
       this.load.svg('mole', svgUrl(MOLE_SVG), { width: 180, height: 168 });
       this.load.svg('hammer', svgUrl(HAMMER_SVG), { width: 150, height: 150 });
+      // Hình của từng từ (emoji Noto SVG hoặc ảnh giáo viên gắn); ảnh lỗi thì từ đó dùng câu đục lỗ / bỏ.
+      this.words.forEach((w, k) => {
+        if (w.pic.type !== 'img') return;
+        w.picKey = `pic-${k}`;
+        if (/\.svg$/i.test(w.pic.src)) this.load.svg(w.picKey, w.pic.src, { width: 112, height: 112 });
+        else this.load.image(w.picKey, w.pic.src);
+      });
+      this.load.on('loaderror', (file) => {
+        const w = this.words.find((x) => x.picKey === file.key);
+        if (w) w.picKey = null;
+      });
     }
 
     create() {
@@ -108,8 +120,10 @@ function makeWhackScene(Phaser) {
         g.lineStyle(6, color).strokeRoundedRect(4, 4, pw, 132, 28);
       });
       this.add.image(x0 + 40 - 4, 14, `wh-panel-${i}`).setOrigin(0, 0).setDepth(2);
-      this.add.text(x0 + LANE / 2, 44, 'Find the English word for', { fontFamily: FONT_EN, fontSize: '28px', fontStyle: '700', color: '#6b6b6b' }).setOrigin(0.5).setDepth(3);
-      const meaning = this.add.text(x0 + LANE / 2, 100, '', { fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '50px', fontStyle: '800', color: '#1c1f25' }).setOrigin(0.5).setDepth(3);
+      const head = this.add.text(x0 + LANE / 2, 34, '', { fontFamily: FONT_EN, fontSize: '26px', fontStyle: '700', color: '#6b6b6b' }).setOrigin(0.5).setDepth(3);
+      // Mục tiêu: hình (ảnh / chữ số to) hoặc câu tiếng Anh đục lỗ
+      const meaning = this.add.text(x0 + LANE / 2, 98, '', { fontFamily: FONT_EN, fontSize: '50px', fontStyle: '800', color: '#1c1f25', align: 'center', wordWrap: { width: pw - 60 } }).setOrigin(0.5).setDepth(3);
+      const picImg = this.add.image(x0 + LANE / 2, 102, '__DEFAULT').setDepth(3).setVisible(false);
 
       const holes = [];
       const top = 250;
@@ -136,7 +150,7 @@ function makeWhackScene(Phaser) {
           holes.push(slot);
         }
       }
-      const side = { i, holes, meaning, target: null, sinceTarget: 0, nextSpawn: this.time.now + 300 + i * 200 };
+      const side = { i, holes, head, meaning, picImg, target: null, sinceTarget: 0, nextSpawn: this.time.now + 300 + i * 200 };
       this.setTarget(side, nextTarget(shuffle(this.words), null));
       return side;
     }
@@ -144,9 +158,15 @@ function makeWhackScene(Phaser) {
     setTarget(side, t) {
       side.target = t;
       side.sinceTarget = 0;
-      side.meaning.setText(t.meaning);
-      side.meaning.setFontSize(t.meaning.length > 16 ? '40px' : '50px');
-      if (!this.calm) this.tweens.add({ targets: side.meaning, scale: { from: 0.6, to: 1 }, duration: 350, ease: 'Back.easeOut' });
+      const img = t.picKey && this.textures.exists(t.picKey);
+      const text = img ? '' : t.pic.type === 'img' ? (picOf({ word: t.word, example: t.example, image: '' }) || {}).text || t.word : t.pic.text;
+      const cloze = !img && t.pic.type !== 'digits';
+      side.head.setText(cloze ? 'Find the missing word' : 'Which word is this?');
+      side.picImg.setVisible(Boolean(img));
+      if (img) side.picImg.setTexture(t.picKey).setDisplaySize(82, 82);
+      side.meaning.setText(text);
+      side.meaning.setFontSize(cloze ? (text.length > 34 ? '28px' : '34px') : '60px');
+      if (!this.calm) this.tweens.add({ targets: img ? side.picImg : side.meaning, scale: { from: img ? 0.5 : 0.6, to: img ? side.picImg.scale : 1 }, duration: 350, ease: 'Back.easeOut' });
     }
 
     drawSign(slot, key) {
@@ -253,7 +273,7 @@ export default {
   icon: 'hand',
   get description() { return t('game.whack.desc'); },
   ready: true,
-  checkContent: (pack) => (usableWords(pack.vocab).length >= 6 ? [] : [t('game.whack.need')]),
+  checkContent: (pack) => (usableWords(pack.vocab, picOf).length >= 6 ? [] : [t('game.whack.need')]),
 
   mount(rootEl, content) {
     instance = createPhaserDuel(rootEl, content, {

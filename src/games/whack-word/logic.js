@@ -1,14 +1,19 @@
 // Whack-a-Word (thuần logic): chọn từ mục tiêu và từ cho chuột ngoi lên.
 
-// Từ dùng được: có cả từ tiếng Anh và nghĩa tiếng Việt, không trùng.
-export function usableWords(vocab) {
+// Từ dùng được: có từ tiếng Anh và có hình (picFn(v) khác null: ảnh, chữ số hoặc câu đục lỗ), không trùng.
+// Trả về bản sao từ kèm v.pic. picFn truyền từ ngoài vào để logic chạy được trong Node.
+export function usableWords(vocab, picFn = () => null) {
   const seen = new Set();
-  return vocab.filter((v) => {
+  const out = [];
+  vocab.forEach((v) => {
     const key = (v.word || '').trim().toLowerCase();
-    if (!key || !(v.meaning || '').trim() || seen.has(key)) return false;
+    if (!key || seen.has(key)) return;
+    const pic = picFn(v);
+    if (!pic) return;
     seen.add(key);
-    return true;
+    out.push({ ...v, pic });
   });
+  return out;
 }
 
 // Mục tiêu tiếp theo, khác mục tiêu vừa xong.

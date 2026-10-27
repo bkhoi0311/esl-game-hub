@@ -216,24 +216,28 @@ test('Tic-Tac-Toe: thắng hàng/cột/chéo, hoà, chưa xong', () => {
 // ---------- Memory Match ----------
 import { buildDeck, isMatch, maxPairs } from '../src/games/memory-match/logic.js';
 
-test('Memory Match: mỗi cặp gồm 1 thẻ từ + 1 thẻ nghĩa, không trùng', () => {
-  const deck = buildDeck(sample.vocab, 8);
+// Hình giả cho test (bản thật: picOf trong src/core/pics.js).
+const fakePic = (v) => ({ type: 'img', src: `pic/${v.word}` });
+
+test('Memory Match: mỗi cặp gồm 1 thẻ từ + 1 thẻ hình, không trùng', () => {
+  const deck = buildDeck(sample.vocab, 8, Math.random, fakePic);
   assert.equal(deck.length, 16);
   for (let p = 0; p < 8; p++) {
     const cards = deck.filter((c) => c.pair === p);
-    assert.deepEqual(cards.map((c) => c.kind).sort(), ['meaning', 'word']);
+    assert.deepEqual(cards.map((c) => c.kind).sort(), ['pic', 'word']);
     assert.ok(isMatch(cards[0], cards[1]));
   }
   assert.equal(new Set(deck.map((c) => c.text.toLowerCase())).size, 16);
   assert.ok(!isMatch(deck[0], deck[0]));
-  assert.equal(maxPairs(sample.vocab), 24);
+  assert.equal(maxPairs(sample.vocab, fakePic), 24);
+  assert.equal(maxPairs(sample.vocab), 0, 'không có hình thì không có cặp');
 });
 
 // ---------- Whack-a-Word ----------
 import { pickMoleWord, usableWords } from '../src/games/whack-word/logic.js';
 
 test('Whack-a-Word: từ mục tiêu xuất hiện ít nhất mỗi 3 con, không trùng trên bảng', () => {
-  const words = usableWords(sample.vocab);
+  const words = usableWords(sample.vocab, fakePic);
   const target = words[0];
   let since = 0;
   let onBoard = [];

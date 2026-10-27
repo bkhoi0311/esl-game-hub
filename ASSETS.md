@@ -17,3 +17,7 @@
 
 ## Liquid Glass (src/styles/liquid-glass.css, src/vendor/liquid-glass.js, tests/qa-audit.js)
 - Nguồn: bộ kit skill liquid-glass-design v2.2.1 (github.com/bkhoi0311/liquid-glass-design), giấy phép MIT; kit tổng hợp từ deepika-builds/liquid-glass, haider-nawaz/liquid-glass-skill, s1gmamale1/apple-design-skills (MIT).
+
+## Hình từ vựng (public/pics/*.svg, src/data/pics.json)
+- Nguồn: Noto Emoji của Google (github.com/googlefonts/noto-emoji, thư mục 2D/svg), giấy phép Apache 2.0; cờ quốc gia lấy từ third_party/region-flags (public domain). Nén bằng svgo.
+- Bảng từ -> hình: tools/pics/map-all.json (2.058 từ Starters–KET, ghép 27/10/2026). Kiểm tra: `node tools/pics/audit.mjs`.
