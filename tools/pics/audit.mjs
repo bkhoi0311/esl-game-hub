@@ -49,9 +49,9 @@ for (const p of idx) {
   });
 }
 
-// Kho từ: Starters -> KET
+// Kho từ: Starters -> PET
 const bank = JSON.parse(fs.readFileSync(path.join(root, 'src/data/wordbank/words.json'), 'utf8'));
-const LV = { s: 'starters', m: 'movers', f: 'flyers', k: 'ket' };
+const LV = { s: 'starters', m: 'movers', f: 'flyers', k: 'ket', p: 'pet' };
 const bankStat = {};
 for (const r of bank.rows) {
   const lv = LV[r[4]];
@@ -64,7 +64,7 @@ for (const r of bank.rows) {
 
 console.log('\nGói thư viện (từ trong gói + câu hỏi):');
 console.table(stat);
-console.log('Kho từ Starters -> KET:');
+console.log('Kho từ Starters -> PET:');
 console.table(bankStat);
 if (process.argv.includes('--list')) for (const [lv, set] of Object.entries(noPic)) console.log(`\n${lv} (câu đục lỗ / không hình): ${[...set].join(', ')}`);
 console.log(bad ? `\nFAIL: ${bad} câu còn tiếng Việt` : '\nOK: học sinh không thấy tiếng Việt trong câu hỏi nào');

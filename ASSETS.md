@@ -20,4 +20,4 @@
 
 ## Hình từ vựng (public/pics/*.svg, src/data/pics.json)
 - Nguồn: Noto Emoji của Google (github.com/googlefonts/noto-emoji, thư mục 2D/svg), giấy phép Apache 2.0; cờ quốc gia lấy từ third_party/region-flags (public domain). Nén bằng svgo.
-- Bảng từ -> hình: tools/pics/map-all.json (2.058 từ Starters–KET, ghép 27/10/2026). Kiểm tra: `node tools/pics/audit.mjs`.
+- Bảng từ -> hình: tools/pics/map-all.json (Starters–KET + PET, ghép 27/10/2026). Kiểm tra: `node tools/pics/audit.mjs`.
