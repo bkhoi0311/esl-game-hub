@@ -53,6 +53,11 @@ export function render(scene, state, r) {
     if (h) fillRect(img, p.x0 + 24 + h.dx, p.y0 + 50 + h.dy, 6, 6, state.handV || 145); // bàn tay (tương phản 25 so với áo)
   });
   if (state.arm != null) fillRect(img, 20 + state.arm, 50, 14, 50, 235); // cánh tay quét qua nền, ngoài thân
+  if (state.big) { // một bạn đứng sát camera: thân áo kẻ sọc chiếm ~70% khung, lắc người dx
+    const bx = 40 + state.big.dx;
+    for (let x = 0; x < 176; x += 8) fillRect(img, bx + x, 12, 8, 132, (x / 8) % 2 ? 105 : 150);
+    fillCircle(img, bx + 88, 10, 22, 180);
+  }
   const out = new Uint8Array(W * H);
   const flick = new Float32Array((W / 8) * (H / 8));
   for (let i = 0; i < flick.length; i++) flick[i] = gauss(r) * 1.2; // nhấp nháy nén theo khối 8x8
@@ -103,6 +108,8 @@ function stateFor(kind, tr, k, opts) {
     case 'salt': s.salt = 6; break;
     case 'dupFrames': s.hand[0] = { dx: tri(tr, 1600, 12), dy: 0 }; break;
     case 'leftOnly': s.hand[0] = { dx: tri(tr, 1600, 6) - 6, dy: 0 }; s.hand[1] = { dx: 0, dy: 0 }; break; // dx -12..0: ở nửa trái
+    case 'closeBody': s.big = { dx: tri(tr, 1400, 8) }; break; // người sát camera lắc nhẹ +-8 px
+    case 'closeBodyStill': s.big = { dx: 0 }; break;
     case 'bothHands': s.hand[0] = { dx: tri(tr, 1600, 12), dy: 0 }; s.hand[1] = { dx: tri(tr, 1500, 12), dy: 0 }; break;
     default: throw new Error(`kind ${kind}?`);
   }
@@ -119,6 +126,7 @@ export function sequence(kind, seed, { fidget = 0, handV = 0 } = {}) {
   const nCal = Math.round(CAL_MS / DT);
   for (let k = 0; k < nCal; k++) {
     const st = { hand: [{ dx: 0, dy: 0 }, { dx: 0, dy: 0 }], sleeve: [0, 0], gain: 1 };
+    if (kind.startsWith('closeBody')) st.big = { dx: 0 };
     if (fidget && r() < fidget) st.hand[0] = { dx: Math.floor(r() * 24) - 12, dy: Math.floor(r() * 8) - 4 };
     cal.push({ gray: render(scene, st, r), t: k * DT });
   }

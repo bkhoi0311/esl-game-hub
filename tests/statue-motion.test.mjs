@@ -113,6 +113,14 @@ test('C11 bigWaveOutside: cánh tay quét qua nền, không thụt lùi', () => 
   assert.equal(a.v2.det, 10, `v2 ${a.v2.det}/10`);
 });
 
+// ---------- C15: người đứng sát camera (chiếm ~70% khung) lắc người phải bị bắt; đứng yên thì không ----------
+test('C15 closeBody: bạn đứng sát camera cử động vẫn bị bắt (lỗi cũ: >60% khung đổi bị coi là đổi sáng)', () => {
+  const a = evaluate('closeBody');
+  assert.ok(a.v2.det >= 9, `v2 bắt ${a.v2.det}/10`);
+  const b = evaluate('closeBodyStill', { label: 'closeBody đứng yên' });
+  assert.ok(b.v2.flags <= 2, `đứng yên báo sai ${b.v2.flags} ô`);
+});
+
 // ---------- C12–C14: người cử động lúc hiệu chỉnh không bị tô xám; TV/quạt vẫn xám (PLAN-STATUE-FIX.md) ----------
 const leftMaskedCells = (d) => { let n = 0; for (let i = 0; i < 144; i++) if (d.masked[i] && i % 16 < 8) n++; return n; };
 
@@ -140,19 +148,26 @@ test('C13 cử động lúc hiệu chỉnh rồi đứng yên: không báo sai',
   }
 });
 
-test('C14 TV + quạt: vẫn tô xám, không báo sai, người vẫn bắt được', () => {
+// Vùng xám mặc định TẮT (02/11: ô xám trùng chỗ bạn đứng làm không bắt được); tính năng giữ lại sau tuỳ chọn masks.
+test('C14 TV + quạt (masks: true): vẫn tô xám, không báo sai, người vẫn bắt được', () => {
   let flagsStill = 0;
   let det = 0;
   for (const seed of SEEDS) {
-    const d = createDetector({ sensitivity: 6 });
+    const d = createDetector({ sensitivity: 6, masks: true });
     const r1 = run(d, seqCalMove('none', 'still', seed, { tv: 1, fan: 1 }), { sensitivity: 6 });
     assert.ok(r1.cal.masked >= 8, `seed ${seed}: chỉ ${r1.cal.masked} ô xám`);
     flagsStill += countFlagged(r1);
-    const r2 = run(createDetector({ sensitivity: 6 }), seqCalMove('none', 'hand', seed, { tv: 1, fan: 1 }), { sensitivity: 6 });
+    const r2 = run(createDetector({ sensitivity: 6, masks: true }), seqCalMove('none', 'hand', seed, { tv: 1, fan: 1 }), { sensitivity: 6 });
     if (r2.lanes[0] >= 1) det++;
   }
   assert.ok(flagsStill <= 3, `TV/quạt báo sai ${flagsStill} ô`);
   assert.ok(det >= 9, `bắt ${det}/10`);
+});
+
+test('C16 mặc định không tô xám ô nào (kể cả có TV/quạt)', () => {
+  const d = createDetector({ sensitivity: 6 });
+  const r = run(d, seqCalMove('none', 'still', 1, { tv: 1, fan: 1 }), { sensitivity: 6 });
+  assert.equal(r.cal.masked, 0);
 });
 
 test('Bảng so sánh v1 và v2', () => {

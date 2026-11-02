@@ -15,6 +15,15 @@ function frame(lm) {
 }
 
 const raised = (w, f) => vis(w) && vis(f.nose) && w.y < f.nose.y;
+
+// Đầu ngón tay (MediaPipe Pose 33 điểm): ngón trỏ 19/20, ngón cái 21/22. Cổ tay nằm dưới cằm khi ngón chạm mũi,
+// nên đo chạm bằng cổ tay bắt bé phải đưa tay cao quá mũi. Thêm điểm ước lượng: cổ tay kéo dài theo cẳng tay.
+const HAND = { left: { index: 19, thumb: 21 }, right: { index: 20, thumb: 22 } };
+function handPoints(lm, side, w, e) {
+  const pts = [lm[HAND[side].index], lm[HAND[side].thumb], w];
+  if (vis(w, 0.3) && vis(e, 0.3)) pts.push({ x: w.x + (w.x - e.x) * 0.45, y: w.y + (w.y - e.y) * 0.45, visibility: Math.min(w.visibility ?? 1, e.visibility ?? 1) });
+  return pts.filter((p) => vis(p, 0.3));
+}
 const lowered = (w, s, f) => !vis(w) || w.y > s.y - 0.1 * f.sw;
 
 export const POSES = [
@@ -64,7 +73,10 @@ export const POSES = [
     check(lm) {
       const f = frame(lm);
       if (!f || !vis(f.nose, 0.3)) return false;
-      return [f.lw, f.rw].some((w) => vis(w, 0.3) && dist(w, f.nose) < 0.5 * f.sw);
+      // Tay phải đưa lên mặt (cổ tay cao hơn ngực) và một đầu ngón / điểm ước lượng sát mũi.
+      const touch = (side, w, e, s) => vis(w, 0.3) && w.y < s.y + 0.35 * f.sw
+        && handPoints(lm, side, w, e).some((p) => dist(p, f.nose) < 0.45 * f.sw);
+      return touch('left', f.lw, f.le, f.ls) || touch('right', f.rw, f.re, f.rs);
     },
   },
   {

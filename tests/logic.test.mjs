@@ -120,6 +120,17 @@ test('Simon: các tư thế khác', () => {
   assert.ok(matches(body({ 23: [0.55, 0.72], 24: [0.45, 0.72], 25: [0.6, 0.76], 26: [0.4, 0.76] })).includes('squat'));
 });
 
+test('Simon: chạm mũi bằng ngón tay, cổ tay còn dưới cằm (lỗi cũ: phải đưa tay cao quá mũi)', () => {
+  // Ngón trỏ trái (19) chạm mũi, cổ tay (15) dưới cằm ~0,6 vai, khuỷu (13) ngang ngực.
+  assert.ok(matches(body({ 15: [0.54, 0.3], 13: [0.62, 0.42], 19: [0.505, 0.215], 21: [0.52, 0.23] })).includes('touch-nose'));
+  // Không có điểm ngón tay (độ tin thấp): vẫn bắt nhờ ước lượng đầu ngón theo cẳng tay.
+  const lm = body({ 15: [0.53, 0.28], 13: [0.6, 0.4] });
+  lm[19] = { x: 0.5, y: 0.2, visibility: 0.05 }; lm[21] = { x: 0.5, y: 0.2, visibility: 0.05 };
+  assert.ok(matches(lm).includes('touch-nose'));
+  // Tay đặt trước ngực: không tính là chạm mũi.
+  assert.ok(!matches(body({ 15: [0.54, 0.44], 13: [0.62, 0.5], 19: [0.52, 0.4], 21: [0.53, 0.41] })).includes('touch-nose'));
+});
+
 // ---------- Sentence Race ----------
 import { readdirSync } from 'node:fs';
 import { MIN_SENTENCES, countsByLength, isNext, makeRound as makeSrRound, sentencesFromPack, tokenize } from '../src/games/sentence-race/logic.js';

@@ -75,15 +75,6 @@ export function makeStatueScene(Phaser) {
       u.clear();
       g.clear();
       d.clear();
-      // Vùng luôn nhấp nháy (màn hình, quạt): xám, bị bỏ qua khi đo.
-      if (st.phase !== 'calibrate' && st.masked) {
-        st.masked.forEach((m, i) => {
-          if (!m) return;
-          const c = i % st.cols;
-          const r = Math.floor(i / st.cols);
-          u.fillStyle(0x6b7280, 0.3).fillRoundedRect(ox + c * cw + 3, oy + r * ch + 3, cw - 6, ch - 6, 8);
-        });
-      }
       // Ô vàng: đang chuyển động (chưa tính lỗi). Giáo viên chỉnh độ nhạy tới khi lúc cả lớp đứng yên thì hết vàng.
       if (showCells && st.live) {
         st.live.forEach((l, i) => {

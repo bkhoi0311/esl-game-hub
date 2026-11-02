@@ -13,7 +13,8 @@ export const SF = {
   GRACE_MS: 700, REF_MS: 200, MEASURE_MS: 3000, REF_RETAKE_MS: 300,
   SIGMA_MIN: 1.5, SIGMA_MAX: 8, TAU_MIN: 5, TAU_MAX: 24,
   MIN_COUNT: 2, BASE_COUNT: 2, R_TAU_ADD: 4, R_COUNT_ADD: 1,
-  E_ADD: 2, E_ON: 3, R_ON: 3, GLOBAL_FRAC: 0.6, UNSTABLE_FRAC: 0.4,
+  // GLOBAL_FRAC: chỉ khi gần như CẢ khung đổi (đổi sáng mạnh, camera xoay) mới bỏ qua lượt đo; 0,6 cũ bỏ sót bạn đứng sát camera.
+  E_ADD: 2, E_ON: 3, R_ON: 3, GLOBAL_FRAC: 0.9, UNSTABLE_FRAC: 0.4,
   GAIN_MIN: 0.75, GAIN_MAX: 1.33,
   // Khối bất ổn (TV, quạt) phải bất ổn ở CẢ UNSTABLE_PARTS phần của cửa sổ hiệu chỉnh; cụm bất ổn > MASK_BLOB_MAX khối
   // (8 hướng, ~8 ô) là người cử động lúc hiệu chỉnh, không che. Xem PLAN-STATUE-FIX.md.
@@ -22,6 +23,9 @@ export const SF = {
   Q_LOG0: -4, Q_LOG_STEP: 0.1, // xác suất nhiễu cho phép của một khối: 10^(Q_LOG0 + Q_LOG_STEP*(s-1))
   // Camera tự đổi khung (S1): sau khi khung ổn định phải đo được ít nhất RF_MIN_VALID_MS thì lượt đỏ mới có giá trị. PLAN-S1-REFRAME.md.
   RF_MIN_VALID_MS: 1500,
+  // Kiểm tra mép khung khi nghi camera đổi khung: EDGE_BLOCKS cột khối mỗi bên, khối "đổi" khi >= EDGE_COUNT điểm ảnh đổi,
+  // camera đổi khung thật khi CẢ hai mép có >= EDGE_FRAC khối đổi.
+  EDGE_BLOCKS: 3, EDGE_COUNT: 8, EDGE_FRAC: 0.25,
 };
 
 const BX = SF.SAMPLE_W / SF.BLOCK; // 32
@@ -199,7 +203,9 @@ export function laneAreas(cells, cols, rows, lanes = 1) {
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
 // ---------- Bộ phát hiện v2 ----------
-export function createDetector({ sensitivity = 6, reframe = true } = {}) {
+// masks: tự bỏ qua vùng nhấp nháy (TV, quạt) đo lúc hiệu chỉnh. Mặc định TẮT: vùng bị bỏ qua (ô xám) trùng chỗ bạn đứng
+// thì bạn cử động mấy cũng không bị bắt. Lớp có TV/quạt trong khung: giáo viên hạ độ nhạy.
+export function createDetector({ sensitivity = 6, reframe = true, onReframe: onRfResult = null, masks = false } = {}) {
   let sens = sensitivity;
   const rw = reframe ? createReframeWatch() : null;
   const small = new Float32Array(64 * 36);
@@ -265,7 +271,7 @@ export function createDetector({ sensitivity = 6, reframe = true } = {}) {
   function applySens() {
     const ti = tauOfSens[sens] || 0;
     const nb = nBlock[ti];
-    for (let i = 0; i < NB; i++) maskedBlocks[i] = calibrated && !masksOff && unst[ti][i] ? 1 : 0;
+    for (let i = 0; i < NB; i++) maskedBlocks[i] = masks && calibrated && !masksOff && unst[ti][i] ? 1 : 0;
     // Cụm khối bất ổn quá lớn (> MASK_BLOB_MAX khối, nối 8 hướng) là người cử động lúc hiệu chỉnh, không phải TV/quạt: bỏ che.
     bigBlobs = 0;
     if (calibrated && !masksOff) {
@@ -400,6 +406,32 @@ export function createDetector({ sensitivity = 6, reframe = true } = {}) {
     }
   }
 
+  // Camera đổi khung thật (S1 tự zoom/xoay) làm đổi CẢ hai mép trái và phải của khung. Một bạn lắc người / đứng sát camera
+  // chỉ đổi phần giữa (hoặc một mép): bộ dò đổi khung hay nhầm ca này thành "camera đang đổi khung" rồi xoá phần đo,
+  // nên bạn cử động mấy cũng không bị bắt. Còn một mép đứng yên => không phải camera đổi khung, bỏ qua kết quả dò.
+  const sideTmp = new Uint16Array(NB);
+  let rfVeto = false;
+  function edgesMoving(slot, t) {
+    const old = findOld(t);
+    if (!old || old === slot) return true;
+    blockCounts(slot.g, old.g, gainFromMeans(old.cm, slot.cm), curTau(), SF.SAMPLE_W, SF.SAMPLE_H, SF.BLOCK, sideTmp);
+    const frac = (x0, x1) => {
+      let n = 0;
+      let a = 0;
+      for (let y = 0; y < BY; y++) for (let x = x0; x < x1; x++) { n++; if (sideTmp[y * BX + x] >= SF.EDGE_COUNT) a++; }
+      return a / n;
+    };
+    return Math.min(frac(0, SF.EDGE_BLOCKS), frac(BX - SF.EDGE_BLOCKS, BX)) >= SF.EDGE_FRAC;
+  }
+  function sideCheck(rf, slot, t) {
+    if (!rf.moving && !rf.ended) return rf;
+    if (rf.started) rfVeto = !edgesMoving(slot, t);
+    else if (rfVeto && rf.moving && edgesMoving(slot, t)) { rfVeto = false; return { ...rf, started: true }; } // hoá ra camera đổi khung thật
+    if (!rfVeto) return rf;
+    if (rf.ended) rfVeto = false;
+    return { ...rf, moving: false, started: false, ended: false, vetoed: true };
+  }
+
   function push(gray, t) {
     const t0p = now();
     // vào vòng đệm
@@ -415,7 +447,9 @@ export function createDetector({ sensitivity = 6, reframe = true } = {}) {
     st.lastT = t;
 
     if (rw) {
-      onReframe(rw.push(down4(gray, SF.SAMPLE_W, SF.SAMPLE_H, small), t), t);
+      const rfRes = sideCheck(rw.push(down4(gray, SF.SAMPLE_W, SF.SAMPLE_H, small), t), slot, t);
+      if (onRfResult) onRfResult(rfRes, t); // KHÓA KHUNG (frame-lock.js) nhận cùng kết quả dò, không dò lần hai
+      onReframe(rfRes, t);
       if (rfMoving) {
         if (phase === 'cal' && cal.t0 !== t) restartCal(t);
         red.lastT = t;
