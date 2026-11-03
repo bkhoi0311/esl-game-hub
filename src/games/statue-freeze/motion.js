@@ -26,6 +26,9 @@ export const SF = {
   // Kiểm tra mép khung khi nghi camera đổi khung: EDGE_BLOCKS cột khối mỗi bên, khối "đổi" khi >= EDGE_COUNT điểm ảnh đổi,
   // camera đổi khung thật khi CẢ hai mép có >= EDGE_FRAC khối đổi.
   EDGE_BLOCKS: 3, EDGE_COUNT: 8, EDGE_FRAC: 0.25,
+  // Đang coi là "camera đổi khung" mà một mép đứng yên EDGE_STILL_N khung liền nhau (~270 ms): là người cử động sát camera
+  // (đèn xanh làm động tác lớn chạm cả hai mép), không phải camera; bỏ trạng thái đổi khung để pha Freeze vẫn đo.
+  EDGE_STILL_N: 4,
 };
 
 const BX = SF.SAMPLE_W / SF.BLOCK; // 32
@@ -423,10 +426,20 @@ export function createDetector({ sensitivity = 6, reframe = true, onReframe: onR
     };
     return Math.min(frac(0, SF.EDGE_BLOCKS), frac(BX - SF.EDGE_BLOCKS, BX)) >= SF.EDGE_FRAC;
   }
+  let edgeStill = 0;
   function sideCheck(rf, slot, t) {
     if (!rf.moving && !rf.ended) return rf;
-    if (rf.started) rfVeto = !edgesMoving(slot, t);
-    else if (rfVeto && rf.moving && edgesMoving(slot, t)) { rfVeto = false; return { ...rf, started: true }; } // hoá ra camera đổi khung thật
+    if (rf.started) { rfVeto = !edgesMoving(slot, t); edgeStill = 0; }
+    else if (rfVeto && rf.moving && edgesMoving(slot, t)) { rfVeto = false; edgeStill = 0; return { ...rf, started: true }; } // hoá ra camera đổi khung thật
+    else if (!rfVeto && rf.moving) {
+      // Lúc bắt đầu cả hai mép cùng đổi (bạn sát camera vung tay), sau đó một mép đứng yên: không phải camera đổi khung.
+      edgeStill = edgesMoving(slot, t) ? 0 : edgeStill + 1;
+      if (edgeStill >= SF.EDGE_STILL_N) {
+        rfVeto = true;
+        edgeStill = 0;
+        return { ...rf, moving: false, started: false, ended: true, vetoed: true };
+      }
+    }
     if (!rfVeto) return rf;
     if (rf.ended) rfVeto = false;
     return { ...rf, moving: false, started: false, ended: false, vetoed: true };

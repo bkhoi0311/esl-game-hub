@@ -221,3 +221,34 @@ test('coherent: khối đơn lẻ bị loại, cụm hai khối giữ lại', ()
   counts[3 * bx + 6] = 12; // gấp đôi ngưỡng: giữ dù đơn lẻ
   assert.equal(coherent(counts, thr, null, bx, by)[3 * bx + 6], 1);
 });
+
+// ---------- C17: đèn xanh bạn sát camera vung người chạm cả hai mép (bị tưởng camera đổi khung), sang Freeze vẫn phải đo ----------
+test('C17 sau đèn xanh vận động mạnh sát camera: lắc người lúc Freeze vẫn bị bắt, đứng yên thì không', async () => {
+  const { render, makeScene, rng, DT } = await import('./helpers/frames.mjs');
+  const tri = (t, p, a) => { const ph = (t / p) % 1; return a * (ph < 0.5 ? ph * 4 - 1 : 3 - ph * 4); };
+  const play = (seed, redBig) => {
+    const sc = makeScene(seed);
+    const r = rng(seed * 31 + 1);
+    const d = createDetector({ sensitivity: 6 });
+    const base = { hand: [{ dx: 0, dy: 0 }, { dx: 0, dy: 0 }], sleeve: [0, 0], gain: 1 };
+    let t = 0;
+    d.startCalibration(t);
+    for (let k = 0; k < 45; k++, t += DT) d.push(render(sc, { ...base, big: { dx: 0 } }, r), t);
+    d.finishCalibration();
+    d.setIdle();
+    const g0 = t;
+    for (; t < g0 + 5000; t += DT) d.push(render(sc, { ...base, big: { dx: tri(t - g0, 500, 30) } }, r), t);
+    d.startRed(t);
+    const r0 = t;
+    for (; t < r0 + 3900; t += DT) d.push(render(sc, { ...base, big: redBig(t - r0) }, r), t);
+    return d.endRed();
+  };
+  let det = 0;
+  let falseFlags = 0;
+  for (const seed of SEEDS.slice(0, 5)) {
+    if (play(seed, (tr) => ({ dx: tri(tr, 1400, 8) })).areas >= 1) det++;
+    falseFlags += countFlagged(play(seed, () => ({ dx: 0 })));
+  }
+  assert.ok(det >= 4, `lắc người lúc Freeze bắt ${det}/5`);
+  assert.ok(falseFlags <= 5, `đứng yên báo sai ${falseFlags} ô`);
+});
