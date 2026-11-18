@@ -351,7 +351,7 @@ await run('Đổi ngôn ngữ khi hộp đang mở: VI -> EN -> VI không mất 
   // Đổi ngôn ngữ qua lõi i18n khi hộp khác đang mở.
   const sw = async (code) => {
     // Cờ nằm trong hộp Cài đặt (không thể mở cùng hộp khác): đổi bằng lõi i18n, giống công tắc thật.
-    await h.page.evaluate((c) => window.I18N.setLang(c), code);
+    await h.page.evaluate(async (c) => { const m = await import('/src/i18n/index.js'); if (c === 'en') await m.preloadEn(); window.I18N.setLang(c); }, code);
     await h.page.waitForFunction((c) => document.documentElement.lang === c, code);
     await h.page.waitForTimeout(150);
   };
