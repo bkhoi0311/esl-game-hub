@@ -2,6 +2,7 @@
 // bảng điểm đội (2-4 đội), đồng hồ đếm ngược, khung game (Hướng dẫn / Tạm dừng / Chơi lại / Về menu).
 import { gsap } from 'gsap';
 import { icon } from './icons.js';
+import { mascotDataUrl } from './mascot.js';
 import { addStrings, t } from '../i18n/index.js';
 import VI from '../i18n/strings/core.vi.js';
 
@@ -506,7 +507,7 @@ export function answerButtons(options, onPick, { usePointer = false } = {}) {
 }
 
 // Màn kết thúc: bảng xếp hạng + pháo giấy.
-export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_COLORS, unit = '', onReplay, onMenu }) {
+export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_COLORS, unit = '', onReplay, onMenu, note = null }) {
   const el = h(
     'div', { class: 'results', 'data-testid': 'results' },
     icon('trophy', 80),
@@ -515,11 +516,17 @@ export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_
       ranking.map((r, k) =>
         h('li', { style: teamVars(colors[r.index]) },
           h('span', { class: 'rank-pos' }, `#${k + 1}`), h('span', {}, r.name), h('span', {}, `${r.score}${unit}`)))),
+    note ? h('p', { class: 'results-note', 'data-testid': 'results-note' }, note) : null,
     h('div', { class: 'results-actions' },
       button({ label: 'Play again', iconName: 'restart', variant: 'primary', size: 'lg', onClick: onReplay }),
       button({ label: 'Menu', iconName: 'home', size: 'lg', onClick: onMenu || (() => (location.hash = '#/')) })),
+    h('img', { class: 'results-mascot', src: mascotDataUrl('win'), alt: '', draggable: false }),
   );
   el.querySelector('.icon').classList.add('trophy');
+  // Mỗi màn chỉ 1 Hải Âu: khi hiện bảng kết quả thì ẩn Hải Âu trên thanh (gỡ khi rời trang).
+  document.body.classList.add('has-results');
+  const clearResults = () => { document.body.classList.remove('has-results'); window.removeEventListener('hashchange', clearResults); };
+  window.addEventListener('hashchange', clearResults);
   // Khoảnh khắc thắng (skill game-feel-motion): cúp -> tiêu đề -> từng hạng (hạng 1 nổi bật) -> nút.
   requestAnimationFrame(() => {
     if (!el.isConnected || matchMedia('(prefers-reduced-motion: reduce)').matches) return;

@@ -6,6 +6,7 @@ import './styles/main.css';
 import './styles/kids.css';
 import './styles/motion.css';
 import './styles/liquid.css';
+import './styles/calm.css';
 import './styles/i18n.css';
 import './vendor/liquid-glass.js';
 import { PERF, applyPerfClasses } from './core/perf.js';
@@ -101,7 +102,7 @@ const stage = h('div', { class: 'stage' }, header, main);
 app.append(stage);
 mountWorld(stage);
 
-// Mascot Lumi ở thanh trên: luôn hiện, reo khi đúng, buồn khi sai (nghe kênh sự kiện).
+// Mascot Hải Âu ở thanh trên: luôn hiện, reo khi đúng, buồn khi sai (nghe kênh sự kiện).
 const mascot = createMascot({ size: '4.8rem' });
 header.querySelector('.header-mascot').append(mascot.el);
 window.__mascot = mascot;
@@ -231,10 +232,9 @@ const BOOKS_SVG = `<svg viewBox="0 0 240 110" aria-hidden="true">
 function renderMenu(root) {
   const pack = getPack();
   const motion = !reducedMotion();
-  const big = createMascot({ size: '10rem', react: false, bubble: false });
-  const peek = createMascot({ size: '7rem', react: false, bubble: false });
+  const big = createMascot({ size: '10rem', react: false, bubble: false, mood: 'menu' });
   const tabs = h('div', { class: 'group-tabs', role: 'group', 'aria-label': t('hub.menu.groups') });
-  const heads = h('div', { class: 'menu-heads' }, h('div', { class: 'menu-peek' }, peek.el), tabs);
+  const heads = h('div', { class: 'menu-heads' }, tabs);
   const grid = h('div', { class: 'card-grid' });
 
   // Lưới 6 cột x 2 hàng: 2 cột trái cho game camera, 4 cột phải cho game thi đấu.
@@ -261,12 +261,12 @@ function renderMenu(root) {
     tabs.append(tab);
   }
   heads.append(h('div', { class: 'menu-sign', innerHTML: SIGN_SVG }));
-  // Ô trống cuối lưới: bé Lumi cỡ lớn + chồng sách.
+  // Ô trống cuối lưới: Hải Âu cỡ lớn + chồng sách.
   const menuMascot = h('div', { class: 'menu-mascot' },
     h('div', { class: 'pick-bubble en' }, 'Pick a game!'),
     big.el,
     h('div', { class: 'menu-books', innerHTML: BOOKS_SVG }));
-  // Lumi chiếm ô trống đầu tiên của lưới (số game mỗi nhóm đổi thì ô trống đổi theo), hết ô trống thì ẩn.
+  // Hải Âu chiếm ô trống đầu tiên của lưới (số game mỗi nhóm đổi thì ô trống đổi theo), hết ô trống thì ẩn.
   const camN = GAMES.filter((g) => g.group === 'camera').length;
   const clsN = GAMES.filter((g) => g.group === 'class').length;
   const slot = camN < 4 ? { row: Math.floor(camN / 2) + 1, col: (camN % 2) + 1 } : clsN < 8 ? { row: Math.floor(clsN / 4) + 1, col: (clsN % 4) + 3 } : null;
@@ -280,7 +280,7 @@ function renderMenu(root) {
   // Hồ sơ lite: chờ lớp fade mở menu xong (600 ms) rồi mới vẫy tay. 2 bé vẫy LẦN LƯỢT: nếu cùng lúc, vùng hỏng của khung
   // là hình chữ nhật bao cả 2 bé (gần hết màn) dù mỗi bé chỉ nhỏ.
   const lite = PERF.name === 'lite';
-  const waveTimers = [setTimeout(() => big.wave(), lite ? 600 : 0), setTimeout(() => peek.wave(), lite ? 2200 : 0)];
+  const waveTimers = [setTimeout(() => big.wave(), lite ? 600 : 0)];
 
   // Khúc xạ kính thật (Chromium) cho nhóm tab; trình duyệt khác dùng kính mờ.
   const refract = window.liquidGlass && !reducedMotion() && PERF.glass ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
@@ -296,15 +296,12 @@ function renderMenu(root) {
     gsap.from(view.querySelectorAll('.group-tab'), { y: 10, opacity: 0, duration: 0.35, stagger: 0.06, delay: 0.1, ease: 'power2.out', clearProps: 'transform,opacity' });
     tweens.push(gsap.fromTo(view.querySelector('.pick-bubble'), { scale: 0, rotation: -20 }, { scale: 1, rotation: -6, duration: 0.6, delay: 0.7, ease: 'back.out(3)' }));
   }
-  // Lumi vẫy tay nhắc nhẹ mỗi 7 giây.
-  const nudge = setInterval(() => big.wave(), PERF.idle ? 7000 : 20000);
+  // Hải Âu vẫy tay nhắc nhẹ mỗi 7 giây.
   return () => {
-    clearInterval(nudge);
     waveTimers.forEach(clearTimeout);
     if (refract) refract.destroy();
     tweens.forEach((t) => t.kill());
     big.destroy();
-    peek.destroy();
     view.remove();
   };
 }
@@ -399,6 +396,21 @@ function notice(title, lines, toEditor = false) {
 
 // ---------- Cài đặt ----------
 
+// Danh sách dài: chỉ hiện `max` dòng đầu, nút "Xem thêm N" bung ngay tại chỗ.
+function collapsibleList(list, max) {
+  const rows = [...list.children];
+  if (rows.length <= max + 1) return list;
+  rows.slice(max).forEach((r) => (r.hidden = true));
+  const more = h('button', { type: 'button', class: 'more-toggle', 'data-testid': 'more-toggle' }, t('ui.more', { n: rows.length - max }));
+  more.addEventListener('click', () => {
+    const open = rows[max].hidden;
+    rows.slice(max).forEach((r) => (r.hidden = !open));
+    more.textContent = open ? t('ui.less') : t('ui.more', { n: rows.length - max });
+  });
+  list.append(more);
+  return list;
+}
+
 async function openSettings() {
   const s = getSettings();
   const voiceInfo = h('p', { class: 'muted' }, t('set.voice.checking'));
@@ -442,12 +454,12 @@ async function openSettings() {
         { value: 'web', label: t('set.voice.web') },
       ], s.voiceMode !== 'web' ? 'omni' : 'web', (v) => updateSettings({ voiceMode: v }), 'voice-mode'),
       h('small', { class: 'muted' }, t('set.voice.omniHint', { n: clipCount() }))),
-    h('div', { class: 'voice-list' },
+    collapsibleList(h('div', { class: 'voice-list' },
       GAMES.filter((g) => g.ready).map((g) =>
         h('div', { class: 'voice-row' },
           h('span', { class: 'en' }, g.title),
           h('span', { class: 'muted' }, voiceLabel(voiceFor(g.id))),
-          button({ iconName: 'volume', title: t('set.voice.preview', { title: g.title }), variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id), manual: true }) })))),
+          button({ iconName: 'volume', title: t('set.voice.preview', { title: g.title }), variant: 'ghost', onClick: () => speak(line('letsPlay'), { voice: voiceFor(g.id), manual: true }) })))), 5),
     h('p', { class: 'muted' }, t('set.voice.fallback')),
     button({ label: t('set.voice.testWeb'), iconName: 'volume', onClick: () => speak('Hello class! Are you ready to play?', { web: true, manual: true }) }),
     voiceInfo,

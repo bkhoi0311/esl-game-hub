@@ -58,6 +58,9 @@ export function pressable(el, fn) {
 
 const FROM_HUB = new URLSearchParams(location.search).get('from') === 'hub';
 
+// Toast có Hải Âu: nhắc bấm Bắt đầu (chỉ xuống iPad), đã nhận 2 người viết (OK).
+const TOAST_POSE = { 'board.toast.tapStart': 'chixuong', 'board.toast.multiOk': 'ok' };
+
 export function createUI({ board, brand, actions, getS }) {
   const root = document.documentElement;
   const topbar = $('#topbar');
@@ -328,12 +331,18 @@ export function createUI({ board, brand, actions, getS }) {
   }
 
   /* ---------- toast, dải cảnh báo ---------- */
-  function toast(text, ms) {
+  function toast(text, ms, pose) {
     if (!toastEl) {
       toastEl = h('div', 'pane pane--toast toast', null, { 'data-testid': 'toast', role: 'status' });
       floaters.appendChild(toastEl);
     }
     toastEl.textContent = text;
+    toastEl.classList.toggle('toast--mascot', !!pose);
+    if (pose) {   // Hải Âu ClassIn: ảnh nhỏ cạnh chữ, không nhận chạm
+      const m = document.createElement('img');
+      m.className = 'mascot-img'; m.src = './assets/mascot/' + pose + '.webp'; m.alt = ''; m.draggable = false;
+      toastEl.prepend(m);
+    }
     toastEl.hidden = false;
     toastEl.classList.remove('show');
     void toastEl.offsetWidth;
@@ -344,7 +353,7 @@ export function createUI({ board, brand, actions, getS }) {
 
   // Toast theo khoá: ghi data-key để test kiểm theo khoá. Toast đang hiện không dịch lại khi đổi ngôn ngữ (chỉ sống 2,5 giây).
   function toastKey(key, params, ms) {
-    toast(t(key, params), ms);
+    toast(t(key, params), ms, TOAST_POSE[key]);
     toastEl.dataset.key = key;
   }
 
@@ -410,6 +419,7 @@ export function createUI({ board, brand, actions, getS }) {
     const title = h('h2', 'sheet-title');
     title.append(K('span', 'common.boardName'), document.createTextNode(' '), h('span', 'ver', 'v0.3'));
     head.appendChild(title);
+    head.appendChild(h('img', 'mascot-img mascot-img--info', null, { src: './assets/mascot/chi.webp', alt: '', draggable: 'false' }));
     const c1 = h('div'), c2 = h('div');
     c1.append(K('h3', 'board.info.howTitle'), ul(how));
     if (D) c2.append(K('h3', 'board.info.srcTitle'), ul(['board.info.src1', 'board.info.src2']));

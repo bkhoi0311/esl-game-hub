@@ -77,7 +77,7 @@ body {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   height: calc(100vh - max(4.5rem, 64px)); padding: 0 1rem 3rem;
 }
-h1 { margin: 0 0 1.75rem; font-size: 2rem; font-weight: 800; color: var(--brand-ink); text-align: center; }
+h1 { margin: 0; font-size: 2rem; font-weight: 800; color: var(--brand-ink); text-align: center; }
 .cards { display: flex; gap: 2.5rem; justify-content: center; }
 .part-card {
   position: relative; display: grid; grid-template-rows: 12rem 1fr auto; gap: 0.75rem;
@@ -162,3 +162,12 @@ h1 { margin: 0 0 1.75rem; font-size: 2rem; font-weight: 800; color: var(--brand-
   .lang-slot { flex: 1 1 100%; justify-content: flex-end; }
   .lang-btn { min-width: 72px; padding: 0 0.6rem; }
 }
+
+/* Hải Âu ClassIn vẫy chào: giữ nguyên ảnh, không nhận chạm */
+.hello { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0 0 1.5rem; }
+.hello-mascot { height: 6.5rem; width: auto; object-fit: contain; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+@media (max-width: 720px) { .hello { margin-bottom: 1rem; } .hello-mascot { height: 4.5rem; } }
+/* Calm: nền phẳng #f7f7f7, bóng nhẹ, chữ xanh đậm #063f2b */
+body { background: #f7f7f7; }
+h1, .part-name, .name { color: #063f2b; }
+.part-card { background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 0.75rem 2rem rgba(0,0,0,.07); }

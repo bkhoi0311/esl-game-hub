@@ -496,3 +496,10 @@ button { font-family: inherit; color: inherit; }
 .tb-title { overflow: hidden; }
 .tb-name { overflow: hidden; text-overflow: ellipsis; }
 html[lang="en"] .dcard-vi { display: none; }   /* EN: chỉ tên gói tiếng Anh */
+
+/* ---------- Hải Âu ClassIn (linh vật): giữ nguyên ảnh, không lật, không kéo méo, không nhận chạm ---------- */
+.mascot-img { height: calc(44px * var(--s)); width: auto; object-fit: contain; pointer-events: none; user-select: none; -webkit-user-drag: none; flex: none; }
+.toast--mascot { display: flex; align-items: center; gap: calc(10px * var(--s)); }
+.toast--mascot .mascot-img { height: calc(52px * var(--s)); margin: calc(-8px * var(--s)) 0; }
+.info-head { align-items: center; }
+.mascot-img--info { height: calc(72px * var(--s)); margin-left: auto; }

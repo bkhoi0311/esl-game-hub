@@ -209,6 +209,16 @@ function buildEditor(root, carry) {
       onPaste: onPasteRows,
     });
 
+  // Bảng dài: chỉ hiện 5 dòng đầu, "Xem thêm N" bung tại chỗ (không dùng <label> bọc nút: lỗi CEF của ClassIn X).
+  const ROWS_SHOWN = 5;
+  const expanded = { vocab: false, question: false };
+  const collapseRows = (body, kind, cols, rerender) => {
+    const trs = [...body.children];
+    if (expanded[kind] || trs.length <= ROWS_SHOWN + 1) return;
+    trs.slice(ROWS_SHOWN).forEach((r) => (r.hidden = true));
+    const btn = h('button', { type: 'button', class: 'more-toggle', 'data-testid': `more-${kind}`, onClick: () => { expanded[kind] = true; rerender(); } }, t('ui.more', { n: trs.length - ROWS_SHOWN }));
+    body.append(h('tr', { class: 'more-row' }, h('td', { colspan: cols }, btn)));
+  };
   const renderVocab = () => {
     vocabBody.textContent = '';
     draft.vocab.forEach((v, i) => {
@@ -240,6 +250,7 @@ function buildEditor(root, carry) {
       );
       vocabBody.append(tr);
     });
+    collapseRows(vocabBody, 'vocab', VOCAB_COLS.length + 2, renderVocab);
     const cats = new Set(draft.vocab.map((v) => v.category).filter(Boolean));
     vocabCount.textContent = `${t('cnt.words', { n: draft.vocab.length })}, ${t('cnt.categories', { n: cats.size })}`;
   };
@@ -297,6 +308,7 @@ function buildEditor(root, carry) {
         ),
       );
     });
+    collapseRows(questionBody, 'question', 8, renderQuestions);
     questionCount.textContent = draft.questions.length
       ? t('ed.q.count', { n: draft.questions.length })
       : t('ed.q.empty');

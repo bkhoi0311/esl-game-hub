@@ -34,6 +34,8 @@ export default {
   "ui.off": "Tắt",
   "ui.ok": "Đồng ý",
   "ui.on": "Bật",
+  "ui.more": "Xem thêm {n}…",
+  "ui.less": "Thu gọn",
   "ui.startGame": "Bắt đầu chơi",
   "voice.v01": "Bé gái (Mỹ)",
   "voice.v02": "Bé trai (Mỹ)",

@@ -34,6 +34,8 @@ export default {
   "ui.off": "Off",
   "ui.ok": "OK",
   "ui.on": "On",
+  "ui.more": "Show {n} more…",
+  "ui.less": "Show less",
   "ui.startGame": "Start game",
   "voice.v01": "Girl (US)",
   "voice.v02": "Boy (US)",

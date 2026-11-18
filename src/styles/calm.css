@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Giao diện "calm" (18/11): tối giản kiểu Apple. Nạp SAU CÙNG.
+   - Khung chrome (thanh trên, menu, cài đặt) yên tĩnh: không nảy, không lặp.
+   - Nền sáng #f7f7f7, xanh ClassIn #04bc09 làm nhấn, xanh đậm #063f2b cho chữ.
+   - Chỉ MỘT linh vật Hải Âu mỗi màn hình, ở góc, không che nút.
+   - Vùng chơi (thẻ game, bên trong game) vẫn vui.
+   ========================================================================== */
+:root {
+  --calm-bg: #f7f7f7;
+  --calm-ink: #063f2b;
+  --calm-green: #04bc09;
+}
+body { background: var(--calm-bg); }
+.stage { background: var(--calm-bg); }
+.app-header .brand-name, .group-text strong, .game-title { color: var(--calm-ink); }
+
+/* Chrome yên tĩnh: bỏ mọi chuyển động lặp / nảy */
+.menu-sign, .menu-books, .menu-peek, .pick-bubble { display: none !important; }
+.game-card, .card-go, .card-pic, .card-pic * { animation: none !important; }
+.group-tab:hover, .nav-link:not(.active):hover { transform: none; }
+
+/* Mỗi màn chỉ 1 Hải Âu: menu = ô trống trong lưới; game = thanh trên (phản ứng đúng/sai); Soạn bài = không có */
+.header-mascot { display: none !important; }
+body[data-view='game'] .header-mascot { display: block !important; }
+
+/* Nền thế giới hoạt hình lùi về rất nhạt để chrome sáng, sạch */
+body[data-view='menu'] .world, body[data-view='editor'] .world { display: none; }
+body[data-view='game'] .world { opacity: 0.6; }
+
+/* Menu: Hải Âu đứng ở ô trống cuối lưới, cỡ vừa, không bong bóng */
+.menu-mascot { place-items: end center; }
+.menu-mascot .mascot { margin-bottom: 0; }
+
+/* Thẻ nhóm (tab) gọn hơn */
+.group-tab { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0.3rem 1rem rgba(0, 0, 0, 0.06); }
+
+/* Cài đặt: danh sách giọng thu gọn, "Xem thêm N" bung tại chỗ */
+.voice-list .voice-row[hidden] { display: none; }
+.more-toggle { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 3.25rem; margin-top: 0.3rem; border: 0; border-radius: 999px; background: rgba(4, 188, 9, 0.1); color: var(--calm-ink); font: 700 1rem/1 var(--lg-font, inherit); cursor: pointer; }
+.more-toggle:active { background: rgba(4, 188, 9, 0.2); }
+.more-row > td { padding: 0.5rem 0; border: 0; text-align: center; }
+.more-row .more-toggle { width: auto; padding: 0 1.6rem; }
+
+/* Linh vật trong kết quả: góc phải, không che nút */
+.results { position: relative; }
+.results-mascot { position: absolute; right: 1rem; bottom: 1rem; width: 9rem; height: 9rem; object-fit: contain; pointer-events: none; }
+body.fluid .results-mascot { position: static; display: block; margin: 0.5rem auto 0; width: 7rem; height: 7rem; }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+body.has-results .header-mascot { display: none !important; }
