@@ -91,20 +91,19 @@ const header = h(
     h('span', { class: 'brand-sep' }),
     h('span', { class: 'brand-name' }, 'ESL Game Hub')),
   h('nav', { class: 'app-nav has-glider' }, navGlider, navLinks.menu, navLinks.editor),
-  h('div', { class: 'header-mascot' }),
   packChip,
   settingsBtn,
 );
-// Công tắc ngôn ngữ [cờ VN][cờ Mỹ]: ngay trước nút Cài đặt, chỉ hiện cờ (CSS), luôn có trên thanh trên.
-header.insertBefore(mountLangSwitch(header, { cls: 'lang-seg--hub', onFail: loadFailToast }), settingsBtn);
+// Cờ ngôn ngữ VI/EN nằm trong hộp Cài đặt (thanh trên chỉ giữ: Màn chọn, logo, tab, chip bài, Cài đặt).
 const main = h('main', { class: 'app-main' });
 const stage = h('div', { class: 'stage' }, header, main);
 app.append(stage);
 mountWorld(stage);
 
 // Mascot Hải Âu ở thanh trên: luôn hiện, reo khi đúng, buồn khi sai (nghe kênh sự kiện).
-const mascot = createMascot({ size: '4.8rem' });
-header.querySelector('.header-mascot').append(mascot.el);
+// Trong game: đứng ở lề ngoài khung (góc dưới phải), không che vùng chơi (CSS calm.css).
+const mascot = createMascot({ size: '7.8rem' });
+document.body.append(h('div', { class: 'game-mascot' }, mascot.el));
 window.__mascot = mascot;
 
 // ---------- Khung A4 ngang ----------
@@ -232,9 +231,9 @@ const BOOKS_SVG = `<svg viewBox="0 0 240 110" aria-hidden="true">
 function renderMenu(root) {
   const pack = getPack();
   const motion = !reducedMotion();
-  const big = createMascot({ size: '10rem', react: false, bubble: false, mood: 'menu' });
+  const big = createMascot({ size: '6rem', react: false, bubble: false, mood: 'menu' });
   const tabs = h('div', { class: 'group-tabs', role: 'group', 'aria-label': t('hub.menu.groups') });
-  const heads = h('div', { class: 'menu-heads' }, tabs);
+  const heads = h('div', { class: 'menu-heads' }, tabs, h('div', { class: 'menu-hello' }, big.el));
   const grid = h('div', { class: 'card-grid' });
 
   // Lưới 6 cột x 2 hàng: 2 cột trái cho game camera, 4 cột phải cho game thi đấu.
@@ -247,6 +246,7 @@ function renderMenu(root) {
       card.dataset.group = group.id;
       card.style.gridRow = String(Math.floor(i / cols) + 1);
       card.style.gridColumn = String((i % cols) + first);
+      if (group.id === 'camera' && i === games.length - 1 && games.length % 2 === 1) card.style.gridColumn = `${(i % cols) + first} / span 2`;
       grid.append(card);
     });
     const tab = h('button', { type: 'button', class: `group-tab group-${group.id}`, 'data-testid': `group-${group.id}` },
@@ -261,26 +261,13 @@ function renderMenu(root) {
     tabs.append(tab);
   }
   heads.append(h('div', { class: 'menu-sign', innerHTML: SIGN_SVG }));
-  // Ô trống cuối lưới: Hải Âu cỡ lớn + chồng sách.
-  const menuMascot = h('div', { class: 'menu-mascot' },
-    h('div', { class: 'pick-bubble en' }, 'Pick a game!'),
-    big.el,
-    h('div', { class: 'menu-books', innerHTML: BOOKS_SVG }));
-  // Hải Âu chiếm ô trống đầu tiên của lưới (số game mỗi nhóm đổi thì ô trống đổi theo), hết ô trống thì ẩn.
-  const camN = GAMES.filter((g) => g.group === 'camera').length;
-  const clsN = GAMES.filter((g) => g.group === 'class').length;
-  const slot = camN < 4 ? { row: Math.floor(camN / 2) + 1, col: (camN % 2) + 1 } : clsN < 8 ? { row: Math.floor(clsN / 4) + 1, col: (clsN % 4) + 3 } : null;
-  if (slot) {
-    menuMascot.style.gridRow = String(slot.row);
-    menuMascot.style.gridColumn = String(slot.col);
-  } else menuMascot.style.display = 'none';
-  grid.append(menuMascot);
+  // Lưới luôn đủ thẻ: nhóm camera có số game lẻ thì thẻ cuối rộng 2 cột (không còn ô trống). Hải Âu đứng ở hàng 2 thẻ nhóm, ngoài lưới.
   const view = h('div', { class: 'menu' }, heads, grid);
   root.append(view);
   // Hồ sơ lite: chờ lớp fade mở menu xong (600 ms) rồi mới vẫy tay. 2 bé vẫy LẦN LƯỢT: nếu cùng lúc, vùng hỏng của khung
   // là hình chữ nhật bao cả 2 bé (gần hết màn) dù mỗi bé chỉ nhỏ.
   const lite = PERF.name === 'lite';
-  const waveTimers = [setTimeout(() => big.wave(), lite ? 600 : 0)];
+  const waveTimers = []; // Hải Âu đứng yên ở menu (chrome không nhún)
 
   // Khúc xạ kính thật (Chromium) cho nhóm tab; trình duyệt khác dùng kính mờ.
   const refract = window.liquidGlass && !reducedMotion() && PERF.glass ? window.liquidGlass(tabs, { scale: -70, chroma: 4, blur: 5, saturate: 1.6 }) : null;
@@ -466,6 +453,8 @@ async function openSettings() {
     h('p', { class: 'muted' }, t('set.cameraNote')),
   );
   const modal = openModal({ title: t('hub.settings'), body, actions: [{ label: t('common.done'), variant: 'primary' }], onClose: () => off() });
+  // Mở hộp luôn ở đầu (ngôn ngữ nằm trên cùng), không cuộn xuống nút Xong.
+  [0, 120, 400].forEach((ms) => setTimeout(() => { const m = document.querySelector('.modal'); if (m) m.scrollTop = 0; }, ms));
   // Đổi ngôn ngữ ngay trong hộp: dựng lại hộp bằng ngôn ngữ mới (không bao giờ có 2 hộp chồng).
   const off = onLang((l, changed) => { if (changed) { modal.close(); setTimeout(openSettings, 0); } }); // hoãn: thêm listener ngay trong vòng phát sẽ lặp vô hạn
 

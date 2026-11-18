@@ -3,6 +3,7 @@
 import { getSettings, updateSettings } from './settings.js';
 import { button, h, setupRow, toast } from './ui.js';
 import { icon } from './icons.js';
+import { frameLockScreen } from './frame-lock-ui.js';
 import { t, addStrings } from '../i18n/index.js';
 import VI from '../i18n/strings/camera-guide.vi.js';
 
@@ -107,7 +108,8 @@ export function createCameraSession() {
 
 // Màn hình chọn camera trước khi vào game (giáo viên).
 // onReady(session) được gọi khi giáo viên bấm "Bắt đầu".
-export function cameraSetupScreen({ session, title, art, hint, extraRows = [], onReady }) {
+// frameLock (tuỳ chọn, createFrameLock()): bấm "Bắt đầu" thì qua màn "Khóa khung" lớn trước khi onReady (có nút Bỏ qua).
+export function cameraSetupScreen({ session, title, art, hint, extraRows = [], onReady, frameLock = null }) {
   const select = h('select', { 'aria-label': t('cam.pick'), 'data-testid': 'cam-select' });
   // Nhóm nút to thay cho <select> (popup select có thể không hiện trên ClassIn X). Chỉ hiện trên ClassIn X hoặc ?touchui=1.
   const touchUi = /ClassIn X/i.test(navigator.userAgent) || /[?&]touchui=1/.test(location.search + location.hash);
@@ -273,7 +275,16 @@ export function cameraSetupScreen({ session, title, art, hint, extraRows = [], o
   });
   startBtn.addEventListener('click', () => {
     stopWaiting();
-    onReady(session);
+    if (!frameLock || !frameLock.enabled) {
+      onReady(session);
+      return;
+    }
+    const back = () => {
+      lock.el.replaceWith(el);
+      preview.append(session.video);
+    };
+    const lock = frameLockScreen({ session, fl: frameLock, onDone: () => onReady(session), onBack: back });
+    el.replaceWith(lock.el);
   });
 
   const el = h(

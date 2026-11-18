@@ -525,8 +525,11 @@ export function resultsScreen({ title = 'Final ranking', ranking, colors = TEAM_
   el.querySelector('.icon').classList.add('trophy');
   // Mỗi màn chỉ 1 Hải Âu: khi hiện bảng kết quả thì ẩn Hải Âu trên thanh (gỡ khi rời trang).
   document.body.classList.add('has-results');
-  const clearResults = () => { document.body.classList.remove('has-results'); window.removeEventListener('hashchange', clearResults); };
-  window.addEventListener('hashchange', clearResults);
+  const watch = setInterval(() => {
+    if (el.isConnected) return;
+    clearInterval(watch);
+    document.body.classList.remove('has-results');
+  }, 400);
   // Khoảnh khắc thắng (skill game-feel-motion): cúp -> tiêu đề -> từng hạng (hạng 1 nổi bật) -> nút.
   requestAnimationFrame(() => {
     if (!el.isConnected || matchMedia('(prefers-reduced-motion: reduce)').matches) return;

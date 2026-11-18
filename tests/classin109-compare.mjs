@@ -7,6 +7,7 @@ import { chromium } from 'playwright';
 import { createServer } from 'vite';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { startCam } from './helpers/start-cam.mjs';
 
 const MODE = process.argv[2] || 'new';
 const ROOT = resolve('screenshots/classin109/compare');
@@ -93,7 +94,7 @@ for (const g of GAMES) {
   }
   if (CAM.includes(g)) {
     await snap(`${g}-setup`, `#/game/${g}`, (p) => p.waitForSelector('[data-testid=cam-start]:not([disabled])', { timeout: 10000 }));
-    await snap(`${g}-play`, `#/game/${g}`, async (p) => { await p.waitForSelector('[data-testid=cam-start]:not([disabled])', { timeout: 10000 }); await p.click('[data-testid=cam-start]'); await p.waitForTimeout(7000); });
+    await snap(`${g}-play`, `#/game/${g}`, async (p) => { await p.waitForSelector('[data-testid=cam-start]:not([disabled])', { timeout: 10000 }); await startCam(p); await p.waitForTimeout(7000); });
     continue;
   }
   await snap(`${g}-setup`, `#/game/${g}`, (p) => p.waitForSelector(`[data-testid="${g}-start"]`, { timeout: 8000 }));

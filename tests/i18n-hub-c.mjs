@@ -348,9 +348,10 @@ await run('Đổi ngôn ngữ khi hộp đang mở: VI -> EN -> VI không mất 
   await h.page.click(TID('qt-fill'));
   await h.page.fill(TID('fill-text'), 'apple, banana, qwertyuiop');
   await h.page.selectOption(TID('fill-mode'), 'replace');
-  // Bấm đúng cờ trên thanh trên (hộp che thanh nên click bằng DOM, giống công tắc thật: nạp EN xong mới đổi).
+  // Đổi ngôn ngữ qua lõi i18n khi hộp khác đang mở.
   const sw = async (code) => {
-    await h.page.evaluate((c) => document.querySelector(`.app-header [data-testid="lang-${c}"]`).click(), code);
+    // Cờ nằm trong hộp Cài đặt (không thể mở cùng hộp khác): đổi bằng lõi i18n, giống công tắc thật.
+    await h.page.evaluate((c) => window.I18N.setLang(c), code);
     await h.page.waitForFunction((c) => document.documentElement.lang === c, code);
     await h.page.waitForTimeout(150);
   };

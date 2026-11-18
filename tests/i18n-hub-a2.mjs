@@ -3,7 +3,7 @@
 //       PORT=5211 node --import ~/.cache/esl-chromium109/hook.mjs tests/i18n-hub-a2.mjs   (Chromium 109 của ClassIn X)
 // Ảnh: SHOTS=1 -> /Users/haku/Desktop/BAO KHOI/CLAUDE/PROJECTS/bang-nhieu-nguoi-viet/screens/hub-i18n-a2-*.png
 import assert from 'node:assert/strict';
-import { startServer, launch, openHub, vietnameseIn, overflow, hit56, noI18nErrors, shot, UA_CLASSIN } from './helpers/i18n-hub.mjs';
+import { startServer, launch, openHub, ensureSettings, vietnameseIn, overflow, hit56, noI18nErrors, shot, UA_CLASSIN } from './helpers/i18n-hub.mjs';
 
 process.env.SHOT_DIR = process.env.SHOT_DIR || '/Users/haku/Desktop/BAO KHOI/CLAUDE/PROJECTS/bang-nhieu-nguoi-viet/screens';
 const SHOTS = Boolean(process.env.SHOTS);
@@ -20,7 +20,7 @@ const state = (page) => page.evaluate(() => ({
   ls: localStorage.getItem('eslhub.ui'),
   ui: new URL(location.href).searchParams.get('ui'),
   hash: location.hash,
-  pressed: [...document.querySelectorAll('.app-header [data-testid^="lang-"]')].map((b) => b.getAttribute('lang') + ':' + b.getAttribute('aria-pressed')).join(','),
+  pressed: [...document.querySelectorAll('.modal [data-testid^="lang-"]')].map((b) => b.getAttribute('lang') + ':' + b.getAttribute('aria-pressed')).join(','),
 }));
 
 // Chạm bằng CDP với vùng tiếp xúc w=h=50 (như màn ClassIn X), cho phần tử khớp selector.
@@ -52,8 +52,10 @@ await run('C1 VI mặc định: nav "Trò chơi/Soạn bài", "Màn chọn", 2 c
   assert.deepEqual(await NAV(h.page), ['Trò chơi', 'Soạn bài']);
   assert.equal(await h.page.textContent('[data-testid="to-chooser"]'), 'Màn chọn');
   assert.equal(await h.page.getAttribute('[data-testid="open-settings"]', 'aria-label'), 'Cài đặt');
-  assert.equal(await h.page.locator('.app-header [data-testid="lang-switch"] .flag svg').count(), 2);
-  assert.equal(await h.page.getAttribute('.app-header [data-testid="lang-vi"]', 'aria-pressed'), 'true');
+  assert.equal(await h.page.locator('.app-header [data-testid="lang-switch"]').count(), 0, 'cờ đã chuyển vào Cài đặt');
+  await ensureSettings(h.page);
+  assert.equal(await h.page.locator('.modal [data-testid="lang-switch"] .flag svg').count(), 2);
+  assert.equal(await h.page.getAttribute('.modal [data-testid="lang-vi"]', 'aria-pressed'), 'true');
   assert.ok(!h.log.requests.some((u) => /en-main/.test(u)));
   assert.deepEqual(noI18nErrors(h.log), []);
   await h.close();
@@ -85,20 +87,22 @@ await run('C4 ClassIn UA, chạm 50x50: VI -> EN -> VI -> EN bằng cờ, không
   const h = await openHub(browser, { base: srv.base, hash: '#/', classin: true, touch: true });
   await h.page.waitForSelector('.game-card');
   await mark(h.page);
-  await touchTap(h.page, '.app-header [data-testid="lang-en"]');
+  await ensureSettings(h.page);
+  await touchTap(h.page, '.modal [data-testid="lang-en"]');
   await h.page.waitForFunction(() => document.documentElement.lang === 'en');
   assert.deepEqual(await NAV(h.page), ['Games', 'Lessons']);
   let s = await state(h.page);
   assert.equal(s.ls, 'en'); assert.equal(s.ui, 'en'); assert.equal(s.hash, '#/'); assert.match(s.pressed, /vi:false,en:true/);
   assert.match(await h.page.getAttribute('[data-testid="to-chooser"]', 'href'), /ui=en/);
-  await touchTap(h.page, '.app-header [data-testid="lang-vi"]');
+  await h.page.waitForSelector('.modal .settings');
+  await touchTap(h.page, '.modal [data-testid="lang-vi"]');
   await h.page.waitForFunction(() => document.documentElement.lang === 'vi');
   assert.deepEqual(await NAV(h.page), ['Trò chơi', 'Soạn bài']);
   s = await state(h.page);
   assert.equal(s.ui, 'vi'); assert.equal(s.ls, 'vi'); assert.doesNotMatch(await h.page.getAttribute('[data-testid="to-chooser"]', 'href'), /ui=/);
   const ms = await h.page.evaluate(async () => {
     const t0 = performance.now();
-    document.querySelector('.app-header [data-testid="lang-en"]').click();
+    document.querySelector('.modal [data-testid="lang-en"]').click();
     while (document.documentElement.lang !== 'en' || !/Games/.test(document.querySelector('.nav-link').textContent)) await new Promise((r) => setTimeout(r, 4));
     return performance.now() - t0;
   });
@@ -111,9 +115,9 @@ await run('C4 ClassIn UA, chạm 50x50: VI -> EN -> VI -> EN bằng cờ, không
 await run('C4b bấm cờ đang chọn: không đổi gì; không có request en-main thứ 2', async () => {
   const h = await openHub(browser, { base: srv.base, lang: 'en', hash: '#/' });
   await h.page.waitForSelector('.game-card');
-  await h.page.click('.app-header [data-testid="lang-en"]');
-  await h.page.click('.app-header [data-testid="lang-vi"]');
-  await h.page.click('.app-header [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-vi"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
   assert.equal(h.log.requests.filter((u) => /en-main/.test(u)).length, 1);
   await h.close();
 });
@@ -158,7 +162,7 @@ await run('C7 đang chơi Tic-Tac-Toe bấm EN: game không dựng lại, có to
   await h.page.waitForSelector('.game-host *');
   await h.page.waitForTimeout(500);
   await h.page.evaluate(() => { document.querySelector('.game-host').__keep = 1; });
-  await h.page.click('.app-header [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
   await h.page.waitForFunction(() => document.documentElement.lang === 'en');
   assert.match(await h.page.textContent('.toast-host'), /new language applies/);
   assert.equal(await h.page.evaluate(() => document.querySelector('.game-host').__keep), 1, 'game bị dựng lại');
@@ -171,9 +175,9 @@ await run('C7 đang chơi Tic-Tac-Toe bấm EN: game không dựng lại, có to
 await run('C7b màn cài đặt game (Gold Heist) dựng lại theo ngôn ngữ; game camera giữ nguyên', async () => {
   const h = await openHub(browser, { base: srv.base, hash: '#/game/gold-heist' });
   await h.page.waitForSelector('.setup');
-  await h.page.click('.app-header [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
   await h.page.waitForFunction(() => /Start game/.test(document.querySelector('.setup')?.textContent || ''));
-  await h.page.click('.app-header [data-testid="lang-vi"]');
+  await h.page.click('.modal [data-testid="lang-vi"]');
   await h.page.waitForFunction(() => /Bắt đầu chơi/.test(document.querySelector('.setup')?.textContent || ''));
   await h.close();
 });
@@ -182,7 +186,7 @@ await run('C7c Soạn bài: bấm EN dựng lại, tab "Lessons" đang chọn', 
   const h = await openHub(browser, { base: srv.base, hash: '#/editor' });
   await h.page.waitForSelector('.app-main *');
   await h.page.waitForTimeout(800);
-  await h.page.click('.app-header [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
   await h.page.waitForFunction(() => document.documentElement.lang === 'en');
   assert.deepEqual(await NAV(h.page), ['Games', 'Lessons']);
   assert.equal(await h.page.getAttribute('.nav-link.active', 'href'), '#/editor');
@@ -194,7 +198,7 @@ await run('C9 en-main không tải được: toast tiếng Việt hub.lang.loadF
   const h = await openHub(browser, { base: srv.base, hash: '#/' });
   await h.page.waitForSelector('.game-card');
   await h.page.route(/en-main/, (r) => r.abort());
-  await h.page.click('.app-header [data-testid="lang-en"]');
+  await h.page.click('.modal [data-testid="lang-en"]');
   await h.page.waitForSelector('.toast');
   assert.match(await h.page.textContent('.toast-host'), /Không tải được tiếng Anh/);
   const s = await state(h.page);

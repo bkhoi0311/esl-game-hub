@@ -319,13 +319,14 @@ async function adaptive(kind, options, tiers) {
 
 // Pose Landmarker: tối đa numPoses người.
 // model: 'lite' (nhanh) | 'full' (chính xác hơn khi lớp đông; máy chậm tự chuyển sang lite).
-export function createPoseDetector({ numPoses = 1, model = 'lite' } = {}) {
+// minDet / minPres / minTrack: ngưỡng tin cậy (mặc định như cũ; Simon cho chỉnh qua ?sp_det= ?sp_pres=).
+export function createPoseDetector({ numPoses = 1, model = 'lite', minDet = 0.55, minPres = 0.5, minTrack = 0.5 } = {}) {
   return adaptive('pose', {
     runningMode: 'VIDEO',
     numPoses,
-    minPoseDetectionConfidence: 0.55,
-    minPosePresenceConfidence: 0.5,
-    minTrackingConfidence: 0.5,
+    minPoseDetectionConfidence: minDet,
+    minPosePresenceConfidence: minPres,
+    minTrackingConfidence: minTrack,
   }, TIERS[model === 'full' ? 'full' : 'lite']);
 }
 

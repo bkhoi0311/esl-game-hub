@@ -12,6 +12,8 @@ import { shuffle } from '../../core/content.js';
 import { mountPhaser } from '../shared/phaser-host.js';
 import { makeStatueScene } from './statue-scene.js';
 import { SF, boxDown2, createDetector, createLegacyDetector, rgbaToGray } from './motion.js';
+import { createFrameLock } from '../../core/frame-lock.js';
+import { attachFrameLockUi, frameLockStat } from '../../core/frame-lock-ui.js';
 import { t, addStrings } from '../../i18n/index.js';
 import VI from '../../i18n/strings/camera-guide.vi.js';
 
@@ -23,7 +25,6 @@ const CAL_MAX_MS = 9000; // camera đổi khung liên tục: chờ tối đa 9 s
 const RED_EXTEND_MAX_MS = 4000; // pha Freeze được kéo dài tối đa 4 s khi camera đổi khung
 const RED_AFTER_STABLE_MS = SF.REF_MS + 2000; // sau khi khung ổn định còn ít nhất ~2,2 s để đo lại
 const RECAL_MIN_GAP_MS = 15000; // vùng xám cũ bị bỏ vì đổi khung: tự đo lại trước lượt sau, không quá 1 lần / 15 s
-const RF_TOAST_GAP_MS = 10000;
 const MEASURE_V1_MS = 66; // bản cũ đo mỗi 66 ms trong rAF, không kiểm khung mới (giữ nguyên để A/B)
 const RED_TOTAL_MS = SF.GRACE_MS + SF.REF_MS + SF.MEASURE_MS;
 
@@ -35,7 +36,10 @@ const HOW_TO = {
 
 function createGame(root, pack) {
   const session = createCameraSession();
-  const detector = MODE === 'v1' ? createLegacyDetector({ sensitivity: 6 }) : createDetector({ sensitivity: 6, reframe: REFRAME });
+  const fl = createFrameLock({ enabled: REFRAME && MODE === 'v2' }); // KHÓA KHUNG: viền + biểu ngữ + đếm số lần đổi khung
+  const detector = MODE === 'v1' ? createLegacyDetector({ sensitivity: 6 }) : createDetector({ sensitivity: 6, reframe: REFRAME, onReframe: (rf, tt) => fl.ingest(rf, tt) });
+  let flDetach = () => {};
+  let flStat = null;
   const teams = (pack.teams || ['Red', 'Blue']).slice(0, 2);
   const opts = { sensitivity: 6, auto: false, lanes: 1 };
   let raf = 0;
@@ -57,7 +61,6 @@ function createGame(root, pack) {
   let redExtended = 0;
   let lastTickAt = 0;
   let rfWasMoving = false;
-  let rfToastAt = -Infinity;
   let rfLockWarned = false;
   let lastInterrupted = false;
   // lấy khung
@@ -115,6 +118,7 @@ function createGame(root, pack) {
         },
       ],
       onReady: startGame,
+      frameLock: fl,
     }));
   }
 
@@ -134,6 +138,12 @@ function createGame(root, pack) {
     const hud = PERF.diag === 'sf' ? h('pre', { class: 'sf-hud', 'data-testid': 'sf-hud' }) : null;
     const videoBox = h('div', { class: 'sf-video' }, session.video, overlay, count, hud);
     view = { overlay, light, banner, sub, count, controls, videoBox, hud };
+    flDetach();
+    fl.reset();
+    fl.resetCount();
+    flDetach = attachFrameLockUi(videoBox, fl);
+    if (flStat) flStat.destroy();
+    flStat = frameLockStat(fl);
 
     const sens = stepper({
       value: opts.sensitivity, min: 1, max: 10, step: 1, testId: 'sf-sensitivity', label: t('game.statue.sens.lower'),
@@ -167,7 +177,7 @@ function createGame(root, pack) {
 
     setStage(h('div', { class: 'sf-play' },
       videoBox,
-      h('div', { class: 'sf-side' }, scoreboard ? scoreboard.el : null, light, banner, sub, controls)));
+      h('div', { class: 'sf-side' }, scoreboard ? scoreboard.el : null, light, banner, sub, controls, flStat.el)));
     startLoop();
     calibrate();
     // Lớp phủ Phaser: đọc trạng thái mỗi khung hình để vẽ.
@@ -375,6 +385,7 @@ function createGame(root, pack) {
         srcName = 'rVFC';
       }
       watchReframe(now);
+      fl.tick(now);
       draw(now);
       if (phaseEnd && now >= phaseEnd) {
         if (phase === 'calibrate') {
@@ -417,10 +428,6 @@ function createGame(root, pack) {
     view.videoBox.dataset.reframe = String(moving);
     if (moving) {
       if (phase === 'calibrate' || phase === 'red') view.sub.textContent = 'Camera is moving… stay still';
-      if (now - rfToastAt > RF_TOAST_GAP_MS) {
-        rfToastAt = now;
-        toast(t('game.statue.reframe.wait'), 'info', 2500);
-      }
       const rf = detector.stats().rf;
       if (rf && rf.recent >= 3 && !rfLockWarned) {
         rfLockWarned = true;
@@ -461,6 +468,8 @@ function createGame(root, pack) {
     destroy() {
       stopLoop();
       clearTimers();
+      flDetach();
+      if (flStat) flStat.destroy();
       if (view && view.phaser) view.phaser.game.destroy(true);
       session.stop();
       frame.destroy();
@@ -474,6 +483,8 @@ function createGame(root, pack) {
       areas: lastAreas,
       interrupted: lastInterrupted,
       reframing: Boolean(detector.reframing),
+      lock: fl.state,
+      reframes: fl.count,
       needRecal: Boolean(detector.needRecal),
       masked: Array.from(detector.masked).reduce((a, b) => a + b, 0),
       sensitivity: opts.sensitivity,

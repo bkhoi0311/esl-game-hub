@@ -94,10 +94,10 @@ await run('Đổi VI -> EN khi màn cài đặt đang mở: dựng lại; ngư�
   await g.page.waitForSelector('.setup');
   assert.equal(await startLabel(g.page), 'Bắt đầu chơi');
   assert.match(await g.page.textContent('.setup'), /Số đội/);
-  await g.page.click('.lang-seg--hub [data-testid=lang-en]');
+  await g.page.click('.modal [data-testid=lang-en]');
   await g.page.waitForFunction(() => /Number of teams/.test(document.querySelector('.setup')?.textContent || ''), null, { timeout: 8000 });
   assert.deepEqual(await vietnameseIn(g.page, '.setup'), []);
-  await g.page.click('.lang-seg--hub [data-testid=lang-vi]');
+  await g.page.click('.modal [data-testid=lang-vi]');
   await g.page.waitForFunction(() => /Số đội/.test(document.querySelector('.setup')?.textContent || ''), null, { timeout: 8000 });
   await g.close();
 });
@@ -107,7 +107,7 @@ await run('Đổi ngôn ngữ giữa lúc đang chơi: game giữ nguyên (khôn
   await g.page.waitForSelector('.setup');
   await g.page.click('.setup .setup-actions button');
   await g.page.waitForSelector('[data-testid=mm-grid]');
-  await g.page.click('.lang-seg--hub [data-testid=lang-en]');
+  await g.page.click('.modal [data-testid=lang-en]');
   await g.page.waitForFunction(() => document.documentElement.lang === 'en', null, { timeout: 8000 });
   await g.page.waitForTimeout(400);
   assert.ok(await g.page.$('[data-testid=mm-grid]'), 'lưới thẻ còn nguyên');

@@ -19,17 +19,22 @@ body { background: var(--calm-bg); }
 .game-card, .card-go, .card-pic, .card-pic * { animation: none !important; }
 .group-tab:hover, .nav-link:not(.active):hover { transform: none; }
 
-/* Mỗi màn chỉ 1 Hải Âu: menu = ô trống trong lưới; game = thanh trên (phản ứng đúng/sai); Soạn bài = không có */
-.header-mascot { display: none !important; }
-body[data-view='game'] .header-mascot { display: block !important; }
+/* Mỗi màn chỉ 1 Hải Âu: menu = bên phải hàng 2 thẻ nhóm (chao); game = lề ngoài khung, góc dưới phải; Soạn bài = chỉ điện thoại */
+.game-mascot { position: fixed; z-index: 20; bottom: 1.2rem; right: max(0.2rem, calc((100vw - 92.8rem) / 4 - 3.2rem)); display: none; pointer-events: none; }
+body[data-view='game'] .game-mascot { display: block; }
+body.has-results .game-mascot { display: none !important; }
+body.fluid .game-mascot { right: 0.4rem; bottom: 0.4rem; }
+body.fluid .game-mascot .mascot { --size: 3.6rem !important; }
+.menu-hello { position: absolute; right: 0.6rem; top: 50%; translate: 0 -50%; pointer-events: none; }
+body.fluid .menu-hello { position: static; translate: none; flex: 0 0 100%; display: flex; justify-content: flex-end; margin: -0.3rem 0.6rem -0.3rem 0; order: -1; }
+body.fluid .menu-hello .mascot { --size: 4.2rem !important; }
+.editor-mascot { display: none; pointer-events: none; }
+body.fluid .editor-mascot { display: block; position: absolute; right: 0.2rem; top: -0.2rem; height: 4.2rem; width: auto; object-fit: contain; }
+body.fluid .editor-top { position: relative; }
 
 /* Nền thế giới hoạt hình lùi về rất nhạt để chrome sáng, sạch */
 body[data-view='menu'] .world, body[data-view='editor'] .world { display: none; }
 body[data-view='game'] .world { opacity: 0.6; }
-
-/* Menu: Hải Âu đứng ở ô trống cuối lưới, cỡ vừa, không bong bóng */
-.menu-mascot { place-items: end center; }
-.menu-mascot .mascot { margin-bottom: 0; }
 
 /* Thẻ nhóm (tab) gọn hơn */
 .group-tab { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0.3rem 1rem rgba(0, 0, 0, 0.06); }
@@ -47,4 +52,3 @@ body[data-view='game'] .world { opacity: 0.6; }
 body.fluid .results-mascot { position: static; display: block; margin: 0.5rem auto 0; width: 7rem; height: 7rem; }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
-body.has-results .header-mascot { display: none !important; }

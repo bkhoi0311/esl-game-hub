@@ -29,6 +29,14 @@ export async function launch(opts = {}) {
 
 // Mở Hub. lang: 'vi' | 'en' (qua ?ui=); extraQuery: 'lang=en' để giả ClassIn; test=1 để lõi in "[i18n] thiếu khoá".
 // Trả { ctx, page, log, close }. log.errors = lỗi trang + console.error (kể cả thiếu khoá).
+// Cờ ngôn ngữ nằm trong hộp Cài đặt (không còn trên thanh trên): mở hộp nếu chưa mở.
+export async function ensureSettings(page) {
+  if (!(await page.$('.modal .settings'))) {
+    await page.click('[data-testid="open-settings"]');
+    await page.waitForSelector('.modal .settings');
+  }
+}
+
 export async function openHub(browser, { base, lang, w = 1280, h = 720, hash = '', extraQuery = '', classin = false, storageLang = null, touch = false, ready = true } = {}) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, hasTouch: touch, userAgent: classin ? UA_CLASSIN : undefined });
   if (storageLang) await ctx.addInitScript((l) => { try { localStorage.setItem('eslhub.ui', l); } catch { /* bỏ qua */ } }, storageLang);
@@ -40,6 +48,14 @@ export async function openHub(browser, { base, lang, w = 1280, h = 720, hash = '
   const q = ['test=1', lang ? `ui=${lang}` : '', extraQuery].filter(Boolean).join('&');
   await page.goto(`${base}?${q}${hash}`);
   if (ready) await page.waitForSelector('#app .nav-link, #app *', { timeout: 15000 });
+  // Bấm cờ (trong hộp Cài đặt): tự mở hộp trước; đổi ngôn ngữ thì hộp dựng lại, chờ hộp mới.
+  const rawClick = page.click.bind(page);
+  page.click = async (sel, opts) => {
+    if (typeof sel === 'string' && /^\.modal \[data-testid="?lang-/.test(sel)) await ensureSettings(page);
+    const r = await rawClick(sel, opts);
+    if (typeof sel === 'string' && /^\.modal \[data-testid="?lang-/.test(sel)) await page.waitForTimeout(250);
+    return r;
+  };
   return { ctx, page, log, close: () => ctx.close() };
 }
 

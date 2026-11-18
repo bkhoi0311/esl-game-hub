@@ -39,6 +39,7 @@ export function createMascot({ size = '6rem', mood = 'idle', react = true, bubbl
   el.append(body);
   if (bubble) el.append(say);
 
+  const baseMood = mood;
   let current = null;
   let moodTimer = 0;
   let sayTimer = 0;
@@ -67,7 +68,7 @@ export function createMascot({ size = '6rem', mood = 'idle', react = true, bubbl
     setMood(m, ms = 0) {
       clearTimeout(moodTimer);
       render(m);
-      if (ms) moodTimer = setTimeout(() => render('idle'), ms);
+      if (ms) moodTimer = setTimeout(() => render(baseMood), ms);
     },
     say(text, ms = 2200) {
       if (!bubble) return;

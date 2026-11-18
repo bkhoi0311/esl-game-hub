@@ -8,6 +8,7 @@ import {
 import { speak } from './audio.js';
 import { openGuide } from './guide.js';
 import { TEAM_COLORS, button, confirmModal, h, openModal, toast } from './ui.js';
+import { mascotDataUrl } from './mascot.js';
 import { icon } from './icons.js';
 import { t, addStrings, onLang, fmtTime } from '../i18n/index.js';
 import VI from '../i18n/strings/editor.vi.js';
@@ -519,7 +520,8 @@ function buildEditor(root, carry) {
     'div', { class: 'editor' },
     h('div', { class: 'editor-top' },
       h('div', {}, h('h1', {}, t('ed.title')), status),
-      actions),
+      actions,
+      h('img', { class: 'editor-mascot', src: mascotDataUrl('dung'), alt: '', draggable: false })), // chỉ hiện trên điện thoại (CSS)
     issues,
     quickCard,
     section(t('ed.info'), 'info', null,

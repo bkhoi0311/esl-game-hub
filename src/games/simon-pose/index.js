@@ -13,7 +13,9 @@ import { icon } from '../../core/icons.js';
 import { line } from '../../core/voice-lines.js';
 import { POSES, commandText } from './poses.js';
 import { createPoseTracker } from '../../core/pose-tracker.js';
-import { RF, createReframeWatch, judgePair } from '../../core/reframe.js';
+import { RF, judgePair } from '../../core/reframe.js';
+import { createFrameLock, createGrabber } from '../../core/frame-lock.js';
+import { attachFrameLockUi } from '../../core/frame-lock-ui.js';
 import { t, addStrings } from '../../i18n/index.js';
 import VI from '../../i18n/strings/camera-guide.vi.js';
 
@@ -29,7 +31,25 @@ const REFRAME = !/[?&#]reframe=0\b/.test(location.href);
 const PAUSE_MAX_MS = 3000;
 const AFTER_STABLE_MS = 1500; // sau khi khung ổn định còn ít nhất 1,5 s để làm tư thế
 const RF_GRAB_MS = 66; // lấy ảnh 64x36 để dò đổi khung tối đa ~15 lần/giây
-const RF_TOAST_GAP_MS = 10000;
+
+// Nhận diện người (PLAN-SIMON-FIX.md): bộ theo dõi v2 cho Simon. Ghi đè bằng URL (trước hoặc sau #) để chỉnh trên máy thật:
+// sp_dedup=0|1 sp_confirm=N sp_excl=K sp_jump=K sp_lost=ms sp_filter=ema|euro sp_np=N sp_det=x sp_pres=x
+// Hành vi cũ: &sp_dedup=0&sp_confirm=1&sp_excl=0&sp_jump=99&sp_filter=ema&sp_lost=900
+const SQ = new URLSearchParams(location.search + '&' + (location.hash.split('?')[1] || ''));
+const spNum = (k, d) => (SQ.has(k) && SQ.get(k) !== '' && !Number.isNaN(Number(SQ.get(k))) ? Number(SQ.get(k)) : d);
+const SP_TRACK = {
+  dedupe: SQ.get('sp_dedup') !== '0',
+  confirmFrames: spNum('sp_confirm', 5),
+  exclusionK: spNum('sp_excl', 1.3),
+  jumpK: spNum('sp_jump', 0.6),
+  filter: SQ.get('sp_filter') === 'ema' ? 'ema' : 'euro',
+  lostMs: spNum('sp_lost', 2000),
+  staleMs: 250,
+};
+const SP_NP = Math.max(1, Math.min(8, Math.round(spNum('sp_np', 5)))); // số pose tối đa MediaPipe dò (mặc định 5, chưa đổi)
+const SEEN_MS = 800; // chỉ người đã ổn định >= 0,8 s mới lên bảng điểm
+const REC_MAX = 1200; // vòng đệm ghi landmark (~60 s)
+const STALE_ALPHA = 0.35;
 
 const WINDOW_MS = 4000;
 const HOLD_MS = 500;
@@ -55,23 +75,30 @@ function createGame(root) {
   let players = [null, null, null]; // chỗ Player 1..3 (bộ theo dõi giữ đúng người)
   let others = []; // người không được tính (đứng xa / ngoài vùng chơi)
   const shown = [null, null, null]; // khung xương đang vẽ (trượt dần tới kết quả AI)
+  const shownId = [null, null, null]; // id người của khung xương đang vẽ (không trượt từ người này sang người khác)
+  const lastOwner = [null, null, null]; // id cuối cùng của mỗi ô, để đếm số lần đổi chủ
+  let ownerChanges = 0;
+  let rec = []; // ghi landmark thô (?diag=sp&sprec=1), phím R tải về
+  let hzAt = 0;
+  let hzN = 0;
+  let hz = 0;
+  let onKey = null;
   let seen = new Set(); // chỗ đã từng có người chơi trong ván
   let detectorModel = null;
   let tracker = null;
   let lastVideoTime = -1;
-  // dò camera tự đổi khung
-  const rfCanvas = document.createElement('canvas');
-  rfCanvas.width = RF.DW * 2;
-  rfCanvas.height = RF.DH * 2;
-  let rfCtx = null;
-  const rfSmall = new Float32Array(RF.DW * RF.DH);
+  // dò camera tự đổi khung (KHÓA KHUNG: frame-lock.js bọc reframe.js; viền + biểu ngữ + đếm số lần)
+  const fl = createFrameLock({ enabled: REFRAME });
+  const grabSmall = createGrabber();
+  let rfSmall = null;
   const rfPrev = new Float32Array(RF.DW * RF.DH);
+  let flDetach = () => {};
   let rw = null;
   let rfLastGrab = 0;
   let pauseAt = 0;
-  let rfToastAt = -Infinity;
   let rfLockWarned = false;
   const DIAG = PERF.diag === 'sp';
+  const REC = DIAG && SQ.get('sprec') === '1';
   let hud = null;
   let hudAt = 0;
 
@@ -116,6 +143,7 @@ function createGame(root) {
           hint: t('game.simon.zoneHint') },
         { label: t('game.simon.accuracy'), control: segmented([{ value: 'full', label: t('game.simon.acc.high') }, { value: 'lite', label: t('game.simon.acc.fast') }], opts.model, (v) => (opts.model = v), 'sp-model') },
       ],
+      frameLock: fl,
       onReady: () => {
         if (opts.poses.size < 2) {
           toast(t('game.simon.needPoses'), 'error');
@@ -132,8 +160,14 @@ function createGame(root) {
     players = [null, null, null];
     others = [];
     seen = new Set();
-    tracker = createPoseTracker({ maxPlayers: opts.count, zone: ZONES[opts.zone] });
-    rw = REFRAME ? createReframeWatch() : null;
+    shownId.fill(null);
+    lastOwner.fill(null);
+    ownerChanges = 0;
+    rec = [];
+    tracker = createPoseTracker({ maxPlayers: opts.count, zone: ZONES[opts.zone], ...SP_TRACK });
+    rw = fl.enabled ? fl : null;
+    fl.reset();
+    fl.resetCount();
     pauseAt = 0;
     const overlay = h('canvas', { class: 'sp-overlay' });
     // Tip nằm ĐÈ trong khung video (không chiếm hàng riêng): hiện/ẩn tip không làm khung video co lại.
@@ -147,6 +181,8 @@ function createGame(root) {
     const loading = h('div', { class: 'sp-loading', 'data-testid': 'sp-loading' }, 'Loading AI model…');
     videoBox.append(loading);
     view = { overlay, videoBox, command, bar, board, controls, loading, tip };
+    flDetach();
+    flDetach = attachFrameLockUi(videoBox, fl);
     const camBtn = button({ label: t('cam.off'), iconName: 'camera', attrs: { 'data-testid': 'cam-toggle' } });
     camBtn.addEventListener('click', async () => {
       if (session.active) {
@@ -154,6 +190,7 @@ function createGame(root) {
         clearTimers();
         session.stop();
         round = null;
+        tracker.lockJoins(false);
         command.textContent = 'Camera off';
         camBtn.querySelector('span').textContent = t('cam.on');
       } else {
@@ -173,8 +210,8 @@ function createGame(root) {
         detector.close();
         detector = null;
       }
-      // Nhận diện tối đa 5 người rồi chọn người chơi; người thừa hiện mờ.
-      detector ||= await createPoseDetector({ numPoses: 5, model: opts.model });
+      // Nhận diện tối đa SP_NP (mặc định 5) người rồi chọn người chơi; người thừa hiện mờ.
+      detector ||= await createPoseDetector({ numPoses: SP_NP, model: opts.model, minDet: spNum('sp_det', 0.55), minPres: spNum('sp_pres', 0.5) });
       detectorModel = opts.model;
     } catch (err) {
       loading.textContent = '';
@@ -190,10 +227,10 @@ function createGame(root) {
     later(nextRound, 1500);
   }
 
-  // Chỗ đang hiện trên bảng điểm: có người, hoặc đã từng chơi trong ván.
+  // Chỗ đang hiện trên bảng điểm: chỉ người đã ổn định >= SEEN_MS (seen), kể cả khi họ vừa rời khung.
   function slotsShown() {
     const list = [];
-    for (let i = 0; i < opts.count; i++) if (players[i] || seen.has(i)) list.push(i);
+    for (let i = 0; i < opts.count; i++) if (seen.has(i)) list.push(i);
     return list.length ? list : [0];
   }
 
@@ -232,6 +269,7 @@ function createGame(root) {
     view.bar.firstChild.style.width = '100%';
     speak(text).then(() => {
       if (!round || round.pose !== pose) return;
+      tracker.lockJoins(true); // trong lượt chấm: không nhận người mới (khoá người chơi)
       round.start = performance.now();
       round.end = round.start + WINDOW_MS;
     });
@@ -239,6 +277,7 @@ function createGame(root) {
 
   function endRound(skipped = false) {
     const r = round;
+    if (tracker) tracker.lockJoins(false); // giữa các lượt người mới được vào
     r.result = [];
     if (skipped) {
       // Camera đổi khung quá lâu trong lượt: không cộng, không trừ ai.
@@ -267,7 +306,7 @@ function createGame(root) {
   function finish() {
     stopLoop();
     const ranking = slotsShown().map((index) => ({ name: PLAYER_NAMES[index], index, score: scores[index] })).sort((a, b) => b.score - a.score);
-    setStage(resultsScreen({ title: 'Simon Says: results', ranking, unit: ' pts', onReplay: () => startGame() }));
+    setStage(resultsScreen({ title: 'Simon Says: results', ranking, unit: ' pts', onReplay: () => startGame(), note: fl.enabled ? t('cam.lock.count', { n: fl.count }) : null }));
     playSound('win');
     speak(line('greatJob'));
     confetti({ particleCount: Math.round(150 * PERF.confetti), spread: 90, origin: { y: 0.6 }, disableForReducedMotion: true, ...confettiLite() });
@@ -284,45 +323,52 @@ function createGame(root) {
         lastVideoTime = v.currentTime;
         if (rw && now - rfLastGrab >= RF_GRAB_MS) {
           rfLastGrab = now;
-          onReframe(rw.push(grabSmall(v), now), now);
+          rfSmall = grabSmall(v);
+          onReframe(rw.push(rfSmall, now), now);
         }
-        const res = detector ? detector.detect(v, now) : null;
+        // window.__spInject: hook cho test/phát lại (hàm now -> danh sách landmark); không dùng khi chơi thật.
+        const inj = window.__spInject;
+        const res = typeof inj === 'function' ? { landmarks: inj(now) || [] } : detector ? detector.detect(v, now) : null;
         if (res) {
+          if (REC) recordFrame(now, res.landmarks || []);
           // Bộ theo dõi: chọn người chơi trong vùng, giữ đúng số Player, làm mịn toạ độ.
           const tr = tracker.update(res.landmarks || [], now);
           players = tr.players;
           others = tr.others;
-          players.forEach((p, i) => p && seen.add(i));
+          players.forEach((p, i) => {
+            if (!p) return;
+            if (lastOwner[i] !== null && lastOwner[i] !== p.id) ownerChanges++;
+            lastOwner[i] = p.id;
+            if (p.fresh && now - p.since >= SEEN_MS) seen.add(i);
+          });
           update(now);
         }
       }
+      fl.tick(now);
       draw(); // vẽ cả lúc AI đang nạp: vùng chơi (nếu chọn) hiện ngay từ đầu, không "bó vào" sau
     };
     raf = requestAnimationFrame(tick);
   }
 
+  function recordFrame(now, list) {
+    const r4 = (n) => Math.round(n * 1e4) / 1e4;
+    rec.push({ t: Math.round(now), list: list.map((lm) => lm.map((q) => ({ x: r4(q.x), y: r4(q.y), visibility: r4(q.visibility ?? 1) }))) });
+    if (rec.length > REC_MAX) rec.shift();
+    window.__spRec = rec;
+  }
+
+  function downloadRec() {
+    const blob = new Blob([JSON.stringify({ frames: rec, video: [session.video.videoWidth, session.video.videoHeight] })], { type: 'application/json' });
+    const a = h('a', { href: URL.createObjectURL(blob), download: `simon-rec-${Date.now()}.json` });
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
   function stopLoop() {
     cancelAnimationFrame(raf);
     raf = 0;
-  }
-
-  // Ảnh xám 64x36 (chưa gương, cùng hệ toạ độ với landmark) cho bộ dò đổi khung. ~0,3 ms.
-  function grabSmall(v) {
-    rfCtx ||= rfCanvas.getContext('2d', { willReadFrequently: true });
-    rfCtx.drawImage(v, 0, 0, rfCanvas.width, rfCanvas.height);
-    const d = rfCtx.getImageData(0, 0, rfCanvas.width, rfCanvas.height).data;
-    const W2 = rfCanvas.width;
-    for (let y = 0; y < RF.DH; y++) {
-      for (let x = 0; x < RF.DW; x++) {
-        let sum = 0;
-        for (let k = 0; k < 4; k++) {
-          const i = (((y * 2 + (k >> 1)) * W2) + x * 2 + (k & 1)) * 4;
-          sum += (d[i] * 77 + d[i + 1] * 150 + d[i + 2] * 29) >> 8;
-        }
-        rfSmall[y * RF.DW + x] = sum / 4;
-      }
-    }
-    return rfSmall;
   }
 
   function onReframe(o, now) {
@@ -332,10 +378,6 @@ function createGame(root) {
       shown.fill(null);
       if (round) round.hold = [0, 0, 0];
       view.videoBox.dataset.reframe = 'true';
-      if (now - rfToastAt > RF_TOAST_GAP_MS) {
-        rfToastAt = now;
-        toast(t('game.simon.reframe.wait'), 'info', 2500);
-      }
       if (o.repeated && !rfLockWarned) {
         rfLockWarned = true;
         toast(t('cam.autoframe.lock'), 'info', 9000);
@@ -343,7 +385,7 @@ function createGame(root) {
     }
     if (o.ended) {
       // Phép biến đổi tổng (trước -> sau) nếu đo được: ghép lại Player theo chỗ dự đoán; không thì theo thứ tự trái -> phải.
-      const j = judgePair(rfPrev, rfSmall);
+      const j = judgePair(rfPrev, rfSmall || rfPrev);
       const tf = j.kind === 'shift' && j.fit ? { k: j.fit.k, dx: j.fit.tx / RF.DW, dy: j.fit.ty / RF.DH } : null;
       tracker.reanchor(tf);
       shown.fill(null);
@@ -351,7 +393,7 @@ function createGame(root) {
       const r = round;
       if (r && r.start && !r.result && r.paused < PAUSE_MAX_MS) r.end = Math.max(r.end, now + AFTER_STABLE_MS);
     }
-    if (!o.moving) rfPrev.set(rfSmall); // ảnh ổn định gần nhất (trước lúc đổi khung)
+    if (!o.moving && rfSmall) rfPrev.set(rfSmall); // ảnh ổn định gần nhất (trước lúc đổi khung)
   }
 
   function update(now) {
@@ -430,16 +472,31 @@ function createGame(root) {
     players.forEach((p, i) => {
       if (!p) {
         shown[i] = null;
+        shownId[i] = null;
         return;
       }
       // Vẽ khung xương trượt dần tới kết quả AI mới nhất ở mọi khung hình (60 fps),
       // nên AI nhận diện 15–20 lần/giây vẫn thấy chuyển động liền mạch.
-      const prev = shown[i];
+      // Trượt gắn theo id: đổi người (hoặc nhảy > 1 vai) thì bắt đầu lại, không trộn hai bộ xương.
+      let prev = shownId[i] === p.id ? shown[i] : null;
+      shownId[i] = p.id;
+      if (prev && prev[11] && prev[12] && p.lm[11] && p.lm[12]) {
+        const dx = (prev[11].x + prev[12].x - p.lm[11].x - p.lm[12].x) / 2;
+        const dy = (prev[11].y + prev[12].y - p.lm[11].y - p.lm[12].y) / 2;
+        if (Math.hypot(dx, dy) > (p.size || 0.1)) prev = null;
+      }
       const lm = (shown[i] = p.lm.map((q, k) => {
         const o = prev && prev[k];
         return o ? { ...q, x: o.x + (q.x - o.x) * 0.45, y: o.y + (q.y - o.y) * 0.45 } : q;
       }));
       const ok = round && round.matched[i];
+      if (p.stale) {
+        // Mất người (quá staleMs không có dữ liệu mới): vẽ mờ, không nhãn; hết lostMs thì biến mất.
+        ctx.globalAlpha = STALE_ALPHA;
+        drawSkeleton(ctx, lm, { width: dw, height: dh, color: TEAM_COLORS[i], lineWidth: Math.max(4, dw / 180) });
+        ctx.globalAlpha = 1;
+        return;
+      }
       drawSkeleton(ctx, lm, { width: dw, height: dh, color: ok ? '#04bc09' : TEAM_COLORS[i], lineWidth: Math.max(4, dw / 180) });
       const nose = lm[0];
       const x = (1 - nose.x) * dw;
@@ -457,11 +514,28 @@ function createGame(root) {
     if (hud && performance.now() - hudAt > 500) {
       hudAt = performance.now();
       const st = rw ? rw.stats() : null;
-      hud.textContent = st
+      const di = detector ? detector.info() : null;
+      if (di) {
+        const dtH = (hudAt - hzAt) / 1000;
+        if (hzAt && dtH > 0) hz = Math.round((di.results - hzN) / dtH);
+        hzN = di.results;
+        hzAt = hudAt;
+      }
+      const ts = tracker ? tracker.stats() : null;
+      const aiLine = di && ts
+        ? `AI ${di.model} t${di.tier} ${di.delegate || ''} ${di.ms} ms ${hz} Hz · np ${SP_NP} · thô ${ts.raw} → ${ts.kept} (gộp tổng ${ts.mergedTotal}) · loại ${ts.excluded} · chờ ${ts.pending} · nhảy-chặn ${ts.jumpRejected} · vào ${ts.joins} · đổi chủ ô ${ownerChanges}\n` // i18n-keep: HUD chẩn đoán
+          + `${ts.slots.map((s, i) => `P${i + 1} ${s ? `id${s.id} ${s.age}s` : '–'}`).join(' · ')}${REC ? ` · ghi ${rec.length} khung (phím R)` : ''}\n` // i18n-keep: HUD chẩn đoán
+        : '';
+      hud.textContent = aiLine + (st
         ? `đổi khung ${st.events} · ${st.moving ? 'ĐANG ĐỔI' : 'ổn định'} · ổn định sau ${st.lastSettleMs} ms · ncc ${st.ncc.toFixed(2)}\n` // i18n-keep: HUD chẩn đoán
           + `Player ${players.map((p) => (p ? p.id : '-')).join(' ')} · dừng lượt ${round ? Math.round(round.paused) : 0} ms · video ${session.video.videoWidth}x${session.video.videoHeight}` // i18n-keep: HUD chẩn đoán
-        : 'reframe=0';
+        : 'reframe=0');
     }
+  }
+
+  if (REC) {
+    onKey = (e) => { if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey && !/INPUT|TEXTAREA/.test((e.target && e.target.tagName) || '')) downloadRec(); };
+    window.addEventListener('keydown', onKey);
   }
 
   showSetup();
@@ -471,13 +545,22 @@ function createGame(root) {
     debug: () => ({
       zone: opts.zone,
       reframing: Boolean(rw && rw.moving),
+      lock: fl.state,
+      reframes: fl.count,
       rf: rw ? rw.stats() : null,
       players: players.map((p) => (p ? p.id : null)),
+      stale: players.map((p) => (p ? p.stale : null)),
+      seen: [...seen],
+      board: view ? view.board.children.length : 0,
+      ownerChanges,
+      tracker: tracker ? tracker.stats() : null,
       round: round ? { end: round.end, paused: round.paused, result: round.result } : null,
     }),
     destroy() {
       stopLoop();
       clearTimers();
+      flDetach();
+      if (onKey) window.removeEventListener('keydown', onKey);
       session.stop();
       if (detector) detector.close();
       detector = null;

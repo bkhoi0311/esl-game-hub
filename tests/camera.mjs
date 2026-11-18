@@ -5,6 +5,7 @@ import { createServer, preview } from 'vite';
 import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
+import { startCam } from './helpers/start-cam.mjs';
 
 const OUT = resolve('screenshots/camera');
 mkdirSync(OUT, { recursive: true });
@@ -112,7 +113,7 @@ TESTS['statue-freeze'] = async () => {
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
   assert.match(await page.textContent('[data-testid=cam-select]'), /ClassIn Cam S1/);
   await shot(page, 'statue-1-setup');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
   const waitPhase = async (p, ms = 15000) => {
     const end = Date.now() + ms;
@@ -161,7 +162,7 @@ TESTS['statue-freeze'] = async () => {
 TESTS['statue-ae'] = async () => {
   const { context, page } = await open('?diag=sf#/game/statue-freeze');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
   const waitPhase = async (p, ms = 20000) => {
     const end = Date.now() + ms;
@@ -203,7 +204,7 @@ const animateView = (page, from, to, ms = 300) => page.evaluate(([a, b, d]) => {
 TESTS['statue-reframe'] = async () => {
   const { context, page } = await open('?diag=sf#/game/statue-freeze');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   const dbg = () => page.evaluate(() => window.__statueFreeze.debug());
   const waitPhase = async (p, ms = 25000) => {
     const end = Date.now() + ms;
@@ -248,7 +249,7 @@ TESTS['statue-reframe'] = async () => {
 TESTS['statue-reframe-off'] = async () => {
   const { context, page } = await open('?reframe=0#/game/statue-freeze');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   await page.waitForFunction(() => window.__statueFreeze && window.__statueFreeze.debug().phase === 'green', null, { timeout: 15000 });
   assert.equal((await page.evaluate(() => window.__statueFreeze.debug())).stats.rf, null);
   await context.close();
@@ -259,7 +260,7 @@ TESTS['statue-lanes'] = async () => {
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
   await page.click('[data-testid=sf-lanes] [data-value="2"]');
   assert.equal(await page.getAttribute('[data-testid=sf-lanes] [aria-pressed=true]', 'data-value'), '2');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
   const waitPhase = async (p, ms = 20000) => {
     const end = Date.now() + ms;
@@ -285,7 +286,7 @@ TESTS['statue-lanes'] = async () => {
 TESTS['statue-v1'] = async () => {
   const { context, page } = await open('?sf=v1#/game/statue-freeze');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   const phase = () => page.evaluate(() => window.__statueFreeze.debug().phase);
   const waitPhase = async (p, ms = 20000) => {
     const end = Date.now() + ms;
@@ -390,7 +391,7 @@ TESTS['simon-layout'] = async () => {
   const { context, page } = await open('#/game/simon-pose');
   await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
   assert.equal(await page.getAttribute('[data-testid=sp-zone] .btn[aria-pressed="true"]', 'data-value'), 'full', 'vùng chơi mặc định phải là Cả khung');
-  await page.click('[data-testid=cam-start]');
+  await startCam(page);
   await page.waitForSelector('[data-testid=sp-video]');
   const box = () => page.evaluate(() => { const r = document.querySelector('[data-testid=sp-video]').getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; });
   const before = await box();
@@ -407,11 +408,58 @@ TESTS['simon-layout'] = async () => {
   await context.close();
 };
 
+// Simon: 1 người (có bản trùng thất thường như MediaPipe numPoses>1) => đúng 1 ô Player, không nhảy, bảng điểm 1 ô. PLAN-SIMON-FIX.md.
+TESTS['simon-tracking'] = async () => {
+  const { context, page } = await open('?diag=sp&sprec=1#/game/simon-pose');
+  await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
+  await startCam(page);
+  await page.waitForSelector('.sp-loading', { state: 'detached', timeout: 60000 });
+  await page.evaluate(() => {
+    const body = (cx, top, sw) => {
+      const P = Array.from({ length: 33 }, () => ({ x: cx, y: top, visibility: 0.9 }));
+      const set = (i, x, y) => (P[i] = { x, y, visibility: 0.95 });
+      const sy = top + 0.9 * sw; const hy = sy + 1.6 * sw; const ky = hy + 1.2 * sw; const ay = ky + 1.2 * sw;
+      set(0, cx, top + 0.3 * sw); set(11, cx + sw / 2, sy); set(12, cx - sw / 2, sy);
+      set(23, cx + sw * 0.35, hy); set(24, cx - sw * 0.35, hy);
+      set(25, cx + sw * 0.35, ky); set(26, cx - sw * 0.35, ky); set(27, cx + sw * 0.35, ay); set(28, cx - sw * 0.35, ay);
+      set(13, cx + sw / 2, sy + 0.9 * sw); set(15, cx + sw / 2, sy + 1.7 * sw); set(14, cx - sw / 2, sy + 0.9 * sw); set(16, cx - sw / 2, sy + 1.7 * sw);
+      return P;
+    };
+    let n = 0;
+    window.__spInject = () => {
+      n++;
+      const cx = 0.5 + Math.sin(n / 40) * 0.02;
+      const main = body(cx, 0.25, 0.08);
+      // 40% số khung có thêm 1 bản trùng lệch 0,3 vai, thứ tự mảng đảo thất thường
+      if (n % 5 < 2) { const dup = body(cx + 0.024, 0.255, 0.08); return n % 2 ? [dup, main] : [main, dup]; }
+      return [main];
+    };
+  });
+  const ids = new Set();
+  let maxSlots = 0;
+  for (let k = 0; k < 40; k++) {
+    await page.waitForTimeout(100);
+    const d = await page.evaluate(() => window.__simonPose.debug());
+    const live = d.players.filter((x) => x !== null);
+    maxSlots = Math.max(maxSlots, live.length);
+    live.forEach((x) => ids.add(x));
+  }
+  const d = await page.evaluate(() => window.__simonPose.debug());
+  assert.equal(maxSlots, 1, `1 người nhưng có ${maxSlots} Player cùng lúc`);
+  assert.equal(ids.size, 1, `id Player đổi: ${[...ids]}`);
+  assert.equal(d.ownerChanges, 0, 'ô đổi chủ');
+  assert.equal(d.board, 1, `bảng điểm phải 1 ô, đang ${d.board}`);
+  assert.ok(d.tracker.mergedTotal > 0, 'bản trùng phải được gộp');
+  assert.match(await page.textContent('[data-testid=sp-hud]'), /thô \d+ → \d+/);
+  await shot(page, 'simon-tracking');
+  await context.close();
+};
+
 for (const [id, ready] of [['simon-pose', '[data-testid=sp-command]']]) {
   TESTS[id] = async () => {
     const { context, page } = await open(`#/game/${id}`, undefined, undefined);
     await page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-    await page.click('[data-testid=cam-start]');
+    await startCam(page);
     await page.waitForSelector(ready);
     await page.waitForSelector('.sp-loading', { state: 'detached', timeout: 60000 });
     await page.waitForTimeout(3500);
@@ -464,7 +512,7 @@ TESTS['word-ninja'] = async () => {
   const c2 = await open('#/game/word-ninja');
   await c2.page.click('[data-testid=word-ninja-start]');
   await c2.page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await c2.page.click('[data-testid=cam-start]');
+  await startCam(c2.page);
   await c2.page.waitForSelector('[data-testid=wn-canvas]');
   await c2.page.waitForFunction(() => window.__ninjaScene, null, { timeout: 60000 });
   await c2.page.waitForTimeout(2500);
@@ -491,7 +539,7 @@ try {
   for (const [name, fn] of Object.entries(TESTS)) {
     if (only.length && !only.includes(name)) continue;
     const runs = [[name, fn]];
-    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck', 'statue-ae', 'statue-lanes', 'statue-v1', 'statue-reframe', 'statue-reframe-off', 'simon-layout'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
+    if (!['camera-errors', 'camera-hotplug', 'camera-busy-virtual', 'camera-busy-wait', 'camera-busy-other', 'camcheck', 'statue-ae', 'statue-lanes', 'statue-v1', 'statue-reframe', 'statue-reframe-off', 'simon-layout', 'simon-tracking'].includes(name)) runs.push([`${name} vào/ra 5 lần`, () => enterExit(name)]);
     for (const [label, run] of runs) {
       try {
         await run();

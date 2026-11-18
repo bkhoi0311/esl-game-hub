@@ -3,6 +3,7 @@
 // Camera giả bằng JS (getUserMedia thay bằng luồng canvas), UA giả ClassIn X (hiện nhóm nút chọn camera).
 import assert from 'node:assert/strict';
 import { startServer, launch, vietnameseIn, overflow, noI18nErrors, shot, UA_CLASSIN } from './helpers/i18n-hub.mjs';
+import { startCam } from './helpers/start-cam.mjs';
 
 const port = Number(process.env.PORT || 5215);
 const srv = await startServer(port);
@@ -117,7 +118,7 @@ for (const [w, h] of [[1280, 720], [1920, 1080]]) {
     await s.page.click('[data-testid=sf-lanes] [data-value="1"]');
     // vào game; vẫy tay lúc đo để có toast
     await s.page.evaluate(() => { window.__motion = { x: 0.2, y: 0.2, w: 0.3, h: 0.5 }; });
-    await s.page.click('[data-testid=cam-start]');
+    await startCam(s.page);
     await s.page.waitForSelector('[data-testid=sf-sensitivity]');
     assert.equal(await s.page.getAttribute('[data-testid=sf-sensitivity] [data-act=dec]', 'title'), 'Decrease sensitivity');
     assert.equal(await s.page.getAttribute('[data-testid=sf-sensitivity] [data-act=inc]', 'title'), 'Increase sensitivity');
@@ -162,7 +163,7 @@ for (const [w, h] of [[1280, 720], [1920, 1080]]) {
     // bỏ hết tư thế trừ 1: toast lỗi EN
     const boxes = await s.page.$$('.sp-pose input');
     for (let i = 1; i < boxes.length; i++) await boxes[i].evaluate((e) => e.click());
-    await s.page.click('[data-testid=cam-start]');
+    await startCam(s.page);
     await s.page.waitForSelector('.toast, .toasts > *');
     const m = await s.page.$$eval('.toast, .toasts > *', (a) => a.map((x) => x.textContent.trim()).join('|'));
     assert.match(m, /Choose at least 2 poses\./);
@@ -177,7 +178,7 @@ await run('Simon Says Pose EN: model AI không nạp được -> thông báo EN'
     routes: async (page) => { await page.route(/\.(task|tflite|wasm)(\?|$)|mediapipe|tasks-vision/i, (r) => r.abort()); },
   });
   await s.page.waitForSelector('[data-testid=cam-start]:not([disabled])');
-  await s.page.click('[data-testid=cam-start]');
+  await startCam(s.page);
   await s.page.waitForSelector('.sp-loading.error', { timeout: 60000 });
   const t = await text(s.page, '.sp-loading.error');
   assert.match(t, /Couldn’t load the AI model/);
