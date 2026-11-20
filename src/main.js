@@ -23,12 +23,12 @@ import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
 import { gsap } from 'gsap';
 import '../public/shared/holiday.css';
-import { initHoliday, getMode, setMode } from '../public/shared/holiday.js';
+import { initHoliday, getMode, setMode, UI as HOLIDAY_UI } from '../public/shared/holiday.js';
 import { mountWorld, setWorld } from './core/world.js';
 import { createMascot } from './core/mascot.js';
 import { reducedMotion } from './core/events.js';
 import { clearFx, setStreakEnabled } from './core/fx.js';
-import { t, bind, onLang, withUi, addStrings, mountLangSwitch } from './i18n/index.js';
+import { t, bind, onLang, withUi, addStrings, mountLangSwitch, lang } from './i18n/index.js';
 import MENU_VI from './i18n/strings/menu-settings.vi.js';
 
 addStrings('menu-settings', MENU_VI);
@@ -403,6 +403,7 @@ function collapsibleList(list, max) {
 
 async function openSettings() {
   const s = getSettings();
+  const HU = HOLIDAY_UI[lang() === 'en' ? 'en' : 'vi'];
   const voiceInfo = h('p', { class: 'muted' }, t('set.voice.checking'));
   const rateValue = h('output', {}, s.ttsRate.toFixed(1));
   const langHost = h('div', { class: 'lang-host' });
@@ -422,9 +423,9 @@ async function openSettings() {
       h('span', { id: 'set-lang' }, t('set.lang')),
       langHost),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-holiday' },
-      h('span', { id: 'set-holiday' }, t('set.holiday')),
-      segmented([{ value: 'auto', label: t('set.holiday.auto') }, { value: 'off', label: t('ui.off') }], getMode(), (v) => { setMode(v); initHoliday({ page: 'hub' }); }, 'holiday'),
-      h('small', { class: 'muted' }, t('set.holiday.hint'))),
+      h('span', { id: 'set-holiday' }, HU.label),
+      segmented([{ value: 'auto', label: HU.auto }, { value: 'off', label: HU.off }], getMode(), (v) => { setMode(v); initHoliday({ page: 'hub' }); }, 'holiday'),
+      h('small', { class: 'muted' }, HU.hint)),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-sound' },
       h('span', { id: 'set-sound' }, t('set.sound')),
       segmented([{ value: true, label: t('ui.on') }, { value: false, label: t('ui.off') }], s.sound !== false, (v) => updateSettings({ sound: v }), 'sound')),

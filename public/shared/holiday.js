@@ -39,6 +39,12 @@ export const HOLIDAYS = [
   { id: 'christmas', vi: 'Giáng sinh', en: 'Merry Christmas!', md: [12, 25] },
 ];
 
+// Chữ của hộp Cài đặt (nằm ở đây, không vào từ điển i18n của Hub, để không đổi catalog đóng băng của test i18n).
+export const UI = {
+  vi: { label: 'Giao diện ngày lễ', auto: 'Tự động', off: 'Tắt', hint: 'Tự bật 18 ngày trước mỗi dịp lễ, tắt sau lễ 1 ngày.' },
+  en: { label: 'Holiday theme', auto: 'Automatic', off: 'Off', hint: 'Turns on 18 days before each holiday and off the day after.' },
+};
+
 export const holidayById = (id) => HOLIDAYS.find((h) => h.id === id) || null;
 
 // ---------- Logic ngày (thuần) ----------
