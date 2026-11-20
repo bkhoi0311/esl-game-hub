@@ -1,0 +1,67 @@
+/* Giao diện ngày lễ (public/shared/holiday.js). Chỉ thêm: vạch màu nhấn, nền nhạt, chip chúc mừng, hình treo, hạt rơi.
+   Không đụng logo, linh vật, nút, thẻ, vùng chơi / vẽ. Mọi hình: pointer-events none. Không dùng style="" (CSP của Bảng chặn). */
+html[data-hol-page='hub'], html[data-hol-page='start'] { --hol-u: 1rem; }
+html[data-hol-page='board'] { --hol-u: calc(16px * var(--s, 1)); }
+
+.hol-line { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 50; pointer-events: none;
+  background: linear-gradient(90deg, var(--hol-accent), var(--hol-chip-line), var(--hol-accent)); }
+
+/* ---- chip chúc mừng ---- */
+.hol-chip { display: inline-flex; align-items: center; flex: none; white-space: nowrap; padding: 0.3em 0.95em; border-radius: 999px;
+  background: var(--hol-chip-bg); color: var(--hol-chip-ink); border: 1.5px solid var(--hol-chip-line);
+  font: 800 0.875rem/1.2 'Plus Jakarta Sans', system-ui, 'Segoe UI', sans-serif; letter-spacing: 0.005em; pointer-events: none; user-select: none; -webkit-user-select: none; }
+html[data-hol-page='hub'] .app-header .hol-chip { margin-left: auto; margin-right: 0.2rem; }
+html[data-hol-page='start'] .top .hol-chip { margin-right: 0.3rem; }
+html[data-hol-page='board'] .hol-chip, html[data-hol-page='board'] .hol-board-orn { position: fixed; transform: translateY(-50%); z-index: 31; }
+html[data-hol-page='board'] .hol-chip { font-size: calc(13px * var(--s, 1)); }
+html[data-hol-page='board'] .hol-board-orn { --hol-u: calc(16px * var(--s, 1)); }
+.hol-chip[data-hol-hidden], .hol-board-orn[data-hol-hidden] { visibility: hidden; }
+
+/* ---- nền nhạt (Bảng giữ nền tối, không tô) ---- */
+html[data-hol-page='hub'] .stage { background: transparent; }
+html[data-hol-page='hub'] body {
+  background-image: radial-gradient(70rem 26rem at 0% 0%, var(--hol-tint), transparent 72%), radial-gradient(70rem 26rem at 100% 0%, var(--hol-tint2), transparent 72%);
+  background-repeat: no-repeat; }
+html[data-hol-page='start'] body {
+  background-image: radial-gradient(ellipse at 12% 0%, var(--hol-tint) 0%, transparent 52%), radial-gradient(ellipse at 90% 0%, var(--hol-tint2) 0%, transparent 48%),
+    radial-gradient(ellipse at 20% 0%, #e6f7e7 0%, transparent 55%), radial-gradient(ellipse at 85% 100%, #e3f1ff 0%, transparent 50%); }
+
+/* ---- hình treo dưới thanh trên (hub, màn chọn). Nằm ở lề hai bên, không đè thẻ / nút / linh vật ---- */
+html[data-hol-page='hub'] .app-header, html[data-hol-page='start'] .top { position: relative; }
+html[data-hol-page='start'] .top { z-index: 3; }
+.hol-orns { position: absolute; left: 0; right: 0; top: 100%; height: 0; pointer-events: none; z-index: 1; }
+.hol-side { position: absolute; top: -0.2rem; display: flex; align-items: flex-start; gap: 0.35rem; pointer-events: none; }
+.hol-l { left: 0.5rem; }
+.hol-r { right: 0.5rem; flex-direction: row-reverse; }
+.hol-orn { display: block; pointer-events: none; }
+.hol-orn svg { display: block; height: calc(var(--h, 3) * var(--hol-u, 1rem)); width: auto; overflow: visible; }
+.hol-i1 { margin-top: 0.3rem; }
+body[data-view='game'] .hol-orns, body[data-view='camcheck'] .hol-orns { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  html[data-hol-page='hub'], html[data-hol-page='start'] { --hol-u: 0.7rem; }
+  .hol-i1 { display: none; }
+  .hol-chip { font-size: 0.78rem; padding: 0.22em 0.7em; }
+}
+
+/* ---- hạt rơi nhẹ: chỉ menu / màn chọn, nằm SAU nội dung (z -1), tắt khi giảm chuyển động ---- */
+.hol-fall { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+body[data-view]:not([data-view='menu']) .hol-fall { display: none; }
+html.perf-lite .hol-fall, html.no-loop .hol-fall, html.no-idle .hol-fall { display: none; }
+.hol-p { position: absolute; top: 0; left: var(--x); width: var(--sz); height: var(--sz); background: var(--c); opacity: 0.8; border-radius: 50%;
+  animation: hol-fall var(--d) linear var(--w) infinite; will-change: transform; }
+@keyframes hol-fall { 0% { transform: translate3d(0, -3rem, 0) rotate(0deg); } 100% { transform: translate3d(var(--sw), calc(100vh + 3rem), 0) rotate(360deg); } }
+.hol-fall--snow .hol-p { box-shadow: 0 0 0.25rem var(--c); opacity: 0.95; }
+.hol-fall--petal .hol-p { border-radius: 70% 0 70% 0; width: calc(var(--sz) * 1.3); }
+.hol-fall--leaf .hol-p { border-radius: 0 75% 0 75%; width: calc(var(--sz) * 1.3); }
+.hol-fall--confetti .hol-p { border-radius: 1px; height: calc(var(--sz) * 0.5); }
+.hol-fall--heart .hol-p { background: none; border-radius: 0; opacity: 0.85; }
+.hol-fall--heart .hol-p::before, .hol-fall--heart .hol-p::after { content: ''; position: absolute; left: 50%; top: 0; width: 50%; height: 80%; background: var(--c); border-radius: 999px 999px 0 0; transform: rotate(-45deg); transform-origin: 0 100%; }
+.hol-fall--heart .hol-p::after { left: 0; transform: rotate(45deg); transform-origin: 100% 100%; }
+@media (prefers-reduced-motion: reduce) { .hol-fall { display: none; } }
+
+/* Hub: linh vật Hải Âu đứng ở góc phải hàng 2 -> cụm hình bên phải dịch vào khoảng trống giữa thẻ nhóm và linh vật; màn dọc chỉ giữ cụm trái */
+html[data-hol-page='hub'] .hol-r { right: 12rem; }
+@media (max-aspect-ratio: 1/1) { html[data-hol-page='hub'] .hol-r { display: none; } }
+/* Hub: chỉ chừa ~110px bên trái thẻ nhóm -> mỗi cụm 1 hình; màn chọn dọc: Hải Âu đứng bên trái nên chỉ giữ cụm phải */
+html[data-hol-page='hub'] .hol-l .hol-i1 { display: none; }
+@media (max-aspect-ratio: 1/1) { html[data-hol-page='start'] .hol-l { display: none; } }

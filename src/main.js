@@ -22,6 +22,8 @@ import { button, h, openModal, rangeWithSteps, segmented, toast } from './core/u
 import { icon } from './core/icons.js';
 import { gameArt } from './core/art.js';
 import { gsap } from 'gsap';
+import '../public/shared/holiday.css';
+import { initHoliday, getMode, setMode } from '../public/shared/holiday.js';
 import { mountWorld, setWorld } from './core/world.js';
 import { createMascot } from './core/mascot.js';
 import { reducedMotion } from './core/events.js';
@@ -99,6 +101,7 @@ const main = h('main', { class: 'app-main' });
 const stage = h('div', { class: 'stage' }, header, main);
 app.append(stage);
 mountWorld(stage);
+initHoliday({ page: 'hub' }); // giao diện ngày lễ tự động (?theme=<id> xem thử, ?theme=off tắt)
 
 // Mascot Hải Âu ở thanh trên: luôn hiện, reo khi đúng, buồn khi sai (nghe kênh sự kiện).
 // Trong game: đứng ở lề ngoài khung (góc dưới phải), không che vùng chơi (CSS calm.css).
@@ -418,6 +421,10 @@ async function openSettings() {
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-lang' },
       h('span', { id: 'set-lang' }, t('set.lang')),
       langHost),
+    h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-holiday' },
+      h('span', { id: 'set-holiday' }, t('set.holiday')),
+      segmented([{ value: 'auto', label: t('set.holiday.auto') }, { value: 'off', label: t('ui.off') }], getMode(), (v) => { setMode(v); initHoliday({ page: 'hub' }); }, 'holiday'),
+      h('small', { class: 'muted' }, t('set.holiday.hint'))),
     h('div', { class: 'field', role: 'group', 'aria-labelledby': 'set-sound' },
       h('span', { id: 'set-sound' }, t('set.sound')),
       segmented([{ value: true, label: t('ui.on') }, { value: false, label: t('ui.off') }], s.sound !== false, (v) => updateSettings({ sound: v }), 'sound')),
