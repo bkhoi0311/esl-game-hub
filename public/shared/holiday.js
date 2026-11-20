@@ -61,8 +61,7 @@ function occurrence(h, year) {
 }
 
 // Chủ đề đang bật cho ngày `date` (Date theo giờ máy) hoặc null.
-// Cửa sổ: [ngày lễ - 18, ngày lễ + after]. Nhiều cửa sổ chồng nhau: ngày lễ gần nhất CHƯA qua thắng (đúng ngày lễ vẫn tính chưa qua);
-// không có cái nào chưa qua thì lấy cái vừa qua gần nhất còn trong cửa sổ.
+// Cửa sổ: [ngày lễ - 18, ngày lễ + after]. Lễ đang diễn ra thắng cửa sổ báo trước của lễ khác; không có lễ đang diễn ra thì lấy ngày lễ sắp tới gần nhất.
 export function activeHoliday(date = new Date()) {
   const today = dayNum(date.getFullYear(), date.getMonth() + 1, date.getDate());
   const hits = [];
@@ -74,8 +73,10 @@ export function activeHoliday(date = new Date()) {
     }
   }
   if (!hits.length) return null;
-  const upcoming = hits.filter((x) => x.d >= today).sort((a, b) => a.d - b.d);
-  const best = upcoming[0] || hits.sort((a, b) => b.d - a.d)[0];
+  // Lễ ĐANG DIỄN RA (ngày lễ <= hôm nay <= hết thời hạn) thắng mọi cửa sổ báo trước; chỉ khi không có mới lấy ngày lễ sắp tới gần nhất.
+  const inProgress = hits.filter((x) => x.d <= today).sort((a, b) => b.d - a.d);
+  const upcoming = hits.filter((x) => x.d > today).sort((a, b) => a.d - b.d);
+  const best = inProgress[0] || upcoming[0];
   return { ...best.h, date: toISO(best.d), daysLeft: best.d - today };
 }
 

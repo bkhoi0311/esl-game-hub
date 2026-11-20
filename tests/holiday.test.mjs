@@ -21,13 +21,15 @@ test('bảng âm lịch 2026-2035 khớp thuật toán Hồ Ngọc Đức (UTC+7
 
 test('ngày chốt theo yêu cầu', () => {
   assert.equal(id('2026-11-20'), 'teachers');
-  assert.equal(id('2026-11-21'), 'culture24'); // 20/11 đã qua, 24/11 chưa qua
+  assert.equal(id('2026-11-21'), 'teachers'); // 20/11 còn đang diễn ra (tới 21/11)
+  assert.equal(id('2026-11-22'), 'culture24');
   assert.equal(id('2026-11-22'), 'culture24');
   assert.equal(id('2026-11-25'), 'culture24'); // hết ngày sau lễ
   assert.equal(id('2026-11-26'), null);
   assert.equal(id('2026-12-06'), null);
   assert.equal(id('2026-12-07'), 'christmas');
-  assert.equal(id('2026-12-26'), 'newyear'); // Giáng sinh qua, 1/1 chưa qua
+  assert.equal(id('2026-12-26'), 'christmas'); // Giáng sinh còn đang diễn ra tới 26/12
+  assert.equal(id('2026-12-27'), 'newyear');
   assert.equal(id('2027-01-02'), 'newyear');
   assert.equal(id('2027-01-03'), null);
   assert.equal(id('2027-01-18'), null);
@@ -38,8 +40,11 @@ test('ngày chốt theo yêu cầu', () => {
 test('Tết tới mùng 4, 30/4 tới 2/5, Trung Thu', () => {
   assert.equal(id('2027-02-06'), 'tet');
   assert.equal(id('2026-02-17'), 'tet');
-  assert.equal(id('2026-02-18'), 'women8'); // 8/3 chưa qua và gần hơn nên thắng Tết (mùng 2 trở đi)
-  assert.equal(id('2027-02-09'), 'valentine'); // luật chồng cửa sổ: Valentine (14/2) chưa qua thắng Tết mùng 4
+  assert.equal(id('2026-02-18'), 'tet'); // mùng 2 Tết 2026, đang diễn ra thắng 8/3
+  assert.equal(id('2026-02-20'), 'tet');
+  assert.equal(id('2026-02-21'), 'women8');
+  for (const d of ['2027-02-07', '2027-02-08', '2027-02-09']) assert.equal(id(d), 'tet'); // mùng 2-4 đang diễn ra thắng Valentine
+  assert.equal(id('2027-02-10'), 'valentine');
   assert.equal(id('2027-04-18'), 'april30');
   assert.equal(id('2027-05-02'), 'april30');
   assert.equal(id('2027-05-03'), null);
@@ -56,7 +61,7 @@ test('chồng cửa sổ: ngày lễ gần nhất chưa qua thắng', () => {
 
 test('Valentine chồng Tết 2027 (Tết 6/2, Valentine 14/2)', () => {
   assert.equal(id('2027-02-06'), 'tet');
-  assert.equal(id('2027-02-07'), 'valentine'); // Tết đã qua (mùng 2), Valentine chưa qua: theo luật 'gần nhất chưa qua'
+  
   assert.equal(id('2027-02-10'), 'valentine'); // Tết kết thúc 9/2
 });
 
